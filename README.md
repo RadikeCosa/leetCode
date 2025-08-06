@@ -6,7 +6,6 @@ Este repositorio es mi espacio personal de práctica y documentación para probl
 
 - **Práctica constante**: Resolver problemas de algoritmos de forma regular
 - **Documentación detallada**: Cada problema incluye análisis del razonamiento, conceptos utilizados y reflexiones
-- **Preparación para entrevistas**: Apuntes estructurados y fáciles de revisar antes de entrevistas
 - **Evolución del conocimiento**: Construcción gradual de una biblioteca de conceptos y patrones
 
 ## 📁 Estructura del Proyecto
