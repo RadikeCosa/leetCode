@@ -191,4 +191,54 @@ for (let i = 0; i < n; i++) {
 
 ---
 
+## Bit Manipulation y Potencias de Dos
+
+### Propiedad Fundamental
+
+Una potencia de dos en binario tiene exactamente un bit en 1. Ejemplos:
+
+```
+1  -> 0001
+2  -> 0010
+4  -> 0100
+8  -> 1000
+```
+
+### Chequeo O(1) de Potencia de Dos
+
+Usando la expresión: `n > 0 && (n & (n - 1)) === 0`
+
+### ¿Por qué funciona?
+
+Restar 1 a una potencia de dos invierte todos los bits desde el bit activo hacia la derecha. El AND resultante siempre es 0.
+
+Ejemplo:
+
+```
+8 = 1000
+7 = 0111
+8 & 7 = 0000
+```
+
+### Alternativas
+
+- División iterativa por 2 hasta llegar a 1 (O(log n))
+- Logaritmos: `log2(n)` y comprobar entero (problemas de precisión)
+- Contar bits en 1 (popcount == 1)
+
+### Edge Cases
+
+- n <= 0 → nunca potencia de dos
+- n = 1 → true (2^0)
+- Valores grandes cercanos a potencias: 2^k - 1 y 2^k + 1
+
+### Aplicaciones Comunes
+
+- Redimensionamiento de tablas hash
+- Alineación de memoria
+- Optimizaciones de máscaras de bits
+- Fast modulo (x & (m - 1)) cuando m es potencia de dos
+
+---
+
 _Este archivo se actualiza con cada problema resuelto para construir una base sólida de conocimientos._
