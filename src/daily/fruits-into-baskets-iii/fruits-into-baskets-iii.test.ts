@@ -1,14 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { numOfUnplacedFruits } from "./fruits-into-baskets-iii";
 
-/* 
+/*
 LeetCode Problem 3479: Fruits Into Baskets III
 Daily Challenge: August 6, 2025
 
 You are given two arrays of integers, fruits and baskets, each of length n, where fruits[i] represents the quantity of the ith type of fruit, and baskets[j] represents the capacity of the jth basket.
 
 From left to right, place the fruits according to these rules:
-
+|
 • Each fruit type must be placed in the leftmost available basket with a capacity greater than or equal to the quantity of that fruit type.
 • Each basket can hold only one type of fruit.
 • If a fruit type cannot be placed in any basket, it remains unplaced.
@@ -42,27 +42,28 @@ Topics: Array, Binary Search, Segment Tree, Ordered Set
 Difficulty: Medium
 */
 
-describe("Fruits Into Baskets III", () => {
-  it("Example 1: should return 1 unplaced fruit", () => {
-    // fruits[0] = 4 goes to baskets[1] = 5
-    // fruits[1] = 2 goes to baskets[0] = 3
-    // fruits[2] = 5 cannot be placed in baskets[2] = 4
-    expect(numOfUnplacedFruits([4, 2, 5], [3, 5, 4])).toBe(1);
+describe("Fruits Into Baskets III - casos de prueba", () => {
+  it("Caso 1 (ejemplo): una fruta queda sin colocar", () => {
+    const fruits = [4, 2, 5];
+    const baskets = [3, 5, 4];
+    expect(numOfUnplacedFruits(fruits, baskets)).toBe(1);
   });
 
-  it("Example 2: should return 0 unplaced fruits", () => {
-    // fruits[0] = 3 goes to baskets[0] = 6
-    // fruits[1] = 6 goes to baskets[2] = 7
-    // fruits[2] = 1 goes to baskets[1] = 4
-    expect(numOfUnplacedFruits([3, 6, 1], [6, 4, 7])).toBe(0);
+  it("Caso 2 (ejemplo): todas las frutas se colocan", () => {
+    const fruits = [3, 6, 1];
+    const baskets = [6, 4, 7];
+    expect(numOfUnplacedFruits(fruits, baskets)).toBe(0);
   });
 
-  it("should handle single element arrays", () => {
-    expect(numOfUnplacedFruits([5], [5])).toBe(0);
-    expect(numOfUnplacedFruits([5], [4])).toBe(1);
-  });
-
-  it("should handle all fruits too large for baskets", () => {
-    expect(numOfUnplacedFruits([10, 20, 30], [5, 15, 25])).toBe(2);
+  it("Caso 3 (edge): mezcla con un valor grande que no encuentra cesto", () => {
+    const fruits = [1, 10, 10, 2];
+    const baskets = [2, 9, 11, 1];
+    // Asignaciones esperadas:
+    // 1 -> cesta 0 (2)
+    // 10 -> cesta 2 (11)
+    // 10 -> no encuentra (9 y 1 restantes insuficientes)
+    // 2 -> cesta 1 (9)
+    // Resultado: 1 sin colocar
+    expect(numOfUnplacedFruits(fruits, baskets)).toBe(1);
   });
 });

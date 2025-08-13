@@ -1,6 +1,6 @@
-# Fruits Into Baskets II - Documentación
+# Fruits Into Baskets II - Proceso de Aprendizaje y Solución
 
-## Descripción del Problema
+## 🎯 Descripción del Problema
 
 Se nos dan dos arrays de enteros, `fruits` y `baskets`, cada uno de longitud n:
 
@@ -9,112 +9,237 @@ Se nos dan dos arrays de enteros, `fruits` y `baskets`, cada uno de longitud n:
 
 Debemos colocar las frutas de izquierda a derecha siguiendo estas reglas:
 
-1. Cada tipo de fruta debe colocarse en la canasta disponible más a la izquierda que tenga capacidad mayor o igual a la cantidad de ese tipo de fruta.
-2. Cada canasta puede contener solo un tipo de fruta.
-3. Si un tipo de fruta no puede colocarse en ninguna canasta, queda sin colocar.
+1. **Regla de posición**: Cada tipo de fruta debe colocarse en la canasta disponible **más a la izquierda** que tenga capacidad mayor o igual a la cantidad de ese tipo de fruta
+2. **Regla de unicidad**: Cada canasta puede contener solo un tipo de fruta
+3. **Regla de disponibilidad**: Si un tipo de fruta no puede colocarse en ninguna canasta, queda sin colocar
 
-El objetivo es devolver el número de tipos de fruta que quedan sin colocar después de realizar todas las asignaciones posibles.
+**Objetivo**: Devolver el número de tipos de fruta que quedan sin colocar después de realizar todas las asignaciones posibles.
 
-## Restricciones
+### Restricciones
 
-- n == fruits.length == baskets.length
-- 1 <= n <= 100
-- 1 <= fruits[i], baskets[i] <= 1000
-
-## Ejemplos y Casos de Prueba
-
-### Ejemplo 1: Una fruta sin colocar
-
-**Input:**
-
-```typescript
-fruits = [3, 5, 2];
-baskets = [4, 3, 1];
-```
-
-**Output esperado:**
-
-```typescript
-1;
-```
-
-**Explicación paso a paso:**
-
-1. Primera fruta (3) se coloca en la primera canasta (4)
-2. Segunda fruta (5) no puede colocarse en ninguna canasta restante
-3. Tercera fruta (2) se coloca en la segunda canasta (3)
-   **Resultado:** 1 fruta queda sin colocar
-
-### Ejemplo 2: Todas las frutas colocadas
-
-**Input:**
-
-```typescript
-fruits = [3, 6, 1];
-baskets = [6, 4, 7];
-```
-
-**Output esperado:**
-
-```typescript
-0;
-```
-
-**Explicación paso a paso:**
-
-1. Primera fruta (3) se coloca en la primera canasta (6)
-2. Segunda fruta (6) se coloca en la tercera canasta (7)
-3. Tercera fruta (1) se coloca en la segunda canasta (4)
-   **Resultado:** Todas las frutas se colocan correctamente
+- `n == fruits.length == baskets.length`
+- `1 <= n <= 100`
+- `1 <= fruits[i], baskets[i] <= 1000`
 
 ---
 
-## Proceso de Razonamiento y Diseño de la Solución
+## 🧠 Proceso de Análisis y Razonamiento
 
-### 1. Análisis del problema
+### 1. Comprensión inicial - Análisis de ejemplos
 
-- Se requiere simular un proceso de asignación secuencial, respetando restricciones de capacidad y unicidad de uso de canastas.
-- El objetivo es minimizar la cantidad de frutas no colocadas.
+**Ejemplo básico:**
 
-### 2. Estrategia Algorítmica
+```
+fruits = [3, 1, 4], baskets = [2, 5, 3]
+```
 
-- Recorrer cada fruta en orden (bucle externo)
-- Para cada fruta, buscar la primera canasta disponible (bucle interno) que cumpla:
-  - No haya sido usada
-  - Tenga capacidad suficiente
-- Si se encuentra, marcar la canasta como usada y continuar con la siguiente fruta
-- Si no se encuentra, incrementar el contador de frutas no colocadas
+**Trazado paso a paso:**
 
-### 3. Conceptos de Programación Utilizados
+- Fruta 0 (cantidad=3): Busca desde izquierda → Cesto 1 (capacidad=5) ✅
+- Fruta 1 (cantidad=1): Busca desde izquierda → Cesto 0 (capacidad=2) ✅
+- Fruta 2 (cantidad=4): Busca desde izquierda → No cabe en cesto 2 (capacidad=3) ❌
+- **Resultado: 1 fruta sin colocar**
 
-- **Bucles anidados:** Para comparar cada fruta con cada canasta
-- **Estructura de datos auxiliar:** Array de booleanos para marcar canastas usadas
-- **Variables de control:** Contador de frutas no colocadas, bandera para saber si una fruta fue colocada
-- **Simulación paso a paso:** Implementación directa de las reglas del problema
+### 2. Identificación de patrones clave
 
-### 4. Conceptos Algorítmicos
+Durante el análisis identificamos tres elementos fundamentales:
 
-- **Greedy (avaro):** Siempre se elige la primera canasta disponible que cumpla la condición, sin mirar el futuro
-- **Complejidad temporal:** O(n^2) en el peor caso, ya que para cada fruta se puede recorrer todas las canastas
-- **Simulación:** El algoritmo reproduce fielmente el proceso descrito en el enunciado
+1. **Orden obligatorio**: Procesamos frutas de izquierda a derecha (por enunciado)
+2. **Criterio de selección**: Fruta ≤ capacidad del cesto
+3. **Estado a mantener**:
+   - Contador de frutas sin colocar
+   - Registro de cestos ya ocupados
+
+### 3. Clasificación del algoritmo
+
+**Tipo de algoritmo identificado**: **Búsqueda + Simulación**
+
+- Es una búsqueda lineal para cada fruta
+- Simula exactamente el proceso descrito en las reglas
+- Estrategia **Greedy (ávida)**: siempre toma la primera opción válida sin mirar hacia adelante
 
 ---
 
-## Reflexiones y Posibles Mejoras
+## 🔍 Exploración de Enfoques de Implementación
 
-- La solución es óptima para los límites del problema (n ≤ 100)
-- Si el tamaño de los arrays fuera mucho mayor, se podría pensar en estructuras más eficientes (por ejemplo, árboles de búsqueda para encontrar la canasta adecuada más rápido)
-- Es importante practicar este tipo de problemas para afianzar la habilidad de traducir reglas en código y de usar estructuras auxiliares simples
+### Estrategias para rastrear cestos ocupados
+
+**Opción 1: Array de booleanos** ⭐ (Elegida)
+
+```typescript
+const occupied = new Array(baskets.length).fill(false);
+// Ventaja: Acceso O(1) por índice, simple y claro
+```
+
+**Opción 2: Set de números**
+
+```typescript
+const occupied = new Set<number>();
+// Ventaja: Más funcional, pero innecesario para este caso
+```
+
+### Estrategias de búsqueda evaluadas
+
+**Opción 1: Loop anidado directo** ⭐ (Elegida)
+
+- Más explícito y fácil de debuggear
+- Control total sobre el flujo
+
+**Opción 2: Uso de `findIndex()`**
+
+- Más funcional pero menos control sobre la lógica de `break`
 
 ---
 
-## Resumen para Entrevistas
+## 💡 Solución Final
 
-- Leer cuidadosamente el enunciado y traducir las reglas a pasos concretos
-- Identificar restricciones y elegir estructuras de datos adecuadas
-- Simular el proceso paso a paso antes de codificar
-- Comentar el código para dejar claro el razonamiento
+```typescript
+export function numOfUnplacedFruits(
+  fruits: number[],
+  baskets: number[]
+): number {
+  // Greedy: for each fruit (left to right) pick the leftmost available basket
+  // whose capacity is >= quantity. If none, count it as unplaced.
+  // Complexity: O(n^2) worst case (n <= 100 per constraints) -> fine.
+  const used: boolean[] = new Array(baskets.length).fill(false);
+  let unplaced = 0;
 
+  for (let i = 0; i < fruits.length; i++) {
+    const quantity = fruits[i];
+    let placed = false;
+
+    for (let j = 0; j < baskets.length; j++) {
+      if (!used[j] && baskets[j] >= quantity) {
+        used[j] = true;
+        placed = true;
+        break; // leftmost suitable basket
+      }
+    }
+
+    if (!placed) unplaced++;
+  }
+
+  return unplaced;
+}
 ```
 
+### Análisis de la solución
+
+**Fortalezas del código:**
+
+- ✅ **Comentarios técnicos**: Explica estrategia, complejidad y justificación
+- ✅ **Nomenclatura clara**: `used`, `unplaced`, `quantity`, `placed`
+- ✅ **Lógica limpia**: El `break` garantiza "leftmost"
+- ✅ **Estructura profesional**: Export function, tipos explícitos
+
+**Complejidades:**
+
+- **Temporal**: O(n²) en el peor caso - Aceptable por restricciones (n ≤ 100)
+- **Espacial**: O(n) para el array `used`
+
+---
+
+## 🧪 Casos de Prueba y Validación
+
+### Test Case 1: Una fruta sin colocar
+
+```typescript
+(fruits = [3, 5, 2]), (baskets = [4, 3, 1]);
+// Expected: 1
 ```
+
+**Trazado:**
+
+- Fruta 3 → Cesto 4 ✅
+- Fruta 5 → No cabe en cestos restantes (3, 1) ❌
+- Fruta 2 → Cesto 3 ✅
+- **Resultado: 1 sin colocar** ✅
+
+### Test Case 2: Todas las frutas colocadas
+
+```typescript
+(fruits = [3, 6, 1]), (baskets = [6, 4, 7]);
+// Expected: 0
+```
+
+### Test Case 3: Múltiples frutas sin colocar
+
+```typescript
+(fruits = [1, 6, 6]), (baskets = [9, 4, 3]);
+// Expected: 2
+```
+
+---
+
+## 🤔 Conceptos de Programación Aplicados
+
+### Estructuras de Datos
+
+- **Array de booleanos**: Para rastrear estado de cestos
+- **Variables de control**: Contadores y banderas (`placed`, `unplaced`)
+
+### Paradigmas Algorítmicos
+
+- **Algoritmo Greedy**: Decisiones localmente óptimas
+- **Simulación**: Reproducción fiel del proceso descrito
+- **Búsqueda lineal**: Para encontrar cestos disponibles
+
+### Patrones de Código
+
+- **Bucles anidados**: Control explícito del flujo
+- **Early termination**: `break` para eficiencia
+- **State tracking**: Mantenimiento de estado entre iteraciones
+
+---
+
+## 🚀 Reflexiones y Optimizaciones Potenciales
+
+### ¿Es posible optimizar?
+
+**Optimización teórica considerada**: Ordenamiento de cestos
+
+- **Problema**: El ordenamiento cambiaría el significado de "leftmost"
+- **Conclusión**: La restricción de "leftmost" hace que el enfoque greedy lineal sea óptimo
+
+### Escalabilidad
+
+- Para n ≤ 100: La solución O(n²) es perfecta
+- Para n >> 1000: Se podría considerar estructuras como árboles balanceados
+- **Pero**: El constraint del problema hace innecesaria cualquier optimización
+
+---
+
+## 📝 Lecciones Aprendidas - Metodología de Resolución
+
+### Proceso paso a paso aplicado:
+
+1. **Análisis inicial**: Comprensión profunda del enunciado
+2. **Identificación de patrones**: Reconocimiento del algoritmo greedy
+3. **Exploración de enfoques**: Comparación de alternativas de implementación
+4. **Construcción progresiva**: Desarrollo incremental de la solución
+5. **Validación**: Testing con casos de prueba diversos
+
+### Habilidades desarrolladas:
+
+- Traducción de reglas naturales a lógica algorítmica
+- Selección justificada de estructuras de datos
+- Análisis de complejidad temporal y espacial
+- Documentación técnica clara y profesional
+
+---
+
+## 🎯 Resumen para Entrevistas Técnicas
+
+**Puntos clave a mencionar:**
+
+- Identificación del patrón greedy de inmediato
+- Justificación de decisiones de diseño (boolean[] vs Set)
+- Análisis de complejidad y por qué es aceptable
+- Capacidad de trazar ejemplos paso a paso
+- Código limpio con comentarios técnicos apropiados
+
+**Red flags evitadas:**
+
+- No intentar optimizaciones prematuras
+- No complicar innecesariamente la solución
+- Respetar todas las restricciones del problema (especialmente "leftmost")

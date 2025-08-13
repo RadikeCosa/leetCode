@@ -19,12 +19,12 @@ n == fruits.length == baskets.length
 */
 describe("Fruits Into Baskets II", () => {
   it("Example 1: should return 1 unplaced fruit", () => {
-    // First fruit (3) goes to first basket (4)
-    // Second fruit (5) cannot be placed
-    // Third fruit (2) goes to second basket (3)
     expect(numOfUnplacedFruits([3, 5, 2], [4, 3, 1])).toBe(1);
   });
   it("Example 2: should return 0 unplaced fruit", () => {
     expect(numOfUnplacedFruits([3, 6, 1], [6, 4, 7])).toBe(0);
+  });
+  it("example 2: should return 2 unplaced fruit", () => {
+    expect(numOfUnplacedFruits([1, 6, 6], [9, 4, 3])).toBe(2);
   });
 });

@@ -2,31 +2,22 @@ export function numOfUnplacedFruits(
   fruits: number[],
   baskets: number[]
 ): number {
-  // almaceno el numero de frutas no almacenadas
-  let unplacedCount: number = 0;
-  // genero un array de booleanos con igual cantidad de elementos que el array de baskets (podria ser de fruits)
-  const basketUsed: boolean[] = new Array(baskets.length).fill(false);
-
-  // en el bucle externo recorro cada fruta para buscarle la canasta en el bucle interno
+  // Greedy: for each fruit (left to right) pick the leftmost available basket
+  // whose capacity is >= quantity. If none, count it as unplaced.
+  // Complexity: O(n^2) worst case (n <= 100 per constraints) -> fine.
+  const used: boolean[] = new Array(baskets.length).fill(false);
+  let unplaced = 0;
   for (let i = 0; i < fruits.length; i++) {
-    // almaceno la cantidad de la fruta que tengo en el elemento de esta vuelta
-    const fruitQuantity = fruits[i];
-    // variable para saber si la fruta se ha colocado
-    let fruitPlaced = false;
-    // en el bucle interno recorro cada canasta para ver si puedo colocar la fruta
+    const quantity = fruits[i];
+    let placed = false;
     for (let j = 0; j < baskets.length; j++) {
-      // Verifico si la canasta esta disponible y que tenga la capacidad suficiente
-      if (!basketUsed[j] && baskets[j] >= fruitQuantity) {
-        //marco la canasta como usada y la fruta como colocada y salgo del bucle
-        basketUsed[j] = true;
-        fruitPlaced = true;
-        break;
+      if (!used[j] && baskets[j] >= quantity) {
+        used[j] = true;
+        placed = true;
+        break; // leftmost suitable basket
       }
     }
-    if (!fruitPlaced) {
-      unplacedCount++;
-    }
+    if (!placed) unplaced++;
   }
-
-  return unplacedCount;
+  return unplaced;
 }
