@@ -241,4 +241,176 @@ Ejemplo:
 
 ---
 
+## Método del Número Mágico para Potencias de Primos
+
+### Concepto Fundamental
+
+**Para detectar potencias de un primo p**: Usar la mayor potencia de p que cabe en el rango de enteros.
+
+**Principio matemático**: Si n es potencia de p, entonces p^max es divisible por n.
+
+### Implementación del Patrón
+
+```typescript
+function isPowerOfPrime(n: number, prime: number, maxPower: number): boolean {
+  if (n <= 0) return false;
+  const magicNumber = Math.pow(prime, maxPower);
+  return magicNumber % n === 0;
+}
+```
+
+### Ejemplo: Power of Three
+
+```typescript
+function isPowerOfThree(n: number): boolean {
+  if (n <= 0) return false;
+  const maxPowerOfThree = Math.pow(3, 19); // 1162261467 para int32
+  return maxPowerOfThree % n === 0;
+}
+```
+
+**¿Por qué 3^19?** Porque 3^20 = 3,486,784,401 > 2^31-1 (límite int32)
+
+### Factorización Prima - Clave del Éxito
+
+**¿Por qué funciona?**
+
+- 3^19 = 3×3×3×...×3 (19 factores de 3)
+- Si n = 3^k (k ≤ 19), entonces 3^19 ÷ 3^k = 3^(19-k) = entero
+- Si n tiene otros factores primos, la división no es exacta
+
+**Ejemplos:**
+
+```typescript
+// Potencias válidas
+1162261467 % 1 === 0   ✓ (3^0)
+1162261467 % 3 === 0   ✓ (3^1)
+1162261467 % 27 === 0  ✓ (3^3)
+
+// Múltiplos NO potencias
+1162261467 % 6 === 3   ✗ (6 = 2×3, tiene factor 2)
+1162261467 % 15 === 12 ✗ (15 = 3×5, tiene factor 5)
+```
+
+### Ventajas del Método
+
+| Aspecto              | Método Mágico | División Iterativa |
+| -------------------- | ------------- | ------------------ |
+| **Tiempo**           | O(1)          | O(log n)           |
+| **Espacio**          | O(1)          | O(1)               |
+| **Elegancia**        | ⭐⭐⭐⭐⭐    | ⭐⭐⭐             |
+| **Comprensibilidad** | ⭐⭐⭐        | ⭐⭐⭐⭐⭐         |
+
+### Aplicabilidad del Patrón
+
+**Funciona para cualquier primo:**
+
+- **Power of 2**: 2^30 para int32 (pero bit manipulation es mejor)
+- **Power of 3**: 3^19 para int32 ✓
+- **Power of 5**: 5^13 para int32
+- **Power of 7**: 7^10 para int32
+
+**NO funciona para compuestos:**
+
+- Power of 4: Necesita verificación adicional (potencia de 2 + restricción)
+- Power of 6: No es primo, no hay "número mágico" único
+
+### Consideraciones de Implementación
+
+**Cálculo de máxima potencia:**
+
+```typescript
+// Para encontrar la máxima potencia de p en rango
+let maxPower = 0;
+let value = 1;
+while (value <= MAX_INT / prime) {
+  value *= prime;
+  maxPower++;
+}
+// maxPower es la mayor potencia que cabe
+```
+
+**Edge cases importantes:**
+
+- n = 1: Siempre potencia (p^0 = 1) ✓
+- n ≤ 0: Nunca potencia positiva ✗
+- n = prime: Primera potencia no trivial ✓
+
+---
+
+## Optimización Matemática vs Claridad
+
+### Cuándo Usar Cada Enfoque
+
+**Método del número mágico:**
+
+- ✅ Cuando la eficiencia O(1) es crítica
+- ✅ Para mostrar conocimiento matemático profundo
+- ✅ Responde a preguntas de seguimiento sobre optimización
+
+**División iterativa:**
+
+- ✅ Para explicación inicial e intuición
+- ✅ Cuando la legibilidad es prioritaria
+- ✅ Fácil de extender a otros casos
+
+**Recursión:**
+
+- ✅ Para demostrar comprensión de recursión
+- ❌ Usa stack adicional O(log n)
+- ❌ Menos eficiente en práctica
+
+### Patrón de Entrevista Técnica
+
+1. **Empezar simple**: División iterativa para mostrar comprensión
+2. **Mencionar optimización**: "¿Podemos hacerlo sin bucles?"
+3. **Explicar número mágico**: Demostrar conocimiento avanzado
+4. **Comparar enfoques**: Mostrar análisis de trade-offs
+
+---
+
 _Este archivo se actualiza con cada problema resuelto para construir una base sólida de conocimientos._
+
+---
+
+## Sliding Window de Tamaño Fijo
+
+### Concepto
+
+Técnica para procesar subcadenas/subarrays contiguos de longitud constante k recorriendo la estructura una sola vez.
+
+### Cuándo Usar
+
+- Cuando solo importan ventanas de exactamente k elementos.
+- Para detectar patrones consecutivos (ej: 3 dígitos iguales, suma fija, caracteres válidos).
+
+### Patrón Básico (k = 3 en nuestro caso)
+
+```typescript
+for (let i = 0; i + 2 < s.length; i++) {
+  // ventana: s[i], s[i+1], s[i+2]
+}
+```
+
+### Razones de Eficiencia
+
+- O(n) tiempo porque cada índice inicial se considera una vez.
+- O(1) espacio adicional.
+
+### Ejemplo (Largest 3-Same-Digit Number in String)
+
+Condición de ventana válida: `s[i] === s[i+1] && s[i] === s[i+2]`.
+Mantener la mejor (máxima lexicográfica) sin almacenar todas.
+
+### Optimizaciones Posibles
+
+- Early exit si se encuentra la ventana óptima máxima posible ("999").
+- Evitar creación de substrings usando comparación directa de caracteres.
+
+### Edge Cases
+
+- Longitud < k → no hay ventana.
+- Ventanas traslapadas con mismo patrón ("1111").
+- Patrones múltiples con diferentes dígitos ("222333").
+
+---
