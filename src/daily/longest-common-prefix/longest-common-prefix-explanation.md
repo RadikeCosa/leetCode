@@ -71,8 +71,87 @@ Piensa en:
 
 ## Implementación
 
-[La implementación se desarrollará paso a paso]
+### Enfoque Elegido: Ordenamiento Alfabético + Comparación de Extremos
+
+**Insight clave:** Si ordenamos los strings alfabéticamente, solo necesitamos comparar el primer y último string. Si estos dos comparten un prefijo, todos los strings intermedios también lo comparten.
+
+### Algoritmo paso a paso:
+
+1. **Ordenar el array alfabéticamente** usando `.sort()`
+2. **Verificar casos extremos:**
+   - Array vacío → retornar `""`
+   - Primer string vacío → retornar `""` (los strings vacíos quedan al inicio después del ordenamiento)
+3. **Obtener referencias:**
+   - Primer string: `sortedArray[0]`
+   - Último string: `sortedArray[sortedArray.length - 1]`
+4. **Calcular límite de comparación:** `Math.min(firstString.length, lastString.length)`
+5. **Comparar carácter por carácter:**
+   - Si coinciden → agregar al resultado
+   - Si difieren → usar `break` para salir inmediatamente
+6. **Retornar el prefijo común construido**
+
+### Ejemplo de ejecución:
+
+```typescript
+Input: ["flower", "flow", "flight"]
+
+1. Ordenamiento: ["flight", "flow", "flower"]
+2. Comparar "flight" vs "flower":
+   - Posición 0: 'f' === 'f' ✅ → commonPrefix = "f"
+   - Posición 1: 'l' === 'l' ✅ → commonPrefix = "fl"
+   - Posición 2: 'i' !== 'o' ❌ → break
+3. Resultado: "fl"
+```
+
+## Análisis de Complejidad
+
+### Complejidad Temporal: O(S \* log n + m)
+
+- **O(S \* log n):** Ordenamiento, donde S es la suma total de caracteres
+- **O(m):** Comparación de caracteres, donde m es la longitud del prefijo común
+- **Dominante:** En la mayoría de casos prácticos, el ordenamiento domina
+
+### Complejidad Espacial: O(1)
+
+- Solo variables auxiliares (`commonPrefix`, `firstString`, `lastString`, etc.)
+- No consideramos el espacio del ordenamiento (si es in-place)
+
+## Casos Extremos Manejados
+
+✅ **Array vacío:** `[]` → `""`  
+✅ **String vacío en array:** `["abc", "", "ab"]` → `""`  
+✅ **Un solo string:** `["single"]` → `"single"`  
+✅ **Strings idénticos:** `["test", "test", "test"]` → `"test"`  
+✅ **Sin prefijo común:** `["abc", "def", "ghi"]` → `""`  
+✅ **Prefijo de un carácter:** `["a", "aa", "aaa"]` → `"a"`  
+✅ **Strings de diferentes longitudes:** `["interspecies", "interstellar"]` → `"inters"`
+
+## Ventajas del Enfoque
+
+1. **Optimización inteligente:** Reduce comparaciones de O(n) strings a solo 2
+2. **Elegante y eficiente:** Aprovecha las propiedades del ordenamiento alfabético
+3. **Fácil de entender:** La lógica es clara y directa
+4. **Manejo robusto de casos extremos:** Cubre todos los edge cases naturalmente
 
 ## Reflexiones Post-Implementación
 
-[Se completará después de implementar la solución]
+### Proceso de Descubrimiento
+
+1. **Análisis inicial:** Comenzamos pensando en comparación carácter por carácter
+2. **Insight clave:** Descubrimos que el ordenamiento alfabético nos permite una optimización elegante
+3. **Refinamiento:** Identificamos todos los casos extremos y cómo manejarlos
+4. **Resultado:** Una solución limpia y eficiente
+
+### Lecciones Aprendidas
+
+- **El ordenamiento puede ser una herramienta poderosa** para simplificar problemas de strings
+- **Los casos extremos importan:** Manejar strings vacíos es crucial
+- **La optimización no siempre es obvia:** A veces un paso adicional (ordenamiento) puede simplificar el resto del algoritmo
+
+### Alternativas Consideradas
+
+1. **Comparación vertical:** Comparar posición i de todos los strings
+2. **Comparación horizontal:** Usar el primer string como referencia
+3. **Enfoque recursivo:** Dividir y conquistar
+
+**¿Por qué elegimos ordenamiento?** Porque reduce la complejidad del problema de comparar n strings a comparar solo 2, manteniendo la corrección del algoritmo.

@@ -58,6 +58,203 @@ const basketUsed: boolean[] = new Array(baskets.length).fill(false);
 - **Banderas:** `fruitPlaced` para indicar si se completó una operación
 - **Índices:** Variables para recorrer estructuras
 
+### Hash Maps / Mapas de Hash
+
+**Definición:** Estructura de datos que mapea claves a valores con acceso promedio O(1).
+
+**En TypeScript:**
+
+```typescript
+const seen = new Map<number, number>(); // valor -> índice
+```
+
+**Cuándo usar:**
+
+- Búsqueda rápida de elementos previamente vistos
+- Almacenar relaciones clave-valor
+- Evitar bucles anidados en problemas de búsqueda
+
+**Operaciones principales:**
+
+- `map.set(key, value)` - Insertar/actualizar O(1)
+- `map.has(key)` - Verificar existencia O(1)
+- `map.get(key)` - Obtener valor O(1)
+
+**Ejemplo del problema Two Sum:**
+
+```typescript
+const complement = target - currentNum;
+if (seen.has(complement)) {
+  return [seen.get(complement)!, i];
+}
+seen.set(currentNum, i);
+```
+
+**Ventajas:**
+
+- Convierte algoritmos O(n²) en O(n)
+- API clara y expresiva
+- Manejo automático de colisiones
+
+### Manipulación de Dígitos
+
+**Definición:** Técnicas para extraer, modificar y reconstruir dígitos individuales de números.
+
+**Conversiones típicas:**
+
+```typescript
+// Número → Array de dígitos
+const digits = num.toString().split("").map(Number);
+// Ejemplo: 1234 → [1, 2, 3, 4]
+
+// Array de dígitos → Número
+const number = parseInt(digits.join(""), 10);
+// Ejemplo: [1, 2, 3, 4] → 1234
+```
+
+**Operaciones comunes:**
+
+- **Extraer dígitos:** Convertir a string/array para acceso individual
+- **Modificar dígitos:** Cambiar valores específicos en posiciones determinadas
+- **Reconstruir número:** Unir dígitos modificados de vuelta a número
+
+**Ejemplo en Maximum 69 Number:**
+
+```typescript
+const digits = num.toString().split("").map(Number); // Extraer
+for (let i = 0; i < digits.length; i++) {
+  if (digits[i] === 6) {
+    digits[i] = 9; // Modificar
+    break;
+  }
+}
+return parseInt(digits.join(""), 10); // Reconstruir
+```
+
+**Aplicaciones:**
+
+- Problemas de maximización/minimización de números
+- Palíndromos de números
+- Suma de dígitos
+- Reverse de números
+- Validación de números (credit cards, etc.)
+
+**Complejidad:**
+
+- Tiempo: O(log n) donde n es el número (proporcional a cantidad de dígitos)
+- Espacio: O(log n) para almacenar array de dígitos
+
+### Comparación Lexicográfica de Strings
+
+**Definición:** Comparación de strings carácter por carácter siguiendo el orden del diccionario/alfabeto.
+
+**Cómo funciona:**
+
+1. Compara caracteres desde la posición 0
+2. En la primera diferencia, el carácter con mayor valor ASCII determina el resultado
+3. Si un string es prefijo del otro, el más corto es menor
+
+**Ejemplos prácticos:**
+
+```typescript
+"777" > "333"; // true (porque '7' > '3')
+"111" > ""; // true (cualquier string no vacío > string vacío)
+"abc" > "ab"; // true ("abc" tiene más caracteres)
+"apple" < "banana"; // true (porque 'a' === 'a', pero 'p' > 'b' es false)
+```
+
+**En strings de dígitos:**
+
+- La comparación lexicográfica mantiene el orden numérico
+- `"999" > "888" > "777" > ... > "111" > "000"`
+- Esto hace que sea perfecto para encontrar el "máximo" entre strings de dígitos
+
+**Ejemplo en Largest 3-Same-Digit Number:**
+
+```typescript
+let best = "";
+if (candidate > best) {
+  // Comparación lexicográfica automática
+  best = candidate;
+}
+// "777" > "333" → true, entonces best = "777"
+```
+
+**Ventajas:**
+
+- Comparación directa sin conversiones numéricas
+- Funciona perfectamente para dígitos ordenados
+- Sintaxis simple y legible (`string1 > string2`)
+
+**Aplicaciones:**
+
+- Encontrar máximo/mínimo entre strings de dígitos
+- Ordenamiento de strings alfanuméricos
+- Validación de rangos de strings
+- Búsqueda de patrones con orden específico
+
+### Operaciones Matemáticas con Dígitos
+
+**Definición:** Técnicas para extraer, manipular y reconstruir números usando operaciones aritméticas sin convertir a string.
+
+**Operaciones fundamentales:**
+
+```typescript
+// Extraer último dígito
+const ultimoDigito = numero % 10; // 123 % 10 = 3
+
+// Eliminar último dígito
+const sinUltimo = Math.floor(numero / 10); // Math.floor(123 / 10) = 12
+
+// Agregar dígito al final
+const nuevo = numero * 10 + digito; // 12 * 10 + 5 = 125
+
+// Contar dígitos
+let contador = 0;
+let temp = numero;
+while (temp > 0) {
+  contador++;
+  temp = Math.floor(temp / 10);
+}
+```
+
+**Patrón de reversión numérica:**
+
+```typescript
+// Revertir número: 123 → 321
+let reverse = 0;
+let num = original;
+while (num !== 0) {
+  reverse = reverse * 10 + (num % 10); // Construir reverso
+  num = Math.floor(num / 10); // Eliminar dígito procesado
+}
+```
+
+**Ejemplo paso a paso (123 → 321):**
+
+- Iter 1: reverse = 0\*10 + 3 = 3, num = 12
+- Iter 2: reverse = 3\*10 + 2 = 32, num = 1
+- Iter 3: reverse = 32\*10 + 1 = 321, num = 0
+
+**Aplicaciones:**
+
+- Palindrome Number (comparar número con su reverso)
+- Reverse Integer (revertir dígitos de un número)
+- Sum of Digits (sumar todos los dígitos)
+- Number to Words (procesar número dígito por dígito)
+
+**Ventajas sobre conversión a string:**
+
+- Más eficiente en memoria
+- Evita conversiones de tipo
+- Operaciones matemáticas directas
+- Cumple restricciones de "sin usar strings"
+
+**Complejidad típica:**
+
+- Tiempo: O(log n) donde n es el número (cantidad de dígitos)
+- Espacio: O(1) solo variables auxiliares
+
 ---
 
 ## Algoritmos y Estrategias
@@ -100,6 +297,290 @@ const basketUsed: boolean[] = new Array(baskets.length).fill(false);
 3. Mantener el estado necesario entre pasos
 4. Ejecutar secuencialmente
 
+### Búsqueda por Complementos
+
+**Definición:** Técnica donde buscamos el "complemento" de un elemento para satisfacer una condición.
+
+**Concepto clave:**
+
+- Si tenemos `x` y necesitamos suma `target`, buscamos `target - x`
+
+**Algoritmo típico:**
+
+1. Para cada elemento, calcular el complemento necesario
+2. Verificar si el complemento ya existe (usando hash map)
+3. Si existe: problema resuelto
+4. Si no: guardar el elemento actual para futuras búsquedas
+
+**Ejemplo en Two Sum:**
+
+```typescript
+const complement = target - nums[i];
+if (seen.has(complement)) {
+  return [seen.get(complement)!, i]; // ¡Encontrado!
+}
+seen.set(nums[i], i); // Guardar para el futuro
+```
+
+**Aplicaciones:**
+
+- Two Sum, 3Sum, 4Sum
+- Problemas de pares que cumplen condiciones
+- Búsqueda de elementos relacionados matemáticamente
+
+**Ventaja principal:** Convierte búsqueda O(n) en O(1) usando espacio adicional.
+
+### Ordenamiento como Optimización
+
+**Definición:** Usar el ordenamiento de datos como paso previo para simplificar el algoritmo principal.
+
+**Principio clave:**
+
+- El ordenamiento puede revelar propiedades que simplifican comparaciones posteriores
+
+**Ejemplo en Longest Common Prefix:**
+
+```typescript
+let sortedArray = strs.sort(); // Ordenamiento alfabético
+let firstString = sortedArray[0];
+let lastString = sortedArray[sortedArray.length - 1];
+// Solo necesitamos comparar estos dos extremos
+```
+
+**¿Por qué funciona?**
+
+- Si el string lexicográficamente menor y mayor comparten un prefijo
+- Entonces todos los strings intermedios también lo comparten
+- Reduce comparaciones de O(n) strings a solo 2
+
+**Cuándo aplicar:**
+
+- Problemas de comparación entre múltiples elementos
+- Búsqueda de propiedades comunes
+- Cuando el ordenamiento revela patrones útiles
+
+**Trade-off:**
+
+- **Costo:** O(n log n) por el ordenamiento
+- **Beneficio:** Simplifica algoritmo principal significativamente
+
+**Otras aplicaciones:**
+
+- Encontrar medianas
+- Detectar duplicados adyacentes
+- Problemas de intervalos
+
+### Break Temprano en Bucles
+
+**Definición:** Técnica de terminar un bucle tan pronto como se encuentra la condición deseada o se determina que es imposible continuar.
+
+**Cuándo usar:**
+
+- Cuando encontramos lo que buscamos
+- Cuando sabemos que no vale la pena seguir iterando
+- Para optimizar casos donde la respuesta se encuentra temprano
+
+**Ejemplo en Longest Common Prefix:**
+
+```typescript
+for (let i = 0; i < limit; i++) {
+  if (firstString[i] !== lastString[i]) break; // ¡Break temprano!
+  commonPrefix += firstString[i];
+}
+```
+
+**Ejemplo en búsquedas:**
+
+```typescript
+for (let i = 0; i < array.length; i++) {
+  if (array[i] === target) {
+    return i; // Encontrado, no necesitamos seguir
+  }
+}
+```
+
+**Beneficios:**
+
+- Mejora significativa en el caso promedio
+- Reduce operaciones innecesarias
+- Especialmente útil en strings/arrays grandes
+
+**Patrones comunes:**
+
+- `break` - salir del bucle completamente
+- `return` - salir de la función (implica break)
+- `continue` - saltar a la siguiente iteración
+
+**Aplicaciones:**
+
+- Comparación de strings carácter por carácter
+- Búsqueda lineal con condición de parada
+- Validación que puede fallar temprano
+
+### Early Termination con Óptimo Absoluto
+
+**Definición:** Técnica de terminar algoritmo inmediatamente al encontrar el valor óptimo absoluto conocido.
+
+**Cuándo aplicar:**
+
+- Cuando conocemos cuál es el máximo/mínimo teórico posible
+- El costo de verificar si encontramos el óptimo es menor que continuar buscando
+- En problemas de optimización con límites conocidos
+
+**Ejemplo en Largest 3-Same-Digit Number:**
+
+```typescript
+if (candidate === "999") {
+  return "999"; // Máximo absoluto posible, no puede haber nada mejor
+}
+```
+
+**Otros ejemplos:**
+
+```typescript
+// Búsqueda de máximo en array de dígitos
+if (currentMax === 9) {
+  return 9; // No puede haber dígito mayor
+}
+
+// Problema de suma objetivo
+if (currentSum === target) {
+  return true; // Encontramos exactamente lo que buscábamos
+}
+
+// Validación de formato
+if (isValidFormat && meetsAllCriteria) {
+  return result; // Ya cumple todos los requisitos
+}
+```
+
+**Beneficios:**
+
+- **Eficiencia:** Evita búsquedas innecesarias
+- **Predictibilidad:** Mejora el caso promedio de forma garantizada
+- **Claridad:** Expresa explícitamente cuándo el problema está resuelto
+
+**Diferencia con Break Temprano regular:**
+
+- **Break regular:** Para cuando encuentra UNA solución válida
+- **Óptimo absoluto:** Para cuando encuentra LA MEJOR solución posible
+
+**Aplicaciones:**
+
+- Problemas de maximización con límites conocidos
+- Búsqueda de valores en rangos específicos
+- Optimización donde conocemos el resultado ideal
+
+### Verificación de Palindromos Numéricos
+
+**Definición:** Algoritmo para determinar si un número se lee igual hacia adelante y hacia atrás usando solo matemáticas.
+
+**Estrategia principal:** Revertir el número matemáticamente y comparar con el original.
+
+**Algoritmo base:**
+
+```typescript
+function isPalindrome(x: number): boolean {
+  // 1. Descarte rápido de casos obvios
+  if (x < 0) return false; // Negativos nunca son palindromos
+
+  // 2. Reversión matemática
+  let reverse = 0;
+  let num = x;
+
+  while (num !== 0) {
+    reverse = reverse * 10 + (num % 10); // Construir reverso
+    num = Math.floor(num / 10); // Eliminar último dígito
+  }
+
+  // 3. Comparación final
+  return reverse === x;
+}
+```
+
+**Casos de descarte rápido:**
+
+- **Números negativos:** -121 ≠ 121- (nunca palindromos)
+- **Números > 0 terminados en 0:** Solo el 0 puede ser palindromo terminando en 0
+
+**Optimización: Reversión parcial (avanzado):**
+
+```typescript
+// Solo revertir la mitad para evitar overflow
+function isPalindromeOptimized(x: number): boolean {
+  if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
+
+  let revertedHalf = 0;
+  while (x > revertedHalf) {
+    revertedHalf = revertedHalf * 10 + (x % 10);
+    x = Math.floor(x / 10);
+  }
+
+  // Para números pares: x === revertedHalf
+  // Para números impares: x === Math.floor(revertedHalf / 10)
+  return x === revertedHalf || x === Math.floor(revertedHalf / 10);
+}
+```
+
+**Ventajas sobre conversión a string:**
+
+- Sin asignación de memoria para strings
+- Más eficiente computacionalmente
+- Cumple restricciones de "solo matemáticas"
+
+**Aplicaciones:**
+
+- Palindrome Number (LeetCode 9)
+- Validación de números con simetría
+- Problemas de reversión numérica
+- Verificación de patrones en dígitos
+
+### Análisis de Impacto Posicional
+
+**Definición:** Estrategia que considera la importancia relativa de cada posición en una estructura secuencial.
+
+**Principio clave:**
+
+- En números: los dígitos más a la izquierda tienen mayor valor posicional
+- En arrays: las posiciones pueden tener diferentes pesos o importancia
+
+**Ejemplo en Maximum 69 Number:**
+
+```typescript
+// Impacto de cambiar 6→9 según posición:
+// 6999 → 9999 (+3000) - posición más significativa
+// 9699 → 9999 (+300)  - segunda posición
+// 9969 → 9999 (+30)   - tercera posición
+// 9996 → 9999 (+3)    - posición menos significativa
+
+// Algoritmo greedy: cambiar el primer 6 (mayor impacto)
+for (let i = 0; i < digits.length; i++) {
+  if (digits[i] === 6) {
+    digits[i] = 9; // Máximo impacto posicional
+    break;
+  }
+}
+```
+
+**Aplicaciones:**
+
+- Maximización/minimización de números por dígitos
+- Problemas de intercambio de elementos (Maximum Swap)
+- Algoritmos de ordenamiento estable
+- Priorización por posición en colas/stacks
+
+**Conexión con Greedy:**
+
+- La decisión óptima local (primera posición) garantiza óptimo global
+- Evita analizar todas las combinaciones posibles
+- Complejidad O(n) en lugar de O(n!) para permutaciones
+
+**Otros contextos:**
+
+- **Strings:** Prefijos tienen mayor peso que sufijos
+- **Arrays:** Índices bajos pueden ser prioritarios
+- **Matrices:** Esquinas o bordes con importancia especial
+
 ---
 
 ## Análisis de Complejidad
@@ -130,6 +611,133 @@ for (let i = 0; i < n; i++) {
 - Problemas con n ≤ 1000 aproximadamente
 - Cuando la simplicidad es más importante que la eficiencia
 - Como primera aproximación antes de optimizar
+
+### Complejidad Temporal O(n) - Una Pasada
+
+**Definición:** Algoritmos que resuelven el problema recorriendo los datos una sola vez.
+
+**Características:**
+
+- Muy eficiente para arrays grandes
+- Generalmente usa espacio adicional O(n)
+- Patrón común: hash map + una iteración
+
+**Ejemplo en Two Sum:**
+
+```typescript
+for (let i = 0; i < nums.length; i++) {
+  // O(n)
+  const complement = target - nums[i];
+  if (seen.has(complement)) {
+    // O(1) promedio
+    return [seen.get(complement)!, i];
+  }
+  seen.set(nums[i], i); // O(1) promedio
+}
+// Total: O(n)
+```
+
+**Trade-off típico:**
+
+- **Tiempo:** Mejora de O(n²) a O(n)
+- **Espacio:** Aumenta de O(1) a O(n)
+
+**Cuándo preferir:**
+
+- Arrays grandes (n > 1000)
+- Cuando el espacio adicional no es limitante
+- Cuando el rendimiento es crítico
+
+### Complejidad Temporal O(n log n + m) - Ordenamiento + Procesamiento
+
+**Definición:** Algoritmos que primero ordenan los datos y luego realizan procesamiento adicional.
+
+**Estructura típica:**
+
+```typescript
+const sorted = array.sort(); // O(n log n)
+// Procesamiento optimizado: O(m)
+// Total: O(n log n + m)
+```
+
+**Ejemplo en Longest Common Prefix:**
+
+```typescript
+let sortedArray = strs.sort(); // O(S * log n) donde S = suma de caracteres
+for (let i = 0; i < limit; i++) {
+  // O(m) donde m = longitud del prefijo
+  if (firstString[i] !== lastString[i]) break;
+  commonPrefix += firstString[i];
+}
+// Total: O(S * log n + m)
+```
+
+**Cuándo es efectivo:**
+
+- Cuando el ordenamiento simplifica significativamente el algoritmo principal
+- El costo O(n log n) se compensa con la simplificación posterior
+- Problemas donde propiedades del ordenamiento son útiles
+
+**Trade-off:**
+
+- **Costo:** O(n log n) inicial por ordenamiento
+- **Beneficio:** Algoritmo principal más simple y eficiente
+- **Resultado:** Mejor que soluciones O(n²) ingenuas
+
+**Otros ejemplos:**
+
+- Detección de duplicados: O(n log n) vs O(n²)
+- Problemas de intervalos: ordenar por inicio/fin
+- Búsqueda de medianas
+
+### Complejidad Temporal O(log n) - Logarítmica
+
+**Definición:** Algoritmos cuyo tiempo de ejecución es proporcional al logaritmo del tamaño de entrada.
+
+**Características:**
+
+- Muy eficiente incluso para inputs grandes
+- Común en problemas relacionados con dígitos de números
+- También aparece en árboles balanceados y búsqueda binaria
+
+**¿Por qué O(log n) en problemas de dígitos?**
+
+- El número de dígitos de un número n es ⌊log₁₀(n)⌋ + 1
+- Procesar cada dígito individualmente → O(log n)
+
+**Ejemplo en Maximum 69 Number:**
+
+```typescript
+const digits = num.toString().split("").map(Number); // O(log n)
+for (let i = 0; i < digits.length; i++) {
+  // log n iteraciones
+  if (digits[i] === 6) {
+    digits[i] = 9;
+    break; // O(1) por iteración
+  }
+}
+return parseInt(digits.join(""), 10); // O(log n)
+// Total: O(log n)
+```
+
+**Otros ejemplos:**
+
+- Reverse Integer: procesar cada dígito
+- Palindrome Number: comparar dígitos desde extremos
+- Power of Three: división repetida por 3
+- Factorial Trailing Zeroes: análisis de factores
+
+**Ventajas:**
+
+- Escala muy bien (log 1,000,000 ≈ 6)
+- Prácticamente constante para inputs típicos
+- Más eficiente que O(n) para la mayoría de problemas
+
+**Cuándo aparece:**
+
+- Manipulación de dígitos individuales
+- Algoritmos de división y conquista
+- Búsquedas en estructuras logarítmicas
 
 ### Complejidad Espacial Adicional
 
@@ -169,6 +777,270 @@ for (let i = 0; i < n; i++) {
 - Estructuras auxiliares que no se reinician
 - Variables de estado que acumulan información
 - Decisiones que afectan opciones futuras
+
+### Patrón: Hash Map para Búsqueda Rápida
+
+**Estructura típica:**
+
+1. Crear hash map vacío
+2. Para cada elemento en la entrada:
+   - Calcular lo que necesitamos encontrar
+   - Verificar si ya existe en el map
+   - Si existe: resolver y retornar
+   - Si no: agregar elemento actual al map
+3. Continuar hasta encontrar solución
+
+**Código base:**
+
+```typescript
+const seen = new Map();
+for (let i = 0; i < array.length; i++) {
+  const needed = calculateNeeded(array[i]);
+  if (seen.has(needed)) {
+    return [seen.get(needed), i];
+  }
+  seen.set(array[i], i);
+}
+```
+
+**Aplicaciones:**
+
+- Two Sum (buscar complemento)
+- Encontrar duplicados
+- Verificar existencia de elementos relacionados
+- Problemas de pares/grupos con condiciones
+
+**Ventaja clave:** Transforma problema O(n²) en O(n) usando espacio O(n).
+
+### Patrón: Comparación Optimizada de Strings
+
+**Problema típico:** Encontrar propiedades comunes entre múltiples strings.
+
+**Estructura del patrón:**
+
+1. **Optimización previa:** Ordenar o preprocesar strings si es beneficioso
+2. **Identificar extremos:** Encontrar los strings que definen los límites del problema
+3. **Comparación eficiente:** Solo comparar los elementos críticos
+4. **Break temprano:** Parar tan pronto como se encuentre una diferencia
+
+**Código base:**
+
+```typescript
+function findCommonProperty(strings: string[]): string {
+  // 1. Optimización previa
+  const sorted = strings.sort();
+
+  // 2. Identificar extremos
+  const first = sorted[0];
+  const last = sorted[sorted.length - 1];
+
+  // 3. Comparación eficiente
+  let result = "";
+  const limit = Math.min(first.length, last.length);
+
+  for (let i = 0; i < limit; i++) {
+    if (first[i] !== last[i]) break; // 4. Break temprano
+    result += first[i];
+  }
+
+  return result;
+}
+```
+
+**Aplicaciones:**
+
+- Longest Common Prefix
+- Encontrar caracteres comunes
+- Análisis de similitud entre strings
+- Problemas de prefijos/sufijos comunes
+
+**Ventaja:** Reduce comparaciones de O(n) elementos a O(2) usando propiedades del ordenamiento.
+
+### Patrón: Optimización Greedy de Dígitos
+
+**Problema típico:** Maximizar/minimizar un número cambiando el mínimo de dígitos.
+
+**Estructura del patrón:**
+
+1. **Convertir** número a formato manipulable (array de dígitos)
+2. **Análisis posicional** - identificar qué cambios tienen mayor impacto
+3. **Aplicar greedy** - hacer el cambio de mayor beneficio primero
+4. **Break temprano** - parar al alcanzar límite de cambios
+5. **Reconstruir** número final
+
+**Código base:**
+
+```typescript
+function optimizeDigits(num: number): number {
+  // 1. Convertir a dígitos
+  const digits = num.toString().split("").map(Number);
+
+  // 2. Buscar posición de mayor impacto (greedy)
+  for (let i = 0; i < digits.length; i++) {
+    if (shouldChange(digits[i])) {
+      digits[i] = getOptimalValue(digits[i]); // 3. Aplicar cambio
+      break; // 4. Break temprano (máximo un cambio)
+    }
+  }
+
+  // 5. Reconstruir
+  return parseInt(digits.join(""), 10);
+}
+```
+
+**Ejemplo en Maximum 69 Number:**
+
+```typescript
+// shouldChange = (digit === 6)
+// getOptimalValue = (6 → 9, maximizar)
+// Solo cambiar el primer 6 encontrado (mayor impacto posicional)
+```
+
+**Aplicaciones:**
+
+- Maximum 69 Number (cambiar 6→9)
+- Maximum Swap (intercambiar dos dígitos)
+- Next Greater Element (encontrar siguiente número mayor)
+- Minimum Number by Removing K Digits
+
+**Ventajas del patrón:**
+
+- **Eficiencia:** O(log n) en lugar de O(n!) para todas las permutaciones
+- **Simplicidad:** Lógica greedy clara y directa
+- **Flexibilidad:** Fácil adaptar para diferentes reglas de optimización
+
+### Patrón: Detección de Secuencias en Strings
+
+**Problema típico:** Encontrar subcadenas que cumplan un patrón específico (repetición, suma, condición).
+
+**Estructura del patrón:**
+
+1. **Sliding Window** de tamaño fijo para examinar subcadenas
+2. **Validación** rápida de condición en cada ventana
+3. **Comparación** para mantener la mejor solución encontrada
+4. **Early termination** si se encuentra el óptimo absoluto
+
+**Código base:**
+
+```typescript
+function findBestPattern(s: string, windowSize: number): string {
+  let best = "";
+
+  for (let i = 0; i <= s.length - windowSize; i++) {
+    // Extraer ventana actual
+    const window = s.slice(i, i + windowSize);
+
+    // Validar si cumple el patrón
+    if (isValidPattern(window)) {
+      // Early termination si encontramos el máximo absoluto
+      if (isAbsoluteOptimum(window)) {
+        return window;
+      }
+
+      // Actualizar mejor solución
+      if (isBetterThan(window, best)) {
+        best = window;
+      }
+    }
+  }
+
+  return best;
+}
+```
+
+**Ejemplo en Largest 3-Same-Digit Number:**
+
+```typescript
+// windowSize = 3
+// isValidPattern = (todos los caracteres iguales)
+// isBetterThan = (comparación lexicográfica)
+// isAbsoluteOptimum = (window === "999")
+```
+
+**Aplicaciones:**
+
+- Largest 3-Same-Digit Number (dígitos repetidos)
+- Longest Palindromic Substring (palíndromos)
+- Substring with Given Sum (suma específica)
+- Valid Parentheses Sequences (balance de paréntesis)
+
+**Optimizaciones comunes:**
+
+- **Comparación directa:** Evitar crear substrings para validación
+- **Early exit:** Retornar al encontrar máximo teórico
+- **Comparación lexicográfica:** Para strings de dígitos ordenados
+
+### Patrón: Manipulación Matemática de Números
+
+**Problema típico:** Procesar, validar o transformar números sin convertir a string.
+
+**Estructura del patrón:**
+
+1. **Descarte rápido** de casos triviales o inválidos
+2. **Procesamiento dígito por dígito** usando módulo y división
+3. **Construcción/validación** del resultado usando operaciones matemáticas
+4. **Comparación final** o retorno del resultado procesado
+
+**Código base:**
+
+```typescript
+function processNumber(n: number): ResultType {
+  // 1. Descarte rápido
+  if (hasObviousResult(n)) {
+    return quickResult(n);
+  }
+
+  // 2. Inicializar variables de procesamiento
+  let result = 0;
+  let temp = n;
+
+  // 3. Procesar dígito por dígito
+  while (temp !== 0) {
+    const digit = temp % 10; // Extraer último dígito
+    result = buildResult(result, digit); // Construir resultado
+    temp = Math.floor(temp / 10); // Eliminar dígito procesado
+  }
+
+  // 4. Validación/comparación final
+  return validateResult(result, n);
+}
+```
+
+**Ejemplo en Palindrome Number:**
+
+```typescript
+// hasObviousResult = (n < 0)
+// buildResult = (reverse * 10 + digit)
+// validateResult = (reverse === original)
+```
+
+**Operaciones fundamentales reutilizables:**
+
+```typescript
+// Patrón de reversión
+const reversed = reverseNumber(num);
+
+// Patrón de suma de dígitos
+const sum = sumOfDigits(num);
+
+// Patrón de conteo de dígitos
+const count = countDigits(num);
+```
+
+**Aplicaciones:**
+
+- Palindrome Number (revertir y comparar)
+- Reverse Integer (revertir con manejo de overflow)
+- Sum of Digits/Digital Root (sumar dígitos iterativamente)
+- Happy Number (detectar ciclos en suma de cuadrados)
+- Add Digits (reducir a un solo dígito)
+
+**Ventajas del patrón:**
+
+- **Sin conversiones:** Evita overhead de string/array
+- **Eficiencia:** O(log n) tiempo, O(1) espacio
+- **Flexibilidad:** Fácil adaptar para diferentes transformaciones
+- **Claridad:** Expresa intent matemático directamente
 
 ---
 
