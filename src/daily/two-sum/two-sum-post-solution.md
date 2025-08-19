@@ -57,14 +57,3 @@ export function twoSum(nums: number[], target: number): number[] {
   return []; // Nunca debería llegar aquí según el problema
 }
 ```
-
-**Detalles de la implementación:**
-
-- `const seen = new Map<number, number>()` - Hash map que almacena valor -> índice
-- `const currentNum = nums[i]` - Variable descriptiva para el número actual
-- `const complement = target - currentNum` - Cálculo claro del número que necesitamos
-- `seen.has(complement)` - Verificación O(1) de existencia
-- `seen.get(complement)!` - Obtenemos el índice (sabemos que existe por el `has()`)
-- `seen.set(currentNum, i)` - Guardamos el número actual para futuras búsquedas
-- Comentarios en español para mayor claridad
-- El orden de los índices es `[primerEncontrado, actual]`

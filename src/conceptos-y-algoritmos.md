@@ -96,6 +96,56 @@ seen.set(currentNum, i);
 - API clara y expresiva
 - Manejo automático de colisiones
 
+### Técnica de Dos Punteros (Two Pointers)
+
+**Definición:** Algoritmo que utiliza dos punteros que se mueven a través de una estructura de datos para resolver problemas de manera eficiente.
+
+**Patrones principales:**
+
+1. **Punteros convergentes:** Se mueven desde extremos opuestos hacia el centro
+2. **Punteros paralelos:** Se mueven en la misma dirección con diferentes velocidades
+3. **Puntero lento y rápido:** Uno avanza más rápido que el otro
+
+**Cuándo usar:**
+
+- Arrays ordenados para eliminar duplicados
+- Búsqueda de pares con suma objetivo
+- Problemas de ventana deslizante
+- Modificaciones in-place de arrays
+
+**Ejemplo - Remove Duplicates from Sorted Array:**
+
+```typescript
+let write = 1; // Puntero para escribir elementos únicos
+for (let read = 1; read < nums.length; read++) {
+  // Puntero para leer
+  if (nums[read] !== nums[read - 1]) {
+    nums[write] = nums[read]; // Copiar elemento único
+    write++; // Avanzar posición de escritura
+  }
+}
+return write; // Cantidad de elementos únicos
+```
+
+**Ventajas:**
+
+- **Eficiencia:** O(n) tiempo vs O(n²) de fuerza bruta
+- **Espacio:** O(1) espacio auxiliar
+- **Simplicidad:** Código limpio y fácil de entender
+
+**Aplicaciones comunes:**
+
+- Eliminación de duplicados en arrays ordenados
+- Merge de arrays ordenados
+- Búsqueda de tripletes/pares con suma específica
+- Reversión de arrays/strings in-place
+- Detección de palindromos
+
+**Complejidad típica:**
+
+- Tiempo: O(n) - una sola pasada
+- Espacio: O(1) - solo variables auxiliares
+
 ### Manipulación de Dígitos
 
 **Definición:** Técnicas para extraer, modificar y reconstruir dígitos individuales de números.
@@ -1241,7 +1291,175 @@ while (value <= MAX_INT / prime) {
 
 ---
 
-_Este archivo se actualiza con cada problema resuelto para construir una base sólida de conocimientos._
+## Linked Lists (Listas Enlazadas)
+
+### Concepto Fundamental
+
+**Definición:** Estructura de datos lineal donde cada elemento (nodo) contiene un valor y una referencia al siguiente elemento.
+
+```typescript
+class ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### Diferencias con Arrays
+
+| Aspecto       | Array                  | Linked List              |
+| ------------- | ---------------------- | ------------------------ |
+| **Acceso**    | O(1) por índice        | O(n) secuencial          |
+| **Inserción** | O(n) (shift elementos) | O(1) (si tienes el nodo) |
+| **Memoria**   | Contigua               | Dispersa                 |
+| **Cache**     | Mejor localidad        | Peor localidad           |
+
+### Patrones Fundamentales
+
+#### 1. Nodo Dummy (Nodo Ficticio)
+
+**Problema que resuelve:** Simplifica operaciones al eliminar casos especiales para el primer elemento.
+
+```typescript
+const dummy = new ListNode(0); // Valor irrelevante
+let current = dummy;
+
+// Construir lista sin casos especiales
+while (/* condición */) {
+  current.next = nuevoNodo;
+  current = current.next;
+}
+
+return dummy.next; // Saltar el nodo dummy
+```
+
+**Cuándo usar:**
+
+- Construcción de nuevas listas
+- Operaciones de merge/split
+- Inserción al inicio
+
+#### 2. Dos Punteros
+
+**Problema que resuelve:** Procesar dos listas simultáneamente o encontrar patrones específicos.
+
+```typescript
+let p1 = list1;
+let p2 = list2;
+
+while (p1 && p2) {
+  // Comparar p1.val con p2.val
+  // Avanzar el puntero apropiado
+}
+```
+
+**Aplicaciones:**
+
+- Merge de listas ordenadas
+- Detectar ciclos (slow/fast)
+- Encontrar intersecciones
+
+#### 3. Recorrido Básico
+
+```typescript
+let current = head;
+while (current !== null) {
+  // Procesar current.val
+  current = current.next;
+}
+```
+
+### Problema: Merge Two Sorted Lists
+
+**Estrategia:** Algoritmo de merge similar al usado en Merge Sort.
+
+```typescript
+export function mergeTwoLists(
+  list1: ListNode | null,
+  list2: ListNode | null
+): ListNode | null {
+  const dummy = new ListNode(0);
+  let current = dummy;
+
+  // Merge principal: elegir el menor en cada paso
+  while (list1 && list2) {
+    if (list1.val <= list2.val) {
+      current.next = list1;
+      list1 = list1.next;
+    } else {
+      current.next = list2;
+      list2 = list2.next;
+    }
+    current = current.next;
+  }
+
+  // Conectar remanente (una lista ya se agotó)
+  current.next = list1 || list2;
+
+  return dummy.next;
+}
+```
+
+**Por qué funciona:**
+
+1. **Greedy choice:** Elegir siempre el menor elemento es óptimo
+2. **Invariante:** La lista resultado siempre está ordenada
+3. **Casos edge:** Listas vacías se manejan naturalmente
+
+### Conceptos Algorítmicos
+
+#### Merge de Secuencias Ordenadas
+
+**Patrón universal** usado en:
+
+- Merge Sort
+- Merge múltiples listas
+- Operaciones en estructuras ordenadas
+
+**Complejidad:**
+
+- Tiempo: O(n + m)
+- Espacio: O(1) si reutilizamos nodos
+
+#### Reutilización vs Creación de Nodos
+
+**Reutilización (preferida):**
+
+```typescript
+current.next = existingNode; // Reconectar
+```
+
+**Creación nueva:**
+
+```typescript
+current.next = new ListNode(value); // Más memoria
+```
+
+### Edge Cases Comunes
+
+1. **Una o ambas listas vacías**
+
+   - `list1 = null, list2 = [1,2,3]` → retornar `list2`
+   - `list1 = null, list2 = null` → retornar `null`
+
+2. **Listas de diferentes tamaños**
+
+   - Manejar remanentes con `current.next = list1 || list2`
+
+3. **Valores duplicados**
+   - Usar `<=` para mantener estabilidad del algoritmo
+
+### Aplicaciones Relacionadas
+
+- **Merge k Sorted Lists:** Extensión usando heap o divide & conquer
+- **Add Two Numbers:** Suma con carry en listas enlazadas
+- **Remove Duplicates:** Uso de punteros para eliminar nodos
+- **Reverse Linked List:** Inversión de direcciones de punteros
+
+### Técnicas de Debugging
+
+1. **Visualización:** Dibujar la lista como cajas conectadas
+2. **Invariantes:** Verificar que la lista siempre esté bien formada
+3. **Casos pequeños:** Probar con listas de 0, 1, 2 elementos
 
 ---
 
