@@ -6,13 +6,16 @@ This is a TypeScript-based LeetCode practice repository following a **mentorship
 
 ## Architecture & Structure
 
-- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/` with:
+- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/` or `src/30-days-js/problem-name/` with:
   - `problem-name.ts` - Implementation with TypeScript types
   - `problem-name.test.ts` - Vitest test suite
   - `problem-name-explanation.md` - Detailed analysis
   - `problem-name-post-solution.md` - LeetCode-format documentation
-- **Knowledge Base**: `src/conceptos-y-algoritmos.md` accumulates patterns and concepts across problems
-- **Templates**: `src/daily/utilidades/` contains markdown templates for new problems
+- **Problem Series**:
+  - `src/daily/` - General LeetCode problems (main series)
+  - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series
+- **Knowledge Base**: `src/conceptos-y-algoritmos.md` accumulates patterns and concepts across all problems
+- **Templates**: Both `src/daily/utilidades/` and `src/30-days-js/utilidades/` contain markdown templates for new problems
 
 ## Code Conventions
 
@@ -64,7 +67,7 @@ describe("Problem Name", () => {
 
 **Initial Setup**: When user provides LeetCode problem (statement text or URL):
 
-1. **Generate Project Structure**: Create `src/daily/problem-name/` folder with all 4 files
+1. **Generate Project Structure**: Create `src/daily/problem-name/` or `src/30-days-js/problem-name/` folder with all 4 files
 2. **Skeleton Generation**:
    - `problem-name.ts` - Function signature with JSDoc header and basic structure
    - `problem-name.test.ts` - Complete test suite based on examples and constraints
