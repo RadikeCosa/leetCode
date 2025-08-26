@@ -652,6 +652,124 @@ if (result.success) {
 }
 ```
 
+### Factory Functions y State Management
+
+**Definición:** Funciones que crean y retornan objetos con métodos que comparten estado privado usando closures.
+
+**Patrón básico:**
+
+```typescript
+function createStatefulObject(initialState: any) {
+  let privateState = initialState;
+
+  return {
+    method1: () => {
+      // Acceder/modificar privateState
+    },
+    method2: () => {
+      // Acceder/modificar privateState
+    },
+  };
+}
+```
+
+**Ejemplo del problema Counter II:**
+
+```typescript
+type Counter = {
+  increment: () => number;
+  decrement: () => number;
+  reset: () => number;
+};
+
+function createCounter(init: number): Counter {
+  let count = init; // Estado privado capturado por closure
+
+  return {
+    increment: () => ++count, // Pre-incremento
+    decrement: () => --count, // Pre-decremento
+    reset: () => (count = init), // Assignment expression
+  };
+}
+```
+
+**Características clave:**
+
+- **Encapsulación:** Variables privadas inaccesibles desde el exterior
+- **Persistencia:** Estado se mantiene entre llamadas a métodos
+- **Independencia:** Cada instancia tiene su propio estado separado
+- **Memory Safety:** El closure solo mantiene vivas las variables referenciadas
+
+**Ventajas sobre clases:**
+
+```typescript
+// ❌ Con clases - estado público
+class CounterClass {
+  private count: number; // "private" pero aún accesible en runtime
+
+  constructor(init: number) {
+    this.count = init;
+  }
+
+  increment() {
+    return ++this.count;
+  }
+}
+
+// ✅ Con factory function - estado verdaderamente privado
+function createCounter(init: number) {
+  let count = init; // Verdaderamente inaccesible
+
+  return {
+    increment: () => ++count,
+  };
+}
+```
+
+**Casos de uso:**
+
+- Contadores con estado
+- Módulos con API pública y estado privado
+- Event emitters personalizados
+- State machines simples
+
+### Pre-incremento vs Post-incremento
+
+**Diferencias importantes en el contexto de return values:**
+
+```typescript
+let x = 5;
+
+// Pre-incremento: incrementa PRIMERO, luego retorna
+let a = ++x; // x = 6, a = 6
+
+// Post-incremento: retorna PRIMERO, luego incrementa
+let b = x++; // b = 6, x = 7
+```
+
+**En el problema Counter II:**
+
+```typescript
+// ✅ Correcto - necesitamos el valor DESPUÉS del incremento
+increment: () => ++count; // Incrementa count, luego retorna el nuevo valor
+
+// ❌ Incorrecto - retornaría el valor ANTES del incremento
+increment: () => count++; // Retorna valor actual, luego incrementa
+```
+
+**Assignment Expression Pattern:**
+
+```typescript
+// Patrón útil para operaciones que asignan y retornan
+reset: () => (count = init); // Asigna init a count Y retorna ese valor
+
+// Equivalente a:
+reset: () => {
+  count = init;
+  return count;
+};
+```
+
 ---
 
 ## Conclusiones
@@ -662,6 +780,7 @@ Los conceptos de JavaScript en el desafío "30 Days of JavaScript" construyen un
 2. **Modern JavaScript:** Arrow functions, rest parameters, destructuring
 3. **TypeScript:** Type safety, interfaces, generics
 4. **Patrones de Diseño:** Factory, module, functional patterns
-5. **Mejores Prácticas:** Inmutabilidad, testing, error handling
+5. **State Management:** Closures para encapsulación y persistencia
+6. **Mejores Prácticas:** Inmutabilidad, testing, error handling
 
 Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web.
