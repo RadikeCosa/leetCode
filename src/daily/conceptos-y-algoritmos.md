@@ -1504,3 +1504,123 @@ Mantener la mejor (máxima lexicográfica) sin almacenar todas.
 - Patrones múltiples con diferentes dígitos ("222333").
 
 ---
+
+## Geometría y Matemáticas
+
+### Teorema de Pitágoras
+
+**Definición:** En un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos.
+
+**Fórmula:** `c² = a² + b²`, donde c es la hipotenusa.
+
+**Para calcular la hipotenusa:** `c = √(a² + b²)`
+
+### Aplicación en Rectángulos
+
+**Diagonal de un rectángulo:** La diagonal forma la hipotenusa de un triángulo rectángulo donde los catetos son la longitud y el ancho.
+
+```typescript
+// Dado un rectángulo con dimensiones [length, width]
+const diagonal = Math.sqrt(length * length + width * width);
+
+// O usando Math.hypot() para mayor precisión
+const diagonal = Math.hypot(length, width);
+```
+
+### Math.hypot() - Función Especializada
+
+**Definición:** Calcula la hipotenusa dados los catetos, con mejor manejo de edge cases.
+
+**Ventajas sobre Math.sqrt(a² + b²):**
+
+- Evita overflow/underflow en cálculos intermedios
+- Mejor precisión numérica
+- Más expresivo semánticamente
+
+```typescript
+// Equivalentes pero hypot() es más robusto
+Math.hypot(3, 4); // 5
+Math.sqrt(3 * 3 + 4 * 4); // 5
+
+// Para casos extremos, hypot() es más confiable
+Math.hypot(1e-200, 1e-200); // Correcto
+Math.sqrt(1e-200 ** 2 + 1e-200 ** 2); // Puede dar 0 por underflow
+```
+
+### Patrón: Comparación por Prioridades Geométricas
+
+**Problema típico:** Encontrar el rectángulo óptimo cuando hay múltiples criterios.
+
+**Estructura del patrón:**
+
+1. **Criterio primario:** Comparar por la propiedad geométrica principal
+2. **Criterio de desempate:** Usar segunda propiedad en caso de empate
+3. **Variables de seguimiento:** Mantener el mejor valor encontrado
+
+```typescript
+let maxPrimaryMetric = 0;
+let resultSecondaryMetric = 0;
+
+for (const shape of shapes) {
+  const primaryMetric = calculatePrimary(shape);
+  const secondaryMetric = calculateSecondary(shape);
+
+  if (primaryMetric > maxPrimaryMetric) {
+    // Nuevo mejor en criterio primario
+    maxPrimaryMetric = primaryMetric;
+    resultSecondaryMetric = secondaryMetric;
+  } else if (primaryMetric === maxPrimaryMetric) {
+    // Empate: usar criterio de desempate
+    resultSecondaryMetric = Math.max(resultSecondaryMetric, secondaryMetric);
+  }
+}
+```
+
+**Ejemplo en Maximum Area of Longest Diagonal Rectangle:**
+
+- **Criterio primario:** Diagonal más larga (Math.hypot)
+- **Criterio de desempate:** Mayor área (length × width)
+
+### Análisis de Complejidad Geométrica
+
+**Cálculos básicos:**
+
+- **Área de rectángulo:** O(1) - simple multiplicación
+- **Diagonal:** O(1) - Math.hypot es constante
+- **Comparaciones:** O(1) - operaciones numéricas simples
+
+**Para n rectángulos:**
+
+- **Tiempo total:** O(n) - un cálculo constante por rectángulo
+- **Espacio:** O(1) - solo variables de seguimiento
+
+### Aplicaciones del Patrón Geométrico
+
+- **Maximum Area of Longest Diagonal Rectangle:** diagonal vs área
+- **Largest Rectangle in Histogram:** altura vs base
+- **Container With Most Water:** distancia vs altura mínima
+- **Minimum Area Rectangle:** área vs perímetro
+
+### Consideraciones de Precisión
+
+**Para comparaciones exactas:**
+
+```typescript
+// Evitar problemas de floating point
+const diagonalSquared = length * length + width * width;
+// Comparar cuadrados en lugar de raíces cuando sea posible
+```
+
+**Cuándo usar Math.hypot:**
+
+- Cuando necesitas el valor real de la diagonal
+- Para evitar overflow en cálculos intermedios
+- Cuando la precisión es crítica
+
+**Cuándo comparar cuadrados:**
+
+- Solo necesitas determinar cuál es mayor
+- Quieres evitar completamente floating point
+- Performance extrema (aunque Math.hypot es muy eficiente)
+
+---

@@ -25,7 +25,6 @@ export function expect(val: any): ExpectObject {
 
   return {
     toBe(expected: any): boolean {
-      // TODO: Comparar val === expected, lanzar error si son diferentes
       if (val === expected) {
         return true;
       } else {
@@ -34,7 +33,6 @@ export function expect(val: any): ExpectObject {
     },
 
     notToBe(expected: any): boolean {
-      // TODO: Comparar val !== expected, lanzar error si son iguales
       if (val !== expected) {
         return true;
       } else {
