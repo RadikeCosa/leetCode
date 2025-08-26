@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a TypeScript-based LeetCode practice repository following a **mentorship-driven learning approach**. The project emphasizes guided learning over direct solution generation, building algorithmic intuition through structured problem-solving and comprehensive documentation.
+Thi3. **Documentation**: Complete explanation.md and post-solution.md files after solving 4. **Knowledge Update**: Add new patterns to `conceptos-y-algoritmos.md` (daily problems) or `conceptos-javascript.md` (30-days-js problems)is a TypeScript-based LeetCode practice repository following a **mentorship-driven learning approach**. The project emphasizes guided learning over direct solution generation, building algorithmic intuition through structured problem-solving and comprehensive documentation.
 
 ## Architecture & Structure
 
@@ -14,7 +14,9 @@ This is a TypeScript-based LeetCode practice repository following a **mentorship
 - **Problem Series**:
   - `src/daily/` - General LeetCode problems (main series)
   - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series
-- **Knowledge Base**: `src/conceptos-y-algoritmos.md` accumulates patterns and concepts across all problems
+- **Knowledge Base**:
+  - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
+  - `src/30-days-js/conceptos-javascript.md` - JavaScript/TypeScript concepts and functional programming patterns
 - **Templates**: Both `src/daily/utilidades/` and `src/30-days-js/utilidades/` contain markdown templates for new problems
 
 ## Code Conventions
@@ -110,7 +112,9 @@ describe("Problem Name", () => {
 
 1. **Explanation File**: Complete `problem-name-explanation.md` with detailed analysis, approach, and complexity
 2. **Post-Solution File**: Fill `problem-name-post-solution.md` with LeetCode submission format
-3. **Knowledge Base Update**: Add new concepts and patterns to `conceptos-y-algoritmos.md`
+3. **Knowledge Base Update**:
+   - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
+   - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 ## Key Technical Patterns
