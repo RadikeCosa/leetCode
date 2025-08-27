@@ -451,6 +451,89 @@ true, 1, -1, "0", "false", [], {}, function(){}, ...
 | **Condición**     | Solo si es truthy        | Siempre                   |
 | **Uso típico**    | Buscar, filtrar, validar | Convertir, procesar, calc |
 
+### Array Reduction (Implementación manual de reduce)
+
+**Definición:** Proceso de combinar todos los elementos de un array en un valor único mediante la aplicación secuencial de una función reductora con un acumulador.
+
+**Conceptos clave:**
+
+- **Acumulador**: Variable que mantiene el estado/resultado parcial a través de las iteraciones
+- **Función reductora**: Función que toma el acumulador actual y el siguiente elemento, devolviendo el nuevo acumulador
+- **Valor inicial**: Punto de partida para la reducción
+- **Aplicación secuencial**: Los elementos se procesan uno por uno, en orden
+
+**Implementación manual de reduce:**
+
+```typescript
+type Fn = (accum: number, curr: number) => number;
+
+function reduce(nums: number[], fn: Fn, init: number): number {
+  let acc = init; // Inicializar acumulador
+  for (let i = 0; i < nums.length; i++) {
+    acc = fn(acc, nums[i]); // Actualizar acumulador secuencialmente
+  }
+  return acc; // Retornar valor final
+}
+```
+
+**Ejemplos de uso:**
+
+```typescript
+// Suma: combinar todos los números
+const numbers = [1, 2, 3, 4];
+const sum = reduce(numbers, (acc, curr) => acc + curr, 0);
+// Resultado: 10 (0 + 1 + 2 + 3 + 4)
+
+// Producto: multiplicar todos los números
+const product = reduce(numbers, (acc, curr) => acc * curr, 1);
+// Resultado: 24 (1 * 1 * 2 * 3 * 4)
+
+// Máximo: encontrar el valor más grande
+const max = reduce([5, 2, 8, 1], (acc, curr) => Math.max(acc, curr), 0);
+// Resultado: 8
+
+// Operación compleja: suma de cuadrados
+const sumSquares = reduce([1, 2, 3], (acc, curr) => acc + curr * curr, 0);
+// Resultado: 14 (0 + 1² + 2² + 3² = 0 + 1 + 4 + 9)
+```
+
+**Patrón general de Array Reduction:**
+
+1. **Inicializar:** Crear acumulador con valor inicial
+2. **Iterar:** Recorrer cada elemento del array original
+3. **Combinar:** Aplicar función reductora con acumulador y elemento actual
+4. **Acumular:** Actualizar acumulador con el resultado
+5. **Retornar:** Devolver valor final del acumulador
+
+**La trilogía completa: Map, Filter, Reduce**
+
+| Operación | Input → Output  | Propósito                | Tamaño resultado | Ejemplo                    |
+| --------- | --------------- | ------------------------ | ---------------- | -------------------------- |
+| **Map**   | Array → Array   | Transformar elementos    | Igual (n → n)    | `[1,2,3] → [2,4,6]`        |
+| **Filter** | Array → Array  | Seleccionar elementos    | Variable (n → k) | `[1,2,3,4] → [2,4]`        |
+| **Reduce** | Array → Value  | Combinar a valor único   | Uno solo (n → 1) | `[1,2,3,4] → 10`           |
+
+**Relación entre las operaciones:**
+
+```typescript
+// Map puede implementarse con reduce
+const mapWithReduce = (arr, fn) => 
+  reduce(arr, (acc, curr, i) => [...acc, fn(curr, i)], []);
+
+// Filter puede implementarse con reduce
+const filterWithReduce = (arr, fn) => 
+  reduce(arr, (acc, curr, i) => fn(curr, i) ? [...acc, curr] : acc, []);
+
+// Reduce es la operación más fundamental
+```
+
+**Casos de uso comunes para reduce:**
+
+- **Agregaciones**: suma, producto, promedio, conteo
+- **Búsqueda**: máximo, mínimo, elemento específico
+- **Transformaciones**: string concatenation, object building
+- **Validaciones**: verificar si todos/algunos elementos cumplen condición
+
 ### Function Expressions vs Function Declarations
 
 **Function Declarations:**
