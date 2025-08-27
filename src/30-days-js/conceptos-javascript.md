@@ -315,6 +315,142 @@ class Timer {
 - **Event handlers:** En frameworks modernos
 - **Short functions:** Funciones simples de una línea
 
+### Array Transformation (Implementación manual de map)
+
+**Definición:** Proceso de aplicar una función de transformación a cada elemento de un array para crear un nuevo array con los resultados transformados.
+
+**Conceptos clave:**
+
+- **Inmutabilidad:** No modifica el array original
+- **Higher-order function:** Recibe una función como parámetro
+- **Callback pattern:** La función transformadora se ejecuta para cada elemento
+
+**Implementación manual de map:**
+
+```typescript
+type Fn = (n: number, i: number) => number;
+
+function map(arr: number[], fn: Fn): number[] {
+  let newArr: number[] = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(fn(arr[i], i));
+  }
+  return newArr;
+}
+```
+
+**Ejemplos de uso:**
+
+```typescript
+// Transformación simple: incrementar cada elemento
+const numbers = [1, 2, 3];
+const incremented = map(numbers, (n) => n + 1);
+// Resultado: [2, 3, 4]
+
+// Uso del índice: sumar valor + índice
+const withIndex = map(numbers, (n, i) => n + i);
+// Resultado: [1, 3, 5] (1+0, 2+1, 3+2)
+
+// Función constante: ignorar entrada
+const constants = map([10, 20, 30], () => 42);
+// Resultado: [42, 42, 42]
+```
+
+**Patrón general de Array Transformation:**
+
+1. **Inicializar:** Crear array vacío para resultados
+2. **Iterar:** Recorrer cada elemento del array original
+3. **Transformar:** Aplicar función con elemento e índice
+4. **Acumular:** Agregar resultado al nuevo array
+5. **Retornar:** Devolver array completamente transformado
+
+**Ventajas de la implementación manual:**
+
+- **Comprensión profunda:** Entender cómo funcionan los métodos nativos
+- **Control total:** Personalizar comportamiento si es necesario
+- **Fundamentos sólidos:** Base para entender map, filter, reduce
+
+**Diferencias con Array.map() nativo:**
+
+| Aspecto             | Implementación manual      | Array.map() nativo          |
+| ------------------- | -------------------------- | --------------------------- |
+| **Rendimiento**     | Potentially slower         | Optimizado por el motor JS  |
+| **Flexibilidad**    | Completamente customizable | Comportamiento fijo         |
+| **Aprendizaje**     | Educational value alto     | Abstracción de alto nivel   |
+| **Tipo de retorno** | Controlado por nosotros    | Siempre del mismo tipo base |
+
+### Array Filtering (Implementación manual de filter)
+
+**Definición:** Proceso de seleccionar elementos de un array que cumplan una condición específica, creando un nuevo array con solo los elementos que pasen el filtro.
+
+**Conceptos clave:**
+
+- **Predicado**: Función que evalúa condiciones y retorna valores truthy/falsy
+- **Truthiness**: JavaScript evalúa automáticamente si un valor es "verdadero" en contexto booleano
+- **Tamaño variable**: El array resultado puede tener cualquier tamaño (0 a n elementos)
+- **Selección vs Transformación**: Filter selecciona, map transforma
+
+**Implementación manual de filter:**
+
+```typescript
+type Fn = (n: number, i: number) => any;
+
+function filter(arr: number[], fn: Fn): number[] {
+  let filteredArr: number[] = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i)) {
+      filteredArr.push(arr[i]); // Importante: agregamos arr[i], no fn(arr[i], i)
+    }
+  }
+  return filteredArr;
+}
+```
+
+**Ejemplos de uso:**
+
+```typescript
+// Filtro simple: números mayores que 10
+const numbers = [0, 10, 20, 30];
+const greater = filter(numbers, (n) => n > 10);
+// Resultado: [20, 30]
+
+// Filtro por índice: solo el primer elemento
+const first = filter([1, 2, 3], (n, i) => i === 0);
+// Resultado: [1]
+
+// Filtro por truthiness: usar el resultado de una función
+const truthy = filter([-2, -1, 0, 1, 2], (n) => n + 1);
+// Resultado: [-2, 0, 1, 2] (cuando n=-1, n+1=0 que es falsy)
+```
+
+**Valores Truthy y Falsy en JavaScript:**
+
+```typescript
+// Falsy values (solo estos 8)
+false, 0, -0, 0n, "", null, undefined, NaN
+
+// Truthy values (todo lo demás)
+true, 1, -1, "0", "false", [], {}, function(){}, ...
+```
+
+**Patrón general de Array Filtering:**
+
+1. **Inicializar:** Crear array vacío para elementos filtrados
+2. **Iterar:** Recorrer cada elemento del array original
+3. **Evaluar:** Aplicar función predicado con elemento e índice
+4. **Decidir:** Solo agregar si el resultado es truthy
+5. **Retornar:** Devolver array con elementos seleccionados
+
+**Diferencias clave con map:**
+
+| Aspecto           | Filter                   | Map                       |
+| ----------------- | ------------------------ | ------------------------- |
+| **Propósito**     | Seleccionar elementos    | Transformar elementos     |
+| **Tamaño output** | Variable (0 ≤ k ≤ n)     | Fijo (igual al input)     |
+| **Qué se agrega** | Elemento original        | Resultado transformado    |
+| **Condición**     | Solo si es truthy        | Siempre                   |
+| **Uso típico**    | Buscar, filtrar, validar | Convertir, procesar, calc |
+
 ### Function Expressions vs Function Declarations
 
 **Function Declarations:**
