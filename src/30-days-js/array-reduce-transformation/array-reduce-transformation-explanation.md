@@ -38,16 +38,19 @@ La solución implementa el patrón clásico de reducción/fold:
 ### Paso a paso:
 
 1. **Inicialización**: Crear una variable acumuladora `acc` con el valor inicial
+
    ```typescript
    let acc = init;
    ```
 
 2. **Iteración**: Recorrer cada elemento del array usando un bucle `for`
+
    ```typescript
    for (let i = 0; i < nums.length; i++) {
    ```
 
 3. **Reducción**: Aplicar la función reductora al acumulador actual y el elemento actual
+
    ```typescript
    acc = fn(acc, nums[i]);
    ```
@@ -56,6 +59,7 @@ La solución implementa el patrón clásico de reducción/fold:
 5. **Retorno**: Devolver el valor final del acumulador
 
 ### Aspectos clave:
+
 - **Acumulador único**: Una sola variable mantiene el estado a través de todas las iteraciones
 - **Aplicación secuencial**: La función se aplica elemento por elemento, en orden
 - **Array vacío**: Si no hay elementos, el bucle no se ejecuta y retorna `init`
@@ -84,17 +88,20 @@ Este problema enseña el concepto más fundamental de la programación funcional
 4. **Valor inicial**: Importancia del estado inicial en algoritmos iterativos
 
 La implementación manual de `reduce` revela:
+
 - Cómo los datos fluyen a través de transformaciones secuenciales
 - La diferencia entre acumular (reduce) vs transformar (map) vs filtrar (filter)
 - El poder de las funciones de orden superior para crear abstracciones reutilizables
 
 ### Lecciones aprendidas:
+
 - **Reduce es la operación más general**: Map y filter pueden implementarse usando reduce
 - **El patrón acumulador**: Esencial para algoritmos iterativos y recursivos
 - **Composición funcional**: Cómo pequeñas funciones pueden crear transformaciones complejas
 - **Estado inmutable**: El acumulador se actualiza, pero cada paso crea un nuevo valor
 
 ### Trilogía completa (Map, Filter, Reduce):
+
 - **Map**: 1 → 1 (transformación elemento a elemento)
 - **Filter**: n → k (selección de elementos)
 - **Reduce**: n → 1 (combinación a un valor único)

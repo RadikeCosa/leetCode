@@ -507,22 +507,22 @@ const sumSquares = reduce([1, 2, 3], (acc, curr) => acc + curr * curr, 0);
 
 **La trilogía completa: Map, Filter, Reduce**
 
-| Operación | Input → Output  | Propósito                | Tamaño resultado | Ejemplo                    |
-| --------- | --------------- | ------------------------ | ---------------- | -------------------------- |
-| **Map**   | Array → Array   | Transformar elementos    | Igual (n → n)    | `[1,2,3] → [2,4,6]`        |
-| **Filter** | Array → Array  | Seleccionar elementos    | Variable (n → k) | `[1,2,3,4] → [2,4]`        |
-| **Reduce** | Array → Value  | Combinar a valor único   | Uno solo (n → 1) | `[1,2,3,4] → 10`           |
+| Operación  | Input → Output | Propósito              | Tamaño resultado | Ejemplo             |
+| ---------- | -------------- | ---------------------- | ---------------- | ------------------- |
+| **Map**    | Array → Array  | Transformar elementos  | Igual (n → n)    | `[1,2,3] → [2,4,6]` |
+| **Filter** | Array → Array  | Seleccionar elementos  | Variable (n → k) | `[1,2,3,4] → [2,4]` |
+| **Reduce** | Array → Value  | Combinar a valor único | Uno solo (n → 1) | `[1,2,3,4] → 10`    |
 
 **Relación entre las operaciones:**
 
 ```typescript
 // Map puede implementarse con reduce
-const mapWithReduce = (arr, fn) => 
+const mapWithReduce = (arr, fn) =>
   reduce(arr, (acc, curr, i) => [...acc, fn(curr, i)], []);
 
 // Filter puede implementarse con reduce
-const filterWithReduce = (arr, fn) => 
-  reduce(arr, (acc, curr, i) => fn(curr, i) ? [...acc, curr] : acc, []);
+const filterWithReduce = (arr, fn) =>
+  reduce(arr, (acc, curr, i) => (fn(curr, i) ? [...acc, curr] : acc), []);
 
 // Reduce es la operación más fundamental
 ```
