@@ -13,7 +13,7 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
   - `problem-name-post-solution.md` - LeetCode-format documentation
 - **Problem Series**:
   - `src/daily/` - General LeetCode problems (main series)
-  - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series
+  - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series, agrupados en carpetas por parte temática (por ejemplo: `parte-1-introduccion`, `parte-2-transformacion-de-arrays`, etc.) en vez de por día.
 - **Knowledge Base**:
   - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
   - `src/30-days-js/conceptos-javascript.md` - JavaScript/TypeScript concepts and functional programming patterns
