@@ -991,15 +991,147 @@ reset: () => {
 
 ---
 
+## Function Transformations (Transformaciones de Funciones)
+
+### Function Composition (Composición de Funciones)
+
+**Definición:** Combinar múltiples funciones para crear una nueva función que ejecuta las funciones componentes de derecha a izquierda.
+
+**Concepto matemático:** f(g(h(x))) - la salida de h se convierte en entrada de g, y la salida de g en entrada de f.
+
+**Implementación:**
+
+```typescript
+type F = (x: number) => number;
+
+function compose(functions: F[]): F {
+  if (functions.length === 0) {
+    return (x: number) => x; // Función identidad
+  }
+
+  return function (x: number): number {
+    for (let i = functions.length - 1; i >= 0; i--) {
+      x = functions[i](x);
+    }
+    return x;
+  };
+}
+```
+
+**Casos de uso:**
+
+- Pipelines de transformación de datos
+- Middleware en frameworks web
+- Functional programming patterns
+- Validaciones en cadena
+
+**Alternativas de implementación:**
+
+```typescript
+// Con reduceRight (más funcional)
+return function (x: number): number {
+  return functions.reduceRight((acc, fn) => fn(acc), x);
+};
+
+// Con recursión
+function composeRecursive(fns: F[]): F {
+  if (fns.length === 0) return (x) => x;
+  if (fns.length === 1) return fns[0];
+
+  return function (x: number): number {
+    return fns[0](composeRecursive(fns.slice(1))(x));
+  };
+}
+```
+
+### Rest Parameters (Parámetros Rest)
+
+**Definición:** Sintaxis que permite que una función acepte un número indefinido de argumentos como un array.
+
+**Sintaxis:** `...parameterName`
+
+**Implementación básica:**
+
+```typescript
+function argumentsLength(...args: any[]): number {
+  return args.length;
+}
+
+// Ejemplos de uso:
+argumentsLength(5); // 1
+argumentsLength({}, null, "3"); // 3
+argumentsLength(); // 0
+```
+
+**Características importantes:**
+
+- **Flexibilidad:** Acepta cualquier cantidad de argumentos
+- **Type Safety:** Con TypeScript puedes tipar los argumentos: `...args: number[]`
+- **Modern JavaScript:** Reemplaza el objeto `arguments` legacy
+- **Array Methods:** Los argumentos se almacenan como array real
+
+**Comparación con `arguments` object:**
+
+```typescript
+// ❌ Legacy approach (no recomendado)
+function oldWay() {
+  return arguments.length; // arguments no es un array real
+}
+
+// ✅ Modern approach (recomendado)
+function modernWay(...args: any[]): number {
+  return args.length; // args es un array real con todos los métodos
+}
+```
+
+**Casos de uso avanzados:**
+
+```typescript
+// Función con parámetros fijos + rest parameters
+function greet(greeting: string, ...names: string[]): string {
+  return `${greeting} ${names.join(", ")}!`;
+}
+
+greet("Hello", "Alice", "Bob", "Charlie"); // "Hello Alice, Bob, Charlie!"
+
+// Separar primer argumento del resto
+function processData(action: string, ...data: any[]): any {
+  switch (action) {
+    case "sum":
+      return data.reduce((a, b) => a + b, 0);
+    case "concat":
+      return data.join("");
+    default:
+      return data;
+  }
+}
+```
+
+**Diferencias con Spread Operator:**
+
+```typescript
+// Rest parameters: función RECIBE múltiples argumentos
+function collect(...items: number[]): number[] {
+  return items;
+}
+
+// Spread operator: ENVIAR array como argumentos individuales
+const numbers = [1, 2, 3, 4, 5];
+const result = collect(...numbers); // Expande array a argumentos individuales
+```
+
+---
+
 ## Conclusiones
 
 Los conceptos de JavaScript en el desafío "30 Days of JavaScript" construyen una base sólida en:
 
-1. **Programación Funcional:** Higher-order functions, closures, pure functions
-2. **Modern JavaScript:** Arrow functions, rest parameters, destructuring
+1. **Programación Funcional:** Higher-order functions, closures, pure functions, function composition
+2. **Modern JavaScript:** Arrow functions, rest parameters, destructuring, spread operator
 3. **TypeScript:** Type safety, interfaces, generics
 4. **Patrones de Diseño:** Factory, module, functional patterns
 5. **State Management:** Closures para encapsulación y persistencia
-6. **Mejores Prácticas:** Inmutabilidad, testing, error handling
+6. **Function Transformations:** Composición, argumentos variables, pipelines funcionales
+7. **Mejores Prácticas:** Inmutabilidad, testing, error handling
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web.
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional.
