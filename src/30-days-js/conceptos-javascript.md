@@ -247,6 +247,80 @@ console.log(createMessage("Hello", "world", 123)); // "Hello world 123"
 - **Utility functions:** Funciones de propósito general
 - **API flexibility:** Permitir múltiples formas de llamada
 
+### "Once" Pattern (Patrón de Ejecución Única)
+
+**Definición:** Patrón que garantiza que una función solo pueda ejecutarse una vez, retornando `undefined` en llamadas subsecuentes.
+
+**Implementación:**
+
+```typescript
+function once(fn: Function): Function {
+  let called = false;
+
+  return function (...args: any[]): any {
+    if (!called) {
+      called = true; // ⭐ CRUCIAL: marcar ANTES de ejecutar
+      return fn(...args);
+    }
+    return undefined;
+  };
+}
+```
+
+**Casos de uso:**
+
+- **Inicialización**: Configuraciones que deben ejecutarse solo una vez
+- **Event handlers**: Eventos que deben dispararse una sola vez
+- **API calls**: Prevenir múltiples llamadas accidentales
+- **Resource loading**: Cargar recursos costosos una sola vez
+
+**Ejemplo práctico:**
+
+```typescript
+const initializeApp = once(() => {
+  console.log("App initialized!");
+  return "App ready";
+});
+
+initializeApp(); // "App initialized!" → "App ready"
+initializeApp(); // (sin log) → undefined
+initializeApp(); // (sin log) → undefined
+```
+
+**⚠️ Error común:**
+
+```typescript
+// ❌ INCORRECTO - función se ejecuta siempre
+function onceBroken(fn) {
+  let called = false;
+  return function (...args) {
+    if (!called) {
+      let result = fn(...args);
+      return result; // called nunca se marca como true
+    }
+    return undefined;
+  };
+}
+
+// ✅ CORRECTO - marca el estado antes de retornar
+function onceCorrect(fn) {
+  let called = false;
+  return function (...args) {
+    if (!called) {
+      called = true; // Marca ANTES del return
+      return fn(...args);
+    }
+    return undefined;
+  };
+}
+```
+
+**Bibliotecas reales:**
+
+- **Lodash**: `_.once(func)`
+- **Underscore.js**: `_.once(function)`
+- **Node.js**: Pattern común en event emitters
+
 ### Arrow Functions
 
 **Definición:** Sintaxis concisa para escribir funciones en JavaScript/TypeScript.
