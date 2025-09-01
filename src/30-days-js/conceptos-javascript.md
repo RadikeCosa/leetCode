@@ -1414,6 +1414,145 @@ async function handlePromise() {
 }
 ```
 
+### Promise Constructor Pattern
+
+**Definición:** Patrón para crear Promises personalizadas envolviendo operaciones asíncronas que no son nativas de Promises.
+
+**Estructura básica:**
+
+```typescript
+const customPromise = new Promise((resolve, reject) => {
+  // Lógica asíncrona
+  // Llamar resolve(value) en caso de éxito
+  // Llamar reject(error) en caso de error
+});
+```
+
+**Ejemplo del problema Sleep:**
+
+```typescript
+export async function sleep(millis: number): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, millis));
+}
+```
+
+**Parámetros del constructor:**
+
+- **`resolve`**: Función para completar la Promise exitosamente
+- **`reject`**: Función para completar la Promise con error
+
+**Casos de uso comunes:**
+
+- Envolver APIs callback-based
+- Crear delays/timeouts personalizados
+- Integrar bibliotecas externas que no usan Promises
+- Testing con delays controlados
+
+### Timer-based Asynchronous Operations
+
+**Concepto:** Uso de timers (setTimeout, setInterval) combinados con Promises para operaciones asíncronas basadas en tiempo.
+
+**Patrón Sleep/Delay:**
+
+```typescript
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Uso con async/await
+async function delayedOperation() {
+  console.log("Antes del delay");
+  await delay(1000);
+  console.log("Después del delay");
+}
+```
+
+**Patrón Timeout with Value:**
+
+```typescript
+function delayWithValue<T>(ms: number, value: T): Promise<T> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(value), ms);
+  });
+}
+
+const result = await delayWithValue(500, "¡Completado!");
+```
+
+**Consideraciones importantes:**
+
+- Los timers de JavaScript no son precisos al milisegundo
+- Los timers pueden ser afectados por la carga del sistema
+- Siempre permite cierta tolerancia en tests de timing
+
+### Async/Await Error Handling
+
+**Manejo básico con try/catch:**
+
+```typescript
+async function safeAsyncOperation(): Promise<string> {
+  try {
+    const result = await riskyAsyncOperation();
+    return result;
+  } catch (error) {
+    console.error("Error en operación asíncrona:", error);
+    throw error; // Re-lanzar si es necesario
+  }
+}
+```
+
+**Patrón de retry con delay:**
+
+```typescript
+async function retryWithDelay<T>(
+  operation: () => Promise<T>,
+  retries: number = 3,
+  delayMs: number = 1000
+): Promise<T> {
+  try {
+    return await operation();
+  } catch (error) {
+    if (retries > 0) {
+      await sleep(delayMs);
+      return retryWithDelay(operation, retries - 1, delayMs);
+    }
+    throw error;
+  }
+}
+```
+
+### Non-blocking vs Blocking Operations
+
+**Concepto:** Diferencia entre operaciones que bloquean el event loop vs operaciones asíncronas.
+
+**Operación bloqueante (EVITAR):**
+
+```javascript
+// ❌ Esto bloquearía el navegador
+function blockingSleep(ms) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    // Bucle activo que bloquea
+  }
+}
+```
+
+**Operación no-bloqueante (CORRECTO):**
+
+```typescript
+// ✅ Esto no bloquea el event loop
+async function nonBlockingSleep(ms: number): Promise<void> {
+  await new Promise((resolve) => setTimeout(resolve, ms));
+}
+```
+
+**Beneficios de operaciones no-bloqueantes:**
+
+- El navegador sigue respondiendo
+- Otras operaciones pueden ejecutarse
+- Mejor experiencia de usuario
+- Permite concurrencia
+
 ### Tipado con TypeScript
 
 **Promesas tipadas:**
@@ -1438,13 +1577,297 @@ async function typedFunction(): Promise<boolean> {
 
 ## Resumen de Conceptos
 
+---
+
+## Timer-Based Operations & Cancellation Patterns
+
+### setTimeout y clearTimeout
+
+**Concepto:** Programar la ejecución de código después de un retraso específico, con capacidad de cancelación.
+
+**Patrón básico:**
+
+```typescript
+const timerId = setTimeout(() => {
+  console.log("Ejecutado después de 1000ms");
+}, 1000);
+
+// Cancelar si es necesario
+clearTimeout(timerId);
+```
+
+**Implementación con cancelación (Timeout Cancellation):**
+
+```typescript
+function cancellable(fn: Function, args: any[], t: number): Function {
+  const timerId = setTimeout(() => {
+    fn(...args);
+  }, t);
+
+  return () => {
+    clearTimeout(timerId);
+  };
+}
+```
+
+**Casos de uso:**
+
+- Delayed function execution
+- Debouncing
+- Timeout mechanisms
+- User interaction delays
+
+### setInterval y clearInterval
+
+**Concepto:** Ejecutar código repetidamente en intervalos específicos.
+
+**Patrón básico:**
+
+```typescript
+const intervalId = setInterval(() => {
+  console.log("Ejecutado cada 1000ms");
+}, 1000);
+
+// Cancelar cuando sea necesario
+clearInterval(intervalId);
+```
+
+**Implementación con ejecución inmediata (Interval Cancellation):**
+
+```typescript
+function cancellable(fn: Function, args: any[], t: number): Function {
+  // Ejecutar inmediatamente
+  fn(...args);
+
+  // Luego repetir cada t ms
+  const intervalId = setInterval(() => {
+    fn(...args);
+  }, t);
+
+  return () => {
+    clearInterval(intervalId);
+  };
+}
+```
+
+**Casos de uso importantes:**
+
+- **Polling**: Verificar estado repetidamente
+- **Animaciones**: Actualizar elementos cada frame
+- **Heartbeat**: Enviar señales periódicas
+- **Background tasks**: Limpieza, sincronización
+
+### Diferencias Clave: setTimeout vs setInterval
+
+| Aspecto | setTimeout | setInterval |
+|---------|------------|-------------|
+| **Ejecuciones** | Una sola vez | Repetidas |
+| **Timing** | Delay inicial | Ejecución inmediata + repetición |
+| **Patrón** | Delay → Execute | Execute → Delay → Execute → ... |
+| **Cancelación** | clearTimeout | clearInterval |
+| **Memory usage** | Libera después de ejecutar | Persiste hasta cancelación |
+
+**Ejemplo comparativo:**
+
+```typescript
+// setTimeout: Una ejecución después de delay
+setTimeout(() => console.log("Una vez"), 1000);
+
+// setInterval: Ejecución inmediata + repeticiones
+const cancel = cancellable(
+  () => console.log("Repetido"), [], 1000
+);
+// Output: "Repetido" en t=0, t=1000, t=2000, ...
+```
+
+### Closures en Timing Operations
+
+**Concepto clave:** Los timer IDs deben ser accesibles para cancelación posterior.
+
+```typescript
+function createCancellableTimer(fn: Function, delay: number) {
+  let timerId: NodeJS.Timeout | null = null;
+
+  return {
+    start: () => {
+      timerId = setTimeout(fn, delay);
+    },
+    cancel: () => {
+      if (timerId) {
+        clearTimeout(timerId);
+        timerId = null;
+      }
+    },
+  };
+}
+```
+
+**Beneficios del patrón:**
+
+- **Encapsulación:** Timer ID protegido en closure
+- **Control preciso:** Cancelación cuando sea necesario
+- **Prevención de memory leaks:** Limpieza adecuada de timers
+
+### Immediate Execution + Periodic Patterns
+
+**Concepto específico:** Combinar ejecución inmediata con repetición periódica.
+
+```typescript
+// Anti-patrón: Solo setInterval (pierde ejecución inmediata)
+const bad = setInterval(fn, 1000); // Primera ejecución en t=1000
+
+// Patrón correcto: Inmediato + Interval
+fn(); // t=0
+const good = setInterval(fn, 1000); // t=1000, t=2000, ...
+```
+
+**Aplicaciones reales:**
+
+- **UI Updates**: Mostrar datos inmediatamente + actualizaciones
+- **Status checking**: Verificar estado ahora + monitoreo continuo
+- **Progress tracking**: Inicio inmediato + updates periódicos
+
+### Race Conditions en JavaScript
+
+**Concepto:** Competencia entre eventos asíncronos para determinar el resultado.
+
+**Ejemplo - Timeout vs Cancellation:**
+
+```typescript
+// ¿Qué llega primero?
+// Opción 1: Ejecutar función en 20ms
+const timerId = setTimeout(fn, 20);
+
+// Opción 2: Cancelar en 50ms
+setTimeout(() => clearTimeout(timerId), 50);
+
+// Resultado: La función se ejecuta (20ms < 50ms)
+```
+
+**Manejo automático en JavaScript:**
+
+- Event loop maneja el timing
+- No necesitas sincronización manual
+- Los timers son cancelables hasta el momento de ejecución
+
+### Best Practices para Timer Operations
+
+**1. Siempre manejar cancelación:**
+
+```typescript
+// ✅ Bueno: Función de cancelación disponible
+const cancel = cancellable(fn, args, t);
+// ... usar cancel() cuando sea necesario
+
+// ❌ Malo: Timer sin capacidad de cancelación
+setInterval(fn, t); // Posible memory leak
+```
+
+**2. Limpiar en cleanup:**
+
+```typescript
+// En React, Angular, etc.
+useEffect(() => {
+  const cancel = cancellable(fn, args, t);
+  return cancel; // Cleanup automático
+}, []);
+```
+
+**3. Manejar edge cases:**
+
+```typescript
+function robustCancellable(fn: Function, args: any[], t: number) {
+  // Validar inputs
+  if (typeof fn !== 'function') throw new Error('fn must be function');
+  if (t < 0) throw new Error('t must be positive');
+  
+  fn(...args);
+  const id = setInterval(() => fn(...args), t);
+  
+  let cancelled = false;
+  return () => {
+    if (!cancelled) {
+      clearInterval(id);
+      cancelled = true;
+    }
+  };
+}
+```
+
+**Concepto clave:** Los timer IDs deben ser accesibles para cancelación posterior.
+
+```typescript
+function createCancellableTimer(fn: Function, delay: number) {
+  let timerId: NodeJS.Timeout | null = null;
+
+  return {
+    start: () => {
+      timerId = setTimeout(fn, delay);
+    },
+    cancel: () => {
+      if (timerId) {
+        clearTimeout(timerId);
+        timerId = null;
+      }
+    },
+  };
+}
+```
+
+**Beneficios del patrón:**
+
+- **Encapsulación:** Timer ID protegido en closure
+- **Control preciso:** Cancelación cuando sea necesario
+- **Prevención de memory leaks:** Limpieza adecuada de timers
+
+### Race Conditions en JavaScript
+
+**Concepto:** Competencia entre eventos asíncronos para determinar el resultado.
+
+**Ejemplo - Timeout vs Cancellation:**
+
+```typescript
+// ¿Qué llega primero?
+// Opción 1: Ejecutar función en 20ms
+const timerId = setTimeout(fn, 20);
+
+// Opción 2: Cancelar en 50ms
+setTimeout(() => clearTimeout(timerId), 50);
+
+// Resultado: La función se ejecuta (20ms < 50ms)
+```
+
+**Manejo automático en JavaScript:**
+
+- Event loop maneja el timing
+- No necesitas sincronización manual
+- Los timers son cancelables hasta el momento de ejecución
+
+---
+
+## Resumen de Conceptos Aplicados
+
 1. **Programación Funcional:** Higher-order functions, closures, pure functions, function composition
 2. **Modern JavaScript:** Arrow functions, rest parameters, destructuring, spread operator
 3. **TypeScript:** Type safety, interfaces, generics
 4. **Patrones de Diseño:** Factory, module, functional patterns
 5. **State Management:** Closures para encapsulación y persistencia
 6. **Function Transformations:** Composición, argumentos variables, pipelines funcionales
-7. **Programación Asíncrona:** Promises, async/await, Promise.all(), error handling
-8. **Mejores Prácticas:** Inmutabilidad, testing, error handling
+7. **Programación Asíncrona:** Promises, async/await, Promise.all(), error handling, Promise constructor, timer-based operations
+8. **Timer Operations:** 
+   - setTimeout/clearTimeout vs setInterval/clearInterval
+   - Immediate execution + periodic patterns
+   - Cancellation patterns y memory leak prevention
+   - Race conditions y timing coordination
+   - Best practices para timer management
+9. **Mejores Prácticas:** Inmutabilidad, testing, error handling, non-blocking operations, robust input validation
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona.
+### Conceptos Específicos de Timer Cancellation
+
+- **Timeout Cancellation**: Delayed execution con capacidad de cancelación
+- **Interval Cancellation**: Immediate + periodic execution con cancelación
+- **Closure-based timer management**: Encapsulación de timer IDs
+- **Race condition handling**: Coordinación entre execution y cancellation
+- **Memory management**: Prevención de leaks con proper cleanup
+
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations y async coordination.
