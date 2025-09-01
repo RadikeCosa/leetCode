@@ -12,11 +12,15 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
   - `problem-name-explanation.md` - Detailed analysis
   - `problem-name-post-solution.md` - LeetCode-format documentation
 - **Problem Series**:
+
   - `src/daily/` - General LeetCode problems (main series)
   - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series, agrupados en carpetas por parte temática (por ejemplo: `parte-1-introduccion`, `parte-2-transformacion-de-arrays`, etc.) en vez de por día.
+  - `src/top-interview/` - Top interview LeetCode problems.
+
 - **Knowledge Base**:
   - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
   - `src/30-days-js/conceptos-javascript.md` - JavaScript/TypeScript concepts and functional programming patterns
+  - `src/top-interview/conceptos-top-interview.md` - Top interview concepts and patterns
 - **Templates**: Both `src/daily/utilidades/` and `src/30-days-js/utilidades/` contain markdown templates for new problems
 
 ## Code Conventions
@@ -84,7 +88,7 @@ describe("Problem Name", () => {
 2. **Test-First**: Tests already written, focus on making them pass
 3. **Implementation**: TypeScript with explicit types and Spanish comments
 4. **Documentation**: Complete explanation.md and post-solution.md files after solving
-5. **Knowledge Update**: Add new patterns and concepts to `conceptos-y-algoritmos.md`
+5. **Knowledge Update**: Add new patterns and concepts to `conceptos-y-algoritmos.md`, `conceptos-javascript.md`, and `conceptos-top-interview.md`
 
 ## Mentorship Guidelines
 
@@ -115,6 +119,7 @@ describe("Problem Name", () => {
 3. **Knowledge Base Update**:
    - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
+   - For top interview problems: Add concepts to `conceptos-top-interview.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 ## Key Technical Patterns

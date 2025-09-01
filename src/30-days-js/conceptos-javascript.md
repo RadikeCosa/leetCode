@@ -1196,6 +1196,103 @@ const result = collect(...numbers); // Expande array a argumentos individuales
 
 ---
 
+## Memoización
+
+### Concepto
+
+**Definición:** Técnica de optimización que almacena los resultados de llamadas a funciones costosas y retorna el resultado en caché cuando se usan las mismas entradas.
+
+**Características:**
+
+- Convierte funciones en versiones optimizadas
+- Utiliza el patrón space-time tradeoff (espacio por tiempo)
+- Es efectiva para funciones puras
+- Implementada usando closures y estructuras de datos de cache
+
+### Implementación base
+
+```typescript
+type Fn = (...params: number[]) => number;
+
+function memoize(fn: Fn): Fn {
+  const cache = new Map<string, number>();
+
+  return function (...args: number[]): number {
+    const key = JSON.stringify(args);
+
+    if (cache.has(key)) {
+      return cache.get(key)!;
+    }
+
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+}
+```
+
+### JSON.stringify vs toString para claves
+
+**¿Por qué JSON.stringify?**
+
+```typescript
+// Problema con toString():
+[2, 2].toString(); // "2,2"
+[22].toString(); // "22" - Potencial colisión
+
+// Solución con JSON.stringify():
+JSON.stringify([2, 2]); // "[2,2]"
+JSON.stringify([22]); // "[22]" - Siempre únicos
+```
+
+**Casos problemáticos de toString:**
+
+- Arrays anidados: `[[1,2], 3]` vs `[1,2,3]` → ambos dan `"1,2,3"`
+- Arrays vacíos: `[]` → `""` (string vacía)
+- Elementos especiales: `[null, undefined]` → `","`
+
+### Casos de uso
+
+**Fibonacci optimizado:**
+
+```typescript
+const fibOriginal = (n: number): number =>
+  n <= 1 ? 1 : fib(n - 1) + fib(n - 2);
+
+const fibMemoized = memoize(fibOriginal);
+// Primera llamada: calcula todo
+// Llamadas siguientes: O(1) desde cache
+```
+
+**Funciones matemáticas costosas:**
+
+```typescript
+const expensiveCalculation = memoize((a: number, b: number): number => {
+  // Simulación de cálculo costoso
+  let result = 0;
+  for (let i = 0; i < 1000000; i++) {
+    result += Math.pow(a, b) / (i + 1);
+  }
+  return result;
+});
+```
+
+### Ventajas y limitaciones
+
+**Ventajas:**
+
+- Acelera funciones con cálculos repetitivos
+- Ideal para programación funcional
+- Transparente para el código cliente
+
+**Limitaciones:**
+
+- Usa más memoria (cache storage)
+- Solo efectiva para funciones puras
+- Overhead inicial de verificación de cache
+
+---
+
 ## Conclusiones
 
 Los conceptos de JavaScript en el desafío "30 Days of JavaScript" construyen una base sólida en:
