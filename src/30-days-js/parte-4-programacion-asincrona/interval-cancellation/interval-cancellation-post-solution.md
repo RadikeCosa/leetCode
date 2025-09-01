@@ -32,12 +32,12 @@ type Fn = (...args: JSONValue[]) => JSONValue;
 export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
   // Execute immediately (time 0)
   fn(...args);
-  
+
   // Set up repetition every t milliseconds
   const intervalId = setInterval(() => {
     fn(...args);
   }, t);
-  
+
   // Return cancellation function
   return () => {
     clearInterval(intervalId);
@@ -47,12 +47,14 @@ export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
 
 # Notes
 
-- **Edge Cases Handled**: 
+- **Edge Cases Handled**:
+
   - Early cancellation (before first interval): Only immediate execution occurs
   - Multiple arguments: Correctly spread using `...args`
   - Various function types: Compatible with any function accepting `JSONValue` parameters
 
 - **Key Differences from Timeout Cancellation**:
+
   - Timeout: Single delayed execution using `setTimeout`
   - Interval: Immediate + periodic execution using immediate call + `setInterval`
 

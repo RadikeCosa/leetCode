@@ -1659,13 +1659,13 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 
 ### Diferencias Clave: setTimeout vs setInterval
 
-| Aspecto | setTimeout | setInterval |
-|---------|------------|-------------|
-| **Ejecuciones** | Una sola vez | Repetidas |
-| **Timing** | Delay inicial | Ejecución inmediata + repetición |
-| **Patrón** | Delay → Execute | Execute → Delay → Execute → ... |
-| **Cancelación** | clearTimeout | clearInterval |
-| **Memory usage** | Libera después de ejecutar | Persiste hasta cancelación |
+| Aspecto          | setTimeout                 | setInterval                      |
+| ---------------- | -------------------------- | -------------------------------- |
+| **Ejecuciones**  | Una sola vez               | Repetidas                        |
+| **Timing**       | Delay inicial              | Ejecución inmediata + repetición |
+| **Patrón**       | Delay → Execute            | Execute → Delay → Execute → ...  |
+| **Cancelación**  | clearTimeout               | clearInterval                    |
+| **Memory usage** | Libera después de ejecutar | Persiste hasta cancelación       |
 
 **Ejemplo comparativo:**
 
@@ -1674,9 +1674,7 @@ function cancellable(fn: Function, args: any[], t: number): Function {
 setTimeout(() => console.log("Una vez"), 1000);
 
 // setInterval: Ejecución inmediata + repeticiones
-const cancel = cancellable(
-  () => console.log("Repetido"), [], 1000
-);
+const cancel = cancellable(() => console.log("Repetido"), [], 1000);
 // Output: "Repetido" en t=0, t=1000, t=2000, ...
 ```
 
@@ -1778,12 +1776,12 @@ useEffect(() => {
 ```typescript
 function robustCancellable(fn: Function, args: any[], t: number) {
   // Validar inputs
-  if (typeof fn !== 'function') throw new Error('fn must be function');
-  if (t < 0) throw new Error('t must be positive');
-  
+  if (typeof fn !== "function") throw new Error("fn must be function");
+  if (t < 0) throw new Error("t must be positive");
+
   fn(...args);
   const id = setInterval(() => fn(...args), t);
-  
+
   let cancelled = false;
   return () => {
     if (!cancelled) {
@@ -1854,7 +1852,7 @@ setTimeout(() => clearTimeout(timerId), 50);
 5. **State Management:** Closures para encapsulación y persistencia
 6. **Function Transformations:** Composición, argumentos variables, pipelines funcionales
 7. **Programación Asíncrona:** Promises, async/await, Promise.all(), error handling, Promise constructor, timer-based operations
-8. **Timer Operations:** 
+8. **Timer Operations:**
    - setTimeout/clearTimeout vs setInterval/clearInterval
    - Immediate execution + periodic patterns
    - Cancellation patterns y memory leak prevention
