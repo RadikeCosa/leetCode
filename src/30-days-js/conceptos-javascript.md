@@ -1297,12 +1297,154 @@ const expensiveCalculation = memoize((a: number, b: number): number => {
 
 Los conceptos de JavaScript en el desafío "30 Days of JavaScript" construyen una base sólida en:
 
+---
+
+## Programación Asíncrona
+
+### Promises (Promesas)
+
+**Definición:** Objetos que representan la eventual finalización (o falla) de una operación asíncrona y su valor resultante.
+
+**Estados de una Promise:**
+
+- **Pending**: Estado inicial, ni cumplida ni rechazada
+- **Fulfilled**: La operación se completó exitosamente
+- **Rejected**: La operación falló
+
+**Características principales:**
+
+- Permiten manejar operaciones asíncronas de manera más limpia que callbacks
+- Evitan el "callback hell"
+- Soportan encadenamiento (chaining)
+- Son inmutables una vez resueltas
+
+**Ejemplo básico:**
+
+```typescript
+const promiseExample = new Promise<number>((resolve, reject) => {
+  setTimeout(() => {
+    resolve(42);
+  }, 1000);
+});
+
+promiseExample
+  .then((value) => console.log(value)) // 42
+  .catch((error) => console.error(error));
+```
+
+### Async/Await
+
+**Definición:** Sintaxis moderna para trabajar con promesas de manera más legible y sincrónica.
+
+**Características:**
+
+- `async` convierte una función en función asíncrona (retorna Promise)
+- `await` pausa la ejecución hasta que la Promise se resuelve
+- Hace que el código asíncrono se lea como código síncrono
+- Facilita el manejo de errores con try/catch
+
+**Ejemplo del problema Add Two Promises:**
+
+```typescript
+export async function addTwoPromises(
+  promise1: Promise<number>,
+  promise2: Promise<number>
+): Promise<number> {
+  const valor1 = await promise1;
+  const valor2 = await promise2;
+  return valor1 + valor2;
+}
+```
+
+**Casos de uso comunes:**
+
+- Llamadas a APIs
+- Operaciones de base de datos
+- Lectura/escritura de archivos
+- Timers y delays
+
+### Promise.all()
+
+**Definición:** Método estático que ejecuta múltiples promesas concurrentemente y espera a que todas se resuelvan.
+
+**Ventajas:**
+
+- Ejecución concurrente (paralela)
+- Mejor rendimiento cuando las promesas son independientes
+- Falla rápido (fail-fast): si una falla, todas fallan
+
+**Comparación de enfoques:**
+
+```typescript
+// Secuencial (menos eficiente)
+const value1 = await promise1; // Espera promise1
+const value2 = await promise2; // Luego espera promise2
+// Tiempo total: tiempo1 + tiempo2
+
+// Concurrente (más eficiente)
+const [value1, value2] = await Promise.all([promise1, promise2]);
+// Tiempo total: Math.max(tiempo1, tiempo2)
+```
+
+**Cuándo usar cada uno:**
+
+- **Secuencial**: Cuando una promesa depende del resultado de otra
+- **Concurrente**: Cuando las promesas son independientes entre sí
+
+### Error Handling en Promises
+
+**Con .catch():**
+
+```typescript
+promise
+  .then((result) => handleSuccess(result))
+  .catch((error) => handleError(error));
+```
+
+**Con async/await:**
+
+```typescript
+async function handlePromise() {
+  try {
+    const result = await promise;
+    handleSuccess(result);
+  } catch (error) {
+    handleError(error);
+  }
+}
+```
+
+### Tipado con TypeScript
+
+**Promesas tipadas:**
+
+```typescript
+const numberPromise: Promise<number> = Promise.resolve(42);
+const stringPromise: Promise<string> = Promise.resolve("hello");
+
+async function typedFunction(): Promise<boolean> {
+  return true; // TypeScript automáticamente envuelve en Promise<boolean>
+}
+```
+
+**Beneficios del tipado:**
+
+- Detección temprana de errores
+- Mejor autocompletado en IDE
+- Documentación implícita del código
+- Refactoring más seguro
+
+---
+
+## Resumen de Conceptos
+
 1. **Programación Funcional:** Higher-order functions, closures, pure functions, function composition
 2. **Modern JavaScript:** Arrow functions, rest parameters, destructuring, spread operator
 3. **TypeScript:** Type safety, interfaces, generics
 4. **Patrones de Diseño:** Factory, module, functional patterns
 5. **State Management:** Closures para encapsulación y persistencia
 6. **Function Transformations:** Composición, argumentos variables, pipelines funcionales
-7. **Mejores Prácticas:** Inmutabilidad, testing, error handling
+7. **Programación Asíncrona:** Promises, async/await, Promise.all(), error handling
+8. **Mejores Prácticas:** Inmutabilidad, testing, error handling
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional.
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona.
