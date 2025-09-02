@@ -61,6 +61,48 @@ describe("Problem Name", () => {
 });
 ```
 
+### Post-Solution Format
+
+The `problem-name-post-solution.md` files must follow the **LeetCode discussion post format**:
+
+````markdown
+# Intuition
+
+Describe your first impressions of the problem and the high-level idea you used to solve it.
+
+# Approach
+
+Explain the algorithm you implemented. Be explicit about steps, data structures, and why this approach works.
+
+# Complexity
+
+- **Time complexity**: O(n) - explanation
+- **Space complexity**: O(1) - explanation (or specify if different)
+
+# Code
+
+```typescript
+export function solutionName(params: Type[]): ReturnType {
+  // Implementation with descriptive variable names
+}
+```
+````
+
+# Notes
+
+- Edge cases handled
+- Why alternative approaches were rejected
+- Key insights and patterns used
+- Variable naming decisions
+
+```
+
+**Key Requirements**:
+- Use standard LeetCode discussion sections: Intuition, Approach, Complexity, Code, Notes
+- Keep explanations concise but complete
+- Focus on WHY the solution works, not just HOW
+- Include edge cases and design decisions in Notes section
+
 ## Development Workflow
 
 ### Essential Commands
@@ -157,3 +199,4 @@ describe("Problem Name", () => {
 - Include edge cases and boundary conditions
 - Descriptive test names in Spanish or English
 - Problem constraints documented in test file headers
+```
