@@ -1835,11 +1835,225 @@ setTimeout(() => clearTimeout(timerId), 50);
 // Resultado: La función se ejecuta (20ms < 50ms)
 ```
 
-**Manejo automático en JavaScript:**
+### Best Practices para Timer Operations
 
-- Event loop maneja el timing
-- No necesitas sincronización manual
-- Los timers son cancelables hasta el momento de ejecución
+**1. Siempre manejar cancelación:**
+
+```typescript
+// ✅ Bueno: Función de cancelación disponible
+const cancel = cancellable(fn, args, t);
+// ... usar cancel() cuando sea necesario
+
+// ❌ Malo: Timer sin capacidad de cancelación
+setInterval(fn, t); // Posible memory leak
+```
+
+**2. Limpiar en cleanup:**
+
+```typescript
+// En React, Angular, etc.
+useEffect(() => {
+  const cancel = cancellable(fn, args, t);
+  return cancel; // Cleanup automático
+}, []);
+```
+
+**3. Manejar edge cases:**
+
+```typescript
+function robustCancellable(fn: Function, args: any[], t: number) {
+  // Validar inputs
+  if (typeof fn !== "function") throw new Error("fn must be function");
+  if (t < 0) throw new Error("t must be positive");
+
+  fn(...args);
+  const id = setInterval(() => fn(...args), t);
+
+  let cancelled = false;
+  return () => {
+    if (!cancelled) {
+      clearInterval(id);
+      cancelled = true;
+    }
+  };
+}
+```
+
+### Promise.race() y Timeout Patterns
+
+**Concepto:** Usar `Promise.race()` para crear timeouts controlados en operaciones asíncronas.
+
+**Promise.race() fundamentals:**
+
+```typescript
+// Promise.race retorna la primera Promise que se resuelve/rechaza
+const fast = new Promise((resolve) => setTimeout(() => resolve("rápida"), 100));
+const slow = new Promise((resolve) => setTimeout(() => resolve("lenta"), 500));
+
+const result = await Promise.race([fast, slow]);
+console.log(result); // "rápida" (termina primero)
+```
+
+**Patrón Promise Time Limit:**
+
+```typescript
+function timeLimit(fn: Function, t: number): Function {
+  return async function (...args) {
+    // Promise que rechaza después de t ms
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => reject("Time Limit Exceeded"), t);
+    });
+
+    // Race entre función original y timeout
+    return Promise.race([fn(...args), timeoutPromise]);
+  };
+}
+```
+
+**Casos de uso del patrón:**
+
+- **API calls con timeout**: Evitar que requests se cuelguen
+- **User interactions**: Timeout en prompts o confirmaciones
+- **Background processing**: Limitar tiempo de operaciones costosas
+- **Testing**: Timeouts en tests asíncronos
+
+**Características importantes:**
+
+```typescript
+// ✅ El primer Promise que complete "gana"
+// ✅ Errores originales se propagan correctamente
+// ✅ Funciona con cualquier función async
+// ✅ Preserva argumentos originales usando ...args
+```
+
+### Controlled Race Conditions
+
+**Concepto:** Race conditions intencionales donde el primer evento determina el resultado.
+
+**Diferencias con race conditions problemáticas:**
+
+| Aspecto             | Race Condition Problemática | Controlled Race Condition  |
+| ------------------- | --------------------------- | -------------------------- |
+| **Intención**       | Bug no deseado              | Comportamiento planificado |
+| **Predictibilidad** | Resultado impredecible      | Resultado determinístico   |
+| **Manejo**          | Debe evitarse               | Debe implementarse bien    |
+| **Ejemplo**         | Shared state mutation       | Promise.race() timeout     |
+
+**Patrones comunes:**
+
+```typescript
+// 1. Timeout pattern
+Promise.race([actualOperation(), timeoutPromise(5000)]);
+
+// 2. Multiple source pattern
+Promise.race([fetchFromPrimaryAPI(), fetchFromBackupAPI()]);
+
+// 3. User choice vs auto-action
+Promise.race([userClickPromise(), autoActionAfterDelay(10000)]);
+```
+
+### Promise Constructor con setTimeout
+
+**Patrón:** Convertir callback-based APIs a Promises.
+
+**Estructura básica:**
+
+```typescript
+function promisifyWithTimeout<T>(
+  callbackFn: (callback: (result: T) => void) => void,
+  timeoutMs: number
+): Promise<T> {
+  return new Promise((resolve, reject) => {
+    let completed = false;
+
+    // Setup timeout
+    const timeoutId = setTimeout(() => {
+      if (!completed) {
+        completed = true;
+        reject(new Error("Operation timed out"));
+      }
+    }, timeoutMs);
+
+    // Execute callback function
+    callbackFn((result: T) => {
+      if (!completed) {
+        completed = true;
+        clearTimeout(timeoutId);
+        resolve(result);
+      }
+    });
+  });
+}
+```
+
+**Error Propagation en Promise.race:**
+
+```typescript
+// La función original puede:
+// 1. Resolver antes del timeout → resultado exitoso
+// 2. Rechazar antes del timeout → error original se propaga
+// 3. No completar antes del timeout → "Time Limit Exceeded"
+
+async function example() {
+  try {
+    const result = await timeLimitedFunction();
+    // Caso 1: función completó exitosamente
+  } catch (error) {
+    if (error === "Time Limit Exceeded") {
+      // Caso 3: timeout
+    } else {
+      // Caso 2: error original de la función
+    }
+  }
+}
+```
+
+### Memory Management en Async Operations
+
+**Consideraciones importantes:**
+
+```typescript
+// ✅ Los timeouts continúan ejecutándose aunque no los necesitemos
+function timeLimit(fn: Function, t: number): Function {
+  return async function (...args) {
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => reject("Time Limit Exceeded"), t);
+    });
+
+    // Este timeout seguirá ejecutándose aunque Promise.race ya termine
+    return Promise.race([fn(...args), timeoutPromise]);
+  };
+}
+```
+
+**¿Es esto un problema?**
+
+- **No para timeouts normales**: JavaScript maneja esto automáticamente
+- **Sí para operaciones costosas**: Cancelar explícitamente si es posible
+- **Best practice**: Cleanup explícito cuando sea crítico
+
+**Cleanup avanzado (opcional):**
+
+```typescript
+function timeLimit(fn: Function, t: number): Function {
+  return async function (...args) {
+    let timeoutId: NodeJS.Timeout;
+
+    const timeoutPromise = new Promise((resolve, reject) => {
+      timeoutId = setTimeout(() => reject("Time Limit Exceeded"), t);
+    });
+
+    try {
+      const result = await Promise.race([fn(...args), timeoutPromise]);
+      clearTimeout(timeoutId); // Cleanup explícito
+      return result;
+    } catch (error) {
+      clearTimeout(timeoutId); // Cleanup en error también
+      throw error;
+    }
+  };
+}
+```
 
 ---
 
@@ -1858,14 +2072,28 @@ setTimeout(() => clearTimeout(timerId), 50);
    - Cancellation patterns y memory leak prevention
    - Race conditions y timing coordination
    - Best practices para timer management
-9. **Mejores Prácticas:** Inmutabilidad, testing, error handling, non-blocking operations, robust input validation
+9. **Promise Racing & Timeouts:**
+   - Promise.race() para controlled race conditions
+   - Timeout patterns con Promise constructor + setTimeout
+   - Error propagation en racing scenarios
+   - Memory management en async operations
+   - Cleanup patterns para operaciones costosas
+10. **Mejores Prácticas:** Inmutabilidad, testing, error handling, non-blocking operations, robust input validation
 
-### Conceptos Específicos de Timer Cancellation
+### Conceptos Específicos Agregados
+
+- **Promise Time Limit**: Racing entre función y timeout para control de tiempo
+- **Controlled Race Conditions**: Race conditions intencionales vs problemáticas
+- **Promise.race() patterns**: Timeouts, multiple sources, user choice scenarios
+- **Error propagation**: Cómo se manejan errores en Promise.race scenarios
+- **Async memory management**: Consideraciones para cleanup en operaciones asíncronas
+
+### Patrones de Timer y Promise Integration
 
 - **Timeout Cancellation**: Delayed execution con capacidad de cancelación
 - **Interval Cancellation**: Immediate + periodic execution con cancelación
-- **Closure-based timer management**: Encapsulación de timer IDs
-- **Race condition handling**: Coordinación entre execution y cancellation
-- **Memory management**: Prevención de leaks con proper cleanup
+- **Promise Time Limit**: Promise racing con timeout automático
+- **Closure-based management**: Encapsulación de timer IDs y Promise states
+- **Memory and cleanup**: Prevención de leaks en operaciones async complejas
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations y async coordination.
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, y promise racing patterns.

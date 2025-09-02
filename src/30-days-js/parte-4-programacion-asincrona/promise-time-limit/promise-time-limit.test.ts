@@ -37,7 +37,7 @@ describe("Promise Time Limit", () => {
       const time = Math.floor(performance.now() - start);
       expect(err).toBe("Time Limit Exceeded");
       expect(time).toBeGreaterThanOrEqual(40); // Allow more tolerance
-      expect(time).toBeLessThanOrEqual(70);    // Allow more tolerance
+      expect(time).toBeLessThanOrEqual(70); // Allow more tolerance
     }
   });
 
@@ -71,8 +71,8 @@ describe("Promise Time Limit", () => {
     const time = Math.floor(performance.now() - start);
 
     expect(result).toBe(15);
-    expect(time).toBeGreaterThanOrEqual(110);  // Allow more tolerance
-    expect(time).toBeLessThanOrEqual(140);     // Allow more tolerance
+    expect(time).toBeGreaterThanOrEqual(110); // Allow more tolerance
+    expect(time).toBeLessThanOrEqual(140); // Allow more tolerance
   });
 
   it("should immediately reject when function throws error - Example 4", async () => {
