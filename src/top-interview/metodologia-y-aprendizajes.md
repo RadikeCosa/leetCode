@@ -29,15 +29,31 @@ Esta colección de problemas de **Top Interview** sigue un enfoque sistemático 
 
 ## Estructura Estándar por Problema
 
-Cada problema sigue la estructura:
+Cada problema sigue la estructura organizada por categorías temáticas:
 
 ```
-problema-name/
-├── problema-name.ts              # Implementación con TypeScript
-├── problema-name.test.ts         # Suite de tests (TDD)
-├── problema-name-explanation.md  # Análisis profundo y algoritmos
-└── problema-name-post-solution.md # Formato LeetCode discussion
+top-interview/
+├── metodologia-y-aprendizajes.md      # Este archivo
+├── array-string/                      # Problemas de Arrays y Strings
+│   ├── merge-sorted-array/
+│   │   ├── merge-sorted-array.ts
+│   │   ├── merge-sorted-array.test.ts
+│   │   ├── merge-sorted-array-explanation.md
+│   │   └── merge-sorted-array-post-solution.md
+│   └── remove-element/
+│       ├── remove-element.ts
+│       ├── remove-element.test.ts
+│       ├── remove-element-explanation.md
+│       └── remove-element-post-solution.md
+└── [otras-categorias]/                # Futuras categorías (linked-lists, trees, etc.)
 ```
+
+### Categorías de Problemas
+
+- **array-string/**: Manipulación de arrays y strings, two pointers, sliding window
+- **[linked-lists/]**: Problemas de listas enlazadas (futuro)
+- **[trees/]**: Árboles binarios y traversal (futuro)
+- **[dynamic-programming/]**: Programación dinámica (futuro)
 
 ## Patrones Algorítmicos Comunes
 
