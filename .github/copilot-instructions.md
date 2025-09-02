@@ -20,8 +20,43 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
 - **Knowledge Base**:
   - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
   - `src/30-days-js/conceptos-javascript.md` - JavaScript/TypeScript concepts and functional programming patterns
-  - `src/top-interview/conceptos-top-interview.md` - Top interview concepts and patterns
+    - `src/top-interview/metodologia-y-aprendizajes.md` - TDD methodology and problem-solving approach
 - **Templates**: Both `src/daily/utilidades/` and `src/30-days-js/utilidades/` contain markdown templates for new problems
+
+## TDD Methodology (Test-Driven Development)
+
+All problems follow a systematic **Test-Driven Development** approach:
+
+### 🔴 **RED Phase - Write Failing Tests**
+
+1. **Problem analysis**: Fully understand statement and constraints
+2. **Test cases**: Collaborate with user to implement tests based on LeetCode examples
+3. **Edge cases**: Guide user to identify and add tests for boundary conditions
+4. **Verification**: Confirm tests fail (empty/skeleton function)
+
+### 🟢 **GREEN Phase - Implement Minimal Solution**
+
+1. **Functional solution**: User writes code to pass all tests with guidance
+2. **Pragmatic approach**: Prioritize functionality over premature optimization
+3. **Descriptive naming**: Self-explanatory variables and functions from start
+4. **Rapid iteration**: Use `npm run test:watch` for immediate feedback
+
+### 🔵 **REFACTOR Phase - Optimize and Document**
+
+1. **Complexity analysis**: Evaluate time and space complexity together
+2. **Complete documentation**: Fill explanation.md and post-solution.md
+3. **Pattern identification**: Document techniques and strategies used
+4. **Knowledge base update**: Add new concepts to relevant knowledge files
+
+### TDD Benefits for Algorithms
+
+- **Requirement clarity**: Tests define exact behavior expected
+- **Solution confidence**: Complete coverage of test cases
+- **Safe refactoring**: Changes backed by comprehensive tests
+- **Living documentation**: Tests serve as executable specification
+- **Collaborative learning**: Writing tests together builds understanding
+- **Safe refactoring**: Changes backed by comprehensive tests
+- **Living documentation**: Tests serve as executable specification
 
 ## Code Conventions
 
@@ -102,6 +137,14 @@ export function solutionName(params: Type[]): ReturnType {
 - Keep explanations concise but complete
 - Focus on WHY the solution works, not just HOW
 - Include edge cases and design decisions in Notes section
+- **LANGUAGE**: Write in English (this file is for LeetCode submission format)
+
+### Documentation Language Standards
+
+- **`problem-name-explanation.md`**: Write in **Spanish/Castellano** - detailed analysis for learning
+- **`problem-name-post-solution.md`**: Write in **English** - LeetCode submission format for international audience
+- **Code comments**: Spanish for logic explanation, English for JSDoc headers
+- **Test descriptions**: Spanish or English (flexible)
 
 ## Development Workflow
 
@@ -118,10 +161,10 @@ export function solutionName(params: Type[]): ReturnType {
 1. **Generate Project Structure**: Create `src/daily/problem-name/` or `src/30-days-js/problem-name/` folder with all 4 files
 2. **Skeleton Generation**:
    - `problem-name.ts` - Function signature with JSDoc header and basic structure
-   - `problem-name.test.ts` - Complete test suite based on examples and constraints
+   - `problem-name.test.ts` - Test file template ready for collaborative implementation
    - `problem-name-explanation.md` - Template structure ready for analysis
    - `problem-name-post-solution.md` - LeetCode post format template
-3. **Test Implementation**: Write complete test cases immediately, including edge cases
+3. **Test Implementation**: Write test cases collaboratively with user based on examples and constraints
 4. **Ready for Development**: User can run `npm run test:watch` and start implementing
 
 ### Problem-Solving Process
@@ -130,7 +173,27 @@ export function solutionName(params: Type[]): ReturnType {
 2. **Test-First**: Tests already written, focus on making them pass
 3. **Implementation**: TypeScript with explicit types and Spanish comments
 4. **Documentation**: Complete explanation.md and post-solution.md files after solving
-5. **Knowledge Update**: Add new patterns and concepts to `conceptos-y-algoritmos.md`, `conceptos-javascript.md`, and `conceptos-top-interview.md`
+5. **Knowledge Update**: Add new patterns to `conceptos-y-algoritmos.md` (daily problems) or `conceptos-javascript.md` (30-days-js problems)
+
+### Problem-Solving Process (TDD-based)
+
+Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
+
+1. **🔴 RED Phase**: Write comprehensive test suite collaboratively that fails
+   - Work together to implement all LeetCode examples as tests
+   - Guide user to add edge cases and boundary conditions
+   - Confirm tests fail with skeleton function
+
+2. **🟢 GREEN Phase**: Implement minimal working solution
+   - Focus on passing tests, not optimization
+   - Use descriptive variable names from start
+   - Iterative development with `npm run test:watch`
+
+3. **🔵 REFACTOR Phase**: Document and optimize
+   - Complete explanation.md with algorithm analysis
+   - Fill post-solution.md with LeetCode format
+   - Update knowledge base with new patterns discovered
+   - Add complexity analysis and alternative approaches
 
 ## Mentorship Guidelines
 
@@ -141,8 +204,9 @@ export function solutionName(params: Type[]): ReturnType {
 - Help identify edge cases through questioning
 - Explain complexity analysis after implementation
 - Generate complete project skeleton from LeetCode problem statement or URL
-- Write comprehensive test suites immediately during setup
-- Complete documentation files AFTER user solves the problem
+- Write test suites collaboratively with user during setup (not automatically)
+- Guide user through test case implementation for comprehensive coverage
+- Complete documentation files AFTER user solves the problem analysis
 
 ### DON'T:
 
@@ -150,6 +214,20 @@ export function solutionName(params: Type[]): ReturnType {
 - Write entire functions unless teaching specific concepts
 - Overwhelm with multiple concepts at once
 - Reveal answers without user reasoning
+- Generate test cases automatically without user collaboration
+- Fill in documentation before user completes the problem analysis
+
+### Documentation Completion Process
+
+**After Problem Resolution**:
+
+1. **Explanation File**: Complete `problem-name-explanation.md` with detailed analysis, approach, and complexity
+2. **Post-Solution File**: Fill `problem-name-post-solution.md` with LeetCode submission format
+3. **Knowledge Base Update**:
+   - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
+   - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
+   - For top interview problems: Add concepts to `conceptos-top-interview.md`
+4. **Cross-Reference**: Link related problems and patterns discovered
 - Fill in documentation before user completes the problem analysis
 
 ### Documentation Completion Process
