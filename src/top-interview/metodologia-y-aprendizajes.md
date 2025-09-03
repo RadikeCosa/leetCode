@@ -135,15 +135,15 @@ top-interview/
 
 ### Two Pointers Pattern
 
-**Problema ejemplo**: Valid Palindrome (LeetCode 125)
+**Problema ejemplo**: Valid Palindrome (LeetCode 125), Is Subsequence (LeetCode 392)
 
-**Cuándo usar**:
+**Variantes identificadas**:
 
-- Verificación de propiedades simétricas (palíndromos)
-- Búsqueda en arrays ordenados
-- Problemas que requieren comparación desde extremos
+#### **1. Two Pointers Convergentes (Palindrome Pattern)**
 
-**Implementación tipo**:
+- **Uso**: Verificación de propiedades simétricas
+- **Movimiento**: Desde extremos hacia el centro
+- **Velocidad**: Simétrica (ambos avanzan al mismo ritmo)
 
 ```typescript
 let left = 0;
@@ -151,24 +151,42 @@ let right = array.length - 1;
 
 while (left < right) {
   // Procesar/comparar elementos
-  // Mover punteros según lógica del problema
   left++;
   right--;
 }
 ```
 
-**Ventajas**:
+#### **2. Two Pointers Paralelos (Sequential Matching Pattern)**
+
+- **Uso**: Búsqueda de subsecuencias, matching secuencial
+- **Movimiento**: Ambos hacia adelante, velocidades diferentes
+- **Velocidad**: Variable (uno avanza condicionalmente)
+
+```typescript
+let target = 0; // Lo que buscamos
+let source = 0; // Donde buscamos
+
+while (target < targetStr.length && source < sourceStr.length) {
+  if (targetStr[target] === sourceStr[source]) {
+    target++; // Avanza solo cuando coincide
+  }
+  source++; // Siempre avanza
+}
+
+return target === targetStr.length;
+```
+
+**Ventajas generales**:
 
 - ✅ Complejidad espacial O(1)
-- ✅ Una sola pasada O(n)
+- ✅ Una sola pasada O(n) o O(n+m)
 - ✅ Procesamiento in-place
 - ✅ Early termination posible
 
-**Consideraciones**:
+**Consideraciones por tipo**:
 
-- Verificar condiciones de frontera (`left < right`)
-- Manejar elementos que se deben saltar
-- Validar que los punteros no se crucen inadvertidamente
+- **Convergentes**: Verificar condiciones de frontera (`left < right`)
+- **Paralelos**: Manejar velocidades diferentes y condiciones de término
 
 ### In-Place Processing
 
@@ -181,6 +199,38 @@ while (left < right) {
 - Reduce complejidad espacial
 - Mejora eficiencia en memoria
 - Permite procesamiento de streams grandes
+
+### Sequential Matching Pattern
+
+**Concepto**: Encontrar elementos en orden específico sin requerir posiciones consecutivas
+
+**Aplicación**: En Is Subsequence, verificar si string `s` aparece como subsecuencia en string `t`
+
+**Estrategia clave**: Greedy matching - tomar la primera ocurrencia disponible
+
+**Template**:
+
+```typescript
+function isSubsequence(target: string, source: string): boolean {
+  let targetIndex = 0;
+  let sourceIndex = 0;
+
+  while (targetIndex < target.length && sourceIndex < source.length) {
+    if (target[targetIndex] === source[sourceIndex]) {
+      targetIndex++;
+    }
+    sourceIndex++;
+  }
+
+  return targetIndex === target.length;
+}
+```
+
+**Beneficios**:
+
+- Una sola pasada O(n+m)
+- No requiere backtracking
+- Estrategia greedy es óptima para subsecuencias
 
 ### Character Validation Patterns
 
