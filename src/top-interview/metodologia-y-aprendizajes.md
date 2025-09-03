@@ -255,6 +255,70 @@ const isAlphaNumeric = (char: string): boolean => {
 
 **Trade-off**: Legibilidad vs. rendimiento micro
 
+## Hash Table Patterns
+
+### Frequency Counter Pattern
+
+**Concepto**: Usar HashMap para contar occurrencias de elementos y verificar disponibilidad
+
+**Aplicación**: Ransom Note - verificar si tenemos suficientes caracteres para construir una cadena
+
+**Problema resuelto**: LeetCode 383: Ransom Note
+
+**Template**:
+
+```typescript
+function canConstruct(target: string, source: string): boolean {
+  // Crear HashMap para contar caracteres disponibles
+  const sourceCount = new Map<string, number>();
+
+  // Fase 1: Contar todos los caracteres del source
+  for (const char of source) {
+    sourceCount.set(char, (sourceCount.get(char) || 0) + 1);
+  }
+
+  // Fase 2: Verificar y "consumir" caracteres para el target
+  for (const char of target) {
+    if (!sourceCount.has(char) || sourceCount.get(char)! <= 0) {
+      return false; // No disponible o agotado
+    }
+    sourceCount.set(char, sourceCount.get(char)! - 1);
+  }
+
+  return true;
+}
+```
+
+**Estrategias clave**:
+
+- **Two-phase algorithm**: Separar conteo de verificación
+- **Early termination**: Retornar false tan pronto como sea imposible
+- **Character consumption**: Decrementar contador simula "uso" del carácter
+
+**Optimizaciones**:
+
+- Early return por longitud: Si `target.length > source.length`
+- Uso de `Map<string, number>` vs objeto para flexibilidad
+- Verificación completa: existencia AND cantidad disponible
+
+**Complejidad típica**:
+
+- Tiempo: O(n + m) donde n = target length, m = source length
+- Espacio: O(k) donde k = caracteres únicos en source
+
+**Variaciones del patrón**:
+
+- **Anagrams**: Verificar si dos strings tienen misma frecuencia de caracteres
+- **Character replacement**: Verificar si puedes transformar un string con X reemplazos
+- **Substring permutation**: Encontrar permutaciones de substring en texto
+
+**Cuándo usar**:
+
+- Problemas que requieren contar elementos
+- Verificar disponibilidad de recursos limitados
+- Comparar distribuciones de caracteres/elementos
+- Problemas de "matching" con restricciones de frecuencia
+
 ---
 
 _Este archivo se actualiza con cada nuevo problema resuelto, capturando aprendizajes y refinando la metodología._

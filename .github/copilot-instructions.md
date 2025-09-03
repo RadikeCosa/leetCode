@@ -84,14 +84,30 @@ export function descriptiveName(params: Type[]): ReturnType {
 
 ```typescript
 /**
- * Full LeetCode problem statement with constraints in comment block
+ * LeetCode Problem [NUMBER]: [TITLE]
+ * Difficulty: [Easy/Medium/Hard]
+ * Topics: [Topics from LeetCode]
+ *
+ * [COMPLETE PROBLEM STATEMENT FROM LEETCODE - COPY EXACTLY]
+ *
+ * Example 1:
+ * Input: [from LeetCode]
+ * Output: [from LeetCode]
+ * Explanation: [if provided]
+ *
+ * Constraints:
+ * - [All constraints from LeetCode exactly as written]
+ *
+ * Hints: [If provided by LeetCode]
+ * - [Exact hint text]
  */
 import { describe, it, expect } from "vitest";
 import { functionName } from "./file-name";
 
 describe("Problem Name", () => {
   it("should return expected result for example 1", () => {
-    // Test with descriptive naming
+    // Test implementation based on LeetCode examples
+    expect(functionName(input)).toBe(expectedOutput);
   });
 });
 ```
@@ -130,7 +146,7 @@ export function solutionName(params: Type[]): ReturnType {
 - Key insights and patterns used
 - Variable naming decisions
 
-```
+````
 
 **Key Requirements**:
 - Use standard LeetCode discussion sections: Intuition, Approach, Complexity, Code, Notes
@@ -161,11 +177,72 @@ export function solutionName(params: Type[]): ReturnType {
 1. **Generate Project Structure**: Create `src/daily/problem-name/` or `src/30-days-js/problem-name/` folder with all 4 files
 2. **Skeleton Generation**:
    - `problem-name.ts` - Function signature with JSDoc header and basic structure
-   - `problem-name.test.ts` - Test file template ready for collaborative implementation
+   - `problem-name.test.ts` - **EMPTY test file template with imports only**
    - `problem-name-explanation.md` - Template structure ready for analysis
    - `problem-name-post-solution.md` - LeetCode post format template
-3. **Test Implementation**: Write test cases collaboratively with user based on examples and constraints
+3. **🚨 CRITICAL: Test Implementation MUST be collaborative**:
+   - **NEVER write test cases automatically**
+   - **NEVER pre-fill test implementations**
+   - **ALWAYS guide user through writing each test case together**
+   - Ask guiding questions about examples and edge cases
+   - Let user write the actual test code while providing guidance
 4. **Ready for Development**: User can run `npm run test:watch` and start implementing
+
+### 🚨 TEST IMPLEMENTATION RULES (STRICTLY ENFORCED)
+
+**❌ NEVER DO:**
+- Write complete test cases automatically
+- Pre-fill test implementations from LeetCode examples
+- Generate test code without explicit user collaboration
+- Assume user wants tests written for them
+
+**✅ ALWAYS DO:**
+- Create EMPTY test file with describe block only: `describe("Problem Name", () => {});`
+- Ask: "¿Qué casos de prueba quieres implementar basándote en los ejemplos?"
+- Guide through questions: "¿Qué debería retornar este ejemplo?"
+- Let USER write each `it()` block and `expect()` statement
+- Provide syntax help only when asked
+
+**Template for EMPTY test file:**
+```typescript
+/**
+ * LeetCode Problem [NUMBER]: [TITLE]
+ * Difficulty: [Easy/Medium/Hard]
+ * Topics: [Topics from LeetCode]
+ *
+ * [COMPLETE PROBLEM STATEMENT FROM LEETCODE - COPY EXACTLY]
+ *
+ * Example 1:
+ * Input: [from LeetCode]
+ * Output: [from LeetCode]
+ * Explanation: [if provided]
+ *
+ * Example 2:
+ * [if exists]
+ *
+ * Constraints:
+ * - [All constraints from LeetCode exactly as written]
+ * - [Include ALL constraints listed]
+ *
+ * Hints: [If LeetCode provides hints, include them]
+ * - Hint 1: [exact text]
+ * - Hint 2: [exact text]
+ */
+import { describe, it, expect } from "vitest";
+import { functionName } from "./file-name";
+
+describe("Problem Name", () => {
+  // Tests to be implemented collaboratively with user
+});
+```
+
+**🚨 CRITICAL HEADER REQUIREMENTS:**
+- **Problem statement**: Copy EXACTLY from LeetCode, word for word
+- **Examples**: Include ALL examples with exact input/output format
+- **Constraints**: Include EVERY constraint listed, maintain exact wording
+- **Hints**: If LeetCode provides hints, include them exactly as written
+- **Topics**: Copy the topic tags shown on LeetCode
+- **Difficulty**: Exact difficulty level from LeetCode`
 
 ### Problem-Solving Process
 
@@ -180,11 +257,13 @@ export function solutionName(params: Type[]): ReturnType {
 Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 
 1. **🔴 RED Phase**: Write comprehensive test suite collaboratively that fails
+
    - Work together to implement all LeetCode examples as tests
    - Guide user to add edge cases and boundary conditions
    - Confirm tests fail with skeleton function
 
 2. **🟢 GREEN Phase**: Implement minimal working solution
+
    - Focus on passing tests, not optimization
    - Use descriptive variable names from start
    - Iterative development with `npm run test:watch`
@@ -204,8 +283,9 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 - Help identify edge cases through questioning
 - Explain complexity analysis after implementation
 - Generate complete project skeleton from LeetCode problem statement or URL
-- Write test suites collaboratively with user during setup (not automatically)
-- Guide user through test case implementation for comprehensive coverage
+- **🚨 CRITICAL: Create EMPTY test files with describe block only**
+- **🚨 CRITICAL: Guide user through writing each test collaboratively step by step**
+- **🚨 CRITICAL: Never write test implementations automatically**
 - Complete documentation files AFTER user solves the problem analysis
 
 ### DON'T:
@@ -214,8 +294,33 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 - Write entire functions unless teaching specific concepts
 - Overwhelm with multiple concepts at once
 - Reveal answers without user reasoning
-- Generate test cases automatically without user collaboration
+- **🚨 NEVER EVER: Generate test cases automatically without user collaboration**
+- **🚨 NEVER EVER: Pre-fill test implementations from examples**
+- **🚨 NEVER EVER: Write complete it() blocks without user input**
 - Fill in documentation before user completes the problem analysis
+
+### 🚨 MANDATORY TEST COLLABORATION PROCESS
+
+**Step 1: Create empty test structure**
+
+```typescript
+describe("Problem Name", () => {
+  // Empty - user will fill collaboratively
+});
+```
+
+**Step 2: Guide with questions (NEVER write tests directly)**
+
+- "¿Qué casos de prueba ves en los ejemplos de LeetCode?"
+- "¿Cómo describirías este primer test case?"
+- "¿Qué debería retornar la función con estos inputs?"
+- "¿Qué casos edge cases podríamos agregar?"
+
+**Step 3: Let user write each test while providing syntax guidance**
+
+- User writes: `it("should...", () => { ... })`
+- User writes: `expect(...).toBe(...)`
+- Provide help with syntax only when explicitly asked
 
 ### Documentation Completion Process
 
@@ -228,6 +333,7 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
    - For top interview problems: Add concepts to `conceptos-top-interview.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
+
 - Fill in documentation before user completes the problem analysis
 
 ### Documentation Completion Process
@@ -277,4 +383,8 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 - Include edge cases and boundary conditions
 - Descriptive test names in Spanish or English
 - Problem constraints documented in test file headers
+
 ```
+
+```
+````
