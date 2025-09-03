@@ -319,6 +319,63 @@ function canConstruct(target: string, source: string): boolean {
 - Comparar distribuciones de caracteres/elementos
 - Problemas de "matching" con restricciones de frecuencia
 
+### Sliding Window Pattern
+
+**Problema ejemplo**: Minimum Size Subarray Sum (LeetCode 209)
+
+**Concepto central**: Ventana deslizante de tamaño variable que se expande y contrae dinámicamente para optimizar una métrica mientras mantiene una condición.
+
+#### **Variable-Size Sliding Window (Optimization Pattern)**
+
+- **Uso**: Encontrar subarray óptimo (mínimo/máximo) que cumple condición
+- **Estructura**: Dos punteros (`left`, `right`) que definen ventana actual
+- **Movimiento**:
+  - `right` avanza siempre (expansión)
+  - `left` avanza condicionalmente (contracción)
+
+```typescript
+let left = 0;
+let sum = 0;
+let minLength = Infinity;
+
+for (let right = 0; right < nums.length; right++) {
+  // EXPANDIR: agregar elemento actual
+  sum += nums[right];
+
+  // CONTRAER: mientras la condición se cumple
+  while (sum >= target) {
+    minLength = Math.min(minLength, right - left + 1);
+    sum -= nums[left];
+    left++;
+  }
+}
+```
+
+**Invariante clave**: Cada elemento se visita máximo 2 veces (una vez por `right`, una vez por `left`)
+
+**Patrón de decisión**:
+
+- **Expandir**: Cuando NO cumplimos la condición objetivo
+- **Contraer**: Cuando SÍ cumplimos la condición (intentar optimizar)
+
+**Complejidad típica**:
+
+- Tiempo: O(n) - cada elemento visitado máximo 2 veces
+- Espacio: O(1) - solo variables auxiliares
+
+**Casos de inicialización importantes**:
+
+- `minLength = Infinity` para problemas de minimización
+- `maxLength = 0` para problemas de maximización
+- Usar `Math.min/Math.max` para actualizar valores óptimos
+
+**Cuándo usar**:
+
+- Problemas de subarray/substring con optimización (min/max longitud)
+- Condición que puede evaluarse incrementalmente
+- Necesidad de mantener estado de ventana (suma, producto, caracteres únicos)
+- Alternativa eficiente a enfoques O(n²) de fuerza bruta
+
 ---
 
 _Este archivo se actualiza con cada nuevo problema resuelto, capturando aprendizajes y refinando la metodología._
