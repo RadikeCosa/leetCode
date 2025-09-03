@@ -131,6 +131,80 @@ top-interview/
 - **Think edge cases**: Los casos límite revelan la robustez del algoritmo
 - **Pattern recognition**: Cada problema enseña técnicas reutilizables
 
+## Patrones y Técnicas Identificados
+
+### Two Pointers Pattern
+
+**Problema ejemplo**: Valid Palindrome (LeetCode 125)
+
+**Cuándo usar**:
+
+- Verificación de propiedades simétricas (palíndromos)
+- Búsqueda en arrays ordenados
+- Problemas que requieren comparación desde extremos
+
+**Implementación tipo**:
+
+```typescript
+let left = 0;
+let right = array.length - 1;
+
+while (left < right) {
+  // Procesar/comparar elementos
+  // Mover punteros según lógica del problema
+  left++;
+  right--;
+}
+```
+
+**Ventajas**:
+
+- ✅ Complejidad espacial O(1)
+- ✅ Una sola pasada O(n)
+- ✅ Procesamiento in-place
+- ✅ Early termination posible
+
+**Consideraciones**:
+
+- Verificar condiciones de frontera (`left < right`)
+- Manejar elementos que se deben saltar
+- Validar que los punteros no se crucen inadvertidamente
+
+### In-Place Processing
+
+**Concepto**: Procesar datos sin crear estructuras auxiliares
+
+**Aplicación**: En Valid Palindrome, saltar caracteres no alfanuméricos durante comparación vs. crear string limpio
+
+**Beneficios**:
+
+- Reduce complejidad espacial
+- Mejora eficiencia en memoria
+- Permite procesamiento de streams grandes
+
+### Character Validation Patterns
+
+**Regex vs Manual Checks**:
+
+```typescript
+// Regex approach (más legible)
+const isAlphaNumeric = (char: string): boolean => {
+  return /[a-z0-9]/i.test(char);
+};
+
+// Manual approach (más eficiente)
+const isAlphaNumeric = (char: string): boolean => {
+  const code = char.charCodeAt(0);
+  return (
+    (code >= 48 && code <= 57) || // 0-9
+    (code >= 65 && code <= 90) || // A-Z
+    (code >= 97 && code <= 122)
+  ); // a-z
+};
+```
+
+**Trade-off**: Legibilidad vs. rendimiento micro
+
 ---
 
 _Este archivo se actualiza con cada nuevo problema resuelto, capturando aprendizajes y refinando la metodología._
