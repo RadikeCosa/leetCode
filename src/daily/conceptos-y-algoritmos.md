@@ -1624,3 +1624,122 @@ const diagonalSquared = length * length + width * width;
 - Performance extrema (aunque Math.hypot es muy eficiente)
 
 ---
+
+## Comparación de Distancias
+
+**Definición:** Patrón fundamental para resolver problemas de proximidad y optimización geométrica.
+
+### Distancia en Línea Numérica
+
+**Fórmula básica:**
+
+```typescript
+const distance = Math.abs(punto1 - punto2);
+```
+
+**Aplicaciones:**
+
+- Determinar quién llega primero a un destino
+- Encontrar el punto más cercano
+- Problemas de meeting point
+
+**Ejemplo - Find Closest Person:**
+
+```typescript
+export function findClosestPerson(x: number, y: number, z: number): number {
+  const distance1_3 = Math.abs(z - x);
+  const distance2_3 = Math.abs(z - y);
+  return distance1_3 < distance2_3 ? 1 : distance1_3 > distance2_3 ? 2 : 0;
+}
+```
+
+### Técnicas de Optimización
+
+**1. Evitar cálculos redundantes:**
+
+```typescript
+// ✅ Bueno: calcular una vez, usar múltiples veces
+const distance1 = Math.abs(z - x);
+const distance2 = Math.abs(z - y);
+return distance1 < distance2 ? 1 : distance1 > distance2 ? 2 : 0;
+
+// ❌ Malo: recalcular en cada comparación
+return Math.abs(z - x) < Math.abs(z - y)
+  ? 1
+  : Math.abs(z - x) > Math.abs(z - y)
+  ? 2
+  : 0;
+```
+
+**2. Comparar cuadrados cuando sea apropiado:**
+
+```typescript
+// Para evitar Math.sqrt en distancias euclidianas
+const distSq1 = (x1 - z) * (x1 - z) + (y1 - z) * (y1 - z);
+const distSq2 = (x2 - z) * (x2 - z) + (y2 - z) * (y2 - z);
+```
+
+### Variables Semánticamente Descriptivas
+
+**Principio:** El código debe ser auto-documentado a través del naming.
+
+**Ejemplos efectivos:**
+
+```typescript
+// ✅ Excelente: indica claramente qué se mide
+const distance1_3 = Math.abs(z - x); // distancia de persona 1 a persona 3
+const distance2_3 = Math.abs(z - y); // distancia de persona 2 a persona 3
+
+// ❌ Ambiguo: no está claro qué representa
+const distance1 = Math.abs(z - x);
+const distance2 = Math.abs(z - y);
+```
+
+**Beneficios:**
+
+- Código auto-documentado
+- Reduce necesidad de comentarios
+- Facilita mantenimiento y debugging
+- Mejora la colaboración en equipo
+
+### Operadores Ternarios Anidados
+
+**Estructura para múltiples condiciones:**
+
+```typescript
+return condicion1 ? valor1 : condicion2 ? valor2 : valorPorDefecto;
+```
+
+**Cuándo usar:**
+
+- Múltiples casos mutuamente excluyentes
+- Retorno inmediato basado en condiciones
+- Alternativa concisa a if-else-if chains
+
+**Ejemplo del patrón comparación-triple:**
+
+```typescript
+return distancia1 < distancia2
+  ? resultado1
+  : distancia1 > distancia2
+  ? resultado2
+  : resultadoEmpate;
+```
+
+### Problemas Relacionados con Distancias
+
+**Patrones comunes:**
+
+- **Closest Points:** Encontrar puntos más cercanos en espacio 2D/3D
+- **Meeting Point:** Punto óptimo donde convergen múltiples entidades
+- **Two Sum variants:** Minimizar distancia entre sumas objetivo
+- **Pathfinding:** Algoritmos como A\* que usan heurísticas de distancia
+
+**Extensiones del patrón:**
+
+- Múltiples dimensiones (distancia euclidiana)
+- Diferentes métricas (Manhattan, Chebyshev)
+- Múltiples candidatos (encontrar los k más cercanos)
+- Restricciones adicionales (obstáculos, pesos)
+
+---
