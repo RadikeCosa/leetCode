@@ -1743,3 +1743,196 @@ return distancia1 < distancia2
 - Restricciones adicionales (obstáculos, pesos)
 
 ---
+
+## Matrices y Validación con Sets
+
+**Definición:** Uso de Hash Sets para validar múltiples restricciones simultáneamente en estructuras matriciales.
+
+### Patrón: Arrays de Sets para Tracking
+
+**Estructura típica:**
+
+```typescript
+const rows: Set<string>[] = Array.from({ length: n }, () => new Set());
+const cols: Set<string>[] = Array.from({ length: n }, () => new Set());
+const regions: Set<string>[] = Array.from({ length: k }, () => new Set());
+```
+
+**Aplicaciones:**
+
+- Validación de Sudoku (filas, columnas, sub-cajas)
+- N-Queens (filas, columnas, diagonales)
+- Grid illumination (filas, columnas, diagonales)
+
+### Mapeo de Coordenadas 2D a 1D
+
+**Fórmula general para sub-regiones:**
+
+```typescript
+const regionIndex = Math.floor(i / size) * groups + Math.floor(j / size);
+```
+
+**Ejemplo en Sudoku 9x9 (sub-cajas 3x3):**
+
+```typescript
+const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+```
+
+**Visualización del mapeo:**
+
+```
+Posiciones (i,j) → Índices de sub-caja:
+(0,0)-(2,2) → 0  |  (0,3)-(2,5) → 1  |  (0,6)-(2,8) → 2
+(3,0)-(5,2) → 3  |  (3,3)-(5,5) → 4  |  (3,6)-(5,8) → 5
+(6,0)-(8,2) → 6  |  (6,3)-(8,5) → 7  |  (6,6)-(8,8) → 8
+```
+
+### Sets vs Arrays Booleanos
+
+**Sets (recomendado):**
+
+```typescript
+if (rows[i].has(value)) return false;
+rows[i].add(value);
+```
+
+**Ventajas:**
+
+- API más limpia y expresiva
+- Manejo automático de duplicados
+- Flexible para diferentes tipos de datos
+
+**Arrays Booleanos:**
+
+```typescript
+if (rowSeen[i][value]) return false;
+rowSeen[i][value] = true;
+```
+
+**Cuándo usar:**
+
+- Valores limitados y conocidos (ej: dígitos 1-9)
+- Optimización extrema de memoria
+- Acceso por índice directo
+
+### Validación Simultánea de Múltiples Restricciones
+
+**Patrón básico:**
+
+```typescript
+// Validar todas las restricciones en una sola pasada
+for (let i = 0; i < n; i++) {
+  for (let j = 0; j < m; j++) {
+    const value = matrix[i][j];
+    if (shouldValidate(value)) {
+      // Calcular índices para cada dimensión de restricción
+      const region = calculateRegion(i, j);
+
+      // Verificar violaciones
+      if (
+        rows[i].has(value) ||
+        cols[j].has(value) ||
+        regions[region].has(value)
+      ) {
+        return false; // Early return en violación
+      }
+
+      // Actualizar tracking
+      rows[i].add(value);
+      cols[j].add(value);
+      regions[region].add(value);
+    }
+  }
+}
+```
+
+### Inicialización Segura de Arrays de Objetos
+
+**Método recomendado:**
+
+```typescript
+Array.from({ length: n }, () => new Set());
+```
+
+**Método problemático:**
+
+```typescript
+new Array(n).fill(new Set()); // ¡Referencia compartida!
+```
+
+**Por qué importa:**
+
+- `fill()` usa la misma referencia para todos los elementos
+- Cambios en un Set afectan a todos los demás
+- `Array.from()` ejecuta la función para cada posición
+
+### Early Return y Optimización
+
+**Estrategias:**
+
+1. **Early termination:** Retornar `false` inmediatamente al detectar violación
+2. **Skip empty values:** Evitar procesamiento de celdas vacías
+3. **Constant time operations:** Aprovechar O(1) de Sets
+
+**Ejemplo optimizado:**
+
+```typescript
+if (value === ".") continue; // Skip vacías
+if (violations) return false; // Early exit
+// Solo procesar valores relevantes
+```
+
+### Análisis de Complejidad en Matrices Fijas
+
+**Para tableros de tamaño fijo (ej: Sudoku 9x9):**
+
+- **Tiempo:** O(1) - siempre 81 celdas, operaciones constantes
+- **Espacio:** O(1) - máximo 27 Sets con 9 elementos cada uno
+
+**Para matrices generales n×m:**
+
+- **Tiempo:** O(n×m) - una pasada por toda la matriz
+- **Espacio:** O(n+m+k) donde k = número de regiones
+
+### Aplicaciones del Patrón
+
+**Problemas similares:**
+
+- **Valid Sudoku:** 3 tipos de restricciones simultáneas
+- **N-Queens:** Filas, columnas y diagonales
+- **Grid Illumination:** Tracking de iluminación en múltiples direcciones
+- **Word Search:** Tracking de celdas visitadas
+
+**Extensiones:**
+
+- **Sudoku Solver:** Usar backtracking con misma validación
+- **Multiple constraint problems:** Agregar más dimensiones de tracking
+- **Dynamic validation:** Actualizar/remover elementos de Sets
+
+### Patterns de Coordinate Mapping
+
+**Grid sub-regions (general):**
+
+```typescript
+// Para cualquier tamaño de sub-región
+const regionIndex =
+  Math.floor(i / regionHeight) * regionsPerRow + Math.floor(j / regionWidth);
+```
+
+**Diagonales en matrices:**
+
+```typescript
+const mainDiagonal = i - j; // Diagonal principal y paralelas
+const antiDiagonal = i + j; // Anti-diagonal y paralelas
+```
+
+**Aplicaciones en ajedrez/tableros:**
+
+```typescript
+// Conversión board position a índice
+const squareIndex = i * 8 + j; // Para tablero 8x8
+const fileIndex = j; // Columna (a-h)
+const rankIndex = i; // Fila (1-8)
+```
+
+---
