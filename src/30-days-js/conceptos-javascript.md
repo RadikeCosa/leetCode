@@ -2096,4 +2096,89 @@ function timeLimit(fn: Function, t: number): Function {
 - **Closure-based management**: Encapsulación de timer IDs y Promise states
 - **Memory and cleanup**: Prevención de leaks en operaciones async complejas
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, y promise racing patterns.
+---
+
+## Manipulación de Tipos de Datos y JSON
+
+### Type Detection y Object/Array Discrimination
+
+**Problema común:** JavaScript trata arrays como objetos cuando usamos `typeof`
+
+```typescript
+typeof []; // → "object" 😕
+typeof {}; // → "object" 😕
+```
+
+**Solución con `Array.isArray()`:**
+
+```typescript
+Array.isArray([]); // → true ✅
+Array.isArray({}); // → false ✅
+Array.isArray([1, 2, 3]); // → true
+Array.isArray({ x: 5 }); // → false
+```
+
+### Optimización O(1) para Object Emptiness
+
+**Problema:** `Object.keys(obj).length` es O(n) porque enumera todas las propiedades
+
+**Solución O(1) con `for...in` early return:**
+
+```typescript
+function isEmpty(obj: Record<string, any> | any[]): boolean {
+  if (Array.isArray(obj)) {
+    return obj.length === 0; // Arrays: O(1) naturalmente
+  }
+
+  // Objetos: O(1) verdadero con early termination
+  for (let key in obj) {
+    return false; // Si hay al menos una propiedad, no está vacío
+  }
+  return true; // Si nunca entró al loop, está vacío
+}
+```
+
+**Comparación de enfoques:**
+
+| Método                  | Arrays | Objetos  | Complejidad Real |
+| ----------------------- | ------ | -------- | ---------------- |
+| `Object.keys().length`  | O(1)   | **O(n)** | No óptimo        |
+| `for...in` early return | O(1)   | **O(1)** | Óptimo ✅        |
+
+### Técnicas de Early Termination
+
+**Concepto:** Terminar la evaluación tan pronto como se encuentre evidencia suficiente
+
+**Aplicaciones:**
+
+- **Existence checking**: ¿Existe al menos una propiedad?
+- **Validation**: ¿Hay al menos un error?
+- **Search**: ¿Se encuentra el elemento buscado?
+
+**Pattern típico:**
+
+```typescript
+for (let item in collection) {
+  if (condition(item)) {
+    return true; // Found evidence, stop immediately
+  }
+}
+return false; // No evidence found after checking all
+```
+
+### JSON Processing Patterns
+
+**Validación de estructuras JSON:**
+
+- Input siempre válido desde `JSON.parse`
+- Distinguir arrays vs objetos para processing diferente
+- Optimizar para casos de uso específicos (emptiness, validation, etc.)
+
+**Casos de uso comunes:**
+
+- **API payload validation**: Verificar si requests están vacíos
+- **Form data processing**: Determinar si campos tienen contenido
+- **Configuration checking**: Validar si configuraciones están presentes
+- **Cache optimization**: Evitar operaciones en estructuras vacías
+
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, promise racing patterns, y optimización de performance en manipulación de datos.
