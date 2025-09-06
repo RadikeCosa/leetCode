@@ -6,7 +6,7 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
 
 ## Architecture & Structure
 
-- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/` or `src/30-days-js/problem-name/` with:
+- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/`, `src/30-days-js/section-name/problem-name/`, `src/top-interview/category-name/problem-name/`, or `src/binary-search/section-name/problem-name/` with:
   - `problem-name.ts` - Implementation with TypeScript types
   - `problem-name.test.ts` - Vitest test suite
   - `problem-name-explanation.md` - Detailed analysis
@@ -16,12 +16,20 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
   - `src/daily/` - General LeetCode problems (main series)
   - `src/30-days-js/` - "30 Days of JavaScript" LeetCode series, agrupados en carpetas por parte temática (por ejemplo: `parte-1-introduccion`, `parte-2-transformacion-de-arrays`, etc.) en vez de por día.
   - `src/top-interview/` - Top interview LeetCode problems.
+  - `src/binary-search/` - Binary Search Study Plan problems, organizados en subcarpetas por sección temática:
+    - `search-in-array/` - Búsqueda básica en arrays ordenados
+    - `rotated-array/` - Búsqueda en arrays rotados
+    - `standard-search/` - Búsqueda binaria estándar y variaciones
+    - `math/` - Problemas matemáticos que usan binary search
+    - `tricky-invariant/` - Problemas con invariantes complejas
+    - `as-a-tool/` - Binary search como herramienta para otros algoritmos
 
 - **Knowledge Base**:
   - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
   - `src/30-days-js/conceptos-javascript.md` - JavaScript/TypeScript concepts and functional programming patterns
     - `src/top-interview/metodologia-y-aprendizajes.md` - TDD methodology and problem-solving approach
-- **Templates**: Both `src/daily/utilidades/` and `src/30-days-js/utilidades/` contain markdown templates for new problems
+  - `src/binary-search/conceptos-binary-search.md` - Binary search patterns, techniques and algorithmic approaches
+- **Templates**: `src/daily/utilidades/`, `src/30-days-js/utilidades/`, and `src/binary-search/utilidades/` contain markdown templates for new problems
 
 ## TDD Methodology (Test-Driven Development)
 
@@ -174,7 +182,7 @@ export function solutionName(params: Type[]): ReturnType {
 
 **Initial Setup**: When user provides LeetCode problem (statement text or URL):
 
-1. **Generate Project Structure**: Create `src/daily/problem-name/` or `src/30-days-js/problem-name/` folder with all 4 files
+1. **Generate Project Structure**: Create `src/daily/problem-name/`, `src/30-days-js/problem-name/`, `src/top-interview/problem-name/`, or `src/binary-search/section-name/problem-name/` folder with all 4 files
 2. **Skeleton Generation**:
    - `problem-name.ts` - Function signature with JSDoc header and basic structure
    - `problem-name.test.ts` - **EMPTY test file template with imports only**
@@ -331,7 +339,8 @@ describe("Problem Name", () => {
 3. **Knowledge Base Update**:
    - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
-   - For top interview problems: Add concepts to `conceptos-top-interview.md`
+   - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
+   - For binary search problems: Add binary search concepts to `conceptos-binary-search.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 - Fill in documentation before user completes the problem analysis
@@ -345,7 +354,8 @@ describe("Problem Name", () => {
 3. **Knowledge Base Update**:
    - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
-   - For top interview problems: Add concepts to `conceptos-top-interview.md`
+   - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
+   - For binary search problems: Add binary search concepts to `conceptos-binary-search.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 ## Key Technical Patterns
