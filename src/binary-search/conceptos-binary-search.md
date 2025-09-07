@@ -2,16 +2,18 @@
 
 ## Introducción
 
-Este documento recopila los conceptos, patrones algorítmicos y técnicas de programación aprendidas durante la resolución del **Binary Search Study Plan** de LeetCode. El enfoque está en entender profundamente la búsqueda binaria y sus variaciones.
+Este documento recopila los conceptos, patrones algorítmicos y técnicas aprendidas durante la resolución del **Binary Search Study Plan** de LeetCode. Se construye incrementalmente basándose en los problemas realmente resueltos.
 
-## Conceptos Fundamentales
+---
 
-### Búsqueda Binaria Básica
+## 🎯 **Template Fundamental - Búsqueda Exacta**
 
-#### Template Principal
+_Aprendido en: Binary Search (704)_
+
+### Patrón Base
 
 ```typescript
-function binarySearch(arr: number[], target: number): number {
+function binarySearchExact(arr: number[], target: number): number {
   let left = 0;
   let right = arr.length - 1;
 
@@ -31,190 +33,227 @@ function binarySearch(arr: number[], target: number): number {
 }
 ```
 
-#### Puntos Clave
+### Decisiones Clave Validadas
 
-- **Invariante del bucle**: El target siempre está en el rango `[left, right]`
-- **Cálculo de mid**: `Math.floor(left + (right - left) / 2)` evita overflow
-- **Condición del bucle**: `left <= right` para incluir el caso de un solo elemento
+#### ✅ **Condición del bucle: `left <= right`**
 
-### Variaciones de Búsqueda Binaria
+- **Por qué**: Permite revisar casos de un solo elemento (`left = right`)
+- **Ventaja**: Más intuitivo para búsquedas exactas
+- **Cuándo usar**: Cuando buscas un elemento específico
 
-#### 1. Encontrar el Primer/Último Elemento
+#### ✅ **Inicialización: `right = arr.length - 1`**
 
-**Primer elemento mayor o igual:**
+- **Por qué**: Trabajamos con índices válidos
+- **Ventaja**: Consistente con la condición `<=`
+- **Evita**: Accesos fuera de rango
+
+#### ✅ **Actualización: `left = mid + 1`, `right = mid - 1`**
+
+- **Por qué**: Elimina el elemento ya revisado (`mid`)
+- **Garantiza**: Progreso en cada iteración (rango se reduce)
+- **Evita**: Bucles infinitos
+
+#### ✅ **Cálculo seguro: `left + (right - left) / 2`**
+
+- **Por qué**: Previene overflow en números grandes
+- **Matemáticamente**: Equivalente a `(left + right) / 2`
+- **Buena práctica**: Adoptarla siempre
+
+---
+
+## 🧮 **Análisis de Complejidad**
+
+_Validado en: Binary Search (704)_
+
+### Temporal: O(log n)
+
+- **Razón**: Cada iteración elimina exactamente la mitad del espacio de búsqueda
+- **Progresión**: n → n/2 → n/4 → n/8 → ... → 1
+- **Ejemplo práctico**: Array de 1M elementos = ~20 comparaciones máximo
+
+### Espacial: O(1)
+
+- **Razón**: Solo usamos 3 variables adicionales (`left`, `right`, `mid`)
+- **Constante**: No importa el tamaño del array
+
+---
+
+## 🎪 **Casos Edge Críticos**
+
+_Identificados en: Binary Search (704)_
+
+### 1. **Array de un solo elemento**
 
 ```typescript
-function findFirst(arr: number[], target: number): number {
-  let left = 0;
-  let right = arr.length;
+nums = [1], target = 0 → -1
+nums = [1], target = 1 → 0
+```
 
-  while (left < right) {
+**Enseñanza**: Verifica que `left <= right` funciona cuando `left = right`
+
+### 2. **Target en extremos**
+
+```typescript
+// Primera posición
+nums = [1,2,3,4,5], target = 1 → 0
+
+// Última posición
+nums = [1,2,3,4,5], target = 5 → 4
+```
+
+**Enseñanza**: El algoritmo no se "salta" los boundary conditions
+
+### 3. **Target no existe**
+
+```typescript
+nums = [-1,0,3,5,9,12], target = 2 → -1
+```
+
+**Enseñanza**: Cuando `left > right`, el elemento no existe
+
+---
+
+## 🔧 **Invariantes del Algoritmo**
+
+_Comprobadas en: Binary Search (704)_
+
+### Invariante Principal
+
+> **"Si el target existe en el array, debe estar en el rango [left, right]"**
+
+**Mantenimiento:**
+
+1. **Inicialización**: `[0, length-1]` contiene todo el array
+2. **Iteración**: Eliminamos la mitad que no puede contener el target
+3. **Terminación**: Cuando `left > right`, target no existe
+
+### Progreso Garantizado
+
+> **"En cada iteración, el rango [left, right] se reduce estrictamente"**
+
+**Demostración:**
+
+- `nums[mid] < target` → nuevo rango `[mid+1, right]` (más pequeño)
+- `nums[mid] > target` → nuevo rango `[left, mid-1]` (más pequeño)
+
+---
+
+## 🚨 **Errores Comunes Evitados**
+
+_Lecciones de: Binary Search (704)_
+
+### 1. **Condición de bucle incorrecta**
+
+```typescript
+// ❌ MAL: No revisa último elemento
+while (left < right) { ... }
+
+// ✅ BIEN: Revisa todos los elementos
+while (left <= right) { ... }
+```
+
+### 2. **Actualización sin progreso**
+
+```typescript
+// ❌ MAL: Posible bucle infinito
+left = mid; // o  right = mid;
+
+// ✅ BIEN: Siempre progresa
+left = mid + 1;
+right = mid - 1;
+```
+
+### 3. **Overflow en cálculo de mid**
+
+```typescript
+// ❌ PELIGROSO: Puede desbordarse
+mid = (left + right) / 2;
+
+// ✅ SEGURO: Previene overflow
+mid = left + (right - left) / 2;
+```
+
+---
+
+## 📊 **Progreso del Study Plan**
+
+### ✅ **Problemas Completados**
+
+1. **Binary Search (704)** - ⭐ FUNDACIONAL
+
+   - Estableció el template base
+   - Validó decisiones de implementación
+   - Identificó casos edge críticos
+
+2. **Search Insert Position (35)** - 🔄 VARIACIÓN DEL TEMPLATE
+   - Confirmó robustez del template base
+   - Introdujo patrón "Lower Bound"
+   - Demostró versatilidad de `return left`
+
+### 🎯 **Patrón Lower Bound (Insert Position)**
+
+_Aprendido en: Search Insert Position (35)_
+
+```typescript
+function searchInsert(nums: number[], target: number): number {
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (left <= right) {
     const mid = Math.floor(left + (right - left) / 2);
 
-    if (arr[mid] >= target) {
-      right = mid;
-    } else {
+    if (nums[mid] === target) {
+      return mid; // Caso exacto - mismo que template base
+    } else if (nums[mid] < target) {
       left = mid + 1;
+    } else {
+      right = mid - 1;
     }
   }
 
-  return left;
+  return left; // 🔑 CLAVE: Posición de inserción
 }
 ```
 
-#### 2. Búsqueda en Array Rotado
+#### ✅ **Insight Fundamental**
 
-**Características:**
+**¿Por qué `return left` funciona para inserción?**
 
-- Identificar qué mitad está ordenada
-- Determinar si el target está en la mitad ordenada
-- Ajustar los punteros según corresponda
+- Cuando el loop termina (`left > right`), `left` apunta a:
+  - El primer elemento mayor que target, OR
+  - El final del array (si target > todos los elementos)
+- Esta es **exactamente** la posición donde target debería insertarse
 
-### Patrones Algorítmicos
+#### ✅ **Comparación de Templates**
 
-#### 1. **Binary Search on Answer**
+| Aspecto                    | Binary Search (704)                 | Search Insert Position (35)         |
+| -------------------------- | ----------------------------------- | ----------------------------------- |
+| **Inicialización**         | `left=0, right=len-1`               | `left=0, right=len-1`               |
+| **Condición loop**         | `left <= right`                     | `left <= right`                     |
+| **Mid calculation**        | `Math.floor(left + (right-left)/2)` | `Math.floor(left + (right-left)/2)` |
+| **Pointer updates**        | `left=mid+1, right=mid-1`           | `left=mid+1, right=mid-1`           |
+| **Elemento encontrado**    | `return mid`                        | `return mid`                        |
+| **Elemento NO encontrado** | `return -1`                         | `return left`                       |
 
-- Buscar en un rango de posibles respuestas
-- Función de verificación que determina si una respuesta es válida
-- Minimizar o maximizar la respuesta válida
+**Conclusión**: El template es **idéntico** excepto por el valor de retorno cuando no se encuentra el target.
 
-#### 2. **Peak Finding**
+### 🔄 **Próximos Conceptos a Explorar**
 
-- Encontrar elementos que son mayores que sus vecinos
-- Útil en arrays con forma de montaña
-
-#### 3. **Matrix Binary Search**
-
-- Búsqueda en matrices 2D
-- Tratar la matriz como array 1D: `index = row * cols + col`
-
-### Técnicas de Implementación
-
-#### Manejo de Límites
-
-```typescript
-// Template para evitar errores comunes
-let left = 0;
-let right = arr.length - 1; // Para búsqueda en elementos existentes
-// let right = arr.length;   // Para búsqueda de posición de inserción
-```
-
-#### Prevención de Overflow
-
-```typescript
-// Correcto: evita overflow en números grandes
-const mid = Math.floor(left + (right - left) / 2);
-
-// Incorrecto: puede causar overflow
-// const mid = Math.floor((left + right) / 2);
-```
-
-## Problemas por Categoría
-
-### Básicos
-
-- [ ] Binary Search (LeetCode 704)
-- [ ] Search Insert Position (LeetCode 35)
-
-### Aplicaciones Avanzadas
-
-- [ ] Find First and Last Position (LeetCode 34)
-- [ ] Search in Rotated Sorted Array (LeetCode 33)
-
-### Binary Search on Answer
-
-- [ ] Find Peak Element (LeetCode 162)
-- [ ] Koko Eating Bananas (LeetCode 875)
-
-## Complejidad Temporal
-
-### Búsqueda Binaria Estándar
-
-- **Tiempo**: O(log n) - dividimos el espacio de búsqueda por la mitad en cada iteración
-- **Espacio**: O(1) - solo usamos variables adicionales constantes
-
-### Análisis de Casos
-
-- **Mejor caso**: O(1) - elemento encontrado en el primer intento
-- **Caso promedio**: O(log n)
-- **Peor caso**: O(log n) - elemento no existe o está al final
-
-## Errores Comunes y Cómo Evitarlos
-
-### 1. Condición del Bucle
-
-```typescript
-// ❌ Incorrecto: puede causar bucle infinito
-while (left < right) {
-  // ...
-  left = mid; // Sin +1
-}
-
-// ✅ Correcto: siempre progresa
-while (left < right) {
-  // ...
-  left = mid + 1;
-}
-```
-
-### 2. Cálculo de Límites
-
-```typescript
-// Para diferentes tipos de búsqueda
-const searchElement = (arr: number[], target: number) => {
-  let right = arr.length - 1; // Buscar elemento existente
-};
-
-const insertPosition = (arr: number[], target: number) => {
-  let right = arr.length; // Buscar posición de inserción
-};
-```
-
-### 3. Actualización de Punteros
-
-```typescript
-// Asegurar que siempre hay progreso
-if (condition) {
-  right = mid; // No -1 cuando queremos incluir mid
-} else {
-  left = mid + 1; // Siempre +1 para excluir mid
-}
-```
-
-## Decisiones de Implementación
-
-### Cuándo Usar Cada Template
-
-#### Template 1: `left <= right`
-
-- **Uso**: Búsqueda de elemento específico
-- **Retorno**: Índice del elemento o -1
-- **Ventaja**: Más intuitivo para búsquedas básicas
-
-#### Template 2: `left < right`
-
-- **Uso**: Encontrar posición de inserción, primer/último elemento
-- **Retorno**: Posición donde insertar o índice del elemento buscado
-- **Ventaja**: Evita casos edge de índices
-
-### Nomenclatura de Variables
-
-```typescript
-// Nombres descriptivos para claridad
-let leftBound = 0;
-let rightBound = arr.length - 1;
-let middleIndex = Math.floor(leftBound + (rightBound - leftBound) / 2);
-```
+- Find First/Last Occurrence: ¿Cómo modificar para duplicados?
+- Rotated Arrays: ¿Cómo adaptar el template?
+- Upper Bound: ¿Variación del Lower Bound?
 
 ---
 
-## Referencias y Recursos
+## 🎓 **Lecciones Clave Hasta Ahora**
 
-- [Binary Search Study Plan - LeetCode](https://leetcode.com/studyplan/binary-search/)
-- Problemas relacionados en `src/daily/` que usan binary search
-- Comparación con algoritmos de fuerza bruta en problemas específicos
+1. **Template `left <= right`** es extremadamente versátil
+2. **Mismo algoritmo, diferente return**: Una pequeña modificación cambia completamente la función
+3. **Lower Bound pattern**: `return left` para posición de inserción
+4. **Robustez del template**: Maneja edge cases automáticamente
+5. **Reutilización de código**: Patrones similares para problemas diferentes
 
 ---
 
-_Última actualización: [Fecha]_
-_Problemas completados: 0/[Total]_
+_Última actualización: 6 de septiembre de 2025_  
+_Problemas completados: 2/42 - Construyendo conocimiento incrementalmente_ 🎯

@@ -258,7 +258,10 @@ describe("Problem Name", () => {
 2. **Test-First**: Tests already written, focus on making them pass
 3. **Implementation**: TypeScript with explicit types and Spanish comments
 4. **Documentation**: Complete explanation.md and post-solution.md files after solving
-5. **Knowledge Update**: Add new patterns to `conceptos-y-algoritmos.md` (daily problems) or `conceptos-javascript.md` (30-days-js problems)
+5. **Knowledge Update**: Add new patterns to relevant knowledge files:
+   - Daily problems → `conceptos-y-algoritmos.md`
+   - 30-days-js problems → `conceptos-javascript.md`
+   - Binary search problems → `conceptos-binary-search.md` (incremental approach: only concepts from completed problems)
 
 ### Problem-Solving Process (TDD-based)
 
@@ -340,7 +343,7 @@ describe("Problem Name", () => {
    - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
    - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
-   - For binary search problems: Add binary search concepts to `conceptos-binary-search.md`
+   - For binary search problems: **Incremental approach** - Add only concepts learned from completed problems to `conceptos-binary-search.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 - Fill in documentation before user completes the problem analysis

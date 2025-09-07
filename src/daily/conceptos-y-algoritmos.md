@@ -1936,3 +1936,227 @@ const rankIndex = i; // Fila (1-8)
 ```
 
 ---
+
+## Construcción por Invariantes y Pares Simétricos
+
+### Pares Simétricos (Symmetric Pairs)
+
+**Definición:** Técnica para generar elementos que se cancelan matemáticamente para mantener una propiedad específica (suma, XOR, etc.).
+
+**Concepto clave:** En lugar de generar elementos aleatorios y validar, construimos garantizando las propiedades deseadas.
+
+**Ejemplo - Suma Cero:**
+
+```typescript
+// Para n=5: generar [-2, -1, 0, 1, 2]
+const numPairs = Math.floor(n / 2);
+
+// Cada par (-i, +i) suma 0
+for (let i = numPairs; i >= 1; i--) {
+  result.push(-i); // Negativo
+}
+// 0 es elemento neutro
+if (n % 2 === 1) result.push(0);
+for (let i = 1; i <= numPairs; i++) {
+  result.push(i); // Positivo
+}
+```
+
+**Ventajas:**
+
+- Garantiza propiedades por construcción (no necesita validación)
+- Matemáticamente elegante y fácil de verificar
+- Aplicable a múltiples operaciones (suma, XOR, multiplicación)
+
+**Aplicaciones:**
+
+- Problemas de suma objetivo (Target Sum)
+- Balanceamiento de cargas
+- Estructuras simétricas (árboles balanceados)
+
+### Elemento Neutro en Algoritmos
+
+**Definición:** Elemento que no afecta el resultado de una operación.
+
+**Elementos neutros comunes:**
+
+- **Suma:** 0 (a + 0 = a)
+- **Multiplicación:** 1 (a × 1 = a)
+- **XOR:** 0 (a ⊕ 0 = a)
+- **OR lógico:** false (a || false = a)
+- **AND lógico:** true (a && true = a)
+
+**Uso en construcción:**
+
+```typescript
+// Para n impar, agregar elemento neutro
+if (n % 2 === 1) {
+  result.push(neutralElement); // 0 para suma
+}
+```
+
+**Estrategia:** Cuando necesitas un número impar de elementos pero trabajas con pares simétricos, usa el elemento neutro.
+
+### Análisis de Paridad (Par/Impar)
+
+**Técnica fundamental:** Dividir problemas según si n es par o impar.
+
+**Patrón común:**
+
+```typescript
+const pairs = Math.floor(n / 2); // Cuántos pares necesito
+const needsNeutral = n % 2 === 1; // ¿Necesito elemento neutro?
+```
+
+**Aplicaciones:**
+
+- División equitativa de recursos
+- Algoritmos de apareamiento (matching)
+- Optimizaciones específicas por paridad
+
+**Ejemplo - Distribución:**
+
+- n=6: 3 pares perfectos
+- n=7: 3 pares + 1 elemento especial
+
+### Pre-allocación y Direct Indexing
+
+**Problema:** Arrays dinámicos pueden requerir redimensionamiento costoso.
+
+**Solución:** Pre-allocar cuando conoces el tamaño final.
+
+```typescript
+// ❌ Dinámico - puede redimensionar múltiples veces
+const result: number[] = [];
+result.push(value);
+
+// ✅ Pre-allocado - una sola allocación
+const result = new Array<number>(n);
+let index = 0;
+result[index++] = value; // Direct indexing
+```
+
+**Ventajas:**
+
+- **Performance:** Elimina overhead de redimensionamiento
+- **Memory locality:** Acceso secuencial es cache-friendly
+- **Predictabilidad:** Tiempo constante por operación
+
+**Cuándo usar:**
+
+- Sabes el tamaño final del array
+- Performance es crítica
+- Acceso secuencial es el patrón principal
+
+### Property-Based Testing
+
+**Definición:** Testear propiedades/invariantes en lugar de valores específicos.
+
+**Problema:** Funciones con múltiples respuestas válidas.
+
+**Solución tradicional (frágil):**
+
+```typescript
+expect(sumZero(3)).toEqual([-1, 0, 1]); // ❌ Solo acepta UNA respuesta
+```
+
+**Property-based approach (robusto):**
+
+```typescript
+const isValid = (arr: number[], n: number) =>
+  arr.length === n && // Longitud correcta
+  new Set(arr).size === arr.length && // Elementos únicos
+  arr.reduce((sum, x) => sum + x, 0) === 0; // Suma cero
+
+expect(isValid(sumZero(3), 3)).toBe(true); // ✅ Acepta CUALQUIER respuesta válida
+```
+
+**Helper functions reutilizables:**
+
+```typescript
+const hasCorrectLength = (arr: number[], expected: number) =>
+  arr.length === expected;
+const hasUniqueElements = (arr: number[]) => new Set(arr).size === arr.length;
+const sumsToZero = (arr: number[]) => arr.reduce((sum, x) => sum + x, 0) === 0;
+```
+
+**Ventajas:**
+
+- Acepta todas las soluciones válidas
+- Debugging más claro (sabes qué propiedad falla)
+- Reutilizable en problemas similares
+- Tests más robustos a cambios de implementación
+
+### Construcción Ordenada vs Post-procesamiento
+
+**Principio:** Cuando puedes controlar el orden de construcción, hazlo en lugar de ordenar después.
+
+**❌ Generar y ordenar:**
+
+```typescript
+// Generar desordenado
+for (let i = 1; i <= pairs; i++) {
+  result.push(i, -i); // [1, -1, 2, -2, ...]
+}
+return result.sort((a, b) => a - b); // O(n log n)
+```
+
+**✅ Construcción ordenada:**
+
+```typescript
+// Generar directamente en orden
+for (let i = pairs; i >= 1; i--) result.push(-i); // [-2, -1]
+if (odd) result.push(0); // [0]
+for (let i = 1; i <= pairs; i++) result.push(i); // [1, 2]
+// Resultado: [-2, -1, 0, 1, 2] sin sort() adicional
+```
+
+**Ventajas:**
+
+- O(n) en lugar de O(n log n)
+- Menos operaciones totales
+- Código más directo e intuitivo
+
+**Aplicable cuando:**
+
+- Conoces el orden final deseado
+- Puedes generar elementos en secuencia
+- El costo de sorting supera el de construcción ordenada
+
+### Micro-optimizaciones de Performance
+
+**Post-increment idiom:**
+
+```typescript
+result[index++] = value; // Asignar Y luego incrementar
+// Equivale a:
+// result[index] = value;
+// index = index + 1;
+```
+
+**Manual index control:**
+
+```typescript
+let index = 0;
+// Control total sobre dónde va cada elemento
+result[index++] = firstValue;
+result[index++] = secondValue;
+```
+
+**Pre-allocation vs Dynamic:**
+
+```typescript
+// Dinámico: puede requerir múltiples reallocations
+const arr: number[] = [];
+
+// Pre-allocado: una sola allocation, tamaño conocido
+const arr = new Array<number>(knownSize);
+```
+
+**Trade-offs:**
+
+- **Pre-allocation:** Más memoria inicial, mejor performance
+- **Dynamic:** Menos memoria inicial, overhead de crecimiento
+- **Regla:** Si conoces el tamaño, pre-alloca
+
+---
