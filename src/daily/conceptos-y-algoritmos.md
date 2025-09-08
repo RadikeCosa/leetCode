@@ -2168,16 +2168,18 @@ const arr = new Array<number>(knownSize);
 **Definición:** Relación donde cada elemento del dominio mapea a exactamente un elemento del codominio, y viceversa.
 
 **Características clave:**
+
 - **Inyectivo (One-to-One):** No hay mapeos uno-a-muchos
 - **Sobreyectivo (Onto):** No hay mapeos muchos-a-uno
 - **Bijective:** Combinación de ambas propiedades
 
 **Ejemplo - Isomorphic Strings:**
+
 ```typescript
 // Mapeo válido: "egg" → "add"
 // e↔a, g↔d (bidireccional y consistente)
 
-// Mapeo inválido: "foo" → "bar"  
+// Mapeo inválido: "foo" → "bar"
 // o→a y o→r (viola one-to-one)
 ```
 
@@ -2206,6 +2208,7 @@ if (rangeToDomain.has(keyB)) {
 ```
 
 **Por qué verificaciones independientes:**
+
 - Cada Map puede estar en estado diferente
 - No usar `||` porque ambas direcciones deben validarse
 - Permite detección temprana de inconsistencias
@@ -2213,32 +2216,36 @@ if (rangeToDomain.has(keyB)) {
 ### Tipos de Violaciones en Mapeos
 
 #### 1. One-to-Many Violation
+
 ```typescript
 // Un elemento mapea a múltiples destinos
 // "foo" → "bar": 'o' mapearía a 'a' y 'r'
-sToT.set('o', 'a');  // Primera ocurrencia
-sToT.set('o', 'r');  // ❌ Violación: 'o' ya mapeaba a 'a'
+sToT.set("o", "a"); // Primera ocurrencia
+sToT.set("o", "r"); // ❌ Violación: 'o' ya mapeaba a 'a'
 ```
 
-#### 2. Many-to-One Violation  
+#### 2. Many-to-One Violation
+
 ```typescript
 // Múltiples elementos mapean al mismo destino
 // "ab" → "cc": 'a' y 'b' mapearían ambos a 'c'
-tToS.set('c', 'a');  // Primera ocurrencia  
-tToS.set('c', 'b');  // ❌ Violación: 'c' ya venía de 'a'
+tToS.set("c", "a"); // Primera ocurrencia
+tToS.set("c", "b"); // ❌ Violación: 'c' ya venía de 'a'
 ```
 
 #### 3. Inconsistencia Bidireccional
+
 ```typescript
 // Mapeos contradictorios entre direcciones
-sToT.set('a', 'x');  // a → x
-tToS.set('x', 'b');  // x ← b
+sToT.set("a", "x"); // a → x
+tToS.set("x", "b"); // x ← b
 // ❌ Contradicción: a→x pero x←b (debería ser x←a)
 ```
 
 ### Testing Categorizado por Tipo de Fallo
 
 **Estructura organizacional:**
+
 ```typescript
 describe("Valid isomorphic cases", () => {
   // Casos que deben retornar true
@@ -2248,7 +2255,7 @@ describe("Invalid mappings", () => {
   it("should detect one-to-many mapping violation", () => {
     expect(isIsomorphic("foo", "bar")).toBe(false);
   });
-  
+
   it("should detect many-to-one mapping violation", () => {
     expect(isIsomorphic("ab", "cc")).toBe(false);
   });
@@ -2260,14 +2267,16 @@ describe("Edge cases", () => {
 ```
 
 **Ventajas del enfoque categorizado:**
+
 - **Claridad semántica:** Cada test explica QUÉ valida
 - **Debugging efectivo:** Fallas pinpoint el tipo exacto de error
-- **Cobertura exhaustiva:** Casos válidos, inválidos y edge separados  
+- **Cobertura exhaustiva:** Casos válidos, inválidos y edge separados
 - **Mantenibilidad:** Fácil agregar casos en categorías apropiadas
 
 ### Optimizaciones en Mapeos de Caracteres
 
 #### Variables Descriptivas para Claridad
+
 ```typescript
 // ✅ Semánticamente claro
 const charS = s[i];
@@ -2275,12 +2284,13 @@ const charT = t[i];
 
 // vs
 
-// ❌ Menos claro  
+// ❌ Menos claro
 const c1 = s[i];
 const c2 = t[i];
 ```
 
 #### Early Termination
+
 ```typescript
 // Retornar false inmediatamente al detectar inconsistencia
 if (sToT.get(charS) !== charT) {
@@ -2289,6 +2299,7 @@ if (sToT.get(charS) !== charT) {
 ```
 
 #### Evitar Computaciones Redundantes
+
 ```typescript
 // ✅ Acceso directo a caracteres
 for (let i = 0; i < s.length; i++) {
@@ -2297,7 +2308,7 @@ for (let i = 0; i < s.length; i++) {
   // Usar charS y charT múltiples veces
 }
 
-// vs  
+// vs
 
 // ❌ Accesos repetidos
 for (let i = 0; i < s.length; i++) {
@@ -2310,17 +2321,20 @@ for (let i = 0; i < s.length; i++) {
 ### Análisis de Complejidad en Hash Tables
 
 **Time Complexity: O(n)**
+
 - Una iteración por cada carácter
 - Operaciones de Map (has, get, set) son O(1) promedio
 - No hay loops anidados ni búsquedas lineales
 
 **Space Complexity: O(min(m, n))**
+
 - m = caracteres únicos en string 1
-- n = caracteres únicos en string 2  
+- n = caracteres únicos en string 2
 - Peor caso: O(n) cuando todos los caracteres son únicos
 - Limitado por tamaño del alfabeto (256 para ASCII)
 
 **Optimización espacial:**
+
 ```typescript
 // Para alfabetos fijos, considerar arrays en lugar de Maps
 const seen1 = new Array(256).fill(null); // ASCII
@@ -2332,12 +2346,14 @@ const seen2 = new Array(256).fill(null);
 ### Aplicaciones del Patrón de Mapeo Bidireccional
 
 **Problemas similares:**
+
 - **Word Pattern:** Palabras vs caracteres (bijection)
-- **Isomorphic Strings:** Caracteres vs caracteres  
+- **Isomorphic Strings:** Caracteres vs caracteres
 - **Group Anagrams:** Strings vs patrones canónicos
 - **Two Sum:** Valores vs índices (pero unidireccional)
 
 **Extensiones del concepto:**
+
 - **Graph Isomorphism:** Vértices vs vértices
 - **Database Relations:** Foreign keys bidireccionales
 - **Caching Systems:** Key-value bidirectional lookup
@@ -2345,47 +2361,47 @@ const seen2 = new Array(256).fill(null);
 ### Pattern: Character Mapping Validation
 
 **Template reutilizable:**
+
 ```typescript
-function validateBidirectionalMapping<T>(
-  seq1: T[], 
-  seq2: T[]
-): boolean {
+function validateBidirectionalMapping<T>(seq1: T[], seq2: T[]): boolean {
   if (seq1.length !== seq2.length) return false;
-  
+
   const map1To2 = new Map<T, T>();
   const map2To1 = new Map<T, T>();
-  
+
   for (let i = 0; i < seq1.length; i++) {
     const elem1 = seq1[i];
     const elem2 = seq2[i];
-    
+
     // Validate 1 → 2 mapping
     if (map1To2.has(elem1)) {
       if (map1To2.get(elem1) !== elem2) return false;
     } else {
       map1To2.set(elem1, elem2);
     }
-    
-    // Validate 2 → 1 mapping  
+
+    // Validate 2 → 1 mapping
     if (map2To1.has(elem2)) {
       if (map2To1.get(elem2) !== elem1) return false;
     } else {
       map2To1.set(elem2, elem1);
     }
   }
-  
+
   return true;
 }
 ```
 
 **Aplicable a:**
+
 - Arrays de números
-- Sequences de objetos  
+- Sequences de objetos
 - Cualquier tipo que implemente equality
 
 ### Consideraciones de Implementación
 
 **Type Safety con TypeScript:**
+
 ```typescript
 const sToT = new Map<string, string>(); // Explícito
 // vs
@@ -2393,6 +2409,7 @@ const sToT = new Map(); // TypeScript infiere el tipo
 ```
 
 **Memory Management:**
+
 ```typescript
 // Para problemas de múltiples casos, considerar reutilización
 sToT.clear();
@@ -2401,6 +2418,7 @@ tToS.clear();
 ```
 
 **Alternative Approaches:**
+
 ```typescript
 // Enfoque de índices (menos flexible pero más eficiente para ASCII)
 const mapping = new Array(256).fill(-1);
@@ -2410,5 +2428,221 @@ for (let i = 0; i < s.length; i++) {
   // Validate using array indices...
 }
 ```
+
+---
+
+## Fuerza Bruta Optimizada con Terminación Temprana
+
+**Definición:** Estrategia exhaustiva que prueba todas las combinaciones posibles pero termina inmediatamente al encontrar la primera solución válida.
+
+**Cuándo usar:**
+
+- Problema garantiza que existe al menos una solución
+- El espacio de búsqueda es manejable
+- No necesitamos la solución "óptima", cualquier válida sirve
+- Early termination hace que sea eficiente en la práctica
+
+**Ejemplo del problema Convert Integer to Sum of Two No-Zero Integers:**
+
+```typescript
+export function getNoZeroIntegers(n: number): number[] {
+  const isNoZeroInteger = (num: number): boolean => {
+    return !num.toString().includes("0");
+  };
+
+  for (let i = 1; i < n; i++) {
+    let a = i;
+    let b = n - i;
+    if (isNoZeroInteger(a) && isNoZeroInteger(b)) {
+      return [a, b]; // ← Terminación temprana
+    }
+  }
+  return [];
+}
+```
+
+**Características clave:**
+
+- **Exhaustivo**: Prueba todas las combinaciones sistemáticamente
+- **Early termination**: Para tan pronto encuentra una solución válida
+- **Predecible**: Siempre encuentra la "primera" solución según el orden de búsqueda
+- **Eficiente en promedio**: Muchos problemas se resuelven rápidamente
+
+**Complejidad típica:**
+
+- **Peor caso**: O(n) iteraciones
+- **Mejor caso**: O(1) si la primera combinación es válida
+- **Caso promedio**: Generalmente muy bueno por early termination
+
+---
+
+## Validación de Dígitos con String Methods
+
+**Definición:** Técnica que convierte números a strings para verificar propiedades de sus dígitos usando métodos de string.
+
+**Ventajas:**
+
+- **Legibilidad**: Código más claro que aritmética manual
+- **Simplicidad**: Aprovecha métodos built-in de strings
+- **Mantenibilidad**: Fácil de entender y modificar
+
+**Ejemplo - Verificar No-Zero integers:**
+
+```typescript
+const isNoZeroInteger = (num: number): boolean => {
+  return !num.toString().includes("0");
+};
+
+// vs enfoque aritmético:
+const hasZeroDigit = (num: number): boolean => {
+  while (num > 0) {
+    if (num % 10 === 0) return true;
+    num = Math.floor(num / 10);
+  }
+  return false;
+};
+```
+
+**Casos de uso comunes:**
+
+- Verificar presencia/ausencia de dígitos específicos
+- Contar dígitos particulares
+- Validar patrones en representación decimal
+- Problemas de palíndromos numéricos
+
+**Trade-offs:**
+
+- **Pro**: Código más legible y expresivo
+- **Pro**: Menos propenso a errores off-by-one
+- **Contra**: Overhead de conversión a string (O(log n))
+- **Contra**: Uso adicional de memoria temporal
+
+---
+
+## Patrón "Dos Números que Suman X"
+
+**Definición:** Problema de encontrar dos números que cumplan una condición específica y sumen un valor target.
+
+**Variantes comunes:**
+
+1. **Two Sum clásico**: Encontrar índices en array que sumen target
+2. **Two Sum con restricciones**: Números que sumen target pero cumplan condiciones adicionales
+3. **Construcción de pares**: Crear dos números que sumen target con propiedades específicas
+
+**Estrategias según el contexto:**
+
+### **Array existente - Hash Map** (O(n))
+
+```typescript
+// Two Sum clásico
+function twoSum(nums: number[], target: number): number[] {
+  const map = new Map<number, number>();
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+    if (map.has(complement)) {
+      return [map.get(complement)!, i];
+    }
+    map.set(nums[i], i);
+  }
+  return [];
+}
+```
+
+### **Array ordenado - Two Pointers** (O(n))
+
+```typescript
+function twoSumSorted(nums: number[], target: number): number[] {
+  let left = 0,
+    right = nums.length - 1;
+  while (left < right) {
+    const sum = nums[left] + nums[right];
+    if (sum === target) return [left, right];
+    else if (sum < target) left++;
+    else right--;
+  }
+  return [];
+}
+```
+
+### **Construcción con restricciones - Fuerza Bruta** (O(n))
+
+```typescript
+// Convert Integer to Sum of Two No-Zero Integers
+function getNoZeroIntegers(n: number): number[] {
+  for (let i = 1; i < n; i++) {
+    let a = i;
+    let b = n - i; // Garantiza a + b = n
+    if (isValid(a) && isValid(b)) return [a, b];
+  }
+  return [];
+}
+```
+
+**Principios de diseño:**
+
+- **Garantía matemática**: Si a = i, entonces b = target - i
+- **Validación independiente**: Verificar cada número por separado
+- **Order dependency**: El orden de búsqueda afecta qué solución se encuentra primero
+
+---
+
+## TDD con Funciones Auxiliares de Validación
+
+**Definición:** Metodología de testing que usa funciones helper para validar múltiples propiedades del resultado de manera modular.
+
+**Estructura típica:**
+
+```typescript
+describe("Problem Name", () => {
+  // Helper functions para validación
+  const isValidProperty = (value: any): boolean => {
+    // Verificar una propiedad específica
+  };
+
+  const isCompletelyValid = (result: any[], input: any): boolean => {
+    const condition1 = /* verificar primera condición */;
+    const condition2 = result.every(isValidProperty);
+    return condition1 && condition2;
+  };
+
+  // Tests específicos
+  it("should handle exact known case", () => {
+    expect(solution(input)).toEqual(expectedOutput);
+  });
+
+  // Tests genéricos con validación
+  it("should return valid result for generic case", () => {
+    const result = solution(input);
+    expect(result).toHaveLength(expectedLength);
+    expect(isCompletelyValid(result, input)).toBe(true);
+  });
+});
+```
+
+**Ventajas del approach:**
+
+- **Modularidad**: Cada helper valida una propiedad específica
+- **Reutilización**: Las funciones helper se pueden usar en múltiples tests
+- **Claridad**: Separa la lógica de validación de la lógica de testing
+- **Robustez**: Valida propiedades fundamentales, no solo casos específicos
+
+**Ejemplo del problema No-Zero Integers:**
+
+```typescript
+const isNoZeroInteger = (num: number): boolean => !num.toString().includes("0");
+
+const isValidResult = (result: number[], n: number): boolean => {
+  const sum = result.reduce((acc, num) => acc + num, 0);
+  const allNoZero = result.every(isNoZeroInteger);
+  return sum === n && allNoZero;
+};
+```
+
+**Best practices:**
+
+- **Composición**: Funciones helper pequeñas y específicas
+- **Naming**: Nombres descriptivos que indican qué validan
+- **Independence**: Cada helper debe ser independiente
+- **Coverage**: Combinar tests específicos con tests genéricos de validación
 
 ---
