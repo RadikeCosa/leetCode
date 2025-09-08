@@ -41,6 +41,7 @@ describe("Convert Integer to the Sum of Two No-Zero Integers", () => {
     const result = getNoZeroIntegers(n);
     expect(result).toEqual([1, 1]);
   });
+
   const isNoZeroInteger = (num: number): boolean =>
     !num.toString().includes("0");
   const isValidResult = (result: number[], n: number): boolean => {
@@ -48,6 +49,7 @@ describe("Convert Integer to the Sum of Two No-Zero Integers", () => {
     const allNoZero = result.every(isNoZeroInteger);
     return sum === n && allNoZero;
   };
+
   it("should return valid no-zero integers that sum to n = 11", () => {
     const n = 11;
     const result = getNoZeroIntegers(n);
