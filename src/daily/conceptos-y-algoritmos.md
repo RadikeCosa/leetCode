@@ -2160,3 +2160,255 @@ const arr = new Array<number>(knownSize);
 - **Regla:** Si conoces el tamaño, pre-alloca
 
 ---
+
+## Hash Tables y Mapeo Bidireccional
+
+### Mapeo Uno-a-Uno (Bijective Mapping)
+
+**Definición:** Relación donde cada elemento del dominio mapea a exactamente un elemento del codominio, y viceversa.
+
+**Características clave:**
+- **Inyectivo (One-to-One):** No hay mapeos uno-a-muchos
+- **Sobreyectivo (Onto):** No hay mapeos muchos-a-uno
+- **Bijective:** Combinación de ambas propiedades
+
+**Ejemplo - Isomorphic Strings:**
+```typescript
+// Mapeo válido: "egg" → "add"
+// e↔a, g↔d (bidireccional y consistente)
+
+// Mapeo inválido: "foo" → "bar"  
+// o→a y o→r (viola one-to-one)
+```
+
+### Patrón: Dos Maps para Validación Bidireccional
+
+**Problema:** Un solo Map solo previene violaciones en una dirección.
+
+**Solución:** Usar dos Maps para trackear ambas direcciones simultáneamente.
+
+```typescript
+const domainToRange = new Map<string, string>(); // A → B
+const rangeToDomain = new Map<string, string>(); // B → A
+
+// Validación independiente en cada dirección
+if (domainToRange.has(keyA)) {
+  if (domainToRange.get(keyA) !== valueB) return false;
+} else {
+  domainToRange.set(keyA, valueB);
+}
+
+if (rangeToDomain.has(keyB)) {
+  if (rangeToDomain.get(keyB) !== valueA) return false;
+} else {
+  rangeToDomain.set(keyB, valueA);
+}
+```
+
+**Por qué verificaciones independientes:**
+- Cada Map puede estar en estado diferente
+- No usar `||` porque ambas direcciones deben validarse
+- Permite detección temprana de inconsistencias
+
+### Tipos de Violaciones en Mapeos
+
+#### 1. One-to-Many Violation
+```typescript
+// Un elemento mapea a múltiples destinos
+// "foo" → "bar": 'o' mapearía a 'a' y 'r'
+sToT.set('o', 'a');  // Primera ocurrencia
+sToT.set('o', 'r');  // ❌ Violación: 'o' ya mapeaba a 'a'
+```
+
+#### 2. Many-to-One Violation  
+```typescript
+// Múltiples elementos mapean al mismo destino
+// "ab" → "cc": 'a' y 'b' mapearían ambos a 'c'
+tToS.set('c', 'a');  // Primera ocurrencia  
+tToS.set('c', 'b');  // ❌ Violación: 'c' ya venía de 'a'
+```
+
+#### 3. Inconsistencia Bidireccional
+```typescript
+// Mapeos contradictorios entre direcciones
+sToT.set('a', 'x');  // a → x
+tToS.set('x', 'b');  // x ← b
+// ❌ Contradicción: a→x pero x←b (debería ser x←a)
+```
+
+### Testing Categorizado por Tipo de Fallo
+
+**Estructura organizacional:**
+```typescript
+describe("Valid isomorphic cases", () => {
+  // Casos que deben retornar true
+});
+
+describe("Invalid mappings", () => {
+  it("should detect one-to-many mapping violation", () => {
+    expect(isIsomorphic("foo", "bar")).toBe(false);
+  });
+  
+  it("should detect many-to-one mapping violation", () => {
+    expect(isIsomorphic("ab", "cc")).toBe(false);
+  });
+});
+
+describe("Edge cases", () => {
+  // Casos límite y especiales
+});
+```
+
+**Ventajas del enfoque categorizado:**
+- **Claridad semántica:** Cada test explica QUÉ valida
+- **Debugging efectivo:** Fallas pinpoint el tipo exacto de error
+- **Cobertura exhaustiva:** Casos válidos, inválidos y edge separados  
+- **Mantenibilidad:** Fácil agregar casos en categorías apropiadas
+
+### Optimizaciones en Mapeos de Caracteres
+
+#### Variables Descriptivas para Claridad
+```typescript
+// ✅ Semánticamente claro
+const charS = s[i];
+const charT = t[i];
+
+// vs
+
+// ❌ Menos claro  
+const c1 = s[i];
+const c2 = t[i];
+```
+
+#### Early Termination
+```typescript
+// Retornar false inmediatamente al detectar inconsistencia
+if (sToT.get(charS) !== charT) {
+  return false; // No continuar iterando innecesariamente
+}
+```
+
+#### Evitar Computaciones Redundantes
+```typescript
+// ✅ Acceso directo a caracteres
+for (let i = 0; i < s.length; i++) {
+  const charS = s[i];
+  const charT = t[i];
+  // Usar charS y charT múltiples veces
+}
+
+// vs  
+
+// ❌ Accesos repetidos
+for (let i = 0; i < s.length; i++) {
+  if (sToT.has(s[i])) {
+    if (sToT.get(s[i]) !== t[i]) // s[i] y t[i] se acceden múltiples veces
+  }
+}
+```
+
+### Análisis de Complejidad en Hash Tables
+
+**Time Complexity: O(n)**
+- Una iteración por cada carácter
+- Operaciones de Map (has, get, set) son O(1) promedio
+- No hay loops anidados ni búsquedas lineales
+
+**Space Complexity: O(min(m, n))**
+- m = caracteres únicos en string 1
+- n = caracteres únicos en string 2  
+- Peor caso: O(n) cuando todos los caracteres son únicos
+- Limitado por tamaño del alfabeto (256 para ASCII)
+
+**Optimización espacial:**
+```typescript
+// Para alfabetos fijos, considerar arrays en lugar de Maps
+const seen1 = new Array(256).fill(null); // ASCII
+const seen2 = new Array(256).fill(null);
+
+// O(1) space para alfabetos acotados
+```
+
+### Aplicaciones del Patrón de Mapeo Bidireccional
+
+**Problemas similares:**
+- **Word Pattern:** Palabras vs caracteres (bijection)
+- **Isomorphic Strings:** Caracteres vs caracteres  
+- **Group Anagrams:** Strings vs patrones canónicos
+- **Two Sum:** Valores vs índices (pero unidireccional)
+
+**Extensiones del concepto:**
+- **Graph Isomorphism:** Vértices vs vértices
+- **Database Relations:** Foreign keys bidireccionales
+- **Caching Systems:** Key-value bidirectional lookup
+
+### Pattern: Character Mapping Validation
+
+**Template reutilizable:**
+```typescript
+function validateBidirectionalMapping<T>(
+  seq1: T[], 
+  seq2: T[]
+): boolean {
+  if (seq1.length !== seq2.length) return false;
+  
+  const map1To2 = new Map<T, T>();
+  const map2To1 = new Map<T, T>();
+  
+  for (let i = 0; i < seq1.length; i++) {
+    const elem1 = seq1[i];
+    const elem2 = seq2[i];
+    
+    // Validate 1 → 2 mapping
+    if (map1To2.has(elem1)) {
+      if (map1To2.get(elem1) !== elem2) return false;
+    } else {
+      map1To2.set(elem1, elem2);
+    }
+    
+    // Validate 2 → 1 mapping  
+    if (map2To1.has(elem2)) {
+      if (map2To1.get(elem2) !== elem1) return false;
+    } else {
+      map2To1.set(elem2, elem1);
+    }
+  }
+  
+  return true;
+}
+```
+
+**Aplicable a:**
+- Arrays de números
+- Sequences de objetos  
+- Cualquier tipo que implemente equality
+
+### Consideraciones de Implementación
+
+**Type Safety con TypeScript:**
+```typescript
+const sToT = new Map<string, string>(); // Explícito
+// vs
+const sToT = new Map(); // TypeScript infiere el tipo
+```
+
+**Memory Management:**
+```typescript
+// Para problemas de múltiples casos, considerar reutilización
+sToT.clear();
+tToS.clear();
+// vs crear nuevos Maps cada vez
+```
+
+**Alternative Approaches:**
+```typescript
+// Enfoque de índices (menos flexible pero más eficiente para ASCII)
+const mapping = new Array(256).fill(-1);
+for (let i = 0; i < s.length; i++) {
+  const codeS = s.charCodeAt(i);
+  const codeT = t.charCodeAt(i);
+  // Validate using array indices...
+}
+```
+
+---

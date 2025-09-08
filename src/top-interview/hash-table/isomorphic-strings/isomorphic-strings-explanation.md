@@ -111,17 +111,130 @@ describe("Edge cases", () => {
 
 ## Enfoque detallado
 
-_Paso a paso de la solución implementada a completar después de la implementación._
+### 🧠 **Estrategia: Dos Mapas Bidireccionales**
+
+La solución utiliza **dos hash maps** para trackear el mapeo en ambas direcciones:
+
+```typescript
+const sToT = new Map<string, string>(); // s → t
+const tToS = new Map<string, string>(); // t → s
+```
+
+### 🔄 **Algoritmo paso a paso:**
+
+1. **Inicialización**: Crear los dos mapas y obtener la longitud
+2. **Iteración**: Para cada posición `i` desde 0 hasta `n-1`:
+   - Extraer `charS = s[i]` y `charT = t[i]`
+   - **Validar mapeo s→t**: Si `charS` ya existe, verificar que mapee a `charT`
+   - **Validar mapeo t→s**: Si `charT` ya existe, verificar que venga de `charS`
+   - **Crear mapeos**: Si no existen, establecer ambas direcciones
+   - **Terminar temprano**: Return `false` si hay inconsistencia
+3. **Resultado**: Return `true` si completamos sin inconsistencias
+
+### 🎯 **Por qué dos mapas separados:**
+
+**❌ Un solo mapa NO es suficiente:**
+
+```typescript
+// Solo s→t detectaría: "foo" → "bar" (one-to-many) ✅
+// Pero NO detectaría: "ab" → "cc" (many-to-one) ❌
+```
+
+**✅ Dos mapas capturan ambas violaciones:**
+
+- `sToT`: Previene que un carácter de `s` mapee a múltiples de `t`
+- `tToS`: Previene que múltiples caracteres de `s` mapeen al mismo de `t`
+
+### 🔍 **Verificaciones independientes:**
+
+```typescript
+// Verificar s → t
+if (sToT.has(charS)) {
+  if (sToT.get(charS) !== charT) return false; // Inconsistencia
+} else {
+  sToT.set(charS, charT); // Crear mapeo
+}
+
+// Verificar t → s (independiente de la anterior)
+if (tToS.has(charT)) {
+  if (tToS.get(charT) !== charS) return false; // Inconsistencia
+} else {
+  tToS.set(charT, charS); // Crear mapeo
+}
+```
+
+**Clave**: Las verificaciones son **independientes**. No usamos `||` porque necesitamos validar ambas direcciones sin importar el estado de la otra.
 
 ## Casos extremos
 
-_Lista de casos extremos y cómo se tratan a completar después de la implementación._
+### 🔸 **Cadenas idénticas**: `"abc"` y `"abc"`
+
+- Cada carácter mapea a sí mismo
+- Caso trivial que debe retornar `true`
+
+### 🔸 **Un solo carácter**: `"a"` y `"b"`
+
+- Mapeo más simple posible
+- Siempre válido (un solo mapping)
+
+### 🔸 **Caracteres repetidos válidos**: `"egg"` y `"add"`
+
+- `e→a`, `g→d`, `g→d` (consistente)
+- Verifica que repeticiones mantengan consistencia
+
+### 🔸 **Caracteres repetidos inválidos**: `"foo"` y `"bar"`
+
+- `f→b`, `o→a`, `o→r` (inconsistente para 'o')
+- Detecta violación one-to-many
+
+### 🔸 **Mapeo many-to-one**: `"ab"` y `"cc"`
+
+- `a→c`, `b→c` (inválido: dos fuentes para 'c')
+- Detecta violación con el mapa `tToS`
 
 ## Complejidad
 
-- Time complexity: _A determinar después de la implementación_
-- Space complexity: _A determinar después de la implementación_
+### ⏱️ **Time Complexity: O(n)**
+
+- **Una pasada**: Recorremos cada carácter exactamente una vez
+- **Operaciones O(1)**: `has()`, `get()`, `set()` en Map son constantes en promedio
+- **Sin loops anidados**: Algoritmo lineal puro
+
+### 💾 **Space Complexity: O(min(m, n))**
+
+- **m**: Número de caracteres únicos en `s`
+- **n**: Número de caracteres únicos en `t`
+- **Peor caso**: O(n) cuando todos los caracteres son únicos
+- **Restricción real**: Limitado por el tamaño del alfabeto (ej: 256 para ASCII)
+- **Caso típico**: Mucho menor que `n` en strings con repeticiones
+
+### 🎯 **Optimizaciones aplicadas:**
+
+- **Early termination**: Return `false` inmediatamente al detectar inconsistencia
+- **Variables claras**: `charS`, `charT` evitan accesos repetidos a `s[i]`, `t[i]`
+- **Maps tipados**: TypeScript garantiza type safety sin overhead
 
 ## Conclusión
 
-_Resumen y lecciones aprendidas a completar después de la implementación._
+### 🧩 **Patrones clave aprendidos:**
+
+1. **Mapeo bidireccional**: Para relaciones 1:1, trackear ambas direcciones
+2. **Verificaciones independientes**: No usar `||` cuando ambas condiciones deben validarse
+3. **Early termination**: Optimizar retornando al primer error
+4. **Testing categorizado**: Organizar tests por tipo de validación
+5. **Hash Maps para relaciones**: Estructura ideal para mapeos carácter-a-carácter
+
+### 🎓 **Conceptos transferibles:**
+
+- **Pattern Matching**: Verificar consistencia en transformaciones
+- **Bijective Functions**: Mapeos uno-a-uno en estructuras de datos
+- **State Validation**: Usar múltiples estructuras para validar diferentes invariantes
+- **Symmetric Verification**: Validar relaciones en ambas direcciones
+
+### 🔄 **Conexión con otros problemas:**
+
+- **Word Pattern**: Mismo concepto aplicado a palabras vs caracteres
+- **Group Anagrams**: Mapeo de strings a grupos
+- **Two Sum**: Hash map para relaciones valor-índice
+
+Esta solución demuestra la potencia de los **Hash Maps** para problemas de mapeo y la importancia de considerar **restricciones bidireccionales** en problemas de transformación.
