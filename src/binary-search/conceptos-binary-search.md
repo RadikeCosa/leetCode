@@ -258,11 +258,11 @@ function guessNumber(n: number): number {
 
   while (start <= end) {
     const mid = Math.floor((start + end) / 2);
-    const result = guess(mid);  // API externa
-    
-    if (result === 0) return mid;           // Encontrado
-    else if (result === -1) end = mid - 1;  // Muy alto
-    else start = mid + 1;                   // Muy bajo
+    const result = guess(mid); // API externa
+
+    if (result === 0) return mid; // Encontrado
+    else if (result === -1) end = mid - 1; // Muy alto
+    else start = mid + 1; // Muy bajo
   }
 
   return -1;
@@ -272,16 +272,19 @@ function guessNumber(n: number): number {
 ### Características Únicas de Problemas Interactivos
 
 #### ✅ **API Externa**: `guess(num) → {-1, 0, 1}`
+
 - **Feedback direccional**: Nos dice si estamos alto, bajo o correcto
 - **Abstracción**: No tenemos acceso directo a los datos
 - **Eficiencia crítica**: Cada llamada a la API "cuenta"
 
 #### ✅ **Rango Diferente**: `[1, n]` en lugar de `[0, arr.length-1]`
+
 - **Start**: Siempre 1 (no 0)
 - **End**: Parámetro n (no derivado de array)
 - **Más natural**: Para el contexto del problema
 
 #### ✅ **Condición de Terminación**: `result === 0`
+
 - **Explícita**: La API nos dice cuando encontramos el target
 - **Sin comparación directa**: No podemos comparar `arr[mid] === target`
 
@@ -290,15 +293,17 @@ function guessNumber(n: number): number {
 #### Problema: ¿Cómo testear una función que depende de API externa?
 
 **❌ Approaches que no funcionan bien:**
+
 ```typescript
 // Problema: TypeScript no reconoce global.guess
 global.guess = mockFunction;
 
-// Problema: Cambia la signature original  
-function guessNumber(n: number, guessFn?: Function)
+// Problema: Cambia la signature original
+function guessNumber(n: number, guessFn?: Function);
 ```
 
 **✅ Solución elegante: `vi.stubGlobal()`**
+
 ```typescript
 const createGuessLogic = (pick: number) => {
   return (num: number) => {
@@ -309,7 +314,7 @@ const createGuessLogic = (pick: number) => {
 };
 
 // En cada test:
-vi.stubGlobal('guess', vi.fn(createGuessLogic(6)));
+vi.stubGlobal("guess", vi.fn(createGuessLogic(6)));
 ```
 
 #### Ventajas del Testing con vi.stubGlobal()
@@ -325,16 +330,17 @@ vi.stubGlobal('guess', vi.fn(createGuessLogic(6)));
 ```typescript
 it("should be efficient - limited number of calls", () => {
   const guessSpy = vi.fn(createGuessLogic(6));
-  vi.stubGlobal('guess', guessSpy);
-  
+  vi.stubGlobal("guess", guessSpy);
+
   guessNumber(10);
-  
+
   // Verificar complejidad O(log n)
   expect(guessSpy.mock.calls.length).toBeLessThanOrEqual(4);
 });
 ```
 
 **¿Por qué testear eficiencia?**
+
 - **Verificar complejidad**: Confirmar que es realmente O(log n)
 - **Detectar regresión**: Si el algoritmo se vuelve menos eficiente
 - **Constraint validation**: Para problemas con límites de llamadas API
@@ -343,39 +349,41 @@ it("should be efficient - limited number of calls", () => {
 
 ```typescript
 function interactiveBinarySearch(n: number): number {
-  let left = 1;      // Rango específico del problema
-  let right = n;     // No derivado de array
-  
+  let left = 1; // Rango específico del problema
+  let right = n; // No derivado de array
+
   while (left <= right) {
     const mid = Math.floor((left + right) / 2);
-    const feedback = externalAPI(mid);  // API call
-    
+    const feedback = externalAPI(mid); // API call
+
     if (feedback === TARGET_FOUND) return mid;
     else if (feedback === GO_LEFT) right = mid - 1;
-    else left = mid + 1;  // GO_RIGHT
+    else left = mid + 1; // GO_RIGHT
   }
-  
+
   return -1;
 }
 ```
 
 ### Patrones de Feedback API Común
 
-| API Response | Meaning | Action |
-|-------------|---------|--------|
-| `0` | Found target | Return mid |
-| `-1` | Guess too high | `right = mid - 1` |
-| `1` | Guess too low | `left = mid + 1` |
+| API Response | Meaning        | Action            |
+| ------------ | -------------- | ----------------- |
+| `0`          | Found target   | Return mid        |
+| `-1`         | Guess too high | `right = mid - 1` |
+| `1`          | Guess too low  | `left = mid + 1`  |
 
 ### Cuándo Aplicar Este Patrón
 
 ✅ **Usar para problemas que tienen:**
+
 - API externa que da feedback direccional
 - Espacio de búsqueda ordenado conceptualmente
 - Restricciones en número de operaciones
 - Range definido por parámetros (no por array)
 
 ✅ **Ejemplos típicos:**
+
 - First Bad Version
 - Peak Index in Mountain Array (con limitaciones)
 - Cualquier "guessing game" con hints

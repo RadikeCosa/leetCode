@@ -376,6 +376,98 @@ for (let right = 0; right < nums.length; right++) {
 - Necesidad de mantener estado de ventana (suma, producto, caracteres únicos)
 - Alternativa eficiente a enfoques O(n²) de fuerza bruta
 
+## Stack Patterns
+
+### LIFO (Last In, First Out) Pattern
+
+**Problema tipo**: Balanceo de símbolos, validación de secuencias anidadas
+
+**Estructura mental**: "Último en entrar, primero en salir"
+
+**Casos de uso identificados**:
+
+#### **1. Parentheses Validation (Symbol Matching Pattern)**
+
+**Problema**: Valid Parentheses
+
+**Patrón fundamental**:
+
+```typescript
+const stack: string[] = [];
+const pairs: Record<string, string> = {
+  ")": "(",
+  "}": "{",
+  "]": "[", // cierre → apertura
+};
+
+for (const char of input) {
+  if (isOpening(char)) {
+    stack.push(char);
+  } else {
+    if (stack.length === 0) return false; // Early termination
+    const last = stack.pop();
+    if (last !== pairs[char]) return false; // Mismatch
+  }
+}
+return stack.length === 0; // All symbols matched
+```
+
+**Insights clave**:
+
+- **Record mapping**: Mapear caracteres de cierre → apertura (no al revés)
+- **¿Por qué esta dirección?**: Solo necesitamos lookup cuando encontramos cierres
+- **Early termination**: Return false inmediatamente al detectar error
+- **Invariante final**: Stack vacío = todos los pares cerrados correctamente
+
+**Ventajas del Record approach vs comparaciones múltiples**:
+
+- **Eliminación de repetición**: Una línea vs múltiples `if` statements
+- **Mantenibilidad**: Agregar nuevos símbolos = una línea en el objeto
+- **Escalabilidad**: Fácil extensión para otros símbolos de agrupación
+- **Legibilidad**: Relación apertura/cierre explícita y visual
+- **Principio DRY**: Datos separados de lógica
+
+**Refactorización típica**:
+
+```typescript
+// ❌ Repetitivo
+if (
+  (char === ")" && last !== "(") ||
+  (char === "}" && last !== "{") ||
+  (char === "]" && last !== "[")
+)
+  return false;
+
+// ✅ Elegante
+if (last !== pairs[char]) return false;
+```
+
+**Complejidad**:
+
+- Tiempo: O(n) - cada carácter visitado una vez, push/pop son O(1)
+- Espacio: O(n) - peor caso: todos caracteres de apertura (ej: "((((((")
+
+**Cuándo NO usar contador simple**:
+
+- Múltiples tipos de símbolos (ej: `()`, `{}`, `[]`)
+- Necesidad de recordar **orden** y **tipo** específico
+- Ejemplo fallido con contador: `"([)]"` → contador da resultado incorrecto
+
+**Casos extremos importantes**:
+
+- Cadena vacía: return true (técnicamente balanceada)
+- Solo aperturas: stack no vacío al final → false
+- Solo cierres: stack vacío en primer cierre → false
+- Tipos mezclados incorrectos: orden LIFO violado → false
+
+**Cuándo usar Stack Pattern**:
+
+- Problemas de **balanceo** y **anidamiento**
+- Validación de secuencias con orden LIFO
+- Necesidad de recordar **estado histórico** en orden reverso
+- Parsing de expresiones, validación de sintaxis
+- Cualquier problema donde "el último elemento procesado es el primero en resolverse"
+
 ---
 
 _Este archivo se actualiza con cada nuevo problema resuelto, capturando aprendizajes y refinando la metodología._
