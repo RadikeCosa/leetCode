@@ -2181,4 +2181,113 @@ return false; // No evidence found after checking all
 - **Configuration checking**: Validar si configuraciones están presentes
 - **Cache optimization**: Evitar operaciones en estructuras vacías
 
-Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, promise racing patterns, y optimización de performance en manipulación de datos.
+---
+
+## Array Chunking y Segmentación
+
+### Chunk Array Pattern
+
+**Definición:** Técnica para dividir arrays en subarrays de tamaño fijo, manteniendo el orden original de los elementos.
+
+**Problema:** LeetCode 2677 - Chunk Array
+
+**Patrón principal:**
+
+```typescript
+function chunk<T>(arr: T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
+```
+
+**Conceptos clave:**
+
+### 1. **Iteración con Paso Variable**
+
+- **Patrón**: `for (let i = 0; i < length; i += step)`
+- **Aplicación**: Procesar elementos en grupos en lugar de uno por uno
+- **Ventaja**: Reduce complejidad de indexación manual
+
+```typescript
+// En lugar de:
+for (let i = 0; i < arr.length; i++) {
+  if (i % size === 0) {
+    // lógica compleja para inicio de chunk
+  }
+}
+
+// Usamos:
+for (let i = 0; i < arr.length; i += size) {
+  // directamente procesamos chunks
+}
+```
+
+### 2. **Array.slice() para Segmentación**
+
+- **Comportamiento**: `slice(start, end)` extrae porción sin modificar original
+- **Ventaja clave**: Manejo automático de límites
+- **Edge case**: Si `end > array.length`, se detiene automáticamente
+
+```typescript
+const arr = [1, 2, 3, 4, 5];
+arr.slice(3, 10); // [4, 5] - no falla, se detiene en el final
+```
+
+### 3. **Edge Case Handling Implícito**
+
+- **Patrón**: Aprovechar comportamiento nativo de métodos JavaScript
+- **Aplicación**: `slice()` maneja automáticamente chunks parciales
+- **Resultado**: Código más limpio sin verificaciones manuales
+
+**Ejemplos de uso:**
+
+```typescript
+chunk([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4], [5]]
+chunk([1, 2, 3, 4, 5], 3); // [[1, 2, 3], [4, 5]]
+chunk([], 3); // []
+chunk([1, 2], 5); // [[1, 2]]
+```
+
+**Complejidad:**
+
+- **Tiempo**: O(n) - cada elemento procesado una vez
+- **Espacio**: O(n) - resultado almacena todos los elementos
+
+**Casos de uso comunes:**
+
+- **Pagination**: Dividir listas largas en páginas
+- **Batch processing**: Procesar elementos en lotes
+- **Grid layouts**: Organizar elementos en filas/columnas
+- **Data visualization**: Agrupar datos para gráficos
+
+### Tipos TypeScript para JSON Data
+
+**Definición de tipos para datos JSON:**
+
+```typescript
+type JSONValue =
+  | null
+  | boolean
+  | number
+  | string
+  | JSONValue[]
+  | { [key: string]: JSONValue };
+type Obj = Record<string, JSONValue> | Array<JSONValue>;
+```
+
+**Características:**
+
+- **JSONValue**: Tipo recursivo que representa cualquier valor JSON válido
+- **Obj**: Específicamente objetos o arrays (excluye primitivos)
+- **Type safety**: Garantiza que solo se manejen estructuras de datos válidas
+
+**Ventajas sobre `any`:**
+
+- **Restricción de tipos**: Solo acepta valores JSON válidos
+- **IntelliSense**: Mejor autocompletado en IDEs
+- **Error prevention**: Detecta tipos incompatibles en compile time
+
+Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, promise racing patterns, optimización de performance en manipulación de datos, y procesamiento eficiente de arrays y estructuras de datos complejas.
