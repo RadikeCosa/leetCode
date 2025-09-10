@@ -22,34 +22,37 @@ The algorithm ensures each element is visited exactly once, making it optimal.
 
 # Complexity
 
-- **Time complexity**: O(n) - Single pass through the array. Each element is visited exactly once as the start pointer only moves forward.
-- **Space complexity**: O(1) - Only constant extra space for variables (start, end, rangeStart, rangeEnd). Output array doesn't count toward auxiliary space.
+- **Time complexity**: O(n) - Single pass through the array. Each element is visited exactly once as the `i` pointer advances sequentially and `end` pointer only moves forward.
+- **Space complexity**: O(1) - Only constant extra space for variables (i, end, rangeStart, rangeEnd). Output array doesn't count toward auxiliary space.
 
 # Code
 
-```typescript
+````typescript
 export function summaryRanges(nums: number[]): string[] {
-  let start = 0;
-  let end = nums.length - 1;
+  let i = 0;
   const result: string[] = [];
 
-  while (start <= end) {
-    let rangeStart = nums[start];
-    let rangeEnd = rangeStart;
-    
-    // Extend range while numbers are consecutive
-    while (start < end && nums[start] + 1 === nums[start + 1]) {
-      start++;
+  while (i < nums.length) {
+    // Marcar el inicio del rango actual
+    let rangeStart = nums[i];
+    let end = i; // end avanza para encontrar el final del rango
+
+    // Extender end mientras los números sean consecutivos
+    while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
+      end++;
     }
-    rangeEnd = nums[start];
-    
-    // Format output based on range size
+
+    let rangeEnd = nums[end];
+
+    // Formatear según el tamaño del rango
     if (rangeStart === rangeEnd) {
       result.push(`${rangeStart}`);
     } else {
       result.push(`${rangeStart}->${rangeEnd}`);
     }
-    start++;
+
+    // Saltar al siguiente segmento después del rango actual
+    i = end + 1;
   }
   return result;
 }
@@ -58,8 +61,9 @@ export function summaryRanges(nums: number[]): string[] {
 # Notes
 
 - **Edge case handling**: Works correctly for empty arrays, single elements, and negative numbers
-- **Consecutive detection**: Uses `nums[i] + 1 === nums[i+1]` to identify adjacent numbers
-- **Boundary safety**: `start < end` condition prevents array out-of-bounds access
+- **Consecutive detection**: Uses `nums[end] + 1 === nums[end + 1]` to identify adjacent numbers
+- **Boundary safety**: `end < nums.length - 1` condition prevents array out-of-bounds access
 - **Format consistency**: Template literals ensure clean string formatting
 - **Single pass optimization**: Each element visited exactly once, no backtracking needed
 - **Memory efficient**: Only uses constant auxiliary space regardless of input size
+````

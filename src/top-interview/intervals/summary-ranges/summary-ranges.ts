@@ -14,28 +14,35 @@
  * • "a" if a == b
  *
  * Time Complexity: O(n) - Single pass through the array. Each element is visited exactly once
- *                              as the start pointer only moves forward.
- * Space Complexity: O(1) - Only constant extra space for variables (start, end, rangeStart, rangeEnd).
+ *                              as the i pointer advances sequentially and end pointer only moves forward.
+ * Space Complexity: O(1) - Only constant extra space for variables (i, end, rangeStart, rangeEnd).
  *                          Output array doesn't count toward auxiliary space.
  */
 export function summaryRanges(nums: number[]): string[] {
-  let start = 0;
-  let end = nums.length - 1;
+  let i = 0;
   const result: string[] = [];
 
-  while (start <= end) {
-    let rangeStart = nums[start];
-    let rangeEnd = rangeStart;
-    while (start < end && nums[start] + 1 === nums[start + 1]) {
-      start++;
+  while (i < nums.length) {
+    // Marcar el inicio del rango actual
+    let rangeStart = nums[i];
+    let end = i; // end avanza para encontrar el final del rango
+
+    // Extender end mientras los números sean consecutivos
+    while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
+      end++;
     }
-    rangeEnd = nums[start];
+
+    let rangeEnd = nums[end];
+
+    // Formatear según el tamaño del rango
     if (rangeStart === rangeEnd) {
       result.push(`${rangeStart}`);
     } else {
       result.push(`${rangeStart}->${rangeEnd}`);
     }
-    start++;
+
+    // Saltar al siguiente segmento después del rango actual
+    i = end + 1;
   }
   return result;
 }
