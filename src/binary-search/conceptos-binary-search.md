@@ -403,5 +403,479 @@ function interactiveBinarySearch(n: number): number {
 
 ---
 
-_Última actualización: 9 de septiembre de 2025_  
-_Problemas completados: 3/42 - Construyendo conocimiento incrementalmente_ 🎯
+## 🔍 **Binary Search on Answer - Perfect Square Detection**
+
+_Aprendido en: Valid Perfect Square (367)_
+
+### Patrón: Búsqueda de Valor Específico en Rango Matemático
+
+Este problema introduce el concepto de **Binary Search on Answer**, donde buscamos un valor específico en un rango ordenado implícito.
+
+```typescript
+function isPerfectSquare(num: number): boolean {
+  // Early returns para casos triviales
+  if (num === 1) return true;
+  if (num < 4) return false;
+
+  let left = 1;
+  let right = Math.floor(num / 2) + 1; // Optimización matemática
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    // Protección contra overflow
+    if (mid > num / mid) {
+      right = mid - 1;
+      continue;
+    }
+
+    const square = mid * mid;
+
+    if (square === num) return true;
+    else if (square < num) left = mid + 1;
+    else right = mid - 1;
+  }
+
+  return false;
+}
+```
+
+### Conceptos Clave Aprendidos
+
+#### ✅ **Range Optimization Matemática**
+
+- **Insight**: Para `num > 4`, `√num ≤ num/2`
+- **Aplicación**: `right = Math.floor(num/2) + 1` reduce espacio búsqueda ~50%
+- **Justificación**: Si `x > num/2`, entonces `x² > num` para `num > 4`
+
+#### ✅ **Overflow Prevention Pattern**
+
+```typescript
+// ❌ Problemático: mid * mid puede causar overflow
+if (mid * mid > num) ...
+
+// ✅ Seguro: reorganizar para evitar multiplicación grande
+if (mid > num / mid) ...
+```
+
+- **Patrón general**: `a > limit/b` en lugar de `a*b > limit`
+- **Aplicabilidad**: Crítico para números cerca de límites de tipo de datos
+
+#### ✅ **Early Returns para Edge Cases**
+
+- **num = 1**: Caso especial (1² = 1)
+- **num < 4**: Solo 1 es cuadrado perfecto en este rango
+- **Beneficio**: Evita binary search para casos triviales
+
+#### ✅ **Binary Search on Answer vs Array Search**
+
+| Aspecto    | Array Search         | Answer Search              |
+| ---------- | -------------------- | -------------------------- |
+| **Input**  | Array dado           | Rango implícito            |
+| **Target** | Elemento específico  | Valor calculado            |
+| **Range**  | `[0, arr.length-1]`  | `[min_answer, max_answer]` |
+| **Check**  | `arr[mid] vs target` | `f(mid) vs target`         |
+
+### Técnicas Avanzadas
+
+#### 🎯 **Mathematical Range Bounds**
+
+En lugar de usar rangos arbitrarios, usa matemáticas para optimizar:
+
+- **Square root**: `[1, num/2 + 1]` para `num > 4`
+- **Nth root**: `[1, num^(1/n)]` aproximado
+- **Logarithmic**: Ajustar según el problema específico
+
+#### 🛡️ **Overflow-Safe Arithmetic**
+
+Pattern aplicable a otros problemas:
+
+```typescript
+// Para a * b vs c:
+if (a > c / b) {
+  /* a * b > c sin calcularlo */
+}
+
+// Para a^n vs c:
+if (a > Math.pow(c, 1 / n)) {
+  /* a^n > c aproximadamente */
+}
+```
+
+### Casos de Uso del Patrón
+
+#### **Problemas Similares**:
+
+1. **Integer Square Root**: Calcular `floor(√n)` sin funciones built-in
+2. **Perfect Power Detection**: Determinar si `n = k^p` para algún k, p
+3. **Capacity Problems**: Encontrar capacidad mínima/máxima que satisface condiciones
+
+#### **Cuándo Usar Binary Search on Answer**:
+
+- ✅ Función objetivo es **monótona** (creciente/decreciente)
+- ✅ Podemos **evaluar** si una respuesta candidata es válida en O(f(n))
+- ✅ El **rango de respuestas** es acotado y conocido
+- ✅ Búsqueda directa sería O(n) o peor
+
+### Testing Strategy para Math Problems
+
+```typescript
+describe("Valid Perfect Square", () => {
+  it("should handle edge cases", () => {
+    expect(isPerfectSquare(1)).toBe(true); // Minimum perfect square
+    expect(isPerfectSquare(2)).toBe(false); // First non-perfect
+  });
+
+  it("should handle large numbers", () => {
+    expect(isPerfectSquare(2147395600)).toBe(true); // 46340² - near limit
+    expect(isPerfectSquare(2147483647)).toBe(false); // 2³¹-1 - max int
+  });
+});
+```
+
+#### **Casos de Prueba Estratégicos**:
+
+- **Límites de tipo**: Números cerca de 2³¹-1
+- **Edge cases matemáticos**: 1, primeros no-cuadrados
+- **Cuadrados perfectos conocidos**: 4, 9, 16, 100, 10000
+- **Overflow candidates**: Números que podrían causar `mid * mid` overflow
+
+### Insights Clave
+
+#### 🎯 **Combinación de Optimizaciones**
+
+Este problema demuestra cómo múltiples optimizaciones trabajan juntas:
+
+1. **Matemática**: Range reduction
+2. **Engineering**: Overflow prevention
+3. **Performance**: Early returns
+4. **Algorithmic**: Binary search base
+
+#### 🔧 **Principio de Reorganización Algebraica**
+
+Cuando una operación puede causar overflow, reorganizar la expresión:
+
+- `a * b > c` → `a > c / b` (si `b > 0`)
+- `a² > c` → `a > √c` → `a > c / a` (si `a > 0`)
+
+Este principio es aplicable más allá de binary search.
+
+---
+
+## 🎯 **Template: Búsqueda de Primera Ocurrencia**
+
+_Aprendido en: First Bad Version (278)_
+
+### Patrón "Find First Occurrence"
+
+```typescript
+function findFirstOccurrence(
+  isCondition: (x: number) => boolean,
+  n: number
+): number {
+  let left = 1;
+  let right = n;
+
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (isCondition(mid)) {
+      // Condición se cumple: la respuesta está en [left, mid]
+      right = mid; // ¡Mantener mid como candidato!
+    } else {
+      // Condición no se cumple: la respuesta está en [mid+1, right]
+      left = mid + 1; // Descartar mid y todo a la izquierda
+    }
+  }
+
+  return left; // left == right == primera ocurrencia
+}
+```
+
+### Diferencias Críticas con Binary Search Clásico
+
+| Aspecto                      | Búsqueda Exacta            | Primera Ocurrencia                    |
+| ---------------------------- | -------------------------- | ------------------------------------- |
+| **Objetivo**                 | Encontrar valor específico | Encontrar transición false→true       |
+| **Cuando condición = true**  | `right = mid - 1`          | `right = mid`                         |
+| **Cuando condición = false** | `left = mid + 1`           | `left = mid + 1`                      |
+| **Condición de bucle**       | `left <= right`            | `left < right`                        |
+| **Invariante**               | "Target en [left, right]"  | "Primera ocurrencia en [left, right]" |
+
+### ⚠️ **Decisiones Clave**
+
+#### **`right = mid` vs `right = mid - 1`**
+
+```typescript
+if (isCondition(mid)) {
+  right = mid; // ✅ mid podría ser la primera ocurrencia
+  // vs
+  right = mid - 1; // ❌ Podríamos perder la respuesta correcta
+}
+```
+
+**Razón**: En problemas de transición, el elemento que cumple la condición podría ser exactamente la respuesta que buscamos.
+
+#### **`left < right` vs `left <= right`**
+
+- **`left < right`**: Para primera ocurrencia, convergemos cuando `left == right`
+- **`left <= right`**: Para búsqueda exacta, necesitamos revisar el último elemento
+
+### Casos de Uso del Patrón
+
+#### **Cuándo Aplicar "First Occurrence"**:
+
+1. **Secuencias con patrón binario**: `[false, false, ..., true, true, ...]`
+2. **Puntos de transición**: Buscar donde cambia una condición
+3. **Problemas de "earliest"**: Primera vez que algo ocurre
+4. **API minimization**: Reducir llamadas costosas
+
+#### **Ejemplos de Aplicación**:
+
+- **Version Control**: Primer commit con bug
+- **Deployment**: Primera versión problemática
+- **Database**: Primer registro corrupto
+- **Monitoring**: Momento exacto de degradación
+
+---
+
+## 🔗 **Higher-Order Functions en Algoritmos**
+
+_Aprendido en: First Bad Version (278)_
+
+### Patrón de Inyección de Dependencias
+
+```typescript
+// LeetCode usa este patrón para APIs externas:
+var solution = function (externalAPI: (x: number) => boolean) {
+  return function (input: number): number {
+    // Tu algoritmo usa externalAPI sin conocer su implementación
+    // Esto permite testing y reutilización
+  };
+};
+```
+
+### Ventajas del Patrón
+
+1. **Testability**: Podemos inyectar mocks para testing
+2. **Flexibility**: El mismo algoritmo funciona con diferentes APIs
+3. **Separation of Concerns**: Lógica de búsqueda separada de lógica específica
+4. **Reusability**: Template reutilizable para diferentes problemas
+
+### Testing Strategy con Higher-Order Functions
+
+```typescript
+describe("First Bad Version", () => {
+  it("should work with different API implementations", () => {
+    // Mock 1: Primera mala es versión 4
+    const api1 = (version: number) => version >= 4;
+    const algorithm1 = solution(api1);
+    expect(algorithm1(5)).toBe(4);
+
+    // Mock 2: Primera mala es versión 1
+    const api2 = (version: number) => version >= 1;
+    const algorithm2 = solution(api2);
+    expect(algorithm2(1)).toBe(1);
+  });
+});
+```
+
+---
+
+## 🎪 **Casos Edge para Problemas Interactivos**
+
+_Identificados en: First Bad Version (278)_
+
+### Edge Cases Específicos de "First Occurrence"
+
+#### **1. Single Element Arrays**
+
+```typescript
+// n=1, primera mala es la única versión
+// Input: n=1, bad=1
+// Expected: 1
+// Challenge: Algoritmo no debe entrar al loop
+```
+
+#### **2. Primera posición es la respuesta**
+
+```typescript
+// Todas las versiones son malas
+// Input: n=1000, bad=1
+// Expected: 1
+// Challenge: Binary search eficiente aún cuando answer está en extremo
+```
+
+#### **3. Última posición es la respuesta**
+
+```typescript
+// Solo la última versión es mala
+// Input: n=1000, bad=1000
+// Expected: 1000
+// Challenge: Evitar búsqueda lineal accidental
+```
+
+### Trace de Debugging Efectivo
+
+```typescript
+function firstBadVersionWithDebug(isBadVersion, n) {
+  let left = 1,
+    right = n;
+  console.log(`Initial: left=${left}, right=${right}`);
+
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2);
+    const result = isBadVersion(mid);
+    console.log(`left=${left}, right=${right}, mid=${mid}, isBad=${result}`);
+
+    if (result) {
+      right = mid;
+    } else {
+      left = mid + 1;
+    }
+    console.log(`After: left=${left}, right=${right}`);
+  }
+
+  console.log(`Final: ${left}`);
+  return left;
+}
+```
+
+**Patrón observable**: En problemas correctos, `left` y `right` convergen suavemente sin "saltos" erráticos.
+
+---
+
+## 📊 **API Call Optimization Patterns**
+
+_Validado en: First Bad Version (278)_
+
+### Comparación de Eficiencia
+
+| Algoritmo         | Time Complexity | API Calls       | Ejemplo (n=1,000,000)   |
+| ----------------- | --------------- | --------------- | ----------------------- |
+| **Linear Search** | O(n)            | O(n)            | ~500,000 calls promedio |
+| **Binary Search** | O(log n)        | O(log n)        | ~20 calls máximo        |
+| **Savings**       | **Exponencial** | **Exponencial** | **25,000x mejora**      |
+
+### Métricas de Optimización
+
+```typescript
+// Instrumento para medir eficiencia:
+function measureAPICalls(isBadVersion, n) {
+  let callCount = 0;
+  const wrappedAPI = (version) => {
+    callCount++;
+    return isBadVersion(version);
+  };
+
+  const result = solution(wrappedAPI)(n);
+  console.log(`Found ${result} in ${callCount} API calls`);
+  console.log(`Linear would need ${result} calls (average ${n / 2})`);
+
+  return { result, calls: callCount };
+}
+```
+
+### Aplicaciones Críticas
+
+#### **Cuando las API calls son costosas**:
+
+- **Network requests**: Cada call = latencia de red
+- **Database queries**: Operaciones I/O intensivas
+- **Compute-heavy validations**: ML model inference, compilación
+- **Production testing**: Deploy y test real en infraestructura
+
+**Conclusión**: Binary search no es solo sobre velocidad, sino sobre **minimizar recursos costosos**.
+
+---
+
+## 🧠 **Patrones de Invariantes para Transiciones**
+
+_Desarrollado en: First Bad Version (278)_
+
+### Invariante para "Primera Ocurrencia"
+
+> **"Si existe una primera ocurrencia, debe estar en el rango [left, right]"**
+
+### Mantenimiento de Invariante
+
+#### **Inicialización**:
+
+```typescript
+let left = 1; // Primera posición posible
+let right = n; // Última posición posible
+// Invariante: [1, n] contiene todas las posiciones posibles
+```
+
+#### **Preservación en loop**:
+
+```typescript
+if (isBadVersion(mid)) {
+  // mid cumple condición, respuesta en [left, mid]
+  right = mid; // Mantiene invariante
+} else {
+  // mid no cumple, respuesta en [mid+1, right]
+  left = mid + 1; // Mantiene invariante
+}
+```
+
+#### **Terminación**:
+
+```typescript
+// Cuando left == right, ambos apuntan a la única posición restante
+// Invariante garantiza que esa posición es la respuesta
+return left;
+```
+
+### Template de Verificación de Invariantes
+
+```typescript
+function verifyInvariant(left, right, target, description) {
+  console.assert(
+    left <= target && target <= right,
+    `Invariant violated: ${target} not in [${left}, ${right}] - ${description}`
+  );
+}
+```
+
+---
+
+## 🔄 **Convergencia y Terminación**
+
+_Analizado en: First Bad Version (278)_
+
+### Análisis de Convergencia
+
+#### **Progreso Garantizado**:
+
+En cada iteración, el rango `[left, right]` se reduce:
+
+- **Caso 1**: `isBadVersion(mid) = true` → nuevo rango `[left, mid]`
+- **Caso 2**: `isBadVersion(mid) = false` → nuevo rango `[mid+1, right]`
+
+**Demostración**: En ambos casos, `right - left` disminuye estrictamente.
+
+#### **Terminación Garantizada**:
+
+- **Base**: `right - left ≥ 0` siempre
+- **Decremento**: En cada iteración, `right - left` disminuye
+- **Mínimo**: Cuando `right - left = 0` → `left = right` → termina loop
+
+### Condiciones de Terminación Seguras
+
+```typescript
+// ✅ CORRECTO para "primera ocurrencia"
+while (left < right) {
+  // Termina cuando left == right
+}
+
+// ❌ PELIGROSO para "primera ocurrencia"
+while (left <= right) {
+  // Podría no terminar si right = mid repetidamente
+}
+```
+
+---
+
+_Última actualización: 10 de septiembre de 2025_  
+_Problemas completados: 5/42 - Construyendo conocimiento incrementalmente_ 🎯
