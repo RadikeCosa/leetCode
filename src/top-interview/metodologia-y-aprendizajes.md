@@ -51,7 +51,7 @@ top-interview/
 ### Categorías de Problemas
 
 - **array-string/**: Manipulación de arrays y strings, two pointers, sliding window
-- **[linked-lists/]**: Problemas de listas enlazadas (futuro)
+- **linked-list/**: Problemas de listas enlazadas, detección de ciclos, traversal
 - **[trees/]**: Árboles binarios y traversal (futuro)
 - **[dynamic-programming/]**: Programación dinámica (futuro)
 
@@ -90,6 +90,14 @@ top-interview/
 **Insight**: Aprovechar restricciones del problema (espacio extra en nums1)  
 **Complejidad**: O(m+n) tiempo, O(1) espacio  
 **Lección**: La dirección del procesamiento puede ser crucial para optimización
+
+### Linked List Cycle (LeetCode 141)
+
+**Patrón**: Cycle Detection / Hash Set Tracking  
+**Técnica clave**: Rastrear nodos visitados por referencia, no por valor  
+**Insight**: Comparar objetos/referencias vs valores para detectar revisitas  
+**Complejidad**: O(n) tiempo, O(n) espacio (alternativa O(1) con Two Pointers)  
+**Lección**: Entender diferencia entre representación visual de LeetCode y estructura real de datos
 
 ---
 
@@ -467,6 +475,147 @@ if (last !== pairs[char]) return false;
 - Necesidad de recordar **estado histórico** en orden reverso
 - Parsing de expresiones, validación de sintaxis
 - Cualquier problema donde "el último elemento procesado es el primero en resolverse"
+
+### Linked Lists Fundamentals
+
+**Concepto clave**: Estructuras de datos donde elementos no están en memoria contigua, sino conectados por referencias.
+
+#### **Anatomía de una Linked List**
+
+```typescript
+class ListNode {
+  val: number; // Valor almacenado
+  next: ListNode | null; // Referencia al siguiente nodo
+
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+```
+
+#### **Diferencias clave vs Arrays**
+
+| Aspecto            | Array           | Linked List         |
+| ------------------ | --------------- | ------------------- |
+| **Memoria**        | Contigua        | Dispersa            |
+| **Acceso**         | O(1) por índice | O(n) secuencial     |
+| **Inserción**      | O(n) (shift)    | O(1) con referencia |
+| **Representación** | `[1,2,3,4]`     | `1->2->3->4->null`  |
+
+#### **Interpretación de inputs LeetCode**
+
+**Lo que ves**: `head = [3,2,0,-4], pos = 1`  
+**Lo que realmente es**:
+
+```typescript
+// LeetCode construye internamente:
+const head = {
+  val: 3,
+  next: {
+    val: 2,    // ← pos = 1 apunta aquí
+    next: {
+      val: 0,
+      next: {
+        val: -4,
+        next: [referencia a nodo pos=1] // ← ciclo creado aquí
+      }
+    }
+  }
+}
+// Tu función solo recibe: head (primer nodo)
+// NO recibes: pos (usado solo para construcción)
+```
+
+#### **Cycle Detection Patterns**
+
+**Problema ejemplo**: Linked List Cycle (LeetCode 141)
+
+**Patrón 1: HashSet Tracking (O(n) space)**
+
+```typescript
+function hasCycle(head: ListNode | null): boolean {
+  const visited = new Set<ListNode>();
+  let current = head;
+
+  while (current !== null) {
+    if (visited.has(current)) {
+      return true; // Nodo revisitado = ciclo
+    }
+    visited.add(current);
+    current = current.next;
+  }
+
+  return false; // Llegamos a null = no hay ciclo
+}
+```
+
+**Patrón 2: Two Pointers - Floyd's Algorithm (O(1) space)**
+
+```typescript
+function hasCycle(head: ListNode | null): boolean {
+  let slow = head; // Tortuga: 1 paso
+  let fast = head; // Liebre: 2 pasos
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow!.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      return true; // Se encontraron = hay ciclo
+    }
+  }
+
+  return false; // fast llegó a null = no hay ciclo
+}
+```
+
+#### **Consideraciones importantes**
+
+**Referencias vs Valores**:
+
+- Comparamos **objetos/referencias** (`visited.has(current)`)
+- NO comparamos valores (`current.val`)
+- Dos nodos pueden tener mismo valor pero ser objetos distintos
+
+**Edge Cases típicos**:
+
+- Lista vacía: `head = null`
+- Un solo nodo sin ciclo: `[1] -> null`
+- Un solo nodo con ciclo: `[1] -> [1]` (apunta a sí mismo)
+- Ciclo al inicio, en el medio, al final
+
+**Patterns de recorrido**:
+
+```typescript
+// Recorrido básico
+let current = head;
+while (current !== null) {
+  // Procesar current.val
+  current = current.next;
+}
+
+// ⚠️ PELIGRO con ciclos: loop infinito sin detección
+```
+
+**Trade-offs de enfoques**:
+
+- **HashSet**: Intuitivo, fácil debug, O(n) memoria
+- **Two Pointers**: Elegante, O(1) memoria, más complejo conceptualmente
+
+#### **Lecciones del patrón**
+
+1. **Comprensión estructural**: Linked lists ≠ arrays
+2. **Representación LeetCode**: Visual vs implementación real
+3. **Detección de ciclos**: Problema fundamental en estructuras enlazadas
+4. **Algoritmos clásicos**: Floyd's cycle detection como referente
+5. **Trade-offs**: Claridad vs eficiencia de memoria
+
+**Cuándo sospechar linked list cycle**:
+
+- Problema menciona "cycle", "loop", "circular"
+- Seguimiento de referencias/punteros
+- Detección de estados repetidos en secuencias
 
 ---
 
