@@ -50,8 +50,12 @@ export function findMostFrequentVowelAndConsonant(s: string): number {
 
 # Notes
 
-- **Edge cases handled**: Only vowels (consonant max = 0), only consonants (vowel max = 0), single character strings
-- **Alternative approaches**: HashMap-based solution would work but uses O(k) space where k = unique characters
-- **Key optimization**: Using ASCII mapping for direct array access instead of HashMap lookups
-- **Space efficiency**: Fixed O(1) space regardless of input size by leveraging the constraint of lowercase letters only
-- **Why arrays over HashMap**: For fixed small alphabets (26 letters), arrays provide better cache locality and guaranteed O(1) space
+- **Development process**: Started considering HashMap approach, optimized to arrays for O(1) space
+- **Design decision**: Used arrays of size 26 for both vowels and consonants despite only 5 vowels existing
+- **Trade-off analysis**: Chose simplicity over memory optimization - 26 positions vs optimized 5+Map approach
+- **Why "inefficient" arrays**: Uniform ASCII mapping (char.charCodeAt(0) - 97) for both categories, simpler code, better maintainability
+- **Memory impact**: Only 84 extra bytes (21 unused positions × 4 bytes), negligible for this problem size
+- **Alternative considered**: vowelMap{a:0,e:1,i:2,o:3,u:4} + Map for consonants - more memory efficient but more complex
+- **Principle applied**: "Optimize what matters" - code clarity over premature memory optimization
+- **Edge cases tested**: Comprehensive test suite with 9 cases covering single chars, only vowels/consonants, equal frequencies, and realistic examples
+- **Test coverage**: 9/9 tests passing including edge cases like `"programming"` → 3, `"aaaa"` → 4, `"bcdfg"` → 1

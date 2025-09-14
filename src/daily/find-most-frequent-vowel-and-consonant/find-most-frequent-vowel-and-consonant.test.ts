@@ -47,8 +47,49 @@ describe("Find Most Frequent Vowel and Consonant", () => {
     const s = "successes";
     expect(findMostFrequentVowelAndConsonant(s)).toBe(6);
   });
+
   it("should return 3 for example 2", () => {
     const s = "aeiaeia";
     expect(findMostFrequentVowelAndConsonant(s)).toBe(3);
+  });
+
+  // Casos edge adicionales
+  it("should return 1 for single character vowel", () => {
+    const s = "a";
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(1); // vowel=1, consonant=0
+  });
+
+  it("should return 1 for single character consonant", () => {
+    const s = "b";
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(1); // vowel=0, consonant=1
+  });
+
+  it("should handle only consonants", () => {
+    const s = "bcdfg";
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(1); // vowel=0, consonant=1 (cada consonante aparece 1 vez)
+  });
+
+  it("should handle only vowels", () => {
+    const s = "aeiou";
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(1); // vowel=1 (cada vocal aparece 1 vez), consonant=0
+  });
+
+  it("should handle repeated characters", () => {
+    const s = "aaaa";
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(4); // vowel=4, consonant=0
+  });
+
+  it("should handle mixed with high frequencies", () => {
+    const s = "programming";
+    // vowels: o(1), a(1), i(1) -> max = 1
+    // consonants: p(1), r(2), g(2), m(2), n(1) -> max = 2
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(3); // 1 + 2 = 3
+  });
+
+  it("should handle case with equal frequencies", () => {
+    const s = "abcde";
+    // vowels: a(1), e(1) -> max = 1
+    // consonants: b(1), c(1), d(1) -> max = 1
+    expect(findMostFrequentVowelAndConsonant(s)).toBe(2); // 1 + 1 = 2
   });
 });

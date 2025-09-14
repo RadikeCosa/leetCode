@@ -31,9 +31,24 @@ Encontrar la vocal y consonante con mayor frecuencia en un string y retornar la 
 2. Conteo de frecuencias optimizado
 3. Búsqueda de máximos por categoría
 
+### Proceso de desarrollo:
+
+**Enfoque inicial considerado**: HashMap para conteo
+
+- Map<string, number> para todas las frecuencias
+- Clasificar después del conteo
+- Complejidad: O(n) tiempo, O(k) espacio
+
+**Optimización implementada**: Arrays de conteo directo
+
+- Aprovechar constraint: solo lowercase a-z
+- Mapeo ASCII directo a índices
+- Separación de categorías durante conteo
+- Complejidad: O(n) tiempo, O(1) espacio
+
 ## Enfoque detallado
 
-### Solución implementada: Arrays de conteo directo
+### Solución final: Arrays de conteo directo con mapeo ASCII
 
 ```typescript
 export function findMostFrequentVowelAndConsonant(s: string): number {
@@ -76,13 +91,108 @@ export function findMostFrequentVowelAndConsonant(s: string): number {
 - **Separación de categorías**: Arrays separados evitan clasificación posterior
 - **Espacio constante**: 26 posiciones fijas independiente del tamaño del string
 
+### ¿Por qué arrays de 26 posiciones y no 5 para vocales?
+
+**Pregunta clave**: Si solo hay 5 vocales, ¿por qué usar un array de 26 posiciones?
+
+**Decisión de diseño analizada:**
+
+#### **Opción 1: Arrays optimizados por categoría**
+
+```typescript
+// Solo 5 posiciones para vocales
+const vowelMap = { a: 0, e: 1, i: 2, o: 3, u: 4 };
+const vowelCounts = new Array(5).fill(0); // 5 posiciones
+const consonantCounts = new Map<string, number>(); // Variable según input
+```
+
+**Pros**: Memoria más eficiente (5 vs 26 posiciones para vocales)  
+**Contras**:
+
+- Mapeo adicional `vowelMap[char]` para cada vocal
+- Código más complejo para manejar consonantes
+- Mix de estructuras (Array + Map)
+
+#### **Opción 2: Arrays uniformes de 26 posiciones (implementado)**
+
+```typescript
+const vowelCounts = new Array(26).fill(0); // 26 posiciones
+const consonantCounts = new Array(26).fill(0); // 26 posiciones
+// Mapeo directo: char.charCodeAt(0) - 97
+```
+
+**Pros**:
+
+- **Simplicidad**: Mismo mapeo ASCII para ambas categorías
+- **Uniformidad**: Misma estructura para vocales y consonantes
+- **Performance**: Acceso directo O(1) sin lookups adicionales
+- **Mantenibilidad**: Código más claro y menos propenso a errores
+
+**Contras**:
+
+- **Memoria "desperdiciada"**: 21 posiciones extra para vocales no usadas
+- **Ineficiencia conceptual**: Arrays más grandes de lo necesario
+
+#### **Análisis de trade-offs:**
+
+| Aspecto                   | Optimizado (5+Map) | Uniforme (26+26) |
+| ------------------------- | ------------------ | ---------------- |
+| **Memoria**               | ~5 + k enteros     | 52 enteros       |
+| **Complejidad de código** | Media-Alta         | Baja             |
+| **Performance**           | Lookup + acceso    | Acceso directo   |
+| **Mantenibilidad**        | Más complejo       | Más simple       |
+| **Escalabilidad**         | Limitado           | Extensible       |
+
+#### **¿Por qué elegimos la opción "menos eficiente"?**
+
+**En el contexto de este problema:**
+
+1. **Constraints favorables**:
+
+   - String máximo 100 caracteres
+   - Solo lowercase a-z
+   - Memoria desperdiciada: 21 × 4 bytes = 84 bytes extra (negligible)
+
+2. **Principio de simplicidad**:
+
+   - Código más claro y mantenible
+   - Menos propenso a bugs de indexación
+   - Patrón uniforme para ambas categorías
+
+3. **Performance práctica**:
+
+   - Acceso directo vs lookup en Map para cada consonante
+   - Mejor cache locality con arrays contiguos
+
+4. **Generalización del patrón**:
+   - Este enfoque escala a otros problemas de conteo con alfabetos fijos
+   - Reutilizable para problemas similares
+
+**Conclusión**: Para problemas de tamaño pequeño con alfabetos fijos, **la simplicidad y claridad del código supera la optimización prematura de memoria**. En sistemas con constraints estrictos de memoria, la optimización sería válida.
+
+### Lección de diseño:
+
+**"Optimizar lo que importa"** - En este caso, la legibilidad y mantenibilidad del código son más valiosas que 84 bytes de memoria.
+
 ## Casos extremos
 
-- **Solo vocales**: `"aeiaeia"` → maxConsonant = 0
-- **Solo consonantes**: `"bcdfg"` → maxVowel = 0
-- **Todos iguales**: `"aaaa"` → máxima frecuencia = 4
-- **Un carácter**: `"a"` → vocal = 1, consonante = 0
-- **String mínimo**: longitud 1 según constraints
+**Casos cubiertos en la suite de tests:**
+
+- **Solo vocales**: `"aeiaeia"` → maxVowel = 3, maxConsonant = 0 → resultado = 3
+- **Solo consonantes**: `"bcdfg"` → maxVowel = 0, maxConsonant = 1 → resultado = 1
+- **Un carácter vocal**: `"a"` → maxVowel = 1, maxConsonant = 0 → resultado = 1
+- **Un carácter consonante**: `"b"` → maxVowel = 0, maxConsonant = 1 → resultado = 1
+- **Caracteres repetidos**: `"aaaa"` → maxVowel = 4, maxConsonant = 0 → resultado = 4
+- **Frecuencias iguales**: `"abcde"` → maxVowel = 1, maxConsonant = 1 → resultado = 2
+- **Caso realista**: `"programming"` → maxVowel = 1, maxConsonant = 2 → resultado = 3
+  - Vocales: o(1), a(1), i(1) → máximo = 1
+  - Consonantes: p(1), r(2), g(2), m(2), n(1) → máximo = 2
+
+**Observaciones importantes:**
+
+- Cuando no hay vocales/consonantes, su frecuencia máxima es 0
+- El resultado siempre es ≥ 0 (casos válidos según constraints)
+- Arrays de tamaño fijo manejan automáticamente letras no presentes (quedan en 0)
 
 ## Complejidad
 
