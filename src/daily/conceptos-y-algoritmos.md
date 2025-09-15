@@ -2646,3 +2646,167 @@ const isValidResult = (result: number[], n: number): boolean => {
 - **Coverage**: Combinar tests específicos con tests genéricos de validación
 
 ---
+
+## Optimización de Búsquedas: Set vs String
+
+**Definición:** Comparación entre diferentes estructuras de datos para operaciones de búsqueda frecuentes.
+
+### Set para Lookup O(1)
+
+**Cuándo usar:**
+
+- Verificaciones frecuentes de existencia de elementos
+- Conjunto pequeño de elementos a buscar (ej: letras del alfabeto)
+- Cuando la performance de búsqueda es crítica
+
+**Ejemplo del problema Maximum Number of Words You Can Type:**
+
+```typescript
+// ❌ Approach ineficiente - O(k) por búsqueda
+const brokenLetters = "aeiou";
+if (brokenLetters.includes(letra)) // O(k) donde k = letras rotas
+
+// ✅ Approach optimizado - O(1) por búsqueda
+const brokenSet = new Set(brokenLetters);
+if (brokenSet.has(letra)) // O(1)
+```
+
+**Complejidad comparativa:**
+
+- **String.includes()**: O(k) por búsqueda
+- **Set.has()**: O(1) promedio
+
+**Trade-off:**
+
+- **Costo inicial**: O(k) para crear el Set
+- **Beneficio**: O(1) por cada búsqueda posterior
+- **Break-even**: Cuando hacer más de 1 búsqueda
+
+### Métodos Funcionales para Validación
+
+**Pattern:** Combinar `filter()` + `every()` para verificación de condiciones complejas.
+
+```typescript
+// Verificar si todas las palabras cumplen una condición
+const validWords = words.filter((word) =>
+  [...word].every((letra) => !brokenSet.has(letra))
+);
+```
+
+**Ventajas de `every()`:**
+
+- **Early exit**: Para en cuanto encuentra un elemento que no cumple
+- **Expresivo**: Código declarativo que expresa intención claramente
+- **Composable**: Se combina bien con otros métodos funcionales
+
+**Equivalencia con loops:**
+
+```typescript
+// Con every() - funcional
+const esValida = (word) => [...word].every((letra) => !brokenSet.has(letra));
+
+// Con loop - imperativo
+const esValida = (word) => {
+  for (const letra of word) {
+    if (brokenSet.has(letra)) return false;
+  }
+  return true;
+};
+```
+
+## Múltiples Enfoques para un Problema
+
+**Concepto:** Un mismo problema puede resolverse con diferentes algoritmos, cada uno con trade-offs distintos.
+
+### Enfoque 1: Verificación por Elemento (Óptimo)
+
+**Idea:** Para cada elemento, verificar si cumple todas las condiciones.
+
+```typescript
+// Maximum Number of Words: verificar cada palabra individualmente
+const validWords = words.filter((word) =>
+  [...word].every((letra) => !brokenSet.has(letra))
+);
+```
+
+**Características:**
+
+- **Time Complexity**: O(n × m) donde n=elementos, m=verificaciones por elemento
+- **Single pass**: Una sola iteración por los datos principales
+- **Memory efficient**: No crea copias intermedias
+
+### Enfoque 2: Eliminación Iterativa (Intuitivo)
+
+**Idea:** Por cada condición, eliminar elementos que no la cumplan.
+
+```typescript
+// Maximum Number of Words: eliminar palabras por cada letra rota
+let words = text.split(" ");
+for (const char of brokenLetters) {
+  words = words.filter((word) => !word.includes(char));
+}
+```
+
+**Características:**
+
+- **Time Complexity**: O(n × k × m) donde k=número de condiciones
+- **Multiple passes**: Una iteración por cada condición
+- **Memory overhead**: Crea arrays intermedios
+
+### Cuándo Usar Cada Enfoque
+
+**Verificación por Elemento (recomendado cuando):**
+
+- Performance es importante
+- Número de condiciones es variable o grande
+- Datos de entrada son grandes
+
+**Eliminación Iterativa (recomendado cuando):**
+
+- Claridad del código es prioritaria
+- Pocas condiciones a verificar
+- Contexto educativo o prototipado rápido
+- Datos de entrada son pequeños
+
+### Pattern: Trade-offs de Performance vs Claridad
+
+**Principio:** En algoritmos, frecuentemente existe tensión entre eficiencia y legibilidad.
+
+**Factores para decidir:**
+
+1. **Tamaño de datos esperado**
+
+   - Datos pequeños: Priorizar claridad
+   - Datos grandes: Priorizar eficiencia
+
+2. **Frecuencia de ejecución**
+
+   - Código que se ejecuta una vez: Claridad
+   - Código en hot paths: Performance
+
+3. **Contexto del proyecto**
+   - Entrevistas técnicas: Mostrar conocimiento de optimización
+   - Código de producción: Balancear maintainability y performance
+   - Código educativo: Priorizar comprensión
+
+**Ejemplo de documentación de trade-offs:**
+
+```typescript
+// Solución optimizada - O(n × m)
+const efficientSolution = () => {
+  /* ... */
+};
+
+// Solución intuitiva - O(n × k × m) pero más clara
+const intuitiveSolution = () => {
+  /* ... */
+};
+
+// Elegir basado en contexto:
+// - Para producción con datos grandes: efficientSolution
+// - Para prototipado o enseñanza: intuitiveSolution
+```
+
+**Best Practice:** Documentar ambos approaches cuando la diferencia es significativa, explicando cuándo usar cada uno.
+
+---
