@@ -196,6 +196,53 @@ return target === targetStr.length;
 - **Convergentes**: Verificar condiciones de frontera (`left < right`)
 - **Paralelos**: Manejar velocidades diferentes y condiciones de término
 
+#### **3. Two Pointers Write-Read Pattern (In-Place Modification)**
+
+**Problema ejemplo**: Remove Duplicates from Sorted Array II (LeetCode 80)
+
+**Concepto**: Usar un puntero para leer secuencialmente y otro para escribir elementos válidos in-place
+
+**Estrategia**:
+
+- **Read pointer (`i`)**: Recorre todo el array
+- **Write pointer (`writeIndex`)**: Marca dónde escribir el próximo elemento válido
+- **State tracker (`count`)**: Mantiene estado entre lecturas
+
+```typescript
+function removeDuplicates(nums: number[]): number {
+  let count = 0;
+  let writeIndex = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i === 0 || nums[i] !== nums[i - 1]) {
+      count = 1; // Nuevo elemento
+      nums[writeIndex] = nums[i];
+      writeIndex++;
+    } else if (count < 2) {
+      count++; // Duplicado permitido
+      nums[writeIndex] = nums[i];
+      writeIndex++;
+    }
+    // Si count >= 2, solo avanzar read pointer
+  }
+
+  return writeIndex;
+}
+```
+
+**Ventajas**:
+
+- ✅ O(1) espacio (cumple restricción in-place)
+- ✅ O(n) tiempo (una sola pasada)
+- ✅ Aprovecha array ordenado (duplicados consecutivos)
+- ✅ Flexible para diferentes límites de duplicados
+
+**Patrón aplicable a**:
+
+- Remove Duplicates from Sorted Array (límite = 1)
+- Remove Element (condicional de eliminación)
+- Move Zeroes (reorganización in-place)
+
 ### In-Place Processing
 
 **Concepto**: Procesar datos sin crear estructuras auxiliares
