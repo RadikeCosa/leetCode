@@ -96,6 +96,151 @@ seen.set(currentNum, i);
 - API clara y expresiva
 - Manejo automático de colisiones
 
+### Frequency Counting (Conteo de Frecuencias)
+
+**Definición:** Técnica para contar las ocurrencias de elementos usando estructuras de datos tipo hash.
+
+**Estructuras comunes:**
+
+```typescript
+// Opción 1: Record (más conciso para claves numéricas/string)
+const frequencyMap: Record<number, number> = {};
+
+// Opción 2: Map (más versátil, cualquier tipo de clave)
+const frequencyMap = new Map<number, number>();
+```
+
+**Patrón básico:**
+
+```typescript
+// Con Record
+frequencyMap[key] = (frequencyMap[key] || 0) + 1;
+// Con Nullish Coalescing (ES2020+)
+frequencyMap[key] = (frequencyMap[key] ?? 0) + 1;
+
+// Con Map
+frequencyMap.set(key, (frequencyMap.get(key) || 0) + 1);
+```
+
+**Ejemplo del problema Count Elements With Maximum Frequency:**
+
+```typescript
+export function maxFrequencyElements(nums: number[]): number {
+  let frequencyMap: Record<number, number> = {};
+  let maxFrequency = 0;
+  
+  // Primera pasada: construir frecuencias + tracking de máximo
+  for (let num of nums) {
+    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+    maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
+  }
+  
+  // Segunda pasada: sumar frecuencias máximas
+  let totalCount = 0;
+  for (let count of Object.values(frequencyMap)) {
+    if (count === maxFrequency) {
+      totalCount += count;
+    }
+  }
+  
+  return totalCount;
+}
+```
+
+**Cuándo usar:**
+
+- Problemas que requieren contar ocurrencias de elementos
+- Encontrar elementos más/menos frecuentes
+- Agrupar elementos por frecuencia
+- Validar distribuciones o patrones
+
+**Complejidad:**
+- Tiempo: O(n) para construcción + O(k) para procesamiento (k = elementos únicos)
+- Espacio: O(k) donde k ≤ n
+
+### Two-Pass Algorithms con Optimización
+
+**Definición:** Algoritmos que recorren los datos dos veces, pero optimizan cálculos en la primera pasada.
+
+**Patrón de optimización común:**
+
+```typescript
+// ❌ Enfoque naive (3 pasadas)
+// 1. Construir estructura
+// 2. Encontrar valor objetivo (máximo/mínimo)
+// 3. Procesar basado en objetivo
+
+// ✅ Enfoque optimizado (2 pasadas)
+// 1. Construir estructura + calcular valor objetivo simultáneamente
+// 2. Procesar basado en objetivo
+```
+
+**Ejemplo - Tracking de máximo durante construcción:**
+
+```typescript
+let maxValue = 0;
+for (let item of items) {
+  processItem(item);
+  maxValue = Math.max(maxValue, getCurrentValue(item)); // ¡Optimización!
+}
+```
+
+**Ventajas:**
+
+- Reduce número de iteraciones
+- Mantiene complejidad asintótica óptima
+- Código más eficiente sin mayor complejidad
+
+### Record vs Map - Decisiones de Diseño
+
+**Cuándo usar Record:**
+
+```typescript
+const freq: Record<number | string, number> = {};
+freq[key] = (freq[key] || 0) + 1; // Sintaxis concisa
+```
+
+- Claves numéricas o string simples
+- Sintaxis más limpia para acceso/modificación
+- Menos verboso para operaciones frecuentes
+- Familiaridad con objetos JavaScript
+
+**Cuándo usar Map:**
+
+```typescript
+const freq = new Map<any, number>();
+freq.set(key, (freq.get(key) || 0) + 1);
+```
+
+- Claves de tipos complejos (objetos, arrays)
+- Necesitas métodos como `.size`, `.keys()`, `.values()`
+- Mejor rendimiento para operaciones frecuentes de inserción/eliminación
+- Mejor semántica para estructuras de datos
+
+**Para frequency counting:** Ambos funcionan, Record es más conciso para tipos simples.
+
+### Nullish Coalescing (??) vs Logical OR (||)
+
+**Diferencias clave:**
+
+```typescript
+// || activa con valores "falsy": null, undefined, 0, "", false, NaN
+value = existingValue || defaultValue;
+
+// ?? solo activa con "nullish": null, undefined
+value = existingValue ?? defaultValue;
+```
+
+**En frequency counting:**
+
+```typescript
+// Para este caso, ambos son equivalentes (no manejamos 0 como frecuencia válida)
+map[num] = (map[num] || 0) + 1;  // Tradicional
+map[num] = (map[num] ?? 0) + 1;  // Más específico semánticamente
+```
+
+**Preferencia:** `??` es más preciso sobre la intención (solo para null/undefined).
+
 ### Técnica de Dos Punteros (Two Pointers)
 
 **Definición:** Algoritmo que utiliza dos punteros que se mueven a través de una estructura de datos para resolver problemas de manera eficiente.
