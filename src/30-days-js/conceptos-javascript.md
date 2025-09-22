@@ -2291,3 +2291,75 @@ type Obj = Record<string, JSONValue> | Array<JSONValue>;
 - **Error prevention**: Detecta tipos incompatibles en compile time
 
 Estos conceptos son fundamentales para desarrollo moderno de JavaScript/TypeScript y aplicaciones web, especialmente en paradigmas de programación funcional y asíncrona, con énfasis especial en timing operations, async coordination, promise racing patterns, optimización de performance en manipulación de datos, y procesamiento eficiente de arrays y estructuras de datos complejas.
+
+---
+
+## Prototype Extension y Modificación de Tipos Nativos
+
+### Concepto: Array Prototype Extension
+
+**Definición:** Técnica que permite agregar métodos personalizados a tipos nativos de JavaScript (como Array) modificando su prototipo.
+
+**Implementación típica:**
+
+```typescript
+declare global {
+  interface Array<T> {
+    last(): T | -1;
+  }
+}
+
+Array.prototype.last = function () {
+  if (this.length === 0) {
+    return -1;
+  }
+  return this[this.length - 1];
+};
+```
+
+**Componentes clave:**
+
+1. **Global Declaration**: `declare global` extiende tipos existentes
+2. **Interface Merging**: TypeScript permite extender interfaces nativas
+3. **Prototype Assignment**: `Array.prototype.methodName` agrega el método
+4. **this Context**: Dentro del método, `this` refiere al array específico
+
+**Ventajas:**
+
+- **Sintaxis natural**: `array.last()` es más legible que `array[array.length - 1]`
+- **Reutilización**: Disponible en todos los arrays automáticamente
+- **Type Safety**: TypeScript mantiene los tipos correctos
+- **Consistencia**: Sigue patrones de métodos nativos como `push()`, `pop()`
+
+**Consideraciones importantes:**
+
+- **Compatibilidad**: Verificar que no interfiera con librerías externas
+- **Naming conflicts**: Evitar nombres que puedan existir en futuras versiones de JavaScript
+- **Testing**: Probar edge cases exhaustivamente (arrays vacíos, diferentes tipos)
+- **Performance**: O(1) para acceso directo a elementos
+
+**Edge Cases comunes:**
+
+- Arrays vacíos → retorno especial (-1 en este caso)
+- Elementos falsy (null, undefined) → retornar tal como están
+- Diferentes tipos de datos → mantener tipo original
+- Arrays de un elemento → funcionar correctamente
+
+**Ejemplo del problema Array Prototype Last:**
+
+```typescript
+// Usage examples:
+[1, 2, 3].last()           // 3
+[].last()                  // -1
+[null, {}, 3].last()       // 3
+["a", "b"].last()          // "b"
+[undefined].last()         // undefined
+```
+
+**Best Practices:**
+
+- Siempre incluir declaraciones de tipo TypeScript
+- Manejar todos los edge cases posibles
+- Usar nombres descriptivos y específicos
+- Documentar comportamiento esperado claramente
+- Considerar alternativas antes de modificar prototipos nativos
