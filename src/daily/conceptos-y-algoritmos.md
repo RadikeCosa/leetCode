@@ -128,13 +128,13 @@ frequencyMap.set(key, (frequencyMap.get(key) || 0) + 1);
 export function maxFrequencyElements(nums: number[]): number {
   let frequencyMap: Record<number, number> = {};
   let maxFrequency = 0;
-  
+
   // Primera pasada: construir frecuencias + tracking de máximo
   for (let num of nums) {
     frequencyMap[num] = (frequencyMap[num] || 0) + 1;
     maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
   }
-  
+
   // Segunda pasada: sumar frecuencias máximas
   let totalCount = 0;
   for (let count of Object.values(frequencyMap)) {
@@ -142,7 +142,7 @@ export function maxFrequencyElements(nums: number[]): number {
       totalCount += count;
     }
   }
-  
+
   return totalCount;
 }
 ```
@@ -155,6 +155,7 @@ export function maxFrequencyElements(nums: number[]): number {
 - Validar distribuciones o patrones
 
 **Complejidad:**
+
 - Tiempo: O(n) para construcción + O(k) para procesamiento (k = elementos únicos)
 - Espacio: O(k) donde k ≤ n
 
@@ -235,8 +236,8 @@ value = existingValue ?? defaultValue;
 
 ```typescript
 // Para este caso, ambos son equivalentes (no manejamos 0 como frecuencia válida)
-map[num] = (map[num] || 0) + 1;  // Tradicional
-map[num] = (map[num] ?? 0) + 1;  // Más específico semánticamente
+map[num] = (map[num] || 0) + 1; // Tradicional
+map[num] = (map[num] ?? 0) + 1; // Más específico semánticamente
 ```
 
 **Preferencia:** `??` es más preciso sobre la intención (solo para null/undefined).
@@ -1886,6 +1887,340 @@ return distancia1 < distancia2
 - Diferentes métricas (Manhattan, Chebyshev)
 - Múltiples candidatos (encontrar los k más cercanos)
 - Restricciones adicionales (obstáculos, pesos)
+
+### Comparación de Strings Lexicográfica
+
+**Definición:** Técnica para comparar strings utilizando el orden lexicográfico natural de JavaScript, especialmente útil para strings que representan números.
+
+**Cuándo es efectiva:**
+
+```typescript
+// Para strings de dígitos de igual longitud
+"777" > "666"; // true - comparación lexicográfica = comparación numérica
+"999" > "123"; // true - funciona perfectamente
+
+// ⚠️ CUIDADO: No funciona para longitudes diferentes
+"9" < "10"; // false! Lexicográficamente "9" > "1"
+```
+
+**Aplicaciones principales:**
+
+- **Comparar versiones:** Cuando cada segmento se trata como número independiente
+- **Strings de dígitos de misma longitud:** Maximizar/minimizar strings numéricos
+- **Ordenamiento de identificadores:** Códigos alfanuméricos
+
+**Ejemplo en Compare Version Numbers:**
+
+```typescript
+// Cada revision se compara como número independiente
+const num1 = parseInt(revision1); // "01" → 1
+const num2 = parseInt(revision2); // "10" → 10
+// Aquí usamos comparación numérica, no lexicográfica
+
+// Pero para strings de misma longitud numéricamente:
+if (candidate > best) {
+  // "777" > "333" funciona perfecto
+  best = candidate;
+}
+```
+
+**Pattern de aplicación:**
+
+1. **Identificar el contexto:** ¿Las strings tienen longitud consistente?
+2. **Validar equivalencia:** ¿Orden lexicográfico = orden numérico?
+3. **Aplicar directamente:** Usar comparadores `<`, `>`, `===` directamente
+
+---
+
+## String Processing y Parsing
+
+### Técnica de Two Pointers para String Parsing
+
+**Definición:** Uso de dos punteros para extraer información de strings sin crear subestructuras auxiliares, optimizando memoria.
+
+**Ventajas principales:**
+
+- **Memoria O(1):** No crear arrays intermedios
+- **Una sola pasada:** Procesar cada carácter exactamente una vez
+- **Flexibilidad:** Adaptar fácilmente a diferentes delimitadores
+
+**Pattern base:**
+
+```typescript
+function extractSegments(str: string): void {
+  let pointer1 = 0;
+  let pointer2 = 0;
+
+  while (pointer1 < str.length || pointer2 < str.length) {
+    // Extraer próximo segmento usando pointer1
+    let segment1 = 0;
+    while (pointer1 < str.length && str[pointer1] !== delimiter) {
+      // Construir valor incrementalmente
+      segment1 = segment1 * 10 + parseInt(str[pointer1]);
+      pointer1++;
+    }
+    pointer1++; // Saltar delimitador
+
+    // Repetir para pointer2
+    // Procesar segments...
+  }
+}
+```
+
+**Ejemplo en Compare Version Numbers:**
+
+```typescript
+export function compareVersion(version1: string, version2: string): number {
+  let p1 = 0,
+    p2 = 0;
+
+  while (p1 < version1.length || p2 < version2.length) {
+    // Extraer número de version1 sin crear substring
+    let num1 = 0;
+    while (p1 < version1.length && version1[p1] !== ".") {
+      num1 = num1 * 10 + parseInt(version1[p1]);
+      p1++;
+    }
+    p1++; // Saltar punto
+
+    // Extraer número de version2
+    let num2 = 0;
+    while (p2 < version2.length && version2[p2] !== ".") {
+      num2 = num2 * 10 + parseInt(version2[p2]);
+      p2++;
+    }
+    p2++; // Saltar punto
+
+    // Comparar números extraídos
+    if (num1 > num2) return 1;
+    if (num1 < num2) return -1;
+  }
+
+  return 0;
+}
+```
+
+### Construcción Incremental de Números
+
+**Técnica:** Construir números dígito por dígito usando aritmética en lugar de concatenación de strings.
+
+**Formula básica:**
+
+```typescript
+// Para construir el número 123 de "123"
+let number = 0;
+// Procesar '1': number = 0 * 10 + 1 = 1
+// Procesar '2': number = 1 * 10 + 2 = 12
+// Procesar '3': number = 12 * 10 + 3 = 123
+```
+
+**Ventajas sobre parseInt(substring):**
+
+- **No crear substrings:** Evita allocaciones temporales
+- **Procesamiento en línea:** Construir mientras se recorre
+- **Mejor performance:** Menos overhead de conversión
+
+**Pattern reutilizable:**
+
+```typescript
+function parseNumberFromPosition(str: string, start: number): [number, number] {
+  let value = 0;
+  let position = start;
+
+  while (position < str.length && isDigit(str[position])) {
+    value = value * 10 + parseInt(str[position]);
+    position++;
+  }
+
+  return [value, position]; // [número extraído, nueva posición]
+}
+```
+
+### Split vs Two Pointers - Trade-offs
+
+| Aspecto                  | Split Approach | Two Pointers |
+| ------------------------ | -------------- | ------------ |
+| **Legibilidad**          | ⭐⭐⭐⭐⭐     | ⭐⭐⭐⭐     |
+| **Complejidad Temporal** | O(n)           | O(n)         |
+| **Complejidad Espacial** | O(n)           | **O(1)** ✅  |
+| **Facilidad Debug**      | ⭐⭐⭐⭐⭐     | ⭐⭐⭐       |
+| **Flexibilidad**         | ⭐⭐⭐         | ⭐⭐⭐⭐⭐   |
+| **Casos Edge**           | ⭐⭐⭐⭐       | ⭐⭐⭐       |
+
+**Cuándo usar Split:**
+
+- Prototipado rápido
+- Código de lectura crítica
+- Cuando memoria no es limitante
+- Delimitadores complejos
+
+**Cuándo usar Two Pointers:**
+
+- Optimización de memoria crítica
+- Parsing de formatos customizados
+- Sistemas con restricciones de memoria
+- Cuando necesitas control granular del parsing
+
+### Manejo de Revisiones Faltantes
+
+**Problema:** En strings como "1" vs "1.0.0", ¿cómo tratar las revisiones que no existen?
+
+**Estrategias:**
+
+#### 1. Default a Cero (más común)
+
+```typescript
+// Si no hay más caracteres, el valor es 0
+let num = 0; // Default value
+while (pointer < string.length && string[pointer] !== ".") {
+  num = num * 10 + parseInt(string[pointer]);
+  pointer++;
+}
+// Si no se ejecuta el while, num permanece 0
+```
+
+#### 2. Padding con Split
+
+```typescript
+// Pre-procesar para igualar longitudes
+const parts1 = version1.split(".");
+const parts2 = version2.split(".");
+const maxLength = Math.max(parts1.length, parts2.length);
+
+for (let i = 0; i < maxLength; i++) {
+  const num1 = parseInt(parts1[i] || "0"); // Default "0"
+  const num2 = parseInt(parts2[i] || "0");
+  // Comparar...
+}
+```
+
+#### 3. Verificación Explícita
+
+```typescript
+// Verificar si hay más content antes de procesar
+const hasMoreContent1 = p1 < version1.length;
+const hasMoreContent2 = p2 < version2.length;
+
+if (!hasMoreContent1 && !hasMoreContent2) break; // Ambos terminaron
+```
+
+**Implications:**
+
+- **"1" vs "1.0":** Deben ser iguales (missing parts = 0)
+- **"1.1" vs "1.0.0":** 1.1 > 1.0.0 porque segunda revision 1 > 0
+- **Performance:** Approach 1 es más eficiente (no pre-processing)
+
+### Micro-optimizaciones en String Processing
+
+#### charAt() vs [index]
+
+```typescript
+// Ambos son O(1), pero [index] es más idiomático en JS moderno
+const char = str[i]; // ✅ Preferido
+const char = str.charAt(i); // ✅ Funciona igual
+```
+
+#### parseInt() vs charCodeAt() para Dígitos
+
+```typescript
+// Para single digits, charCodeAt puede ser más rápido
+const digit1 = parseInt(str[i]); // General
+const digit2 = str[i].charCodeAt(0) - 48; // ASCII específico
+
+// '0' tiene código ASCII 48, '1' tiene 49, etc.
+// Entonces '3'.charCodeAt(0) - 48 = 51 - 48 = 3
+```
+
+**Cuándo usar cada uno:**
+
+- **parseInt():** Más legible, maneja edge cases
+- **charCodeAt():** Micro-optimización, solo para single digits garantizados
+
+#### Evitar Repeated String Access
+
+```typescript
+// ❌ Acceso repetido
+while (p < version.length && version[p] !== ".") {
+  num = num * 10 + parseInt(version[p]);
+  p++;
+}
+
+// ✅ Cache character access
+while (p < version.length) {
+  const char = version[p];
+  if (char === ".") break;
+  num = num * 10 + parseInt(char);
+  p++;
+}
+```
+
+---
+
+## Metodología TDD: Red-Green-Refactor Aplicada
+
+### Lessons Learned de Compare Version Numbers
+
+**Proceso exitoso documentado:**
+
+1. **🔴 RED Phase:** Tests colaborativos implementados
+
+   - **Key insight:** Tests vacíos fuerzan colaboración real
+   - **Benefit:** Usuario entiende casos edge mientras escribe tests
+   - **Result:** Test suite comprensivo desde el inicio
+
+2. **🟢 GREEN Phase:** Implementación incremental
+
+   - **Strategy:** Split first (legibilidad), then optimize
+   - **Learning:** Variables descriptivas (`p1`, `p2`) mejoran comprensión
+   - **Outcome:** Solución funcional con confianza
+
+3. **🔵 REFACTOR Phase:** Optimización informada
+   - **Achievement:** O(n+m) tiempo, O(n+m) → O(1) espacio
+   - **Documentation:** Ambos enfoques documentados con trade-offs
+   - **Knowledge:** Micro-optimizaciones catalogadas para referencia
+
+### Naming Conventions que Funcionaron
+
+**Pattern exitoso:**
+
+```typescript
+// ✅ Descriptivo y específico
+let p1 = 0; // pointer para version1
+let p2 = 0; // pointer para version2
+
+const num1 = parseInt(parts1[i] || "0"); // número de version1
+const num2 = parseInt(parts2[i] || "0"); // número de version2
+
+// vs alternativas menos claras
+let i = 0,
+  j = 0; // ❌ Genérico
+let ptr1 = 0,
+  ptr2 = 0; // ❌ Abbreviated
+let left = 0,
+  right = 0; // ❌ Misleading context
+```
+
+**Principles that worked:**
+
+- **Semantic relevance:** Variables named by their purpose
+- **Consistent patterns:** Similar naming across related variables
+- **Context clarity:** Readable without extensive comments
+
+### Alternative Approaches Documentation
+
+**Value of exploring multiple solutions:**
+
+1. **Educational:** Understand trade-offs between approaches
+2. **Interview readiness:** Show depth of algorithmic knowledge
+3. **Future reference:** Know when to apply which technique
+4. **Code review insights:** Better evaluate others' solutions
+
+**Documentation strategy that worked:**
+
+- **Both solutions preserved:** Split and Two Pointers
+- **Trade-offs explicit:** Time/Space complexity comparison
+- **Use cases clear:** When to prefer each approach
+- **Micro-optimizations noted:** Available but explained
 
 ---
 
