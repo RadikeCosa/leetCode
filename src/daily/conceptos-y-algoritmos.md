@@ -438,6 +438,7 @@ while (num !== 0) {
 - Reverse Integer (revertir dígitos de un número)
 - Sum of Digits (sumar todos los dígitos)
 - Number to Words (procesar número dígito por dígito)
+- **Add Two Numbers en Linked Lists:** Aritmética con carry (ver sección Linked Lists → Aritmética)
 
 **Ventajas sobre conversión a string:**
 
@@ -450,6 +451,12 @@ while (num !== 0) {
 
 - Tiempo: O(log n) donde n es el número (cantidad de dígitos)
 - Espacio: O(1) solo variables auxiliares
+
+**Extensión a Estructuras de Datos:**
+
+- Para números muy grandes: usar arrays o linked lists
+- Carry propagation en suma de números de múltiples dígitos
+- Ver sección "Linked Lists → Aritmética en Linked Lists" para implementaciones detalladas
 
 ---
 
@@ -1600,6 +1607,158 @@ current.next = new ListNode(value); // Más memoria
 - **Add Two Numbers:** Suma con carry en listas enlazadas
 - **Remove Duplicates:** Uso de punteros para eliminar nodos
 - **Reverse Linked List:** Inversión de direcciones de punteros
+
+### Aritmética en Linked Lists
+
+**Concepto:** Realizar operaciones matemáticas usando linked lists como representación de números.
+
+#### Problema: Add Two Numbers (LeetCode 2)
+
+**Escenario:** Números almacenados en orden reverso, un dígito por nodo.
+
+- `342` se representa como `[2,4,3]`
+- `465` se representa como `[5,6,4]`
+- Suma: `342 + 465 = 807` → `[7,0,8]`
+
+**Ventaja del orden reverso:** Permite procesamiento natural de menor a mayor significancia, facilitando la propagación de carry.
+
+#### Patrón: Simulación de Suma Manual
+
+```typescript
+export function addTwoNumbers(
+  l1: ListNode | null,
+  l2: ListNode | null
+): ListNode | null {
+  const dummyHead = new ListNode(0);
+  let current = dummyHead;
+  let carry = 0;
+
+  // Loop unificado: maneja nodos y carry final
+  while (l1 !== null || l2 !== null || carry !== 0) {
+    // Tratar nodos null como 0
+    const val1 = l1 ? l1.val : 0;
+    const val2 = l2 ? l2.val : 0;
+
+    // Aritmética de carry
+    const total = val1 + val2 + carry;
+    const digit = total % 10;
+    carry = total >= 10 ? 1 : 0;
+
+    // Construcción incremental
+    current.next = new ListNode(digit);
+    current = current.next;
+
+    // Avance seguro
+    if (l1) l1 = l1.next;
+    if (l2) l2 = l2.next;
+  }
+
+  return dummyHead.next;
+}
+```
+
+#### Técnicas Clave de Aritmética
+
+**1. Manejo Unificado de Null:**
+
+```typescript
+const val1 = l1 ? l1.val : 0; // Tratar null como 0
+```
+
+- Permite listas de diferentes longitudes
+- Simplifica la lógica del algoritmo
+- Evita casos especiales múltiples
+
+**2. Condición de Loop Integral:**
+
+```typescript
+while (l1 !== null || l2 !== null || carry !== 0)
+```
+
+- Cubre todos los escenarios en una condición
+- Maneja carry final automáticamente
+- Ejemplo: `99 + 1 = 100` necesita iteración extra para carry
+
+**3. Aritmética de Carry Optimizada:**
+
+```typescript
+const total = val1 + val2 + carry;
+const digit = total % 10;
+carry = total >= 10 ? 1 : 0; // Más claro que Math.floor(total/10)
+```
+
+- Para suma de dígitos, carry siempre es 0 o 1
+- `total >= 10 ? 1 : 0` es más expresivo y eficiente
+- Manejo directo sin funciones matemáticas complejas
+
+#### Cases Edge Críticos
+
+**1. Carry Final:**
+
+```
+99 + 1 = 100 → [9,9] + [1] = [0,0,1]
+```
+
+- Requiere nodo adicional al final
+- Loop debe continuar aunque ambas listas sean null
+
+**2. Carry en Cadena:**
+
+```
+999 + 1 = 1000 → [9,9,9] + [1] = [0,0,0,1]
+```
+
+- Propagación de carry a través de múltiples 9s
+- Test crítico para verificar lógica de carry
+
+**3. Listas de Longitudes Muy Diferentes:**
+
+```
+123456 + 7 = 123463 → [6,5,4,3,2,1] + [7] = [3,6,4,3,2,1]
+```
+
+- Una lista se agota rápido
+- Tratamiento de null como 0 es esencial
+
+#### Complejidad de Aritmética
+
+- **Tiempo:** O(max(n, m)) - procesamos cada dígito una vez
+- **Espacio:** O(max(n, m)) - para la lista resultado
+- **Optimalidad:** No se puede mejorar ya que necesitamos visitar cada dígito
+
+#### Extensiones del Patrón
+
+**Multiplicación de Números Grandes:**
+
+- Similar estructura pero carry puede ser > 1
+- Requiere manejo más complejo de carry
+
+**Sustracción:**
+
+- Usar complemento a 10 o manejar borrow negativo
+- Más complejo por dirección de propagación
+
+**División:**
+
+- Requiere orden normal (no reverso)
+- Algoritmo más sofisticado de long division
+
+#### Insights de Diseño
+
+**Orden de Dígitos:**
+
+- **Reverso:** Natural para carry hacia adelante (suma, multiplicación)
+- **Normal:** Necesario para división, comparación lexicográfica
+
+**Construcción Incremental:**
+
+- Buildar resultado nodo por nodo es más eficiente
+- Evita post-procesamiento o reversión
+
+**State Propagation:**
+
+- Carry actúa como estado que se propaga entre iteraciones
+- Patrón aplicable a otros problemas de propagación
 
 ### Técnicas de Debugging
 
