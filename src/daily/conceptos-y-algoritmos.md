@@ -3449,3 +3449,273 @@ const intuitiveSolution = () => {
 **Best Practice:** Documentar ambos approaches cuando la diferencia es significativa, explicando cuándo usar cada uno.
 
 ---
+
+## Simulación de División Larga y Detección de Ciclos
+
+### Simulación de División Larga
+
+**Definición:** Técnica que implementa el algoritmo de división larga manualmente para convertir fracciones a representación decimal, detectando patrones cíclicos.
+
+**Concepto fundamental:**
+
+- Simular el proceso que hacíamos en primaria: "bajar ceros" y dividir
+- La clave está en que **cuando un resto se repite, la secuencia de dígitos también se repite**
+
+**Algoritmo base:**
+
+```typescript
+function simulateLongDivision(numerator: number, denominator: number): string {
+  let remainder = numerator % denominator; // Resto inicial
+  const digits: string[] = [];
+  const remainderMap = new Map<number, number>(); // resto → posición
+
+  while (remainder !== 0) {
+    if (remainderMap.has(remainder)) {
+      // ¡Ciclo detectado!
+      const startIndex = remainderMap.get(remainder)!;
+      // Insertar paréntesis alrededor de la parte cíclica
+      digits.splice(startIndex, 0, "(");
+      digits.push(")");
+      break;
+    }
+
+    // Trackear posición de este resto
+    remainderMap.set(remainder, digits.length);
+
+    // Simular "bajar un 0"
+    remainder *= 10;
+
+    // Calcular siguiente dígito
+    const nextDigit = Math.floor(remainder / denominator);
+    digits.push(nextDigit.toString());
+
+    // Calcular nuevo resto
+    remainder %= denominator;
+  }
+
+  return digits.join("");
+}
+```
+
+**Paso a paso con ejemplo 4 ÷ 333:**
+
+```
+División manual:      Simulación computacional:
+  0.012012...         remainder = 4, digits = []
+333 ) 4.000000
+      40    (4*10)    remainder = 40, digits = ["0"]
+      33              40 ÷ 333 = 0, resto = 40
+      --
+       70   (40*10)   remainder = 400, digits = ["0", "1"]
+       66             400 ÷ 333 = 1, resto = 67
+       --
+        40  (67*10)   remainder = 4 ← ¡YA LO VIMOS!
+                      Insertar paréntesis: ["(", "0", "1", "2", ")"]
+```
+
+### Detección de Ciclos con HashMap
+
+**Problema:** Detectar cuándo una secuencia entra en un patrón repetitivo.
+
+**Solución:** Usar HashMap para trackear `elemento → primera_posición_de_aparición`.
+
+**Pattern reutilizable:**
+
+```typescript
+function detectCycle<T>(sequence: T[]): [boolean, number] {
+  const seen = new Map<T, number>();
+
+  for (let i = 0; i < sequence.length; i++) {
+    const element = sequence[i];
+    if (seen.has(element)) {
+      const cycleStart = seen.get(element)!;
+      return [true, cycleStart]; // Ciclo detectado, empieza en cycleStart
+    }
+    seen.set(element, i);
+  }
+
+  return [false, -1]; // No hay ciclo
+}
+```
+
+**Aplicaciones del patrón:**
+
+- **Fraction to Recurring Decimal:** Detección de restos repetidos
+- **Happy Number:** Detección de sumas cíclicas
+- **Linked List Cycle:** Detección de nodos repetidos
+- **Duplicate Detection:** Encontrar elementos repetidos
+
+### Manipulación de Arrays con Splice
+
+**splice() para inserción:** `array.splice(index, 0, element)` inserta elemento en posición específica.
+
+**Ventajas sobre manipulación de strings:**
+
+```typescript
+// ❌ String manipulation - menos intuitivo
+let str = "012";
+str = str.slice(0, 0) + "(" + str.slice(0) + ")"; // "(012)"
+
+// ✅ Array manipulation - más claro
+const digits = ["0", "1", "2"];
+digits.splice(0, 0, "("); // Insertar "(" en posición 0
+digits.push(")"); // Agregar ")" al final
+const result = digits.join(""); // "(012)"
+```
+
+**Por qué es mejor con arrays:**
+
+- **Visualización clara:** Cada posición es explícita
+- **Operaciones atómicas:** splice() es una operación, no múltiples slices
+- **Menos propenso a errores:** Indices más fáciles de razonar
+- **Flexibilidad:** Fácil insertar en cualquier posición
+
+### Manejo de Signos con XOR
+
+**Definición:** Técnica elegante para determinar el signo del resultado usando XOR lógico.
+
+```typescript
+const isNegative = numerator < 0 !== denominator < 0;
+```
+
+**Tabla de verdad:**
+
+| numerator | denominator | numerator < 0 | denominator < 0 | XOR Result | Sign |
+| --------- | ----------- | ------------- | --------------- | ---------- | ---- |
+| 5         | 2           | false         | false           | false      | +    |
+| -5        | 2           | true          | false           | true       | -    |
+| 5         | -2          | false         | true            | true       | -    |
+| -5        | -2          | true          | true            | false      | +    |
+
+**Ventajas del XOR:**
+
+- **Una línea:** Maneja todos los casos de signos
+- **Sin branches:** No necesita múltiples if/else
+- **Matemáticamente correcto:** Refleja la regla de signos de división
+- **Performante:** Operación bitwise muy rápida
+
+**Alternativas menos elegantes:**
+
+```typescript
+// ❌ Múltiples condiciones
+const isNegative =
+  (numerator < 0 && denominator >= 0) || (numerator >= 0 && denominator < 0);
+
+// ❌ Multiplicación innecesaria
+const isNegative = numerator * denominator < 0;
+```
+
+### Construcción Incremental vs Post-procesamiento
+
+**Principio:** Construir el resultado final paso a paso es más eficiente que generar y transformar.
+
+**Construcción incremental (recomendada):**
+
+```typescript
+// Construir directamente el formato deseado
+while (remainder !== 0) {
+  // Detectar ciclo Y construir resultado simultáneamente
+  if (remainderMap.has(remainder)) {
+    digits.splice(startIndex, 0, "(");
+    digits.push(")");
+    break;
+  }
+  // Agregar dígitos conforme se calculan
+  digits.push(nextDigit.toString());
+}
+```
+
+**Post-procesamiento (menos eficiente):**
+
+```typescript
+// ❌ Generar todo, luego transformar
+let decimalPart = generateAllDigits();
+let cycleIndex = detectCycleIndex();
+decimalPart = insertParentheses(decimalPart, cycleIndex);
+```
+
+**Ventajas de construcción incremental:**
+
+- **Menos memoria:** No almacenar estados intermedios innecesarios
+- **Early termination:** Parar tan pronto como se detecta el patrón
+- **Una sola pasada:** No necesitar múltiples iteraciones
+- **Código más directo:** Menos transformaciones de datos
+
+### Pattern: Separación de Parte Entera y Decimal
+
+**Técnica estándar para problemas de conversión numérica:**
+
+```typescript
+// 1. Manejar casos especiales
+if (numerator % denominator === 0) {
+  return (numerator / denominator).toString(); // División exacta
+}
+
+// 2. Determinar signo
+const isNegative = numerator < 0 !== denominator < 0;
+
+// 3. Trabajar con valores absolutos
+numerator = Math.abs(numerator);
+denominator = Math.abs(denominator);
+
+// 4. Separar partes
+const integerPart = Math.floor(numerator / denominator);
+let remainder = numerator % denominator;
+
+// 5. Procesar parte decimal con división larga simulada
+// ... algoritmo de división larga
+
+// 6. Ensamblar resultado final
+return (isNegative ? "-" : "") + integerPart + "." + decimalPart;
+```
+
+**Beneficios del approach:**
+
+- **Modularidad:** Cada paso maneja una responsabilidad específica
+- **Claridad:** Código auto-documentado por la separación lógica
+- **Debuggabilidad:** Fácil verificar cada parte independientemente
+- **Reutilización:** Pattern aplicable a otros problemas de conversión
+
+### Aplicaciones Relacionadas del Pattern
+
+**Problemas que usan simulación similar:**
+
+- **Long Division:** Implementación directa del algoritmo
+- **Decimal to Fraction:** Proceso inverso, detectar patrones en decimales
+- **Base Conversion:** Convertir números entre bases numéricas
+- **Square Root by Long Division:** Calcular raíces cuadradas manualmente
+
+**Problemas que usan detección de ciclos:**
+
+- **Floyd's Cycle Detection:** Algoritmo tortuga y liebre
+- **Find Duplicate Number:** Usar array como función, detectar ciclo
+- **Happy Number:** Detectar ciclos en sumas de cuadrados de dígitos
+- **Valid Sudoku:** Detectar repeticiones (variación del concepto)
+
+### Análisis de Complejidad - División Larga
+
+**Time Complexity: O(d)** donde d = número de dígitos únicos antes de repetición
+
+- En el peor caso, d puede ser hasta el valor del denominador
+- Cada operación (HashMap, aritmética) es O(1)
+- Una sola iteración hasta detectar ciclo
+
+**Space Complexity: O(d)**
+
+- HashMap almacena hasta d entradas: `resto → posición`
+- Array de dígitos almacena hasta d elementos
+- Espacio adicional constante para variables
+
+**Optimizaciones posibles:**
+
+- Para denominadores específicos, hay patrones conocidos
+- Uso de arrays en lugar de HashMap para restos pequeños
+- Early termination al alcanzar precisión deseada
+
+**Comparison con enfoques alternativos:**
+
+- **Floating point division:** Impreciso para fracciones periódicas largas
+- **String manipulation:** Más lento que array manipulation
+- **Recursive approach:** Más memoria (call stack) sin beneficio de claridad
+
+---
