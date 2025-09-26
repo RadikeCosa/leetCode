@@ -3719,3 +3719,106 @@ return (isNegative ? "-" : "") + integerPart + "." + decimalPart;
 - **Recursive approach:** Más memoria (call stack) sin beneficio de claridad
 
 ---
+
+## Dynamic Programming - Triangle Minimum Path Sum
+
+### Problema Triangle (LeetCode 120)
+
+**Contexto:** Encontrar la suma mínima del camino desde la cima hasta la base de un triángulo, moviéndose solo a posiciones adyacentes en cada fila.
+
+### ❌ Enfoque Greedy (Incorrecto)
+
+**Idea:** En cada nivel, elegir siempre el valor mínimo disponible.
+
+**Por qué falla:**
+
+```
+    1
+   2 3
+  10 1 10
+```
+
+- **Greedy:** 1 → 2 → 1 = 4 (parece óptimo localmente)
+- **Óptimo real:** 1 → 3 → 1 = 5 (mejor globalmente)
+
+**Lección:** Las decisiones greedy locales no garantizan optimalidad global.
+
+### ✅ Enfoque Dynamic Programming (Correcto)
+
+**Bottom-Up Approach:** Calcular desde la base hacia arriba.
+
+**Algoritmo:**
+
+1. **Base:** Última fila = sumas mínimas (ellos mismos)
+2. **Para cada fila superior:** `valor + min(izquierda_abajo, derecha_abajo)`
+3. **Resultado:** Valor en la cima del triángulo
+
+**Ejemplo paso a paso:**
+
+```
+    2
+   3 4
+  6 5 7
+ 4 1 8 3
+```
+
+1. **Fila 3:** `[4, 1, 8, 3]` (base)
+2. **Fila 2:** `[6+min(4,1), 5+min(1,8), 7+min(8,3)] = [7, 6, 10]`
+3. **Fila 1:** `[3+min(7,6), 4+min(6,10)] = [9, 10]`
+4. **Fila 0:** `[2+min(9,10)] = [11]`
+
+### Optimización Espacial: O(n²) → O(n)
+
+**Problema original:** Copiar todo el triángulo = O(n²) espacio.
+
+**Solución:** Mantener solo la fila anterior.
+
+```typescript
+// Solo guardamos la fila anterior
+let filaAnterior = [...triangle[triangle.length - 1]];
+
+// En cada iteración calculamos la nueva fila
+const filaActual = [];
+for (let col = 0; col < triangle[fila].length; col++) {
+  const izquierda = filaAnterior[col];
+  const derecha = filaAnterior[col + 1];
+  filaActual[col] = triangle[fila][col] + Math.min(izquierda, derecha);
+}
+
+// La fila actual se convierte en anterior
+filaAnterior = filaActual;
+```
+
+**Beneficios:**
+
+- **Memoria:** De ~n² elementos a n elementos
+- **Performance:** Mejor locality de cache
+- **Escalabilidad:** Funciona para triángulos grandes (n=200)
+
+### Complejidad
+
+**Time:** O(n²) - Visitamos cada elemento una vez
+**Space:** O(n) - Solo fila anterior en memoria
+
+### Patrones Relacionados
+
+- **Grid Path Problems:** Minimum Path Sum, Unique Paths
+- **Bottom-Up DP:** Construir desde subproblemas pequeños
+- **Space Optimization:** Mantener solo estado necesario
+- **Triangle Problems:** Siempre considerar DP bottom-up
+
+### Casos Edge Importantes
+
+1. **Triángulo vacío:** Retornar 0
+2. **Un elemento:** Retornar ese elemento
+3. **Números negativos:** Funciona igual (mínimo puede ser negativo)
+4. **Números mixtos:** Posibles caminos alternativos
+
+### Lecciones Clave
+
+1. **Greedy ≠ DP:** Verificar contraejemplos antes de asumir optimalidad
+2. **Bottom-Up DP:** Excelente para problemas de caminos en estructuras
+3. **Space Optimization:** Reducir memoria sin afectar complejidad temporal
+4. **TDD Approach:** Tests primero garantizan corrección incremental
+
+---
