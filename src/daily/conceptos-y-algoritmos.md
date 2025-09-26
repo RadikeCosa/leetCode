@@ -292,6 +292,187 @@ return write; // Cantidad de elementos únicos
 - Tiempo: O(n) - una sola pasada
 - Espacio: O(1) - solo variables auxiliares
 
+### Two Pointers Avanzado - Conteo Múltiple
+
+**Definición:** Técnica avanzada de two pointers que permite contar múltiples combinaciones válidas en una sola iteración, especialmente útil en problemas de tripletas.
+
+**Patrón clave:** Cuando se encuentra una combinación válida en un array ordenado, múltiples elementos adyacentes también pueden ser válidos.
+
+**Ejemplo - Valid Triangle Number:**
+
+```typescript
+for (let i = nums.length - 1; i >= 2; i--) {
+  let left = 0, right = i - 1;
+  
+  while (left < right) {
+    if (nums[left] + nums[right] > nums[i]) {
+      count += right - left; // ¡Múltiples triángulos válidos!
+      right--;
+    } else {
+      left++;
+    }
+  }
+}
+```
+
+**¿Por qué funciona el conteo múltiple?**
+
+Si `nums[left] + nums[right] > target`, entonces en un array ordenado:
+- `nums[left+1] + nums[right] > target` también (porque `nums[left+1] ≥ nums[left]`)
+- `nums[left+2] + nums[right] > target` también
+- ... hasta `nums[right-1] + nums[right] > target`
+- **Total combinaciones válidas:** `right - left`
+
+**Aplicaciones:**
+
+- Conteo de triángulos válidos (desigualdad triangular)
+- 3Sum - conteo de tripletas con suma específica
+- Subarray counting problems
+- Pair counting con múltiples restricciones
+
+**Ventajas:**
+
+- **Eficiencia:** Evita conteo individual O(n³) → O(n²)
+- **Elegancia:** Una sola operación cuenta múltiples casos
+- **Generalizable:** Aplica a muchos problemas de conteo en arrays ordenados
+
+**Complejidad:**
+
+- Tiempo: O(n²) - mejor que O(n³) de fuerza bruta
+- Espacio: O(1) - solo variables auxiliares
+
+### Desigualdad Triangular
+
+**Definición:** Principio geométrico que establece las condiciones para que tres segmentos puedan formar un triángulo válido.
+
+**Regla:** Para lados `a`, `b`, `c`:
+- `a + b > c`
+- `a + c > b`
+- `b + c > a`
+
+**Optimización con ordenamiento:**
+
+Si ordenamos los lados como `a ≤ b ≤ c`, solo necesitamos verificar `a + b > c`. Las otras dos condiciones se cumplen automáticamente:
+- `a + c > b` ✓ (porque `c ≥ b` y `a > 0`)
+- `b + c > a` ✓ (porque `b ≥ a` y `c > 0`)
+
+**Implementación eficiente:**
+
+```typescript
+nums.sort((a, b) => a - b); // Ordenar primero
+// Ahora solo verificar: nums[i] + nums[j] > nums[k] donde i < j < k
+```
+
+**Aplicaciones en programación:**
+
+- Validación de triángulos en geometría computacional
+- Problemas de conteo combinatorio
+- Optimización de verificaciones múltiples
+
+**Ventaja clave:** Reduce 3 comparaciones a 1 sola verificación.
+
+### Sort + Two Pointers - Patrón Híbrido
+
+**Definición:** Combinación de ordenamiento seguido de two pointers para problemas de conteo o búsqueda en tripletas/múltiples elementos.
+
+**Cuándo usar:**
+
+- Problemas que requieren verificar relaciones entre 3+ elementos
+- Conteo de combinaciones válidas en arrays
+- Problemas geométricos (triángulos, áreas)
+- Búsqueda de tripletas con condiciones específicas
+
+**Patrón típico:**
+
+1. **Ordenar** el array: O(n log n)
+2. **Fijar uno** de los elementos (bucle externo): O(n)
+3. **Two pointers** en el subrango restante: O(n)
+4. **Total:** O(n²) - mejor que O(n³) fuerza bruta
+
+**Template de implementación:**
+
+```typescript
+function triplePattern(nums: number[]): number {
+  nums.sort((a, b) => a - b); // Paso 1: Ordenar
+  let count = 0;
+  
+  // Paso 2: Fijar elemento (usualmente el más grande)
+  for (let i = nums.length - 1; i >= 2; i--) {
+    let left = 0, right = i - 1;
+    
+    // Paso 3: Two pointers
+    while (left < right) {
+      if (conditionMet(nums[left], nums[right], nums[i])) {
+        count += right - left; // Optimización: conteo múltiple
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+  return count;
+}
+```
+
+**Ejemplos de aplicación:**
+
+- **3Sum:** Encontrar tripletas que sumen cero
+- **Triangle Number:** Contar triángulos válidos
+- **3Sum Closest:** Encontrar suma más cercana a target
+- **3Sum Smaller:** Contar tripletas con suma menor a target
+
+**Ventajas del patrón:**
+
+- **Eficiencia:** O(n²) vs O(n³) de fuerza bruta
+- **Simplicidad:** Código estructurado y predecible
+- **Optimización automática:** El ordenamiento permite optimizaciones de conteo
+- **Generalizable:** Se adapta a múltiples variaciones del problema
+
+**Microoptimizaciones comunes:**
+
+1. **Espacio:** Modificar array original en lugar de crear copia
+2. **Early termination:** Si elementos son 0, terminar anticipadamente  
+3. **Conteo inteligente:** `count += right - left` en lugar de bucles anidados
+
+### Complejidad Espacial - In-place vs Copy
+
+**Definición:** Decisión de diseño sobre si modificar la entrada original o crear estructuras auxiliares.
+
+**In-place modifications:**
+
+```typescript
+nums.sort((a, b) => a - b); // Modifica el array original
+// Espacio: O(1) - solo variables auxiliares
+```
+
+**Copy approach:**
+
+```typescript
+const sortedNums = [...nums].sort((a, b) => a - b); // Crea copia
+// Espacio: O(n) - array completo duplicado
+```
+
+**Trade-offs:**
+
+| Aspecto | In-place | Copy |
+|---------|----------|------|
+| **Espacio** | O(1) | O(n) |
+| **Mutabilidad** | Modifica entrada | Preserva entrada |
+| **Performance** | Mejor | Peor |
+| **Side effects** | Sí | No |
+
+**Cuándo usar cada uno:**
+
+**In-place (preferido para LeetCode):**
+- Cuando el problema permite modificar la entrada
+- Memory constraints son importantes
+- Performance es crítico
+
+**Copy (usar cuando):**
+- El array original se necesita después
+- Función debe ser pura (sin side effects)
+- Debugging requiere comparar antes/después
+
 ### Manipulación de Dígitos
 
 **Definición:** Técnicas para extraer, modificar y reconstruir dígitos individuales de números.
