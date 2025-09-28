@@ -302,8 +302,9 @@ return write; // Cantidad de elementos únicos
 
 ```typescript
 for (let i = nums.length - 1; i >= 2; i--) {
-  let left = 0, right = i - 1;
-  
+  let left = 0,
+    right = i - 1;
+
   while (left < right) {
     if (nums[left] + nums[right] > nums[i]) {
       count += right - left; // ¡Múltiples triángulos válidos!
@@ -318,6 +319,7 @@ for (let i = nums.length - 1; i >= 2; i--) {
 **¿Por qué funciona el conteo múltiple?**
 
 Si `nums[left] + nums[right] > target`, entonces en un array ordenado:
+
 - `nums[left+1] + nums[right] > target` también (porque `nums[left+1] ≥ nums[left]`)
 - `nums[left+2] + nums[right] > target` también
 - ... hasta `nums[right-1] + nums[right] > target`
@@ -346,6 +348,7 @@ Si `nums[left] + nums[right] > target`, entonces en un array ordenado:
 **Definición:** Principio geométrico que establece las condiciones para que tres segmentos puedan formar un triángulo válido.
 
 **Regla:** Para lados `a`, `b`, `c`:
+
 - `a + b > c`
 - `a + c > b`
 - `b + c > a`
@@ -353,6 +356,7 @@ Si `nums[left] + nums[right] > target`, entonces en un array ordenado:
 **Optimización con ordenamiento:**
 
 Si ordenamos los lados como `a ≤ b ≤ c`, solo necesitamos verificar `a + b > c`. Las otras dos condiciones se cumplen automáticamente:
+
 - `a + c > b` ✓ (porque `c ≥ b` y `a > 0`)
 - `b + c > a` ✓ (porque `b ≥ a` y `c > 0`)
 
@@ -395,11 +399,12 @@ nums.sort((a, b) => a - b); // Ordenar primero
 function triplePattern(nums: number[]): number {
   nums.sort((a, b) => a - b); // Paso 1: Ordenar
   let count = 0;
-  
+
   // Paso 2: Fijar elemento (usualmente el más grande)
   for (let i = nums.length - 1; i >= 2; i--) {
-    let left = 0, right = i - 1;
-    
+    let left = 0,
+      right = i - 1;
+
     // Paso 3: Two pointers
     while (left < right) {
       if (conditionMet(nums[left], nums[right], nums[i])) {
@@ -431,7 +436,7 @@ function triplePattern(nums: number[]): number {
 **Microoptimizaciones comunes:**
 
 1. **Espacio:** Modificar array original en lugar de crear copia
-2. **Early termination:** Si elementos son 0, terminar anticipadamente  
+2. **Early termination:** Si elementos son 0, terminar anticipadamente
 3. **Conteo inteligente:** `count += right - left` en lugar de bucles anidados
 
 ### Complejidad Espacial - In-place vs Copy
@@ -454,21 +459,23 @@ const sortedNums = [...nums].sort((a, b) => a - b); // Crea copia
 
 **Trade-offs:**
 
-| Aspecto | In-place | Copy |
-|---------|----------|------|
-| **Espacio** | O(1) | O(n) |
-| **Mutabilidad** | Modifica entrada | Preserva entrada |
-| **Performance** | Mejor | Peor |
-| **Side effects** | Sí | No |
+| Aspecto          | In-place         | Copy             |
+| ---------------- | ---------------- | ---------------- |
+| **Espacio**      | O(1)             | O(n)             |
+| **Mutabilidad**  | Modifica entrada | Preserva entrada |
+| **Performance**  | Mejor            | Peor             |
+| **Side effects** | Sí               | No               |
 
 **Cuándo usar cada uno:**
 
 **In-place (preferido para LeetCode):**
+
 - Cuando el problema permite modificar la entrada
 - Memory constraints son importantes
 - Performance es crítico
 
 **Copy (usar cuando):**
+
 - El array original se necesita después
 - Función debe ser pura (sin side effects)
 - Debugging requiere comparar antes/después
@@ -4001,5 +4008,325 @@ filaAnterior = filaActual;
 2. **Bottom-Up DP:** Excelente para problemas de caminos en estructuras
 3. **Space Optimization:** Reducir memoria sin afectar complejidad temporal
 4. **TDD Approach:** Tests primero garantizan corrección incremental
+
+---
+
+## Geometría Computacional
+
+### Área de Triángulos con Coordenadas
+
+**Problema tipo:** Largest Triangle Area (LeetCode 812)
+
+**Definición:** Calcular el área de un triángulo dados 3 puntos en el plano cartesiano usando la fórmula del determinante.
+
+### Fórmula del Determinante
+
+Para puntos (x₁,y₁), (x₂,y₂), (x₃,y₃):
+
+```
+Área = (1/2) × |x₁(y₂ - y₃) + x₂(y₃ - y₁) + x₃(y₁ - y₂)|
+```
+
+**Implementación:**
+
+```typescript
+function calculateTriangleArea(
+  p1: number[],
+  p2: number[],
+  p3: number[]
+): number {
+  const [x1, y1] = p1;
+  const [x2, y2] = p2;
+  const [x3, y3] = p3;
+  return 0.5 * Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+}
+```
+
+### Ventajas del Método Determinante
+
+1. **No requiere distancias:** Evita calcular √((x₂-x₁)² + (y₂-y₁)²)
+2. **No requiere ángulos:** Sin trigonometría ni ley de cosenos
+3. **Coordenadas negativas:** Funciona sin modificación
+4. **Triángulos degenerados:** Puntos colineales → área = 0 automáticamente
+5. **Precisión:** Sin acumulación de errores de punto flotante
+
+### Combinaciones C(n,k)
+
+**Patrón:** Generar todas las combinaciones de k elementos de n elementos totales.
+
+**Para triángulos (k=3):**
+
+```typescript
+for (let i = 0; i < n - 2; i++) {
+  for (let j = i + 1; j < n - 1; j++) {
+    for (let k = j + 1; k < n; k++) {
+      // Procesar combinación (i,j,k)
+    }
+  }
+}
+```
+
+**Características:**
+
+- **Orden:** i < j < k evita duplicados
+- **Límites:** n-2, n-1, n evitan índices inválidos
+- **Combinaciones:** C(n,3) = n×(n-1)×(n-2)/6 total
+
+### Fuerza Bruta Geométrica
+
+**Cuándo usar:**
+
+- Espacios pequeños (n ≤ 50-100)
+- Geometría simple (áreas, perímetros)
+- Sin optimizaciones obvias disponibles
+
+**Ventajas:**
+
+- **Simplicidad:** Fácil implementar y debuggear
+- **Exactitud:** Garantiza encontrar el óptimo
+- **Predictibilidad:** Complejidad conocida y acotada
+
+**Ejemplo - Maximum Triangle Area (Versión Optimizada):**
+
+```typescript
+export function largestTriangleArea(points: number[][]): number {
+  const n = points.length;
+  let maxArea = 0;
+
+  const area = (p1: number[], p2: number[], p3: number[]) => {
+    return (
+      Math.abs(
+        p1[0] * (p2[1] - p3[1]) +
+          p2[0] * (p3[1] - p1[1]) +
+          p3[0] * (p1[1] - p2[1])
+      ) / 2
+    );
+  };
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        maxArea = Math.max(maxArea, area(points[i], points[j], points[k]));
+      }
+    }
+  }
+  return maxArea;
+}
+```
+
+### Complejidad Geométrica
+
+**Time Complexity:**
+
+- **C(n,3) generación:** O(n³)
+- **Cálculo por triángulo:** O(1)
+- **Total:** O(n³)
+
+**Space Complexity:**
+
+- **Variables auxiliares:** O(1)
+- **Sin estructuras adicionales:** O(1) total
+
+### Casos Edge Geométricos
+
+1. **Puntos colineales:** Área = 0 (triángulo degenerado)
+2. **Coordenadas negativas:** Fórmula funciona igual
+3. **Mínimo input (n=3):** Una sola combinación posible
+4. **Triángulos muy pequeños:** Precision dentro de 10⁻⁵
+
+### Alternativas No Elegidas
+
+**Heron's Formula:**
+
+```
+s = (a + b + c) / 2
+Área = √(s(s-a)(s-b)(s-c))
+```
+
+**Problemas:**
+
+- Requiere calcular 3 distancias (costoso)
+- Múltiples operaciones sqrt() (impreciso)
+- Más código y mayor probabilidad de bugs
+
+**Product Vector:**
+
+```
+Área = 0.5 × |AB × AC|
+```
+
+**Problemas:**
+
+- Requiere implementar producto vectorial 3D
+- Más conceptualmente complejo
+- Sin ventajas claras sobre determinante
+
+### Patrones Geométricos Identificados
+
+1. **Función auxiliar matemática:** Encapsular fórmulas complejas
+2. **Fuerza bruta eficiente:** Viable cuando restricciones son pequeñas
+3. **Destructuring de coordenadas:** `[x, y] = point` para claridad
+4. **Triple bucle combinatorio:** Patrón estándar para C(n,3)
+
+### Lecciones Clave
+
+1. **Determinante > Distancias:** Para problemas de área, usar álgebra antes que geometría
+2. **Restricciones pequeñas:** n ≤ 50 permite O(n³) sin problema
+3. **Edge cases automáticos:** Buenos algoritmos manejan casos edge naturalmente
+4. **Separación de responsabilidades:** Math helper functions mejoran legibilidad
+
+---
+
+## Optimización y Refactoring de Código
+
+### Evolución de Soluciones
+
+**Problema tipo:** Largest Triangle Area - Caso de estudio de refactoring
+
+**Concepto:** Optimizar código existente para mayor concisión sin sacrificar legibilidad o performance.
+
+### Técnicas de Optimización Aplicadas
+
+#### 1. Arrow Functions vs Function Declarations
+
+**Antes (Verbose):**
+
+```typescript
+function calculateTriangleArea(
+  p1: number[],
+  p2: number[],
+  p3: number[]
+): number {
+  const [x1, y1] = p1;
+  const [x2, y2] = p2;
+  const [x3, y3] = p3;
+  return 0.5 * Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+}
+```
+
+**Después (Conciso):**
+
+```typescript
+const area = (p1: number[], p2: number[], p3: number[]) => {
+  return (
+    Math.abs(
+      p1[0] * (p2[1] - p3[1]) +
+        p2[0] * (p3[1] - p1[1]) +
+        p3[0] * (p1[1] - p2[1])
+    ) / 2
+  );
+};
+```
+
+**Beneficios:**
+
+- **Líneas reducidas:** De 6 líneas a 4 líneas
+- **Estilo moderno:** Arrow function más funcional
+- **Menos variables:** Sin destructuring innecesario
+
+#### 2. Acceso Directo vs Destructuring
+
+**Cuándo usar destructuring:**
+
+```typescript
+const [x1, y1] = point; // Para múltiples accesos
+console.log(x1, y1, x1 + y1); // Se usa 3+ veces
+```
+
+**Cuándo usar acceso directo:**
+
+```typescript
+p1[0] * (p2[1] - p3[1]); // Para accesos únicos
+```
+
+**Criterios de decisión:**
+
+- **Una sola vez:** Acceso directo `p[0], p[1]`
+- **Múltiples veces:** Destructuring `[x, y] = p`
+- **Legibilidad:** Si acceso directo es claro, preferirlo
+
+#### 3. Simplificación de Bucles
+
+**Antes (Límites explícitos):**
+
+```typescript
+for (let i = 0; i < n - 2; i++) {
+  for (let j = i + 1; j < n - 1; j++) {
+    for (let k = j + 1; k < n; k++) {
+      // ...
+    }
+  }
+}
+```
+
+**Después (Límites naturales):**
+
+```typescript
+for (let i = 0; i < n; i++) {
+  for (let j = i + 1; j < n; j++) {
+    for (let k = j + 1; k < n; k++) {
+      // ...
+    }
+  }
+}
+```
+
+**Ventajas:**
+
+- **Más legible:** `i < n` es más natural
+- **Menos cálculo mental:** No hay que pensar `n-2, n-1`
+- **Funcionalmente equivalente:** Las condiciones `j = i+1, k = j+1` garantizan validez
+
+### Criterios de Optimización
+
+#### Cuándo Optimizar
+
+1. **Código repetitivo:** DRY (Don't Repeat Yourself)
+2. **Verbosidad excesiva:** Más líneas sin beneficio
+3. **Patrones anticuados:** `function` → arrow functions
+4. **Variables innecesarias:** Destructuring para un solo uso
+
+#### Qué NO Optimizar
+
+1. **Complejidad algoritmica:** Si ya es óptima (O(n³) necesario)
+2. **Legibilidad crítica:** Código que será mantenido por otros
+3. **Casos edge complejos:** Donde claridad es más importante
+4. **Performance marginal:** Micro-optimizaciones sin impacto real
+
+### Proceso de Refactoring TDD-Safe
+
+1. **🧪 Tests first:** Asegurar cobertura completa antes
+2. **🔧 Refactor gradual:** Un cambio a la vez
+3. **✅ Verificación continua:** Tests después de cada cambio
+4. **📊 Medición:** Confirmar que performance se mantiene
+5. **📝 Documentación:** Actualizar explicaciones
+
+### Métricas de Mejora
+
+**Largest Triangle Area - Caso Concreto:**
+
+| Métrica                  | Antes                   | Después        | Mejora      |
+| ------------------------ | ----------------------- | -------------- | ----------- |
+| **Líneas de código**     | ~25                     | ~15            | -40%        |
+| **Variables temporales** | 6 (`x1,y1,x2,y2,x3,y3`) | 0              | -100%       |
+| **Funciones declaradas** | 1 (`function`)          | 1 (`const =>`) | Más moderno |
+| **Performance**          | O(n³)                   | O(n³)          | Idéntica    |
+| **Legibilidad**          | ⭐⭐⭐                  | ⭐⭐⭐⭐       | Mejorada    |
+
+### Patrones de Refactoring Identificados
+
+1. **"Verbose to Concise":** Reducir líneas sin perder claridad
+2. **"Modern JS Style":** Arrow functions, const, template literals
+3. **"Direct Access":** Eliminar variables intermedias innecesarias
+4. **"Natural Loops":** Condiciones de bucle más intuitivas
+5. **"TDD-Safe Refactor":** Cambios respaldados por tests completos
+
+### Lecciones de Optimización
+
+1. **Refactor ≠ Rewrite:** Mejorar sin cambiar algoritmo fundamental
+2. **Legibilidad first:** Concisión nunca debe sacrificar comprensión
+3. **Tests como red de seguridad:** Refactoring seguro con cobertura completa
+4. **Medición objetiva:** Contar líneas, variables, complejidad
+5. **Estilo consistente:** Adoptar patrones modernos uniformemente
 
 ---
