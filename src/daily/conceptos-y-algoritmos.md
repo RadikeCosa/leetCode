@@ -4330,3 +4330,159 @@ for (let i = 0; i < n; i++) {
 5. **Estilo consistente:** Adoptar patrones modernos uniformemente
 
 ---
+
+## Greedy Algorithms (Algoritmos Voraces)
+
+### Definición y Conceptos
+
+**Algoritmo Greedy**: Estrategia de resolución que hace la elección **óptima local** en cada paso, esperando encontrar un **óptimo global**.
+
+**Características principales:**
+
+- **Elección inmediata:** No reconsideran decisiones pasadas
+- **Eficiencia:** Generalmente más rápidos que backtracking
+- **No siempre óptimos:** Funcionan solo en problemas con **subestructura óptima**
+
+### Cuándo Usar Greedy
+
+**Condiciones necesarias:**
+
+1. **Subestructura óptima:** La solución óptima contiene soluciones óptimas de subproblemas
+2. **Propiedad greedy:** La elección local óptima lleva a la global óptima
+3. **Sin dependencias futuras:** Decisiones actuales no afectan opciones futuras
+
+**Example - Largest Perimeter Triangle:**
+
+```typescript
+// ✅ CORRECTO: Greedy funciona aquí
+nums.sort((a, b) => b - a); // Orden descendente
+for (let i = 0; i < nums.length - 2; i++) {
+  if (nums[i + 1] + nums[i + 2] > nums[i]) {
+    return nums[i] + nums[i + 1] + nums[i + 2]; // Primera válida = óptima
+  }
+}
+```
+
+**¿Por qué funciona?**
+
+- **Sorting estratégico:** Exploramos combinaciones más grandes primero
+- **Early termination:** Primera válida es automáticamente máxima
+- **Sin backtracking:** No necesitamos reconsiderar
+
+### Patrones Greedy Comunes
+
+#### 1. "Greedy + Sort" Pattern
+
+**Estrategia:** Ordenar datos para que greedy sea óptimo.
+
+```typescript
+// Plantilla general
+function greedyWithSort<T>(items: T[], compareFn: (a: T, b: T) => number): T {
+  items.sort(compareFn); // Orden estratégico
+
+  for (const item of items) {
+    if (isValidChoice(item)) {
+      return item; // Primera válida = óptima
+    }
+  }
+
+  return defaultValue;
+}
+```
+
+**Casos de uso:**
+
+- **Interval scheduling:** Ordenar por tiempo de fin
+- **Activity selection:** Elegir actividades por duración
+- **Triangle perimeter:** Ordenar por tamaño descendente
+
+#### 2. "Mathematical Insight" Pattern
+
+**Estrategia:** Usar propiedades matemáticas para simplificar greedy.
+
+**Example - Triangle Inequality:**
+
+```typescript
+// ❌ Naive: Verificar 3 condiciones
+if (a + b > c && a + c > b && b + c > a) {
+  /* ... */
+}
+
+// ✅ Optimized: Una sola condición (a ≥ b ≥ c después de sort)
+if (b + c > a) {
+  /* ¡Las otras se cumplen automáticamente! */
+}
+```
+
+**Insight:** La matemática puede eliminar verificaciones redundantes.
+
+#### 3. "Early Termination" Pattern
+
+**Estrategia:** Parar en cuanto encontramos la respuesta.
+
+```typescript
+// Template
+function findFirst<T>(items: T[], predicate: (item: T) => boolean): T | null {
+  for (const item of items) {
+    if (predicate(item)) {
+      return item; // ⚡ Early return
+    }
+  }
+  return null;
+}
+```
+
+**Ventajas:**
+
+- **Eficiencia:** Evita búsquedas innecesarias
+- **Simplicidad:** Código más directo
+- **Garantía:** Funciona cuando sabemos que primera = óptima
+
+### Triangle-Specific Algorithms
+
+#### Desigualdad Triangular
+
+**Definición:** Para formar un triángulo válido con lados a, b, c:
+
+- `a + b > c`
+- `a + c > b`
+- `b + c > a`
+
+**Optimización cuando a ≥ b ≥ c:**
+
+```typescript
+// ✅ Solo necesitamos verificar UNA condición
+if (b + c > a) {
+  // Las otras dos se cumplen automáticamente:
+  // a + b > c ✓ (porque a ≥ c, entonces a + b > b ≥ c)
+  // a + c > b ✓ (porque a ≥ b, entonces a + c > c ≥ b)
+}
+```
+
+**Insight matemático:** El ordenamiento elimina verificaciones redundantes.
+
+### Lecciones de Greedy Algorithms
+
+#### Key Insights
+
+1. **Sorting como habilitador:** El orden correcto hace que greedy funcione
+2. **Matemática simplifica:** Usar propiedades del dominio reduce código
+3. **First valid = optimal:** En muchos problemas con sorting
+4. **Early termination:** Optimización importante para eficiencia
+5. **Proof matters:** Verificar que greedy realmente es óptimo
+
+#### When NOT to Use Greedy
+
+**Problemas donde greedy falla:**
+
+- **0/1 Knapsack:** Greedy por ratio valor/peso no es óptimo
+- **Shortest path con pesos negativos:** Necesita Bellman-Ford, no Dijkstra
+- **Coin change con denominaciones arbitrarias:** Requiere DP
+
+**Red flags:**
+
+- Decisiones tempranas afectan opciones futuras
+- Multiple subproblemas overlapping
+- No hay ordenamiento obvio que haga greedy óptimo
+
+---
