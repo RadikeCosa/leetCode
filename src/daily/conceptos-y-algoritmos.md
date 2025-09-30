@@ -4584,3 +4584,123 @@ for (let len = 1; len <= n; len++) {
 - **Reducir espacio:** Usar solo dos filas/columnas en lugar de tabla completa
 - **Rolling array:** Para problemas 1D, mantener solo k estados previos
 - **Precomputar:** Calcular valores constantes fuera del bucle principal
+
+---
+
+## Optimización In-Place
+
+### Introducción a Optimización de Espacio
+
+**Definición:** Técnica para reducir el uso de memoria modificando las estructuras de datos originales en lugar de crear copias.
+
+**Beneficios:**
+
+- Reducción significativa de espacio (O(n) → O(1))
+- Mejor performance de cache
+- Menos presión en garbage collector
+- A menudo más rápido en la práctica
+
+### Patrón: Modificación In-Place en Arrays
+
+**Problema:** Find Triangular Sum of an Array
+
+**Técnica:** En lugar de crear nuevos arrays en cada iteración, modificar el array original sobreescribiendo elementos que ya no se necesitan.
+
+**Ejemplo - Antes (O(n) espacio):**
+
+```typescript
+while (nums.length > 1) {
+  let newArray = new Array(nums.length - 1); // ❌ Nuevo array cada vez
+  for (let i = 0; i < nums.length - 1; i++) {
+    newArray[i] = (nums[i] + nums[i + 1]) % 10;
+  }
+  nums = newArray; // ❌ Reasignación completa
+}
+```
+
+**Ejemplo - Después (O(1) espacio):**
+
+```typescript
+let n = nums.length;
+while (n > 1) {
+  for (let i = 0; i < n - 1; i++) {
+    nums[i] = (nums[i] + nums[i + 1]) % 10; // ✅ Sobreescribir in-place
+  }
+  n--; // ✅ Reducir tamaño efectivo
+}
+```
+
+### ¿Cuándo Aplicar Optimización In-Place?
+
+**Condiciones necesarias:**
+
+- El problema permite modificar el input
+- No necesitas preservar el estado original
+- Los datos se procesan de manera que los valores antiguos no se necesitan después
+
+**Señales de que es posible:**
+
+- Creas nuevos arrays/contenedores en cada iteración
+- Los datos se procesan secuencialmente
+- Solo necesitas el resultado final
+
+**Ejemplos de aplicación:**
+
+- **Remove Duplicates from Sorted Array:** Sobreescribir elementos no duplicados
+- **Triangular Sum:** Sobreescribir con resultados intermedios
+- **String compression:** Modificar string in-place
+
+### Trade-offs de la Optimización In-Place
+
+| Aspecto                | Con In-Place    | Sin In-Place |
+| ---------------------- | --------------- | ------------ |
+| **Espacio**            | O(1) adicional  | O(n)         |
+| **Claridad**           | Menos intuitivo | Más claro    |
+| **Preservación input** | No              | Sí           |
+| **Performance**        | Mejor           | Regular      |
+| **Debugging**          | Más complejo    | Más simple   |
+
+### Errores Comunes
+
+- **Sobreescribir datos necesarios:** Asegurarse de que los valores antiguos no se necesiten
+- **Pérdida de información:** Verificar que toda la información necesaria se preserve
+- **Índices incorrectos:** Prestar atención al orden de modificación
+- **Arrays dinámicos:** Considerar si el tamaño cambia durante el proceso
+
+### Simulación de Procesos Iterativos
+
+**Patrón:** Para problemas que describen procesos paso a paso de manera determinística, implementar la simulación directamente.
+
+**Características:**
+
+- Proceso bien definido con reglas claras
+- Iterativo con condición de parada
+- Resultado converge a un estado final
+
+**Ejemplos:**
+
+- **Triangular Sum:** Suma de elementos adyacentes módulo 10
+- **Min Max Game:** Comparaciones alternadas min/max
+- **Calculate Digit Sum of a String:** Suma de dígitos en grupos
+
+**Ventajas:**
+
+- **Claridad:** Código refleja directamente la descripción del problema
+- **Correctitud:** Fácil de verificar contra ejemplos
+- **Mantenibilidad:** Cambios en las reglas son directos
+
+**Desventajas:**
+
+- Puede ser O(n²) o peor si no se optimiza
+- A veces existen fórmulas matemáticas más eficientes
+- Requiere cuidado con casos edge
+
+### Comparación: Simulación vs Fórmula Matemática
+
+| Enfoque        | Ventajas                    | Desventajas        | Cuando usar               |
+| -------------- | --------------------------- | ------------------ | ------------------------- |
+| **Simulación** | Claro, directo, fácil debug | Puede ser lento    | Proceso simple, n pequeño |
+| **Fórmula**    | O(1) tiempo, óptimo         | Difícil de derivar | Patrón matemático claro   |
+| **DP**         | Optimo para subproblemas    | Complejo           | Subproblemas superpuestos |
+
+**Conclusión:** Para procesos iterativos simples como Triangular Sum, la simulación optimizada es la mejor opción.
