@@ -4486,3 +4486,101 @@ if (b + c > a) {
 - No hay ordenamiento obvio que haga greedy óptimo
 
 ---
+
+## Programación Dinámica
+
+### Introducción a DP
+
+**Definición:** Técnica algorítmica que resuelve problemas complejos dividiéndolos en subproblemas más simples y almacenando las soluciones para evitar recálculo.
+
+**Características principales:**
+
+- **Subproblemas superpuestos:** El mismo subproblema se resuelve múltiples veces
+- **Subestructura óptima:** La solución óptima del problema contiene soluciones óptimas de subproblemas
+- **Memoización vs Tabulación:** Top-down vs bottom-up
+
+### Patrón: DP en Intervalos (Range DP)
+
+**Problema:** Minimum Score Triangulation of Polygon
+
+**Descripción:** Problemas donde procesamos rangos o intervalos de un array, típicamente un ciclo o secuencia lineal.
+
+**Estructura típica:**
+
+```typescript
+// Tabla DP: dp[i][j] representa solución para subarray i..j
+const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+// Procesar por tamaño creciente de intervalo
+for (let len = 1; len <= n; len++) {
+  for (let i = 0; i <= n - len; i++) {
+    const j = i + len - 1;
+    // Calcular dp[i][j] usando dp[i][k] y dp[k][j] para k entre i..j
+  }
+}
+```
+
+**Casos base:** Siempre definir para los intervalos más pequeños primero.
+
+**Cuándo usar:**
+
+- Problemas con polígonos, matrices, expresiones con paréntesis
+- Problemas que involucran particiones óptimas de secuencias
+- Cuando hay dependencia entre elementos no adyacentes
+
+**Ejemplo - Triangulación de polígono:**
+
+- `dp[i][j]` = costo mínimo para triangular vértices i a j
+- Para cada k entre i+1 y j-1: `dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j] + costo_triángulo(i,k,j))`
+
+**Complejidad típica:** O(n³) para problemas de intervalos
+
+### Patrones de DP Comunes
+
+**1. DP en Arrays Lineales:**
+
+- `dp[i]` depende de `dp[i-1]`, `dp[i-2]`, etc.
+- Ejemplos: House Robber, Climbing Stairs
+
+**2. DP en Matrices:**
+
+- `dp[i][j]` depende de posiciones adyacentes
+- Ejemplos: Unique Paths, Edit Distance
+
+**3. DP en Intervalos:**
+
+- Procesar subarrays de tamaño creciente
+- Ejemplos: Matrix Chain Multiplication, Polygon Triangulation
+
+**4. DP con Estados:**
+
+- Múltiples dimensiones para diferentes estados
+- Ejemplos: Knapsack con restricciones adicionales
+
+### Estrategias para Identificar DP
+
+**Preguntas clave:**
+
+1. **¿Se puede dividir en subproblemas?** Los subproblemas deben ser independientes
+2. **¿Hay superposición?** Si recalculamos lo mismo, DP puede ayudar
+3. **¿Subestructura óptima?** La solución global usa soluciones óptimas locales
+
+**Proceso de resolución:**
+
+1. **Definir el estado:** ¿Qué representa dp[i][j]?
+2. **Casos base:** Soluciones para los problemas más pequeños
+3. **Transición:** Cómo combinar subproblemas
+4. **Orden de cálculo:** Asegurar que dependencias estén resueltas
+
+### Errores Comunes en DP
+
+- **Estados insuficientes:** No capturar toda la información necesaria
+- **Orden incorrecto:** Calcular dp[i][j] antes de sus dependencias
+- **Casos base faltantes:** Olvidar inicializar los estados más simples
+- **Overflow:** No considerar límites de tipos de datos
+
+### Optimizaciones de DP
+
+- **Reducir espacio:** Usar solo dos filas/columnas en lugar de tabla completa
+- **Rolling array:** Para problemas 1D, mantener solo k estados previos
+- **Precomputar:** Calcular valores constantes fuera del bucle principal
