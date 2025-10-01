@@ -2,6 +2,76 @@
 
 Este archivo contiene los conceptos fundamentales de programación y algoritmos que vamos encontrando al resolver problemas de LeetCode.
 
+## 📚 Tabla de Contenidos
+
+### 🔧 Conceptos de Programación
+
+- [Bucles Anidados](#bucles-anidados)
+- [Estructuras de Datos Auxiliares](#estructuras-de-datos-auxiliares)
+- [Hash Maps / Mapas de Hash](#hash-maps--mapas-de-hash)
+- [Frequency Counting](#frequency-counting-conteo-de-frecuencias)
+- [Two Pointers](#técnica-de-dos-punteros-two-pointers)
+- [Manipulación de Dígitos](#manipulación-de-dígitos)
+- [Operaciones Matemáticas con Dígitos](#operaciones-matemáticas-con-dígitos)
+
+### 🧠 Algoritmos y Estrategias
+
+- [Algoritmo Greedy](#algoritmo-greedy-avaro)
+- [Búsqueda por Complementos](#búsqueda-por-complementos)
+- [Simulación Paso a Paso](#simulación-paso-a-paso)
+- [Early Termination](#early-termination-con-óptimo-absoluto)
+- [Verificación de Palíndromos](#verificación-de-palindromos-numéricos)
+
+### 📊 Análisis de Complejidad
+
+- [Complejidad Temporal O(n²)](#complejidad-temporal-on²)
+- [Complejidad Temporal O(n)](#complejidad-temporal-on---una-pasada)
+- [Complejidad Temporal O(log n)](#complejidad-temporal-olog-n---logarítmica)
+
+### 🎯 Patrones de Resolución
+
+- [Hash Map para Búsqueda Rápida](#patrón-hash-map-para-búsqueda-rápida)
+- [Comparación Optimizada de Strings](#patrón-comparación-optimizada-de-strings)
+- [Optimización Greedy de Dígitos](#patrón-optimización-greedy-de-dígitos)
+- [Detección de Secuencias en Strings](#patrón-detección-de-secuencias-en-strings)
+
+### 🔧 Técnicas Avanzadas
+
+- [Bit Manipulation](#bit-manipulation-y-potencias-de-dos)
+- [Linked Lists](#linked-lists-listas-enlazadas)
+- [Sliding Window](#sliding-window-de-tamaño-fijo)
+- [Geometría Computacional](#geometría-computacional)
+- [Simulación de Procesos de Intercambio](#simulación-de-procesos-de-intercambio)
+- [Dynamic Programming](#programación-dinámica)
+
+### 🎯 Casos de Estudio
+
+- [TDD Methodology](#metodología-tdd-red-green-refactor-aplicada)
+- [Optimización y Refactoring](#optimización-y-refactoring-de-código)
+- [Matrices y Validación](#matrices-y-validación-con-sets)
+
+## 🎯 Resumen Ejecutivo - Patrones Más Utilizados
+
+### Top 5 Técnicas por Frecuencia de Uso
+
+| Ranking   | Técnica               | Aplicación Principal                     | Complejidad Típica    |
+| --------- | --------------------- | ---------------------------------------- | --------------------- |
+| 🥇 **#1** | **Hash Maps**         | Búsqueda rápida, Two Sum variants        | O(n) time, O(n) space |
+| 🥈 **#2** | **Two Pointers**      | Arrays ordenados, eliminación duplicados | O(n) time, O(1) space |
+| 🥉 **#3** | **Greedy + Sort**     | Optimización local → global              | O(n log n) time       |
+| 📍 **#4** | **Simulación**        | Procesos iterativos con estado           | O(log n) typical      |
+| 🎨 **#5** | **String Processing** | Parsing, validación, patrones            | O(n) time             |
+
+### Decisión Rápida - ¿Qué Técnica Usar?
+
+```
+¿Necesitas BÚSQUEDA rápida? → Hash Map
+¿Tienes ARRAY ORDENADO? → Two Pointers
+¿OPTIMIZACIÓN con orden? → Greedy + Sort
+¿PROCESO ITERATIVO? → Simulación
+¿MANIPULAR strings/números? → String/Math Processing
+```
+
 ---
 
 ## Conceptos de Programación
@@ -60,41 +130,65 @@ const basketUsed: boolean[] = new Array(baskets.length).fill(false);
 
 ### Hash Maps / Mapas de Hash
 
-**Definición:** Estructura de datos que mapea claves a valores con acceso promedio O(1).
+**Definición:** Estructura de datos fundamental que mapea claves a valores con acceso promedio O(1), esencial para optimizar algoritmos de búsqueda.
 
-**En TypeScript:**
+#### **Sintaxis en TypeScript:**
 
 ```typescript
+// Map genérico con tipos explícitos
 const seen = new Map<number, number>(); // valor -> índice
+const cache = new Map<string, boolean>(); // string -> resultado
+
+// Record para claves simples
+const frequency: Record<number, number> = {}; // más conciso
 ```
 
-**Cuándo usar:**
+#### **Cuándo usar Hash Maps:**
 
-- Búsqueda rápida de elementos previamente vistos
-- Almacenar relaciones clave-valor
-- Evitar bucles anidados en problemas de búsqueda
+- ✅ **Búsqueda rápida** de elementos previamente vistos
+- ✅ **Optimización O(n²) → O(n)** en problemas de búsqueda
+- ✅ **Cacheo de resultados** computacionales
+- ✅ **Conteo de frecuencias** de elementos
+- ✅ **Detección de duplicados** eficiente
 
-**Operaciones principales:**
+#### **Operaciones Fundamentales:**
 
-- `map.set(key, value)` - Insertar/actualizar O(1)
-- `map.has(key)` - Verificar existencia O(1)
-- `map.get(key)` - Obtener valor O(1)
+| Operación             | Complejidad | Uso típico           |
+| --------------------- | ----------- | -------------------- |
+| `map.set(key, value)` | O(1)        | Insertar/actualizar  |
+| `map.has(key)`        | O(1)        | Verificar existencia |
+| `map.get(key)`        | O(1)        | Obtener valor        |
+| `map.delete(key)`     | O(1)        | Eliminar entrada     |
+| `map.size`            | O(1)        | Tamaño actual        |
 
-**Ejemplo del problema Two Sum:**
+#### **Ejemplo Completo - Two Sum Pattern:**
 
 ```typescript
-const complement = target - currentNum;
-if (seen.has(complement)) {
-  return [seen.get(complement)!, i];
+function twoSum(nums: number[], target: number): number[] {
+  const seen = new Map<number, number>(); // valor -> índice
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    // O(1) lookup - clave del patrón
+    if (seen.has(complement)) {
+      return [seen.get(complement)!, i];
+    }
+
+    // O(1) storage para futuras búsquedas
+    seen.set(nums[i], i);
+  }
+
+  return [];
 }
-seen.set(currentNum, i);
 ```
 
-**Ventajas:**
+#### **Ventajas Clave:**
 
-- Convierte algoritmos O(n²) en O(n)
-- API clara y expresiva
-- Manejo automático de colisiones
+- 🚀 **Performance**: Convierte algoritmos O(n²) en O(n)
+- 🧩 **API clara**: Métodos expresivos y fáciles de usar
+- ⚡ **Eficiencia**: Manejo automático de colisiones
+- 🔄 **Flexibilidad**: Soporta cualquier tipo como clave/valor
 
 ### Frequency Counting (Conteo de Frecuencias)
 
@@ -4487,6 +4581,230 @@ if (b + c > a) {
 
 ---
 
+## Simulación de Procesos de Intercambio
+
+### Patrón: State Transition con Carry/Remainder
+
+**Definición:** Problemas donde simulamos un proceso iterativo que convierte recursos según reglas específicas, manteniendo estado entre iteraciones.
+
+**Características clave:**
+
+- **State tracking:** Mantener múltiples variables de estado
+- **Conversion rules:** Reglas claras de transformación de recursos
+- **Remainder handling:** Elementos que no se pueden procesar se mantienen
+- **Terminación natural:** El proceso para cuando no se pueden hacer más conversiones
+
+### Problema Water Bottles - Análisis Detallado
+
+**Escenario:** Intercambiar k botellas vacías por 1 botella llena, maximizar total de botellas bebidas.
+
+**Pattern de simulación:**
+
+```typescript
+export function numWaterBottles(
+  numBottles: number,
+  numExchange: number
+): number {
+  // Inicialización: estado inicial del proceso
+  let totalDrunk = numBottles; // Total bebido acumulativo
+  let emptyBottles = numBottles; // Estado actual: botellas vacías
+
+  // Loop de simulación: mientras se puedan hacer intercambios
+  while (emptyBottles >= numExchange) {
+    // Cálculo de conversión
+    const newFullBottles = Math.floor(emptyBottles / numExchange);
+
+    // Actualización del estado acumulativo
+    totalDrunk += newFullBottles;
+
+    // State transition: nuevo estado para próxima iteración
+    emptyBottles = (emptyBottles % numExchange) + newFullBottles;
+    //             ^-- remainder        ^-- nuevas vacías al beber
+  }
+
+  return totalDrunk;
+}
+```
+
+### Componentes del Patrón de Simulación
+
+#### 1. **State Variables**
+
+```typescript
+// Variables de estado persistente
+let accumulator = initialValue; // Resultado acumulativo
+let currentState = initialState; // Estado actual del proceso
+let carry = 0; // Información que se transporta entre iteraciones
+```
+
+#### 2. **Conversion Logic**
+
+```typescript
+// Reglas de transformación
+const converted = Math.floor(input / exchangeRate); // Conversión principal
+const remainder = input % exchangeRate; // Lo que no se pudo convertir
+```
+
+#### 3. **State Transition Formula**
+
+```typescript
+// Actualización del estado para próxima iteración
+newState = remainder + byproduct;
+//         ^-- no procesado  ^-- resultado del procesamiento que afecta próxima iteración
+```
+
+### Patrones Matemáticos en Simulación
+
+#### **División Entera + Módulo**
+
+**Uso frecuente en problemas de intercambio:**
+
+```typescript
+// Patrón universal para conversión con resto
+const converted = Math.floor(input / rate); // Cuánto se puede convertir
+const remainder = input % rate; // Cuánto sobra
+```
+
+**Aplicaciones:**
+
+- **Water Bottles:** `emptyBottles / numExchange` → nuevas botellas
+- **Coin Change:** `amount / coinValue` → cuántas monedas de ese valor
+- **Base Conversion:** `number / base` → siguiente dígito
+- **Time Conversion:** `seconds / 60` → minutos completos
+
+#### **State Preservation Pattern**
+
+**Fórmula clave en Water Bottles:**
+
+```typescript
+emptyBottles = (emptyBottles % numExchange) + newFullBottles;
+```
+
+**Desglose:**
+
+- `emptyBottles % numExchange`: Lo que no se pudo intercambiar (persiste)
+- `newFullBottles`: Las nuevas botellas que al beberlas se vuelven vacías
+- **Resultado:** Estado para la próxima iteración
+
+**Por qué funciona:**
+
+```
+Ejemplo: 9 vacías, intercambio 3x1
+- Convertir: 9 ÷ 3 = 3 nuevas botellas
+- Remainder: 9 % 3 = 0 botellas vacías sobrantes
+- Al beber 3 nuevas: 3 nuevas botellas vacías
+- Próximo estado: 0 + 3 = 3 botellas vacías
+```
+
+### Alternativas al Patrón de Simulación
+
+#### **Enfoque Matemático Directo (O(1))**
+
+```typescript
+// Fórmula matemática para Water Bottles
+function numWaterBottlesOptimized(
+  numBottles: number,
+  numExchange: number
+): number {
+  return numBottles + Math.floor((numBottles - 1) / (numExchange - 1));
+}
+```
+
+**Derivación de la fórmula:**
+
+- Cada intercambio "consume" efectivamente `numExchange - 1` botellas vacías
+- ¿Por qué? Intercambiamos k vacías por 1 llena, que al beberla se vuelve 1 vacía
+- Ganancia neta: -k + 1 = -(k-1) botellas vacías
+- Total intercambios posibles: `(numBottles - 1) / (numExchange - 1)`
+
+#### **Cuándo Usar Cada Enfoque**
+
+| Aspecto            | Simulación                     | Fórmula Matemática               |
+| ------------------ | ------------------------------ | -------------------------------- |
+| **Complejidad**    | O(log n)                       | O(1)                             |
+| **Legibilidad**    | ⭐⭐⭐⭐⭐                     | ⭐⭐                             |
+| **Derivación**     | Intuitiva                      | Requiere insight matemático      |
+| **Debugging**      | Fácil step-by-step             | Difícil si fórmula es incorrecta |
+| **Extensibilidad** | Fácil modificar reglas         | Difícil generalizar              |
+| **Entrevistas**    | Muestra proceso de pensamiento | Muestra conocimiento matemático  |
+
+### Aplicaciones del Patrón en Otros Problemas
+
+#### **Exchange/Conversion Problems**
+
+- **Super Ugly Number:** Convertir números usando factores específicos
+- **Coin Change:** Convertir amount en monedas mínimas
+- **Base Conversion:** Convertir entre sistemas numéricos
+- **Stock Trading:** Comprar/vender con restricciones
+
+#### **Resource Management**
+
+- **Task Scheduler:** Convertir tasks en tiempo con cooldowns
+- **Memory Allocation:** Convertir requests en bloques disponibles
+- **Inventory Management:** Convertir materials en products con remainder
+
+#### **Game Mechanics**
+
+- **Experience Points:** Convertir XP en niveles con remainder
+- **Item Crafting:** Convertir materials en items con leftovers
+- **Currency Exchange:** Trading con rates y fees
+
+### Características de Problemas Aptos para Simulación
+
+**Indicadores principales:**
+
+1. **Proceso iterativo:** Se repite hasta que no se puede continuar
+2. **Reglas claras:** Conversión determinística
+3. **Estado persistente:** Información se mantiene entre iteraciones
+4. **Condición de parada:** Naturalmente termina cuando no hay más conversiones
+
+**Template genérico:**
+
+```typescript
+function simulateExchange(initial: number, conversionRate: number): number {
+  let result = initial;
+  let current = initial;
+
+  while (current >= conversionRate) {
+    const converted = Math.floor(current / conversionRate);
+    result += converted;
+    current = (current % conversionRate) + getByproduct(converted);
+  }
+
+  return result;
+}
+```
+
+### Debugging en Simulación
+
+**Técnicas efectivas:**
+
+1. **Step-by-step logging:**
+
+```typescript
+while (emptyBottles >= numExchange) {
+  console.log(`Estado: ${emptyBottles} vacías, ${totalDrunk} total`);
+  const newFullBottles = Math.floor(emptyBottles / numExchange);
+  console.log(`Intercambio: ${newFullBottles} nuevas botellas`);
+  // ... resto del código
+}
+```
+
+2. **Invariant checking:**
+
+```typescript
+// Verificar que el total siempre aumenta
+const prevTotal = totalDrunk;
+totalDrunk += newFullBottles;
+console.assert(totalDrunk > prevTotal, "Total debe aumentar");
+```
+
+3. **Manual verification:**
+
+Trabajar ejemplos pequeños a mano y comparar con output del algoritmo.
+
+---
+
 ## Programación Dinámica
 
 ### Introducción a DP
@@ -4704,3 +5022,171 @@ while (n > 1) {
 | **DP**         | Optimo para subproblemas    | Complejo           | Subproblemas superpuestos |
 
 **Conclusión:** Para procesos iterativos simples como Triangular Sum, la simulación optimizada es la mejor opción.
+
+---
+
+## 🎯 Casos de Estudio
+
+### Metodología TDD: Red-Green-Refactor Aplicada
+
+**Proceso completo en Water Bottles problem:**
+
+#### **🔴 RED Phase - Tests que Fallan**
+
+```typescript
+// Tests escritos colaborativamente ANTES de implementación
+describe("Water Bottles", () => {
+  it("should return 13 for 9 bottles, exchange 3", () => {
+    expect(numWaterBottles(9, 3)).toBe(13);
+  });
+
+  it("should return 19 for 15 bottles, exchange 4", () => {
+    expect(numWaterBottles(15, 4)).toBe(19);
+  });
+});
+```
+
+#### **🟢 GREEN Phase - Implementación Mínima**
+
+```typescript
+// Primera versión funcional - priorizar que funcione
+function numWaterBottles(numBottles: number, numExchange: number): number {
+  let totalDrunk = numBottles;
+  let emptyBottles = numBottles;
+
+  while (emptyBottles >= numExchange) {
+    const newBottles = Math.floor(emptyBottles / numExchange);
+    totalDrunk += newBottles;
+    emptyBottles = (emptyBottles % numExchange) + newBottles;
+  }
+
+  return totalDrunk;
+}
+```
+
+#### **🔵 REFACTOR Phase - Documentación y Optimización**
+
+- ✅ Análisis de complejidad: O(log n) temporal, O(1) espacial
+- ✅ Documentación completa en explanation.md
+- ✅ Formato LeetCode en post-solution.md
+- ✅ Actualización de conceptos-y-algoritmos.md
+
+---
+
+### Optimización y Refactoring de Código
+
+**Evolución de Two Sum - De O(n²) a O(n):**
+
+#### **Versión Inicial - Fuerza Bruta**
+
+```typescript
+// ❌ O(n²) - No escalable
+function twoSum(nums: number[], target: number): number[] {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+  return [];
+}
+```
+
+#### **Versión Optimizada - Hash Map**
+
+```typescript
+// ✅ O(n) - Escalable y eficiente
+function twoSum(nums: number[], target: number): number[] {
+  const seen = new Map<number, number>();
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    if (seen.has(complement)) {
+      return [seen.get(complement)!, i];
+    }
+
+    seen.set(nums[i], i);
+  }
+
+  return [];
+}
+```
+
+#### **Insights del Refactoring:**
+
+- 🚀 **Performance gain**: 100x mejora en casos grandes
+- 💡 **Pattern recognition**: Hash map para búsqueda de complementos
+- 🧠 **Space-time tradeoff**: O(n) espacio por O(n²) → O(n) tiempo
+
+---
+
+### Matrices y Validación con Sets
+
+**Triangle Problem - Validación eficiente:**
+
+```typescript
+function triangleNumber(nums: number[]): number {
+  // 🎯 Estrategia: ordenar + two pointers
+  nums.sort((a, b) => a - b);
+  let count = 0;
+
+  // Para cada lado más largo (c)
+  for (let c = nums.length - 1; c >= 2; c--) {
+    let left = 0;
+    let right = c - 1;
+
+    // Buscar pares (a,b) donde a + b > c
+    while (left < right) {
+      if (nums[left] + nums[right] > nums[c]) {
+        // Todos los elementos entre left y right funcionan
+        count += right - left;
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+
+  return count;
+}
+```
+
+#### **Insights Clave:**
+
+- 📊 **Sorting enables optimization**: O(n log n) vs O(n³) brute force
+- 🎯 **Two pointers in sorted arrays**: Técnica recurrente
+- ⚡ **Bulk counting**: Contar rangos en lugar de elementos individuales
+- 🧮 **Mathematical properties**: Desigualdad triangular como invariante
+
+---
+
+### Summary de Lessons Learned
+
+#### **🏆 Top Optimization Patterns**
+
+1. **Hash Map**: O(n²) → O(n) en búsquedas
+2. **Sorting + Two Pointers**: O(n³) → O(n²) en validaciones
+3. **Greedy**: Decisiones locales óptimas
+4. **Early Termination**: Salir tan pronto como sea posible
+5. **Mathematical Properties**: Usar invariantes del dominio
+
+#### **🎯 Code Quality Principles**
+
+- **Descriptive naming**: Variables auto-explicativas
+- **Single responsibility**: Funciones con propósito único
+- **Guard clauses**: Manejar edge cases al inicio
+- **TypeScript types**: Seguridad de tipos completa
+- **Comments in Spanish**: Explicar lógica, no sintaxis
+
+#### **📈 Performance Mindset**
+
+- **Measure before optimizing**: Tests comprueban funcionamiento
+- **Know your data structures**: Map vs Array vs Set
+- **Understand complexity**: Big O más importante que micro-optimizaciones
+- **Profile bottlenecks**: 80/20 rule en optimización
+
+---
+
+_Archivo actualizado: Enero 2025 - Proyecto LeetCode TypeScript con metodología TDD_
