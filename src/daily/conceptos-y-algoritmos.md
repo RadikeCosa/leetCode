@@ -2092,6 +2092,63 @@ Mantener la mejor (máxima lexicográfica) sin almacenar todas.
 
 ---
 
+### Sliding Window Optimizado (Variable Size)
+
+**Concepto:** Ventana dinámica que cambia de tamaño y usa saltos directos para evitar movimientos paso a paso.
+
+#### **Cuándo usar:**
+
+- Substring/subarray sin restricciones específicas (no duplicados, etc.)
+- Cuando puedes calcular directamente la próxima posición válida
+- Optimización de O(2n) → O(n) exacto
+
+#### **Patrón con HashMap + Saltos Directos:**
+
+```typescript
+function optimizedSlidingWindow(s: string): number {
+  let maxLength = 0;
+  let start = 0;
+  const positions = new Map<string, number>();
+
+  for (let end = 0; end < s.length; end++) {
+    if (positions.has(s[end])) {
+      // Salto directo: solo hacia adelante
+      start = Math.max(start, positions.get(s[end])! + 1);
+    }
+
+    positions.set(s[end], end);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+```
+
+#### **Insights clave:**
+
+1. **Math.max previene retrocesos**: `start` solo avanza, nunca retrocede
+2. **Map vs Set**: Map almacena posiciones para saltos directos
+3. **Una sola pasada**: Cada carácter visitado exactamente una vez
+4. **Boundary safety**: Duplicados fuera de ventana actual se ignoran
+
+#### **Ejemplo paso a paso con "abcba":**
+
+```
+end=0, char='a': positions={a:0}, start=0, length=1
+end=1, char='b': positions={a:0,b:1}, start=0, length=2
+end=2, char='c': positions={a:0,b:1,c:2}, start=0, length=3
+end=3, char='b': b en pos 1, start=max(0,2)=2, length=2
+end=4, char='a': a en pos 0, start=max(2,1)=2, length=3
+```
+
+#### **Ventajas sobre Two Pointers tradicional:**
+
+- ✅ **Performance**: O(n) exacto vs O(2n)
+- ✅ **Simplicidad**: Un solo loop en lugar de nested while
+- ✅ **Elegancia**: Lógica directa sin contracción paso a paso
+
+---
+
 ## Geometría y Matemáticas
 
 ### Teorema de Pitágoras

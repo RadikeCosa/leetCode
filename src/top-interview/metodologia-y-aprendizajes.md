@@ -1,31 +1,192 @@
-# Enfoque y Metodología - Top Interview Problems
+# 🎯 Metodología y Aprendizajes - Top Interview Problems
 
-## Filosofía de Resolución
+## 📚 Tabla de Contenidos
 
-Esta colección de problemas de **Top Interview** sigue un enfoque sistemático basado en **aprendizaje guiado** y **desarrollo dirigido por tests (TDD)** para construir intuición algorítmica sólida y habilidades de resolución de problemas.
+### 🎓 **Fundamentos**
 
-## Metodología TDD (Test-Driven Development)
+- [Filosofía de Aprendizaje](#filosofía-de-aprendizaje)
+- [Metodología TDD](#metodología-tdd-test-driven-development)
+- [Estructura de Proyecto](#estructura-estándar-por-problema)
+
+### 🔧 **Patrones Algorítmicos**
+
+- [Quick Reference Guide](#quick-reference---cuándo-usar-cada-patrón)
+- [Two Pointers](#two-pointers-pattern)
+- [Hash Maps](#hash-maps--hash-tables)
+- [Sliding Window](#sliding-window-pattern)
+
+### 📖 **Casos de Estudio**
+
+- [Problemas Resueltos](#aprendizajes-por-problema)
+- [Lessons Learned](#lessons-learned)
+- [Code Quality](#principios-de-código-limpio)
+
+### 🚀 **Proceso de Mejora**
+
+- [TDD en Algoritmos](#ventajas-del-tdd-en-algoritmos)
+- [Reflexiones](#reflexiones-sobre-el-proceso)
+
+---
+
+## 🎓 Filosofía de Aprendizaje
+
+> **"No buscamos memorizar soluciones, sino construir intuición algorítmica"**
+
+### Principios Fundamentales:
+
+🧠 **Aprendizaje Guiado**: Mentorización paso a paso sin revelar soluciones completas  
+🎯 **TDD First**: Tests definen comportamiento antes que implementación  
+📈 **Progresión Iterativa**: De solución básica → optimizada → documentada  
+🔍 **Pattern Recognition**: Identificar y catalogar técnicas reutilizables  
+📚 **Knowledge Building**: Cada problema enriquece la base de conocimiento
+
+### Beneficios de este Enfoque:
+
+- ✅ **Comprensión profunda** vs memorización superficial
+- ✅ **Confianza en testing** antes de optimizar
+- ✅ **Vocabulario técnico** estructurado y creciente
+- ✅ **Transferencia de aprendizaje** entre problemas similares
+
+## 🔄 Metodología TDD (Test-Driven Development)
+
+### 🏁 **Ciclo Completo TDD**
+
+```
+🔴 RED → 🟢 GREEN → 🔵 REFACTOR → 🔁 REPEAT
+```
 
 ### 🔴 **RED Phase - Escribir Tests que Fallan**
 
-1. **Análisis del problema**: Entender completamente el enunciado y restricciones
-2. **Casos de prueba**: Implementar tests basados en ejemplos de LeetCode
-3. **Casos edge**: Agregar tests para situaciones límite
-4. **Verificación**: Confirmar que los tests fallan (función vacía/skeleton)
+**🎯 Objetivo**: Definir comportamiento esperado antes de implementar
+
+1. **📝 Análisis del problema**:
+
+   - Entender completamente enunciado y restricciones
+   - Identificar inputs, outputs y edge cases
+   - Aclarar ambigüedades
+
+2. **🧪 Casos de prueba colaborativos**:
+
+   - ⚠️ **NUNCA auto-generar tests**
+   - Implementar tests basados en ejemplos de LeetCode
+   - Guiar al usuario: "¿Qué casos de prueba ves?"
+
+3. **🚨 Casos edge**:
+
+   - Arrays vacíos, elementos únicos
+   - Valores mínimos/máximos de constraints
+   - Casos donde algoritmo podría fallar
+
+4. **✅ Verificación**:
+   - Confirmar que tests fallan con función skeleton
+   - ¡Tests en rojo significan que están bien escritos!
+
+**Ejemplo práctico**:
+
+```typescript
+// 🔴 RED: Tests fallan porque función está vacía
+describe("Longest Substring Without Repeating Characters", () => {
+  it('should return 3 for "abcabcbb"', () => {
+    expect(lengthOfLongestSubstring("abcabcbb")).toBe(3);
+  });
+});
+```
 
 ### 🟢 **GREEN Phase - Implementar Solución Mínima**
 
-1. **Solución funcional**: Escribir código que haga pasar todos los tests
-2. **Enfoque pragmático**: Priorizar funcionalidad sobre optimización prematura
-3. **Nombres descriptivos**: Variables y funciones auto-explicativas desde el inicio
-4. **Iteración rápida**: `npm run test:watch` para feedback inmediato
+**🎯 Objetivo**: Hacer que todos los tests pasen con el mínimo código posible
+
+1. **🛠️ Solución funcional primera**:
+
+   - Priorizar que **funcione** sobre que sea **eficiente**
+   - ¡Fuerza bruta O(n²) está bien inicialmente!
+   - "Make it work, then make it better"
+
+2. **🎯 Enfoque pragmático**:
+
+   - Sin optimización prematura
+   - Si tests pasan, el algoritmo es correcto
+   - Resistir tentación de "perfectionism paralysis"
+
+3. **🏷️ Nombres descriptivos desde el inicio**:
+
+   - `leftPointer` > `i` o `p1`
+   - `charPositions` > `map` o `seen`
+   - Código auto-explicativo
+
+4. **⚡ Iteración rápida**:
+   - `npm run test:watch` para feedback inmediato
+   - Pequeños cambios, verificación constante
+   - Debugging en tiempo real
+
+**Ejemplo práctico**:
+
+```typescript
+// 🟢 GREEN: Solución simple que funciona
+function lengthOfLongestSubstring(s: string): number {
+  let maxLength = 0;
+
+  // Fuerza bruta O(n²) - ¡pero funciona!
+  for (let i = 0; i < s.length; i++) {
+    const seen = new Set<string>();
+    for (let j = i; j < s.length; j++) {
+      if (seen.has(s[j])) break;
+      seen.add(s[j]);
+      maxLength = Math.max(maxLength, j - i + 1);
+    }
+  }
+
+  return maxLength;
+}
+```
 
 ### 🔵 **REFACTOR Phase - Optimizar y Documentar**
 
-1. **Análisis de complejidad**: Evaluar tiempo y espacio
-2. **Documentación completa**: Explanation y post-solution
-3. **Patrones identificados**: Documentar técnicas y estrategias utilizadas
-4. **Knowledge base**: Actualizar conceptos generales aprendidos
+**🎯 Objetivo**: Mejorar calidad sin romper funcionalidad (tests siguen pasando)
+
+1. **📈 Análisis de complejidad**:
+
+   - Evaluar tiempo y espacio actual
+   - Identificar cuellos de botella
+   - ¿Puede optimizarse O(n²) → O(n)?
+
+2. **🛠️ Refactoring seguro**:
+
+   - Un cambio a la vez
+   - Tests deben seguir pasando
+   - Si tests fallan, revertir inmediatamente
+
+3. **📝 Documentación completa**:
+
+   - `explanation.md`: Análisis detallado en español
+   - `post-solution.md`: Formato LeetCode en inglés
+   - Comentarios en código explicando lógica
+
+4. **📦 Knowledge base update**:
+   - Agregar patrones identificados
+   - Actualizar conceptos generales
+   - Cross-reference con problemas similares
+
+**Ejemplo de evolución**:
+
+```typescript
+// 🔵 REFACTOR: Optimización O(n²) → O(n)
+function lengthOfLongestSubstring(s: string): number {
+  let maxLength = 0;
+  let start = 0;
+  const charPositions = new Map<string, number>();
+
+  for (let end = 0; end < s.length; end++) {
+    if (charPositions.has(s[end])) {
+      start = Math.max(start, charPositions.get(s[end])! + 1);
+    }
+    charPositions.set(s[end], end);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+```
 
 ## Estructura Estándar por Problema
 
@@ -55,19 +216,201 @@ top-interview/
 - **[trees/]**: Árboles binarios y traversal (futuro)
 - **[dynamic-programming/]**: Programación dinámica (futuro)
 
-## Patrones Algorítmicos Comunes
+---
 
-### Two Pointers
+## 📊 Quick Reference - ¿Cuándo usar cada Patrón?
 
-- **Cuándo usar**: Arrays ordenados, búsqueda de pares, merge operations
-- **Variantes**: Convergentes, divergentes, diferentes velocidades, múltiples arrays
-- **Optimización típica**: O(n²) → O(n)
+### 🔍 **Decision Tree Rápido**
 
-### Hash Maps / Hash Tables
+```
+🤔 ¿Qué tipo de problema es?
+├── 📊 Arrays/Strings con BÚSQUEDA rápida? → 🗺️ Hash Maps
+├── 📋 Array ORDENADO con pares/validación? → 👥 Two Pointers
+├── 🎨 Substring/subarray CONTIGUO? → 💬 Sliding Window
+├── 🔗 Lista enlazada con CICLOS? → 🗺️ Hash Set/Two Pointers
+└── 🎯 Optimización con orden? → 💪 Greedy + Sort
+```
 
-- **Cuándo usar**: Búsquedas O(1), conteo de frecuencias, mapeo clave-valor
-- **Trade-off**: Espacio O(n) por tiempo O(1)
-- **Patrón común**: Convertir búsquedas lineales en acceso directo
+### 🏆 **Top Patterns por Eficiencia**
+
+| 🏅 Rank   | Pattern            | Optimization             | Casos Típicos               |
+| --------- | ------------------ | ------------------------ | --------------------------- |
+| 🥇 **#1** | **Hash Maps**      | O(n²) → O(n)             | Two Sum, frequency counting |
+| 🥈 **#2** | **Two Pointers**   | O(n²) → O(n)             | Sorted arrays, palindromes  |
+| 🥉 **#3** | **Sliding Window** | O(n²) → O(n)             | Substring problems          |
+| 🏅 **#4** | **Greedy + Sort**  | Exponential → O(n log n) | Interval problems           |
+
+### ⚡ **Signals de Reconocimiento de Patrones**
+
+**🗺️ Hash Maps cuando ves:**
+
+- "find pair that sums to target"
+- "count frequency of..."
+- "check if exists"
+- "map/lookup"
+
+**👥 Two Pointers cuando ves:**
+
+- "sorted array"
+- "palindrome"
+- "merge two arrays"
+- "remove duplicates in-place"
+
+**💬 Sliding Window cuando ves:**
+
+- "substring"/"subarray"
+- "longest/shortest/maximum/minimum"
+- "contiguous elements"
+- "window of size k"
+
+---
+
+## 👥 Two Pointers Pattern
+
+### 🎯 **Concepto Central**
+
+Usar dos índices que se mueven de manera coordinada para resolver problemas en una sola pasada.
+
+### 🎨 **Visualización de Tipos**
+
+#### **1️⃣ Convergentes (Opposite Direction)**
+
+```
+Array: [1, 2, 3, 4, 5, 6, 7, 8]
+        ↑                 ↑
+      left             right
+       ⬇️                 ⬆️
+     [1, 2, 3, 4, 5, 6, 7, 8]
+           ↑           ↑
+         left       right
+```
+
+**🎯 Uso típico**: Palindromes, two sum en array ordenado
+
+#### **2️⃣ Paralelos (Fast/Slow)**
+
+```
+Array: [1, 1, 2, 2, 2, 3, 3]
+        ↑     ↑
+      slow   fast
+       ⬇️       ⬇️
+     [1, 1, 2, 2, 2, 3, 3]
+           ↑        ↑
+         slow     fast
+```
+
+**🎯 Uso típico**: Remove duplicates, cycle detection
+
+### 🛠️ **Templates Reutilizables**
+
+#### **Template Convergente**
+
+```typescript
+function twoPointersConvergent(arr: number[], target: number): number[] {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === target) return [left, right];
+    if (sum < target) left++; // Necesitamos suma mayor
+    else right--; // Necesitamos suma menor
+  }
+
+  return [];
+}
+```
+
+#### **Template Paralelo**
+
+```typescript
+function twoPointersParallel(arr: number[]): number {
+  let writeIndex = 0; // slow pointer
+
+  for (let readIndex = 0; readIndex < arr.length; readIndex++) { // fast pointer
+    if (/* condición para mantener elemento */) {
+      arr[writeIndex] = arr[readIndex];
+      writeIndex++;
+    }
+  }
+
+  return writeIndex; // nueva longitud
+}
+```
+
+### ✅ **Ventajas Clave**
+
+- 🚀 **Performance**: O(n) vs O(n²) fuerza bruta
+- 💾 **Memory**: O(1) espacio adicional
+- 🎯 **Simplicidad**: Lógica directa y clara
+- ⚡ **In-place**: Modificación directa sin arrays extra
+
+## 🗺️ Hash Maps / Hash Tables
+
+### 🎯 **Concepto Central**
+
+Estructura de datos que mapea claves a valores con acceso O(1), fundamental para convertir búsquedas O(n) en lookups instantáneos.
+
+### 📊 **Transformación de Complejidad**
+
+```
+❌ Fuerza Bruta:           ✅ Hash Map Optimizado:
+for (let i = 0; i < n; i++) {    const seen = new Map();
+  for (let j = i+1; j < n; j++) {  for (let i = 0; i < n; i++) {
+    if (condition(i,j)) {            if (seen.has(complement)) {
+      return [i, j];                   return [seen.get(complement), i];
+    }                                }
+  }                                seen.set(nums[i], i);
+}                                }
+
+O(n²) tiempo                   O(n) tiempo, O(n) espacio
+```
+
+### 🛠️ **Template Universal**
+
+```typescript
+function hashMapPattern<T, R>(items: T[], target: R): number[] {
+  const seen = new Map<T, number>(); // valor -> índice
+
+  for (let i = 0; i < items.length; i++) {
+    const complement = computeComplement(target, items[i]);
+
+    // ⚡ O(1) lookup - clave del patrón
+    if (seen.has(complement)) {
+      return [seen.get(complement)!, i];
+    }
+
+    // 💾 Store para futuras búsquedas
+    seen.set(items[i], i);
+  }
+
+  return [];
+}
+```
+
+### 🎯 **Casos de Uso Principales**
+
+| Problema                | Hash Map Almacena | Lookup             | Beneficio             |
+| ----------------------- | ----------------- | ------------------ | --------------------- |
+| **Two Sum**             | `value → index`   | `target - current` | O(n²) → O(n)          |
+| **Frequency Count**     | `item → count`    | `item`             | Conteo eficiente      |
+| **Duplicate Detection** | `item → boolean`  | `item`             | Detección instantánea |
+| **Cycle Detection**     | `node → visited`  | `current`          | O(n) vs O(1) space    |
+
+### ⚡ **Trade-offs y Consideraciones**
+
+**✅ Ventajas:**
+
+- Lookup O(1) promedio
+- API intuitiva y expresiva
+- Manejo automático de colisiones
+
+**⚠️ Consideraciones:**
+
+- O(n) espacio adicional
+- Overhead de hashing
+- Peor caso O(n) en lookups (raro)
 
 ### Sliding Window
 
@@ -101,7 +444,77 @@ top-interview/
 
 ---
 
-## Principios de Código Limpio
+## 🎓 Lessons Learned
+
+### 🏆 **Top Insights de Algoritmos**
+
+#### **1️⃣ Pattern Recognition es Clave**
+
+- 🔍 **Signal words** revelan técnicas: "sorted", "substring", "pair", "cycle"
+- 📚 **Template matching**: Reconocer structure común entre problemas
+- ⚡ **Quick decisions**: Decision tree mental acelera resolución
+
+#### **2️⃣ Optimización Progresiva**
+
+- 🔴 **Start simple**: Fuerza bruta que funciona > elegancia que falla
+- 🟢 **Identify bottlenecks**: Profiling mental de O(n²) loops
+- 🔵 **Apply patterns**: Hash maps, two pointers, sliding window
+
+#### **3️⃣ Testing como Safety Net**
+
+- ✅ **Confianza**: Tests comprueban correctness antes de optimizar
+- 🔄 **Refactoring seguro**: Cambios sin miedo a romper funcionalidad
+- 📝 **Living documentation**: Tests explican comportamiento esperado
+
+### 🛠️ **Technical Debt Prevention**
+
+#### **🏷️ Naming Conventions**
+
+- `leftPointer`, `rightPointer` > `i`, `j`
+- `charPositions`, `frequencyMap` > `map`, `seen`
+- `hasValidTriangle()` > `check()`
+
+#### **📝 Documentation Standards**
+
+- **Problem context**: Siempre número LeetCode + descripción
+- **Complexity analysis**: Tiempo y espacio con explicación
+- **Why it works**: Lógica del algoritmo, no solo implementación
+
+#### **🧪 Testing Strategy**
+
+- **LeetCode examples**: Casos básicos siempre
+- **Edge cases**: Arrays vacíos, elementos únicos
+- **Stress tests**: Constraints máximos cuando relevante
+
+### 🚀 **Performance Mindset**
+
+#### **📈 Big O Awareness**
+
+```
+O(1) > O(log n) > O(n) > O(n log n) > O(n²) > O(2^n)
+✅      ✅        ✅      ✅         ⚠️        ❌
+```
+
+#### **🔄 Common Optimizations**
+
+- **O(n²) → O(n)**: Hash maps para lookups
+- **O(n²) → O(n log n)**: Sorting + two pointers
+- **O(n) → O(log n)**: Binary search en datos ordenados
+- **O(n) space → O(1)**: In-place modifications
+
+### 🧑‍🏫 **Mentorship Insights**
+
+#### **✅ Effective Guidance**
+
+- ❓ **Socratic method**: Preguntas que guían al descubrimiento
+- 💡 **Hint progression**: De conceptos generales a específicos
+- 🎯 **Pattern focus**: Enseñar técnicas, no soluciones
+
+#### **❌ Avoid These Pitfalls**
+
+- Dar soluciones completas inmediatamente
+- Optimizar antes de que funcione básicamente
+- Asumir conocimiento previo de patrones
 
 ### Naming Conventions
 
@@ -666,4 +1079,204 @@ while (current !== null) {
 
 ---
 
-_Este archivo se actualiza con cada nuevo problema resuelto, capturando aprendizajes y refinando la metodología._
+### Sliding Window Pattern
+
+**Problema ejemplo**: Longest Substring Without Repeating Characters (LeetCode 3)
+
+**Concepto central**: Mantener una "ventana" dinámica de elementos válidos que se expande y contrae según condiciones del problema.
+
+#### **Tipos de Sliding Window**
+
+##### **1. Fixed Size Sliding Window**
+
+- **Uso**: Ventana de tamaño constante que se desliza
+- **Implementación**: Un solo puntero + aritmética de índices
+- **Ejemplo**: Maximum sum subarray of size k
+
+```typescript
+function maxSumSubarray(arr: number[], k: number): number {
+  let windowSum = 0;
+
+  // Inicializar ventana
+  for (let i = 0; i < k; i++) {
+    windowSum += arr[i];
+  }
+
+  let maxSum = windowSum;
+
+  // Deslizar ventana
+  for (let i = k; i < arr.length; i++) {
+    windowSum = windowSum - arr[i - k] + arr[i];
+    maxSum = Math.max(maxSum, windowSum);
+  }
+
+  return maxSum;
+}
+```
+
+##### **2. Variable Size Sliding Window - Expanding/Contracting**
+
+- **Uso**: Ventana que cambia de tamaño según condiciones
+- **Implementación**: Two pointers típicamente
+- **Ejemplo**: Minimum window substring
+
+```typescript
+function variableSlidingWindow(arr: number[]): number {
+  let left = 0;
+  let maxLength = 0;
+
+  for (let right = 0; right < arr.length; right++) {
+    // Expandir ventana agregando arr[right]
+
+    while (/* condición de contracción */) {
+      // Contraer ventana removiendo arr[left]
+      left++;
+    }
+
+    maxLength = Math.max(maxLength, right - left + 1);
+  }
+
+  return maxLength;
+}
+```
+
+##### **3. Optimized Sliding Window - Direct Jumps**
+
+- **Uso**: Evitar movimientos paso a paso usando información almacenada
+- **Implementación**: HashMap + saltos directos
+- **Ejemplo**: Longest substring without repeating characters
+
+```typescript
+function optimizedSlidingWindow(s: string): number {
+  let maxLength = 0;
+  let start = 0;
+  const charPositions = new Map<string, number>();
+
+  for (let end = 0; end < s.length; end++) {
+    if (charPositions.has(s[end])) {
+      // Salto directo, solo hacia adelante
+      start = Math.max(start, charPositions.get(s[end])! + 1);
+    }
+
+    charPositions.set(s[end], end);
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+
+  return maxLength;
+}
+```
+
+#### **Cuándo NO usar Two Pointers con Sliding Window**
+
+**Mito común**: "Sliding Window siempre usa two pointers"
+
+**Realidad**: Depende del tipo de ventana:
+
+- **Fixed size**: Solo necesitas UN puntero
+- **Simple expansion**: Loop implícito + puntero de inicio
+- **HashMap optimization**: Saltos directos > movimiento paso a paso
+
+#### **Patterns de Optimización**
+
+##### **De O(n²) a O(n) - HashMap para saltos**
+
+```typescript
+// ❌ Subóptimo: O(2n) en peor caso
+while (left < right && hasDuplicate) {
+  removeFromWindow(arr[left]);
+  left++; // Paso a paso
+}
+
+// ✅ Optimizado: O(n) exacto
+if (seen.has(current)) {
+  left = Math.max(left, seen.get(current) + 1); // Salto directo
+}
+```
+
+##### **Math.max para prevenir retrocesos**
+
+```typescript
+// Prevenir que el puntero retroceda
+start = Math.max(start, duplicatePosition + 1);
+```
+
+**Por qué es necesario**: En patrones como "abcba", cuando encontramos el segundo 'a', el primer 'a' podría estar antes de la ventana actual.
+
+#### **Decision Tree para Sliding Window**
+
+```
+¿Es sliding window?
+├── ¿Tamaño fijo?
+│   ├── Sí → Un puntero + aritmética
+│   └── No → ¿Condiciones complejas?
+│       ├── Sí → Two pointers explícitos
+│       └── No → HashMap + saltos directos
+```
+
+#### **Insights clave del patrón**
+
+1. **Sliding Window ≠ Two Pointers**: Son conceptos relacionados pero distintos
+2. **Optimización por saltos**: Usar información almacenada para evitar pasos innecesarios
+3. **Trade-off Set vs Map**: Set (simplicidad) vs Map (optimización)
+4. **Boundary safety**: `Math.max` previene retrocesos en optimizaciones
+5. **Pattern recognition**: Identificar cuándo aplicar cada variante
+
+### 🎯 **Próximos Pasos en el Aprendizaje**
+
+#### **📈 Skill Progression**
+
+1. **Beginner**: Recognize patterns, implement with guidance
+2. **Intermediate**: Choose optimal pattern independently
+3. **Advanced**: Combine multiple patterns, create novel solutions
+4. **Expert**: Teach patterns, identify new optimizations
+
+#### **🔜 Areas de Expansión**
+
+- **Dynamic Programming**: Memoization y optimal substructure
+- **Graph Algorithms**: DFS, BFS, shortest paths
+- **Advanced Data Structures**: Tries, segment trees, union-find
+- **System Design**: Scalability patterns
+
+---
+
+## 📚 Referencias y Recursos
+
+### 🔗 **Links Importantes**
+
+- [LeetCode Top Interview 150](https://leetcode.com/studyplan/top-interview-150/)
+- [Proyecto GitHub](https://github.com/usuario/leetcode-typescript-tdd)
+- [Vitest Documentation](https://vitest.dev/)
+
+### 📖 **Estructura de Archivos**
+
+```
+top-interview/
+├── metodologia-y-aprendizajes.md    # Este archivo
+├── array-string/                    # Fundamentos
+├── two-pointers/                    # Técnicas de punteros
+├── sliding-window/                  # Ventanas deslizantes
+├── hash-table/                      # Mapas y tablas hash
+├── intervals/                       # Problemas de intervalos
+├── stack/                          # Estructuras LIFO
+├── linked-list/                    # Listas enlazadas
+├── matrix/                         # Problemas 2D
+└── utilidades/                     # Templates y helpers
+```
+
+### 🚀 **Comando Útiles**
+
+```bash
+# Testing
+npm run test:watch                   # Desarrollo continuo
+npm run test:file problem-name      # Test específico
+
+# Desarrollo
+npm run build                       # Verificar TypeScript
+npm run lint                        # Code quality
+```
+
+---
+
+_Este knowledge base evoluciona con cada problema resuelto, refinando metodología y capturando nuevos insights algorítmicos._
+
+**🌟 Última actualización**: Problema Longest Substring Without Repeating Characters - Sliding Window optimizado con saltos directos
