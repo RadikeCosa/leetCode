@@ -5228,6 +5228,7 @@ function triangleNumber(nums: number[]): number {
 3. **Greedy**: Decisiones locales óptimas
 4. **Early Termination**: Salir tan pronto como sea posible
 5. **Mathematical Properties**: Usar invariantes del dominio
+6. **Simulation with Dynamic Costs**: Procesos iterativos con restricciones cambiantes
 
 #### **🎯 Code Quality Principles**
 
@@ -5243,7 +5244,110 @@ function triangleNumber(nums: number[]): number {
 - **Know your data structures**: Map vs Array vs Set
 - **Understand complexity**: Big O más importante que micro-optimizaciones
 - **Profile bottlenecks**: 80/20 rule en optimización
+- **Simulation vs Formula**: A veces la claridad supera la optimización matemática
 
 ---
 
-_Archivo actualizado: Enero 2025 - Proyecto LeetCode TypeScript con metodología TDD_
+## 🔄 Simulación de Procesos con Costos Dinámicos
+
+_Problema origen: Water Bottles II - Medium_
+
+### **Concepto**
+
+Técnica para resolver problemas donde las reglas o costos cambian durante la ejecución del algoritmo. Cuando los parámetros se modifican iterativamente, a menudo la simulación directa es más clara y mantenible que una fórmula matemática compleja.
+
+### **Cuándo Usar**
+
+- ✅ Los costos/reglas cambian en cada iteración
+- ✅ La progresión no es predecible con fórmula simple
+- ✅ El número de iteraciones está naturalmente limitado
+- ✅ La claridad del código es prioritaria sobre micro-optimizaciones
+
+### **Template de Implementación**
+
+```typescript
+function simulateWithDynamicCosts(
+  initialState: number,
+  initialCost: number
+): number {
+  let result = initialState;
+  let currentState = initialState;
+  let currentCost = initialCost;
+
+  // Loop hasta que no se puedan hacer más operaciones
+  while (currentState >= currentCost) {
+    // Realizar la operación con el costo actual
+    currentState -= currentCost;
+    result++;
+
+    // Actualizar estado post-operación
+    currentState += operationResult;
+
+    // Incrementar el costo para la próxima iteración
+    currentCost++;
+  }
+
+  return result;
+}
+```
+
+### **Ejemplo: Water Bottles II**
+
+```typescript
+export function maxWaterBottles(
+  numBottles: number,
+  numExchange: number
+): number {
+  let totalDrunk = numBottles; // Beber todas las iniciales
+  let emptyBottles = numBottles; // Se convierten en vacías
+
+  // Mientras podamos hacer intercambios
+  while (emptyBottles >= numExchange) {
+    emptyBottles -= numExchange; // Usar botellas para intercambio
+    totalDrunk++; // Beber la nueva botella
+    emptyBottles++; // Nueva botella se vuelve vacía
+    numExchange++; // Próximo intercambio más caro
+  }
+
+  return totalDrunk;
+}
+```
+
+### **Análisis de Complejidad**
+
+- **Temporal**: O(log n) - El incremento progresivo de costos limita las iteraciones
+- **Espacial**: O(1) - Solo variables auxiliares
+
+### **Ventajas vs Fórmula Matemática**
+
+| Aspecto                           | Simulación           | Fórmula Matemática |
+| --------------------------------- | -------------------- | ------------------ |
+| **Claridad**                      | ⭐⭐⭐⭐⭐ Alta      | ⭐⭐ Baja          |
+| **Mantenibilidad**                | ⭐⭐⭐⭐⭐ Fácil     | ⭐⭐ Difícil       |
+| **Debugging**                     | ⭐⭐⭐⭐⭐ Trazeable | ⭐ Complejo        |
+| **Performance**                   | ⭐⭐⭐⭐ O(log n)    | ⭐⭐⭐⭐⭐ O(1)    |
+| **Complejidad de implementación** | ⭐⭐⭐⭐⭐ Simple    | ⭐ Muy compleja    |
+
+### **Cuándo Preferir Simulación**
+
+1. **Constraints pequeños**: Para n ≤ 100, O(log n) es prácticamente O(1)
+2. **Lógica compleja**: Múltiples reglas que cambian simultáneamente
+3. **Claridad prioritaria**: Código que otros desarrolladores deben entender
+4. **Debugging frecuente**: Necesidad de trazar estado paso a paso
+
+### **Patterns Relacionados**
+
+- **Greedy with changing constraints**: Tomar decisiones óptimas locales con restricciones dinámicas
+- **State tracking**: Mantener múltiples variables de estado sincronizadas
+- **Natural termination**: El propio algoritmo genera su condición de parada
+
+### **Problemas Similares**
+
+- Process simulation with increasing costs
+- Game mechanics with leveling up
+- Resource management with inflation
+- Any iterative process where rules evolve
+
+---
+
+_Archivo actualizado: Octubre 2025 - Proyecto LeetCode TypeScript con metodología TDD_
