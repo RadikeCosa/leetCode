@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-Thi3. **Documentation**: Complete explanation.md and post-solution.md files after solving 4. **Knowledge Update**: Add new patterns to `conceptos-y-algoritmos.md` (daily problems) or `conceptos-javascript.md` (30-days-js problems)is a TypeScript-based LeetCode practice repository following a **mentorship-driven learning approach**. The project emphasizes guided learning over direct solution generation, building algorithmic intuition through structured problem-solving and comprehensive documentation.
+This is a TypeScript-based LeetCode practice repository (with JavaScript support for FreeCodeCamp problems) following a **mentorship-driven learning approach**. The project emphasizes guided learning over direct solution generation, building algorithmic intuition through structured problem-solving and comprehensive documentation.
 
 ## Architecture & Structure
 
-- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/`, `src/30-days-js/section-name/problem-name/`, `src/top-interview/category-name/problem-name/`, or `src/binary-search/section-name/problem-name/` with:
-  - `problem-name.ts` - Implementation with TypeScript types
-  - `problem-name.test.ts` - Vitest test suite
+- **Core Pattern**: Each problem follows the structure `src/daily/problem-name/`, `src/30-days-js/section-name/problem-name/`, `src/top-interview/category-name/problem-name/`, `src/binary-search/section-name/problem-name/`, or `src/freecodecamp/problem-slug/` with:
+  - `problem-name.ts` (or `.js` for FreeCodeCamp) - Implementation with TypeScript types (or plain JavaScript)
+  - `problem-name.test.ts` (or `.test.js` for FreeCodeCamp) - Vitest test suite
   - `problem-name-explanation.md` - Detailed analysis
-  - `problem-name-post-solution.md` - LeetCode-format documentation
+  - `problem-name-post-solution.md` - LeetCode/FreeCodeCamp-style documentation
 - **Problem Series**:
 
   - `src/daily/` - General LeetCode problems (main series)
@@ -23,12 +23,11 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
     - `math/` - Problemas matemáticos que usan binary search
     - `tricky-invariant/` - Problemas con invariantes complejas
     - `as-a-tool/` - Binary search como herramienta para otros algoritmos
-  - `src/freecodecamp/` - freeCodeCamp Daily Coding Challenge problems and other freeCodeCamp exercises. Follow the same folder/file conventions as other series. Recommended organization:
-    - `src/freecodecamp/YYYY-MM-DD-problem-slug/` - Daily challenge by date (preferred for daily prompts)
-    - `src/freecodecamp/problem-slug/` - Alternatively, use a descriptive slug if no date is needed
+  - `src/freecodecamp/` - freeCodeCamp Daily Coding Challenge problems and other freeCodeCamp exercises. Follow the same folder/file conventions as other series, but use JavaScript instead of TypeScript. Each problem must be in its own folder with a descriptive slug. Recommended organization:
+    - `src/freecodecamp/problem-slug/` - Use a descriptive slug for the problem
       Each problem folder should include the same four files used across the repo:
-      - `problem-name.ts` - Implementation with TypeScript types
-      - `problem-name.test.ts` - Vitest test suite (EMPTY describe block only — must be filled collaboratively)
+      - `problem-name.js` - Implementation in plain JavaScript
+      - `problem-name.test.js` - Vitest test suite (EMPTY describe block only — must be filled collaboratively)
       - `problem-name-explanation.md` - Detailed analysis (in Spanish)
       - `problem-name-post-solution.md` - freeCodeCamp/LeetCode-style post (in English)
 
@@ -78,6 +77,8 @@ All problems follow a systematic **Test-Driven Development** approach:
 
 ### Implementation Standards
 
+**For LeetCode problems (TypeScript):**
+
 ```typescript
 /**
  * LeetCode Problem X: Title
@@ -96,7 +97,31 @@ export function descriptiveName(params: Type[]): ReturnType {
 }
 ```
 
+**For FreeCodeCamp problems (JavaScript):**
+
+```javascript
+/**
+ * FreeCodeCamp Problem: Title
+ * Difficulty: Easy/Medium/Hard
+ * Topics: Array, Functions, etc.
+ *
+ * Brief problem description
+ *
+ * Time Complexity: O(n) - explanation
+ * Space Complexity: O(1) - explanation
+ */
+function descriptiveName(params) {
+  // Spanish comments explaining logic
+  const variable = new Map();
+  // Implementation...
+}
+
+module.exports = descriptiveName;
+```
+
 ### Testing Patterns
+
+**For LeetCode problems (TypeScript):**
 
 ```typescript
 /**
@@ -128,9 +153,41 @@ describe("Problem Name", () => {
 });
 ```
 
+**For FreeCodeCamp problems (JavaScript):**
+
+```javascript
+/**
+ * FreeCodeCamp Problem: [TITLE]
+ * Difficulty: [Easy/Medium/Hard]
+ * Topics: [Topics from FreeCodeCamp]
+ *
+ * [COMPLETE PROBLEM STATEMENT FROM FREECODECAMP - COPY EXACTLY]
+ *
+ * Example 1:
+ * Input: [from FreeCodeCamp]
+ * Output: [from FreeCodeCamp]
+ * Explanation: [if provided]
+ *
+ * Constraints:
+ * - [All constraints from FreeCodeCamp exactly as written]
+ *
+ * Hints: [If provided by FreeCodeCamp]
+ * - [Exact hint text]
+ */
+const { describe, it, expect } = require("vitest");
+const functionName = require("./file-name");
+
+describe("Problem Name", () => {
+  it("should return expected result for example 1", () => {
+    // Test implementation based on FreeCodeCamp examples
+    expect(functionName(input)).toBe(expectedOutput);
+  });
+});
+```
+
 ### Post-Solution Format
 
-The `problem-name-post-solution.md` files must follow the **LeetCode discussion post format**:
+The `problem-name-post-solution.md` files must follow the **LeetCode discussion post format** (or FreeCodeCamp equivalent for FreeCodeCamp problems):
 
 ````markdown
 # Intuition
@@ -204,6 +261,24 @@ export function solutionName(params: Type[]): ReturnType {
    - Let user write the actual test code while providing guidance
 4. **Ready for Development**: User can run `npm run test:watch` and start implementing
 
+**FreeCodeCamp Problem Setup**: When user provides FreeCodeCamp problem (statement text or URL):
+
+**Naming Convention**: Each problem must be in its own folder under `src/freecodecamp/` following the same kebab-case naming conventions as LeetCode problems (e.g., `convert-celsius-to-fahrenheit/`, `palindrome-checker/`). If the problem name is not clear from the statement, ask the user what descriptive slug they prefer for the folder and files.
+
+1. **Generate Project Structure**: Create `src/freecodecamp/problem-slug/` folder with all 4 files
+2. **Skeleton Generation**:
+   - `problem-name.js` - Function signature with JSDoc header and basic structure (plain JavaScript)
+   - `problem-name.test.js` - **EMPTY test file template with requires only**
+   - `problem-name-explanation.md` - Template structure ready for analysis
+   - `problem-name-post-solution.md` - FreeCodeCamp/LeetCode-style post format template
+3. **🚨 CRITICAL: Test Implementation MUST be collaborative** (same rules as LeetCode):
+   - **NEVER write test cases automatically**
+   - **NEVER pre-fill test implementations**
+   - **ALWAYS guide user through writing each test case together**
+   - Ask guiding questions about examples and edge cases
+   - Let user write the actual test code while providing guidance
+4. **Ready for Development**: User can run `npm run test:watch` and start implementing
+
 ### 🚨 TEST IMPLEMENTATION RULES (STRICTLY ENFORCED)
 
 **❌ NEVER DO:**
@@ -219,7 +294,7 @@ export function solutionName(params: Type[]): ReturnType {
 - Let USER write each `it()` block and `expect()` statement
 - Provide syntax help only when asked
 
-**Template for EMPTY test file:**
+**Template for EMPTY test file (TypeScript):**
 ```typescript
 /**
  * LeetCode Problem [NUMBER]: [TITLE]
@@ -252,23 +327,57 @@ describe("Problem Name", () => {
 });
 ```
 
+**Template for EMPTY test file (JavaScript for FreeCodeCamp):**
+```javascript
+/**
+ * FreeCodeCamp Problem: [TITLE]
+ * Difficulty: [Easy/Medium/Hard]
+ * Topics: [Topics from FreeCodeCamp]
+ *
+ * [COMPLETE PROBLEM STATEMENT FROM FREECODECAMP - COPY EXACTLY]
+ *
+ * Example 1:
+ * Input: [from FreeCodeCamp]
+ * Output: [from FreeCodeCamp]
+ * Explanation: [if provided]
+ *
+ * Example 2:
+ * [if exists]
+ *
+ * Constraints:
+ * - [All constraints from FreeCodeCamp exactly as written]
+ * - [Include ALL constraints listed]
+ *
+ * Hints: [If FreeCodeCamp provides hints, include them]
+ * - Hint 1: [exact text]
+ * - Hint 2: [exact text]
+ */
+const { describe, it, expect } = require("vitest");
+const functionName = require("./file-name");
+
+describe("Problem Name", () => {
+  // Tests to be implemented collaboratively with user
+});
+```
+
 **🚨 CRITICAL HEADER REQUIREMENTS:**
-- **Problem statement**: Copy EXACTLY from LeetCode, word for word
+- **Problem statement**: Copy EXACTLY from LeetCode/FreeCodeCamp, word for word
 - **Examples**: Include ALL examples with exact input/output format
 - **Constraints**: Include EVERY constraint listed, maintain exact wording
-- **Hints**: If LeetCode provides hints, include them exactly as written
-- **Topics**: Copy the topic tags shown on LeetCode
-- **Difficulty**: Exact difficulty level from LeetCode`
+- **Hints**: If LeetCode/FreeCodeCamp provides hints, include them exactly as written
+- **Topics**: Copy the topic tags shown on LeetCode/FreeCodeCamp
+- **Difficulty**: Exact difficulty level from LeetCode/FreeCodeCamp
 
 ### Problem-Solving Process
 
 1. **Analysis Phase**: Understand constraints and examples before coding
 2. **Test-First**: Tests already written, focus on making them pass
-3. **Implementation**: TypeScript with explicit types and Spanish comments
+3. **Implementation**: TypeScript with explicit types and Spanish comments (or plain JavaScript for FreeCodeCamp)
 4. **Documentation**: Complete explanation.md and post-solution.md files after solving
 5. **Knowledge Update**: Add new patterns to relevant knowledge files:
    - Daily problems → `conceptos-y-algoritmos.md`
    - 30-days-js problems → `conceptos-javascript.md`
+   - FreeCodeCamp problems → `conceptos-javascript.md`
    - Binary search problems → `conceptos-binary-search.md` (incremental approach: only concepts from completed problems)
 
 ### Problem-Solving Process (TDD-based)
@@ -350,23 +459,9 @@ describe("Problem Name", () => {
 3. **Knowledge Base Update**:
    - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
    - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
+   - For FreeCodeCamp problems: Add JavaScript concepts to `conceptos-javascript.md`
    - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
    - For binary search problems: **Incremental approach** - Add only concepts learned from completed problems to `conceptos-binary-search.md`
-4. **Cross-Reference**: Link related problems and patterns discovered
-
-- Fill in documentation before user completes the problem analysis
-
-### Documentation Completion Process
-
-**After Problem Resolution**:
-
-1. **Explanation File**: Complete `problem-name-explanation.md` with detailed analysis, approach, and complexity
-2. **Post-Solution File**: Fill `problem-name-post-solution.md` with LeetCode submission format
-3. **Knowledge Base Update**:
-   - For daily problems: Add new concepts to `conceptos-y-algoritmos.md`
-   - For 30-days-js problems: Add JavaScript concepts to `conceptos-javascript.md`
-   - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
-   - For binary search problems: Add binary search concepts to `conceptos-binary-search.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
 
 ## Key Technical Patterns
@@ -386,21 +481,22 @@ describe("Problem Name", () => {
 
 ### Code Quality
 
-- Explicit TypeScript types for all function signatures
+- Explicit TypeScript types for all function signatures (or plain JavaScript for FreeCodeCamp)
 - JSDoc comments with problem context and complexity analysis
 - Spanish comments for logic explanation
 - Pure functions when possible
 
 ## File Naming & Organization
 
-- Folders: kebab-case (`longest-common-prefix/`)
+- **NO dates in folder or file names** - Use descriptive problem slugs instead of dates
+- Folders: kebab-case (`longest-common-prefix/`) - This applies to all series including FreeCodeCamp
 - Files: match folder name exactly
 - Functions: camelCase descriptive names (`longestCommonPrefix`)
 - Templates in `utilidades/` for consistent structure
 
 ## Testing Strategy
 
-- Cover all LeetCode examples
+- Cover all LeetCode/FreeCodeCamp examples
 - Include edge cases and boundary conditions
 - Descriptive test names in Spanish or English
 - Problem constraints documented in test file headers
