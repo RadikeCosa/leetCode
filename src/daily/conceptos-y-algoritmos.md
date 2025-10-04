@@ -386,6 +386,62 @@ return write; // Cantidad de elementos únicos
 - Tiempo: O(n) - una sola pasada
 - Espacio: O(1) - solo variables auxiliares
 
+### Two Pointers para Optimización - Container With Most Water
+
+**Definición:** Patrón avanzado de two pointers convergentes donde se mueve el puntero de menor valor para maximizar una función objetivo (área = min(altura) × distancia).
+
+**Problema:** Dado array de alturas, encontrar dos líneas que formen contenedor con máxima agua.
+
+**Solución óptima:**
+
+```typescript
+export function maxArea(height: number[]): number {
+  let left = 0;
+  let right = height.length - 1;
+  let maxArea = 0;
+
+  while (left < right) {
+    const width = right - left;
+    const minHeight = Math.min(height[left], height[right]);
+    maxArea = Math.max(maxArea, width * minHeight);
+
+    // Movimiento greedy: mover puntero de línea más baja
+    if (height[left] < height[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return maxArea;
+}
+```
+
+**¿Por qué funciona el movimiento greedy?**
+
+Si `height[left] < height[right]`:
+
+- Mover `right` no ayuda: ancho disminuye, altura mínima sería `height[left]` (igual o menor)
+- Mover `left` busca potencialmente una altura mayor que `height[left]`
+
+**Matemáticamente correcto:**
+
+- Área actual: `min(h[l], h[r]) × (r - l)`
+- Después de mover: `min(h[l+1], h[r]) × (r - l - 1)`
+- Si `h[l+1] > h[l]`, nueva área podría ser mayor
+- Si `h[l+1] ≤ h[l]`, altura mínima no mejora pero ancho disminuye
+
+**Aplicaciones:**
+
+- Problemas de geometría computacional
+- Optimización con restricciones de distancia
+- Máximo/minimo con productos de factores
+
+**Complejidad:**
+
+- Tiempo: O(n) - una sola pasada convergente
+- Espacio: O(1) - variables constantes
+
 ### Two Pointers Avanzado - Conteo Múltiple
 
 **Definición:** Técnica avanzada de two pointers que permite contar múltiples combinaciones válidas en una sola iteración, especialmente útil en problemas de tripletas.

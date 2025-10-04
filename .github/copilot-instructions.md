@@ -23,6 +23,14 @@ Thi3. **Documentation**: Complete explanation.md and post-solution.md files afte
     - `math/` - Problemas matemáticos que usan binary search
     - `tricky-invariant/` - Problemas con invariantes complejas
     - `as-a-tool/` - Binary search como herramienta para otros algoritmos
+  - `src/freecodecamp/` - freeCodeCamp Daily Coding Challenge problems and other freeCodeCamp exercises. Follow the same folder/file conventions as other series. Recommended organization:
+    - `src/freecodecamp/YYYY-MM-DD-problem-slug/` - Daily challenge by date (preferred for daily prompts)
+    - `src/freecodecamp/problem-slug/` - Alternatively, use a descriptive slug if no date is needed
+      Each problem folder should include the same four files used across the repo:
+      - `problem-name.ts` - Implementation with TypeScript types
+      - `problem-name.test.ts` - Vitest test suite (EMPTY describe block only — must be filled collaboratively)
+      - `problem-name-explanation.md` - Detailed analysis (in Spanish)
+      - `problem-name-post-solution.md` - freeCodeCamp/LeetCode-style post (in English)
 
 - **Knowledge Base**:
   - `src/conceptos-y-algoritmos.md` - General algorithmic patterns and concepts (daily problems)
