@@ -15,16 +15,10 @@
  */
 function hasExoplanet(readings) {
   const charToValue = (char) => {
-    // Si es un dígito (0-9), convertir directamente usando código ASCII
-    // Ejemplo: '5' (ASCII 53) - '0' (ASCII 48) = 5
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    }
-    // Si es una letra (A-Z), convertir a valor 10-35
-    // Ejemplo: 'F' (ASCII 70) - 'A' (ASCII 65) + 10 = 15
-    else {
-      return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
-    }
+    // Fórmula unificada usando códigos ASCII:
+    // Para dígitos (0-9): charCode - 48 (código de '0')
+    // Para letras (A-Z): charCode - 55 (ajustado para que 'A' = 10)
+    return char.charCodeAt(0) - (char >= "A" ? 55 : 48);
   };
 
   // Optimización: Un solo loop para calcular suma y encontrar valor mínimo

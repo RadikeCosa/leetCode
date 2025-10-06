@@ -5406,4 +5406,92 @@ export function maxWaterBottles(
 
 ---
 
+## 🔍 **DFS/BFS - Búsqueda en Profundidad y Anchura**
+
+### **Concepto Fundamental**
+
+DFS (Depth-First Search) y BFS (Breadth-First Search) son algoritmos para explorar grafos o matrices. En problemas de LeetCode, las matrices pueden modelarse como grafos donde cada celda es un nodo conectado a sus 4 vecinos.
+
+### **DFS vs BFS - Cuándo usar cada uno**
+
+**DFS (Depth-First Search)**:
+
+- ✅ **Ventajas**: Menos espacio (stack), más simple de implementar
+- ✅ **Usos**: Caminos posibles, conectividad, exploración completa
+- ❌ **Desventajas**: Puede tener stack overflow en grafos profundos
+
+**BFS (Breadth-First Search)**:
+
+- ✅ **Ventajas**: Mejor control de memoria, encuentra caminos más cortos
+- ✅ **Usos**: Caminos mínimos, niveles, distancia mínima
+- ❌ **Desventajas**: Más espacio (queue), más código
+
+### **Patrón: Búsqueda Bidireccional desde Bordes**
+
+**Problema**: Pacific Atlantic Water Flow
+**Enunciado**: Encontrar celdas que pueden fluir a ambos océanos
+
+**Patrón aplicado**:
+
+1. **Dos búsquedas simultáneas**: Una desde cada "destino"
+2. **Intersección de resultados**: Celdas alcanzables desde ambos
+3. **Eficiencia**: O(N) en lugar de O(N²)
+
+**Código base**:
+
+```typescript
+// Inicializar matrices de alcance
+const reachableA: boolean[][] = Array.from({ length: rows }, () =>
+  Array(cols).fill(false)
+);
+const reachableB: boolean[][] = Array.from({ length: rows }, () =>
+  Array(cols).fill(false)
+);
+
+// DFS desde borde A
+for (let i = 0; i < rows; i++) dfs(i, 0, reachableA); // borde izquierdo
+for (let j = 0; j < cols; j++) dfs(0, j, reachableA); // borde superior
+
+// DFS desde borde B
+for (let i = 0; i < rows; i++) dfs(i, cols - 1, reachableB); // borde derecho
+for (let j = 0; j < cols; j++) dfs(rows - 1, j, reachableB); // borde inferior
+
+// Intersección
+const result = [];
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    if (reachableA[i][j] && reachableB[i][j]) {
+      result.push([i, j]);
+    }
+  }
+}
+```
+
+### **Aplicaciones del Patrón**
+
+1. **Flujo de agua**: Celdas que pueden fluir a múltiples destinos
+2. **Conectividad**: Regiones alcanzables desde múltiples puntos
+3. **Caminos múltiples**: Verificar si existen rutas a diferentes objetivos
+4. **Zonas de influencia**: Áreas controladas por múltiples fuentes
+
+### **Complejidad Típica**
+
+- **Tiempo**: O(N) donde N es número de celdas/nodos
+- **Espacio**: O(N) para matrices de visitados + stack/queue
+
+### **Lecciones Aprendidas**
+
+- **Cambio de perspectiva**: Buscar desde destinos en lugar de fuentes
+- **Intersección eficiente**: Mejor que verificar cada combinación
+- **Condición de movimiento**: Depende del problema (altura, obstáculos, etc.)
+
+### **Problemas Relacionados**
+
+- Number of Islands (conectividad)
+- Surrounded Regions (bordes como fuentes)
+- Word Ladder (BFS para caminos mínimos)
+- Pacific Atlantic Water Flow (búsqueda bidireccional)
+
+---
+
 _Archivo actualizado: Octubre 2025 - Proyecto LeetCode TypeScript con metodología TDD_

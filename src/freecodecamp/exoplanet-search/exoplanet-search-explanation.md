@@ -38,13 +38,12 @@ La clave es entender que solo necesitamos encontrar si el **valor mínimo** es �
 
 ```javascript
 function hasExoplanet(readings) {
-  // Función auxiliar para conversión caracter → número
+  // Función auxiliar para conversión caracter → número usando fórmula unificada
   const charToValue = (char) => {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else {
-      return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
-    }
+    // Fórmula unificada con códigos ASCII:
+    // Dígitos (0-9): charCode - 48 (código de '0')
+    // Letras (A-Z): charCode - 55 (ajustado para 'A' = 10)
+    return char.charCodeAt(0) - (char >= "A" ? 55 : 48);
   };
 
   // Un solo loop: calcular suma y encontrar mínimo
@@ -71,6 +70,8 @@ En lugar de almacenar todos los valores en un array (O(n) espacio), usamos un so
 
 - Calcula la suma total
 - Rastrea el valor mínimo encontrado
+
+La conversión de caracteres usa una **fórmula unificada ASCII** que elimina condicionales, haciendo el código más compacto y eficiente.
 
 Esto reduce la complejidad espacial de O(n) a O(1).
 
@@ -111,7 +112,7 @@ Esto reduce la complejidad espacial de O(n) a O(1).
 
 Esta solución demuestra:
 
-- **Uso eficiente de ASCII** para conversión de caracteres
+- **Fórmula unificada ASCII** para conversión eficiente de caracteres sin condicionales
 - **Optimización espacial** evitando arrays innecesarios
 - **Razonamiento matemático** sobre promedios y thresholds
 - **Manejo robusto** de casos extremos

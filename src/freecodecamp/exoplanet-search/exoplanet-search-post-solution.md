@@ -6,10 +6,10 @@ This problem involves detecting exoplanets through luminosity readings represent
 
 The solution uses a single linear pass through the input string with these steps:
 
-1. **Character to Value Conversion**: Use ASCII math to convert characters to numerical values:
+1. **Character to Value Conversion**: Use a unified ASCII formula to convert characters to numerical values:
 
-   - Digits 0-9: `char.charCodeAt(0) - '0'.charCodeAt(0)`
-   - Letters A-Z: `char.charCodeAt(0) - 'A'.charCodeAt(0) + 10`
+   - Unified formula: `char.charCodeAt(0) - (char >= 'A' ? 55 : 48)`
+   - This handles both digits (0-9) and letters (A-Z) without conditional branches
 
 2. **Single Pass Calculation**: In one loop, simultaneously:
 
@@ -34,16 +34,14 @@ function hasExoplanet(readings) {
   if (readings.length === 0) return false;
 
   /**
-   * Converts a luminosity character to its numerical value
+   * Converts a luminosity character to its numerical value using unified ASCII formula
    * @param {string} char - Character (0-9 or A-Z)
    * @returns {number} Numerical value (0-9 for digits, 10-35 for letters)
    */
   const charToValue = (char) => {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else {
-      return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
-    }
+    // Unified ASCII formula: handles digits and letters without conditionals
+    // Digits (0-9): charCode - 48, Letters (A-Z): charCode - 55
+    return char.charCodeAt(0) - (char >= "A" ? 55 : 48);
   };
 
   // Single pass: calculate sum and find minimum
@@ -69,8 +67,8 @@ export default hasExoplanet;
 # Notes
 
 - **Edge Cases**: Handles empty strings, single characters, and boundary values (0-35)
-- **ASCII Optimization**: Uses character codes for O(1) character-to-number conversion
+- **Unified ASCII Formula**: Single expression handles both digits and letters without conditionals, improving readability and performance
 - **Space Efficiency**: Avoids storing all values in an array by tracking only sum and minimum
-- **Alternative Approaches**: Considered using `map()` and `reduce()`, but single loop is more efficient
+- **Alternative Approaches**: Considered using `parseInt(char, 36)`, but ASCII formula is more explicit and educational
 - **Variable Naming**: `minValue` clearly indicates we're tracking the minimum, `threshold` represents the 80% boundary
 - **Type Safety**: Function handles all valid input characters as specified in the problem
