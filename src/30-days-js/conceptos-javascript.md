@@ -2366,6 +2366,243 @@ Array.prototype.last = function () {
 
 ---
 
+## Validación de Contraseñas y Expresiones Regulares
+
+### Validación Multicriterio con Expresiones Regulares
+
+**Definición:** Sistema de validación que evalúa múltiples criterios de seguridad usando expresiones regulares para patrones de caracteres.
+
+**Patrón del problema Password Strength:**
+
+```javascript
+function checkStrength(password) {
+  // Constantes para expresiones regulares (mejor mantenibilidad)
+  const HAS_UPPERCASE = /[A-Z]/;
+  const HAS_LOWERCASE = /[a-z]/;
+  const HAS_NUMBER = /[0-9]/;
+  const HAS_SPECIAL = /[!@#$%^&*]/;
+
+  // Contar criterios cumplidos directamente
+  let criteriaMet = 0;
+
+  // Regla 1: Al menos 8 caracteres
+  if (password.length >= 8) criteriaMet++;
+
+  // Regla 2: Contiene mayúsculas Y minúsculas
+  if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password))
+    criteriaMet++;
+
+  // Regla 3: Contiene al menos un número
+  if (HAS_NUMBER.test(password)) criteriaMet++;
+
+  // Regla 4: Contiene al menos un carácter especial
+  if (HAS_SPECIAL.test(password)) criteriaMet++;
+
+  // Determinar fortaleza basada en criterios cumplidos
+  if (criteriaMet < 2) return "weak";
+  if (criteriaMet < 4) return "medium";
+  return "strong";
+}
+```
+
+**Conceptos aplicados:**
+
+### 1. **Expresiones Regulares para Validación**
+
+**Patrones comunes para validación de contraseñas:**
+
+```javascript
+const patterns = {
+  uppercase: /[A-Z]/, // Al menos una mayúscula
+  lowercase: /[a-z]/, // Al menos una minúscula
+  numbers: /[0-9]/, // Al menos un dígito
+  special: /[!@#$%^&*]/, // Caracteres especiales específicos
+  length: /.{8,}/, // Mínimo 8 caracteres (alternativa)
+};
+```
+
+**Método `.test()`:**
+
+- Retorna `true` si el patrón coincide
+- No modifica la cadena original
+- Es más eficiente que `.match()` para validación booleana
+
+### 2. **Conteo Directo vs Array Intermedio**
+
+**Versión con array (menos óptima):**
+
+```javascript
+let criteriaMet = [
+  lengthCriteria,
+  upperAndLowerCriteria,
+  numberCriteria,
+  specialCriteria,
+].filter(Boolean).length; // Crea array + filtra
+```
+
+**Versión con contador (más óptima):**
+
+```javascript
+let criteriaMet = 0;
+if (condition1) criteriaMet++; // Directo, sin overhead
+if (condition2) criteriaMet++;
+// ...
+```
+
+**Ventajas del contador:**
+
+- Menos operaciones (sin crear array temporal)
+- Mejor legibilidad
+- Menor uso de memoria
+
+### 3. **Lógica AND vs OR en Validación**
+
+**Importante distinción:**
+
+```javascript
+// Regla de longitud: OR (al menos 8 caracteres)
+if (password.length >= 8) criteriaMet++;
+
+// Regla de case: AND (mayúsculas Y minúsculas)
+if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password)) criteriaMet++;
+
+// Regla de números: OR (al menos un número)
+if (HAS_NUMBER.test(password)) criteriaMet++;
+
+// Regla especial: OR (al menos un carácter especial)
+if (HAS_SPECIAL.test(password)) criteriaMet++;
+```
+
+**Por qué AND para case:**
+
+- La regla requiere BOTH mayúsculas AND minúsculas
+- Una sola condición no es suficiente
+- Lógica diferente a las otras reglas
+
+### 4. **Mapeo de Conteo a Categorías**
+
+**Patrón de clasificación por rangos:**
+
+```javascript
+// Mapeo explícito de rangos
+if (criteriaMet < 2) return "weak"; // 0-1 criterios
+if (criteriaMet < 4) return "medium"; // 2-3 criterios
+return "strong"; // 4 criterios
+```
+
+**Alternativa con array lookup:**
+
+```javascript
+const strengthLevels = ["weak", "weak", "medium", "medium", "strong"];
+return strengthLevels[criteriaMet] || "weak";
+```
+
+### 5. **Constantes para Patrones Regex**
+
+**Beneficios de extraer constantes:**
+
+```javascript
+// ❌ Código difícil de mantener
+if (/[A-Z]/.test(password) && /[a-z]/.test(password)) criteriaMet++;
+
+// ✅ Código mantenible y reutilizable
+const HAS_UPPERCASE = /[A-Z]/;
+const HAS_LOWERCASE = /[a-z]/;
+if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password)) criteriaMet++;
+```
+
+**Ventajas:**
+
+- **Reutilización**: Mismos patrones en múltiples funciones
+- **Mantenibilidad**: Cambiar patrón en un solo lugar
+- **Legibilidad**: Nombres descriptivos explican el propósito
+- **Performance**: Regex compiladas una vez
+
+### 6. **Validación de Input**
+
+**Consideraciones para casos edge:**
+
+```javascript
+// Casos que pueden causar problemas:
+checkStrength(""); // String vacío
+checkStrength(null); // null
+checkStrength(undefined); // undefined
+checkStrength(123); // Número en lugar de string
+```
+
+**Defensa robusta:**
+
+```javascript
+function checkStrength(password) {
+  // Validación de input
+  if (typeof password !== "string") {
+    throw new Error("Password must be a string");
+  }
+
+  // El resto de la lógica...
+}
+```
+
+### 7. **Optimizaciones de Performance**
+
+**Comparación de enfoques:**
+
+| Enfoque          | Operaciones                  | Complejidad | Memoria    |
+| ---------------- | ---------------------------- | ----------- | ---------- |
+| Array + filter   | Crear array, filtrar, contar | O(n)        | O(1) extra |
+| Contador directo | Solo incrementos             | O(1)        | O(1)       |
+| Regex múltiples  | Una por cada patrón          | O(n) total  | O(1)       |
+
+**Resultado:** El enfoque con contador directo es más eficiente en todos los aspectos.
+
+### Casos de Uso en el Mundo Real
+
+**Aplicaciones comunes de validación de contraseñas:**
+
+- **Registro de usuarios**: Validación en tiempo real
+- **Cambio de contraseña**: Verificación de fortaleza
+- **Políticas de seguridad**: Cumplimiento de requisitos corporativos
+- **Feedback visual**: Indicadores de progreso en formularios
+
+**Extensión del patrón:**
+
+```javascript
+// Versión más avanzada con feedback detallado
+function validatePassword(password) {
+  const issues = [];
+
+  if (password.length < 8) {
+    issues.push("At least 8 characters required");
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    issues.push("At least one uppercase letter required");
+  }
+
+  if (!/[a-z]/.test(password)) {
+    issues.push("At least one lowercase letter required");
+  }
+
+  if (!/[0-9]/.test(password)) {
+    issues.push("At least one number required");
+  }
+
+  if (!/[!@#$%^&*]/.test(password)) {
+    issues.push("At least one special character required");
+  }
+
+  return {
+    isValid: issues.length === 0,
+    strength: getStrength(password),
+    issues: issues,
+  };
+}
+```
+
+Este patrón de validación multicriterio es fundamental para aplicaciones web modernas que requieren autenticación segura y validación de datos de usuario.
+
+---
+
 ## Operaciones Matemáticas y Formateo Numérico
 
 ### Método reduce() para Acumulación
