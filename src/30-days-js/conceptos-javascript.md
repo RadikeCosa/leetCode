@@ -2363,3 +2363,118 @@ Array.prototype.last = function () {
 - Usar nombres descriptivos y específicos
 - Documentar comportamiento esperado claramente
 - Considerar alternativas antes de modificar prototipos nativos
+
+---
+
+## Operaciones Matemáticas y Formateo Numérico
+
+### Método reduce() para Acumulación
+
+**Definición:** El método `reduce()` ejecuta una función reductora sobre cada elemento del array, resultando en un único valor de retorno.
+
+**Sintaxis:**
+
+```javascript
+array.reduce((accumulator, currentValue, currentIndex, array) => {
+  // lógica de reducción
+}, initialValue);
+```
+
+**Parámetros:**
+
+- `accumulator`: Valor acumulado retornado en la iteración anterior
+- `currentValue`: Elemento actual siendo procesado
+- `currentIndex` (opcional): Índice del elemento actual
+- `array` (opcional): Array sobre el que se llama reduce()
+- `initialValue` (opcional): Valor inicial para el accumulator
+
+**Ejemplo del problema Phone Home:**
+
+```javascript
+// Calcular distancia total sumando todos los elementos del array
+const totalDistance = route.reduce((sum, distance) => sum + distance, 0);
+```
+
+**Casos de uso comunes:**
+
+- Suma de elementos numéricos
+- Concatenación de strings
+- Construcción de objetos
+- Cálculos estadísticos (máximo, mínimo, promedio)
+
+### Constantes para Valores Fijos
+
+**Definición:** Uso de constantes para evitar "números mágicos" y mejorar la mantenibilidad del código.
+
+**Beneficios:**
+
+- Código más legible y auto-documentado
+- Fácil modificación de valores
+- Prevención de errores por typos
+- Mejora la mantenibilidad
+
+**Ejemplo del problema Phone Home:**
+
+```javascript
+// Constantes para valores físicos fijos
+const SPEED_KM_PER_SECOND = 300000;
+const SATELLITE_DELAY_SECONDS = 0.5;
+
+// Uso en cálculos
+const travelTime = totalDistance / SPEED_KM_PER_SECOND;
+const totalDelay = satelliteCount * SATELLITE_DELAY_SECONDS;
+```
+
+### Formateo Numérico con Precisión
+
+**Métodos principales:**
+
+- `toFixed(digits)`: Redondea a número específico de decimales y retorna string
+- `parseFloat(string)`: Convierte string a número flotante
+- Combinación para control preciso de decimales
+
+**Ejemplo del problema Phone Home:**
+
+```javascript
+// Calcular tiempo total
+const totalTime = travelTime + totalDelay;
+
+// Formatear a 4 decimales exactos
+const formattedTime = parseFloat(totalTime.toFixed(4));
+
+// Resultados:
+// 2.5 → "2.5000" → 2.5 (sin ceros finales)
+// 3.062666... → "3.0627" → 3.0627
+```
+
+**Consideraciones:**
+
+- `toFixed()` siempre retorna string
+- `parseFloat()` elimina ceros finales automáticamente
+- Combinación perfecta para requisitos de precisión específicos
+
+### Conversión de Unidades Físicas
+
+**Patrón común:** Distancia ÷ Velocidad = Tiempo
+
+**Ejemplo del problema Phone Home:**
+
+```javascript
+// Conversión: kilómetros ÷ (km/segundo) = segundos
+const travelTime = totalDistance / SPEED_KM_PER_SECOND;
+```
+
+**Aplicaciones comunes:**
+
+- Conversión de unidades de medida
+- Cálculos físicos básicos
+- Transformaciones de escala
+- Normalización de datos
+
+### Best Practices para Cálculos Numéricos
+
+- **Usar constantes nombradas** para valores físicos y matemáticos
+- **Documentar unidades** en comentarios y nombres de variables
+- **Considerar precisión** y posibles errores de punto flotante
+- **Validar inputs** antes de cálculos matemáticos
+- **Usar métodos apropiados** para formateo según requisitos específicos
