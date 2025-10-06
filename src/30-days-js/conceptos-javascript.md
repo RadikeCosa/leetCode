@@ -2715,3 +2715,124 @@ const travelTime = totalDistance / SPEED_KM_PER_SECOND;
 - **Considerar precisión** y posibles errores de punto flotante
 - **Validar inputs** antes de cálculos matemáticos
 - **Usar métodos apropiados** para formateo según requisitos específicos
+
+---
+
+## Algoritmos Matemáticos
+
+### Conversión Decimal a Binario
+
+**Problema:** Convertir un número decimal (base 10) a su representación binaria (base 2) como string.
+
+**Algoritmo:** División repetida por 2, registrando los restos en orden inverso.
+
+**Implementación clásica:**
+
+```javascript
+function toBinary(decimal) {
+  if (decimal === 0) return "0";
+
+  let binary = "";
+  while (decimal > 0) {
+    const remainder = decimal % 2;        // 0 o 1
+    binary = remainder + binary;          // prepend (no append)
+    decimal = Math.floor(decimal / 2);    // división entera
+  }
+
+  return binary;
+}
+```
+
+**Ejemplo paso a paso - toBinary(12):**
+
+```
+12 ÷ 2 = 6  resto 0  → binary = "0"
+ 6 ÷ 2 = 3  resto 0  → binary = "00"
+ 3 ÷ 2 = 1  resto 1  → binary = "100"
+ 1 ÷ 2 = 0  resto 1  → binary = "1100"
+Resultado: "1100"
+```
+
+**Alternativa usando array:**
+
+```javascript
+function toBinary(decimal) {
+  if (decimal === 0) return "0";
+
+  const bits = [];
+  while (decimal > 0) {
+    bits.push(decimal % 2);
+    decimal = Math.floor(decimal / 2);
+  }
+
+  return bits.reverse().join("");
+}
+```
+
+**Alternativa nativa (no recomendada para aprendizaje):**
+
+```javascript
+function toBinary(decimal) {
+  return decimal.toString(2);
+}
+```
+
+**Casos edge importantes:**
+
+- `toBinary(0)` → `"0"` (caso especial)
+- `toBinary(1)` → `"1"` (potencia de 2 más pequeña)
+- `toBinary(2)` → `"10"` (primera potencia par)
+- `toBinary(8)` → `"1000"` (potencia de 2 mayor)
+
+**Complejidad:**
+- **Tiempo:** O(log n) - número de divisiones proporcional a log₂(n)
+- **Espacio:** O(log n) - espacio para la cadena resultante
+
+**Patrones observados:**
+- **Números pares** siempre terminan en "0"
+- **Números impares** siempre terminan en "1"
+- **Potencias de 2** tienen exactamente un "1" seguido de ceros
+- **Construcción desde MSB** requiere prepend, no append
+
+**Aplicaciones:**
+- Representación binaria de números
+- Comprensión de sistemas numéricos
+- Algoritmos de bajo nivel
+- Debugging de operaciones bitwise
+
+### Propiedades de Números Binarios
+
+**Bits menos significativo (LSB) vs más significativo (MSB):**
+- LSB: Bit más a la derecha (posición 2⁰)
+- MSB: Bit más a la izquierda (posición 2^(n-1))
+
+**Paridad:**
+- Si LSB = 0 → número par
+- Si LSB = 1 → número impar
+
+**Valor posicional:**
+- Cada posición representa 2^(posición-1)
+- "1100" = 1×2³ + 1×2² + 0×2¹ + 0×2⁰ = 8 + 4 + 0 + 0 = 12
+
+**Conversión inversa (binario a decimal):**
+
+```javascript
+function binaryToDecimal(binaryString) {
+  let decimal = 0;
+  for (let i = 0; i < binaryString.length; i++) {
+    const bit = parseInt(binaryString[i]);
+    const position = binaryString.length - 1 - i;
+    decimal += bit * Math.pow(2, position);
+  }
+  return decimal;
+}
+```
+
+**Best practices para algoritmos numéricos:**
+
+- **Manejar casos edge primero** (0, 1, valores límite)
+- **Usar Math.floor()** para división entera
+- **Documentar el algoritmo** con ejemplos paso a paso
+- **Considerar límites** de tipos de datos
+- **Validar inputs** cuando sea necesario
+- **Elegir representación apropiada** (string vs array vs number)
