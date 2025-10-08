@@ -18,6 +18,7 @@
  */
 
 // Suma los valores de los vecinos directos (arriba, abajo, izquierda, derecha) de una celda
+
 function sumarVecinos(matrix, fila, columna) {
   let suma = 0;
   // Arriba
@@ -37,19 +38,6 @@ function sumarVecinos(matrix, fila, columna) {
  * y retorna la posición con menor suma.
  */
 function findLandingSpot(matrix) {
-  function sumarVecinos(matrix, fila, columna) {
-    let suma = 0;
-    // Arriba
-    if (fila > 0) suma += matrix[fila - 1][columna];
-    // Abajo
-    if (fila < matrix.length - 1) suma += matrix[fila + 1][columna];
-    // Izquierda
-    if (columna > 0) suma += matrix[fila][columna - 1];
-    // Derecha
-    if (columna < matrix[0].length - 1) suma += matrix[fila][columna + 1];
-    return suma;
-  }
-
   const cols = matrix[0].length; // Número de columnas
   let minSuma = Infinity; // Suma mínima encontrada
   let mejorPos = [-1, -1]; // Posición del lugar más seguro
