@@ -14,13 +14,25 @@ Este archivo contiene los conceptos fundamentales de programación y algoritmos 
 - [Manipulación de Dígitos](#manipulación-de-dígitos)
 - [Operaciones Matemáticas con Dígitos](#operaciones-matemáticas-con-dígitos)
 
-### 🧠 Algoritmos y Estrategias
+#### Búsqueda binaria para conteo de pares exitosos
 
-- [Algoritmo Greedy](#algoritmo-greedy-avaro)
-- [Búsqueda por Complementos](#búsqueda-por-complementos)
-- [Simulación Paso a Paso](#simulación-paso-a-paso)
-- [Early Termination](#early-termination-con-óptimo-absoluto)
-- [Verificación de Palíndromos](#verificación-de-palindromos-numéricos)
+**Patrón:** Cuando se requiere contar cuántos elementos de un array ordenado cumplen una condición con respecto a otro valor (por ejemplo, cuántos productos son mayores o iguales a un umbral), se puede ordenar el array y usar búsqueda binaria para encontrar el primer índice que cumple la condición. El resultado es la cantidad de elementos desde ese índice hasta el final.
+
+**Ejemplo:**
+
+- Dado un array de pociones y un valor de hechizo, contar cuántas pociones forman un par exitoso (producto >= success).
+- Ordenar el array de pociones y, para cada hechizo, buscar el primer índice donde `spell * potion >= success`.
+- El número de pares exitosos es `potions.length - índice`.
+
+**Ventajas:**
+
+- Reduce la complejidad de O(n\*m) a O(n log m) para n hechizos y m pociones.
+- Evita recorrer todo el array para cada consulta.
+
+**Aplicaciones:**
+
+- Problemas de conteo de pares bajo una condición.
+- Preguntas de umbral en arrays ordenados.
 
 ### 📊 Análisis de Complejidad
 
