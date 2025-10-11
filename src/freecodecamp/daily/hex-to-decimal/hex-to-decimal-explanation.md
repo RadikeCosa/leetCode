@@ -1,79 +1,59 @@
 # Hex to Decimal - FreeCodeCamp Daily
 
-## Enunciado del problema
+## 🎯 Enunciado del Problema
 
-Given a string representing a hexadecimal number (base 16), return its decimal (base 10) value as an integer.
+**Convertir un número hexadecimal (base 16) a decimal (base 10).**
 
-Hexadecimal is a number system that uses 16 digits:
+### Descripción
 
-0-9 represent values 0 through 9.
-A-F represent values 10 through 15.
+Dado un string que representa un número hexadecimal, devolver su valor decimal como entero.
 
-The string will only contain characters 0–9 and A–F.
+### Sistema Hexadecimal
 
-## Ejemplos
+- **Dígitos válidos**: 0-9 y A-F (mayúsculas)
+- **Valores**: 0-9 = 0-9, A-F = 10-15
+- **Base**: 16 (cada posición representa una potencia de 16)
 
-- hexToDecimal("A") should return 10
-- hexToDecimal("15") should return 21
-- hexToDecimal("2E") should return 46
-- hexToDecimal("FF") should return 255
-- hexToDecimal("A3F") should return 2623
+### Ejemplos
 
-## Análisis del problema
-
-Este problema requiere convertir un número representado en **sistema hexadecimal (base 16)** a su equivalente en **sistema decimal (base 10)**.
-
-### ¿Qué es conversión de bases?
-
-Los sistemas numéricos utilizan diferentes bases:
-
-- **Decimal (base 10)**: usa dígitos 0-9
-- **Hexadecimal (base 16)**: usa dígitos 0-9 y letras A-F (10-15)
-- **Binario (base 2)**: usa dígitos 0-1
-
-La conversión de bases sigue la fórmula matemática:
-
-```text
-valor_decimal = d_n × base^(n) + d_(n-1) × base^(n-1) + ... + d_1 × base^(1) + d_0 × base^(0)
+```javascript
+hexToDecimal("A"); // → 10  (A = 10)
+hexToDecimal("15"); // → 21  (1×16¹ + 5×16⁰ = 16 + 5 = 21)
+hexToDecimal("2E"); // → 46  (2×16¹ + E×16⁰ = 32 + 14 = 46)
+hexToDecimal("FF"); // → 255 (F×16¹ + F×16⁰ = 15×16 + 15×1 = 240 + 15 = 255)
+hexToDecimal("A3F"); // → 2623
 ```
 
-### Sistema hexadecimal
+## 🔍 Análisis del Problema
 
-En hexadecimal:
+### Conversión de Bases
 
-- Los dígitos 0-9 representan valores 0-9
-- Las letras A-F representan valores 10-15
-- Cada posición representa una potencia de 16
+Los sistemas numéricos usan diferentes bases. La conversión se basa en la fórmula polinomial:
 
-#### Ejemplo: "2E" en hexadecimal
+```text
+valor_decimal = Σ(dᵢ × baseⁱ) para i = 0 hasta n-1
+```
 
-- '2' está en posición 1 (16^1 = 16), valor = 2 × 16 = 32
-- 'E' está en posición 0 (16^0 = 1), valor = 14 × 1 = 14
-- Total = 32 + 14 = 46
+Donde:
 
-### Restricciones del problema
+- `dᵢ` = dígito en posición i (empezando desde la derecha)
+- `base` = 16 para hexadecimal
+- `i` = exponente (posición del dígito)
 
-- Input: string que contiene solo caracteres 0-9 y A-F
-- Output: número entero decimal
-- No hay límite de longitud explícito
-- No necesitamos manejar casos de error (input siempre válido)
+### Restricciones
 
-### Enfoques posibles
+- ✅ Input: string con caracteres 0-9, A-F
+- ✅ Output: número entero positivo
+- ✅ No hay límite de longitud explícito
+- ✅ Input siempre válido (no necesita validación extra)
 
-1. **Método manual**: Procesar cada dígito, calcular potencias de 16
-2. **Método JavaScript nativo**: Usar `parseInt(hex, 16)`
-3. **Método iterativo**: Recorrer string de derecha a izquierda o izquierda a derecha
+## 🛠️ Enfoques de Solución
 
-Elegiremos el **método manual** para aprender el algoritmo de conversión de bases.
+### 1. Método Nativo JavaScript ⭐ (Más simple)
 
-## Enfoque y algoritmo
+#### Explicación del método iterativo manual
 
-Existen múltiples enfoques para convertir hexadecimal a decimal. Cada uno tiene sus ventajas, desventajas y casos de uso específicos. Analizaremos 5 enfoques diferentes:
-
-### 1. Método JavaScript Nativo (`parseInt`)
-
-**¿Cómo funciona?**
-Utiliza la función nativa de JavaScript que puede convertir strings a números en cualquier base.
+JavaScript tiene una función incorporada `parseInt()` que puede convertir strings a números en cualquier base.
 
 ```javascript
 function hexToDecimal(hex) {
@@ -81,174 +61,265 @@ function hexToDecimal(hex) {
 }
 ```
 
-**Utilidades:**
+#### Explicación paso a paso con "2E"
 
-- ✅ **Simplicidad**: Una línea de código
+```javascript
+parseInt("2E", 16);
+// 1. Interpreta "2E" como número en base 16
+// 2. '2' = 2, 'E' = 14
+// 3. Calcula: 2×16¹ + 14×16⁰ = 32 + 14 = 46
+// 4. Retorna: 46
+```
+
+#### Ventajas
+
+- ✅ **Simplicidad extrema**: Una sola línea de código
 - ✅ **Confiabilidad**: Probado y optimizado por el motor JavaScript
-- ✅ **Rendimiento**: Muy rápido para strings cortos
+- ✅ **Rendimiento**: Muy rápido para strings de cualquier longitud
 - ✅ **Lectura**: Código autoexplicativo
 
-**Limitaciones:**
+#### Desventajas del método iterativo manual
 
-- ❌ **Aprendizaje**: No enseña el algoritmo de conversión de bases
-- ❌ **Control limitado**: No podemos ver el proceso paso a paso
+- ❌ **No educativo**: No enseña el algoritmo de conversión de bases
+- ❌ **Control limitado**: No podemos ver ni modificar el proceso interno
 - ❌ **Dependencia**: Solo funciona en entornos JavaScript
-- ❌ **Transparencia**: "Caja negra" - no sabemos cómo funciona internamente
+- ❌ **Transparencia cero**: "Caja negra" - no sabemos cómo funciona
 
-**Complejidad:** O(n) donde n es la longitud del string
+#### ¿Cuándo usarlo
+
+- **Producción**: Cuando necesitas rapidez y no te importa el "cómo"
+- **Prototipos**: Para probar ideas rápidamente
+- **Scripts simples**: Donde la claridad del código no es prioridad
 
 ---
 
-### 2. Método Iterativo Manual (Recomendado para aprendizaje)
+### 2. Método Iterativo Manual 🎓 (Recomendado para aprendizaje)
 
-**¿Cómo funciona?**
-Procesa cada dígito del hexadecimal, calcula su contribución usando potencias de 16.
+#### ¿Cómo funciona
+
+Procesamos cada carácter del hexadecimal de izquierda a derecha, acumulando el resultado usando la fórmula `resultado = resultado × base + dígito`.
 
 ```javascript
-function charToValue(char) {
-  if (char >= "0" && char <= "9") {
-    return char.charCodeAt(0) - "0".charCodeAt(0);
-  } else {
-    return 10 + (char.toUpperCase().charCodeAt(0) - "A".charCodeAt(0));
-  }
-}
-
 function hexToDecimal(hex) {
-  let resultado = 0;
-  let potencia = 0;
-
-  // Procesar desde la derecha hacia la izquierda
-  for (let i = hex.length - 1; i >= 0; i--) {
-    const char = hex[i];
-    const valor = charToValue(char);
-    resultado += valor * Math.pow(16, potencia);
-    potencia++;
+  // Función auxiliar para convertir carácter a valor numérico
+  function charToValue(char) {
+    if (char >= "0" && char <= "9") {
+      return char.charCodeAt(0) - "0".charCodeAt(0);
+    } else if (char >= "A" && char <= "F") {
+      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+    }
+    return -1; // Carácter inválido
   }
 
-  return resultado;
+  let result = 0; // Acumulador del resultado
+
+  // Procesar cada carácter de izquierda a derecha
+  for (let i = 0; i < hex.length; i++) {
+    const digit = charToValue(hex[i]); // Convertir char a número
+    result = result * 16 + digit; // Fórmula fundamental
+  }
+
+  return result;
 }
 ```
 
-**Utilidades:**
+#### Explicación paso a paso con "2E"
+
+| Paso | Carácter | Acción                  | Cálculo       | Resultado     |
+| ---- | -------- | ----------------------- | ------------- | ------------- |
+| 1    | '2'      | `charToValue('2')` = 2  | `0 × 16 + 2`  | `result = 2`  |
+| 2    | 'E'      | `charToValue('E')` = 14 | `2 × 16 + 14` | `result = 46` |
+
+**¿Por qué funciona `result * 16 + digit`?**
+
+- **Multiplicar por 16**: Desplaza los dígitos existentes una posición a la izquierda
+- **Sumar dígito**: Agrega el valor del nuevo dígito
+- **Equivalente a**: (2 × 16¹) + (14 × 16⁰) pero más eficiente
+
+#### Ventajas
 
 - ✅ **Educativo**: Muestra exactamente cómo funciona la conversión
 - ✅ **Transparente**: Cada paso es visible y comprensible
 - ✅ **Control total**: Podemos modificar la lógica si es necesario
-- ✅ **Sin dependencias**: Funciona en cualquier lenguaje
+- ✅ **Sin dependencias**: Funciona en cualquier lenguaje de programación
+- ✅ **Eficiente**: O(n) tiempo, O(1) espacio
 
-**Limitaciones:**
+#### Desventajas
 
 - ❌ **Verbosidad**: Más código que el método nativo
-- ❌ **Rendimiento**: Más lento para strings muy largos
 - ❌ **Complejidad**: Más propenso a errores de implementación
+- ❌ **Mantenimiento**: Requiere más código para mantener
 
-**Complejidad:** O(n) donde n es la longitud del string
+#### ¿Cuándo usarlo
+
+- **Aprendizaje**: Para entender algoritmos de conversión de bases
+- **Entrevistas**: Para demostrar conocimiento profundo
+- **Sistemas críticos**: Donde necesitas control total del proceso
+- **Lenguajes sin parseInt**: Como C, C++, Rust, etc.
 
 ---
 
-### 3. Método Recursivo
+### 3. Método Recursivo 🔄
 
-**¿Cómo funciona?**
-Utiliza recursión para procesar cada dígito, donde cada llamada maneja un dígito menos.
+#### ¿Cómo funciona
+
+Utiliza recursión para procesar cada dígito, donde cada llamada maneja un dígito menos. Comenzamos desde el dígito menos significativo (derecha).
 
 ```javascript
-function charToValue(char) {
-  if (char >= "0" && char <= "9") {
-    return char.charCodeAt(0) - "0".charCodeAt(0);
-  } else {
-    return 10 + (char.toUpperCase().charCodeAt(0) - "A".charCodeAt(0));
-  }
-}
-
 function hexToDecimalRecursive(hex, index = 0) {
-  // Caso base: hemos procesado todos los caracteres
+  // Caso base: hemos procesado todos los dígitos
   if (index >= hex.length) {
     return 0;
   }
 
-  // Procesar el dígito actual y llamar recursivamente para el resto
-  const char = hex[hex.length - 1 - index]; // Empezar desde la derecha
-  const valor = charToValue(char);
-  const potencia = Math.pow(16, index);
+  // Función auxiliar para convertir carácter a valor
+  function charToValue(char) {
+    if (char >= "0" && char <= "9") {
+      return char.charCodeAt(0) - "0".charCodeAt(0);
+    } else if (char >= "A" && char <= "F") {
+      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+    }
+    return -1;
+  }
 
-  return valor * potencia + hexToDecimalRecursive(hex, index + 1);
+  // Procesar dígito actual (empezando desde la derecha)
+  const currentChar = hex[hex.length - 1 - index];
+  const digitValue = charToValue(currentChar);
+
+  // Fórmula recursiva: valor_actual × 16^posición + resto
+  const power = Math.pow(16, index);
+  const currentContribution = digitValue * power;
+
+  return currentContribution + hexToDecimalRecursive(hex, index + 1);
 }
 ```
 
-**Utilidades:**
+#### Explicación paso a paso con "2E"
 
-- ✅ **Elegante**: Código matemáticamente puro
-- ✅ **Funcional**: Sin variables mutables
-- ✅ **Recursivo**: Útil para entender algoritmos recursivos
-- ✅ **Módular**: Fácil de dividir en subproblemas
+```text
+**Llamada inicial:** `hexToDecimalRecursive("2E", 0)`
 
-**Limitaciones:**
+- `index = 0` (posición menos significativa)
+- `currentChar = hex[2-1-0] = hex[1] = 'E'`
+- `digitValue = 14`
+- `power = 16^0 = 1`
+- `currentContribution = 14 × 1 = 14`
+
+**Llamada recursiva:** `hexToDecimalRecursive("2E", 1)`
+
+- `index = 1` (siguiente posición)
+- `currentChar = hex[2-1-1] = hex[0] = '2'`
+- `digitValue = 2`
+- `power = 16^1 = 16`
+- `currentContribution = 2 × 16 = 32`
+
+**Llamada final:** `hexToDecimalRecursive("2E", 2)`
+
+- `index = 2 >= length(2)`, retorna 0
+
+**Resultado final:** `32 + 14 = 46`
+```
+
+#### Ventajas
+
+- ✅ **Elegante**: Código matemáticamente puro y expresivo
+- ✅ **Funcional**: Sin variables mutables, solo recursión
+- ✅ **Módular**: Fácil dividir en subproblemas más pequeños
+- ✅ **Teórico**: Excelente para entender conceptos recursivos
+
+#### Desventajas
 
 - ❌ **Stack overflow**: Para strings largos puede exceder el límite de pila
-- ❌ **Ineficiente**: Múltiples llamadas a función
+- ❌ **Ineficiente**: Múltiples llamadas a función y cálculo de potencias
 - ❌ **Complejo**: Más difícil de entender para principiantes
-- ❌ **No optimizado**: JavaScript no optimiza recursión profunda
+- ❌ **No optimizado**: JavaScript no optimiza recursión profunda (tail recursion)
 
-**Complejidad:** O(n) tiempo, O(n) espacio (por la pila de llamadas)
+#### ¿Cuándo usarlo
+
+- **Teoría**: Para entender algoritmos recursivos
+- **Lenguajes funcionales**: Como Haskell, Lisp, Scheme
+- **Problemas académicos**: Donde la elegancia es más importante que la eficiencia
+- **Strings pequeños**: Donde el riesgo de stack overflow es mínimo
 
 ---
 
-### 4. Método Funcional con Array Methods
+### 4. Método Funcional ⚡
 
-**¿Cómo funciona?**
-Utiliza métodos funcionales de arrays (map, reduce) para un enfoque más declarativo.
+#### ¿Cómo funciona
+
+Utiliza métodos funcionales de arrays (split, map, reduce) para un enfoque declarativo. Describe "qué" hacer, no "cómo".
 
 ```javascript
-function charToValue(char) {
-  if (char >= "0" && char <= "9") {
-    return char.charCodeAt(0) - "0".charCodeAt(0);
-  } else {
-    return 10 + (char.toUpperCase().charCodeAt(0) - "A".charCodeAt(0));
-  }
-}
-
 function hexToDecimal(hex) {
+  // Función auxiliar para conversión carácter → valor
+  function charToValue(char) {
+    if (char >= "0" && char <= "9") {
+      return char.charCodeAt(0) - "0".charCodeAt(0);
+    } else if (char >= "A" && char <= "F") {
+      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+    }
+    return -1;
+  }
+
   return hex
-    .split("") // Convertir string a array
-    .reverse() // Invertir para procesar de derecha a izquierda
-    .map((char) => charToValue(char)) // Convertir cada char a valor numérico
-    .reduce(
-      (
-        resultado,
-        valor,
-        index // Sumar cada valor * 16^posición
-      ) => resultado + valor * Math.pow(16, index),
-      0
-    );
+    .split("") // String → Array de caracteres
+    .map((char) => charToValue(char)) // Cada char → valor numérico
+    .reduce((result, digit) => {
+      // Acumulador funcional
+      return result * 16 + digit;
+    }, 0); // Valor inicial = 0
 }
 ```
 
-**Utilidades:**
+#### Explicación paso a paso con "2E"
 
-- ✅ **Declarativo**: Describe qué hacer, no cómo
+```javascript
+"2E"
+  .split("") // ['2', 'E']
+  .map(charToValue) // [2, 14]
+  .reduce((result, digit) => result * 16 + digit, 0);
+
+// Iteración 1: result = 0, digit = 2
+//   0 * 16 + 2 = 2
+
+// Iteración 2: result = 2, digit = 14
+//   2 * 16 + 14 = 46
+```
+
+#### Ventajas
+
+- ✅ **Declarativo**: Describe qué hacer, no cómo hacerlo
 - ✅ **Funcional**: Sin bucles, sin variables mutables
-- ✅ **Componible**: Fácil de combinar con otras operaciones
-- ✅ **Moderno**: Usa paradigmas funcionales de JavaScript
+- ✅ **Componible**: Fácil combinar con otras operaciones funcionales
+- ✅ **Moderno**: Usa paradigmas funcionales de JavaScript ES6+
+- ✅ **Legible**: Una vez entendido el patrón, es muy claro
 
-**Limitaciones:**
+#### Desventajas
 
-- ❌ **Rendimiento**: Múltiples iteraciones sobre el array
-- ❌ **Memoria**: Crea arrays intermedios
-- ❌ **Complejidad**: Más difícil de optimizar
-- ❌ **Debugging**: Más complicado de depurar
+- ❌ **Rendimiento**: Múltiples iteraciones sobre arrays intermedios
+- ❌ **Memoria**: Crea arrays temporales (split, map)
+- ❌ **Complejidad**: Más difícil de optimizar y depurar
+- ❌ **Curva de aprendizaje**: Requiere entender métodos funcionales
 
-**Complejidad:** O(n) tiempo, O(n) espacio (por los arrays intermedios)
+#### ¿Cuándo usarlo
+
+- **Programación funcional**: Cuando sigues principios funcionales
+- **Código moderno**: En aplicaciones React, Node.js con ES6+
+- **Pipelines de datos**: Cuando combinas múltiples transformaciones
+- **Aprendizaje**: Para entender programación funcional
 
 ---
 
-### 5. Método con Conversión a Binario
+### 5. Método con Conversión Binaria 🔀
 
-**¿Cómo funciona?**
-Primero convierte el hexadecimal a binario, luego el binario a decimal.
+#### ¿Cómo funciona
+
+Convierte primero hexadecimal a binario, luego binario a decimal. Muestra el proceso paso a paso a través de representaciones intermedias.
 
 ```javascript
-function hexToBinary(hex) {
-  const hexToBin = {
+function hexToDecimal(hex) {
+  // Tabla de conversión hex → binario (4 bits cada dígito)
+  const hexToBinaryMap = {
     0: "0000",
     1: "0001",
     2: "0010",
@@ -267,64 +338,211 @@ function hexToBinary(hex) {
     F: "1111",
   };
 
-  return hex
-    .split("")
-    .map((char) => hexToBin[char.toUpperCase()])
-    .join("");
-}
-
-function binaryToDecimal(binary) {
-  let decimal = 0;
-  for (let i = 0; i < binary.length; i++) {
-    if (binary[i] === "1") {
-      decimal += Math.pow(2, binary.length - 1 - i);
+  // Función auxiliar para conversión carácter → valor decimal
+  function charToValue(char) {
+    if (char >= "0" && char <= "9") {
+      return char.charCodeAt(0) - "0".charCodeAt(0);
+    } else if (char >= "A" && char <= "F") {
+      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
     }
+    return -1;
   }
-  return decimal;
-}
 
-function hexToDecimal(hex) {
-  const binary = hexToBinary(hex);
-  return binaryToDecimal(binary);
+  // Paso 1: Hex → Binario
+  const binaryString = hex
+    .split("") // String → Array
+    .map((char) => {
+      const decimal = charToValue(char); // Hex char → decimal
+      return decimal.toString(2).padStart(4, "0"); // Decimal → binario (4 bits)
+    })
+    .join(""); // Array → String binario
+
+  // Paso 2: Binario → Decimal
+  return parseInt(binaryString, 2);
 }
 ```
 
-**Utilidades:**
+#### Explicación paso a paso con "2E"
 
-- ✅ **Educativo**: Muestra conversión paso a paso
-- ✅ **Transparente**: Vemos el binario intermedio
-- ✅ **Modular**: Separado en funciones pequeñas
-- ✅ **Debugging**: Fácil ver valores intermedios
+##### Paso 1: Conversión Hex → Binario
 
-**Limitaciones:**
+```text
+'2' → charToValue('2') = 2 → 2.toString(2) = '10' → padStart(4, '0') = '0010'
+'E' → charToValue('E') = 14 → 14.toString(2) = '1110' → padStart(4, '0') = '1110'
+Resultado: '00101110'
+```
 
-- ❌ **Ineficiente**: Doble conversión innecesaria
+##### Paso 2: Conversión Binario → Decimal
+
+```javascript
+parseInt('00101110', 2) = 46
+```
+
+**Verificación:**
+
+- `00101110` binario = 32 + 8 + 4 + 2 = 46 decimal
+- Equivale a: 2×16¹ + 14×16⁰ = 46 decimal
+
+#### Ventajas
+
+- ✅ **Educativo**: Muestra conversión paso a paso (hex → bin → decimal)
+- ✅ **Transparente**: Vemos todas las representaciones intermedias
+- ✅ **Modular**: Separado en funciones pequeñas y claras
+- ✅ **Debugging**: Fácil ver valores intermedios para depuración
+
+#### Desventajas
+
+- ❌ **Ineficiente**: Doble conversión innecesaria (hex→bin→dec vs hex→dec directo)
 - ❌ **Complejo**: Más código que soluciones directas
 - ❌ **Memoria**: Strings binarios pueden ser muy largos
-- ❌ **Indirecto**: No es el camino más directo
+- ❌ **Indirecto**: No es el camino más directo ni eficiente
 
-**Complejidad:** O(n) tiempo, O(n) espacio
+#### ¿Cuándo usarlo
+
+- **Debugging**: Para entender problemas de conversión paso a paso
+- **Educación**: Para mostrar cómo funcionan las bases numéricas
+- **Sistemas embebidos**: Donde necesitas manipular bits individualmente
+- **Aprendizaje**: Para entender la relación entre sistemas numéricos
 
 ---
 
 ### Comparación de Enfoques
 
-| Enfoque   | Complejidad | Legibilidad | Rendimiento | Educativo  | Recomendado para       |
-| --------- | ----------- | ----------- | ----------- | ---------- | ---------------------- |
-| Nativo    | O(n)        | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐  | ⭐         | Producción             |
-| Iterativo | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐⭐    | ⭐⭐⭐⭐⭐ | Aprendizaje            |
-| Recursivo | O(n)        | ⭐⭐⭐      | ⭐⭐        | ⭐⭐⭐⭐   | Entender recursión     |
-| Funcional | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐      | ⭐⭐⭐     | Programación funcional |
-| Binario   | O(n)        | ⭐⭐        | ⭐⭐        | ⭐⭐⭐⭐   | Depuración detallada   |
+| Método    | Complejidad | Legibilidad | Rendimiento | Caso de Uso Principal  |
+| --------- | ----------- | ----------- | ----------- | ---------------------- |
+| Nativo    | O(n)        | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐  | Producción rápida      |
+| Iterativo | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐⭐⭐  | Aprendizaje profundo   |
+| Recursivo | O(n)        | ⭐⭐⭐      | ⭐⭐⭐      | Teoría algorítmica     |
+| Funcional | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐      | Programación funcional |
+| Binario   | O(n)        | ⭐⭐        | ⭐⭐        | Debugging detallado    |
 
-**Conclusión:** Para este problema educativo, usaremos el **método iterativo manual** porque ofrece el mejor balance entre aprendizaje, claridad y rendimiento.
+**Elegido para implementación**: Método iterativo manual - mejor balance entre claridad educativa, eficiencia y control.
 
-## Complejidad
+## 💻 Implementación Detallada
 
-## Código
+### Código Final
 
-## Casos edge
+```javascript
+function hexToDecimal(hex) {
+  function charToValue(char) {
+    if (char >= "0" && char <= "9") {
+      return char.charCodeAt(0) - "0".charCodeAt(0);
+    } else if (char >= "A" && char <= "F") {
+      return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
+    }
+    return -1; // Carácter inválido
+  }
 
-## Ejemplos detallados
+  let decimalValue = 0;
+  const hexLength = hex.length;
 
-## Aprendizajes
+  for (let i = 0; i < hexLength; i++) {
+    const charValue = charToValue(hex[i]);
+    if (charValue === -1) {
+      throw new Error("Invalid hexadecimal character");
+    }
+    decimalValue = decimalValue * 16 + charValue;
+  }
+
+  return decimalValue;
+}
+```
+
+### Explicación Paso a Paso
+
+#### Función `charToValue`: Conversión Carácter → Valor
+
+**Para dígitos 0-9:**
+
+```javascript
+if (char >= "0" && char <= "9") {
+  return char.charCodeAt(0) - "0".charCodeAt(0);
+}
+```
+
+- `'5'.charCodeAt(0)` = 53, `'0'.charCodeAt(0)` = 48
+- 53 - 48 = 5 ✅
+
+**Para letras A-F:**
+
+```javascript
+else if (char >= "A" && char <= "F") {
+  return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
+}
+```
+
+- `'A'.charCodeAt(0)` = 65, `'A'.charCodeAt(0)` = 65
+- (65 - 65) + 10 = 10 ✅
+
+#### Función Principal: Algoritmo de Conversión
+
+**Inicialización:**
+
+```javascript
+let decimalValue = 0;
+const hexLength = hex.length;
+```
+
+**Bucle principal:**
+
+```javascript
+for (let i = 0; i < hexLength; i++) {
+  const charValue = charToValue(hex[i]);
+  if (charValue === -1) {
+    throw new Error("Invalid hexadecimal character");
+  }
+  decimalValue = decimalValue * 16 + charValue;
+}
+```
+
+**¿Por qué `decimalValue * 16 + charValue`?**
+
+```text
+Esta fórmula acumula el resultado multiplicando por la base en cada iteración:
+
+- **Iteración 1** ('2'): 0 × 16 + 2 = 2
+- **Iteración 2** ('E'): 2 × 16 + 14 = 46
+
+Equivalente a: (2 × 16¹) + (14 × 16⁰) pero más eficiente.
+```
+
+### Ejemplo Completo: "2E" → 46
+
+| Paso | Carácter | Valor | Cálculo     | Resultado |
+| ---- | -------- | ----- | ----------- | --------- |
+| 1    | '2'      | 2     | 0 × 16 + 2  | 2         |
+| 2    | 'E'      | 14    | 2 × 16 + 14 | 46        |
+
+## 📊 Complejidad
+
+- **Tiempo**: O(n) - lineal en la longitud del string
+- **Espacio**: O(1) - constantes variables adicionales
+- **Eficiencia**: Óptima para este problema
+
+## ⚠️ Casos Edge
+
+- **String vacío**: Depende de requerimientos (podría retornar 0)
+- **Longitud máxima**: JavaScript maneja números grandes, pero considera BigInt para valores enormes
+- **Case sensitivity**: Solo mayúsculas (A-F), no minúsculas (a-f)
+
+## 🎓 Aprendizajes
+
+### Conceptos Técnicos
+
+- **Conversión de bases**: Fórmula polinomial Σ(dᵢ × baseⁱ)
+- **ASCII manipulation**: `charCodeAt()` para conversión carácter ↔ número
+- **Acumulación eficiente**: `result * base + digit` vs cálculo de potencias
+
+### Patrones de Programación
+
+- **Iteración vs recursión**: Trade-offs de legibilidad vs eficiencia
+- **Funcional vs imperativo**: Diferentes paradigmas para el mismo problema
+- **Validación de input**: Manejo de errores en funciones de conversión
+
+### Optimizaciones Consideradas
+
+- **Cache de charCodeAt**: Podría optimizar pero innecesario para strings cortos
+- **Lookup table**: Array/objeto para conversión más rápida
+- **BigInt**: Para números muy grandes que excedan Number.MAX_SAFE_INTEGER
+
+Esta implementación proporciona el mejor balance entre claridad educativa, eficiencia y robustez para el contexto de aprendizaje de algoritmos.

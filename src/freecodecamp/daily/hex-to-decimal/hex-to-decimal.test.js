@@ -19,9 +19,23 @@
  * - hexToDecimal("FF") should return 255
  * - hexToDecimal("A3F") should return 2623
  */
-const { describe, it, expect } = require("vitest");
-const hexToDecimal = require("./hex-to-decimal");
+import { describe, it, expect } from "vitest";
+import hexToDecimal from "./hex-to-decimal.js";
 
 describe("Hex to Decimal", () => {
-  // Tests to be implemented collaboratively with user
+  it("should return 10 for input 'A'", () => {
+    expect(hexToDecimal("A")).toBe(10);
+  });
+  it("should return 21 for input '15'", () => {
+    expect(hexToDecimal("15")).toBe(21);
+  });
+  it("should return 46 for input '2E'", () => {
+    expect(hexToDecimal("2E")).toBe(46);
+  });
+  it("should return 255 for input 'FF'", () => {
+    expect(hexToDecimal("FF")).toBe(255);
+  });
+  it("should return 2623 for input 'A3F'", () => {
+    expect(hexToDecimal("A3F")).toBe(2623);
+  });
 });
