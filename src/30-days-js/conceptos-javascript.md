@@ -2734,9 +2734,9 @@ function toBinary(decimal) {
 
   let binary = "";
   while (decimal > 0) {
-    const remainder = decimal % 2;        // 0 o 1
-    binary = remainder + binary;          // prepend (no append)
-    decimal = Math.floor(decimal / 2);    // división entera
+    const remainder = decimal % 2; // 0 o 1
+    binary = remainder + binary; // prepend (no append)
+    decimal = Math.floor(decimal / 2); // división entera
   }
 
   return binary;
@@ -2785,16 +2785,19 @@ function toBinary(decimal) {
 - `toBinary(8)` → `"1000"` (potencia de 2 mayor)
 
 **Complejidad:**
+
 - **Tiempo:** O(log n) - número de divisiones proporcional a log₂(n)
 - **Espacio:** O(log n) - espacio para la cadena resultante
 
 **Patrones observados:**
+
 - **Números pares** siempre terminan en "0"
 - **Números impares** siempre terminan en "1"
 - **Potencias de 2** tienen exactamente un "1" seguido de ceros
 - **Construcción desde MSB** requiere prepend, no append
 
 **Aplicaciones:**
+
 - Representación binaria de números
 - Comprensión de sistemas numéricos
 - Algoritmos de bajo nivel
@@ -2803,14 +2806,17 @@ function toBinary(decimal) {
 ### Propiedades de Números Binarios
 
 **Bits menos significativo (LSB) vs más significativo (MSB):**
+
 - LSB: Bit más a la derecha (posición 2⁰)
 - MSB: Bit más a la izquierda (posición 2^(n-1))
 
 **Paridad:**
+
 - Si LSB = 0 → número par
 - Si LSB = 1 → número impar
 
 **Valor posicional:**
+
 - Cada posición representa 2^(posición-1)
 - "1100" = 1×2³ + 1×2² + 0×2¹ + 0×2⁰ = 8 + 4 + 0 + 0 = 12
 
@@ -2836,3 +2842,58 @@ function binaryToDecimal(binaryString) {
 - **Considerar límites** de tipos de datos
 - **Validar inputs** cuando sea necesario
 - **Elegir representación apropiada** (string vs array vs number)
+
+---
+
+## Validación y Parsing
+
+### Expresiones Regulares Dinámicas
+
+**Definición:** Construcción de patrones de expresiones regulares en tiempo de ejecución basados en parámetros variables.
+
+**Caso de uso:** Validación de caracteres válidos en diferentes bases numéricas (problema Base Check).
+
+**Implementación:**
+
+```javascript
+function isValidNumber(n, base) {
+  // Construir string con caracteres válidos para la base
+  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base);
+
+  // Crear regex dinámica con case-insensitive flag
+  const regex = new RegExp(`^[${validChars}]+$`, "i");
+
+  // Validar que el string completo consista solo de caracteres válidos
+  return regex.test(n);
+}
+```
+
+**Conceptos clave:**
+
+- **`new RegExp(pattern, flags)`**: Constructor para expresiones regulares dinámicas
+- **Template literals**: Para construir patrones con variables (`^[${validChars}]+$`)
+- **Flag `"i"`**: Case-insensitive matching (mayúsculas = minúsculas)
+- **Patrón `^...$`**: Matching completo del string (no parcial)
+- **`slice(0, base)`**: Extraer caracteres válidos según la base
+
+**Ventajas:**
+
+- **Flexibilidad**: Patrón se adapta dinámicamente al parámetro `base`
+- **Concisión**: Una sola línea valida todos los caracteres
+- **Performance**: Regex engine optimizado para validación de patrones
+- **Legibilidad**: Código expresivo y fácil de entender
+
+**Aplicaciones comunes:**
+
+- Validación de formatos (emails, teléfonos, códigos postales)
+- Parsing de datos con estructuras variables
+- Filtrado de caracteres según reglas dinámicas
+- Validación de entrada en diferentes contextos
+
+**Best practices:**
+
+- **Escapar caracteres especiales** cuando se construyen patrones dinámicamente
+- **Usar raw strings** para patrones complejos
+- **Documentar el patrón** con ejemplos de matching
+- **Considerar performance** para patrones muy complejos
+- **Validar inputs** antes de construir la regex
