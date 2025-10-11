@@ -2897,3 +2897,231 @@ function isValidNumber(n, base) {
 - **Documentar el patrón** con ejemplos de matching
 - **Considerar performance** para patrones muy complejos
 - **Validar inputs** antes de construir la regex
+
+---
+
+## Estructuras de Datos: Set para Eliminación de Duplicados
+
+### Concepto: Set para Suma de Múltiplos
+
+**Definición:** Uso de la estructura de datos `Set` para almacenar múltiplos únicos y calcular sumas sin duplicados, aplicando el principio de inclusión-exclusión automáticamente.
+
+**Caso de uso:** Problema "Multiples of 3 or 5" - calcular suma de múltiplos de 3 o 5 por debajo de un límite.
+
+**Implementación con Set:**
+
+```javascript
+function multiplesOf3Or5(number) {
+  let multiples = new Set();
+
+  // Iterar desde 0 hasta number-1
+  for (let i = 0; i < number; i++) {
+    // Verificar si es múltiplo de 3 o 5
+    if (i % 3 === 0 || i % 5 === 0) {
+      multiples.add(i); // Set elimina duplicados automáticamente
+    }
+  }
+
+  // Convertir Set a array y reducir para sumar
+  return Array.from(multiples).reduce((acc, curr) => acc + curr, 0);
+}
+```
+
+**Conceptos clave aplicados:**
+
+### 1. **Set como Eliminador Automático de Duplicados**
+
+**Características del Set:**
+
+- **Unicidad automática**: `multiples.add(15)` solo se almacena una vez aunque 15 sea múltiplo de ambos 3 y 5
+- **Inserción O(1)**: Operación constante para agregar elementos
+- **No indexado**: No permite acceso por índice como arrays
+
+**Comparación con alternativas:**
+
+```javascript
+// ❌ Array con verificación manual
+let multiples = [];
+for (let i = 0; i < number; i++) {
+  if (i % 3 === 0 || i % 5 === 0) {
+    if (!multiples.includes(i)) {
+      // Verificación manual O(n)
+      multiples.push(i);
+    }
+  }
+}
+
+// ✅ Set automático
+let multiples = new Set();
+for (let i = 0; i < number; i++) {
+  if (i % 3 === 0 || i % 5 === 0) {
+    multiples.add(i); // Sin verificación, Set maneja unicidad
+  }
+}
+```
+
+### 2. **Principio de Inclusión-Exclusión Automático**
+
+**Problema matemático:**
+
+- Múltiplos de 3: 3, 6, 9, 12, 15, 18, ...
+- Múltiplos de 5: 5, 10, 15, 20, 25, ...
+- Múltiplos de ambos (15): 15, 30, 45, ...
+
+**Solución con Set:**
+
+```javascript
+// Set automáticamente maneja la intersección
+multiples.add(15); // Solo se agrega una vez
+// Resultado: {3, 5, 6, 9, 12, 15, 18, 20, 21, ...}
+```
+
+**Fórmula matemática equivalente:**
+
+```
+Suma = Σ(3) + Σ(5) - Σ(15)
+```
+
+Donde Σ(n) es la suma de múltiplos de n por debajo del límite.
+
+### 3. **Array.from() para Conversión Set → Array**
+
+**Sintaxis:** `Array.from(iterable, mapFn?, thisArg?)`
+
+**Uso específico:**
+
+```javascript
+// Convertir Set a array para operaciones funcionales
+const multiplesArray = Array.from(multiples);
+
+// Equivalente a: [...multiples]
+```
+
+**Ventajas sobre spread operator:**
+
+- **Más explícito**: Claramente indica conversión de tipo
+- **Parámetros opcionales**: Permite transformación durante conversión
+- **Compatibilidad**: Mejor soporte en entornos antiguos
+
+### 4. **Array.reduce() para Suma Funcional**
+
+**Patrón de reducción para suma:**
+
+```javascript
+array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+```
+
+**Desglose:**
+
+- `accumulator`: Suma parcial acumulada
+- `currentValue`: Elemento actual del array
+- `0`: Valor inicial (suma vacía = 0)
+
+**Alternativas:**
+
+```javascript
+// Imperativo con bucle
+let sum = 0;
+for (let num of multiplesArray) {
+  sum += num;
+}
+
+// Funcional con reduce
+const sum = multiplesArray.reduce((acc, curr) => acc + curr, 0);
+```
+
+### 5. **Complejidad del Algoritmo**
+
+**Análisis detallado:**
+
+| Operación        | Complejidad | Justificación         |
+| ---------------- | ----------- | --------------------- |
+| **Bucle for**    | O(n)        | Itera n veces         |
+| **Set.add()**    | O(1)        | Inserción constante   |
+| **Array.from()** | O(k)        | k = elementos únicos  |
+| **reduce()**     | O(k)        | Suma k elementos      |
+| **Total**        | O(n)        | Dominado por el bucle |
+
+**Espacio:** O(k) donde k ≈ n/3 + n/5 - n/15 (principio inclusión-exclusión)
+
+### 6. **Edge Cases y Validación**
+
+**Casos importantes:**
+
+```javascript
+multiplesOf3Or5(0); // 0 (sin múltiplos)
+multiplesOf3Or5(3); // 3 (solo múltiplo de 3)
+multiplesOf3Or5(5); // 8 (3 + 5)
+multiplesOf3Or5(6); // 14 (3 + 5 + 6)
+multiplesOf3Or5(15); // 60 (sin duplicar 15)
+```
+
+**Validación de input:**
+
+```javascript
+function multiplesOf3Or5(number) {
+  if (!Number.isInteger(number) || number < 0) {
+    throw new Error("Input must be a non-negative integer");
+  }
+  // ... resto de la lógica
+}
+```
+
+### 7. **Alternativas de Implementación**
+
+**Opción 1: Suma directa (más eficiente):**
+
+```javascript
+function multiplesOf3Or5(number) {
+  let sum = 0;
+  for (let i = 0; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+```
+
+**Opción 2: Usando fórmula matemática (más eficiente):**
+
+```javascript
+function multiplesOf3Or5(number) {
+  const sumMultiples = (n) => {
+    const count = Math.floor((number - 1) / n);
+    return (n * count * (count + 1)) / 2;
+  };
+
+  return sumMultiples(3) + sumMultiples(5) - sumMultiples(15);
+}
+```
+
+**Comparación:**
+
+| Enfoque          | Complejidad | Ventajas            | Desventajas     |
+| ---------------- | ----------- | ------------------- | --------------- |
+| **Set + reduce** | O(n)        | Elegante, educativo | Menos eficiente |
+| **Suma directa** | O(n)        | Simple, eficiente   | Menos funcional |
+| **Fórmula**      | O(1)        | Más eficiente       | Más complejo    |
+
+### 8. **Lecciones Aprendidas**
+
+**Cuándo usar Set:**
+
+- Cuando la unicidad es crítica
+- Para aprendizaje de estructuras de datos
+- Cuando el código debe ser muy legible
+
+**Cuándo evitar Set:**
+
+- Para operaciones puramente numéricas donde la suma directa es suficiente
+- En código performance-critical
+- Cuando el espacio extra no está justificado
+
+**Patrones aplicables:**
+
+- Eliminación de duplicados en cualquier tipo de colección
+- Procesamiento de datos con restricciones de unicidad
+- Algoritmos que requieren conjuntos únicos antes de agregaciones
+
+Esta técnica combina estructuras de datos modernas (Set) con programación funcional (reduce), ofreciendo una solución elegante aunque no necesariamente la más eficiente para este problema específico.
