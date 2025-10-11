@@ -29,9 +29,23 @@
  * - date es un string en formato "YYYY-MM-DD"
  * - No se darán fechas anteriores a "2000-01-06"
  */
-const { describe, it, expect } = require("vitest");
-const moonPhase = require("./moon-phase");
+import { describe, it, expect } from "vitest";
+import moonPhase from "./moon-phase.js";
 
 describe("Moon Phase", () => {
-  // Tests to be implemented collaboratively with user
+  it("should return 'New' for input '2000-01-12'", () => {
+    expect(moonPhase("2000-01-12")).toBe("New");
+  });
+  it("should return 'Waxing' for input '2000-01-13'", () => {
+    expect(moonPhase("2000-01-13")).toBe("Waxing");
+  });
+  it("should return 'Full' for input '2014-10-15'", () => {
+    expect(moonPhase("2014-10-15")).toBe("Full");
+  });
+  it("should return 'Waning' for input '2012-10-21'", () => {
+    expect(moonPhase("2012-10-21")).toBe("Waning");
+  });
+  it("should return 'New' for input '2022-12-14'", () => {
+    expect(moonPhase("2022-12-14")).toBe("New");
+  });
 });
