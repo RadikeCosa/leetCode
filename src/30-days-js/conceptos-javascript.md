@@ -3125,3 +3125,177 @@ function multiplesOf3Or5(number) {
 - Algoritmos que requieren conjuntos únicos antes de agregaciones
 
 Esta técnica combina estructuras de datos modernas (Set) con programación funcional (reduce), ofreciendo una solución elegante aunque no necesariamente la más eficiente para este problema específico.
+
+---
+
+## Manipulación de Strings y Caracteres
+
+### Cálculo de Valores de Caracteres (Battle of Words)
+
+**Problema:** Calcular valores numéricos de palabras considerando mayúsculas y minúsculas.
+
+**Técnicas aprendidas:**
+
+#### 1. **Detección de Mayúsculas/Minúsculas**
+
+```javascript
+// Método 1: Comparación con toUpperCase()
+function isUpperCase(char) {
+  return char === char.toUpperCase();
+}
+
+// Método 2: Usando charCodeAt()
+function isUpperCase(char) {
+  const code = char.charCodeAt(0);
+  return code >= 65 && code <= 90; // A-Z
+}
+```
+
+#### 2. **Cálculo de Valor Base de Letra**
+
+```javascript
+function getLetterValue(char) {
+  // a=1, b=2, ..., z=26
+  return char.toLowerCase().charCodeAt(0) - 96;
+}
+```
+
+#### 3. **Procesamiento Funcional de Strings**
+
+```javascript
+function wordValue(word) {
+  return [...word].reduce((value, char) => {
+    const baseValue = getLetterValue(char);
+    const multiplier = isUpperCase(char) ? 2 : 1;
+    return value + baseValue * multiplier;
+  }, 0);
+}
+```
+
+**Patrones aplicables:**
+
+- Conversión de caracteres a valores numéricos
+- Procesamiento de strings carácter por carácter
+- Lógica condicional basada en propiedades de caracteres
+
+### 2. **Funciones Auxiliares Puras**
+
+**Definición:** Funciones que no modifican estado externo y retornan el mismo resultado para los mismos inputs.
+
+**Beneficios:**
+
+- Reutilizables en múltiples contextos
+- Fáciles de testear
+- Composición funcional
+- Mejor separación de responsabilidades
+
+**Ejemplo del problema:**
+
+```javascript
+// Función pura para calcular valor de palabra
+function wordValue(word) {
+  return [...word].reduce((value, char) => {
+    const baseValue = char.toLowerCase().charCodeAt(0) - 96;
+    return value + (char === char.toUpperCase() ? baseValue * 2 : baseValue);
+  }, 0);
+}
+
+// Función principal que usa la auxiliar
+function battle(ourTeam, opponent) {
+  const ourWords = ourTeam.split(" ");
+  const opponentWords = opponent.split(" ");
+
+  // Usar wordValue para cada comparación
+  const differences = ourWords.map(
+    (word, i) => wordValue(word) - wordValue(opponentWords[i])
+  );
+
+  // ... resto de la lógica
+}
+```
+
+**Cuándo usar funciones auxiliares:**
+
+- Cuando una operación se repite
+- Para mejorar legibilidad del código principal
+- Para facilitar testing unitario
+- Para composición funcional
+
+### 3. **Transformación Funcional de Arrays**
+
+**Patrones con map() y filter():**
+
+```javascript
+// Calcular diferencias entre arrays
+const differences = array1.map(
+  (item, i) => calculateValue(item) - calculateValue(array2[i])
+);
+
+// Contar elementos que cumplen condición
+const positiveCount = differences.filter((diff) => diff > 0).length;
+const negativeCount = differences.filter((diff) => diff < 0).length;
+```
+
+**Ventajas:**
+
+- Código más declarativo
+- Menos variables mutables
+- Fácil composición de operaciones
+- Mejor expresividad
+
+**Comparación imperativo vs funcional:**
+
+```javascript
+// Imperativo (loops)
+let count = 0;
+for (let i = 0; i < array.length; i++) {
+  if (condition(array[i])) {
+    count++;
+  }
+}
+
+// Funcional
+const count = array.filter(condition).length;
+```
+
+### 4. **Operador Ternario para Expresiones Condicionales**
+
+```javascript
+// En lugar de:
+let multiplier;
+if (isUpperCase(char)) {
+  multiplier = 2;
+} else {
+  multiplier = 1;
+}
+
+// Usar:
+const multiplier = isUpperCase(char) ? 2 : 1;
+
+// O directamente en la expresión:
+return value + (isUpperCase(char) ? baseValue * 2 : baseValue);
+```
+
+**Beneficios:**
+
+- Más conciso
+- Expresiones en lugar de statements
+- Mejor para composición funcional
+- Menos variables temporales
+
+### 5. **Lecciones del Problema Battle of Words**
+
+**Patrones aplicables a otros problemas:**
+
+- Procesamiento de strings carácter por carácter
+- Cálculos basados en propiedades de caracteres
+- Comparación de arrays elemento por elemento
+- Conteo de condiciones en colecciones
+
+**Mejores prácticas aprendidas:**
+
+- Extraer lógica compleja a funciones auxiliares
+- Usar programación funcional para claridad
+- Preferir `const` sobre `let` cuando sea posible
+- Componer operaciones con `map`, `filter`, `reduce`
+- Usar operador ternario para expresiones condicionales simples
