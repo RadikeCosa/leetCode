@@ -263,6 +263,8 @@ export function solutionName(params: Type[]): ReturnType {
 
 ### Problem Setup Process
 
+**Automatización con URLs**: Si el usuario pega una URL de LeetCode, usar herramientas como `fetch_webpage` para obtener la consigna completa y crear la estructura automáticamente. Para FreeCodeCamp, esperar que el usuario pegue la consigna y el esqueleto de la función, luego crear la estructura basada en eso.
+
 **🚨 CRITICAL RULE: SKELETON GENERATION ONLY**
 
 When generating project structure for ANY problem (LeetCode or FreeCodeCamp):
@@ -312,7 +314,7 @@ If the problem name is not clear from the statement, ask the user what descripti
 1. **Generate Project Structure**: Create appropriate folder under the correct FreeCodeCamp category
 2. **Skeleton Generation** (ONLY structure, NO implementations):
    - `problem-name.js` - **ONLY** function signature with JSDoc header and **EMPTY** function body
-   - `problem-name.test.js` - **ONLY** requires and **EMPTY** describe block
+   - `problem-name.test.js` - **ONLY** imports and **EMPTY** describe block
    - `problem-name-explanation.md` - **ONLY** template structure headings
    - **NO post-solution file** (not needed for FreeCodeCamp)
 3. **🚨 Test Implementation MUST be collaborative** (same rules as LeetCode):
@@ -404,8 +406,8 @@ describe("Problem Name", () => {
  * - Hint 1: [exact text]
  * - Hint 2: [exact text]
  */
-const { describe, it, expect } = require("vitest");
-const functionName = require("./file-name");
+import { describe, it, expect } from "vitest";
+import functionName from "./file-name.js";
 
 describe("Problem Name", () => {
   // Tests to be implemented collaboratively with user
@@ -442,7 +444,7 @@ function descriptiveName(params) {
   // TODO: Implement solution
 }
 
-module.exports = descriptiveName;
+export default descriptiveName;
 ```
 
 **🚨 CRITICAL HEADER REQUIREMENTS:**
@@ -463,15 +465,18 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
    - Work together to implement all LeetCode/FreeCodeCamp examples as tests
    - Guide user to add edge cases and boundary conditions
    - Confirm tests fail with skeleton function
+   - Completar documentación hasta el punto de análisis del problema (consignas, límites, exploración de enfoques)
 
 2. **🟢 GREEN Phase**: User implements minimal working solution
 
+   - Explorar enfoques, implementar resolución colaborativa
    - User writes code to pass tests with Copilot guidance
    - Focus on passing tests, not optimization
    - Use descriptive variable names from start
    - Iterative development with `npm run test:watch`
 
 3. **🔵 REFACTOR Phase**: Document and optimize
+   - Una vez tests verdes, determinar complejidad, optimizaciones. Permitir múltiples versiones de soluciones si es educativo, reflejando el proceso iterativo en la documentación
    - Complete explanation.md with algorithm analysis
    - Fill post-solution.md with LeetCode format (if LeetCode problem)
    - Update knowledge base with new patterns discovered
@@ -491,6 +496,7 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 - **🚨 CRITICAL: Guide user through writing each test collaboratively step by step**
 - **🚨 CRITICAL: Let user implement the actual solution code**
 - Complete documentation files AFTER user solves the problem
+- Enfatizar preguntas guiadas para análisis conjunto: "¿Qué observas en las consignas?", "¿Qué enfoques podríamos explorar?", "¿Cómo afecta esto a la complejidad?"
 
 ### DON'T:
 
@@ -504,6 +510,7 @@ Following the **🔴 RED → 🟢 GREEN → 🔵 REFACTOR** cycle:
 - **🚨 NEVER EVER: Provide working implementations in skeleton files**
 - **🚨 NEVER EVER: Fill function bodies with solution code during setup**
 - Fill in documentation before user completes the problem
+- No asumir soluciones óptimas desde el inicio; priorizar el proceso de aprendizaje sobre la velocidad
 
 ### 🚨 MANDATORY TEST COLLABORATION PROCESS
 
@@ -541,6 +548,7 @@ describe("Problem Name", () => {
    - For top interview problems: Add concepts to `metodologia-y-aprendizajes.md`
    - For binary search problems: **Incremental approach** - Add only concepts learned from completed problems to `conceptos-binary-search.md`
 4. **Cross-Reference**: Link related problems and patterns discovered
+5. **Múltiples versiones**: En ocasiones, mantener múltiples versiones de soluciones para un mismo problema si ayuda al aprendizaje. Siempre reflejar el proceso iterativo (versiones anteriores, decisiones de optimización) en la documentación, especialmente en explanation.md y post-solution.md.
 
 ## Key Technical Patterns
 

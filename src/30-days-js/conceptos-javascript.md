@@ -707,6 +707,79 @@ const numberResult = identity<number>(42); // number
 
 ---
 
+## Métodos de String
+
+### indexOf - Búsqueda de Substrings
+
+**Definición:** Método que busca la primera ocurrencia de una subcadena dentro de un string y retorna su posición.
+
+**Sintaxis:**
+
+```javascript
+string.indexOf(searchValue, fromIndex);
+```
+
+**Parámetros:**
+
+- `searchValue`: La subcadena a buscar (requerido)
+
+- `fromIndex`: Posición desde donde comenzar la búsqueda (opcional, por defecto 0)
+
+**Retorno:**
+
+- El índice de la primera ocurrencia encontrada (empezando desde 0)
+
+- `-1` si no se encuentra la subcadena
+
+**Ejemplos básicos:**
+
+```javascript
+"hello world".indexOf("world"); // 6
+"hello world".indexOf("l"); // 2 (primera 'l')
+"hello world".indexOf("l", 3); // 3 (busca desde posición 3)
+"hello world".indexOf("xyz"); // -1 (no encontrado)
+```
+
+**Uso avanzado - Conteo con solapamientos (del problema String Count):**
+
+```javascript
+function count(text, pattern) {
+  let count = 0;
+  let pos = text.indexOf(pattern);
+
+  while (pos !== -1) {
+    count++;
+    pos = text.indexOf(pattern, pos + 1); // Buscar desde siguiente posición
+  }
+
+  return count;
+}
+
+count("aaa", "aa"); // 2 - "aa" en posiciones 0-1 y 1-2
+```
+
+**Casos de uso comunes:**
+
+- Validación de presencia de substrings
+
+- Parsing de texto
+
+- Algoritmos de búsqueda de patrones
+
+- Conteo de ocurrencias (con bucle while)
+
+**Consideraciones importantes:**
+
+- Es case-sensitive (distingue mayúsculas/minúsculas)
+
+- Para búsquedas case-insensitive, convertir a lowercase primero
+
+- El parámetro `fromIndex` permite búsquedas iterativas eficientes
+
+- Para contar todas las ocurrencias con solapamientos, usar `pos + 1` en el bucle
+
+---
+
 ## Patrones de Diseño en JavaScript
 
 ### Factory Pattern
