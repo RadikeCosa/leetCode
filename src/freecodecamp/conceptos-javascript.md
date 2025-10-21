@@ -35,6 +35,45 @@ function adjustThermostat(currentF, targetC) {
 
 ## Manipulación de Strings
 
+### Búsqueda de Máximo con Limpieza de Texto
+
+**Patrón:** Encontrar elemento óptimo en array procesando y limpiando cada elemento.
+
+```javascript
+// Encontrar palabra más larga ignorando puntuación
+function getLongestWord(sentence) {
+  const words = sentence.split(" ");
+  let longestWord = "";
+
+  for (let word of words) {
+    const cleanedWord = word.replace(/\./g, "");
+    if (cleanedWord.length > longestWord.length) {
+      longestWord = cleanedWord;
+    }
+  }
+  return longestWord;
+}
+```
+
+**Cuándo usar:**
+
+- Búsqueda de máximo/mínimo con preprocessing
+- Limpieza de datos antes de comparación
+- Necesidad de ignorar caracteres específicos
+
+**Técnicas clave:**
+
+- `split()` para dividir en elementos procesables
+- `replace(/pattern/g, "")` para limpieza con regex global
+- Comparación estricta `>` para manejar empates (primer elemento gana)
+- Tracking de variable óptima durante iteración
+
+**Ventajas:**
+
+- Una sola pasada O(n) por los datos
+- Flexibilidad para diferentes tipos de limpieza
+- Manejo automático de casos edge (empates, elementos vacíos)
+
 ### Formateo con Slice y Template Literals
 
 **Patrón:** Reformatear strings de longitud fija extrayendo partes específicas con `slice()`.
