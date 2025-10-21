@@ -1,5 +1,38 @@
 # Conceptos y Patrones JavaScript - FreeCodeCamp
 
+## Manipulación de Números
+
+### Conversión de Unidades con Formateo Preciso
+
+**Patrón:** Convertir entre diferentes unidades manteniendo precisión decimal específica.
+
+```javascript
+// Conversión Celsius a Fahrenheit con redondeo
+function adjustThermostat(currentF, targetC) {
+  const targetF = parseFloat((targetC * 1.8 + 32).toFixed(1));
+  const difference = (targetF - currentF).toFixed(1);
+  return `Heat: ${difference} degrees Fahrenheit`;
+}
+```
+
+**Cuándo usar:**
+
+- Conversiones entre sistemas de medida
+- Necesidad de mantener formato decimal específico
+- Comparaciones que requieren precisión controlada
+
+**Técnicas clave:**
+
+- `toFixed(n)` para redondeo y formato consistente
+- `parseFloat()` para reconvertir a número después de redondeo
+- Orden de operaciones para evitar `Math.abs()`
+
+**Ventajas:**
+
+- Evita problemas de floating-point precision
+- Formato de salida predecible y consistente
+- Lógica más simple sin `Math.abs()`
+
 ## Manipulación de Strings
 
 ### Formateo con Slice y Template Literals
