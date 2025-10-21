@@ -2,6 +2,32 @@
 
 ## Manipulación de Strings
 
+### Formateo con Slice y Template Literals
+
+**Patrón:** Reformatear strings de longitud fija extrayendo partes específicas con `slice()`.
+
+```javascript
+// Formatear número de teléfono
+function formatNumber(number) {
+  return `+${number.slice(0, 1)} (${number.slice(1, 4)}) ${number.slice(
+    4,
+    7
+  )}-${number.slice(7)}`;
+}
+```
+
+**Cuándo usar:**
+
+- Strings de longitud fija con formato predefinido
+- Necesidad de aplicar un patrón específico
+- Extracción de partes específicas por posición
+
+**Ventajas:**
+
+- Código conciso en una línea
+- Template literals más legibles que concatenación
+- O(1) en tiempo y espacio para longitudes fijas
+
 ### Detección de Separadores
 
 **Patrón:** Cuando una entrada puede tener diferentes tipos de separadores, detectar dinámicamente cuál se usa.
