@@ -313,3 +313,78 @@ function wiseSpeak(sentence) {
 
 - Input: `"You must speak wisely."`
 - Output: `"Speak wisely, you must."`
+
+## Encadenamiento de Métodos para Ordenamiento y Selección
+
+**Patrón:** Procesamiento secuencial de arrays mediante encadenamiento de métodos funcionales para ordenar, filtrar y transformar datos.
+
+```javascript
+// Encontrar las N canciones más reproducidas
+function getTopSongs(playlist, n = 2) {
+  return playlist
+    .sort((a, b) => b.plays - a.plays) // Ordenar por plays descendente
+    .slice(0, n) // Tomar los primeros N elementos
+    .map((song) => song.title); // Extraer solo los títulos
+}
+```
+
+**Cuándo usar:**
+
+- Procesamiento de datos que requiere múltiples transformaciones secuenciales
+- Cuando se necesita ordenar y luego seleccionar un subconjunto
+- Transformaciones que combinan filtrado, ordenamiento y mapeo
+- Datos tabulares o listas de objetos que necesitan ser procesados
+
+**Técnicas clave:**
+
+- **`sort(comparator)`**: Ordenamiento personalizado con función comparadora
+
+  - `(a, b) => b.prop - a.prop` para orden descendente
+  - `(a, b) => a.prop - b.prop` para orden ascendente
+  - Para strings: `(a, b) => a.prop.localeCompare(b.prop)`
+
+- **`slice(start, end)`**: Extracción de subarrays
+
+  - `slice(0, n)` para primeros n elementos
+  - `slice(-n)` para últimos n elementos
+  - `slice(n)` para elementos desde índice n
+
+- **`map(transformer)`**: Transformación de elementos
+  - `map(item => item.property)` para extraer propiedades
+  - `map(item => ({ ...item, newProp: value }))` para agregar propiedades
+  - `map((item, index) => ({ ...item, rank: index + 1 }))` para agregar índices
+
+**Ventajas:**
+
+- **Flujo de datos claro**: Cada método tiene una responsabilidad única
+- **Componibilidad**: Fácil combinar diferentes operaciones
+- **Legibilidad**: El código expresa la intención paso a paso
+- **Eficiencia**: Evita variables intermedias innecesarias
+- **Debugging**: Fácil identificar dónde ocurre cada transformación
+
+**Complejidad típica:**
+
+- Temporal: O(n log n) si incluye ordenamiento, O(n) para operaciones lineales
+- Espacial: O(1) adicional (no crea copias grandes del array original)
+
+**Ejemplo práctico:**
+
+```javascript
+// Datos de entrada
+const songs = [
+  { title: "Song A", plays: 42 },
+  { title: "Song B", plays: 99 },
+  { title: "Song C", plays: 75 },
+];
+
+// Resultado: ["Song B", "Song C"]
+const topSongs = getTopSongs(songs, 2);
+```
+
+**Casos de uso comunes:**
+
+- Rankings y leaderboards
+- Paginación de resultados ordenados
+- Extracción de top N elementos de listas
+- Procesamiento de datos tabulares
+- Transformaciones ETL simples

@@ -150,10 +150,7 @@ Expected Output: ["Song B", "Song C"]
 Este problema demuestra el poder del **encadenamiento de métodos funcionales** en JavaScript:
 
 ```javascript
-array
-  .sort(comparator)
-  .slice(start, end)
-  .map(transformer)
+array.sort(comparator).slice(start, end).map(transformer);
 ```
 
 **Cuándo usar este patrón:**
