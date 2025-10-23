@@ -262,3 +262,54 @@ const regex = /^(\d{4})[-\s](\d{4})[-\s](\d{4})[-\s](\d{4})$/;
 const separator = card.includes(" ") ? " " : "-";
 const groups = card.split(separator);
 ```
+
+## Reordenamiento y Transformación de Oraciones
+
+### Reordenamiento Condicional con Capitalización
+
+**Patrón:** Reordenar partes de una oración basado en palabras clave, aplicando transformaciones de capitalización.
+
+```javascript
+// Reordenar oración estilo "consejo sabio"
+function wiseSpeak(sentence) {
+  const words = sentence.slice(0, -1).split(" ");
+  const punctuation = sentence.slice(-1);
+  const keywords = ["have", "must", "are", "will", "can"];
+  const foundIndex = words.findIndex((word) => keywords.includes(word));
+
+  const before = words
+    .slice(0, foundIndex + 1)
+    .join(" ")
+    .toLowerCase();
+  const after = words.slice(foundIndex + 1).join(" ");
+  const newFirstWord = after.charAt(0).toUpperCase() + after.slice(1);
+
+  return `${newFirstWord}, ${before}${punctuation}`;
+}
+```
+
+**Cuándo usar:**
+
+- Reordenamiento condicional de texto basado en palabras clave
+- Transformaciones que requieren capitalización selectiva
+- Procesamiento de oraciones con puntuación al final
+
+**Técnicas clave:**
+
+- `slice(0, -1)` y `slice(-1)` para separar contenido y puntuación
+- `findIndex()` con `includes()` para búsqueda de primera ocurrencia
+- `slice()` para dividir arrays en partes específicas
+- `charAt(0).toUpperCase() + slice(1)` para capitalizar primera letra
+- Template literals para construcción clara de resultados
+
+**Ventajas:**
+
+- Manejo robusto de diferentes tipos de puntuación
+- Preserva orden original de palabras
+- Fácil de extender para diferentes reglas de transformación
+- Código legible que refleja la lógica de negocio
+
+**Ejemplo de transformación:**
+
+- Input: `"You must speak wisely."`
+- Output: `"Speak wisely, you must."`
