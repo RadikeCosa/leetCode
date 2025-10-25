@@ -138,14 +138,17 @@ Para entender `reduce((acc, char) => char + acc, "")`, vamos paso a paso con el 
 1. **Paso inicial**: `acc = ""` (string vacío, nuestro acumulador inicial)
 
 2. **Primera iteración**: `char = "H"`
+
    - `char + acc` = `"H" + ""` = `"H"`
    - Ahora `acc = "H"`
 
 3. **Segunda iteración**: `char = "o"`
+
    - `char + acc` = `"o" + "H"` = `"oH"`
    - Ahora `acc = "oH"`
 
 4. **Tercera iteración**: `char = "l"`
+
    - `char + acc` = `"l" + "oH"` = `"loH"`
    - Ahora `acc = "loH"`
 
@@ -162,6 +165,7 @@ Para entender `reduce((acc, char) => char + acc, "")`, vamos paso a paso con el 
 - Es como apilar cartas: la primera carta que pones queda al fondo, la última queda arriba
 
 **Sintaxis general de reduce:**
+
 ```javascript
 array.reduce((acumulador, elementoActual) => {
   // lógica para combinar acumulador con elementoActual
@@ -241,6 +245,7 @@ function isMirror(str1, str2) {
 ## Complejidad
 
 - **Tiempo**: O(n) donde n es la longitud de las strings más largas
+
   - Limpieza de caracteres no alfabéticos: O(n)
   - Creación del reverso con split().reverse().join(): O(n)
   - Comparación de strings: O(n)
@@ -260,4 +265,7 @@ function isMirror(str1, str2) {
 - **Recursión**: Casos base y recursión para problemas de comparación
 - **Complejidad algorítmica**: Análisis de tiempo y espacio en operaciones de strings
 - **Debugging**: Importancia de verificar casos edge y leer errores de tests cuidadosamente
+
+```
+
 ```
