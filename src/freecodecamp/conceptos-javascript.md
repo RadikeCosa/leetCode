@@ -447,3 +447,74 @@ function format(seconds) {
 - Similar a conversión de unidades (horas ↔ minutos ↔ segundos)
 - Complementa formateo de strings con reglas específicas
 - Base para cálculos de tiempo más complejos (fechas, zonas horarias)
+
+## Conversión de Unidades con Validación
+
+**Patrón:** Convertir entre diferentes unidades de almacenamiento con validación previa de unidades permitidas.
+
+```javascript
+function numberOfVideos(videoSize, videoUnit, driveSize, driveUnit) {
+  // Validación defensiva de unidades
+  const validVideoUnits = ["B", "KB", "MB", "GB"];
+  const validDriveUnits = ["GB", "TB"];
+
+  if (!validVideoUnits.includes(videoUnit)) {
+    return "Invalid video unit";
+  }
+
+  if (!validDriveUnits.includes(driveUnit)) {
+    return "Invalid drive unit";
+  }
+
+  // Lookup table para conversiones eficientes
+  const unitToBytes = {
+    B: 1,
+    KB: 1000,
+    MB: 1000000,
+    GB: 1000000000,
+    TB: 1000000000000,
+  };
+
+  // Conversión a unidad común
+  const videoBytes = videoSize * unitToBytes[videoUnit];
+  const driveBytes = driveSize * unitToBytes[driveUnit];
+
+  // Cálculo con garantía de enteros
+  return Math.floor(driveBytes / videoBytes);
+}
+```
+
+**Cuándo usar:**
+
+- Problemas que involucran múltiples unidades de medida
+- Necesidad de validar inputs antes de procesar
+- Cálculos que requieren unidad común para comparación
+- Resultados que deben ser números enteros
+
+**Técnicas clave:**
+
+- **Validación temprana:** Verificar unidades antes de cualquier cálculo
+- **Lookup tables:** Objetos como diccionarios para conversiones O(1)
+- **Unidad común:** Convertir todo a bytes para simplificar matemáticas
+- **Math.floor():** Garantizar resultados enteros en divisiones
+- **Mensajes de error específicos:** Ayudar en debugging con contexto claro
+
+**Ventajas:**
+
+- **Robustez:** Manejo explícito de casos de error
+- **Mantenibilidad:** Fácil agregar nuevas unidades o validaciones
+- **Claridad:** Código que refleja claramente las reglas de negocio
+- **Eficiencia:** Conversiones O(1) sin bucles o recursión
+
+**Casos de uso comunes:**
+
+- Conversión de almacenamiento (bytes, KB, MB, GB, TB)
+- Validación de unidades monetarias
+- Cálculos de tiempo con diferentes unidades
+- Conversiones físicas (metros, kilómetros, millas)
+
+**Patrones relacionados:**
+
+- Similar a conversión de divisas con tasas de cambio
+- Comparable a normalización de datos antes de procesamiento
+- Base para APIs que aceptan múltiples formatos de input
