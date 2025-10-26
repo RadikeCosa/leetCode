@@ -388,3 +388,62 @@ const topSongs = getTopSongs(songs, 2);
 - Extracción de top N elementos de listas
 - Procesamiento de datos tabulares
 - Transformaciones ETL simples
+
+## Formateo de Duración y Tiempo
+
+### Conversión Modular de Segundos
+
+**Patrón:** Convertir segundos totales a formato H:MM:SS usando operaciones matemáticas modulares para extraer horas, minutos y segundos.
+
+```javascript
+function format(seconds) {
+  // Extraer componentes usando división modular
+  const hours = Math.floor(seconds / 3600); // 3600 segundos = 1 hora
+  const minutes = Math.floor((seconds % 3600) / 60); // Minutos restantes
+  const secs = seconds % 60; // Segundos restantes
+
+  // Formatear con reglas específicas
+  const formattedSeconds = secs.toString().padStart(2, "0");
+
+  if (hours > 0) {
+    return `${hours}:${minutes
+      .toString()
+      .padStart(2, "0")}:${formattedSeconds}`;
+  } else {
+    return `${minutes}:${formattedSeconds}`;
+  }
+}
+```
+
+**Cuándo usar:**
+
+- Conversión de duración en segundos a formato legible
+- Formateo de tiempo con reglas específicas de padding
+- Cálculos de tiempo que requieren precisión modular
+
+**Técnicas clave:**
+
+- **`Math.floor(división)`**: Extraer parte entera de la división
+- **`% (módulo)`**: Obtener resto de la división
+- **`.padStart(2, '0')`**: Asegurar formato de 2 dígitos para segundos
+- **Condicional para horas**: Solo incluir horas si son > 0
+
+**Ventajas:**
+
+- **Precisión matemática**: Evita problemas de floating-point
+- **Eficiencia O(1)**: Operaciones constantes independientemente del tamaño
+- **Flexibilidad**: Fácil adaptar para diferentes formatos de tiempo
+- **Legibilidad**: Código que refleja claramente la lógica matemática
+
+**Casos especiales manejados:**
+
+- **Sin horas**: `500s → "8:20"` (solo minutos:segundos)
+- **Con horas**: `4000s → "1:06:40"` (horas:minutos:segundos)
+- **Segundos con padding**: Siempre 2 dígitos (`1s → "0:01"`)
+- **Minutos sin padding**: Sin ceros a la izquierda innecesarios
+
+**Relación con otras técnicas:**
+
+- Similar a conversión de unidades (horas ↔ minutos ↔ segundos)
+- Complementa formateo de strings con reglas específicas
+- Base para cálculos de tiempo más complejos (fechas, zonas horarias)
