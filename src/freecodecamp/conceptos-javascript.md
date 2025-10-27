@@ -588,6 +588,70 @@ function tribonacciSequence(startSequence, length) {
 - Comparable a algoritmos de acumulación con condiciones iniciales especiales
 - Base para otras secuencias matemáticas (Lucas, Pell, etc.)
 
+### Concatenación de Secuencias Numéricas
+
+**Patrón:** Generar una cadena concatenando números del 1 al n, optimizando para evitar problemas de rendimiento con strings inmutables en JavaScript.
+
+```javascript
+function sequence(n) {
+  // Usar array para acumulación eficiente
+  const result = [];
+
+  for (let i = 1; i <= n; i++) {
+    result.push(i.toString());
+  }
+
+  return result.join("");
+}
+```
+
+**Alternativas eficientes:**
+
+```javascript
+// Usando Array.from() y map()
+function sequence(n) {
+  return Array.from({ length: n }, (_, i) => (i + 1).toString()).join("");
+}
+
+// Usando spread operator con keys()
+function sequence(n) {
+  return [...Array(n).keys()].map((i) => (i + 1).toString()).join("");
+}
+```
+
+**Cuándo usar:**
+
+- Generación de secuencias numéricas concatenadas como strings
+- Problemas que requieren conversión de rangos numéricos a strings continuos
+- Optimización de rendimiento cuando n puede ser grande
+
+**Técnicas clave:**
+
+- **Array accumulation:** Evitar concatenación directa de strings (O(n²) potencial)
+- **join(''):** Concatenación eficiente al final del proceso
+- **toString():** Conversión explícita de números a strings
+- **Array.from() o spread:** Creación de arrays de longitud n de manera funcional
+
+**Ventajas:**
+
+- **Eficiencia:** O(n) tiempo y espacio vs O(n²) de concatenación directa
+- **Claridad:** Código que expresa claramente la intención
+- **Flexibilidad:** Fácil adaptar para diferentes formatos de números
+- **Memoria eficiente:** Un solo string resultante en lugar de múltiples temporales
+
+**Complejidad:**
+
+- **Tiempo:** O(n) - lineal en n (conversión + join eficientes)
+- **Espacio:** O(n) - array temporal + string resultante
+
+**Problema resuelto:** Integer Sequence de FreeCodeCamp
+
+**Patrones relacionados:**
+
+- Similar a construcción de strings grandes con bucles
+- Comparable a algoritmos de serialización numérica
+- Base para generación de IDs únicos o códigos secuenciales
+
 ## Conversión de Formatos de Color
 
 ### Parsing RGB y Conversión a Hexadecimal
@@ -665,3 +729,98 @@ function rgbToHex(rgb) {
 - Comparable a conversión entre sistemas numéricos (decimal ↔ hex ↔ binario)
 - Base para procesamiento de colores (HSL, HSV, CMYK conversions)
 - Relacionado con formateo de ancho fijo (tiempos, coordenadas, IDs)
+
+## Generación de Secuencias y Concatenación
+
+### Concatenación Directa vs Arrays Intermedios
+
+**Patrón:** Generar secuencias de strings concatenándolos directamente vs usando arrays como buffer.
+
+```javascript
+// Concatenación directa (simple y eficiente para casos típicos)
+function sequence(n) {
+  if (n < 1) return "";
+  let result = "";
+  for (let i = 1; i <= n; i++) {
+    result += i.toString();
+  }
+  return result;
+}
+
+// Usando array intermedio (más eficiente para n muy grande)
+function sequenceWithArray(n) {
+  if (n < 1) return "";
+  const numbers = [];
+  for (let i = 1; i <= n; i++) {
+    numbers.push(i.toString());
+  }
+  return numbers.join("");
+}
+
+// Enfoque funcional moderno
+function sequenceFunctional(n) {
+  if (n < 1) return "";
+  return Array.from({ length: n }, (_, i) => (i + 1).toString()).join("");
+}
+```
+
+**Cuándo usar cada enfoque:**
+
+**Concatenación directa (`result += ...`):**
+
+- ✅ **Más simple y legible**
+- ✅ **Menos código**
+- ✅ **Sin memoria adicional**
+- ✅ **Perfecto para n pequeño/mediano (1-10000)**
+- ❌ **Puede ser ineficiente en lenguajes sin optimización de strings**
+
+**Array intermedio (`push()` + `join("")`):**
+
+- ✅ **Más eficiente en algunos lenguajes para n grande**
+- ✅ **Permite modificaciones intermedias**
+- ✅ **Aprovecha optimizaciones de arrays**
+- ❌ **Usa más memoria (array adicional)**
+- ❌ **Más código que escribir**
+
+**Enfoque funcional (`Array.from()` + `map()` + `join("")`):**
+
+- ✅ **Más expresivo y moderno**
+- ✅ **Concatena lógica en una línea**
+- ✅ **Aprovecha métodos nativos optimizados**
+- ❌ **Menos legible para principiantes**
+- ❌ **Crea array intermedio igual que el anterior**
+
+**Técnicas clave:**
+
+- **Validación defensiva:** `if (n < 1) return "";` para casos borde
+- **Conversión explícita:** `i.toString()` deja claro el tipo
+- **Retorno temprano:** Patrón clean code para validaciones
+- **Nombres descriptivos:** `result`, `numbers` son autoexplicativos
+
+**Ventajas del patrón:**
+
+- **Flexibilidad:** Se adapta a diferentes requisitos de memoria/rendimiento
+- **Escalabilidad:** Maneja desde n=1 hasta n muy grande
+- **Legibilidad:** La versión simple es inmediatamente entendible
+- **Mantenibilidad:** Fácil de modificar para diferentes formatos
+
+**Casos de uso comunes:**
+
+- Generar IDs secuenciales: `"user001user002user003"`
+- Crear rangos de números: `"1-2-3-4-5"` con separadores
+- Formatear listas numeradas: `"1. Item 1\n2. Item 2"`
+- Construir queries SQL: `"SELECT * FROM table WHERE id IN (1,2,3,4,5)"`
+
+**Consideraciones de rendimiento:**
+
+- Para n < 1000: cualquier enfoque es aceptable
+- Para n < 10000: concatenación directa suele ser suficiente
+- Para n > 10000: considerar array intermedio según el lenguaje
+- Siempre medir con casos reales antes de optimizar
+
+**Patrones relacionados:**
+
+- Similar a construcción de strings JSON o XML
+- Comparable a generación de CSV o TSV
+- Base para algoritmos de compresión (run-length encoding)
+- Relacionado con parsing de streams de datos
