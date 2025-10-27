@@ -33,6 +33,100 @@ function adjustThermostat(currentF, targetC) {
 - Formato de salida predecible y consistente
 - Lógica más simple sin `Math.abs()`
 
+### Cálculo de Factoriales con Acumulador Iterativo
+
+**Patrón:** Calcular factoriales usando un bucle iterativo con acumulador, manejando el caso especial de 0! = 1.
+
+```javascript
+// Factorial iterativo descendente (implementado)
+function factorial(n) {
+  if (n === 0) return 1;
+
+  for (let i = n - 1; i > 0; i--) {
+    n *= i;
+  }
+
+  return n;
+}
+
+// Factorial iterativo ascendente (alternativa más legible)
+function factorialAscendente(n) {
+  if (n === 0) return 1;
+
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+// Factorial recursivo (elegante pero con limitaciones)
+function factorialRecursivo(n) {
+  if (n === 0 || n === 1) return 1;
+  return n * factorialRecursivo(n - 1);
+}
+```
+
+**Cuándo usar:**
+
+- Cálculo de factoriales para problemas matemáticos
+- Cuando se necesitan factoriales de números moderados (n ≤ 20 en JavaScript)
+- Procesamiento de combinaciones y permutaciones
+- Cálculos estadísticos que requieren factoriales
+
+**Técnicas clave:**
+
+- **Caso base explícito:** `n === 0` retorna 1 (definición matemática)
+- **Bucle descendente:** `for (let i = n - 1; i > 0; i--)` - intuitivo
+- **Bucle ascendente:** `for (let i = 1; i <= n; i++)` - más legible
+- **Acumulador in-place:** Modificar parámetro como resultado (eficiente)
+- **Variable dedicada:** Usar `result` para mejor claridad
+
+**Ventajas:**
+
+- **Eficiencia O(n):** Lineal en el tamaño del input
+- **Sin recursión:** Evita problemas de stack overflow
+- **Preciso:** Maneja números grandes correctamente en JavaScript
+- **Simple:** Lógica matemática directa
+- **Reutilizable:** Base para cálculos combinatorios
+
+**Complejidad:**
+
+- **Tiempo:** O(n) - n-1 multiplicaciones
+- **Espacio:** O(1) - solo variables primitivas
+- **Limitaciones:** n ≤ 20 en JavaScript (21! excede Number.MAX_SAFE_INTEGER)
+
+**Casos de uso comunes:**
+
+- **Combinaciones:** C(n,k) = n! / (k! × (n-k)!)
+- **Permutaciones:** P(n,k) = n! / (n-k)!
+- **Distribuciones binomiales:** Probabilidades estadísticas
+- **Análisis combinatorio:** Conteo de arreglos posibles
+- **Problemas de conteo:** Algoritmos que requieren enumeración
+
+**Consideraciones importantes:**
+
+- **Límite de JavaScript:** 20! es el último factorial que cabe en Number
+- **Precisión:** Para n > 20, considerar BigInt o librerías especializadas
+- **Caso n=0:** Siempre retorna 1 (convención matemática)
+- **Números negativos:** No definidos (requerirían validación)
+- **Rendimiento:** Para n pequeño, cualquier implementación funciona
+
+**Alternativas cuando NO usar:**
+
+- **n muy grande:** Usar aproximaciones (Stirling) o BigInt
+- **Precisión crítica:** Cuando se necesitan decimales exactos
+- **Múltiples cálculos:** Considerar memoización para valores repetidos
+- **Lenguajes con enteros ilimitados:** Python, Java tienen mejor soporte
+
+**Patrones relacionados:**
+
+- Similar a cálculo de potencias o exponenciales
+- Base para algoritmos de combinatoria
+- Relacionado con series matemáticas y expansiones
+- Extensión natural a funciones gamma (factoriales generalizados)
+
 ## Manipulación de Strings
 
 ### Búsqueda de Máximo con Limpieza de Texto
