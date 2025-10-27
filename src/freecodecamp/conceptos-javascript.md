@@ -1049,3 +1049,149 @@ function areAnagramsArray(str1, str2) {
 - Base para algoritmos de similitud de texto (Levenshtein, etc.)
 - Relacionado con hashing y comparación de hashes
 - Extensión de algoritmos de conteo de frecuencia
+
+## Búsqueda Eficiente con Hash Map
+
+### Patrón de Complemento Aritmético
+
+**Patrón:** Resolver problemas de "encontrar pares que sumen un target" usando Hash Map para búsqueda O(1) de complementos, convirtiendo problemas O(n²) en O(n).
+
+```javascript
+// Targeted Sum: encontrar dos números que sumen target
+function findTarget(arr, target) {
+  const seen = new Map();
+
+  for (let i = 0; i < arr.length; i++) {
+    const complement = target - arr[i];
+
+    if (seen.has(complement)) {
+      // Retornar índices en orden ascendente
+      const indices = [seen.get(complement), i].sort((a, b) => a - b);
+      return indices;
+    }
+
+    seen.set(arr[i], i);
+  }
+
+  return "Target not found";
+}
+
+// Two Sum original (LeetCode)
+function twoSum(nums, target) {
+  const seen = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
+
+    if (seen.has(complement)) {
+      return [seen.get(complement), i];
+    }
+
+    seen.set(nums[i], i);
+  }
+
+  return []; // No encontrado
+}
+```
+
+**Cuándo usar:**
+
+- Problemas que requieren encontrar pares/elementos que cumplan una condición aritmética
+- Cuando el array no está ordenado (si está ordenado, usar Two Pointers)
+- Necesidad de índices originales o posiciones específicas
+- Problemas donde el orden de los elementos importa
+- Casos donde puede haber múltiples soluciones válidas
+
+**Técnicas clave:**
+
+- **`target - current = complement`**: La idea fundamental del patrón
+- **Una sola pasada**: Construir el Map mientras se busca
+- **Lookup O(1)**: Map permite verificación instantánea de complementos
+- **Almacenar índices**: Preservar información de posición original
+- **Orden ascendente**: `sort()` para índices cuando se requiere orden específico
+
+**Ventajas:**
+
+- **O(n) tiempo**: Una sola iteración lineal
+- **O(n) espacio**: Map almacena hasta n elementos
+- **Simple de implementar**: Lógica directa y clara
+- **Muy flexible**: Adaptable a diferentes requisitos (índices, orden, etc.)
+- **Reutilizable**: Patrón aplicable a muchos problemas similares
+
+**Complejidad:**
+
+- **Tiempo:** O(n) - una pasada por el array
+- **Espacio:** O(n) - Map con hasta n entradas
+- **Mejor que O(n²):** Fuerza bruta sería n×(n-1)/2 comparaciones
+
+**Casos de uso comunes:**
+
+- **Two Sum variants:** Encontrar pares que sumen target
+- **Three Sum:** Extensión a tres números (más complejo)
+- **Subarray sum:** Encontrar subarrays que sumen target
+- **Complement problems:** Números que se complementan de alguna forma
+- **Frecuencia-based:** Problemas que requieren lookup rápido
+
+**Ejemplos de aplicación:**
+
+```javascript
+// Encontrar si existe par que sume target
+function hasPairWithSum(arr, target) {
+  const seen = new Set(); // Solo existencia, no índices
+
+  for (let num of arr) {
+    const complement = target - num;
+    if (seen.has(complement)) return true;
+    seen.add(num);
+  }
+
+  return false;
+}
+
+// Contar pares que sumen target
+function countPairsWithSum(arr, target) {
+  const seen = new Map();
+  let count = 0;
+
+  for (let num of arr) {
+    const complement = target - num;
+    if (seen.has(complement)) {
+      count += seen.get(complement); // Manejar duplicados
+    }
+    seen.set(num, (seen.get(num) || 0) + 1);
+  }
+
+  return count;
+}
+```
+
+**Consideraciones importantes:**
+
+- **Duplicados:** Si el array puede tener duplicados, usar Map con conteos
+- **Múltiples soluciones:** El patrón encuentra la primera solución válida
+- **Orden de índices:** Depende del problema si se necesita ordenar
+- **Tipos de datos:** Funciona con números, pero adaptable a otros tipos
+- **Espacio vs tiempo:** Trade-off aceptable para la mayoría de casos
+
+**Alternativas cuando NO usar:**
+
+- **Array ordenado:** Two Pointers es O(n) tiempo, O(1) espacio
+- **Espacio limitado:** Si n es muy grande y memoria es crítica
+- **Múltiples lookups:** Si necesitas buscar el mismo array muchas veces
+- **Exact match only:** Si no hay relación aritmética entre elementos
+
+**Patrones relacionados:**
+
+- Similar a búsqueda de elementos complementarios en otras estructuras
+- Comparable a memoization para subproblemas
+- Base para algoritmos de cache y lookup tables
+- Relacionado con problemas de frecuencia y conteo
+- Extensión natural de algoritmos de búsqueda binaria para arrays no ordenados
+
+**Problemas resueltos con este patrón:**
+
+- **Targeted Sum (FreeCodeCamp):** Adaptación de Two Sum con orden de índices
+- **Two Sum (LeetCode):** Problema clásico que originó el patrón
+- **Valid Triangle Number:** Contar triángulos válidos
+- **4Sum, 3Sum:** Extensiones a más elementos
+- **Subarray Sum Equals K:** Variante con rangos de elementos
