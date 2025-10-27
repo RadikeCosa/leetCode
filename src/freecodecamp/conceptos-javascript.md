@@ -859,7 +859,11 @@ function jbelmuImperative(text) {
 
     const first = word[0];
     const last = word[word.length - 1];
-    const middle = word.substring(1, word.length - 1).split("").sort().join("");
+    const middle = word
+      .substring(1, word.length - 1)
+      .split("")
+      .sort()
+      .join("");
     result.push(first + middle + last);
   }
 
