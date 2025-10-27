@@ -518,3 +518,72 @@ function numberOfVideos(videoSize, videoUnit, driveSize, driveUnit) {
 - Similar a conversión de divisas con tasas de cambio
 - Comparable a normalización de datos antes de procesamiento
 - Base para APIs que aceptan múltiples formatos de input
+
+## Generación de Secuencias Matemáticas
+
+### Secuencia de Tribonacci con Casos Base Explícitos
+
+**Patrón:** Generar secuencias matemáticas donde cada elemento es la suma de los n elementos anteriores, manejando casos base de manera explícita para mayor claridad.
+
+```javascript
+function tribonacciSequence(startSequence, length) {
+  if (length <= 0) return [];
+  if (length === 1) return [startSequence[0]];
+  if (length === 2) return [startSequence[0], startSequence[1]];
+  if (length === 3) return startSequence;
+
+  const result = [...startSequence];
+
+  for (let i = 3; i < length; i++) {
+    const nextValue = result[i - 1] + result[i - 2] + result[i - 3];
+    result.push(nextValue);
+  }
+
+  return result;
+}
+```
+
+**Cuándo usar:**
+
+- Generación de secuencias de Tribonacci o similares (cada elemento suma los 3 anteriores)
+- Algoritmos que requieren diferentes lógicas para longitudes pequeñas vs. grandes
+- Problemas donde la claridad de casos edge es más importante que la concisión
+
+**Técnicas clave:**
+
+- **Casos base explícitos:** Manejar longitudes 0, 1, 2, 3 de manera directa
+- **Spread operator:** `[...startSequence]` para crear copia superficial mutable
+- **Bucle controlado:** `for` con índice para control preciso de cuándo detener generación
+- **Acumulación en array:** Construir resultado incrementalmente con `push()`
+
+**Ventajas:**
+
+- **Claridad máxima:** Cada caso edge se maneja de forma obvia
+- **Facilidad de debugging:** Fácil identificar qué rama de código se ejecuta
+- **Mantenibilidad:** Cambios en lógica de casos base no afectan el bucle principal
+- **Eficiencia:** Evita operaciones innecesarias (como slice) para casos comunes
+
+**Complejidad:**
+
+- **Tiempo:** O(n) - lineal en la longitud deseada
+- **Espacio:** O(n) - almacena toda la secuencia generada
+
+**Casos edge manejados:**
+
+- `length = 0`: Array vacío (sin elementos)
+- `length = 1`: Solo primer elemento del array inicial
+- `length = 2`: Primeros dos elementos del array inicial
+- `length = 3`: Array inicial completo
+- `length > 3`: Generar elementos adicionales sumando los tres anteriores
+
+**Alternativas consideradas:**
+
+- **Slice al final:** `return result.slice(0, length)` más genérico pero menos claro
+- **Recursión:** Riesgo de stack overflow para secuencias largas
+- **Reducción funcional:** Menos legible para principiantes
+
+**Patrones relacionados:**
+
+- Similar a generación de secuencia Fibonacci pero con 3 términos anteriores
+- Comparable a algoritmos de acumulación con condiciones iniciales especiales
+- Base para otras secuencias matemáticas (Lucas, Pell, etc.)
