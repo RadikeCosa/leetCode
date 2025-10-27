@@ -587,3 +587,81 @@ function tribonacciSequence(startSequence, length) {
 - Similar a generación de secuencia Fibonacci pero con 3 términos anteriores
 - Comparable a algoritmos de acumulación con condiciones iniciales especiales
 - Base para otras secuencias matemáticas (Lucas, Pell, etc.)
+
+## Conversión de Formatos de Color
+
+### Parsing RGB y Conversión a Hexadecimal
+
+**Patrón:** Convertir strings de color CSS en formato `rgb(r, g, b)` a su representación hexadecimal `#rrggbb`, extrayendo componentes numéricos y convirtiéndolos con padding apropiado.
+
+```javascript
+function rgbToHex(rgb) {
+  // Extraer componentes RGB usando parsing manual
+  const r = parseInt(rgb.slice(4, rgb.indexOf(",", 4)).trim(), 10);
+  const g = parseInt(
+    rgb.slice(rgb.indexOf(",", 4) + 1, rgb.lastIndexOf(",")).trim(),
+    10
+  );
+  const b = parseInt(
+    rgb.slice(rgb.lastIndexOf(",") + 1, rgb.length - 1).trim(),
+    10
+  );
+
+  // Función helper para conversión a hex con padding
+  const toHex = (num) => {
+    const hex = num.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
+
+  // Concatenar resultado
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+```
+
+**Cuándo usar:**
+
+- Conversión entre formatos de color web (RGB ↔ Hex)
+- Parsing de strings estructurados con formato predecible
+- Necesidad de conversión numérica con formato de ancho fijo
+- Procesamiento de colores en aplicaciones web o gráficos
+
+**Técnicas clave:**
+
+- **Parsing con slice + indexOf:** Control preciso para extraer substrings entre delimitadores
+- **parseInt() con base 10:** Conversión explícita a decimal desde string
+- **toString(16):** Conversión nativa a hexadecimal
+- **Padding manual:** Asegurar 2 dígitos agregando "0" cuando necesario
+- **Template literals:** Concatenación clara del resultado final
+
+**Ventajas:**
+
+- **Control total:** Manejo preciso de posiciones y delimitadores
+- **Sin dependencias:** Solo métodos nativos de JavaScript
+- **Predecible:** Siempre produce exactamente 7 caracteres (# + 6 dígitos hex)
+- **Robusto:** Maneja espacios en blanco con `trim()`
+- **Legible:** Cada paso del algoritmo es claro y separado
+
+**Complejidad:**
+
+- **Tiempo:** O(1) - operaciones constantes para strings de longitud fija
+- **Espacio:** O(1) - variables temporales fijas, output siempre mismo tamaño
+
+**Casos edge manejados:**
+
+- **Valores bajos:** `rgb(1, 2, 3)` → `#010203` (padding automático)
+- **Valores altos:** `rgb(255, 255, 255)` → `#ffffff` (sin padding)
+- **Espacios:** `rgb( 123 , 456 , 789 )` → `#7b2c4d` (trim() maneja espacios)
+- **Valores mixtos:** `rgb(1, 11, 111)` → `#010b6f` (padding selectivo)
+
+**Alternativas consideradas:**
+
+- **Split approach:** `rgb.slice(4, -1).split(',').map(v => parseInt(v.trim()))` - más conciso pero crea array
+- **Regex parsing:** `/rgb\((\d+),\s*(\d+),\s*(\d+)\)/` - más robusto pero complejo
+- **padStart() moderno:** `num.toString(16).padStart(2, '0')` - una línea pero menos compatible
+
+**Patrones relacionados:**
+
+- Similar a parsing de formatos estructurados (URLs, fechas, coordenadas)
+- Comparable a conversión entre sistemas numéricos (decimal ↔ hex ↔ binario)
+- Base para procesamiento de colores (HSL, HSV, CMYK conversions)
+- Relacionado con formateo de ancho fijo (tiempos, coordenadas, IDs)
