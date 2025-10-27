@@ -824,3 +824,103 @@ function sequenceFunctional(n) {
 - Comparable a generación de CSV o TSV
 - Base para algoritmos de compresión (run-length encoding)
 - Relacionado con parsing de streams de datos
+
+## Procesamiento de Texto por Palabras
+
+### Transformación Selectiva de Palabras
+
+**Patrón:** Procesar texto palabra por palabra, aplicando transformaciones selectivas mientras se preserva la estructura general.
+
+```javascript
+// Jumbled Text: mantener primera/última letra, ordenar letras intermedias
+function jbelmu(text) {
+  const words = text.split(" ");
+  const jumbledWords = words.map((word) => {
+    if (word.length <= 3) return word;
+    const firstChar = word.charAt(0);
+    const lastChar = word.charAt(word.length - 1);
+    const middleChars = word.slice(1, -1).split("").sort().join("");
+    return firstChar + middleChars + lastChar;
+  });
+  return jumbledWords.join(" ");
+}
+
+// Versión imperativa alternativa
+function jbelmuImperative(text) {
+  const words = text.split(" ");
+  const result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (word.length <= 3) {
+      result.push(word);
+      continue;
+    }
+
+    const first = word[0];
+    const last = word[word.length - 1];
+    const middle = word.substring(1, word.length - 1).split("").sort().join("");
+    result.push(first + middle + last);
+  }
+
+  return result.join(" ");
+}
+```
+
+**Cuándo usar cada enfoque:**
+
+**Funcional con `map()`:**
+
+- ✅ **Más expresivo y moderno**
+- ✅ **Menos código**
+- ✅ **Aprovecha métodos funcionales**
+- ✅ **Fácil de combinar con otras operaciones**
+- ❌ **Puede crear arrays intermedios**
+
+**Imperativo con bucles:**
+
+- ✅ **Más control sobre el proceso**
+- ✅ **Mejor para lógica compleja**
+- ✅ **Más eficiente en memoria**
+- ❌ **Más código que escribir**
+- ❌ **Menos composable**
+
+**Técnicas clave:**
+
+- **División por palabras:** `text.split(" ")` - separa unidades procesables
+- **Procesamiento individual:** `map()` o bucles para cada palabra
+- **Condiciones de borde:** Manejar palabras cortas primero
+- **Reensamblado:** `join(" ")` para restaurar formato original
+- **Preservación de estructura:** Mantener elementos que no cambian
+
+**Ventajas del patrón:**
+
+- **Modularidad:** Procesar unidades pequeñas (palabras) independientemente
+- **Flexibilidad:** Aplicar diferentes transformaciones por palabra
+- **Preservación de formato:** Mantener estructura externa del texto
+- **Escalabilidad:** Funciona con texto de cualquier longitud
+- **Legibilidad:** Lógica clara por palabra
+
+**Casos de uso comunes:**
+
+- **Censura de texto:** Reemplazar palabras específicas
+- **Normalización:** Convertir mayúsculas/minúsculas por palabra
+- **Análisis lingüístico:** Contar sílabas, identificar tipos de palabra
+- **Formateo:** Capitalizar primeras letras, aplicar estilos
+- **Compresión:** Acortar palabras largas manteniendo legibilidad
+- **Juegos de palabras:** Anagramas, reordenamientos, etc.
+
+**Consideraciones importantes:**
+
+- **Separadores:** `split(" ")` asume espacios simples; considerar `/\s+/` para múltiples espacios
+- **Puntuación:** Este patrón no maneja puntuación; considerar expresiones regulares
+- **Idiomas:** Funciona bien para idiomas con separación por espacios
+- **Rendimiento:** Para texto muy largo, considerar procesamiento por chunks
+
+**Patrones relacionados:**
+
+- Similar a procesamiento de arrays de objetos
+- Comparable a parsing de CSV o datos tabulares
+- Base para análisis de texto y NLP básico
+- Relacionado con transformación de streams de datos
+- Extensión natural de algoritmos de mapeo/reducción
