@@ -928,3 +928,124 @@ function jbelmuImperative(text) {
 - Base para análisis de texto y NLP básico
 - Relacionado con transformación de streams de datos
 - Extensión natural de algoritmos de mapeo/reducción
+
+## Comparación de Strings y Detección de Anagramas
+
+### Normalización y Comparación de Frecuencias
+
+**Patrón:** Comparar strings ignorando diferencias superficiales (casing, espacios) enfocándose en el contenido esencial (frecuencias de caracteres).
+
+```javascript
+// Enfoque con ordenamiento - simple y efectivo
+function areAnagrams(str1, str2) {
+  const normalize = (str) =>
+    str.replace(/\s+/g, "").toLowerCase().split("").sort().join("");
+  return normalize(str1) === normalize(str2);
+}
+
+// Enfoque con hash map - eficiente para strings largos
+function areAnagramsHash(str1, str2) {
+  const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
+
+  const countFreq = (str) => {
+    const freq = {};
+    for (let char of str) {
+      freq[char] = (freq[char] || 0) + 1;
+    }
+    return freq;
+  };
+
+  const freq1 = countFreq(normalize(str1));
+  const freq2 = countFreq(normalize(str2));
+
+  const keys1 = Object.keys(freq1);
+  if (keys1.length !== Object.keys(freq2).length) return false;
+
+  return keys1.every((key) => freq1[key] === freq2[key]);
+}
+
+// Enfoque con array de conteo - optimizado para alfabeto inglés
+function areAnagramsArray(str1, str2) {
+  const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
+
+  const countFreq = (str) => {
+    const freq = new Array(26).fill(0);
+    for (let char of str) {
+      const code = char.charCodeAt(0) - 97; // 'a' = 0
+      if (code >= 0 && code < 26) freq[code]++;
+    }
+    return freq;
+  };
+
+  const freq1 = countFreq(normalize(str1));
+  const freq2 = countFreq(normalize(str2));
+
+  return freq1.every((count, index) => count === freq2[index]);
+}
+```
+
+**Cuándo usar cada enfoque:**
+
+**Ordenamiento (`sort()`):**
+
+- ✅ **Más simple**: Implementación de 3-4 líneas
+- ✅ **Sin estructuras auxiliares**: Solo métodos de string
+- ✅ **Funcional**: Composición elegante de métodos
+- ✅ **Perfecto para strings cortos**: < 1000 caracteres
+- ❌ **O(n log n)**: Más lento para strings largos
+
+**Hash Map (objeto `{}`):**
+
+- ✅ **O(n) tiempo**: Lineal, eficiente para cualquier tamaño
+- ✅ **Muy flexible**: Maneja cualquier carácter unicode
+- ✅ **Extensible**: Fácil agregar filtros o análisis adicional
+- ✅ **Reutilizable**: Los conteos pueden usarse para otras métricas
+- ❌ **Más código**: 10-15 líneas vs 3-4 líneas
+
+**Array de Conteo:**
+
+- ✅ **Máximo rendimiento**: Array nativo más rápido
+- ✅ **Memoria fija**: Siempre O(1) espacio adicional
+- ✅ **Predecible**: Sin sorpresas de rendimiento
+- ❌ **Limitado**: Solo alfabeto inglés (a-z)
+- ❌ **Frágil**: Requiere validación de caracteres
+
+**Técnicas clave:**
+
+- **Normalización primero**: `replace(/\s+/g, "").toLowerCase()` - elimina diferencias superficiales
+- **Frecuencias vs orden**: Contar apariciones vs reordenar caracteres
+- **Comparación final**: `===` para strings, `every()` para arrays, bucles para objetos
+- **Validación de longitud**: Para hash maps, comparar número de claves primero
+
+**Ventajas del patrón:**
+
+- **Flexibilidad**: Múltiples implementaciones según necesidades
+- **Corrección**: Maneja perfectamente casing, espacios y frecuencias
+- **Escalabilidad**: Desde prototipos simples hasta producción optimizada
+- **Extensibilidad**: Fácil agregar reglas (ignorar puntuación, case-sensitive, etc.)
+- **Reutilizable**: La lógica de normalización aplica a muchos problemas
+
+**Casos de uso comunes:**
+
+- **Validación de anagramas**: Problema principal
+- **Detección de plagio**: Comparar textos ignorando formato
+- **Compresión de texto**: Análisis de frecuencia de caracteres
+- **Criptografía**: Análisis de frecuencia en textos cifrados
+- **Juegos de palabras**: Generar anagramas, scrambles
+- **Búsqueda difusa**: Encontrar textos similares
+
+**Consideraciones importantes:**
+
+- **Longitud de strings**: Para n < 1000, cualquier enfoque funciona
+- **Conjunto de caracteres**: Hash map para unicode, array para ASCII limitado
+- **Rendimiento crítico**: Array de conteo para máximo speed
+- **Legibilidad**: Ordenamiento para código simple y claro
+- **Mantenibilidad**: Hash map para código extensible
+
+**Patrones relacionados:**
+
+- Similar a comparación de arrays con elementos en diferente orden
+- Comparable a verificación de isomorfismo entre estructuras
+- Base para algoritmos de similitud de texto (Levenshtein, etc.)
+- Relacionado con hashing y comparación de hashes
+- Extensión de algoritmos de conteo de frecuencia
