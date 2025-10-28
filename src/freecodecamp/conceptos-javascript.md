@@ -1289,3 +1289,225 @@ function countPairsWithSum(arr, target) {
 - **Valid Triangle Number:** Contar triángulos válidos
 - **4Sum, 3Sum:** Extensiones a más elementos
 - **Subarray Sum Equals K:** Variante con rangos de elementos
+
+## Análisis de Dígitos en Números Grandes
+
+### Verificación de Dígitos Específicos en Cuadrados
+
+**Patrón:** Analizar números grandes (cuadrados perfectos) para detectar presencia de dígitos específicos, convirtiendo números a strings para facilitar el análisis carácter por carácter.
+
+```javascript
+// 3 Strikes: contar números del 1 al n cuyo cuadrado contiene al menos un '3'
+function squaresWithThree(n) {
+  let count = 0;
+
+  for (let i = 1; i <= n; i++) {
+    let square = i * i;
+    // Conversión a string para análisis de dígitos
+    if (square.toString().includes("3")) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Alternativas para verificación de dígitos
+function hasDigit(str, digit) {
+  return str.includes(digit); // Más legible
+}
+
+function hasDigitIndexOf(str, digit) {
+  return str.indexOf(digit) !== -1; // Más explícito
+}
+
+function hasDigitRegex(str, digit) {
+  return new RegExp(digit).test(str); // Más flexible
+}
+
+function hasDigitArithmetic(num, digit) {
+  // Sin conversión a string - operaciones aritméticas puras
+  let temp = num;
+  while (temp > 0) {
+    if (temp % 10 === digit) {
+      return true;
+    }
+    temp = Math.floor(temp / 10);
+  }
+  return false;
+}
+```
+
+**Cuándo usar:**
+
+- Análisis de propiedades numéricas que requieren inspección de dígitos individuales
+- Problemas que involucran números grandes donde la conversión a string es necesaria
+- Conteo condicional basado en presencia/ausencia de dígitos específicos
+- Validación de números con restricciones en sus dígitos
+
+**Técnicas clave:**
+
+- **Conversión estratégica:** `num.toString()` para acceder a dígitos como caracteres
+- **Métodos de búsqueda:** `includes()`, `indexOf()`, regex según necesidades
+- **Aritmética modular:** `num % 10` para extraer último dígito sin strings
+- **Bucle de extracción:** `Math.floor(num / 10)` para procesar dígito por dígito
+- **Acumulador condicional:** `count++` solo cuando se cumple la condición
+
+**Ventajas:**
+
+- **Simplicidad conceptual:** La conversión a string hace el problema intuitivo
+- **Flexibilidad máxima:** Fácil cambiar qué dígito buscar o agregar condiciones
+- **Legibilidad:** Código que refleja claramente la lógica matemática
+- **Eficiencia práctica:** Para n≤10,000, cualquier enfoque es aceptable
+- **Extensibilidad:** Fácil agregar múltiples condiciones o análisis complejos
+
+**Complejidad y consideraciones:**
+
+- **Tiempo:** O(n×d) donde d es promedio de dígitos (típicamente O(n))
+- **Espacio:** O(1) adicional (strings temporales se reutilizan)
+- **Limitaciones:** Para números extremadamente grandes, considerar BigInt
+- **Alternativas:** Aritmética pura evita strings pero es más compleja
+
+**Casos de uso comunes:**
+
+- **Números con dígitos prohibidos:** Validar números sin ciertos dígitos
+- **Propiedades numéricas:** Contar números con dígitos pares, impares, etc.
+- **Análisis de cuadrados:** Estudiar distribución de dígitos en cuadrados perfectos
+- **Generación de secuencias:** Crear números con propiedades específicas
+- **Validación de entrada:** Verificar formatos numéricos personalizados
+
+**Comparación de métodos de verificación:**
+
+| Método       | Ventajas         | Desventajas     | Mejor para          |
+| ------------ | ---------------- | --------------- | ------------------- |
+| `includes()` | Simple, legible  | Menos explícito | Búsqueda básica     |
+| `indexOf()`  | Retorna posición | Más verbose     | Necesitas índice    |
+| `regex`      | Muy flexible     | Overkill simple | Patrones complejos  |
+| Aritmético   | Sin strings      | Más complejo    | Rendimiento crítico |
+
+**Patrones relacionados:**
+
+- Similar a análisis de strings pero con números como fuente
+- Comparable a parsing de números en diferentes bases
+- Base para algoritmos de validación numérica
+- Relacionado con propiedades de números (primos, cuadrados, etc.)
+- Extensión natural a análisis de dígitos en secuencias matemáticas
+
+**Problemas resueltos con este patrón:**
+
+- **3 Strikes (FreeCodeCamp):** Contar cuadrados con dígito '3'
+- **Números sin cero:** Validar números sin dígito cero
+- **Dígitos únicos:** Verificar que todos los dígitos sean distintos
+- **Suma de dígitos:** Calcular suma de dígitos individuales
+- **Números palíndromos:** Verificar simetría de dígitos
+
+### Conteo Condicional con Acumulador
+
+**Patrón:** Recorrer una secuencia aplicando una condición a cada elemento y acumulando el conteo de elementos que cumplen la condición.
+
+```javascript
+// Patrón general de conteo condicional
+function countConditional(arr, condition) {
+  let count = 0;
+
+  for (let item of arr) {
+    if (condition(item)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Aplicado a números del 1 al n
+function countSquaresWithThree(n) {
+  return countConditional(
+    Array.from({ length: n }, (_, i) => (i + 1) ** 2),
+    (square) => square.toString().includes("3")
+  );
+}
+
+// Versión imperativa más eficiente
+function countSquaresWithThreeImperative(n) {
+  let count = 0;
+
+  for (let i = 1; i <= n; i++) {
+    const square = i * i;
+    if (square.toString().includes("3")) {
+      count++;
+    }
+  }
+
+  return count;
+}
+```
+
+**Cuándo usar:**
+
+- Necesidad de contar elementos que cumplen una condición específica
+- Procesamiento de secuencias donde el resultado es un conteo numérico
+- Problemas de enumeración condicional
+- Análisis estadístico básico de datasets
+
+**Técnicas clave:**
+
+- **Acumulador inicializado:** `let count = 0` establece estado inicial
+- **Condición clara:** `if (condition(item))` separa lógica de decisión
+- **Incremento atómico:** `count++` es operación simple y segura
+- **Retorno directo:** `return count` sin modificaciones adicionales
+- **Funcional vs imperativo:** Elegir según legibilidad vs eficiencia
+
+**Ventajas:**
+
+- **Simplicidad máxima:** Patrón más básico de procesamiento de datos
+- **Flexibilidad:** La condición puede ser cualquier función booleana
+- **Componibilidad:** Fácil combinar con otros patrones de procesamiento
+- **Eficiencia:** O(n) tiempo, procesamiento lineal
+- **Reutilizable:** Patrón aplicable a cualquier tipo de secuencia
+
+**Casos de uso comunes:**
+
+- **Estadísticas básicas:** Contar elementos que cumplen criterios
+- **Validación de datos:** Contar registros válidos/inválidos
+- **Análisis de frecuencia:** Contar ocurrencias de patrones
+- **Filtrado numérico:** Contar elementos en rangos específicos
+- **Verificación de propiedades:** Contar elementos con características específicas
+
+**Variaciones del patrón:**
+
+```javascript
+// Conteo con múltiples condiciones
+function countMultipleConditions(arr) {
+  let countA = 0,
+    countB = 0;
+
+  for (let item of arr) {
+    if (conditionA(item)) countA++;
+    if (conditionB(item)) countB++;
+  }
+
+  return { countA, countB };
+}
+
+// Conteo con transformación previa
+function countAfterTransform(arr, transform, condition) {
+  let count = 0;
+
+  for (let item of arr) {
+    const transformed = transform(item);
+    if (condition(transformed)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+```
+
+**Patrones relacionados:**
+
+- Similar a reducción/fold con operación de suma
+- Comparable a filtrado seguido de longitud
+- Base para algoritmos de agregación estadística
+- Relacionado con procesamiento de streams de datos
+- Extensión natural de algoritmos de búsqueda y matching
