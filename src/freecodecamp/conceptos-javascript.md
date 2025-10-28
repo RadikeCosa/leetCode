@@ -1511,3 +1511,108 @@ function countAfterTransform(arr, transform, condition) {
 - Base para algoritmos de agregación estadística
 - Relacionado con procesamiento de streams de datos
 - Extensión natural de algoritmos de búsqueda y matching
+
+## Cálculos de Tiempo y Ritmo
+
+### Parsing y Conversión de Tiempo en Formato MM:SS
+
+**Patrón:** Parsear strings de tiempo en formato "MM:SS", convertir a segundos para cálculos, y formatear resultados con padding consistente.
+
+```javascript
+// Mile Pace: calcular ritmo promedio por milla
+function milePace(miles, duration) {
+  // Parsing directo del formato MM:SS
+  const [minutes, seconds] = duration.split(":").map(Number);
+
+  // Conversión a unidad común (segundos)
+  const totalSeconds = minutes * 60 + seconds;
+
+  // Cálculo del promedio
+  const paceInSeconds = totalSeconds / miles;
+
+  // Extracción de componentes con redondeo apropiado
+  const paceMinutes = Math.floor(paceInSeconds / 60);
+  const paceRemainingSeconds = Math.round(paceInSeconds % 60);
+
+  // Formateo con padding para ancho fijo
+  return `${String(paceMinutes).padStart(2, "0")}:${String(
+    paceRemainingSeconds
+  ).padStart(2, "0")}`;
+}
+
+// Función helper reutilizable para parsing de tiempo
+function parseTimeToSeconds(timeString) {
+  const [minutes, seconds] = timeString.split(":").map(Number);
+  return minutes * 60 + seconds;
+}
+
+// Función helper para formateo de tiempo
+function formatSecondsToMMSS(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = Math.round(totalSeconds % 60);
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+    2,
+    "0"
+  )}`;
+}
+```
+
+**Cuándo usar:**
+
+- Cálculos que involucran tiempo en formato MM:SS
+- Conversiones entre diferentes unidades de tiempo
+- Cálculos de promedio o ritmo (pace)
+- Formateo consistente de duraciones
+- Parsing de inputs de usuario en formato tiempo
+
+**Técnicas clave:**
+
+- **Parsing con split + map:** `duration.split(":").map(Number)` para extraer componentes
+- **Unidad común:** Convertir todo a segundos para cálculos simples
+- **Redondeo apropiado:** `Math.round()` para segundos (no truncar)
+- **Floor para minutos:** `Math.floor()` para parte entera de minutos
+- **Padding consistente:** `padStart(2, "0")` para formato MM:SS
+
+**Ventajas:**
+
+- **Flexibilidad:** Maneja cualquier duración razonable
+- **Precisión:** Redondeo correcto para tiempos
+- **Reutilizable:** Funciones helper aplicables a otros problemas
+- **Legible:** Código que refleja lógica matemática clara
+- **Robusto:** Maneja números decimales en cálculos
+
+**Complejidad:**
+
+- **Tiempo:** O(1) - operaciones constantes
+- **Espacio:** O(1) - variables primitivas
+
+**Casos de uso comunes:**
+
+- **Cálculos de ritmo:** Pace en running/cycling
+- **Temporizadores:** Conteo regresivo, cronómetros
+- **Estadísticas deportivas:** Tiempos promedio, records
+- **Conversión de unidades:** Minutos ↔ segundos ↔ horas
+- **Formateo de duración:** Videos, audio, eventos
+
+**Consideraciones importantes:**
+
+- **Formato consistente:** Asume input en "MM:SS" exacto
+- **Redondeo vs truncado:** `Math.round()` preserva precisión
+- **Números decimales:** JavaScript maneja división con decimales bien
+- **Padding automático:** `padStart()` maneja números de 1-2 dígitos
+- **Validación:** Para producción, agregar validación de formato
+
+**Patrones relacionados:**
+
+- Similar a parsing de coordenadas o dimensiones
+- Comparable a formateo de moneda o porcentajes
+- Base para cálculos de velocidad y distancia
+- Relacionado con operaciones de fecha/hora
+- Extensión natural a formatos HH:MM:SS
+
+**Problemas resueltos con este patrón:**
+
+- **Mile Pace (FreeCodeCamp):** Cálculo de ritmo por milla
+- **Time Conversion:** Entre diferentes formatos de tiempo
+- **Average Speed:** Velocidad promedio con tiempo y distancia
+- **Duration Formatting:** Formateo consistente de duraciones
