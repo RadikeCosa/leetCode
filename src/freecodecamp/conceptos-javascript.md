@@ -1616,3 +1616,163 @@ function formatSecondsToMMSS(totalSeconds) {
 - **Time Conversion:** Entre diferentes formatos de tiempo
 - **Average Speed:** Velocidad promedio con tiempo y distancia
 - **Duration Formatting:** Formateo consistente de duraciones
+
+## Simulación de Sistemas con Estado
+
+### Patrón de Navegador con Historial Bidireccional
+
+**Patrón:** Simular navegación web usando stacks para historial back/forward, manejando casos edge cuando no hay páginas disponibles.
+
+```javascript
+class BrowserHistory {
+  constructor() {
+    this.current = "Home";
+    this.backHistory = [];
+    this.forwardHistory = [];
+  }
+
+  visit(page) {
+    this.backHistory.push(this.current);
+    this.current = page;
+    this.forwardHistory = []; // Limpiar forward history
+  }
+
+  back() {
+    if (this.backHistory.length > 0) {
+      this.forwardHistory.push(this.current);
+      this.current = this.backHistory.pop();
+    }
+  }
+
+  forward() {
+    if (this.forwardHistory.length > 0) {
+      this.backHistory.push(this.current);
+      this.current = this.forwardHistory.pop();
+    }
+  }
+
+  getCurrentPage() {
+    return this.current;
+  }
+}
+```
+
+**Cuándo usar:**
+
+- Simular navegación con historial
+- Implementar undo/redo
+- Sistemas que necesitan ir atrás y adelante
+- Cualquier estado con "posiciones" anteriores y siguientes
+
+**Técnicas clave:**
+
+- **Dos stacks separados** para direcciones opuestas
+- **Validación antes de pop()** para evitar errores
+- **Limpieza de forward history** al visitar nueva página
+- **Encapsulación en clase** para mejor organización
+
+**Ventajas:**
+
+- Modelo mental claro que refleja navegadores reales
+- Casos edge manejados correctamente
+- Extensible para agregar funcionalidades
+- Reutilizable en otros contextos
+
+**Problemas resueltos:** Navigator (FreeCodeCamp), browser history, undo/redo systems.
+
+### Parsing de Comandos Estructurados
+
+**Patrón:** Procesar comandos con formato consistente, extrayendo parámetros usando métodos de string apropiados según el contexto.
+
+```javascript
+// Diferentes enfoques para parsing de comandos
+function parseCommand(command) {
+  // Enfoque 1: slice() - cuando sabes exactamente la posición
+  if (command.startsWith("Visit ")) {
+    const page = command.slice(6); // "Visit " = 6 caracteres
+  }
+
+  // Enfoque 2: replace() - cuando quieres claridad
+  if (command.startsWith("Visit ")) {
+    const page = command.replace("Visit ", ""); // Explícito qué se remueve
+  }
+
+  // Enfoque 3: split() con destructuring - para comandos con múltiples partes
+  if (command.startsWith("Go to ")) {
+    const [, page, option] = command.split(" ", 3); // ["Go", "to", "page", "option"]
+  }
+
+  // Enfoque 4: regex - para parsing complejo
+  const visitMatch = command.match(/^Visit (.+)$/);
+  if (visitMatch) {
+    const page = visitMatch[1];
+  }
+}
+```
+
+**Cuándo usar cada enfoque:**
+
+**`slice(n)`:**
+
+- ✅ **Performance crítica**: Más rápido que `replace()`
+- ✅ **Posición fija**: Cuando sabes exactamente dónde está el parámetro
+- ❌ **Menos legible**: Puede confundir si no se documenta
+
+**`replace()`**:
+
+- ✅ **Claridad**: Más fácil de entender para reemplazos simples
+- ✅ **Funciona con cualquier posición**: No necesitas saber la posición exacta
+- ❌ **Levemente menos eficiente**: Por el overhead de crear un nuevo string
+
+**`split()` con destructuring:**
+
+- ✅ **Múltiples parámetros fácilmente**: Extrae varios parámetros en una línea
+- ✅ **Claro y legible**: Fácil de entender qué partes se están extrayendo
+- ❌ **Crea array intermedio**: Puede ser menos eficiente por la creación de array
+
+**Regex:**
+
+- ✅ **Muy flexible**: Puede manejar patrones complejos de extracción
+- ✅ **Exactitud**: Solo extrae si el patrón completo coincide
+- ❌ **Complejidad**: Más difícil de entender y mantener
+- ❌ **Overkill para casos simples**: Puede ser innecesario si el comando es simple
+
+**Técnicas clave:**
+
+- **Validación de comandos:** Asegurarse de que el comando es válido antes de procesar
+- **Manejo de errores:** Qué hacer si el comando no es reconocido
+- **Documentación clara:** Especialmente para expresiones regulares complejas
+
+**Ventajas del patrón:**
+
+- **Flexibilidad:** Puede adaptarse a diferentes formatos de comandos
+- **Claridad:** Cada enfoque tiene su propósito y es fácil de entender
+- **Reutilización:** Funciones de parsing pueden ser reutilizadas en diferentes contextos
+- **Extensibilidad:** Nuevos comandos o parámetros pueden ser añadidos fácilmente
+
+**Casos de uso comunes:**
+
+- **Sistemas de comandos:** Donde los usuarios ingresan comandos textuales
+- **Parsing de scripts:** Leer y ejecutar scripts escritos por el usuario
+- **Sistemas de configuración:** Donde las opciones se pasan como comandos
+- **Interfaces de línea de comandos (CLI):** Procesar argumentos y opciones
+
+**Consideraciones importantes:**
+
+- **Seguridad:** Nunca ejecutar comandos sin validar y sanitizar
+- **Errores de usuario:** Proveer mensajes de error claros y útiles
+- **Documentación:** Mantener documentación actualizada de qué comandos están disponibles y cómo se usan
+
+**Patrones relacionados:**
+
+- Similar a procesamiento de eventos pero con comandos textuales
+- Comparable a parsing de archivos de configuración
+- Base para intérpretes de lenguajes de programación
+- Relacionado con sistemas de plugins o extensiones
+
+**Problemas resueltos con este patrón:**
+
+- **Navigator (FreeCodeCamp):** Simulación completa de navegador con comandos
+- **Command Line Parser:** Procesamiento de argumentos de línea de comandos
+- **Config File Processor:** Lectura y aplicación de configuraciones desde archivos
+- **Script Executor:** Ejecución de scripts con comandos personalizados
