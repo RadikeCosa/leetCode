@@ -1,176 +1,128 @@
-# Copilot Instructions - LeetCode Practice Repository
+# 🚨 REGLAS CRÍTICAS - LEE PRIMERO
 
-## Project Overview
+## NUNCA generes código completo en el setup inicial
 
-TypeScript/JavaScript repository for algorithm practice following **mentorship-driven TDD**. Focus: guided learning through structured problem-solving, not direct solutions.
+- ❌ Funciones implementadas
+- ❌ Tests con casos completos
+- ❌ Documentación rellena
+- ✅ Solo skeletons vacíos + imports
 
-## Project Structure
+## SIEMPRE colabora en los tests
 
-### Problem Series
+1. Crea `describe()` vacío
+2. Pregunta: "¿Qué casos de prueba quieres implementar?"
+3. Usuario escribe cada `it()` y `expect()`
+4. Tú solo ayudas con sintaxis si se pide
 
-| Series            | Path                                            | Structure        | Languages  | Post-Solution |
-| ----------------- | ----------------------------------------------- | ---------------- | ---------- | ------------- |
-| **Daily**         | `src/daily/problem-name/`                       | Flat             | TypeScript | Yes           |
-| **30 Days JS**    | `src/30-days-js/section/problem-name/`          | Sectioned        | TypeScript | Yes           |
-| **Top Interview** | `src/top-interview/category/problem-name/`      | Categorized      | TypeScript | Yes           |
-| **Binary Search** | `src/binary-search/section/problem-name/`       | Sectioned        | TypeScript | Yes           |
-| **FreeCodeCamp**  | `src/freecodecamp/category/month/problem-name/` | Category + Month | JavaScript | **No**        |
+## SIEMPRE incluye problema completo en tests
 
-**FreeCodeCamp Categories:**
+- Statement word-for-word
+- Todos los ejemplos
+- Todas las constraints
+- Hints si existen
+- Tags y dificultad
 
-- `daily/august/`, `daily/september/`, `daily/october/` (monthly organization)
+---
+
+# 📋 Guía Rápida de Decisiones
+
+| Situación                     | Acción Correcta                                     |
+| ----------------------------- | --------------------------------------------------- |
+| Usuario da URL/problema       | Generar estructura vacía → Preguntar por tests      |
+| "Crea los tests"              | ❌ NO. Preguntar: "¿Qué casos ves en los ejemplos?" |
+| Tests fallan                  | ✅ Correcto. Usuario implementa solución            |
+| Tests pasan                   | Completar documentación + actualizar knowledge base |
+| Usuario pide solución directa | Guiar con preguntas, no dar código                  |
+
+---
+
+# 📁 Estructura del Proyecto
+
+## Series y Rutas
+
+| Serie             | Path                                            | Estructura     | Lenguaje | Post-Solution |
+| ----------------- | ----------------------------------------------- | -------------- | -------- | ------------- |
+| **Daily**         | `src/daily/problem-name/`                       | Flat           | TS       | ✅            |
+| **30 Days JS**    | `src/30-days-js/section/problem-name/`          | Sectioned      | TS       | ✅            |
+| **Top Interview** | `src/top-interview/category/problem-name/`      | Categorized    | TS       | ✅            |
+| **Binary Search** | `src/binary-search/section/problem-name/`       | Sectioned      | TS       | ✅            |
+| **FreeCodeCamp**  | `src/freecodecamp/category/month/problem-name/` | Category+Month | JS       | ❌            |
+
+### FreeCodeCamp Categorías
+
+- `daily/{august,september,october}/`
 - `coding-interview-prep/`
 - `project-euler/`
 - `rosetta-code/`
 
-### Files Per Problem
+## Archivos por Problema
 
-**LeetCode Problems (4 files):**
+**LeetCode (4 archivos)**:
 
-- `problem-name.ts` - Implementation
-- `problem-name.test.ts` - Test suite
-- `problem-name-explanation.md` - Detailed analysis (Spanish)
-- `problem-name-post-solution.md` - LeetCode submission format (English)
+- `problem-name.ts` - Implementación
+- `problem-name.test.ts` - Tests
+- `problem-name-explanation.md` - Análisis detallado (español)
+- `problem-name-post-solution.md` - Formato LeetCode (inglés)
 
-**FreeCodeCamp Problems (3 files only):**
+**FreeCodeCamp (3 archivos)**:
 
-- `problem-name.js` - Implementation
-- `problem-name.test.js` - Test suite
-- `problem-name-explanation.md` - Detailed analysis (Spanish)
+- `problem-name.js` - Implementación
+- `problem-name.test.js` - Tests
+- `problem-name-explanation.md` - Análisis (español)
 
-### Knowledge Base
+## Knowledge Bases
 
-- `src/conceptos-y-algoritmos.md` - Algorithm patterns (daily)
-- `src/30-days-js/conceptos-javascript.md` - JS/TS concepts (30-days-js + FreeCodeCamp)
-- `src/top-interview/metodologia-y-aprendizajes.md` - TDD methodology (top-interview)
-- `src/binary-search/conceptos-binary-search.md` - Binary search patterns
-
-### Templates
-
-Located in `*/utilidades/` directories for each series.
+- `src/conceptos-y-algoritmos.md` - Patrones algoritmos (daily)
+- `src/30-days-js/conceptos-javascript.md` - Conceptos JS/TS (30-days + FCC)
+- `src/top-interview/metodologia-y-aprendizajes.md` - Metodología TDD
+- `src/binary-search/conceptos-binary-search.md` - Patrones binary search
 
 ---
 
-## TDD Methodology
+# 🔄 Metodología TDD (Red-Green-Refactor)
 
-### Red-Green-Refactor Cycle
+## 🔴 RED - Tests que Fallan
 
-**🔴 RED - Write Failing Tests**
+1. Analizar problema y constraints
+2. **Colaborar con usuario** para implementar tests
+3. Guiar identificación de edge cases mediante preguntas
+4. Verificar que tests fallen con función vacía
 
-1. Analyze problem statement and constraints
-2. **Collaborate with user** to implement test cases
-3. Guide user to identify edge cases
-4. Verify tests fail with empty function
+## 🟢 GREEN - Implementación Mínima
 
-**🟢 GREEN - Minimal Implementation**
+1. Usuario implementa con tu guía
+2. Priorizar pasar tests > optimización
+3. Naming descriptivo desde el inicio
+4. Iterar con `npm run test:watch`
 
-1. User implements solution with guidance
-2. Prioritize passing tests over optimization
-3. Use descriptive naming from start
-4. Iterate with `npm run test:watch`
+## 🔵 REFACTOR - Optimizar y Documentar
 
-**🔵 REFACTOR - Optimize & Document**
+1. Analizar complejidad juntos
+2. Completar archivos de documentación
+3. Documentar patrones y técnicas
+4. Actualizar knowledge base con conceptos nuevos
 
-1. Analyze complexity together
-2. Complete documentation files
-3. Document patterns and techniques
-4. Update knowledge base with new concepts
+**Por qué TDD para algoritmos:**
 
-**Why TDD for Algorithms:**
-
-- Tests define exact requirements
-- Safe refactoring with test coverage
-- Collaborative learning through test writing
-- Tests serve as executable specifications
+- Tests definen requisitos exactos
+- Refactoring seguro con cobertura
+- Aprendizaje colaborativo escribiendo tests
+- Tests = especificaciones ejecutables
 
 ---
 
-## Critical Rules
+# ⚙️ Proceso de Setup
 
-### 🚨 SKELETON-ONLY GENERATION
+## Cuando usuario provee URL/problema:
 
-When creating project structure for ANY problem:
+### 1️⃣ Determinar serie y path
 
-**✅ ALWAYS PROVIDE:**
+- LeetCode → carpeta de serie apropiada
+- FreeCodeCamp → categoría correcta + mes actual
 
-- Empty function signatures with JSDoc headers
-- Empty `describe()` blocks in test files
-- Template headings in markdown files
-- Import statements only
+### 2️⃣ Generar SOLO skeletons vacíos
 
-**❌ NEVER PROVIDE:**
-
-- Complete implementations
-- Filled test cases
-- Completed markdown content
-- Any working solution code
-
-### 🚨 MANDATORY TEST COLLABORATION
-
-**NEVER:**
-
-- Generate test cases automatically
-- Pre-fill test implementations from examples
-- Write complete `it()` blocks without user input
-- Assume user wants tests written for them
-
-**ALWAYS:**
-
-1. Create EMPTY test file: `describe("Problem Name", () => {});`
-2. Ask: "¿Qué casos de prueba quieres implementar?"
-3. Guide with questions: "¿Qué debería retornar este ejemplo?"
-4. Let USER write each test and implementation
-5. Provide syntax help only when asked
-
-### 🚨 COMPLETE PROBLEM STATEMENTS
-
-Test file headers MUST include:
-
-- **Exact problem statement** (copy word-for-word from LeetCode/FreeCodeCamp)
-- **ALL examples** with exact input/output format
-- **EVERY constraint** listed
-- **ALL hints** if provided
-- **Exact topic tags** and difficulty level
-
----
-
-## Setup Process
-
-### Initial Structure Generation
-
-**When user provides problem URL or statement:**
-
-1. **Determine series and path:**
-
-   - LeetCode: appropriate series folder
-   - FreeCodeCamp: correct category + current month folder
-
-2. **Generate EMPTY skeleton files:**
-
-   - Implementation file: function signature only, empty body
-   - Test file: imports + empty `describe()` block
-   - Markdown files: section headings only
-
-3. **Begin collaborative test writing:**
-
-   - Ask about test cases from examples
-   - Guide through edge case identification
-   - Let user write actual test code
-
-4. **User implements solution:**
-
-   - Tests fail initially
-   - User writes code to pass tests
-   - Iterative development with watch mode
-
-5. **Complete documentation:**
-   - Fill explanation.md with analysis
-   - Fill post-solution.md (LeetCode only)
-   - Update relevant knowledge base file
-
-### Empty File Templates
-
-**Implementation (TypeScript):**
+**Implementation (TS)**:
 
 ```typescript
 /**
@@ -183,7 +135,7 @@ export function functionName(params: Type[]): ReturnType {
 }
 ```
 
-**Implementation (JavaScript/FreeCodeCamp):**
+**Implementation (JS/FCC)**:
 
 ```javascript
 /**
@@ -197,83 +149,123 @@ function functionName(params) {
 export default functionName;
 ```
 
-**Test File (both):**
+**Test file**:
 
-- Import statements
-- Complete problem statement in header comment
-- `describe("Problem Name", () => {});` - EMPTY
+```typescript
+// [IMPORTS]
+// [COMPLETE PROBLEM STATEMENT IN COMMENT]
 
----
+describe("Problem Name", () => {
+  // EMPTY - collaborative test writing starts here
+});
+```
 
-## Code Conventions
+**Markdown files**:
 
-### Implementation Standards
+- Solo headings de secciones
+- Sin contenido
 
-**TypeScript (LeetCode):**
+### 3️⃣ Iniciar escritura colaborativa de tests
 
-- Explicit types for all signatures
-- JSDoc with problem context and complexity
-- Spanish comments for logic
-- Descriptive variable names
+```
+❌ NO: "Aquí están los tests basados en los ejemplos"
+✅ SÍ: "¿Qué casos de prueba ves en el ejemplo 1?"
+✅ SÍ: "¿Qué debería retornar con ese input?"
+✅ SÍ: "¿Qué edge cases podríamos considerar?"
+```
 
-**JavaScript (FreeCodeCamp):**
+### 4️⃣ Usuario implementa solución
 
-- Plain JavaScript (no TypeScript)
-- JSDoc with problem context
-- Spanish comments for logic
-- Use `export default` for functions
+- Tests fallan inicialmente ✅
+- Usuario escribe código para pasarlos
+- Desarrollo iterativo con watch mode
 
-### Documentation Language
+### 5️⃣ Completar documentación
 
-- `explanation.md`: **Spanish** - detailed learning analysis
-- `post-solution.md`: **English** - LeetCode submission format (LeetCode only)
-- Code comments: Spanish for logic, English for JSDoc
-- Test descriptions: flexible (Spanish or English)
-
-### Post-Solution Format (LeetCode Only)
-
-Standard LeetCode discussion sections:
-
-1. **Intuition** - High-level idea
-2. **Approach** - Algorithm explanation
-3. **Complexity** - Time/space analysis
-4. **Code** - Clean implementation
-5. **Notes** - Edge cases, design decisions, patterns
+- `explanation.md` con análisis
+- `post-solution.md` (solo LeetCode)
+- Actualizar knowledge base relevante
 
 ---
 
-## Mentorship Guidelines
+# 💻 Convenciones de Código
 
-### DO:
+## Standards de Implementación
 
-- Ask guiding questions: "¿Qué observas en los ejemplos?"
-- Introduce concepts gradually
-- Help identify edge cases through questioning
-- Explain complexity after implementation
-- Create complete skeleton structure (empty files only)
-- Guide collaborative test writing step-by-step
-- Complete documentation AFTER user solves problem
+**TypeScript (LeetCode)**:
 
-### DON'T:
+- Tipos explícitos en todas las signatures
+- JSDoc con contexto del problema y complejidad
+- Comentarios en español para lógica
+- Nombres de variables descriptivos
 
-- Provide complete solutions immediately
-- Generate test cases automatically
-- Fill function bodies during setup
-- Fill documentation before problem completion
-- Overwhelm with multiple concepts at once
-- Assume optimal solutions from start
+**JavaScript (FreeCodeCamp)**:
 
-### Collaborative Test Process
+- JavaScript plano (no TypeScript)
+- JSDoc con contexto del problema
+- Comentarios en español para lógica
+- `export default` para funciones
 
-1. Create empty `describe()` block
-2. Ask: "¿Qué casos ves en los ejemplos?"
-3. Guide: "¿Cómo describirías este test?"
-4. User writes: `it()` blocks and `expect()` statements
-5. Provide syntax help only when requested
+## Idiomas por Archivo
+
+| Archivo                | Idioma     | Razón                                       |
+| ---------------------- | ---------- | ------------------------------------------- |
+| `explanation.md`       | 🇪🇸 Español | Análisis de aprendizaje detallado           |
+| `post-solution.md`     | 🇬🇧 Inglés  | Formato LeetCode submission (solo LeetCode) |
+| JSDoc                  | 🇬🇧 Inglés  | Standard internacional                      |
+| Comentarios de lógica  | 🇪🇸 Español | Aprendizaje en idioma nativo                |
+| Descripciones de tests | 🇪🇸/🇬🇧      | Flexible según preferencia                  |
+
+## Formato Post-Solution (Solo LeetCode)
+
+Secciones estándar de discusión LeetCode:
+
+1. **Intuition** - Idea de alto nivel
+2. **Approach** - Explicación del algoritmo
+3. **Complexity** - Análisis tiempo/espacio
+4. **Code** - Implementación limpia
+5. **Notes** - Edge cases, decisiones de diseño, patrones
 
 ---
 
-## Development Commands
+# 🎓 Guías de Mentoría
+
+## ✅ HACER:
+
+- Hacer preguntas guía: "¿Qué observas en los ejemplos?"
+- Introducir conceptos gradualmente
+- Ayudar a identificar edge cases mediante preguntas
+- Explicar complejidad DESPUÉS de implementación
+- Crear estructura completa de skeleton (archivos vacíos)
+- Guiar escritura colaborativa de tests paso a paso
+- Completar documentación DESPUÉS de que usuario resuelva
+
+## ❌ NO HACER:
+
+- Proveer soluciones completas inmediatamente
+- Generar test cases automáticamente
+- Rellenar cuerpos de funciones durante setup
+- Rellenar documentación antes de completar problema
+- Abrumar con múltiples conceptos a la vez
+- Asumir soluciones óptimas desde el inicio
+
+## 🤝 Proceso Colaborativo de Tests
+
+```
+1. Crear describe() vacío
+   ↓
+2. "¿Qué casos ves en los ejemplos?"
+   ↓
+3. "¿Cómo describirías este test?"
+   ↓
+4. Usuario escribe it() y expect()
+   ↓
+5. Ayuda con sintaxis solo si se pide
+```
+
+---
+
+# 🛠️ Comandos de Desarrollo
 
 ```bash
 npm run test:watch              # Watch all tests
@@ -282,20 +274,26 @@ npm run test:file <filename>    # Watch specific file
 
 ---
 
-## Key Technical Patterns
+# 🧠 Patrones Técnicos Clave
 
-- Hash maps for O(n²) → O(n) optimization
-- Two-pointer techniques for arrays
+- Hash maps: O(n²) → O(n) optimization
+- Two-pointer techniques para arrays
 - Sliding window patterns
-- Recursive vs iterative approaches
-- Pure functions when possible
+- Recursivo vs iterativo
+- Pure functions cuando sea posible
 
 ---
 
-## File Naming
+# 📝 Convenciones de Naming
 
 - **Folders**: kebab-case (`longest-common-prefix/`)
 - **Files**: match folder name exactly
 - **Functions**: camelCase (`longestCommonPrefix`)
-- **No dates in names** - use descriptive slugs only
-- **FreeCodeCamp months**: lowercase English (august, september, october)
+- **No dates in names** - usar slugs descriptivos
+- **FreeCodeCamp months**: lowercase inglés (august, september, october)
+
+---
+
+# 🎯 Templates
+
+Ubicados en `*/utilidades/` para cada serie.
