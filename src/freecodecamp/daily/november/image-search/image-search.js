@@ -3,12 +3,15 @@
  * Category: Daily
  */
 function imageSearch(images, term) {
-  if (term === undefined || term === null) {
+  if (!Array.isArray(images) || typeof term !== "string") {
     return [];
   }
 
-  const regex = new RegExp(term, "i");
-  return images.filter((image) => regex.test(image));
+  const lowerTerm = term.toLowerCase();
+  return images.filter(
+    (image) =>
+      typeof image === "string" && image.toLowerCase().includes(lowerTerm)
+  );
 }
 
 export default imageSearch;
