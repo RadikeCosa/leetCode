@@ -25,14 +25,60 @@ En JavaScript moderno, podemos usar `Array.from()` o bucles anidados para lograr
 
 ## Solución Implementada
 
+La solución utiliza `Array.from()` para crear la estructura de array bidimensional de manera funcional y elegante. Se aprovecha la capacidad de `Array.from()` para crear arrays con longitudes específicas y aplicar funciones de transformación.
+
+```javascript
+function buildMatrix(rows, cols) {
+  return Array.from({ length: rows }, () =>
+    Array.from({ length: cols }, () => 0)
+  );
+}
+```
+
+Esta implementación:
+
+- Crea un array externo con `rows` elementos usando `{length: rows}`
+- Para cada fila, crea un array interno con `cols` elementos usando `{length: cols}`
+- Inicializa cada elemento con el valor `0` usando la función `() => 0`
+
 ## Complejidad
+
+- **Tiempo**: O(rows × cols) - Se crean exactamente `rows × cols` elementos
+- **Espacio**: O(rows × cols) - Se almacena la matriz completa en memoria
+- **Eficiencia**: Lineal en el tamaño total de la matriz
 
 ## Aprendizajes
 
+- **`Array.from()` con objetos length**: Técnica poderosa para crear arrays de tamaño específico con inicialización
+- **Funciones anidadas**: Uso de `Array.from()` dentro de otro `Array.from()` para estructuras multidimensionales
+- **Arrow functions**: Sintaxis concisa para funciones simples de transformación
+- **Matrices en JavaScript**: Representación como arrays de arrays
+- **Inicialización declarativa**: Enfoque funcional vs. imperativo con bucles
+
+### Comparación con otras aproximaciones
+
+**Bucles anidados (imperativo):**
+
+```javascript
+function buildMatrixLoops(rows, cols) {
+  const matrix = [];
+  for (let i = 0; i < rows; i++) {
+    const row = [];
+    for (let j = 0; j < cols; j++) {
+      row.push(0);
+    }
+    matrix.push(row);
+  }
+  return matrix;
+}
+```
+
+**Array.from() (funcional):** Más conciso y expresivo, pero mismo rendimiento.
+
 ## Edge Cases Considerados
 
-- **Rows = 0**: Debería retornar array vacío `[]`
-- **Cols = 0**: Cada fila sería un array vacío `[]`, resultando en `[[], [], ...]`
+- **Rows = 0**: Retorna `[]` (array vacío)
+- **Cols = 0**: Retorna array con `rows` arrays vacíos `[[], [], ...]`
 - **Rows = 1, Cols = 1**: Matriz 1×1 `[[0]]`
-- **Valores grandes**: Hasta 9×1 como en el ejemplo
-- **Inputs no numéricos**: Deberían manejarse con validación
+- **Valores grandes**: Funciona eficientemente hasta límites razonables de memoria
+- **Inputs no numéricos**: No validados (asumir inputs correctos según problema)

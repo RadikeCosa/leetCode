@@ -3,7 +3,9 @@
  * Category: Daily
  */
 function buildMatrix(rows, cols) {
-  // TODO: Implement solution
+  return Array.from({ length: rows }, () =>
+    Array.from({ length: cols }, () => 0)
+  );
 }
 
 export default buildMatrix;
