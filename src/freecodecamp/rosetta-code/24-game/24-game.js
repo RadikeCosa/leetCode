@@ -19,9 +19,22 @@
  * @returns {string} - Arithmetic expression that evaluates to 24 or "no solution exists"
  */
 function solve24(numStr) {
-  let result = "no solution exists";
   const numbers = numStr.split("").map(Number);
   const operators = ["+", "-", "*", "/"];
+
+  // Caso simple: producto directo
+  const simpleProduct = numbers.reduce((a, b) => a * b, 1);
+  if (simpleProduct === 24) {
+    return numbers.join("*");
+  }
+
+  // Caso simple: suma directa
+  const simpleSum = numbers.reduce((a, b) => a + b, 0);
+  if (simpleSum === 24) {
+    return numbers.join("+");
+  }
+
+  // TODO: Implementar búsqueda exhaustiva aquí  return "no solution exists";
 }
 
 export default solve24;

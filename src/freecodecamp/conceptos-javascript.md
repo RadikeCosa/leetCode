@@ -1776,3 +1776,95 @@ function parseCommand(command) {
 - **Command Line Parser:** Procesamiento de argumentos de línea de comandos
 - **Config File Processor:** Lectura y aplicación de configuraciones desde archivos
 - **Script Executor:** Ejecución de scripts con comandos personalizados
+
+## Búsqueda de Texto con Expresiones Regulares
+
+### Patrón de Búsqueda Case-Insensitive con Regex
+
+**Patrón:** Implementar búsqueda de texto que ignore mayúsculas y minúsculas usando expresiones regulares, filtrando arrays de strings para encontrar coincidencias de substrings.
+
+```javascript
+// Image Search: encontrar imágenes que contengan un término de búsqueda
+function imageSearch(images, term) {
+  // Validación defensiva
+  if (term === undefined || term === null) {
+    return [];
+  }
+
+  // Crear regex case-insensitive
+  const regex = new RegExp(term, "i");
+
+  // Filtrar imágenes que contengan el término
+  return images.filter((image) => regex.test(image));
+}
+
+// Versión optimizada sin regex (más robusta)
+function imageSearchOptimized(images, term) {
+  // Validación más robusta
+  if (!Array.isArray(images) || typeof term !== "string") {
+    return [];
+  }
+
+  // Normalización case-insensitive
+  const lowerTerm = term.toLowerCase();
+
+  // Filtrar con includes() - evita problemas con caracteres especiales
+  return images.filter(
+    (image) =>
+      typeof image === "string" && image.toLowerCase().includes(lowerTerm)
+  );
+}
+```
+
+**Cuándo usar:**
+
+- Búsqueda de texto que debe ignorar mayúsculas/minúsculas
+- Filtrado de arrays basado en contenido de strings
+- Validación de presencia de substrings en colecciones
+- Problemas de matching de texto con requisitos de case-insensitivity
+
+**Técnicas clave:**
+
+- **`new RegExp(term, "i")`:** Flag `'i'` para case-insensitive matching
+- **`regex.test(string)`:** Verificación eficiente de coincidencias
+- **`filter()` con callback:** Procesamiento funcional de arrays
+- **Validación de tipos:** Asegurar inputs correctos antes de procesar
+- **Normalización con `toLowerCase()`:** Alternativa sin regex para mayor robustez
+
+**Ventajas:**
+
+- **Simplicidad:** Regex con flag `'i'` es la solución más directa
+- **Eficiencia:** `test()` es O(m) donde m es longitud del string
+- **Funcional:** Se integra perfectamente con métodos de array
+- **Flexible:** Regex permite patrones más complejos si se necesitan
+- **Reutilizable:** Patrón aplicable a cualquier búsqueda de texto
+
+**Complejidad:**
+
+- **Tiempo:** O(n × m) donde n = número de imágenes, m = longitud promedio
+- **Espacio:** O(k) donde k = número de matches (array resultante)
+
+**Casos de uso comunes:**
+
+- **Búsqueda de archivos/imágenes:** Como en el problema Image Search
+- **Filtrado de listas:** Encontrar elementos que contengan cierto texto
+- **Validación de contenido:** Verificar presencia de palabras clave
+- **Búsqueda en bases de datos:** Queries case-insensitive
+- **Procesamiento de texto:** Análisis de contenido ignorando casing
+
+**Comparación: Regex vs `includes()`**
+
+| Aspecto          | Regex (`RegExp`)                  | `includes()`               |
+| ---------------- | --------------------------------- | -------------------------- |
+| **Simplicidad**  | Directo con flag `'i'`            | Requiere `toLowerCase()`   |
+| **Robustez**     | Puede fallar con chars especiales | Siempre funciona           |
+| **Flexibilidad** | Permite patrones complejos        | Solo substring exacto      |
+| **Performance**  | Similar para casos simples        | Similar para casos simples |
+| **Legibilidad**  | Claro para programadores          | Más intuitivo              |
+
+**Problemas resueltos con este patrón:**
+
+- **Image Search (FreeCodeCamp):** Búsqueda case-insensitive en nombres de archivos
+- **Text Filter:** Filtrar listas de elementos por contenido
+- **Search Functionality:** Implementar búsqueda en aplicaciones
+- **Content Validation:** Verificar presencia de términos específicos
