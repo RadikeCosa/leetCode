@@ -17,15 +17,17 @@ Para comparar strings de versión, compara sus valores de revisión en orden de 
 ### Casos de Ejemplo
 
 1. `version1 = "1.2"`, `version2 = "1.10"` → `-1`
+
    - Primera revisión: 1 === 1 ✅ continuar
    - Segunda revisión: 2 < 10 ✅ retornar -1
 
-2. `version1 = "1.01"`, `version2 = "1.001"` → `0`  
+2. `version1 = "1.01"`, `version2 = "1.001"` → `0`
+
    - Primera revisión: 1 === 1 ✅ continuar
    - Segunda revisión: parseInt("01") === parseInt("001") → 1 === 1 ✅ retornar 0
 
 3. `version1 = "1.0"`, `version2 = "1.0.0.0"` → `0`
-   - Primera revisión: 1 === 1 ✅ continuar  
+   - Primera revisión: 1 === 1 ✅ continuar
    - Segunda revisión: 0 === 0 ✅ continuar
    - Tercera revisión: 0 (faltante) === 0 ✅ continuar
    - Cuarta revisión: 0 (faltante) === 0 ✅ retornar 0
@@ -48,26 +50,30 @@ Para comparar strings de versión, compara sus valores de revisión en orden de 
 4. **Convertir y comparar:** `parseInt()` maneja ceros a la izquierda automáticamente
 
 ```typescript
-export function compareVersionSplit(version1: string, version2: string): number {
-  const parts1 = version1.split('.'); // ["1", "2"]
-  const parts2 = version2.split('.'); // ["1", "10"]
-  
+export function compareVersionSplit(
+  version1: string,
+  version2: string
+): number {
+  const parts1 = version1.split("."); // ["1", "2"]
+  const parts2 = version2.split("."); // ["1", "10"]
+
   const maxLength = Math.max(parts1.length, parts2.length);
-  
+
   for (let i = 0; i < maxLength; i++) {
     const num1 = parseInt(parts1[i] || "0"); // Si no existe, usar "0"
     const num2 = parseInt(parts2[i] || "0");
-    
+
     if (num1 > num2) return 1;
     if (num1 < num2) return -1;
     // Si son iguales, continuar al siguiente
   }
-  
+
   return 0; // Todas las revisiones son iguales
 }
 ```
 
 **Complejidad:**
+
 - Tiempo: O(n + m) - recorrer ambos strings una vez
 - Espacio: O(n + m) - almacenar arrays del split
 
@@ -88,15 +94,15 @@ export function compareVersion(version1: string, version2: string): number {
   while (p1 < version1.length || p2 < version2.length) {
     // Extraer próximo número de version1
     let num1 = 0;
-    while (p1 < version1.length && version1[p1] !== '.') {
+    while (p1 < version1.length && version1[p1] !== ".") {
       num1 = num1 * 10 + parseInt(version1[p1]); // Construir número dígito a dígito
       p1++;
     }
     p1++; // Saltar el punto '.'
 
-    // Extraer próximo número de version2  
+    // Extraer próximo número de version2
     let num2 = 0;
-    while (p2 < version2.length && version2[p2] !== '.') {
+    while (p2 < version2.length && version2[p2] !== ".") {
       num2 = num2 * 10 + parseInt(version2[p2]); // Construir número dígito a dígito
       p2++;
     }
@@ -112,16 +118,18 @@ export function compareVersion(version1: string, version2: string): number {
 ```
 
 **Complejidad:**
+
 - Tiempo: O(n + m) - cada carácter se procesa exactamente una vez
 - Espacio: O(1) - solo variables auxiliares
 
 ### Construcción de Números Dígito a Dígito
 
 Ejemplo con "123":
+
 ```typescript
-num = 0
+num = 0;
 // Procesar '1': num = 0 * 10 + 1 = 1
-// Procesar '2': num = 1 * 10 + 2 = 12  
+// Procesar '2': num = 1 * 10 + 2 = 12
 // Procesar '3': num = 12 * 10 + 3 = 123
 ```
 
@@ -143,6 +151,7 @@ num1 = num1 * 10 + (version1[p1].charCodeAt(0) - 48);
 ```
 
 **Explicación:**
+
 - `charCodeAt(0)` obtiene el código ASCII del primer carácter
 - Los dígitos '0'-'9' tienen códigos ASCII 48-57
 - Restar 48 convierte código ASCII a valor numérico
@@ -159,6 +168,7 @@ if (p2 < version2.length) p2++;
 ```
 
 **Explicación:**
+
 - Previene incrementar punteros más allá del final del string
 - Más seguro aunque no afecte funcionalidad en este caso específico
 
@@ -174,13 +184,44 @@ if (result !== 0) return result;
 
 ## Comparación de Enfoques
 
-| Aspecto | Split | Two Pointers |
-|---------|-------|--------------|
-| **Legibilidad** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| **Tiempo** | O(n + m) | O(n + m) |
-| **Espacio** | O(n + m) | **O(1)** ✅ |
-| **Facilidad debug** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Memoria óptima** | ❌ | ✅ |
+| Aspecto             | Split      | Two Pointers |
+| ------------------- | ---------- | ------------ |
+| **Legibilidad**     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐     |
+| **Tiempo**          | O(n + m)   | O(n + m)     |
+| **Espacio**         | O(n + m)   | **O(1)** ✅  |
+| **Facilidad debug** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐       |
+| **Memoria óptima**  | ❌         | ✅           |
+
+## Enfoques Alternativos
+
+### Enfoque 3: Extracción con Regex (conciso)
+
+- Usar expresiones regulares para extraer todos los segmentos numéricos: `version.match(/\d+/g)`.
+- Conviene cuando quieres una solución compacta y tolerante a puntos extra o formatos raros.
+- Ejemplo (idea): extraer arrays con regex y comparar elemento a elemento, usando `BigInt` si los segmentos pueden ser muy grandes.
+
+### Enfoque 4: Normalización de Strings (sin conversión numérica)
+
+- Para evitar conversiones numéricas y posibles problemas de overflow:
+  1. Extraer segmentos con regex o `split`.
+  2. Quitar ceros a la izquierda: `s.replace(/^0+/, "") || "0"`.
+  3. Comparar por longitud; si iguales, comparar lexicográficamente.
+- Útil cuando los segmentos pueden ser arbitrariamente largos y quieres O(1) o bajo overhead por elemento.
+
+### ¿Mencionar BigInt?
+
+- Recomendación: mencionarlo como alternativa opcional, no como la opción por defecto.
+- ¿Cuándo usar BigInt?
+  - Si esperas segmentos con más de ~15 dígitos (más allá de Number.MAX_SAFE_INTEGER).
+  - Si las constraints no están especificadas o el input puede ser malicioso.
+- Contras: overhead de rendimiento y compatibilidad en entornos muy antiguos.
+- Conclusión práctica: en la mayoría de problemas tipo LeetCode no hace falta; añadir la nota es suficiente para cubrir el caso extremo.
+
+## Resumen Rápido
+
+- Split y two-pointers son las soluciones más comunes y eficientes para casos estándar.
+- Regex ofrece concisión; la normalización evita conversiones numéricas.
+- BigInt: opcional y justificado solo para segmentos extremadamente grandes.
 
 ## Lecciones Aprendidas
 
