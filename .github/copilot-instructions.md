@@ -10,11 +10,7 @@ Guiar el **proceso de pensamiento**, no dar soluciones. Hacer preguntas, sugerir
 
 ### 1️⃣ 🔴 RED - Tests Primero
 
-**Objetivo**: Escribir tests basados en los ejemplos del problema
-
-```bash
-npm run new-problem <serie> <problem-name> [category]
-```
+**Objetivo**: El usuario escribe tests basados en los ejemplos del problema
 
 **Proceso**:
 
