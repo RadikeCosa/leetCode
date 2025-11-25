@@ -1,6 +1,9 @@
 # Remove Duplicates from Sorted Array II
 
 Dado un array de enteros `nums` ordenado en orden no decreciente, remover algunos duplicados **in-place** de tal manera que cada elemento único aparezca como máximo dos veces. El orden relativo de los elementos debe mantenerse igual.
+Desde el momento que es imposible cambiar el tamaño del array en algunos lenguajes, la función debe devolver la nueva longitud del array después de los cambios. De modo mas formal, se debe hacer que los primeros `k` elementos de `nums` contengan los elementos deseados. No importa lo que se deje más allá de la nueva longitud.
+Devuelve `k` después de modificar el array `nums` de acuerdo a lo descrito anteriormente.
+No uses espacio extra para otro array. Debes hacer los cambios **in-place** con O(1) espacio adicional.
 
 ## Ejemplos
 
