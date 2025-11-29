@@ -1,3 +1,13 @@
+---
+name: timeout-cancellation
+difficulty: easy
+category: 30-days-js
+topics: [Timeout, Closure, Async]
+source: leetcode
+series: parte-4-programacion-asincrona
+createdAt: 2025-09-15
+---
+
 # Timeout Cancellation
 
 ## Descripción del Problema

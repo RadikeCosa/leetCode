@@ -1,3 +1,13 @@
+---
+name: function-composition
+difficulty: easy
+category: 30-days-js
+topics: [Function Composition, Higher Order Function, Array]
+source: leetcode
+series: parte-3-function-transformations
+createdAt: 2025-09-07
+---
+
 # Function Composition - Solución Completada
 
 Implementar una función que tome un array de funciones y retorne una nueva función que sea la composición de todas ellas.

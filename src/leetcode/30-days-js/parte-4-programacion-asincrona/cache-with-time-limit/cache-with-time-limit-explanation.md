@@ -1,3 +1,13 @@
+---
+name: cache-with-time-limit
+difficulty: medium
+category: 30-days-js
+topics: [Cache, Timeout, Map, OOP]
+source: leetcode
+series: parte-4-programacion-asincrona
+createdAt: 2025-09-11
+---
+
 # Problema: Cache With Time Limit (LeetCode 2622)
 
 ## Descripción del Problema

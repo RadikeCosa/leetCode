@@ -1,3 +1,13 @@
+---
+name: apply-transform-over-each-element-in-array
+difficulty: easy
+category: 30-days-js
+topics: [Array, Higher Order Function, Map]
+source: leetcode
+series: parte-2-transformacion-de-arrays
+createdAt: 2025-09-04
+---
+
 # Apply Transform Over Each Element in Array
 
 Implementar una función que aplique una transformación a cada elemento de un array, similar a Array.map() pero sin usar el método nativo.

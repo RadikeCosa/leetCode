@@ -1,3 +1,13 @@
+---
+name: is-object-empty
+difficulty: easy
+category: 30-days-js
+topics: [Object, Array, Empty Check]
+source: leetcode
+series: parte-5-JSON
+createdAt: 2025-09-18
+---
+
 # Problema 2727: Is Object Empty
 
 ## Análisis del Problema

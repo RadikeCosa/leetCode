@@ -1,3 +1,13 @@
+---
+name: memoize
+difficulty: medium
+category: 30-days-js
+topics: [Memoization, Closure, Cache]
+source: leetcode
+series: parte-3-function-transformations
+createdAt: 2025-09-08
+---
+
 # Memoize
 
 Dado una función `fn`, retorna una versión memoizada de esa función.

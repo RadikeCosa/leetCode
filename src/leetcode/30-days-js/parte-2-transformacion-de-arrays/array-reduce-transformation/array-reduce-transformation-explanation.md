@@ -1,3 +1,13 @@
+---
+name: array-reduce-transformation
+difficulty: easy
+category: 30-days-js
+topics: [Array, Reduce, Functional Programming]
+source: leetcode
+series: parte-2-transformacion-de-arrays
+createdAt: 2025-09-05
+---
+
 # Array Reduce Transformation
 
 Implementar una función que reduzca un array a un valor único aplicando secuencialmente una función reductora, similar a Array.reduce() pero sin usar el método nativo.

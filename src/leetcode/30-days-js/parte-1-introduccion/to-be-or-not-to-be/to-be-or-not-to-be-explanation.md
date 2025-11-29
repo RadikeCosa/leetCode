@@ -1,3 +1,13 @@
+---
+name: to-be-or-not-to-be
+difficulty: easy
+category: 30-days-js
+topics: [Testing, Equality, Error Handling]
+source: leetcode
+series: parte-1-introduccion
+createdAt: 2025-09-03
+---
+
 # To Be Or Not To Be
 
 Write a function expect that helps developers test their code. It should take in any value val and return an object with the following two functions:

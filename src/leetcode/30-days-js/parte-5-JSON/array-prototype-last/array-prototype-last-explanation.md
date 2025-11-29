@@ -1,3 +1,13 @@
+---
+name: array-prototype-last
+difficulty: easy
+category: 30-days-js
+topics: [Array, Prototype, Extension]
+source: leetcode
+series: parte-5-JSON
+createdAt: 2025-09-16
+---
+
 # LeetCode Problem 2619: Array Prototype Last
 
 ## Descripción del Problema

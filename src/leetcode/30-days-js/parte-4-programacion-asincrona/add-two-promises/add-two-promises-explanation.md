@@ -1,3 +1,13 @@
+---
+name: add-two-promises
+difficulty: easy
+category: 30-days-js
+topics: [Promise, Async/Await, Concurrency]
+source: leetcode
+series: parte-4-programacion-asincrona
+createdAt: 2025-09-10
+---
+
 # Add Two Promises
 
 Dado dos promesas promise1 y promise2, retorna una nueva promesa. promise1 y promise2 se resolverán con un número. La promesa retornada debe resolverse con la suma de los dos números.

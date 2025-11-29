@@ -1,3 +1,13 @@
+---
+name: chunk-array
+difficulty: easy
+category: 30-days-js
+topics: [Array, Chunk, Slicing]
+source: leetcode
+series: parte-5-JSON
+createdAt: 2025-09-17
+---
+
 # Chunk Array - Análisis del Problema
 
 ## Descripción del Problema

@@ -1,3 +1,13 @@
+---
+name: return-length-of-arguments-passed
+difficulty: easy
+category: 30-days-js
+topics: [Rest Parameters, Arguments, Function]
+source: leetcode
+series: parte-3-function-transformations
+createdAt: 2025-09-09
+---
+
 # Return Length of Arguments Passed
 
 Implementar una función que retorne la cantidad de argumentos que se le pasan.

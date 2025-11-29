@@ -1,3 +1,13 @@
+---
+name: counter-ii
+difficulty: easy
+category: 30-days-js
+topics: [Closure, Factory Pattern, State Management]
+source: leetcode
+series: parte-1-introduccion
+createdAt: 2025-09-02
+---
+
 # Counter II
 
 Escribe una función `createCounter` que acepta un entero inicial `init`. Debe retornar un objeto con tres funciones:

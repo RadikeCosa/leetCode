@@ -1,3 +1,12 @@
+---
+name: JSON-stringify-vs-toString
+category: 30-days-js
+topics: [Serialization, Array, Memoization]
+source: leetcode
+series: parte-3-function-transformations
+createdAt: 2025-09-08
+---
+
 # JSON.stringify vs toString: Explicación Detallada
 
 ## 🎯 Diferencias Fundamentales

@@ -1,3 +1,13 @@
+---
+name: counter
+difficulty: easy
+category: 30-days-js
+topics: [Closure, Function Factory, State Management]
+source: leetcode
+series: parte-1-introduccion
+createdAt: 2025-09-01
+---
+
 # Counter
 
 Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
@@ -9,12 +19,8 @@ Given an integer n, return a counter function. This counter function initially r
 - Explanation: counter() = 10, counter() = 11, counter() = 12
 
 - Input: n = -2, calls = ["call","call","call","call","call"]
-- Output: [-2,-1,0,1,2]
-- Explanation: counter() initially returns -2. Then increases after each subsequent call.
 
 ## Análisis
-
-Este problema profundiza en conceptos fundamentales de JavaScript:
 
 1. **Closures con estado mutable**: La función interna modifica variables del scope externo
 2. **Post-incremento (`++`)**: Operador que retorna el valor actual y luego incrementa
@@ -46,12 +52,11 @@ export function createCounter(n: number): () => number {
 
 ### Solución 2: Concisa (Definitiva)
 
-```typescript
-export function createCounter(n: number): () => number {
-  return function (): number {
-    return n++; // Post-incremento: retorna n, luego incrementa
-  };
+return function (): number {
+return n++; // Post-incremento: retorna n, luego incrementa
+};
 }
+
 ```
 
 **Ventajas:**
@@ -61,9 +66,6 @@ export function createCounter(n: number): () => number {
 - ✅ **Eficiencia**: Menos variables temporales
 
 ### Comparación de operadores:
-
-```typescript
-let x = 5;
 
 // Post-incremento: retorna ANTES de incrementar
 console.log(x++); // → 5, luego x = 6
@@ -105,16 +107,9 @@ function createCounter(n: number) {
 - **Valores límite**: `createCounter(1000)` funciona correctamente
 - **Múltiples instancias**: Cada contador mantiene su propio estado independiente
 - **Sin llamadas**: La función se crea pero no se ejecuta hasta ser invocada
-
-## Complejidad
-
-- **Time complexity**: O(1) - cada llamada al contador es tiempo constante
-- **Space complexity**: O(1) - solo almacena el valor actual del contador
 - **Memoria persistente**: El closure mantiene la variable `n` en memoria mientras la función exista
 
 ## Conclusión
-
-Este problema enseña conceptos avanzados de JavaScript:
 
 1. **Closures mutables**: Modificar estado del scope externo
 2. **Post vs Pre incremento**: Diferencias críticas en el orden de operaciones
@@ -127,5 +122,3 @@ Este problema enseña conceptos avanzados de JavaScript:
 - El operador `++` tiene dos formas con comportamientos diferentes
 - JavaScript permite crear funciones "stateful" sin clases
 - La simplicidad no siempre significa menos poder
-
-Es un excelente problema para dominar closures antes de avanzar a conceptos más complejos.

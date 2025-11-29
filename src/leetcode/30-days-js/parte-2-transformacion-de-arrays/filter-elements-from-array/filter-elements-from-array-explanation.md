@@ -1,3 +1,13 @@
+---
+name: filter-elements-from-array
+difficulty: easy
+category: 30-days-js
+topics: [Array, Predicate, Filter]
+source: leetcode
+series: parte-2-transformacion-de-arrays
+createdAt: 2025-09-06
+---
+
 # Filter Elements from Array
 
 Implementar una función que filtre elementos de un array basándose en una función de predicado, similar a Array.filter() pero sin usar el método nativo.
