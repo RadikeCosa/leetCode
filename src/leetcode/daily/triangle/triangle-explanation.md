@@ -1,3 +1,13 @@
+---
+name: triangle
+difficulty: medium
+category: daily
+topics: [Array, Dynamic Programming, Path Sum]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # LeetCode 120: Triangle
 
 ## Análisis del Problema

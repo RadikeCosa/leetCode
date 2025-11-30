@@ -1,3 +1,13 @@
+---
+name: remove-duplicates-from-sorted-array
+difficulty: easy
+category: top-interview-array-string
+topics: [Array, Two Pointers, In-place]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Remove Duplicates from Sorted Array - Análisis del Problema
 
 ## Descripción del Problema

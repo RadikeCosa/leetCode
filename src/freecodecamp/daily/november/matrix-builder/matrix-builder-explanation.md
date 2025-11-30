@@ -1,3 +1,15 @@
+---
+name: matrix-builder
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics:
+  - matrix
+  - Matrix
+createdAt: 2025-11-05
+---
+
 # Matrix Builder
 
 ## Análisis del Problema

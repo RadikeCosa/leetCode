@@ -1,3 +1,13 @@
+---
+name: vowels-and-consonants
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics: []
+createdAt: 2025-11-11
+---
+
 # ✨ Vowels And Consonants - Análisis y Explicación
 
 ## 📋 Enunciado del Problema

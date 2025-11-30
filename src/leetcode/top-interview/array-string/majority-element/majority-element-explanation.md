@@ -1,3 +1,13 @@
+---
+name: majority-element
+difficulty: easy
+category: top-interview-array-string
+topics: [Array, Hash Map, Boyer-Moore]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Majority Element - Análisis y Explicación
 
 ## Enunciado del Problema

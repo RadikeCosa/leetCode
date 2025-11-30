@@ -1,3 +1,13 @@
+---
+name: extension-extractor
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-10
+---
+
 # 🔍 Extension Extractor - Análisis y Explicación
 
 ## 📋 Enunciado del Problema

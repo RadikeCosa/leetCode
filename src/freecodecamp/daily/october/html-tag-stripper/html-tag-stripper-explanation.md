@@ -1,3 +1,19 @@
+---
+name: html-tag-stripper
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-14
+difficulty: easy
+topics:
+  - String
+  - Regex
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # HTML Tag Stripper
 
 ## Análisis del Problema

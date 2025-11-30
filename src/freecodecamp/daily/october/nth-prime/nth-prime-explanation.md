@@ -1,3 +1,19 @@
+---
+name: nth-prime
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-10
+difficulty: medium
+topics:
+  - Math
+  - Prime
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Nth Prime - Análisis de Soluciones
 
 ## Análisis del Problema
@@ -5,11 +21,13 @@
 El problema consiste en encontrar el n-ésimo número primo en la secuencia de números primos.
 
 ### Requisitos
+
 - **Entrada**: Un número entero positivo `n` (1 ≤ n ≤ 1000)
 - **Salida**: El n-ésimo número primo
 - **Definición**: Un número primo es un entero positivo mayor que 1 que solo es divisible por 1 y sí mismo
 
 ### Ejemplos de Entrada/Salida
+
 ```
 n = 5    → 11    (5to primo)
 n = 10   → 29    (10mo primo)
@@ -43,6 +61,7 @@ function nthPrime(n) {
 ```
 
 #### Características:
+
 - ✅ Muy legible y fácil de entender
 - ✅ Implementación directa del concepto
 - ✅ Optimización básica usando raíz cuadrada
@@ -50,7 +69,8 @@ function nthPrime(n) {
 - ❌ Repite cálculos innecesariamente
 
 #### Rendimiento:
-- **Complejidad Temporal**: O(n * √m) donde m es el valor del n-ésimo primo
+
+- **Complejidad Temporal**: O(n \* √m) donde m es el valor del n-ésimo primo
 - **Complejidad Espacial**: O(1)
 - **Tiempos Típicos**:
   - n = 100: ~50ms
@@ -83,6 +103,7 @@ function nthPrime(n) {
 ```
 
 #### Características:
+
 - ✅ Buen balance entre legibilidad y rendimiento
 - ✅ Optimizaciones intuitivas
 - ✅ Reutiliza cálculos previos
@@ -90,7 +111,8 @@ function nthPrime(n) {
 - ❌ Mayor uso de memoria
 
 #### Rendimiento:
-- **Complejidad Temporal**: O(n * log(log(n))) promedio
+
+- **Complejidad Temporal**: O(n \* log(log(n))) promedio
 - **Complejidad Espacial**: O(n)
 - **Tiempos Típicos**:
   - n = 100: ~20ms
@@ -127,6 +149,7 @@ function nthPrime(n) {
 ```
 
 #### Características:
+
 - ✅ Altamente optimizado
 - ✅ Reduce drásticamente verificaciones
 - ✅ Patrón de saltos eficiente
@@ -134,7 +157,8 @@ function nthPrime(n) {
 - ❌ Difícil de mantener
 
 #### Rendimiento:
-- **Complejidad Temporal**: O(n * log(log(n))) con constantes menores
+
+- **Complejidad Temporal**: O(n \* log(log(n))) con constantes menores
 - **Complejidad Espacial**: O(n)
 - **Tiempos Típicos**:
   - n = 100: ~15ms
@@ -143,18 +167,21 @@ function nthPrime(n) {
 ## Técnicas Avanzadas (No Implementadas)
 
 ### 1. Segmented Sieve of Eratosthenes
+
 - Divide el rango de búsqueda en segmentos
 - Mejor localidad de caché
 - Menor uso de memoria
 - Ideal para n > 100000
 
 ### 2. Miller-Rabin Primality Testing
+
 - Test probabilístico de primalidad
 - Extremadamente rápido para números grandes
 - Determinístico hasta cierto rango
 - Útil para verificación de números muy grandes
 
 ### 3. Wheel Factorization Avanzado
+
 - Ruedas más grandes (210, 2310)
 - Elimina más compuestos
 - Mayor complejidad de implementación
@@ -173,16 +200,19 @@ Para este problema específico (n ≤ 1000), la solución con caché de primos e
 ## Aprendizajes y Patrones
 
 1. **Optimización Incremental**:
+
    - Empezar con solución simple
    - Añadir optimizaciones una a una
    - Medir impacto de cada cambio
 
 2. **Trade-offs**:
+
    - Velocidad vs Memoria
    - Complejidad vs Legibilidad
    - Generalidad vs Optimización específica
 
 3. **Patrones de Optimización**:
+
    - Caché de resultados
    - Reducción de espacio de búsqueda
    - Reutilización de cálculos previos

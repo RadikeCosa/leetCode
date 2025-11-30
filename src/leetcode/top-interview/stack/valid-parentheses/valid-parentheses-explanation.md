@@ -77,6 +77,17 @@ if (
   (char === "]" && last !== "[")
 ) {
   return false;
+# ---
+id: valid-parentheses
+source: leetcode
+series: top-interview
+category: top-interview
+difficulty: easy
+topics:
+  - String
+  - Stack
+createdAt: 2025-09-09
+# ---
 }
 ```
 

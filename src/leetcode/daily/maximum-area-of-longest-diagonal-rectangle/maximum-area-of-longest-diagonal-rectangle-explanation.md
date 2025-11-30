@@ -1,3 +1,13 @@
+---
+name: maximum-area-of-longest-diagonal-rectangle
+difficulty: easy
+category: daily
+topics: [Array, Math, Geometry, Sorting]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Maximum Area of Longest Diagonal Rectangle
 
 Dado un array 2D de enteros `dimensions`, donde cada `dimensions[i]` representa `[length, width]` de un rectángulo, retorna el área del rectángulo con la diagonal más larga. Si hay múltiples rectángulos con la misma diagonal más larga, retorna el área del rectángulo con mayor área.

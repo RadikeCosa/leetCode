@@ -1,3 +1,19 @@
+---
+name: string-mirror
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-11
+difficulty: easy
+topics:
+  - String
+  - Array
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # String Mirror
 
 ## Enunciado del problema
@@ -265,7 +281,3 @@ function isMirror(str1, str2) {
 - **Recursión**: Casos base y recursión para problemas de comparación
 - **Complejidad algorítmica**: Análisis de tiempo y espacio en operaciones de strings
 - **Debugging**: Importancia de verificar casos edge y leer errores de tests cuidadosamente
-
-```
-
-```

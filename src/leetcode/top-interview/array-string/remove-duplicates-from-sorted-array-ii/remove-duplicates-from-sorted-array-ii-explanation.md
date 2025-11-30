@@ -1,3 +1,13 @@
+---
+name: remove-duplicates-from-sorted-array-ii
+difficulty: medium
+category: top-interview-array-string
+topics: [Array, Two Pointers, In-place]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Remove Duplicates from Sorted Array II
 
 Dado un array de enteros `nums` ordenado en orden no decreciente, remover algunos duplicados **in-place** de tal manera que cada elemento único aparezca como máximo dos veces. El orden relativo de los elementos debe mantenerse igual.

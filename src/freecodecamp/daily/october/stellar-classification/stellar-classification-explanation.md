@@ -1,3 +1,19 @@
+---
+name: stellar-classification
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-04
+difficulty: easy
+topics:
+  - Math
+  - Mapping
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Clasificación Estelar
 
 Dado la temperatura superficial de una estrella en Kelvin (K), determinar su clasificación estelar basada en rangos específicos de temperatura.

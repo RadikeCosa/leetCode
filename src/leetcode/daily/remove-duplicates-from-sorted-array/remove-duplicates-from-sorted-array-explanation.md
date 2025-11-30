@@ -1,3 +1,13 @@
+---
+name: remove-duplicates-from-sorted-array
+difficulty: easy
+category: daily
+topics: [Array, Two Pointers, In-place]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Remove Duplicates from Sorted Array
 
 Dado un array de enteros ordenado en orden no decreciente, remover los duplicados in-place de forma que cada elemento único aparezca solo una vez. El orden relativo de los elementos debe mantenerse igual.

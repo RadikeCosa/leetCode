@@ -118,7 +118,18 @@ export function createExplanationTemplate(problemName: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-  return `# ${titleCase} - Análisis y Explicación
+  return `---
+title: ${titleCase}
+source: leetcode
+series: TODO
+category: TODO
+createdAt: ${new Date().toISOString().slice(0, 10)}
+difficulty: TODO
+topics:
+  - TODO
+---
+
+# ${titleCase} - Análisis y Explicación
 
 ## Enunciado del Problema
 

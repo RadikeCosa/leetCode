@@ -1,6 +1,13 @@
-¡Claro que sí! Aquí tienes tu documento **100% completo, bien estructurado y listo para publicar** (o para tu repositorio personal), reflejando exactamente la solución óptima al problema **LeetCode #122 - Best Time to Buy and Sell Stock II**.
+---
+name: best-time-to-sell-and-buy-stocks-ii
+difficulty: medium
+category: top-interview-array-string
+topics: [Array, Greedy, Multiple Transactions]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
 
-````markdown
 # Best Time To Sell And Buy Stocks II - Análisis y Explicación
 
 **LeetCode #122** | Medium | Top Interview 150  
@@ -26,7 +33,6 @@ Input: prices = [7,1,5,3,6,4]    → Output: 7
 Input: prices = [1,2,3,4,5]      → Output: 4
 Input: prices = [7,6,4,3,1]      → Output: 0
 ```
-````
 
 ## Análisis Inicial
 

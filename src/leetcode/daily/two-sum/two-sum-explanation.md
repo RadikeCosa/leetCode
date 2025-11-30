@@ -1,3 +1,13 @@
+---
+name: two-sum
+difficulty: easy
+category: daily
+topics: [Array, Hash Map, Two Sum]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Two Sum - Análisis y Explicación
 
 ## Descripción del Problema

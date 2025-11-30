@@ -1,3 +1,20 @@
+---
+name: anagram-checker
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-01
+difficulty: easy
+topics:
+  - String
+  - Hash Table
+  - Sorting
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Anagram Checker
 
 ## Enunciado del Problema

@@ -1,3 +1,13 @@
+---
+name: power-of-three
+difficulty: easy
+category: daily
+topics: [Math, Powers, Division, Magic Number]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Power of Three - Documentación
 
 ## Descripción del Problema

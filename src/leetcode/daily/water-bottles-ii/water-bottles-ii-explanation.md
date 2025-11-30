@@ -1,3 +1,13 @@
+---
+name: water-bottles-ii
+difficulty: medium
+category: daily
+topics: [Math, Simulation, Greedy]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # LeetCode 3100: Water Bottles II
 
 ## Descripción del Problema

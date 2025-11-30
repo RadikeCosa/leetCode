@@ -1,3 +1,13 @@
+---
+title: Message Decoder
+source: freecodecamp
+series: daily
+category: daily august
+difficulty: easy
+topics: []
+createdAt: 2025-11-03
+---
+
 # Message Decoder - Análisis y Solución
 
 ## Descripción del Problema

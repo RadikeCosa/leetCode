@@ -1,3 +1,13 @@
+---
+name: power-of-two
+difficulty: easy
+category: daily
+topics: [Bit Manipulation, Math]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Power of Two - Documentación
 
 ## Descripción del Problema

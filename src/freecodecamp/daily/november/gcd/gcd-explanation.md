@@ -1,3 +1,13 @@
+---
+name: gcd
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-05
+---
+
 # Gcd - Análisis y Explicación
 
 ## Enunciado del Problema

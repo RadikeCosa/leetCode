@@ -1,3 +1,20 @@
+---
+name: caught-speeding
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-02
+difficulty: easy
+topics:
+  - Array
+  - Math
+  - Simulation
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Análisis del Problema: Caught Speeding
 
 ## Enunciado

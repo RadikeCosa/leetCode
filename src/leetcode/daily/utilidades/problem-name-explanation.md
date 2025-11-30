@@ -1,3 +1,9 @@
+---
+name: problem-name-explanation
+category: utilidades
+createdAt: 2025-11-29
+---
+
 # Problem Title
 
 Breve enunciado del problema.

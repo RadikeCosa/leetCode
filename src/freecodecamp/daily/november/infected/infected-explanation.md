@@ -1,3 +1,13 @@
+---
+name: infected
+source: freecodecamp
+series: daily
+category: daily november
+difficulty: easy
+topics: []
+createdAt: 2025-11-03
+---
+
 # Infected - Análisis y Solución
 
 ## Descripción del Problema

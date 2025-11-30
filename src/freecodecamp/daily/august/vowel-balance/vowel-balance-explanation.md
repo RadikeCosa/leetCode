@@ -1,4 +1,16 @@
-# Vowel Balance
+---
+title: Vowel Balance
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics:
+  - String
+  - Array
+createdAt: 2025-10-16
+---
+
+## Enunciado del Problema
 
 Determinar si el número de vocales en la primera mitad de una string es igual al número de vocales en la segunda mitad, ignorando el caracter central en caso de longitud impar.
 
@@ -16,25 +28,25 @@ Determinar si el número de vocales en la primera mitad de una string es igual a
 
 Este problema requiere dividir una string en dos mitades y comparar el conteo de vocales entre ellas. La complejidad surge del manejo correcto del centro en strings de longitud impar.
 
-### Patrones identificados:
+### Patrones identificados
 
-1. **División simétrica**: Primera mitad vs segunda mitad con centro opcional
-2. **Vocales case-insensitive**: a,e,i,o,u en mayúsculas y minúsculas
-3. **Centro ignorado**: En longitud impar, el caracter central no cuenta para ninguna mitad
-4. **Caracteres arbitrarios**: La string puede contener cualquier caracter, no solo letras
+1. División simétrica: Primera mitad vs segunda mitad con centro opcional
+2. Vocales case-insensitive: a,e,i,o,u en mayúsculas y minúsculas
+3. Centro ignorado: En longitud impar, el caracter central no cuenta para ninguna mitad
+4. Caracteres arbitrarios: La string puede contener cualquier caracter, no solo letras
 
 ### ¿Por qué un solo loop es la solución óptima?
 
-- **Eficiencia**: O(n) tiempo, O(1) espacio
-- **Claridad**: Un solo punto de iteración sobre los datos
-- **Flexibilidad**: Maneja fácilmente casos pares e impares
-- **Mantenibilidad**: Toda la lógica de conteo en un lugar
+- Eficiencia: O(n) tiempo, O(1) espacio
+- Claridad: Un solo punto de iteración sobre los datos
+- Flexibilidad: Maneja fácilmente casos pares e impares
+- Mantenibilidad: Toda la lógica de conteo en un lugar
 
 ## Enfoque detallado
 
 ### Estrategia: Loop único con decisiones condicionales
 
-1. **Inicialización**:
+1. Inicialización:
 
    ```javascript
    let vowels = "aeiouAEIOU"; // String constante para lookup rápido
@@ -44,7 +56,7 @@ Este problema requiere dividir una string en dos mitades y comparar el conteo de
    let isOdd = length % 2 === 1;
    ```
 
-2. **Loop principal**:
+2. Loop principal:
 
    ```javascript
    for (let i = 0; i < length; i++) {
@@ -60,9 +72,9 @@ Este problema requiere dividir una string en dos mitades y comparar el conteo de
    }
    ```
 
-3. **Lógica de particionamiento**:
-   - **Longitud par**: Primera mitad `0..mid-1`, segunda mitad `mid..length-1`
-   - **Longitud impar**: Primera mitad `0..mid-1`, centro `mid` ignorado, segunda mitad `mid+1..length-1`
+3. Lógica de particionamiento:
+   - Longitud par: Primera mitad `0..mid-1`, segunda mitad `mid..length-1`
+   - Longitud impar: Primera mitad `0..mid-1`, centro `mid` ignorado, segunda mitad `mid+1..length-1`
 
 ### Ejemplo detallado: "racecar" (longitud 7)
 
@@ -78,17 +90,17 @@ Este problema requiere dividir una string en dos mitades y comparar el conteo de
 
 ## Casos extremos
 
-- **String vacío**: `length = 0`, `mid = 0`, ningún loop → `0 === 0` → `true`
-- **Longitud 1**: `mid = 0`, `isOdd = true`, posición 0 ignorada → `0 === 0` → `true`
-- **Longitud 2**: `mid = 1`, posiciones 0 y 1 → comparación normal
-- **Solo vocales**: "aeiou" (5) → primera mitad "ae", segunda "ou" → `2 === 2` → `true`
-- **Sin vocales**: "xyz" → `0 === 0` → `true`
-- **Vocales solo en una mitad**: "aeiouxyz" → primera "aei", segunda "uyz" → `3 === 2` → `false`
+- String vacío: `length = 0`, `mid = 0`, ningún loop → `0 === 0` → `true`
+- Longitud 1: `mid = 0`, `isOdd = true`, posición 0 ignorada → `0 === 0` → `true`
+- Longitud 2: `mid = 1`, posiciones 0 y 1 → comparación normal
+- Solo vocales: "aeiou" (5) → primera mitad "ae", segunda "ou" → `2 === 2` → `true`
+- Sin vocales: "xyz" → `0 === 0` → `true`
+- Vocales solo en una mitad: "aeiouxyz" → primera "aei", segunda "uyz" → `3 === 2` → `false`
 
 ## Complejidad
 
-- **Time Complexity**: O(n) - Un solo loop lineal sobre la string
-- **Space Complexity**: O(1) - Variables constantes, sin estructuras de datos adicionales
+- Time Complexity: O(n) - Un solo loop lineal sobre la string
+- Space Complexity: O(1) - Variables constantes, sin estructuras de datos adicionales
 
 ## Optimizaciones consideradas
 
@@ -99,7 +111,7 @@ const vowelSet = new Set(['a','e','i','o','u','A','E','I','O','U']);
 if (vowelSet.has(s[i])) // O(1) lookup vs O(1) includes
 ```
 
-**Resultado**: Mínima mejora, includes() ya es O(1) para strings cortos.
+Resultado: Mínima mejora, includes() ya es O(1) para strings cortos.
 
 ### Optimización 2: Dos loops separados
 
@@ -108,7 +120,7 @@ if (vowelSet.has(s[i])) // O(1) lookup vs O(1) includes
 // Loop 2: i >= mid + (length % 2)
 ```
 
-**Resultado**: Código más largo, misma complejidad O(n).
+Resultado: Código más largo, misma complejidad O(n).
 
 ### Optimización 3: Usar slice() y filter()
 
@@ -118,22 +130,22 @@ const right = s.slice(mid + (length % 2));
 const leftCount = [...left].filter((c) => vowels.includes(c)).length;
 ```
 
-**Resultado**: Más legible pero O(n) espacio extra y múltiples iteraciones.
+Resultado: Más legible pero O(n) espacio extra y múltiples iteraciones.
 
 ### Conclusión de optimizaciones
 
-La implementación actual es **óptima**: O(n) tiempo, O(1) espacio, clara y mantenible. No hay necesidad de optimizaciones adicionales para este problema.
+La implementación actual es óptima: O(n) tiempo, O(1) espacio, clara y mantenible. No hay necesidad de optimizaciones adicionales para este problema.
 
 ## Conclusión
 
 Esta solución demuestra el poder de un razonamiento algorítmico claro. El loop único con decisiones condicionales maneja elegantemente tanto casos pares como impares, evitando código duplicado mientras mantiene la eficiencia.
 
-### Lecciones aprendidas:
+### Lecciones aprendidas
 
-1. **Un solo loop inteligente** puede reemplazar múltiples loops con lógica compleja
-2. **Variables flag** (`isOdd`) simplifican condiciones condicionales
-3. **Early returns** no siempre son necesarios; a veces comparar al final es más claro
-4. **Comentarios explicativos** hacen que la lógica condicional sea autodocumentada
-5. **Casos edge primero**: Pensar en longitudes 0, 1, 2 ayuda a validar la lógica
+1. Un solo loop inteligente puede reemplazar múltiples loops con lógica compleja
+2. Variables flag (`isOdd`) simplifican condiciones condicionales
+3. Early returns no siempre son necesarios; a veces comparar al final es más claro
+4. Comentarios explicativos hacen que la lógica condicional sea autodocumentada
+5. Casos edge primero: Pensar en longitudes 0, 1, 2 ayuda a validar la lógica
 
 Esta aproximación es robusta, eficiente y fácil de entender - cualidades esenciales para código de producción.

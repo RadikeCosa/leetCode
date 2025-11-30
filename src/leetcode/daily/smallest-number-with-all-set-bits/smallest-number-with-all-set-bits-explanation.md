@@ -1,3 +1,13 @@
+---
+name: smallest-number-with-all-set-bits
+difficulty: easy
+category: daily
+topics: [Bit Manipulation, Math, Powers of Two]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Smallest Number With All Set Bits
 
 ## Análisis del Problema

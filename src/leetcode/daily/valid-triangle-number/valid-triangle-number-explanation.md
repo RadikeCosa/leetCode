@@ -1,3 +1,13 @@
+---
+name: valid-triangle-number
+difficulty: medium
+category: daily
+topics: [Array, Two Pointers, Sorting, Triangle Inequality]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Valid Triangle Number
 
 Dado un arreglo de números enteros nums, retornar el número de tripletas elegidas del arreglo que pueden formar triángulos si se toman como longitudes de los lados de un triángulo.

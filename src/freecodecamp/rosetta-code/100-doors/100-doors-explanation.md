@@ -1,3 +1,13 @@
+---
+name: 100-doors
+source: freecodecamp
+series: rosetta-code
+category: freecodecamp
+difficulty: easy
+topics: [math, simulation]
+createdAt: 2025-11-02
+---
+
 # 100 Doors - Explicación
 
 ## Descripción del Problema

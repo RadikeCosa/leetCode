@@ -1,3 +1,13 @@
+---
+name: guess-number-higher-or-lower
+difficulty: easy
+category: binary-search
+topics: [Binary Search, Game]
+source: leetcode
+series: standard-search
+createdAt: 2025-11-29
+---
+
 # Guess Number Higher or Lower
 
 Implementar un algoritmo de binary search para encontrar un número secreto usando una API de adivinanza.

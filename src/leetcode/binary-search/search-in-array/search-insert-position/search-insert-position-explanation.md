@@ -1,3 +1,13 @@
+---
+name: search-insert-position
+difficulty: easy
+category: binary-search
+topics: [Binary Search, Array, Insert]
+source: leetcode
+series: search-in-array
+createdAt: 2025-11-29
+---
+
 # Search Insert Position - Variación del Template Base
 
 Encontrar la posición donde insertar un target en un array ordenado (o retornar su índice si ya existe).

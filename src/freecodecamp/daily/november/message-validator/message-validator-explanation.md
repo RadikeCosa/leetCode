@@ -1,3 +1,13 @@
+---
+name: message-validator
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-24
+---
+
 # Message Validator - Análisis y Explicación
 
 ## Enunciado del Problema

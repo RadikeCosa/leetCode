@@ -1,3 +1,20 @@
+---
+name: rgb-to-hex
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-08
+difficulty: easy
+topics:
+  - String
+  - Math
+  - Formatting
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # RGB to Hex
 
 ## Enunciado del Problema

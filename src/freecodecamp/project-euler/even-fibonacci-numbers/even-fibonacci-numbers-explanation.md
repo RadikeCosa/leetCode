@@ -1,3 +1,13 @@
+---
+name: even-fibonacci-numbers
+source: freecodecamp
+series: project-euler
+category: freecodecamp
+difficulty: easy
+topics: [math, sequence]
+createdAt: 2025-11-01
+---
+
 # Even Fibonacci Numbers - Explicación Detallada
 
 ## Descripción del Problema

@@ -1,3 +1,16 @@
+---
+id: symmetric-difference
+source: freecodecamp
+series: coding-interview-prep
+category: algorithm
+difficulty: medium
+topics:
+  - Set
+  - Array
+  - Map
+createdAt: 2025-11-29
+---
+
 # Explicación
 
 ## Análisis del problema

@@ -1,3 +1,13 @@
+---
+name: best-time-to-buy-and-sell-stock
+difficulty: easy
+category: top-interview-array-string
+topics: [Array, Greedy, One Pass]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Best Time To Buy And Sell Stock - Análisis y Explicación
 
 ## Enunciado del Problema

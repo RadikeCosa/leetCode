@@ -1,3 +1,19 @@
+---
+name: landing-spot
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-12
+difficulty: easy
+topics:
+  - Array
+  - Matrix
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Explicación
 
 ## Análisis del problema

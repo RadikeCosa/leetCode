@@ -1,3 +1,13 @@
+---
+name: maximun-subarray-sum-with-length-divisible-by-k
+difficulty: medium
+category: daily
+topics: [Array, Subarray, Kadane, Prefix Sum, Math]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Maximum Subarray Sum With Length Divisible By K
 
 Link: https://leetcode.com/problems/maximum-subarray-sum-with-length-divisible-by-k/

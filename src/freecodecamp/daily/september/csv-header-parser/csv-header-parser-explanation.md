@@ -1,3 +1,19 @@
+---
+name: csv-header-parser
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-03
+difficulty: easy
+topics:
+  - String
+  - Array
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # CSV Header Parser - Análisis Detallado
 
 ## Enunciado del Problema

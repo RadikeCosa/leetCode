@@ -1,3 +1,19 @@
+---
+name: html-attribute-extractor
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-16
+difficulty: easy
+topics:
+  - String
+  - Regex
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # HTML Attribute Extractor - Explicación
 
 ## Descripción del Problema

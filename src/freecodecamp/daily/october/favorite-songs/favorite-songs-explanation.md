@@ -1,3 +1,19 @@
+---
+name: favorite-songs
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-19
+difficulty: easy
+topics:
+  - Array
+  - Sorting
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Favorite Songs - Análisis Detallado
 
 ## Enunciado del Problema

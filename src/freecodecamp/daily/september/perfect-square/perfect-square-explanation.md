@@ -1,3 +1,18 @@
+---
+name: perfect-square
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-06
+difficulty: easy
+topics:
+  - Math
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Análisis del Problema: Perfect Square
 
 ## Enunciado

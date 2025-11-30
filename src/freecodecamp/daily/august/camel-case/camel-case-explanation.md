@@ -1,3 +1,13 @@
+---
+title: Camel Case
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-27
+---
+
 # Camel Case - Análisis y Explicación
 
 ## Enunciado del Problema

@@ -1,3 +1,19 @@
+---
+name: longest-word
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-05
+difficulty: easy
+topics:
+  - String
+  - Array
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Longest Word - Explicación
 
 ## Enunciado del Problema
@@ -158,7 +174,7 @@ function getLongestWord(sentence) {
 }
 ```
 
-**🎯 Optimización RECOMENDADA - Balance perfecto:**
+**🏆 Optimización RECOMENDADA - Balance perfecto:**
 
 ```javascript
 function getLongestWord(sentence) {

@@ -1,3 +1,13 @@
+---
+name: 24-game
+source: freecodecamp
+series: rosetta-code
+category: freecodecamp
+difficulty: medium
+topics: [backtracking, math]
+createdAt: 2025-11-01
+---
+
 # 24 Game - Explicación
 
 ## Descripción del Problema

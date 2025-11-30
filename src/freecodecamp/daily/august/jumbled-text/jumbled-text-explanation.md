@@ -1,5 +1,17 @@
 # Jumbled Text
 
+# Jumbled Text
+
+---
+
+difficulty: easy
+topics: []
+source: freecodecamp
+category: daily
+createdAt: 2025-10-27
+
+---
+
 ## Enunciado del Problema
 
 Dado un string, retornar una versión "mezclada" del mismo donde cada palabra se transforma siguiendo estas restricciones:

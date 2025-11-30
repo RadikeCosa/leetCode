@@ -1,3 +1,13 @@
+---
+name: maximum-69-number
+difficulty: easy
+category: daily
+topics: [Math, Greedy, String Manipulation]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Maximum 69 Number - Análisis y Documentación
 
 ## Descripción del Problema

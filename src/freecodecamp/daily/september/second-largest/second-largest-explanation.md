@@ -1,3 +1,19 @@
+---
+name: second-largest
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-09-09
+difficulty: easy
+topics:
+  - Array
+  - Sorting
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Análisis del Problema: 2nd Largest
 
 ## Enunciado

@@ -1,3 +1,13 @@
+---
+name: whats-my-age-again
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-27
+---
+
 # What's My Age Again? - Análisis y Explicación
 
 ## Enunciado del Problema

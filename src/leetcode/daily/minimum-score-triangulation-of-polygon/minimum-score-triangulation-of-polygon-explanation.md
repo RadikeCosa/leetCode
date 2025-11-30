@@ -1,3 +1,13 @@
+---
+name: minimum-score-triangulation-of-polygon
+difficulty: medium
+category: daily
+topics: [Dynamic Programming, Polygon, Interval DP]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Minimum Score Triangulation of Polygon - Análisis y Explicación
 
 ## Comprensión del Problema

@@ -1,3 +1,13 @@
+---
+title: Mile Pace
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics: []
+createdAt: 2025-10-28
+---
+
 # Mile Pace
 
 ## Enunciado del Problema
@@ -177,7 +187,7 @@ function milePace(miles, duration) {
     throw new Error("Miles must be a positive number");
   }
 
-  if (!/^\\d{1,3}:\\d{2}$/.test(duration)) {
+  if (!/^\d{1,3}:\d{2}$/.test(duration)) {
     throw new Error("Duration must be in MM:SS format");
   }
 

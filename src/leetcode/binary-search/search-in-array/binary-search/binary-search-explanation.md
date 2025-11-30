@@ -1,3 +1,13 @@
+---
+name: binary-search
+difficulty: easy
+category: binary-search
+topics: [Binary Search, Array]
+source: leetcode
+series: search-in-array
+createdAt: 2025-11-29
+---
+
 # Binary Search - Problema Fundamental
 
 Implementar búsqueda binaria en un array ordenado para encontrar un elemento target.

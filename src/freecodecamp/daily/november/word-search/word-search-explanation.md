@@ -1,3 +1,15 @@
+---
+name: word-search
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics:
+  - Array
+  - Matrix
+createdAt: 2025-11-01
+---
+
 # Word Search – Análisis y Explicación
 
 ## 1. Enunciado del Problema
@@ -66,9 +78,9 @@ retornar null
 export default function findWord(matriz, palabra) {
   // Definir las 4 direcciones posibles
   const direcciones = [
-    [0, 1],  // derecha
+    [0, 1], // derecha
     [0, -1], // izquierda
-    [1, 0],  // abajo
+    [1, 0], // abajo
     [-1, 0], // arriba
   ];
 
@@ -182,4 +194,7 @@ Como se mencionó en la sección 8, las optimizaciones menores pueden mejorar el
 - Problema similar en LeetCode: [Word Search](https://leetcode.com/problems/word-search/)
 - Documentación de JavaScript: [Arrays y bucles](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
 - Conceptos de algoritmos: Matrices y recorridos direccionales.
+
+```
+
 ```

@@ -1,3 +1,13 @@
+---
+name: ransom-note
+difficulty: easy
+category: top-interview-hash-table
+topics: [Hash Table, String, Frequency Counter]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Ransom Note - Explicación Detallada
 
 ## Problema

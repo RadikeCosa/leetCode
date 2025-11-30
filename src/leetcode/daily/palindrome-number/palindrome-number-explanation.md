@@ -1,3 +1,13 @@
+---
+name: palindrome-number
+difficulty: easy
+category: daily
+topics: [Math, Palindrome, Integer]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Palindrome Number - Documentación
 
 ## Descripción del Problema

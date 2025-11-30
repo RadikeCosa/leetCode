@@ -1,3 +1,18 @@
+---
+name: string-count
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-05
+difficulty: easy
+topics:
+  - String
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Análisis del Problema
 
 ## Descripción

@@ -1,3 +1,13 @@
+---
+name: water-bottles
+difficulty: easy
+category: daily
+topics: [Simulation, Math, Greedy]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Explicación detallada: Water Bottles
 
 ## Análisis del problema

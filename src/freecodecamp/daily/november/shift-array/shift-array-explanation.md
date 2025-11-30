@@ -1,3 +1,14 @@
+---
+name: shift-array
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics:
+  - array
+createdAt: 2025-11-13
+---
+
 # Shift Array — Proceso de Resolución y Aprendizaje
 
 ## 📝 Enunciado

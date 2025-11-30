@@ -1,3 +1,19 @@
+---
+name: hex-to-decimal
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-17
+difficulty: easy
+topics:
+  - Math
+  - String
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Hex to Decimal - FreeCodeCamp Daily
 
 ## 🎯 Enunciado del Problema

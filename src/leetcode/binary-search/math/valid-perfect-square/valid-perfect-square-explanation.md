@@ -1,4 +1,14 @@
-\*\*\*\*# Valid Perfect Square - Análisis del Problema
+---
+name: valid-perfect-square
+difficulty: easy
+category: binary-search
+topics: [Binary Search, Math]
+source: leetcode
+series: math
+createdAt: 2025-11-29
+---
+
+# Valid Perfect Square - Análisis del Problema
 
 ## Descripción del Problema
 

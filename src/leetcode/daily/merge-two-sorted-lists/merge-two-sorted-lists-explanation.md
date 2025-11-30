@@ -1,3 +1,13 @@
+---
+name: merge-two-sorted-lists
+difficulty: easy
+category: daily
+topics: [Linked List, Recursion, Merge]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # LeetCode Problem 21: Merge Two Sorted Lists
 
 ## Descripción del Problema

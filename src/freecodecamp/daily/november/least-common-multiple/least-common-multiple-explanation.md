@@ -1,3 +1,13 @@
+---
+name: least-common-multiple
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-22
+---
+
 # Least Common Multiple - Análisis y Explicación
 
 ## Enunciado del Problema

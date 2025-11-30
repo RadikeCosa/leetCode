@@ -1,3 +1,13 @@
+---
+name: roman-to-integer
+difficulty: easy
+category: daily
+topics: [String, Hash Map, Roman Numerals]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Roman to Integer
 
 Conversión de un número romano (cadena válida) a entero en el rango [1, 3999].

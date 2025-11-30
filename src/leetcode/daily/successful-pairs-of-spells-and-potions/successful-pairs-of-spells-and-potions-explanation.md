@@ -1,3 +1,13 @@
+---
+name: successful-pairs-of-spells-and-potions
+difficulty: medium
+category: daily
+topics: [Binary Search, Sorting, Prefix Sum]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Explicación y análisis
 
 ## Intuición

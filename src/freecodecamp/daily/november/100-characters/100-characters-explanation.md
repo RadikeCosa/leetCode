@@ -1,3 +1,13 @@
+---
+name: 100-characters
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-18
+---
+
 # 100 Characters - Análisis y Explicación
 
 ## Enunciado del Problema

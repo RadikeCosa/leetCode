@@ -69,6 +69,18 @@ export function isValidSudoku(board: string[][]): boolean {
         const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
         if (boxes[boxIndex].has(num)) return false;
         boxes[boxIndex].add(num);
+      # ---
+      id: valid-sudoku
+      source: leetcode
+      series: top-interview
+      category: top-interview
+      difficulty: medium
+      topics:
+        - Array
+        - Hash Table
+        - Matrix
+      createdAt: 2025-09-04
+      # ---
       }
     }
   }

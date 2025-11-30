@@ -68,6 +68,16 @@ while (i < nums.length) {
   // Extender end mientras los números sean consecutivos
   while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
     end++;
+  # ---
+  id: summary-ranges
+  source: leetcode
+  series: top-interview
+  category: top-interview
+  difficulty: easy
+  topics:
+    - Array
+  createdAt: 2025-09-10
+  # ---
   }
 
   let rangeEnd = nums[end];

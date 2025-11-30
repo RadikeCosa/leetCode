@@ -1,3 +1,16 @@
+---
+title: Fibonacci Sequence
+source: freecodecamp
+series: daily
+category: coding interview prep
+difficulty: easy
+topics:
+  - Array
+  - Math
+  - Algorithms
+createdAt: 2025-10-17
+---
+
 # Fibonacci Sequence - Análisis y Solución
 
 ## Análisis del Problema

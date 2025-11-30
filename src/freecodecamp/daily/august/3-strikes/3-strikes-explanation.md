@@ -1,4 +1,14 @@
-# 3 Strikes
+---
+title: 3 Strikes
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-13
+difficulty: easy
+topics:
+  - Math
+  - String
+---
 
 ## Enunciado del Problema
 
@@ -6,48 +16,48 @@ Dado un entero entre 1 y 10,000, retornar un conteo de cuántos números desde 1
 
 **Ejemplos:**
 
-- squaresWithThree(1) → 0
-- squaresWithThree(10) → 1
-- squaresWithThree(100) → 19
-- squaresWithThree(1000) → 326
-- squaresWithThree(10000) → 4531
+- **Entrada:** 10
+  **Salida:** 4
+  **Explicación:** Los números son 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Sus cuadrados son 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Solo 6² = 36 contiene un '3'.
 
-**Restricciones:**
+- **Entrada:** 100
+  **Salida:** 19
+  **Explicación:** Hay 19 números cuyo cuadrado contiene al menos un '3' entre 1 y 100.
 
-- Entrada: entero positivo entre 1 y 10,000 inclusive
-- Salida: conteo de números cuyo cuadrado contiene al menos un dígito '3'
+- **Entrada:** 10000
+  **Salida:** ?
+  **Explicación:** Este es el límite superior, prueba cuántos números cumplen aquí.
 
-## Análisis Inicial
+## Restricciones
 
 Este problema requiere analizar propiedades numéricas de los cuadrados de números, específicamente detectar la presencia del dígito '3' en su representación decimal.
 
 **Desafíos identificados:**
 
-- Procesar números hasta 10,000 (cuadrados hasta 100,000,000)
 - Verificar presencia de dígito específico en números grandes
 - Contar ocurrencias de una condición específica
 - Manejar conversión entre números y strings para análisis de dígitos
 
-**Estrategias posibles:**
+## Estrategias posibles
 
-### 1. **Enfoque Iterativo con Conversión a String**
+### 1. Enfoque Iterativo con Conversión a String
 
-- ✅ **Simple y directo**: Bucle que calcula cuadrados y verifica dígitos
-- ✅ **Fácil de entender**: Lógica matemática clara
-- ✅ **Preciso**: No hay aproximaciones
-- ✅ **Escalable**: Funciona para cualquier rango
+- Simple y directo: Bucle que calcula cuadrados y verifica dígitos
+- Fácil de entender: Lógica matemática clara
+- Preciso: No hay aproximaciones
+- Escalable: Funciona para cualquier rango
 
-### 2. **Enfoque con Análisis Matemático**
+### 2. Enfoque con Análisis Matemático
 
-- ❌ **Complejo**: Requiere fórmulas matemáticas avanzadas
-- ❌ **Difícil de implementar**: Análisis de dígitos por propiedades matemáticas
-- ❌ **No práctico**: Más complicado que el enfoque directo
+- Complejo: Requiere fórmulas matemáticas avanzadas
+- Difícil de implementar: Análisis de dígitos por propiedades matemáticas
+- No práctico: Más complicado que el enfoque directo
 
-### 3. **Enfoque con Expresiones Regulares**
+### 3. Enfoque con Expresiones Regulares
 
-- ✅ **Elegante**: Usar regex para buscar dígito '3'
-- ✅ **Conciso**: Una línea para verificar presencia
-- ✅ **Eficiente**: Regex optimizado para búsqueda
+- Elegante: Usar regex para buscar dígito '3'
+- Conciso: Una línea para verificar presencia
+- Eficiente: Regex optimizado para búsqueda
 
 **Elección del enfoque:** Iterativo con conversión a string es la solución más clara y directa.
 
@@ -65,8 +75,6 @@ Este problema requiere analizar propiedades numéricas de los cuadrados de núme
 - Patrón no uniforme: algunos rangos tienen más '3' que otros
 
 ## Solución Implementada
-
-Se implementó un enfoque iterativo que recorre todos los números desde 1 hasta n, calcula sus cuadrados y verifica si contienen el dígito '3':
 
 ```javascript
 function squaresWithThree(n) {
@@ -93,15 +101,15 @@ function squaresWithThree(n) {
 
 **Ventajas de este enfoque:**
 
-- **Claridad máxima**: Cada paso del algoritmo es evidente
-- **Eficiencia aceptable**: O(n) tiempo para n≤10,000
-- **Simplicidad**: Solo usa operaciones básicas
-- **Facilidad de debugging**: Fácil verificar cada iteración
-- **Reutilizable**: Patrón aplicable a otros problemas de conteo
+- Claridad máxima: Cada paso del algoritmo es evidente
+- Eficiencia aceptable: O(n) tiempo para n≤10,000
+- Simplicidad: Solo usa operaciones básicas
+- Facilidad de debugging: Fácil verificar cada iteración
+- Reutilizable: Patrón aplicable a otros problemas de conteo
 
 ## Alternativas Consideradas
 
-### 1. **Enfoque Funcional con Array Methods**
+### 1. Enfoque Funcional con Array Methods
 
 ```javascript
 function squaresWithThree(n) {
@@ -113,13 +121,13 @@ function squaresWithThree(n) {
 
 **Cuándo usar:**
 
-- ✅ **Código más conciso**: Una sola expresión
-- ✅ **Estilo funcional**: Aprovecha métodos de array
-- ✅ **Fácil de leer**: Flujo de datos claro
-- ❌ **Menos eficiente**: Crea array O(n) innecesario
-- ❌ **Más memoria**: Array temporal grande
+- Código más conciso: Una sola expresión
+- Estilo funcional: Aprovecha métodos de array
+- Fácil de leer: Flujo de datos claro
+- Menos eficiente: Crea array O(n) innecesario
+- Más memoria: Array temporal grande
 
-### 2. **Enfoque con Expresiones Regulares**
+### 2. Enfoque con Expresiones Regulares
 
 ```javascript
 function squaresWithThree(n) {
@@ -136,13 +144,13 @@ function squaresWithThree(n) {
 
 **Cuándo usar:**
 
-- ✅ **Más flexible**: Fácil cambiar a patrones complejos
-- ✅ **Potente**: Regex puede buscar múltiples dígitos
-- ✅ **Expresivo**: Patrón claro para búsqueda
-- ❌ **Overkill**: Para búsqueda simple de un carácter
-- ❌ **Menos legible**: Regex agrega complejidad innecesaria
+- Más flexible: Fácil cambiar a patrones complejos
+- Potente: Regex puede buscar múltiples dígitos
+- Expresivo: Patrón claro para búsqueda
+- Overkill: Para búsqueda simple de un carácter
+- Menos legible: Regex agrega complejidad innecesaria
 
-### 3. **Enfoque con indexOf()**
+### 3. Enfoque con indexOf()
 
 ```javascript
 function squaresWithThree(n) {
@@ -159,12 +167,12 @@ function squaresWithThree(n) {
 
 **Cuándo usar:**
 
-- ✅ **Más explícito**: Claramente busca posición del carácter
-- ✅ **Compatible**: Funciona en todos los navegadores
-- ✅ **Preciso**: Retorna índice exacto si se necesita
-- ❌ **Más verbose**: `!== -1` es menos elegante que `includes()`
+- Más explícito: Claramente busca posición del carácter
+- Compatible: Funciona en todos los navegadores
+- Preciso: Retorna índice exacto si se necesita
+- Más verbose: `!== -1` es menos elegante que `includes()`
 
-### 4. **Enfoque Optimizado sin Conversión por Iteración**
+### 4. Enfoque Optimizado sin Conversión por Iteración
 
 ```javascript
 function squaresWithThree(n) {
@@ -186,31 +194,31 @@ function squaresWithThree(n) {
 
 **Cuándo usar:**
 
-- ✅ **Sin conversión**: Evita crear strings
-- ✅ **Más eficiente**: Operaciones aritméticas puras
-- ✅ **Bajo nivel**: Control total del proceso
-- ❌ **Más complejo**: Lógica de extracción de dígitos
-- ❌ **Más propenso a errores**: Manejo de casos borde
+- Sin conversión: Evita crear strings
+- Más eficiente: Operaciones aritméticas puras
+- Bajo nivel: Control total del proceso
+- Más complejo: Lógica de extracción de dígitos
+- Más propenso a errores: Manejo de casos borde
 
 ## Elección del Enfoque Implementado
 
 Se eligió el enfoque iterativo con `includes()` por las siguientes razones:
 
-1. **Claridad pedagógica**: Muestra exactamente cómo funciona el algoritmo
-2. **Simplicidad**: Código fácil de entender y mantener
-3. **Eficiencia práctica**: O(n) es perfectamente aceptable para n≤10,000
-4. **Idiomático**: Usa métodos modernos de JavaScript
-5. **Robustez**: Maneja correctamente números de cualquier tamaño
+1. Claridad pedagógica: Muestra exactamente cómo funciona el algoritmo
+2. Simplicidad: Código fácil de entender y mantener
+3. Eficiencia práctica: O(n) es perfectamente aceptable para n≤10,000
+4. Idiomático: Usa métodos modernos de JavaScript
+5. Robustez: Maneja correctamente números de cualquier tamaño
 
 **Comparación con otras soluciones:**
 
-| Enfoque                    | Tiempo | Espacio | Legibilidad | Ventajas        |
-| -------------------------- | ------ | ------- | ----------- | --------------- |
-| **Iterativo + includes()** | O(n)   | O(1)    | Excelente   | ✅ Implementado |
-| **Funcional + filter()**   | O(n)   | O(n)    | Buena       | Más expresivo   |
-| **Regex**                  | O(n)   | O(1)    | Buena       | Más flexible    |
-| **Aritmético**             | O(n×d) | O(1)    | Regular     | Sin strings     |
-| **indexOf()**              | O(n)   | O(1)    | Buena       | Más explícito   |
+| Enfoque                | Tiempo | Espacio | Legibilidad | Ventajas      |
+| ---------------------- | ------ | ------- | ----------- | ------------- |
+| Iterativo + includes() | O(n)   | O(1)    | Excelente   | Implementado  |
+| Funcional + filter()   | O(n)   | O(n)    | Buena       | Más expresivo |
+| Regex                  | O(n)   | O(1)    | Buena       | Más flexible  |
+| Aritmético             | O(n×d) | O(1)    | Regular     | Sin strings   |
+| indexOf()              | O(n)   | O(1)    | Buena       | Más explícito |
 
 ## Complejidad
 
@@ -220,44 +228,44 @@ Se eligió el enfoque iterativo con `includes()` por las siguientes razones:
 
 - Un bucle que itera n veces (desde 1 hasta n)
 - Cada iteración: multiplicación O(1) + conversión a string O(d) + búsqueda O(d)
-- **Total**: O(n×d) donde d es dígitos del cuadrado
-- **En práctica**: O(n) ya que d es pequeño (máximo ~8 dígitos para n=10,000)
+- Total: O(n×d) donde d es dígitos del cuadrado
+- En práctica: O(n) ya que d es pequeño (máximo ~8 dígitos para n=10,000)
 
 **Espacio: O(1)**
 
 - Variables primitivas: count, i, square
 - String temporal por iteración: O(d) pero reutilizado
-- **Total**: O(1) espacio constante
+- Total: O(1) espacio constante
 
 ### Consideraciones Prácticas
 
-- **Para n=10,000**: ~10,000 iteraciones, instantáneo
-- **Cuadrados grandes**: Hasta 100,000,000 (8 dígitos)
-- **Conversión eficiente**: `toString()` es optimizada en JavaScript
-- **Búsqueda rápida**: `includes()` usa algoritmos eficientes
+- Para n=10,000: ~10,000 iteraciones, instantáneo
+- Cuadrados grandes: Hasta 100,000,000 (8 dígitos)
+- Conversión eficiente: `toString()` es optimizada en JavaScript
+- Búsqueda rápida: `includes()` usa algoritmos eficientes
 
 ### Comparación con límites teóricos
 
-- **n=10,000**: 10^4 iteraciones, perfectamente manejable
-- **Tiempo real**: Menos de 1ms en hardware moderno
-- **Sin bottlenecks**: Ninguna operación es O(n²) o peor
-- **Escalabilidad**: Funciona bien hasta n=10^6 si fuera necesario
+- n=10,000: 10^4 iteraciones, perfectamente manejable
+- Tiempo real: Menos de 1ms en hardware moderno
+- Sin bottlenecks: Ninguna operación es O(n²) o peor
+- Escalabilidad: Funciona bien hasta n=10^6 si fuera necesario
 
 ## Aprendizajes y Reflexiones
 
 ### Patrones Identificados
 
-1. **Verificación de dígitos**: Conversión número→string para análisis
-2. **Conteo condicional**: Patrón común de acumulación con condiciones
-3. **Bucle ascendente**: Natural para procesar rangos desde 1 hasta n
-4. **Métodos de string eficientes**: `includes()` vs `indexOf()` vs regex
+1. Verificación de dígitos: Conversión número→string para análisis
+2. Conteo condicional: Patrón común de acumulación con condiciones
+3. Bucle ascendente: Natural para procesar rangos desde 1 hasta n
+4. Métodos de string eficientes: `includes()` vs `indexOf()` vs regex
 
 ### Mejores Prácticas Aplicadas
 
-- **Nombres descriptivos**: `count`, `square`, `i` son autoexplicativos
-- **Comentarios minimalistas**: Código habla por sí solo
-- **Inicialización clara**: `let count = 0` establece estado inicial
-- **Bucle controlado**: `i <= n` es condición natural y clara
+- Nombres descriptivos: `count`, `square`, `i` son autoexplicativos
+- Comentarios minimalistas: Código habla por sí solo
+- Inicialización clara: `let count = 0` establece estado inicial
+- Bucle controlado: `i <= n` es condición natural y clara
 
 ### Reflexiones sobre TDD
 
@@ -309,19 +317,19 @@ public int squaresWithThree(int n) {
 
 ### Posibles Extensiones
 
-- **Múltiples dígitos**: Contar números con al menos dos dígitos '3'
-- **Dígitos específicos**: Buscar cualquier dígito de una lista
-- **Posición específica**: Contar números donde '3' está en cierta posición
-- **Otras operaciones**: Cubos, raíces, otras potencias
-- **Rangos personalizados**: Desde a hasta b en lugar de 1 hasta n
+- Múltiples dígitos: Contar números con al menos dos dígitos '3'
+- Dígitos específicos: Buscar cualquier dígito de una lista
+- Posición específica: Contar números donde '3' está en cierta posición
+- Otras operaciones: Cubos, raíces, otras potencias
+- Rangos personalizados: Desde a hasta b en lugar de 1 hasta n
 
 ### Conceptos Relacionados
 
-- **Análisis de dígitos**: Propiedades de números en base 10
-- **Conteo combinatorio**: Problemas de enumeración condicional
-- **Búsqueda en strings**: Algoritmos de búsqueda de patrones
-- **Números cuadrados**: Propiedades matemáticas de cuadrados perfectos
-- **Representación decimal**: Cómo los números se expresan como strings
+- Análisis de dígitos: Propiedades de números en base 10
+- Conteo combinatorio: Problemas de enumeración condicional
+- Búsqueda en strings: Algoritmos de búsqueda de patrones
+- Números cuadrados: Propiedades matemáticas de cuadrados perfectos
+- Representación decimal: Cómo los números se expresan como strings
 
 ### Preguntas Frecuentes
 

@@ -1,3 +1,13 @@
+---
+name: isomorphic-strings
+difficulty: easy
+category: top-interview-hash-table
+topics: [Hash Table, String, Mapping]
+source: leetcode
+series: top-interview
+createdAt: 2025-11-29
+---
+
 # Isomorphic Strings
 
 Dadas dos cadenas `s` y `t`, determinar si son isomórficas.
@@ -143,7 +153,7 @@ const tToS = new Map<string, string>(); // t → s
 **✅ Dos mapas capturan ambas violaciones:**
 
 - `sToT`: Previene que un carácter de `s` mapee a múltiples de `t`
-- `tToS`: Previene que múltiples caracteres de `s` mapeen al mismo de `t`
+- `tToS`: Previene que múltiples caracteres de `s` mapearan al mismo de `t`
 
 ### 🔍 **Verificaciones independientes:**
 

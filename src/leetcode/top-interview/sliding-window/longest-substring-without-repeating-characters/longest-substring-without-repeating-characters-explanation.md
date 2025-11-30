@@ -37,6 +37,18 @@ function lengthOfLongestSubstring(s: string): number {
     if (charPositions.has(s[end])) {
       // Salto optimizado: solo hacia adelante
       start = Math.max(start, charPositions.get(s[end])! + 1);
+    # ---
+    id: longest-substring-without-repeating-characters
+    source: leetcode
+    series: top-interview
+    category: top-interview
+    difficulty: medium
+    topics:
+      - Hash Table
+      - String
+      - Sliding Window
+    createdAt: 2025-10-01
+    # ---
     }
 
     charPositions.set(s[end], end);

@@ -1,15 +1,25 @@
-# Reverse Parenthesis - Análisis y Explicación (para principiantes)
+---
+title: Reverse Parenthesis
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics:
+  - String
+  - Stack
+createdAt: 2025-10-15
+---
 
 ## Enunciado del Problema
 
-Te dan una cadena que tiene paréntesis bien puestos (siempre están balanceados y bien anidados).  
+Te dan una cadena que tiene paréntesis bien puestos (siempre están balanceados y bien anidados).
 Tu tarea es devolver la cadena "descodificada" siguiendo estas reglas:
 
 1. Todo lo que está dentro de un par de paréntesis debe quedar al revés.
 2. Al final, todos los paréntesis desaparecen (no aparecen en el resultado).
 3. Si hay paréntesis dentro de otros, primero se revierte lo que está más adentro, y ese resultado ya revertido se usa cuando se revierte el paréntesis de afuera.
 
-Ejemplos:
+**Ejemplos:**
 
 - `(abcd)` → `dcba` (quitamos los paréntesis)
 - `(uoy)` → `you`
@@ -25,7 +35,7 @@ Ejemplos:
 
 ### Enfoque Elegido (el más fácil de entender para principiantes)
 
-La mejor forma y más intuitiva es usar una **pila (stack)**.  
+La mejor forma y más intuitiva es usar una **pila (stack)**.
 Una pila es como una torre de platos: solo puedes poner y sacar por arriba.
 
 Idea básica:
@@ -36,8 +46,6 @@ Idea básica:
 - Cuando vemos un ')', significa que hay que revertir todo lo que está dentro de ese paréntesis y juntarlo con lo que había antes.
 
 ### Implementación Paso a Paso (con comentarios)
-
-Aquí tienes la solución en JavaScript, explicada línea por línea:
 
 ```javascript
 function decode(str) {
@@ -88,23 +96,23 @@ Paso a paso:
 7. 'c' → current = "dc"
 8. ')' → revertimos "dc" → "cd", sacamos "b" → current = "b" + "cd" = "bcd"
 9. 'e' → current = "bcde"
-10. ')' → revertimos "bcde" → "edc b", sacamos "f" → current = "f" + "edc b" = "fedcb"
+10. ')' → revertimos "bcde" → "edcb", sacamos "f" → current = "f" + "edcb" = "fedcb"
 11. 'a' → current = "fedcba"
 12. Fin → devolvemos "fedcba" → pero espera… ¡nos falta el último tramo!
 
-En realidad el ejemplo era `(f(b(dc)e)a)` y da "abcdef".  
+En realidad el ejemplo era `(f(b(dc)e)a)` y da "abcdef".
 Si lo pruebas con el código de arriba, verás que sí funciona perfectamente:
 
 - El "dc" se vuelve "cd"
-- Luego "b cd e" se vuelve "e dc b" → "edcb"
-- Luego "f edcb a" se vuelve "a bcde f" → "abcdef"
+- Luego "b cd e" se vuelve "edcb" → "edcb"
+- Luego "f edcb a" se vuelve "abcdef"
 
 ¡Perfecto!
 
 ## Análisis de Complejidad
 
-- **Tiempo**: O(n) → recorremos la cadena una sola vez, y revertir un string es lineal.
-- **Espacio**: O(n) → en el peor caso (muchos paréntesis anidados) la pila puede guardar casi toda la cadena.
+- **Tiempo:** O(n) → recorremos la cadena una sola vez, y revertir un string es lineal.
+- **Espacio:** O(n) → en el peor caso (muchos paréntesis anidados) la pila puede guardar casi toda la cadena.
 
 ## Casos Edge y Consideraciones
 
@@ -117,13 +125,13 @@ Si lo pruebas con el código de arriba, verás que sí funciona perfectamente:
 
 ### Conceptos Aplicados
 
-- **Pila (Stack)**: ideal para problemas de paréntesis y anidamiento.
+- Pila (Stack): ideal para problemas de paréntesis y anidamiento.
 - Revertir strings en JavaScript: `str.split('').reverse().join('')`
 - Recorrido carácter por carácter.
 
 ### Posibles Optimizaciones
 
-El código ya es óptimo en tiempo y bastante claro.  
+El código ya es óptimo en tiempo y bastante claro.
 Una versión un poquito más corta usa un array para current y hace push/pop en vez de concatenar strings, pero para principiantes la versión con strings es más fácil de leer.
 
 ## Recursos y Referencias

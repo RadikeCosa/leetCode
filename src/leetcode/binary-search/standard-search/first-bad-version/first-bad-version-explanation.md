@@ -1,3 +1,13 @@
+---
+name: first-bad-version
+difficulty: easy
+category: binary-search
+topics: [Binary Search, Version Control]
+source: leetcode
+series: standard-search
+createdAt: 2025-11-29
+---
+
 # First Bad Version - Análisis del Problema
 
 ## Descripción del Problema

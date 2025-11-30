@@ -1,3 +1,13 @@
+---
+name: maximum-number-of-words-you-can-type
+difficulty: easy
+category: daily
+topics: [String, Set, Filtering]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Maximum Number of Words You Can Type
 
 Problema sobre determinar cuántas palabras se pueden escribir completamente con un teclado que tiene algunas teclas rotas.

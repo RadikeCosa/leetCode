@@ -1,3 +1,13 @@
+---
+name: ball-trajectory
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-29
+---
+
 # Ball Trajectory - Análisis y Explicación
 
 ## Enunciado del Problema

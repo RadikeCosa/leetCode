@@ -1,3 +1,16 @@
+---
+title: Base Check
+source: freecodecamp
+series: daily
+category: coding interview prep
+difficulty: easy
+topics:
+  - String
+  - Base Conversion
+  - Validation
+createdAt: 2025-10-14
+---
+
 # Análisis del Problema
 
 ## Enunciado

@@ -1,3 +1,19 @@
+---
+name: spooky-case
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-06
+difficulty: easy
+topics:
+  - String
+  - Regex
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # SpOoKy~CaSe - Análisis y Solución
 
 ## Descripción del Problema
@@ -13,7 +29,7 @@ Dado un string que representa un nombre de variable, convertirlo a "spooky case"
 - `hello_world` → `HeLlO~wOrLd`
 - `Spooky_Case` → `SpOoKy~CaSe`
 - `TRICK-or-TREAT` → `TrIcK~oR~tReAt`
-- `c_a-n_d-y_-b-o_w_l` → `C~a~N~d~Y~~b~O~w~L`
+- `c_a-n_d-y_-b-o_w-l` → `C~a~N~d~Y~~b~O~w~L`
 - `thE_hAUntEd-hOUsE-Is-fUll_Of_ghOsts` → `ThE~hAuNtEd~HoUsE~iS~fUlL~oF~gHoStS`
 
 ## Planteamiento y Solución

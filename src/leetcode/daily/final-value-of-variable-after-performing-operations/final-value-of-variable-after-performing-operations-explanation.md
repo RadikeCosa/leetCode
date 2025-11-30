@@ -1,3 +1,13 @@
+---
+name: final-value-of-variable-after-performing-operations
+difficulty: easy
+category: daily
+topics: [Simulation, Increment, Decrement, State Machine]
+source: leetcode
+series: daily
+createdAt: 2025-11-29
+---
+
 # Final Value of Variable After Performing Operations - Explicación
 
 ## Descripción del Problema

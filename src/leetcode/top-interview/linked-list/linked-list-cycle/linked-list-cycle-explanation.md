@@ -48,6 +48,18 @@ export function hasCycle(head: ListNode | null): boolean {
     // Si ya visitamos este nodo, hay ciclo
     if (visitados.has(current)) {
       return true;
+    # ---
+    id: linked-list-cycle
+    source: leetcode
+    series: top-interview
+    category: top-interview
+    difficulty: easy
+    topics:
+      - Hash Table
+      - Linked List
+      - Two Pointers
+    createdAt: 2025-09-10
+    # ---
     }
 
     // Marcar como visitado y continuar

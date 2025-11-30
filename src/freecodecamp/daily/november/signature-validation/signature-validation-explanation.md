@@ -1,3 +1,13 @@
+---
+name: signature-validation
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics: []
+createdAt: 2025-11-02
+---
+
 # Validación de Firmas (Signature Validation)
 
 ## 💡 Intuición

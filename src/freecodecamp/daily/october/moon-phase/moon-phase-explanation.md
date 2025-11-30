@@ -1,3 +1,19 @@
+---
+name: moon-phase
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-09
+difficulty: easy
+topics:
+  - Date
+  - Math
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Explicación
 
 ## Análisis del problema

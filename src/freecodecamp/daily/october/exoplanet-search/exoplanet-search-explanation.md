@@ -1,3 +1,19 @@
+---
+name: exoplanet-search
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-20
+difficulty: easy
+topics:
+  - String
+  - Math
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Exoplanet Search
 
 Dado un string donde cada caracter representa una lectura de luminosidad de una estrella, determinar si las lecturas detectan un exoplaneta usando el método de tránsito. Un exoplaneta se detecta cuando un planeta pasa frente a una estrella, reduciendo su luminosidad observada.

@@ -1,3 +1,13 @@
+---
+name: image-search
+source: freecodecamp
+series: daily
+category: freecodecamp
+difficulty: easy
+topics: []
+createdAt: 2025-11-04
+---
+
 # Image Search
 
 ## Análisis del Problema

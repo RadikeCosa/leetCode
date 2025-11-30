@@ -1,65 +1,94 @@
-# Unnatural Prime - Análisis y Solución
+---
+title: Unnatural Prime
+source: freecodecamp
+series: daily
+category: daily
+difficulty: easy
+topics:
+  - Math
+createdAt: 2025-11-01
+---
 
-## Descripción del Problema
+## Enunciado del Problema
 
-Determinar si un número entero es un número primo o un número primo negativo.
+Dado un número entero, determinar si es primo o no. Retornar `true` si es primo, `false` en caso contrario.
 
-- Un número primo es un entero positivo mayor que 1 que solo es divisible por 1 y por sí mismo.
-- Un número primo negativo es la versión negativa de un número primo positivo.
-- 1 y 0 no se consideran números primos.
+**Ejemplo:**
 
-## Planteamiento y Solución
+- unnaturalPrime(2) → true
+- unnaturalPrime(4) → false
+- unnaturalPrime(17) → true
+- unnaturalPrime(1) → false
 
-### Análisis del Problema
+## Análisis Inicial
 
-El problema requiere determinar si un número entero `n` cumple con ser un "unnatural prime", que incluye tanto primos positivos como negativos. Podemos descomponerlo en los siguientes casos:
+Este problema es un clásico de teoría de números. El objetivo es determinar si un número es primo.
 
-1. **Números Positivos**:
+**Desafíos identificados:**
 
-   - Si `n > 1`: Verificar si es primo (divisible solo por 1 y sí mismo).
-   - Si `n <= 1`: Siempre `false` (1 y números menores no son primos).
+- Manejo de números pequeños (0, 1)
+- Eficiencia para números grandes
 
-2. **Números Negativos**:
+## Estrategias posibles
 
-   - No descartar automáticamente los negativos; verificar si `Math.abs(n) > 1` y es primo.
-   - Por ejemplo, `-23` es válido porque `23` es primo.
+### 1. Enfoque con bucle hasta sqrt(n)
 
-3. **Algoritmo para Verificar Primalidad**:
-   - Un número `p > 1` es primo si no tiene divisores positivos entre 2 y `√p`.
-   - Optimización: Chequear divisibilidad solo por números impares después de 2.
-   - Casos base: 2 es primo, números pares > 2 no lo son.
+- Eficiente
+- Legible
+- Correcto
 
-**Casos de Prueba Analizados**:
+### 2. Enfoque con bucle hasta n-1
 
-- `1` y `-1`: No primos → `false`
-- `0`: No primo → `false`
-- `19`, `97`: Primos positivos → `true`
-- `-23`, `-61`: Negativos de primos → `true`
-- `99`, `-44`: No primos → `false`
+- Ineficiente para números grandes
 
-### Enfoque Utilizado
+## Solución Implementada
 
-Implementaremos una función que:
+```javascript
+function unnaturalPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+```
 
-1. **Lógica Unificada**: Verificar si `Math.abs(n) > 1` y el valor absoluto es primo.
-2. **Casos Especiales**: `0`, `1`, `-1` retornan `false` directamente.
-3. **Función Helper**: Crear `isPrime(num)` para verificar si un número positivo es primo.
-4. **Evaluación Individual**: No descartar negativos automáticamente; cada número se evalúa por su valor absoluto.
+**Lógica paso a paso:**
 
-[A completar con código después de implementación]
+1. Retornar `false` si n <= 1
+2. Probar divisores desde 2 hasta sqrt(n)
+3. Si algún divisor divide a n, retornar `false`
+4. Si no se encuentra divisor, retornar `true`
 
-### Complejidad
+## Alternativas Consideradas
 
-[A completar después de implementar la solución]
+### 1. Enfoque con bucle hasta n-1
 
-### Consideraciones Especiales
+```javascript
+function unnaturalPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+```
 
-[A completar después de implementar la solución]
+- Menos eficiente
 
-## Otros Enfoques Útiles
+### 2. Enfoque recursivo
 
-[A completar después de implementar la solución]
+- No aporta ventajas
 
-## Lecciones Aprendidas
+## Elección del Enfoque
 
-[A completar después de implementar la solución]
+Se eligió el enfoque con bucle hasta sqrt(n) por eficiencia y claridad.
+
+## Complejidad
+
+- Tiempo: O(√n)
+- Espacio: O(1)
+
+## Aprendizajes
+
+- La verificación de primos es un problema clásico y la optimización con sqrt(n) es estándar

@@ -1,3 +1,19 @@
+---
+name: integer-sequence
+source: freecodecamp
+series: daily
+category: daily
+createdAt: 2025-10-13
+difficulty: easy
+topics:
+  - String
+  - Math
+hasImplementation: true
+hasTests: true
+hasExplanation: true
+hasPostSolution: false
+---
+
 # Integer Sequence
 
 ## Enunciado del Problema

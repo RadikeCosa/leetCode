@@ -1,3 +1,17 @@
+---
+id: minimum-size-subarray-sum
+source: leetcode
+series: top-interview
+category: top-interview
+difficulty: medium
+topics:
+  - Array
+  - Binary Search
+  - Sliding Window
+  - Prefix Sum
+createdAt: 2025-09-03
+---
+
 # Minimum Size Subarray Sum - Análisis y Explicación
 
 ## Descripción del Problema
