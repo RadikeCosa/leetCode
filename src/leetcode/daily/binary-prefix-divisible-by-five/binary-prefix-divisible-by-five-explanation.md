@@ -1,4 +1,17 @@
-# Binary Prefix Divisible By Five - Análisis y Explicación
+---
+title: "Binary Prefix Divisible By Five"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+  - String
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-24"
+---
+
+## Binary Prefix Divisible By Five - Análisis y Explicación
 
 ## Enunciado del Problema
 

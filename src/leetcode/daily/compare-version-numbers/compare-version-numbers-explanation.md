@@ -1,4 +1,16 @@
-# Compare Version Numbers - Explicación Detallada
+---
+title: Compare Version Numbers
+difficulty: "medium"
+topics:
+  - Two Pointers
+  - String
+source: "leetcode"
+series: "daily "
+category: "daily"
+"createdAt": "2025-09-23"
+---
+
+## Compare Version Numbers - Explicación Detallada
 
 ## Problema
 

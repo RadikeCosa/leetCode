@@ -12,6 +12,8 @@ import {
 } from "node:fs";
 import { join, basename } from "node:path";
 
+import yaml from "js-yaml";
+
 const SERIES_PATHS = [
   { source: "leetcode", path: "src/leetcode/daily", series: "daily" },
   {
@@ -43,13 +45,16 @@ const SERIES_PATHS = [
   },
 ];
 
+// Extrae metadatos de frontmatter YAML si existe, si no usa heurística actual
 function extractMetadataFromFile(filePath: string): {
   difficulty?: string;
   topics?: string[];
   category?: string;
+  [key: string]: any;
 } {
   try {
     const content = readFileSync(filePath, "utf8");
+    // Heurística actual
     const difficultyMatch = content.match(/Difficulty: (\w+)/i);
     const topicsMatch = content.match(/Topics?: ([^\n]+)/i);
     const categoryMatch = content.match(/Category: ([^\n]+)/i);
@@ -64,6 +69,29 @@ function extractMetadataFromFile(filePath: string): {
     };
   } catch {
     return {};
+  }
+}
+
+// Extrae frontmatter YAML del inicio de explanation.md
+type FrontmatterResult =
+  | { hasFrontmatter: true; frontmatter: Record<string, any> }
+  | { hasFrontmatter: false };
+function extractFrontmatterFromExplanation(
+  explanationPath: string
+): FrontmatterResult {
+  if (!existsSync(explanationPath)) return { hasFrontmatter: false };
+  try {
+    const content = readFileSync(explanationPath, "utf8");
+    // Buscar bloque frontmatter al inicio
+    const match = content.match(/^---\s*([\s\S]*?)---/);
+    if (match) {
+      const yamlText = match[1];
+      const data = yaml.load(yamlText) as Record<string, any>;
+      return { hasFrontmatter: true, frontmatter: data };
+    }
+    return { hasFrontmatter: false };
+  } catch {
+    return { hasFrontmatter: false };
   }
 }
 
@@ -204,9 +232,21 @@ function getProblemsFromSeries(seriesInfo: {
           const postSolutionFile = files.find((f: string) =>
             f.includes("post-solution")
           );
-          let meta = implFile
-            ? extractMetadataFromFile(join(itemPath, implFile))
-            : {};
+          // Extraer frontmatter si explanation.md existe
+          let frontmatterData: FrontmatterResult = { hasFrontmatter: false };
+          let meta: Record<string, any> = {};
+          if (explanationFile) {
+            const explanationPath = join(itemPath, explanationFile);
+            frontmatterData =
+              extractFrontmatterFromExplanation(explanationPath);
+            if (frontmatterData.hasFrontmatter) {
+              meta = { ...frontmatterData.frontmatter };
+            } else {
+              meta = extractMetadataFromFile(join(itemPath, implFile));
+            }
+          } else {
+            meta = extractMetadataFromFile(join(itemPath, implFile));
+          }
           const problemObj = {
             name: item,
             path: itemPath,
@@ -228,6 +268,10 @@ function getProblemsFromSeries(seriesInfo: {
             hasExplanation: !!explanationFile,
             hasPostSolution: !!postSolutionFile,
             createdAt: getCreatedAt(itemPath),
+            hasFrontmatter: frontmatterData.hasFrontmatter,
+            ...(frontmatterData.hasFrontmatter
+              ? frontmatterData.frontmatter
+              : {}),
           };
           problems.push(problemObj);
         }

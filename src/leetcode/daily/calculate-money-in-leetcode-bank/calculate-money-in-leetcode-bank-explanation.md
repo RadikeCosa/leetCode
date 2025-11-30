@@ -1,4 +1,15 @@
-# Calculate Money in LeetCode Bank
+---
+title: "Calculate Money in LeetCode Bank"
+difficulty: "easy"
+topics:
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-25"
+---
+
+## Calculate Money in LeetCode Bank
 
 ## Enunciado del problema
 

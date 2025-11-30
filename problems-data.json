@@ -15,7 +15,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-23"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "adjacent-increasing-subarrays-detection-i",
@@ -23,15 +24,18 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "topics": [
-      "Array"
+      "Array",
+      "Sliding Window",
+      "Brute Force"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-14"
+    "createdAt": "2025-11-30T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "binary-prefix-divisible-by-five",
@@ -44,7 +48,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-24"
+    "createdAt": "2025-11-24",
+    "hasFrontmatter": false
   },
   {
     "name": "calculate-money-in-leetcode-bank",
@@ -60,7 +65,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-25"
+    "createdAt": "2025-10-25",
+    "hasFrontmatter": false
   },
   {
     "name": "compare-version-numbers",
@@ -77,7 +83,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-23"
+    "createdAt": "2025-09-23",
+    "hasFrontmatter": false
   },
   {
     "name": "container-with-most-water",
@@ -95,7 +102,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-04"
+    "createdAt": "2025-10-04",
+    "hasFrontmatter": false
   },
   {
     "name": "convert-integer-to-the-sum-of-two-no-zero-integers",
@@ -111,7 +119,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-08"
+    "createdAt": "2025-09-08",
+    "hasFrontmatter": false
   },
   {
     "name": "count-elements-with-maximum-frequency",
@@ -129,7 +138,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-22"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "count-operations-to-obtain-zero",
@@ -143,7 +153,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-09"
+    "createdAt": "2025-11-09",
+    "hasFrontmatter": false
   },
   {
     "name": "final-value-of-variable-after-performing-operations",
@@ -151,12 +162,19 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Simulation",
+      "Increment",
+      "Decrement",
+      "State Machine"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-20"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "find-closest-person",
@@ -172,7 +190,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-04"
+    "createdAt": "2025-09-04",
+    "hasFrontmatter": false
   },
   {
     "name": "find-most-frequent-vowel-and-consonant",
@@ -190,7 +209,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-13"
+    "createdAt": "2025-09-13",
+    "hasFrontmatter": false
   },
   {
     "name": "find-n-unique-integers-sum-up-to-zero",
@@ -207,7 +227,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-07"
+    "createdAt": "2025-09-07",
+    "hasFrontmatter": false
   },
   {
     "name": "find-resultant-array-after-removing-anagrams",
@@ -226,7 +247,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-13"
+    "createdAt": "2025-10-13",
+    "hasFrontmatter": false
   },
   {
     "name": "find-triangular-sum-of-an-array",
@@ -245,7 +267,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-30"
+    "createdAt": "2025-09-30",
+    "hasFrontmatter": false
   },
   {
     "name": "fraction-to-recurring-decimal",
@@ -263,7 +286,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-24"
+    "createdAt": "2025-09-24",
+    "hasFrontmatter": false
   },
   {
     "name": "fruits-into-baskets-ii",
@@ -276,7 +300,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-05"
+    "createdAt": "2025-08-05",
+    "hasFrontmatter": false
   },
   {
     "name": "fruits-into-baskets-iii",
@@ -295,7 +320,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-06"
+    "createdAt": "2025-08-06",
+    "hasFrontmatter": false
   },
   {
     "name": "largest-3-same-digit-number-in-string",
@@ -313,7 +339,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-14"
+    "createdAt": "2025-08-14",
+    "hasFrontmatter": false
   },
   {
     "name": "largest-perimeter-triangle",
@@ -332,7 +359,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-28"
+    "createdAt": "2025-09-28",
+    "hasFrontmatter": false
   },
   {
     "name": "largest-triangle-area",
@@ -350,7 +378,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-27"
+    "createdAt": "2025-09-27",
+    "hasFrontmatter": false
   },
   {
     "name": "longest-common-prefix",
@@ -363,7 +392,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-15"
+    "createdAt": "2025-08-15",
+    "hasFrontmatter": false
   },
   {
     "name": "maximum-69-number",
@@ -374,13 +404,15 @@
     "difficulty": "easy",
     "topics": [
       "Math",
-      "Greedy"
+      "Greedy",
+      "String Manipulation"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-16"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "maximum-area-of-longest-diagonal-rectangle",
@@ -388,12 +420,19 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Math",
+      "Geometry",
+      "Sorting"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-26"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "maximum-number-of-words-you-can-type",
@@ -403,14 +442,16 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Hash Table",
-      "String"
+      "String",
+      "Set",
+      "Filtering"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-15"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "maximun-subarray-sum-with-length-divisible-by-k",
@@ -418,14 +459,20 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
+    "difficulty": "medium",
     "topics": [
-      "array"
+      "Array",
+      "Subarray",
+      "Kadane",
+      "Prefix Sum",
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-27"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "merge-two-sorted-lists",
@@ -433,14 +480,18 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
+    "difficulty": "easy",
     "topics": [
-      "sort"
+      "Linked List",
+      "Recursion",
+      "Merge"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-19"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "minimum-score-triangulation-of-polygon",
@@ -450,14 +501,16 @@
     "category": "daily",
     "difficulty": "medium",
     "topics": [
-      "Array",
-      "Dynamic Programming"
+      "Dynamic Programming",
+      "Polygon",
+      "Interval DP"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-29"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "pacific-atlantic-water-flow",
@@ -467,16 +520,17 @@
     "category": "daily",
     "difficulty": "medium",
     "topics": [
-      "Array",
-      "Depth-First Search",
-      "Breadth-First Search",
-      "Matrix"
+      "DFS",
+      "BFS",
+      "Matrix",
+      "Water Flow"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-06"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "palindrome-number",
@@ -486,13 +540,16 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Math"
+      "Math",
+      "Palindrome",
+      "Integer"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-14"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "power-of-three",
@@ -503,13 +560,16 @@
     "difficulty": "easy",
     "topics": [
       "Math",
-      "Recursion"
+      "Powers",
+      "Division",
+      "Magic Number"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-13"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "power-of-two",
@@ -519,15 +579,15 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Math",
       "Bit Manipulation",
-      "Recursion"
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-09"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "remove-duplicates-from-sorted-array",
@@ -535,15 +595,18 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "sort"
+      "Array",
+      "Two Pointers",
+      "In-place"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-19"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "roman-to-integer",
@@ -551,12 +614,18 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Hash Map",
+      "Roman Numerals"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-19"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "smallest-number-with-all-set-bits",
@@ -566,14 +635,16 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
+      "Bit Manipulation",
       "Math",
-      "Bit Manipulation"
+      "Powers of Two"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-29"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "successful-pairs-of-spells-and-potions",
@@ -583,16 +654,16 @@
     "category": "daily",
     "difficulty": "medium",
     "topics": [
-      "Array",
-      "Two Pointers",
       "Binary Search",
-      "Sorting"
+      "Sorting",
+      "Prefix Sum"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-08"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "triangle",
@@ -603,13 +674,15 @@
     "difficulty": "medium",
     "topics": [
       "Array",
-      "Dynamic Programming"
+      "Dynamic Programming",
+      "Path Sum"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-25"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "two-sum",
@@ -617,12 +690,18 @@
     "source": "leetcode",
     "series": "daily",
     "category": "daily",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Hash Map",
+      "Two Sum"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-18"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "valid-triangle-number",
@@ -634,15 +713,15 @@
     "topics": [
       "Array",
       "Two Pointers",
-      "Binary Search",
-      "Greedy",
-      "Sorting"
+      "Sorting",
+      "Triangle Inequality"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-26"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "water-bottles",
@@ -652,14 +731,16 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
+      "Simulation",
       "Math",
-      "Simulation"
+      "Greedy"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-01"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "water-bottles-ii",
@@ -670,209 +751,225 @@
     "difficulty": "medium",
     "topics": [
       "Math",
-      "Simulation"
+      "Simulation",
+      "Greedy"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-02"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "best-time-to-buy-and-sell-stock",
     "path": "src\\leetcode\\top-interview\\array-string\\best-time-to-buy-and-sell-stock",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Greedy",
+      "One Pass"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-25"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "best-time-to-sell-and-buy-stocks-ii",
     "path": "src\\leetcode\\top-interview\\array-string\\best-time-to-sell-and-buy-stocks-ii",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "medium",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Greedy",
+      "Multiple Transactions"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-26"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "jump-game",
     "path": "src\\leetcode\\top-interview\\array-string\\jump-game",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "medium",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Greedy",
+      "Reachability"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-27"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "majority-element",
     "path": "src\\leetcode\\top-interview\\array-string\\majority-element",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Hash Map",
+      "Boyer-Moore"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-20"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "merge-sorted-array",
     "path": "src\\leetcode\\top-interview\\array-string\\merge-sorted-array",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "string",
-      "sort",
       "Array",
-      "String"
+      "Two Pointers",
+      "Sorting"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-02"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "remove-duplicates-from-sorted-array",
     "path": "src\\leetcode\\top-interview\\array-string\\remove-duplicates-from-sorted-array",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "string",
-      "sort",
       "Array",
-      "String"
+      "Two Pointers",
+      "In-place"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-02"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "remove-duplicates-from-sorted-array-ii",
     "path": "src\\leetcode\\top-interview\\array-string\\remove-duplicates-from-sorted-array-ii",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
     "difficulty": "medium",
     "topics": [
       "Array",
-      "Two Pointers"
+      "Two Pointers",
+      "In-place"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-16"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "remove-element",
     "path": "src\\leetcode\\top-interview\\array-string\\remove-element",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "easy",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Two Pointers",
+      "In-place"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-02"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "rotate-array",
     "path": "src\\leetcode\\top-interview\\array-string\\rotate-array",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-array-string",
+    "difficulty": "medium",
     "topics": [
-      "array",
-      "string",
       "Array",
-      "String"
+      "Rotation",
+      "In-place",
+      "Reverse"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-21"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "isomorphic-strings",
     "path": "src\\leetcode\\top-interview\\hash-table\\isomorphic-strings",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-hash-table",
     "difficulty": "easy",
     "topics": [
       "Hash Table",
-      "String"
+      "String",
+      "Mapping"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-07"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "ransom-note",
     "path": "src\\leetcode\\top-interview\\hash-table\\ransom-note",
     "source": "leetcode",
     "series": "top-interview",
-    "category": "top-interview",
+    "category": "top-interview-hash-table",
+    "difficulty": "easy",
     "topics": [
-      "hash",
-      "Hash Table"
+      "Hash Table",
+      "String",
+      "Frequency Counter"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-03"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "summary-ranges",
@@ -888,7 +985,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-10"
+    "createdAt": "2025-09-10",
+    "hasFrontmatter": false
   },
   {
     "name": "linked-list-cycle",
@@ -906,7 +1004,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-10"
+    "createdAt": "2025-09-10",
+    "hasFrontmatter": false
   },
   {
     "name": "valid-sudoku",
@@ -924,7 +1023,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-04"
+    "createdAt": "2025-09-04",
+    "hasFrontmatter": false
   },
   {
     "name": "longest-substring-without-repeating-characters",
@@ -942,7 +1042,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-01"
+    "createdAt": "2025-10-01",
+    "hasFrontmatter": false
   },
   {
     "name": "minimum-size-subarray-sum",
@@ -961,7 +1062,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-03"
+    "createdAt": "2025-09-03T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "id": "minimum-size-subarray-sum"
   },
   {
     "name": "valid-parentheses",
@@ -978,7 +1081,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-09"
+    "createdAt": "2025-09-09",
+    "hasFrontmatter": false
   },
   {
     "name": "is-subsequence",
@@ -996,7 +1100,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-03"
+    "createdAt": "2025-09-03T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "id": "is-subsequence"
   },
   {
     "name": "valid-palindrome",
@@ -1013,118 +1119,138 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-02"
+    "createdAt": "2025-09-02T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "id": "valid-palindrome"
   },
   {
     "name": "valid-perfect-square",
     "path": "src\\leetcode\\binary-search\\math\\valid-perfect-square",
     "source": "leetcode",
-    "series": "binary-search",
+    "series": "math",
     "category": "binary-search",
     "difficulty": "easy",
     "topics": [
-      "Math",
-      "Binary Search"
+      "Binary Search",
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-09"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "binary-search",
     "path": "src\\leetcode\\binary-search\\search-in-array\\binary-search",
     "source": "leetcode",
-    "series": "binary-search",
+    "series": "search-in-array",
     "category": "binary-search",
     "difficulty": "easy",
     "topics": [
-      "Array",
-      "Binary Search"
+      "Binary Search",
+      "Array"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-07"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "search-insert-position",
     "path": "src\\leetcode\\binary-search\\search-in-array\\search-insert-position",
     "source": "leetcode",
-    "series": "binary-search",
+    "series": "search-in-array",
     "category": "binary-search",
     "difficulty": "easy",
     "topics": [
+      "Binary Search",
       "Array",
-      "Binary Search"
+      "Insert"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-07"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "first-bad-version",
     "path": "src\\leetcode\\binary-search\\standard-search\\first-bad-version",
     "source": "leetcode",
-    "series": "binary-search",
+    "series": "standard-search",
     "category": "binary-search",
     "difficulty": "easy",
     "topics": [
       "Binary Search",
-      "Interactive"
+      "Version Control"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-10"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "guess-number-higher-or-lower",
     "path": "src\\leetcode\\binary-search\\standard-search\\guess-number-higher-or-lower",
     "source": "leetcode",
-    "series": "binary-search",
+    "series": "standard-search",
     "category": "binary-search",
     "difficulty": "easy",
     "topics": [
       "Binary Search",
-      "Interactive"
+      "Game"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-08"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "counter",
     "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\counter",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-1-introduccion",
     "category": "30-days-js",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Closure",
+      "Function Factory",
+      "State Management"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-01T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "counter-ii",
     "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\counter-ii",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-1-introduccion",
     "category": "30-days-js",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Closure",
+      "Factory Pattern",
+      "State Management"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-02T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "create-hello-world-function",
@@ -1137,65 +1263,84 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-08-28",
+    "hasFrontmatter": false
   },
   {
     "name": "to-be-or-not-to-be",
     "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\to-be-or-not-to-be",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-1-introduccion",
     "category": "30-days-js",
-    "topics": [],
+    "difficulty": "easy",
+    "topics": [
+      "Testing",
+      "Equality",
+      "Error Handling"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-03T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "apply-transform-over-each-element-in-array",
     "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\apply-transform-over-each-element-in-array",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
+    "difficulty": "easy",
     "topics": [
-      "array"
+      "Array",
+      "Higher Order Function",
+      "Map"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-04T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "array-reduce-transformation",
     "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\array-reduce-transformation",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
+    "difficulty": "easy",
     "topics": [
-      "array"
+      "Array",
+      "Reduce",
+      "Functional Programming"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-05T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "filter-elements-from-array",
     "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\filter-elements-from-array",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
+    "difficulty": "easy",
     "topics": [
-      "array"
+      "Array",
+      "Predicate",
+      "Filter"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-09-06T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "allow-one-function-call",
@@ -1208,173 +1353,238 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-08-28"
+    "createdAt": "2025-08-28",
+    "hasFrontmatter": false
   },
   {
     "name": "function-composition",
     "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\function-composition",
     "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-08-28"
-  },
-  {
-    "name": "memoize",
-    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\memoize",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-08-28"
-  },
-  {
-    "name": "return-length-of-arguments-passed",
-    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\return-length-of-arguments-passed",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-08-28"
-  },
-  {
-    "name": "add-two-promises",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\add-two-promises",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-01"
-  },
-  {
-    "name": "cache-with-time-limit",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\cache-with-time-limit",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-02"
-  },
-  {
-    "name": "interval-cancellation",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\interval-cancellation",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-01"
-  },
-  {
-    "name": "promise-time-limit",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\promise-time-limit",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-01"
-  },
-  {
-    "name": "sleep",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\sleep",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-01"
-  },
-  {
-    "name": "timeout-cancellation",
-    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\timeout-cancellation",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-01"
-  },
-  {
-    "name": "array-prototype-last",
-    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\array-prototype-last",
-    "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-3-function-transformations",
     "category": "30-days-js",
     "difficulty": "easy",
     "topics": [
-      "Array",
-      "JavaScript"
-    ],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-09-17"
-  },
-  {
-    "name": "chunk-array",
-    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\chunk-array",
-    "source": "leetcode",
-    "series": "30-days-js",
-    "category": "30-days-js",
-    "difficulty": "easy",
-    "topics": [
+      "Function Composition",
+      "Higher Order Function",
       "Array"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-09"
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
-    "name": "is-object-empty",
-    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\is-object-empty",
+    "name": "JSON-stringify-vs-toString",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\memoize",
     "source": "leetcode",
-    "series": "30-days-js",
+    "series": "parte-3-function-transformations",
     "category": "30-days-js",
-    "difficulty": "easy",
     "topics": [
-      "JSON"
+      "Serialization",
+      "Array",
+      "Memoization"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-09-06"
+    "createdAt": "2025-09-08T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "return-length-of-arguments-passed",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\return-length-of-arguments-passed",
+    "source": "leetcode",
+    "series": "parte-3-function-transformations",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Rest Parameters",
+      "Arguments",
+      "Function"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-09T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "add-two-promises",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\add-two-promises",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Promise",
+      "Async/Await",
+      "Concurrency"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-10T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "cache-with-time-limit",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\cache-with-time-limit",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "medium",
+    "topics": [
+      "Cache",
+      "Timeout",
+      "Map",
+      "OOP"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-11T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "interval-cancellation",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\interval-cancellation",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "medium",
+    "topics": [
+      "Interval",
+      "Timer",
+      "Closure",
+      "Async"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-12T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "promise-time-limit",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\promise-time-limit",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "medium",
+    "topics": [
+      "Promise",
+      "Timeout",
+      "Async",
+      "Race Condition"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-13T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "sleep",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\sleep",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Async",
+      "Promise",
+      "Timer"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-14T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "timeout-cancellation",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\timeout-cancellation",
+    "source": "leetcode",
+    "series": "parte-4-programacion-asincrona",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Timeout",
+      "Closure",
+      "Async"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-15T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "array-prototype-last",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\array-prototype-last",
+    "source": "leetcode",
+    "series": "parte-5-JSON",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Prototype",
+      "Extension"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-16T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "chunk-array",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\chunk-array",
+    "source": "leetcode",
+    "series": "parte-5-JSON",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Chunk",
+      "Slicing"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-17T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "is-object-empty",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\is-object-empty",
+    "source": "leetcode",
+    "series": "parte-5-JSON",
+    "category": "30-days-js",
+    "difficulty": "easy",
+    "topics": [
+      "Object",
+      "Array",
+      "Empty Check"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "createdAt": "2025-09-18T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "3-strikes",
@@ -1383,12 +1593,17 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Math",
+      "String"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-13T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "3 Strikes"
   },
   {
     "name": "base-check",
@@ -1406,7 +1621,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-14"
+    "createdAt": "2025-10-14T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Base Check"
   },
   {
     "name": "camel-case",
@@ -1420,7 +1637,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-27"
+    "createdAt": "2025-11-27T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Camel Case"
   },
   {
     "name": "character-battle",
@@ -1434,7 +1653,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-22"
+    "createdAt": "2025-11-22T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Character Battle"
   },
   {
     "name": "factorializer",
@@ -1448,7 +1669,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-27T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Factorializer"
   },
   {
     "name": "fibonacci-sequence",
@@ -1466,7 +1689,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-17"
+    "createdAt": "2025-10-17T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Fibonacci Sequence"
   },
   {
     "name": "jumbled-text",
@@ -1480,7 +1705,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-27",
+    "hasFrontmatter": false
   },
   {
     "name": "message-decoder",
@@ -1494,7 +1720,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-03"
+    "createdAt": "2025-11-03T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Message Decoder"
   },
   {
     "name": "mile-pace",
@@ -1508,7 +1736,9 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-28"
+    "createdAt": "2025-10-28T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Mile Pace"
   },
   {
     "name": "navigator",
@@ -1517,26 +1747,36 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Array",
+      "Simulation"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-28"
+    "createdAt": "2025-10-29T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Navigator"
   },
   {
     "name": "reverse-parenthesis",
     "path": "src\\freecodecamp\\daily\\august\\reverse-parenthesis",
     "source": "freecodecamp",
     "series": "daily",
-    "category": "freecodecamp",
+    "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "String",
+      "Stack"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-28"
+    "createdAt": "2025-10-15T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Reverse Parenthesis"
   },
   {
     "name": "space-jam",
@@ -1545,12 +1785,16 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "String"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-20"
+    "createdAt": "2025-10-30T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Space Jam"
   },
   {
     "name": "sum-of-squares",
@@ -1559,12 +1803,17 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Array",
+      "Math"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-31T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Sum of Squares"
   },
   {
     "name": "targeted-sum",
@@ -1578,21 +1827,26 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-27",
+    "hasFrontmatter": false
   },
   {
     "name": "unnatural-prime",
     "path": "src\\freecodecamp\\daily\\august\\unnatural-prime",
     "source": "freecodecamp",
     "series": "daily",
-    "category": "daily august",
+    "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Math"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-03"
+    "createdAt": "2025-11-01T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Unnatural Prime"
   },
   {
     "name": "vowel-balance",
@@ -1602,14 +1856,16 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Strings",
-      "Conditionals"
+      "String",
+      "Array"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-04"
+    "createdAt": "2025-10-16T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Vowel Balance"
   },
   {
     "name": "100-characters",
@@ -1623,7 +1879,23 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-18"
+    "createdAt": "2025-11-18T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "ai-detector",
+    "path": "src\\freecodecamp\\daily\\november\\ai-detector",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "freecodecamp",
+    "difficulty": "easy",
+    "topics": [],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-11-30",
+    "hasFrontmatter": false
   },
   {
     "name": "ball-trajectory",
@@ -1637,7 +1909,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-29"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "character-count",
@@ -1651,7 +1924,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-24"
+    "createdAt": "2025-11-24",
+    "hasFrontmatter": false
   },
   {
     "name": "character-limit",
@@ -1665,7 +1939,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-08"
+    "createdAt": "2025-11-08",
+    "hasFrontmatter": false
   },
   {
     "name": "count-rectangles",
@@ -1679,7 +1954,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-16"
+    "createdAt": "2025-11-16T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "counting-cards",
@@ -1695,7 +1971,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-07"
+    "createdAt": "2025-11-07",
+    "hasFrontmatter": false
   },
   {
     "name": "days-until-weekend",
@@ -1709,7 +1986,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-14"
+    "createdAt": "2025-11-14",
+    "hasFrontmatter": false
   },
   {
     "name": "email-signature-generator",
@@ -1723,7 +2001,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-12"
+    "createdAt": "2025-11-12",
+    "hasFrontmatter": false
   },
   {
     "name": "extension-extractor",
@@ -1737,7 +2016,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-10"
+    "createdAt": "2025-11-10T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "fizz-buzz",
@@ -1751,7 +2031,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-25"
+    "createdAt": "2025-11-25T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "gcd",
@@ -1765,23 +2046,23 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-15"
+    "createdAt": "2025-11-05T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "image-search",
     "path": "src\\freecodecamp\\daily\\november\\image-search",
     "source": "freecodecamp",
     "series": "daily",
-    "category": "daily",
+    "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "search"
-    ],
+    "topics": [],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-04"
+    "createdAt": "2025-11-04T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "infected",
@@ -1795,7 +2076,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-03"
+    "createdAt": "2025-11-03T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "is-fizz-buzz",
@@ -1809,7 +2091,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-26"
+    "createdAt": "2025-11-26T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "is-match",
@@ -1823,7 +2106,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-17"
+    "createdAt": "2025-11-17T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "least-common-multiple",
@@ -1837,7 +2121,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-22"
+    "createdAt": "2025-11-22T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "longest-word",
@@ -1851,7 +2136,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-20"
+    "createdAt": "2025-11-20T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "markdown-heading-converter",
@@ -1865,7 +2151,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-19"
+    "createdAt": "2025-11-19T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "matrix-builder",
@@ -1882,7 +2169,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-05"
+    "createdAt": "2025-11-05T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "message-validator",
@@ -1896,7 +2184,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-24"
+    "createdAt": "2025-11-24T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "recipe-scale",
@@ -1910,7 +2199,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-22"
+    "createdAt": "2025-11-22T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "shift-array",
@@ -1926,7 +2216,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-13"
+    "createdAt": "2025-11-13T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "signature-validation",
@@ -1940,7 +2231,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-02"
+    "createdAt": "2025-11-02T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "vowels-and-consonants",
@@ -1954,7 +2246,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-11"
+    "createdAt": "2025-11-11T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "weekday-finder",
@@ -1968,7 +2261,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-06"
+    "createdAt": "2025-11-06T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "whats-my-age-again",
@@ -1982,7 +2276,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-27"
+    "createdAt": "2025-11-27T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "word-guesser",
@@ -1996,7 +2291,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-28"
+    "createdAt": "2025-11-28T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "word-search",
@@ -2006,13 +2302,15 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "search"
+      "Array",
+      "Matrix"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-11-09"
+    "createdAt": "2025-11-01T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "24-to-12",
@@ -2030,7 +2328,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-13"
+    "createdAt": "2025-10-13",
+    "hasFrontmatter": false
   },
   {
     "name": "battle-of-words",
@@ -2047,7 +2346,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-12"
+    "createdAt": "2025-10-12",
+    "hasFrontmatter": false
   },
   {
     "name": "binary-to-decimal",
@@ -2065,7 +2365,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-08"
+    "createdAt": "2025-10-08",
+    "hasFrontmatter": false
   },
   {
     "name": "calcetines-faltantes",
@@ -2079,7 +2380,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-18"
+    "createdAt": "2025-10-18",
+    "hasFrontmatter": false
   },
   {
     "name": "complementary-dna",
@@ -2093,7 +2395,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-25"
+    "createdAt": "2025-10-25",
+    "hasFrontmatter": false
   },
   {
     "name": "credit-card-masker",
@@ -2111,7 +2414,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-17"
+    "createdAt": "2025-10-17",
+    "hasFrontmatter": false
   },
   {
     "name": "decimal-to-binary",
@@ -2129,7 +2433,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-10-06"
+    "createdAt": "2025-10-06",
+    "hasFrontmatter": false
   },
   {
     "name": "duration-formatter",
@@ -2143,7 +2448,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-26"
+    "createdAt": "2025-10-26",
+    "hasFrontmatter": false
   },
   {
     "name": "email-sorter",
@@ -2159,7 +2465,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-29"
+    "createdAt": "2025-10-29",
+    "hasFrontmatter": false
   },
   {
     "name": "email-validator",
@@ -2177,7 +2484,8 @@
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-16"
+    "createdAt": "2025-10-16",
+    "hasFrontmatter": false
   },
   {
     "name": "exoplanet-search",
@@ -2187,15 +2495,15 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Strings",
-      "Math",
-      "Arrays"
+      "String",
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-10-05"
+    "hasPostSolution": false,
+    "createdAt": "2025-10-20T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "favorite-songs",
@@ -2204,12 +2512,16 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Array",
+      "Sorting"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-23"
+    "createdAt": "2025-10-19T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "goldilocks-zone",
@@ -2219,14 +2531,14 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "Math",
-      "Astronomy"
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-08"
+    "createdAt": "2025-10-18T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "hex-to-decimal",
@@ -2237,14 +2549,14 @@
     "difficulty": "easy",
     "topics": [
       "Math",
-      "String",
-      "Base Conversion"
+      "String"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-11"
+    "createdAt": "2025-10-17T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "hidden-treasure",
@@ -2253,12 +2565,16 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Array",
+      "Matrix"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-24"
+    "createdAt": "2025-10-15T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "html-attribute-extractor",
@@ -2267,30 +2583,34 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "String",
+      "Regex"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-19"
+    "createdAt": "2025-10-16T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "html-tag-stripper",
     "path": "src\\freecodecamp\\daily\\october\\html-tag-stripper",
     "source": "freecodecamp",
     "series": "daily",
-    "category": "coding interview prep",
-    "difficulty": "medium",
+    "category": "daily",
+    "difficulty": "easy",
     "topics": [
-      "Strings",
-      "HTML",
-      "Regular Expressions"
+      "String",
+      "Regex"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-16"
+    "createdAt": "2025-10-14T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "integer-sequence",
@@ -2299,12 +2619,16 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "String",
+      "Math"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-27"
+    "createdAt": "2025-10-13T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "landing-spot",
@@ -2312,17 +2636,17 @@
     "source": "freecodecamp",
     "series": "daily",
     "category": "daily",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "topics": [
-      "Matrix",
       "Array",
-      "Search"
+      "Matrix"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-08"
+    "createdAt": "2025-10-12T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "launch-fuel",
@@ -2330,17 +2654,17 @@
     "source": "freecodecamp",
     "series": "daily",
     "category": "daily",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "topics": [
       "Math",
-      "Recursion",
       "Simulation"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-11"
+    "createdAt": "2025-10-11T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "moon-phase",
@@ -2348,17 +2672,17 @@
     "source": "freecodecamp",
     "series": "daily",
     "category": "daily",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "topics": [
       "Date",
-      "Math",
-      "String"
+      "Math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-11"
+    "createdAt": "2025-10-09T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "nth-prime",
@@ -2366,17 +2690,327 @@
     "source": "freecodecamp",
     "series": "daily",
     "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
+    "difficulty": "medium",
+    "topics": [
+      "Math",
+      "Prime"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-30"
+    "createdAt": "2025-10-10T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "password-strength",
     "path": "src\\freecodecamp\\daily\\october\\password-strength",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Regex"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-08T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "phone-home",
+    "path": "src\\freecodecamp\\daily\\october\\phone-home",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Math",
+      "Array"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-02T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "speak-wisely-you-must",
+    "path": "src\\freecodecamp\\daily\\october\\speak-wisely-you-must",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Array"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-07T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "spooky-case",
+    "path": "src\\freecodecamp\\daily\\october\\spooky-case",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Regex"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-06T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "stellar-classification",
+    "path": "src\\freecodecamp\\daily\\october\\stellar-classification",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Math",
+      "Mapping"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-04T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "string-count",
+    "path": "src\\freecodecamp\\daily\\october\\string-count",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-05T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "thermostat-adjuster-2",
+    "path": "src\\freecodecamp\\daily\\october\\thermostat-adjuster-2",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Math"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-03T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "tip-calculator",
+    "path": "src\\freecodecamp\\daily\\october\\tip-calculator",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Math",
+      "String"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-10-01T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "anagram-checker",
+    "path": "src\\freecodecamp\\daily\\september\\anagram-checker",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Hash Table",
+      "Sorting"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-01T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "caught-speeding",
+    "path": "src\\freecodecamp\\daily\\september\\caught-speeding",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Math",
+      "Simulation"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-02T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "csv-header-parser",
+    "path": "src\\freecodecamp\\daily\\september\\csv-header-parser",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Array"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-03T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "digits-vs-letters",
+    "path": "src\\freecodecamp\\daily\\september\\digits-vs-letters",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Counting"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-04T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "longest-word",
+    "path": "src\\freecodecamp\\daily\\september\\longest-word",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Array"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-05T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "perfect-square",
+    "path": "src\\freecodecamp\\daily\\september\\perfect-square",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Math"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-06T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "phone-number-formatter",
+    "path": "src\\freecodecamp\\daily\\september\\phone-number-formatter",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Formatting"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-07T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "rgb-to-hex",
+    "path": "src\\freecodecamp\\daily\\september\\rgb-to-hex",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "String",
+      "Math",
+      "Formatting"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-08T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "second-largest",
+    "path": "src\\freecodecamp\\daily\\september\\second-largest",
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "daily",
+    "difficulty": "easy",
+    "topics": [
+      "Array",
+      "Sorting"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-09-09T00:00:00.000Z",
+    "hasFrontmatter": true
+  },
+  {
+    "name": "spam-detector",
+    "path": "src\\freecodecamp\\daily\\september\\spam-detector",
     "source": "freecodecamp",
     "series": "daily",
     "category": "daily",
@@ -2388,255 +3022,9 @@
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-10-06"
-  },
-  {
-    "name": "phone-home",
-    "path": "src\\freecodecamp\\daily\\october\\phone-home",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math"
-    ],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": true,
-    "createdAt": "2025-10-06"
-  },
-  {
-    "name": "speak-wisely-you-must",
-    "path": "src\\freecodecamp\\daily\\october\\speak-wisely-you-must",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-22"
-  },
-  {
-    "name": "spooky-case",
-    "path": "src\\freecodecamp\\daily\\october\\spooky-case",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily november",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-31"
-  },
-  {
-    "name": "stellar-classification",
-    "path": "src\\freecodecamp\\daily\\october\\stellar-classification",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [
-      "Functions",
-      "Conditionals"
-    ],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-04"
-  },
-  {
-    "name": "string-count",
-    "path": "src\\freecodecamp\\daily\\october\\string-count",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [
-      "Strings",
-      "Algorithms"
-    ],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-14"
-  },
-  {
-    "name": "thermostat-adjuster-2",
-    "path": "src\\freecodecamp\\daily\\october\\thermostat-adjuster-2",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-21"
-  },
-  {
-    "name": "tip-calculator",
-    "path": "src\\freecodecamp\\daily\\october\\tip-calculator",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-20"
-  },
-  {
-    "name": "anagram-checker",
-    "path": "src\\freecodecamp\\daily\\september\\anagram-checker",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-27"
-  },
-  {
-    "name": "caught-speeding",
-    "path": "src\\freecodecamp\\daily\\september\\caught-speeding",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-23"
-  },
-  {
-    "name": "csv-header-parser",
-    "path": "src\\freecodecamp\\daily\\september\\csv-header-parser",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-21"
-  },
-  {
-    "name": "digits-vs-letters",
-    "path": "src\\freecodecamp\\daily\\september\\digits-vs-letters",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-25"
-  },
-  {
-    "name": "longest-word",
-    "path": "src\\freecodecamp\\daily\\september\\longest-word",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-21"
-  },
-  {
-    "name": "perfect-square",
-    "path": "src\\freecodecamp\\daily\\september\\perfect-square",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-25"
-  },
-  {
-    "name": "phone-number-formatter",
-    "path": "src\\freecodecamp\\daily\\september\\phone-number-formatter",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-21"
-  },
-  {
-    "name": "rgb-to-hex",
-    "path": "src\\freecodecamp\\daily\\september\\rgb-to-hex",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-27"
-  },
-  {
-    "name": "second-largest",
-    "path": "src\\freecodecamp\\daily\\september\\second-largest",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-24"
-  },
-  {
-    "name": "spam-detector",
-    "path": "src\\freecodecamp\\daily\\september\\spam-detector",
-    "source": "freecodecamp",
-    "series": "daily",
-    "category": "daily",
-    "difficulty": "easy",
-    "topics": [],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-21"
+    "createdAt": "2025-09-10T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "string-mirror",
@@ -2646,13 +3034,15 @@
     "category": "daily",
     "difficulty": "easy",
     "topics": [
-      "string"
+      "String",
+      "Array"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-25"
+    "createdAt": "2025-09-11T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "tribonacci-sequence",
@@ -2661,12 +3051,16 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Array",
+      "Math"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-26"
+    "createdAt": "2025-09-14T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "video-storage",
@@ -2675,132 +3069,144 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [],
+    "topics": [
+      "Math",
+      "String"
+    ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-26"
+    "createdAt": "2025-09-15T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "symmetric-difference",
     "path": "src\\freecodecamp\\coding-interview-prep\\algorithm\\symmetric-difference",
     "source": "freecodecamp",
     "series": "coding-interview-prep",
-    "category": "daily",
+    "category": "algorithm",
     "difficulty": "medium",
     "topics": [
-      "Array",
       "Set",
-      "Math"
-    ],
-    "hasImplementation": true,
-    "hasTests": true,
-    "hasExplanation": true,
-    "hasPostSolution": false,
-    "createdAt": "2025-10-08"
-  },
-  {
-    "name": "update-inventory",
-    "path": "src\\freecodecamp\\coding-interview-prep\\algorithm\\update-inventory",
-    "source": "freecodecamp",
-    "series": "coding-interview-prep",
-    "category": "coding interview prep",
-    "difficulty": "medium",
-    "topics": [
       "Array",
-      "Sorting",
       "Map"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-08"
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "id": "symmetric-difference"
+  },
+  {
+    "name": "update-inventory",
+    "path": "src\\freecodecamp\\coding-interview-prep\\algorithm\\update-inventory",
+    "source": "freecodecamp",
+    "series": "coding-interview-prep",
+    "category": "algorithm",
+    "difficulty": "medium",
+    "topics": [
+      "Map",
+      "Array",
+      "Hash Table"
+    ],
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "createdAt": "2025-11-29T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "id": "update-inventory"
   },
   {
     "name": "even-fibonacci-numbers",
     "path": "src\\freecodecamp\\project-euler\\even-fibonacci-numbers",
     "source": "freecodecamp",
     "series": "project-euler",
-    "category": "project euler",
+    "category": "freecodecamp",
     "difficulty": "easy",
     "topics": [
-      "Math",
-      "Fibonacci",
-      "Sequence"
+      "math",
+      "sequence"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-12"
+    "createdAt": "2025-11-01T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "largest-prime-factor",
     "path": "src\\freecodecamp\\project-euler\\largest-prime-factor",
     "source": "freecodecamp",
     "series": "project-euler",
-    "category": "project euler",
-    "difficulty": "medium",
+    "category": "freecodecamp",
+    "difficulty": "easy",
     "topics": [
-      "Math",
-      "Prime Numbers"
+      "math",
+      "prime"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-14"
+    "createdAt": "2025-11-02T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "multiples-of-3-or-5",
     "path": "src\\freecodecamp\\project-euler\\multiples-of-3-or-5",
     "source": "freecodecamp",
     "series": "project-euler",
-    "category": "project euler",
+    "category": "freecodecamp",
     "difficulty": "easy",
     "topics": [
-      "Mathematics",
-      "Loops",
-      "Arithmetic"
+      "math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-11"
+    "createdAt": "2025-11-03T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "100-doors",
     "path": "src\\freecodecamp\\rosetta-code\\100-doors",
     "source": "freecodecamp",
     "series": "rosetta-code",
-    "category": "rosetta code",
+    "category": "freecodecamp",
     "difficulty": "easy",
     "topics": [
-      "set"
+      "math",
+      "simulation"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-20"
+    "createdAt": "2025-11-02T00:00:00.000Z",
+    "hasFrontmatter": true
   },
   {
     "name": "24-game",
     "path": "src\\freecodecamp\\rosetta-code\\24-game",
     "source": "freecodecamp",
     "series": "rosetta-code",
-    "category": "rosetta code",
-    "difficulty": "easy",
+    "category": "freecodecamp",
+    "difficulty": "medium",
     "topics": [
-      "set"
+      "backtracking",
+      "math"
     ],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": false,
-    "createdAt": "2025-10-20"
+    "createdAt": "2025-11-01T00:00:00.000Z",
+    "hasFrontmatter": true
   }
 ]

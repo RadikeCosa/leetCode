@@ -1,3 +1,13 @@
+---
+name: adjacent-increasing-subarrays-detection-i
+difficulty: medium
+category: daily
+topics: [Array, Sliding Window, Brute Force]
+source: leetcode
+series: daily
+createdAt: 2025-11-30
+---
+
 # Adjacent Increasing Subarrays Detection I
 
 ## Enunciado del Problema

@@ -1,4 +1,15 @@
-# Convert Integer to the Sum of Two No-Zero Integers
+---
+title: "Convert Integer to the Sum of Two No-Zero Integers"
+difficulty: "easy"
+topics:
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-08"
+---
+
+## Convert Integer to the Sum of Two No-Zero Integers
 
 Encontrar dos enteros "No-Zero" que sumen un número dado n.
 
@@ -54,6 +65,23 @@ Para cada valor de i desde 1 hasta n-1:
 - **a = i**: Primer número de la combinación
 - **b = n - i**: Segundo número (garantiza que a + b = n)
 - **Verificación**: Si ambos son No-Zero, retornamos la combinación
+
+### Implementación completa
+
+```typescript
+export function getNoZeroIntegers(n: number): number[] {
+  const isNoZeroInteger = (n: number): boolean => {
+    return !n.toString().includes("0");
+  };
+  for (let i = 1; i < n; i++) {
+    let a = i;
+    let b = n - i;
+    if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
+  }
+
+  return [];
+}
+```
 
 ### Estrategia de Testing (TDD)
 
