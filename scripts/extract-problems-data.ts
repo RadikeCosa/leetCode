@@ -247,32 +247,75 @@ function getProblemsFromSeries(seriesInfo: {
           } else {
             meta = extractMetadataFromFile(join(itemPath, implFile));
           }
-          const problemObj = {
+          // Use frontmatter as primary source; heuristics only as fallback
+          const baseFields = {
             name: item,
             path: itemPath,
-            source: seriesInfo.source,
-            series: seriesInfo.series,
-            category: normalizeCategory({
-              ...meta,
-              path: itemPath,
-              series: seriesInfo.series,
-            }),
-            difficulty: normalizeDifficulty({
-              ...meta,
-              path: itemPath,
-              source: seriesInfo.source,
-            }),
-            topics: extractTopics({ ...meta, name: item, path: itemPath }),
             hasImplementation: !!implFile,
             hasTests: !!testFile,
             hasExplanation: !!explanationFile,
             hasPostSolution: !!postSolutionFile,
-            createdAt: getCreatedAt(itemPath),
-            hasFrontmatter: frontmatterData.hasFrontmatter,
-            ...(frontmatterData.hasFrontmatter
-              ? frontmatterData.frontmatter
-              : {}),
           };
+
+          const problemObj = frontmatterData.hasFrontmatter
+            ? {
+                ...baseFields,
+                source: frontmatterData.frontmatter.source || seriesInfo.source,
+                series: frontmatterData.frontmatter.series || seriesInfo.series,
+                category:
+                  frontmatterData.frontmatter.category ||
+                  normalizeCategory({
+                    ...meta,
+                    path: itemPath,
+                    series: seriesInfo.series,
+                  }),
+                difficulty:
+                  frontmatterData.frontmatter.difficulty ||
+                  normalizeDifficulty({
+                    ...meta,
+                    path: itemPath,
+                    source: seriesInfo.source,
+                  }),
+                topics:
+                  frontmatterData.frontmatter.topics ||
+                  extractTopics({ ...meta, name: item, path: itemPath }),
+                createdAt:
+                  frontmatterData.frontmatter.createdAt ||
+                  getCreatedAt(itemPath),
+                hasFrontmatter: true,
+                // Include all other frontmatter fields (e.g., title)
+                ...Object.fromEntries(
+                  Object.entries(frontmatterData.frontmatter).filter(
+                    ([key]) =>
+                      ![
+                        "source",
+                        "series",
+                        "category",
+                        "difficulty",
+                        "topics",
+                        "createdAt",
+                      ].includes(key)
+                  )
+                ),
+              }
+            : {
+                ...baseFields,
+                source: seriesInfo.source,
+                series: seriesInfo.series,
+                category: normalizeCategory({
+                  ...meta,
+                  path: itemPath,
+                  series: seriesInfo.series,
+                }),
+                difficulty: normalizeDifficulty({
+                  ...meta,
+                  path: itemPath,
+                  source: seriesInfo.source,
+                }),
+                topics: extractTopics({ ...meta, name: item, path: itemPath }),
+                createdAt: getCreatedAt(itemPath),
+                hasFrontmatter: false,
+              };
           problems.push(problemObj);
         }
       }
