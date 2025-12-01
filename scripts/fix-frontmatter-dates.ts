@@ -22,9 +22,12 @@ interface FileUpdate {
  */
 function getGitCreationDate(filePath: string): string | null {
   try {
+    // Sanitize the file path to prevent command injection
+    const sanitizedPath = filePath.replace(/["'`$\\]/g, "\\$&");
+    
     // Get the date of the first commit that added this file
     const result = execSync(
-      `git log --diff-filter=A --follow --format=%aI -1 -- "${filePath}"`,
+      `git log --diff-filter=A --follow --format=%aI -1 -- "${sanitizedPath}"`,
       { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] }
     );
     
@@ -44,7 +47,9 @@ function getGitCreationDate(filePath: string): string | null {
  * Extract createdAt date from frontmatter
  */
 function extractCreatedAt(content: string): string | null {
-  const match = content.match(/^---\n[\s\S]*?createdAt:\s*["']?(\d{4}-\d{2}-\d{2})["']?/m);
+  // Trim content to handle leading whitespace/BOM
+  const trimmedContent = content.trim();
+  const match = trimmedContent.match(/^---\n[\s\S]*?createdAt:\s*["']?(\d{4}-\d{2}-\d{2})["']?/);
   return match ? match[1] : null;
 }
 
@@ -52,8 +57,10 @@ function extractCreatedAt(content: string): string | null {
  * Update createdAt date in frontmatter
  */
 function updateCreatedAt(content: string, newDate: string): string {
-  return content.replace(
-    /(^---\n[\s\S]*?createdAt:\s*)["']?\d{4}-\d{2}-\d{2}["']?/m,
+  // Trim content to handle leading whitespace/BOM
+  const trimmedContent = content.trim();
+  return trimmedContent.replace(
+    /(^---\n[\s\S]*?createdAt:\s*)["']?\d{4}-\d{2}-\d{2}["']?/,
     `$1"${newDate}"`
   );
 }
@@ -79,7 +86,8 @@ function findFiles(dir: string, pattern: RegExp, files: string[] = []): string[]
           files.push(fullPath);
         }
       } catch (err) {
-        // Skip files we can't access
+        // Skip files we can't access (log for debugging)
+        console.warn(`⚠️  Cannot access: ${fullPath}`);
         continue;
       }
     }
