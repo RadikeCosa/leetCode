@@ -1,4 +1,16 @@
-# Fruits Into Baskets II - Proceso de Aprendizaje y Solución
+---
+title: "Fruits Into Baskets II"
+difficulty: "easy"
+topics: ["greedy", "simulation", "arrays"]
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-05"
+tags: ["greedy", "simulation", "interview", "arrays"]
+language: "typescript"
+---
+
+## Fruits Into Baskets II - Proceso de Aprendizaje y Solución
 
 ## 🎯 Descripción del Problema
 

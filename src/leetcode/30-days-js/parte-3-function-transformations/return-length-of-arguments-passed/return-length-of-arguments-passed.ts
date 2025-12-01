@@ -10,7 +10,5 @@
  */
 
 export function argumentsLength(...args: any[]): number {
-  // Tu implementación aquí
-  // Pista: utiliza los rest parameters (...args) para capturar todos los argumentos
   return args.length; // placeholder
 }

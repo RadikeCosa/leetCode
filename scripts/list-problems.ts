@@ -20,11 +20,12 @@ interface ProblemInfo {
 }
 
 /**
- * Get all problems from a specific series
+ * Recursively get all problems from a series (any depth)
  */
 function getProblemsFromSeries(
   seriesName: string,
-  seriesPath: string
+  seriesPath: string,
+  category?: string
 ): ProblemInfo[] {
   const problems: ProblemInfo[] = [];
   const seriesConfig = SERIES_CONFIG[seriesName as SeriesType];
@@ -33,28 +34,19 @@ function getProblemsFromSeries(
     return problems;
   }
 
-  if (seriesConfig.structure === "flat") {
-    // Direct problems in series folder
-    const items = readdirSync(seriesPath);
-    for (const item of items) {
-      const itemPath = join(seriesPath, item);
-      if (statSync(itemPath).isDirectory()) {
-        problems.push(analyzeProblem(item, itemPath, seriesName));
-      }
-    }
-  } else {
-    // Problems organized in categories/sections
-    const categories = readdirSync(seriesPath);
-    for (const category of categories) {
-      const categoryPath = join(seriesPath, category);
-      if (statSync(categoryPath).isDirectory() && category !== "utilidades") {
-        const items = readdirSync(categoryPath);
-        for (const item of items) {
-          const itemPath = join(categoryPath, item);
-          if (statSync(itemPath).isDirectory()) {
-            problems.push(analyzeProblem(item, itemPath, seriesName, category));
-          }
-        }
+  const items = readdirSync(seriesPath);
+  for (const item of items) {
+    if (item === "utilidades") continue;
+    const itemPath = join(seriesPath, item);
+    if (statSync(itemPath).isDirectory()) {
+      // Check if this directory is a problem (contains implementation file)
+      const ext = seriesConfig.language;
+      const implementationFile = join(itemPath, `${item}.${ext}`);
+      if (existsSync(implementationFile)) {
+        problems.push(analyzeProblem(item, itemPath, seriesName, category));
+      } else {
+        // Recurse deeper
+        problems.push(...getProblemsFromSeries(seriesName, itemPath, item));
       }
     }
   }

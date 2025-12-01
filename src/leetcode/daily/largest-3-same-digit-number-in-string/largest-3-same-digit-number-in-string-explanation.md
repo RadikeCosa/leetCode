@@ -1,4 +1,23 @@
-# Largest 3-Same-Digit Number in String - Explicación
+---
+title: "Largest 3 Same Digit Number in String"
+difficulty: "easy"
+topics:
+  - Sliding Window
+  - String
+  - Counting
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-14"
+tags:
+  - sliding-window
+  - string
+  - counting
+language: "typescript"
+author: "ramiro"
+---
+
+## Largest 3-Same-Digit Number in String - Explicación
 
 ## Descripción del Problema
 

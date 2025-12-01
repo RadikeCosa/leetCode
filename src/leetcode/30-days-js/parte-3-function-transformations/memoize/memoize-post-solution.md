@@ -48,3 +48,26 @@ export function memoize(fn: Fn): Fn {
 - **Memory Management**: Cache grows with unique input combinations but bounded by problem constraints
 - **Alternative Approaches**: Could use object instead of Map, but Map provides better performance for this use case
 - **Why This Works**: Closures maintain the cache state between function calls, making it persistent yet private
+
+### Codigo Completo
+
+```ts
+type Fn = (...params: number[]) => number;
+
+export function memoize(fn: Fn): Fn {
+  // Tu implementación aquí
+  // Pista: necesitas almacenar los resultados de llamadas anteriores
+  // y crear una clave única para cada combinación de parámetros
+  const cache = new Map<string, number>();
+
+  return function (...args: number[]): number {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) {
+      return cache.get(key)!;
+    }
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+}
+```

@@ -1,4 +1,16 @@
-# Find N Unique Integers Sum up to Zero
+---
+title: "Find N Unique Integers Sum up to Zero"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-07"
+---
+
+## Find N Unique Integers Sum up to Zero
 
 Dado un entero `n`, devolver cualquier array que contenga `n` enteros únicos cuya suma sea `0`.
 

@@ -34,6 +34,14 @@ Este problema introduce el concepto de **rest parameters** en JavaScript/TypeScr
 
 La solución utiliza la sintaxis de rest parameters (`...args`) para capturar todos los argumentos pasados a la función en un array, luego simplemente retorna la longitud de ese array.
 
+### Codigo
+
+```typescript
+export function argumentsLength(...args: any[]): number {
+  return args.length; // placeholder
+}
+```
+
 ## Casos extremos
 
 - Sin argumentos (0)

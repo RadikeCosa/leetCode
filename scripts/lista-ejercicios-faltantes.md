@@ -7,22 +7,21 @@
 - [x] compare-version-numbers
 - [x] container-with-most-water
 - [x] convert-integer-to-the-sum-of-two-no-zero-integers
-- [ ] count-operations-to-obtain-zero
-- [ ] find-closest-person
-- [ ] find-most-frequent-vowel-and-consonant
-- [ ] find-n-unique-integers-sum-up-to-zero
-- [ ] find-resultant-array-after-removing-anagrams
-- [ ] find-triangular-sum-of-an-array
-- [ ] fraction-to-recurring-decimal
-- [ ] fruits-into-baskets-ii
-- [ ] fruits-into-baskets-iii
-- [ ] largest-3-same-digit-number-in-string
-- [ ] largest-perimeter-triangle
-- [ ] largest-triangle-area
-- [ ] longest-common-prefix
-- [ ] summary-ranges
-- [ ] linked-list-cycle
-- [ ] valid-sudoku
+- [x] count-operations-to-obtain-zero
+- [x] find-closest-person
+- [x] find-most-frequent-vowel-and-consonant
+- [x] find-n-unique-integers-sum-up-to-zero
+- [x] find-resultant-array-after-removing-anagrams
+- [x] find-triangular-sum-of-an-array
+- [x] fraction-to-recurring-decimal
+- [x] fruits-into-baskets-ii
+- [x] fruits-into-baskets-iii
+- [x] largest-3-same-digit-number-in-string
+- [x] largest-perimeter-triangle
+- [x] largest-triangle-area
+- [x] longest-common-prefix
+- [x] summary-ranges
+- [x] valid-sudoku
 - [ ] longest-substring-without-repeating-characters
 - [ ] valid-parentheses
 - [ ] jumbled-text
@@ -44,31 +43,30 @@
 - [ ] email-validator
 - [ ] battle-of-words
 - [ ] 24-to-12
-
-- create-hello-world-function
-- allow-one-function-call
-- ai-detector
-  binary-prefix-divisible-by-five
-  count-operations-to-obtain-zero
-  fruits-into-baskets-ii
-  jumbled-text
-  targeted-sum
-  character-count
-  character-limit
-  days-until-weekend
-  ai-detector
-  create-hello-world-function
-  allow-one-function-call
-  binary-to-decimal
-  calcetines-faltantes
-  complementary-dna
-  credit-card-masker
-  decimal-to-binary
-  duration-formatter
-  email-sorter
-  email-validator
-  battle-of-words
-  24-to-12
+- [ ] create-hello-world-function
+- [ ] allow-one-function-call
+- [ ] ai-detector
+- [ ] binary-prefix-divisible-by-five
+- [ ] count-operations-to-obtain-zero
+- [ ] fruits-into-baskets-ii
+- [ ] jumbled-text
+- [ ] targeted-sum
+- [ ] character-count
+- [ ] character-limit
+- [ ] days-until-weekend
+- [ ] ai-detector
+- [ ] create-hello-world-function
+- [ ] allow-one-function-call
+- [ ] binary-to-decimal
+- [ ] calcetines-faltantes
+- [ ] complementary-dna
+      credit-card-masker
+      decimal-to-binary
+      duration-formatter
+      email-sorter
+      email-validator
+      battle-of-words
+      24-to-12
 - character-count
 - character-limit
 - days-until-weekend
@@ -95,7 +93,6 @@
 - email-signature-generator
 - jumbled-text
 - targeted-sum
-- ... (más en freecodecamp/daily/october, november, etc.)
 
 ## Sin topics
 
@@ -143,5 +140,3 @@
 - [ ] email-validator
 - [ ] battle-of-words
 - [ ] 24-to-12
-
-> Nota: La lista está truncada para mostrar los principales casos. Si necesitas el listado completo y detallado, puedo generarlo con todos los nombres y rutas.

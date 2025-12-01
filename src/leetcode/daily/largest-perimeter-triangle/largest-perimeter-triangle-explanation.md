@@ -1,4 +1,18 @@
-# Problema 976: Largest Perimeter Triangle
+---
+title: "largest perimeter triangle"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+  - Greedy
+  - Sorting
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-28"
+---
+
+## Problema 976: Largest Perimeter Triangle
 
 ## Descripción del problema
 
@@ -146,7 +160,6 @@ export function largestPerimeter(nums: number[]): number {
 - **Fuerza bruta O(n³)**: Probar todas las combinaciones de 3 elementos
   - **Problema**: Innecesariamente lento para arrays grandes
   - **Ventaja del greedy**: Reduce complejidad significativamente
-- **Heurísticas complejas**: Algoritmos más sofisticados
   - **Problema**: Innecesarios para este problema específico
   - **Ventaja del sorting**: Simple y eficiente
 
@@ -159,86 +172,6 @@ export function largestPerimeter(nums: number[]): number {
 
 ### Lecciones de optimización
 
-1. **Sorting como herramienta**: No siempre es overhead, puede ser clave de la solución
-2. **Greedy + matemática**: Combinar estrategias algorítmicas con insights del dominio
-3. **Simplificación inteligente**: Una condición en lugar de tres (desigualdad triangular)
-4. **Nombrado semántico**: `[a, b, c]` vs `nums[i], nums[i+1], nums[i+2]` mejora legibilidad
-
-## Descripción del problema
-
-Given an integer array nums, return the largest perimeter of a triangle with a non-zero area, formed from three of these lengths. If it is impossible to form any triangle of a non-zero area, return 0.
-
-## Análisis inicial
-
-### Comprensión del problema
-
-- [Análisis a completar después de resolver]
-
-### Casos de ejemplo
-
-- [Análisis de ejemplos a completar]
-
-### Restricciones importantes
-
-- 3 <= nums.length <= 10^4
-- 1 <= nums[i] <= 10^6
-
-## Enfoque y algoritmo
-
-### Estrategia principal
-
-- [A completar después de resolver]
-
-### Pasos del algoritmo
-
-- [A completar]
-
-### Casos edge importantes
-
-- [A completar]
-
-## Implementación
-
-### Código final
-
-```typescript
-// Se completará después de la implementación
-```
-
-### Explicación del código
-
-- [A completar]
-
-## Análisis de complejidad
-
-### Complejidad temporal
-
-- [A determinar]
-
-### Complejidad espacial
-
-- [A determinar]
-
-## Casos de prueba
-
-### Casos básicos
-
-- [Casos implementados en tests]
-
-### Casos edge
-
-- [Casos edge identificados]
-
-## Reflexiones y aprendizajes
-
-### Conceptos clave aplicados
-
-- [A completar]
-
-### Alternativas consideradas
-
-- [A completar]
-
-### Patrones identificados
-
-- [A completar]
+1. **Greedy + matemática**: Combinar estrategias algorítmicas con insights del dominio
+2. **Simplificación inteligente**: Una condición en lugar de tres (desigualdad triangular)
+3. **Nombrado semántico**: `[a, b, c]` vs `nums[i], nums[i+1], nums[i+2]` mejora legibilidad

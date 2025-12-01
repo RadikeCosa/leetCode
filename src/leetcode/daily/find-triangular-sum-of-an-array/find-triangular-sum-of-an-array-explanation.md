@@ -1,4 +1,31 @@
-# Find Triangular Sum of an Array - Análisis y Explicación
+---
+title: "Find Triangular Sum of an Array"
+difficulty: "medium"
+topics:
+  - Array
+  - Math
+  - Simulation
+  - Combinatorics
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-30"
+---
+
+## Enuncaido del Problema
+
+LeetCode Problem 2221: Find Triangular Sum of an Array
+Difficulty: Medium
+Topics: Array, Math, Simulation, Combinatorics
+
+Te dan un array de enteros nums indexado desde 0, donde nums[i] es un dígito entre 0 y 9 (inclusive).
+La suma triangular de un array es el valor del único elemento presente en nums después de que el siguiente proceso termine:
+
+1. Sea nums compuesto por n elementos. Si n == 1, termina el proceso. De lo contrario, crea un nuevo array entero indexado desde 0 newNums de longitud n - 1.
+2. Para cada índice i, donde 0 <= i < n - 1, asigna el valor de newNums[i] como (nums[i] + nums[i+1]) % 10, donde % denota el operador módulo.
+3. Reemplaza el array nums con newNums.
+4. Repite todo el proceso comenzando desde el paso 1.
+5. Retorna la suma triangular de nums.
 
 ## Comprensión del Problema
 
@@ -23,9 +50,20 @@ Proceso paso a paso:
 
 - Array de 1 elemento → retorna 5 directamente
 
+**Ejemplo 3: [2,4,6,8,0]**
+Proceso paso a paso:
+
+- Iteración 1: [2,4,6,8,0] → [(2+4)%10, (4+6)%10, (6+8)%10, (8+0)%10] = [6,0,4,8]
+- Iteración 2: [6,0,4,8] → [(6+0)%10, (0+4)%10, (4+8)%10] = [6,4,2]
+- Iteración 3: [6,4,2] → [(6+4)%10, (4+2)%10] = [0,6]
+- Iteración 4: [0,6] → [(0+6)%10] = [6]
+- Resultado: 6
+
 ## Enfoque y Estrategia
 
 ### Solución Inicial: Creación de Nuevos Arrays
+
+Nuestro enfoque inicial es simular el proceso descrito en el enunciado literalmente, creando un nuevo array en cada iteración.
 
 **Enfoque básico:**
 
@@ -43,7 +81,7 @@ while (nums.length > 1) {
 **Problemas de esta aproximación:**
 
 - **Espacio O(n):** Se crea un nuevo array en cada iteración
-- **Tiempo extra:** Costo de crear arrays y garbage collection
+- **Tiempo extra:** Costo de crear arrays
 - **Memoria pico:** Múltiples arrays existen simultáneamente
 
 ### Optimización: Modificación In-Place

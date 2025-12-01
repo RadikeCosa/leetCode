@@ -1,4 +1,15 @@
-# Summary Ranges - Análisis del Problema
+---
+title: "Summary Ranges"
+difficulty: "easy"
+topics:
+  - Array
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-30"
+---
+
+## Summary Ranges - Análisis del Problema
 
 ## Descripción del Problema
 
@@ -68,16 +79,6 @@ while (i < nums.length) {
   // Extender end mientras los números sean consecutivos
   while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
     end++;
-  # ---
-  id: summary-ranges
-  source: leetcode
-  series: top-interview
-  category: top-interview
-  difficulty: easy
-  topics:
-    - Array
-  createdAt: 2025-09-10
-  # ---
   }
 
   let rangeEnd = nums[end];
@@ -99,6 +100,7 @@ while (i < nums.length) {
 **Para nums = [0,1,2,4,5,7]:**
 
 ```
+
 Iteración 1:
 - i=0, rangeStart=0, end=0
 - nums[0]+1=1 === nums[1]=1 ✓ → end=1

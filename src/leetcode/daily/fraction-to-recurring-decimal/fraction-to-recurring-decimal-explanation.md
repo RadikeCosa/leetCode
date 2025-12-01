@@ -1,4 +1,17 @@
-# LeetCode 166: Fraction to Recurring Decimal
+---
+title: "Fraction to Recurring Decimal"
+difficulty: "medium"
+topics:
+  - Hash Table
+  - Math
+  - String
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-24"
+---
+
+## LeetCode 166: Fraction to Recurring Decimal
 
 ## Análisis del Problema
 
@@ -137,9 +150,51 @@ digits.push(")"); // Agregar ")" al final
 - Separar lógica: signos → parte entera → parte decimal → construcción final
 - Cada paso se puede probar y debuggear independientemente
 
-## Problemas Relacionados
+### Codigo Completo
 
-- **LeetCode 7:** Reverse Integer (manejo de overflow)
-- **LeetCode 12:** Integer to Roman (conversión numérica)
-- **LeetCode 13:** Roman to Integer (parsing numérico)
-- **LeetCode 29:** Divide Two Integers (división sin operador /)
+```typescript
+export function fractionToDecimal(
+  numerator: number,
+  denominator: number
+): string {
+  if (numerator % denominator === 0) {
+    return (numerator / denominator).toString();
+  }
+  const isNegative = numerator < 0 !== denominator < 0;
+  numerator = Math.abs(numerator);
+  denominator = Math.abs(denominator);
+  const integerPart = Math.floor(numerator / denominator);
+  let remainder = numerator % denominator;
+
+  // Array para construir los dígitos decimales
+  const digits: string[] = [];
+  const remainderMap = new Map<number, number>();
+
+  while (remainder !== 0) {
+    if (remainderMap.has(remainder)) {
+      // ¡Repetición detectada! Insertar paréntesis
+      const repeatIndex = remainderMap.get(remainder)!;
+      digits.splice(repeatIndex, 0, "("); // Insertar "(" en la posición donde empezó el ciclo
+      digits.push(")"); // Agregar ")" al final
+      break;
+    }
+
+    // Guardar la posición actual antes de agregar el dígito
+    remainderMap.set(remainder, digits.length);
+
+    // Simular división larga
+    remainder *= 10; // "Bajar un 0"
+    const nextDigit = Math.floor(remainder / denominator); // Calcular siguiente dígito
+    digits.push(nextDigit.toString()); // Agregar dígito al array
+    remainder %= denominator; // Calcular nuevo resto
+  }
+
+  // Construir el resultado final
+  const decimalPart = digits.join("");
+  return (
+    (isNegative ? "-" : "") +
+    integerPart +
+    (decimalPart ? "." + decimalPart : "")
+  );
+}
+```

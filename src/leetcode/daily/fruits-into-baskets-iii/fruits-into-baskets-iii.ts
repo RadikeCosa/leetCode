@@ -2,19 +2,28 @@ export function numOfUnplacedFruits(
   fruits: number[],
   baskets: number[]
 ): number {
-  // Greedy: for each fruit (left to right) pick the leftmost available basket
-  // whose capacity is >= quantity. If none, count it as unplaced.
-  // Complexity: O(n^2) worst case (n <= 100 per constraints) -> fine.
-  const used: boolean[] = new Array(baskets.length).fill(false);
+  // Preprocesar: para cada canasta, guardar capacidad y su índice original
+  const n = baskets.length;
+  // Array de pares [capacidad, índice]
+  const basketPairs = baskets.map((cap, idx) => [cap, idx] as [number, number]);
+  // Ordenar por índice original (para búsqueda eficiente)
+  // Pero para búsqueda binaria, necesitamos acceso rápido por capacidad
+  // Así que creamos un array de índices disponibles, ordenados
+  const available = Array.from({ length: n }, (_, i) => i);
+
   let unplaced = 0;
+  // Para eficiencia, recorremos las frutas y para cada una buscamos el primer índice disponible con capacidad suficiente
   for (let i = 0; i < fruits.length; i++) {
     const quantity = fruits[i];
     let placed = false;
-    for (let j = 0; j < baskets.length; j++) {
-      if (!used[j] && baskets[j] >= quantity) {
-        used[j] = true;
+    // Buscar la canasta más a la izquierda disponible con capacidad >= quantity
+    for (let j = 0; j < available.length; j++) {
+      const idx = available[j];
+      if (baskets[idx] >= quantity) {
+        // Asignar y eliminar el índice de disponibles
+        available.splice(j, 1);
         placed = true;
-        break; // leftmost suitable basket
+        break;
       }
     }
     if (!placed) unplaced++;

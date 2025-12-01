@@ -45,26 +45,16 @@
 export function findResultantArrayAfterRemovingAnagrams(
   words: string[]
 ): string[] {
-  // Optimización: Precomputamos las "firmas" ordenadas de todas las palabras
-  // Esto evita reordenar strings múltiples veces durante las comparaciones
-  const signatures = words.map((word) => word.split("").sort().join(""));
-
-  // Array que actuará como stack para mantener los elementos que sobreviven
   const result: string[] = [];
+  let lastSignature = "";
 
-  // Procesamos cada palabra del array original
-  for (let i = 0; i < words.length; i++) {
-    // Verificamos si la palabra actual es anagrama del último elemento en result
-    // Solo comparamos con el último elemento porque las eliminaciones son secuenciales
-    if (result.length > 0) {
-      const lastWordIndex = words.indexOf(result[result.length - 1]);
-      if (signatures[i] === signatures[lastWordIndex]) {
-        // Si son anagramas, saltamos esta palabra (sería eliminada en el proceso)
-        continue;
-      }
+  for (const word of words) {
+    const signature = word.split("").sort().join("");
+    if (signature !== lastSignature) {
+      result.push(word);
+      lastSignature = signature;
     }
-    // Si no son anagramas, agregamos la palabra al resultado
-    result.push(words[i]);
+    // Si son anagramas, simplemente no agregamos la palabra
   }
 
   return result;

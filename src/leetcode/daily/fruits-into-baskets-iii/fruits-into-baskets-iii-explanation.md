@@ -1,4 +1,26 @@
-# Fruits Into Baskets III - Documentación
+---
+title: "Fruits Into Baskets III"
+difficulty: "medium"
+topics:
+  - Array
+  - Binary Search
+  - Segment Tree
+  - Ordered Set
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-06"
+tags:
+  - greedy
+  - binary-search
+  - segment-tree
+  - ordered-set
+  - arrays
+language: "typescript"
+author: "ramir"
+---
+
+## Fruits Into Baskets III - Documentación
 
 ## Descripción del Problema
 
@@ -167,4 +189,32 @@ Es un excelente ejemplo de cómo un pequeño cambio en las restricciones puede t
 
 ---
 
-_Este documento se actualizará conforme se implemente y refine la solución._
+## Código Correcto para la Regla de "más a la izquierda" (O(n²), válido para n pequeño)
+
+```typescript
+export function numOfUnplacedFruits(
+  fruits: number[],
+  baskets: number[]
+): number {
+  const n = baskets.length;
+  const available = Array.from({ length: n }, (_, i) => i);
+
+  let unplaced = 0;
+  for (let i = 0; i < fruits.length; i++) {
+    const quantity = fruits[i];
+    let placed = false;
+    for (let j = 0; j < available.length; j++) {
+      const idx = available[j];
+      if (baskets[idx] >= quantity) {
+        available.splice(j, 1);
+        placed = true;
+        break;
+      }
+    }
+    if (!placed) unplaced++;
+  }
+  return unplaced;
+}
+```
+
+> ⚠️ **Advertencia:** Para n grande, se requiere una estructura avanzada como Segment Tree o Ordered Set para lograr O(n log n).

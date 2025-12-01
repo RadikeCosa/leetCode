@@ -1,4 +1,17 @@
-# Longest Common Prefix - LeetCode 14
+---
+title: "Longest Common Prefix"
+difficulty: "easy"
+topics:
+  - Array
+  - trie
+  - String
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-15"
+---
+
+## Longest Common Prefix - LeetCode 14
 
 ## Descripción del Problema
 
@@ -10,14 +23,14 @@ Si no hay prefijo común, devuelve una cadena vacía `""`.
 
 ### Ejemplo 1
 
-```
+```text
 Input: strs = ["flower","flow","flight"]
 Output: "fl"
 ```
 
 ### Ejemplo 2
 
-```
+```text
 Input: strs = ["dog","racecar","car"]
 Output: ""
 Explicación: No hay prefijo común entre los strings de entrada.
@@ -154,4 +167,22 @@ Input: ["flower", "flow", "flight"]
 2. **Comparación horizontal:** Usar el primer string como referencia
 3. **Enfoque recursivo:** Dividir y conquistar
 
-**¿Por qué elegimos ordenamiento?** Porque reduce la complejidad del problema de comparar n strings a comparar solo 2, manteniendo la corrección del algoritmo.
+## Código Final
+
+```typescript
+function longestCommonPrefix(strs: string[]): string {
+  let commonPrefix = "";
+  let sortedArray = strs.sort();
+  if (sortedArray.length === 0) return commonPrefix;
+  if (sortedArray[0] === "") return commonPrefix;
+  let firstString = sortedArray[0];
+  let lastString = sortedArray[sortedArray.length - 1];
+  let limit = Math.min(firstString.length, lastString.length);
+  for (let i = 0; i < limit; i++) {
+    if (firstString[i] !== lastString[i]) break;
+    commonPrefix += firstString[i];
+  }
+
+  return commonPrefix;
+}
+```

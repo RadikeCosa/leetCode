@@ -1,4 +1,16 @@
-# Count Operations to Obtain Zero
+---
+title: "Count Operations to Obtain Zero"
+difficulty: "easy"
+topics:
+  - Simulation
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-09"
+---
+
+## Count Operations to Obtain Zero
 
 ## Enunciado
 
@@ -6,20 +18,17 @@ Dados dos enteros no negativos num1 y num2, devuelve el número de operaciones n
 
 En una operación, si num1 >= num2 se resta num2 de num1; en caso contrario se resta num1 de num2.
 
-Ejemplos y constraints están en el archivo de test.
-
 ## Intuición
 
 La sustracción repetida hasta que un número se vuelve cero se puede acelerar agrupando las sustracciones repetidas: cuando a >= b, resta b de a tantas veces como quepan (a // b) y usa el resto (a % b). Esto refleja el algoritmo euclidiano para el mcd.
 
 ## Enfoque
 
-En un solo párrafo, paso a paso: mientras ambos números sean mayores que 0, compara el mayor con el menor; si num1 >= num2, cuenta cuántas restas equivalentes se harían con división entera (ops += Math.floor(num1 / num2)) y reemplaza num1 por su resto (num1 = num1 % num2); si no, haz lo mismo intercambiando roles (ops += Math.floor(num2 / num1); num2 = num2 % num1). Repite hasta que uno sea 0 y devuelve el contador acumulado. Esto agrupa restas repetidas y es análogo al algoritmo de Euclides.
+Mientras ambos números sean mayores que 0, compara el mayor con el menor; si num1 >= num2, cuenta cuántas restas equivalentes se harían con división entera (ops += Math.floor(num1 / num2)) y reemplaza num1 por su resto (num1 = num1 % num2); si no, haz lo mismo intercambiando roles (ops += Math.floor(num2 / num1); num2 = num2 % num1). Repite hasta que uno sea 0 y devuelve el contador acumulado. Esto agrupa restas repetidas y es análogo al algoritmo de Euclides.
 
-Incluyo un snippet con la idea central en TypeScript:
+## Código
 
 ```typescript
-// Optimized grouping of subtractions (Euclidean-like)
 export function countOperationsOptimized(num1: number, num2: number): number {
   let ops = 0;
   while (num1 > 0 && num2 > 0) {

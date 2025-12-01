@@ -1,4 +1,15 @@
-# Find Closest Person - Explicación Detallada
+---
+title: "Find Closest Person"
+difficulty: "easy"
+topics:
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+"createdAt": "2025-09-04"
+---
+
+## Find Closest Person - Explicación Detallada
 
 ## Descripción del Problema
 
@@ -27,7 +38,7 @@ La clave está en entender que **el tiempo es proporcional a la distancia** cuan
 
 **Fórmula fundamental:**
 
-```
+```text
 tiempo = distancia / velocidad
 ```
 
@@ -149,9 +160,3 @@ findClosestPerson(10, 5, 5) → 2
 - **Distance Calculation**: Fundamental en muchos algoritmos geométricos
 - **Optimization by Comparison**: Técnica para evitar cálculos complejos
 - **Ternary Logic**: Manejo elegante de múltiples casos de retorno
-
-### Extensiones Posibles
-
-- **3D coordinates**: Extender a distancia euclidiana
-- **Multiple people**: Generalizar para N personas
-- **Different speeds**: Manejar velocidades variables

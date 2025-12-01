@@ -104,49 +104,49 @@ function validateProblem(
 }
 
 /**
- * Validate all problems in a series
+ * Recursively validate all problem directories in a series
+ */
+function validateProblemsRecursive(
+  currentPath: string,
+  seriesName: string,
+  category?: string
+): ProblemValidation[] {
+  const validations: ProblemValidation[] = [];
+  const items = readdirSync(currentPath);
+
+  for (const item of items) {
+    if (item === "utilidades") continue;
+    const itemPath = join(currentPath, item);
+    if (statSync(itemPath).isDirectory()) {
+      // Check if this directory is a problem (contains implementation file)
+      const seriesConfig = SERIES_CONFIG[seriesName as SeriesType];
+      const ext = seriesConfig.language;
+      const implementationFile = join(itemPath, `${item}.${ext}`);
+      if (existsSync(implementationFile)) {
+        validations.push(validateProblem(item, itemPath, seriesName, category));
+      } else {
+        // Recurse deeper
+        validations.push(
+          ...validateProblemsRecursive(itemPath, seriesName, item)
+        );
+      }
+    }
+  }
+  return validations;
+}
+
+/**
+ * Validate all problems in a series (recursive version)
  */
 function validateSeries(
   seriesName: string,
   seriesPath: string
 ): ProblemValidation[] {
-  const validations: ProblemValidation[] = [];
-  const seriesConfig = SERIES_CONFIG[seriesName as SeriesType];
-
   if (!existsSync(seriesPath)) {
     console.log(`⚠️ Series directory not found: ${seriesPath}`);
-    return validations;
+    return [];
   }
-
-  if (seriesConfig.structure === "flat") {
-    // Direct problems in series folder
-    const items = readdirSync(seriesPath);
-    for (const item of items) {
-      const itemPath = join(seriesPath, item);
-      if (statSync(itemPath).isDirectory() && item !== "utilidades") {
-        validations.push(validateProblem(item, itemPath, seriesName));
-      }
-    }
-  } else {
-    // Problems organized in categories/sections
-    const categories = readdirSync(seriesPath);
-    for (const category of categories) {
-      const categoryPath = join(seriesPath, category);
-      if (statSync(categoryPath).isDirectory() && category !== "utilidades") {
-        const items = readdirSync(categoryPath);
-        for (const item of items) {
-          const itemPath = join(categoryPath, item);
-          if (statSync(itemPath).isDirectory()) {
-            validations.push(
-              validateProblem(item, itemPath, seriesName, category)
-            );
-          }
-        }
-      }
-    }
-  }
-
-  return validations;
+  return validateProblemsRecursive(seriesPath, seriesName);
 }
 
 /**

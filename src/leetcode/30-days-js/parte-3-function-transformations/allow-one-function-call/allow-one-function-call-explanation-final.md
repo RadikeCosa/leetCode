@@ -1,4 +1,17 @@
-# Allow One Function Call - Solución Completada
+---
+title: "Allow One Function Call"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+  - String
+source: "leetcode"
+series: "30-days-js"
+category: "daily"
+createdAt: "2025-11-30"
+---
+
+## Allow One Function Call
 
 Implementar una función que toma otra función y retorna una nueva función que solo puede ser ejecutada una vez.
 
@@ -43,7 +56,7 @@ Este problema introduce el patrón **"once"** en programación funcional, donde 
    ```typescript
    return function (...args: any[]): any {
      if (!called) {
-       called = true; // ⭐ CRUCIAL: marcar como llamada
+       called = true; // Marcar como llamada
        return fn(...args); // Ejecutar función original
      }
      return undefined; // Llamadas subsecuentes
@@ -54,32 +67,6 @@ Este problema introduce el patrón **"once"** en programación funcional, donde 
    - **Primera llamada**: `called = false` → ejecuta función → marca `called = true`
    - **Llamadas subsecuentes**: `called = true` → retorna `undefined`
 
-### ⚠️ **Error común evitado:**
-
-```typescript
-// ❌ INCORRECTO - función se ejecuta siempre
-if (!called) {
-  let result = fn(...args);
-  return result;
-  // called nunca se marca como true
-}
-
-// ✅ CORRECTO - marca el estado antes de retornar
-if (!called) {
-  called = true; // Marca ANTES del return
-  return fn(...args);
-}
-```
-
-## Casos extremos
-
-- Sin argumentos (0) ✅
-- Un solo argumento ✅
-- Múltiples argumentos de diferentes tipos ✅
-- Función que retorna valores falsy (0, false, null, undefined) ✅
-- Función que retorna objetos complejos ✅
-- Múltiples llamadas consecutivas ✅
-
 ## Complejidad
 
 - Time complexity: O(1) - verificación de estado constante
@@ -88,5 +75,3 @@ if (!called) {
 ## Conclusión
 
 Este problema enseña conceptos importantes de JavaScript como closures, state management, y patrones funcionales para controlar la ejecución de funciones. La clave del éxito está en **marcar correctamente el estado** antes de retornar el resultado.
-
-**¡Ejercicio completado exitosamente!** 🎉

@@ -1,4 +1,17 @@
-# Find Most Frequent Vowel and Consonant
+---
+title: "Find Most Frequent Vowel and Consonant"
+difficulty: "easy"
+topics:
+  - Hash Table
+  - String
+  - Counting
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-13"
+---
+
+## Find Most Frequent Vowel and Consonant
 
 Encontrar la vocal y consonante con mayor frecuencia en un string y retornar la suma de sus frecuencias.
 
