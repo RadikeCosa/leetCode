@@ -1,17 +1,13 @@
 ---
-name: favorite-songs
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-19
-difficulty: easy
+title: "favorite-songs"
+difficulty: "easy"
 topics:
   - Array
   - Sorting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-19"
 ---
 
 # Favorite Songs - Análisis Detallado

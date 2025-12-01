@@ -149,7 +149,9 @@ const consonantCounts = new Array(26).fill(0); // 26 posiciones
 #### **Análisis de trade-offs:**
 
 | Aspecto                   | Optimizado (5+Map) | Uniforme (26+26) |
-| ------------------------- | ------------------ | ---------------- |
+|
+
+------------------- | ------------------ | ---------------- |
 | **Memoria**               | ~5 + k enteros     | 52 enteros       |
 | **Complejidad de código** | Media-Alta         | Baja             |
 | **Performance**           | Lookup + acceso    | Acceso directo   |

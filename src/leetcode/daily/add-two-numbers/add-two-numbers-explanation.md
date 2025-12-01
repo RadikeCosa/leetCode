@@ -1,11 +1,14 @@
 ---
-name: add-two-numbers
-difficulty: medium
-category: daily
-topics: [Linked List, Math, Recursion]
-source: leetcode
-series: daily
-createdAt: 2025-11-29
+title: "add-two-numbers"
+difficulty: "medium"
+topics:
+  - Linked List
+  - Math
+  - Recursion
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-29"
 ---
 
 # Add Two Numbers - Explicación Detallada

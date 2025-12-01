@@ -1,17 +1,13 @@
 ---
-name: speak-wisely-you-must
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-07
-difficulty: easy
+title: "speak-wisely-you-must"
+difficulty: "easy"
 topics:
   - String
   - Array
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-07"
 ---
 
 # Speak Wisely, You Must - Análisis Detallado

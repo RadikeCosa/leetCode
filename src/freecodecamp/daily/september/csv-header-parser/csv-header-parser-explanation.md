@@ -1,17 +1,13 @@
 ---
-name: csv-header-parser
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-03
-difficulty: easy
+title: "csv-header-parser"
+difficulty: "easy"
 topics:
   - String
   - Array
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-03"
 ---
 
 # CSV Header Parser - Análisis Detallado

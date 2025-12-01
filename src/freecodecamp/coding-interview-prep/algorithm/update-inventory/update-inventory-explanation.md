@@ -1,14 +1,14 @@
 ---
-id: update-inventory
-source: freecodecamp
-series: coding-interview-prep
-category: algorithm
-difficulty: medium
+title: "update-inventory"
+difficulty: "medium"
 topics:
   - Map
   - Array
   - Hash Table
-createdAt: 2025-10-11
+source: "freecodecamp"
+series: "coding-interview-prep"
+category: "algorithm"
+createdAt: "2025-10-11"
 ---
 
 # Explicación

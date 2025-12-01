@@ -1,11 +1,14 @@
 ---
-name: function-composition
-difficulty: easy
-category: 30-days-js
-topics: [Function Composition, Higher Order Function, Array]
-source: leetcode
-series: parte-3-function-transformations
-createdAt: 2025-09-07
+title: "function-composition"
+difficulty: "easy"
+topics:
+  - Function Composition
+  - Higher Order Function
+  - Array
+source: "leetcode"
+series: "parte-3-function-transformations"
+category: "30-days-js"
+createdAt: "2025-09-07"
 ---
 
 # Function Composition - Solución Completada

@@ -20,36 +20,6 @@ Dado un array de strings `words` donde cada string contiene letras minúsculas d
 
 Un anagrama es una palabra formada reorganizando las letras de otra usando exactamente las mismas letras una vez.
 
----
-
-## Estrategia de Solución
-
-La solución más simple y eficiente consiste en comparar la "firma" ordenada de cada palabra con la del último elemento agregado al resultado. Si son iguales, significa que son anagramas y no se agrega la palabra actual.
-
-### Implementación
-
-```typescript
-export function findResultantArrayAfterRemovingAnagrams(
-  words: string[]
-): string[] {
-  const result: string[] = [];
-  let lastSignature = "";
-
-  for (const word of words) {
-    const signature = word.split("").sort().join("");
-    if (signature !== lastSignature) {
-      result.push(word);
-      lastSignature = signature;
-    }
-    // Si son anagramas, simplemente no agregamos la palabra
-  }
-
-  return result;
-}
-```
-
----
-
 ## Análisis de Complejidad
 
 - **Tiempo:** O(n \* m log m), donde n es la cantidad de palabras y m la longitud máxima de cada palabra.

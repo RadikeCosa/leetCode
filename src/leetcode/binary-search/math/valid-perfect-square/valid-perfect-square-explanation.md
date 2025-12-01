@@ -1,11 +1,13 @@
 ---
-name: valid-perfect-square
-difficulty: easy
-category: binary-search
-topics: [Binary Search, Math]
-source: leetcode
-series: math
-createdAt: 2025-09-10
+title: "valid-perfect-square"
+difficulty: "easy"
+topics:
+  - Binary Search
+  - Math
+source: "leetcode"
+series: "math"
+category: "binary-search"
+createdAt: "2025-09-10"
 ---
 
 # Valid Perfect Square - Análisis del Problema

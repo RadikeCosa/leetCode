@@ -1,11 +1,14 @@
 ---
-name: isomorphic-strings
-difficulty: easy
-category: top-interview-hash-table
-topics: [Hash Table, String, Mapping]
-source: leetcode
-series: top-interview
-createdAt: 2025-09-08
+title: "isomorphic-strings"
+difficulty: "easy"
+topics:
+  - Hash Table
+  - String
+  - Mapping
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-hash-table"
+createdAt: "2025-09-08"
 ---
 
 # Isomorphic Strings

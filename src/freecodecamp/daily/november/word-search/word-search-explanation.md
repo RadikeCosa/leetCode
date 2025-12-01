@@ -1,13 +1,13 @@
 ---
-name: word-search
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "word-search"
+difficulty: "easy"
 topics:
   - Array
   - Matrix
-createdAt: 2025-11-01
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-01"
 ---
 
 # Word Search – Análisis y Explicación

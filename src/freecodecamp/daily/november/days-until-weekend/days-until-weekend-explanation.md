@@ -1,3 +1,17 @@
+---
+title: "Days Until Weekend"
+difficulty: "easy"
+topics:
+  - String
+  - Math
+  - Hash Table
+  - Validation
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Days Until Weekend - Análisis y Explicación
 
 ## Enunciado del Problema

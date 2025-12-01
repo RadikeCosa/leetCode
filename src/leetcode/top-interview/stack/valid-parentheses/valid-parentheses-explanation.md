@@ -1,13 +1,12 @@
 ---
-title: "Título del ejercicio"
-difficulty: "easy | medium | hard"
+title: "Valid Parentheses"
+difficulty: "easy"
 topics:
-  - Array
-  - Math
+  - Stack
   - String
-source: "leetcode | freecodecamp | project-euler | rosetta-code"
-series: "daily | 30-days-js | coding-interview-prep | ..."
-category: "daily | binary-search | ..."
+source: "leetcode"
+series: "top-interview"
+category: "stack"
 createdAt: "2025-09-09"
 ---
 
@@ -90,17 +89,8 @@ if (
   (char === "]" && last !== "[")
 ) {
   return false;
-# ---
-id: valid-parentheses
-source: leetcode
-series: top-interview
-category: top-interview
-difficulty: easy
-topics:
-  - String
-  - Stack
-createdAt: 2025-09-09
-# ---
+#
+
 }
 ```
 

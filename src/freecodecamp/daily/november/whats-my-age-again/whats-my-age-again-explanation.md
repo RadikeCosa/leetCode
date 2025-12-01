@@ -1,11 +1,12 @@
 ---
-name: whats-my-age-again
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-27
+title: "whats-my-age-again"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-27"
 ---
 
 # What's My Age Again? - Análisis y Explicación
@@ -34,7 +35,9 @@ Ejemplo:
 ## Casos de Prueba Identificados
 
 | Fecha de nacimiento | Edad esperada (27-nov-2025) | Razón                                |
-| ------------------- | --------------------------- | ------------------------------------ |
+|
+
+------------- | --------------------------- | ------------------------------------ |
 | 2000-01-01          | 25                          | Cumpleaños pasó hace meses           |
 | 2000-11-27          | 25                          | Cumple exactamente hoy               |
 | 2000-11-28          | 24                          | Cumple mañana                        |

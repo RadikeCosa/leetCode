@@ -1,17 +1,13 @@
 ---
-name: integer-sequence
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-13
-difficulty: easy
+title: "integer-sequence"
+difficulty: "easy"
 topics:
   - String
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-13"
 ---
 
 # Integer Sequence

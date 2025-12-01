@@ -1,13 +1,13 @@
 ---
-title: Navigator
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Navigator"
+difficulty: "easy"
 topics:
   - Array
   - Simulation
-createdAt: 2025-10-28
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-28"
 ---
 
 ## Enunciado del Problema

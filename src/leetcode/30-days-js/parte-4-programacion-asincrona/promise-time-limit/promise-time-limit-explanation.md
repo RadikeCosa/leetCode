@@ -1,11 +1,15 @@
 ---
-name: promise-time-limit
-difficulty: medium
-category: 30-days-js
-topics: [Promise, Timeout, Async, Race Condition]
-source: leetcode
-series: parte-4-programacion-asincrona
-createdAt: 2025-09-13
+title: "promise-time-limit"
+difficulty: "medium"
+topics:
+  - Promise
+  - Timeout
+  - Async
+  - Race Condition
+source: "leetcode"
+series: "parte-4-programacion-asincrona"
+category: "30-days-js"
+createdAt: "2025-09-13"
 ---
 
 # Problema: Promise Time Limit (LeetCode 2637)

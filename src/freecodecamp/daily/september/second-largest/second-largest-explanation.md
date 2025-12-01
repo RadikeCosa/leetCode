@@ -1,17 +1,13 @@
 ---
-name: second-largest
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-09
-difficulty: easy
+title: "second-largest"
+difficulty: "easy"
 topics:
   - Array
   - Sorting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-09"
 ---
 
 # Análisis del Problema: 2nd Largest

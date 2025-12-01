@@ -1,13 +1,14 @@
 ---
 title: "Fruits Into Baskets II"
 difficulty: "easy"
-topics: ["greedy", "simulation", "arrays"]
+topics:
+  - "greedy"
+  - "simulation"
+  - "arrays"
 source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-08-05"
-tags: ["greedy", "simulation", "interview", "arrays"]
-language: "typescript"
 ---
 
 ## Fruits Into Baskets II - Proceso de Aprendizaje y Solución
@@ -32,45 +33,6 @@ Debemos colocar las frutas de izquierda a derecha siguiendo estas reglas:
 - `n == fruits.length == baskets.length`
 - `1 <= n <= 100`
 - `1 <= fruits[i], baskets[i] <= 1000`
-
----
-
-## 🧠 Proceso de Análisis y Razonamiento
-
-### 1. Comprensión inicial - Análisis de ejemplos
-
-**Ejemplo básico:**
-
-```
-fruits = [3, 1, 4], baskets = [2, 5, 3]
-```
-
-**Trazado paso a paso:**
-
-- Fruta 0 (cantidad=3): Busca desde izquierda → Cesto 1 (capacidad=5) ✅
-- Fruta 1 (cantidad=1): Busca desde izquierda → Cesto 0 (capacidad=2) ✅
-- Fruta 2 (cantidad=4): Busca desde izquierda → No cabe en cesto 2 (capacidad=3) ❌
-- **Resultado: 1 fruta sin colocar**
-
-### 2. Identificación de patrones clave
-
-Durante el análisis identificamos tres elementos fundamentales:
-
-1. **Orden obligatorio**: Procesamos frutas de izquierda a derecha (por enunciado)
-2. **Criterio de selección**: Fruta ≤ capacidad del cesto
-3. **Estado a mantener**:
-   - Contador de frutas sin colocar
-   - Registro de cestos ya ocupados
-
-### 3. Clasificación del algoritmo
-
-**Tipo de algoritmo identificado**: **Búsqueda + Simulación**
-
-- Es una búsqueda lineal para cada fruta
-- Simula exactamente el proceso descrito en las reglas
-- Estrategia **Greedy (ávida)**: siempre toma la primera opción válida sin mirar hacia adelante
-
----
 
 ## 🔍 Exploración de Enfoques de Implementación
 

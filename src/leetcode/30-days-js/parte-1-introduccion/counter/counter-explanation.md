@@ -1,11 +1,14 @@
 ---
-name: counter
-difficulty: easy
-category: 30-days-js
-topics: [Closure, Function Factory, State Management]
-source: leetcode
-series: parte-1-introduccion
-createdAt: 2025-09-01
+title: "counter"
+difficulty: "easy"
+topics:
+  - Closure
+  - Function Factory
+  - State Management
+source: "leetcode"
+series: "parte-1-introduccion"
+category: "30-days-js"
+createdAt: "2025-09-01"
 ---
 
 # Counter
@@ -83,7 +86,9 @@ console.log(++x); // → 6, x = 6
 Para `createCounter(10)`:
 
 | Llamada | Estado interno | `n++` evalúa | Retorna | n después |
-| ------- | -------------- | ------------ | ------- | --------- |
+|
+
+- | -------------- | ------------ | ------- | --------- |
 | 1ª      | n = 10         | 10           | 10      | n = 11    |
 | 2ª      | n = 11         | 11           | 11      | n = 12    |
 | 3ª      | n = 12         | 12           | 12      | n = 13    |

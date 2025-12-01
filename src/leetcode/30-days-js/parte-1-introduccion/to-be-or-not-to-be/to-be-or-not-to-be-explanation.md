@@ -1,11 +1,14 @@
 ---
-name: to-be-or-not-to-be
-difficulty: easy
-category: 30-days-js
-topics: [Testing, Equality, Error Handling]
-source: leetcode
-series: parte-1-introduccion
-createdAt: 2025-09-03
+title: "to-be-or-not-to-be"
+difficulty: "easy"
+topics:
+  - Testing
+  - Equality
+  - Error Handling
+source: "leetcode"
+series: "parte-1-introduccion"
+category: "30-days-js"
+createdAt: "2025-09-03"
 ---
 
 # To Be Or Not To Be

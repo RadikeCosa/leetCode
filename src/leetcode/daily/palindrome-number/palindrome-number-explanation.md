@@ -1,11 +1,14 @@
 ---
-name: palindrome-number
-difficulty: easy
-category: daily
-topics: [Math, Palindrome, Integer]
-source: leetcode
-series: daily
-createdAt: 2025-08-14
+title: "palindrome-number"
+difficulty: "easy"
+topics:
+  - Math
+  - Palindrome
+  - Integer
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-14"
 ---
 
 # Palindrome Number - Documentación
@@ -22,7 +25,9 @@ Un número palindrómico se lee igual hacia adelante y hacia atrás.
 ## Ejemplos
 
 | Input | Output | Explicación                                                                  |
-| ----- | ------ | ---------------------------------------------------------------------------- |
+|
+
+--- | ---------------------------------------------------------------------------- |
 | 121   | true   | 121 se lee igual hacia adelante y hacia atrás                                |
 | -121  | false  | De izquierda a derecha: -121. De derecha a izquierda: 121-. No es palindromo |
 | 10    | false  | Se lee 01 de derecha a izquierda. No es palindromo                           |

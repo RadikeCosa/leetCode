@@ -1,13 +1,13 @@
 ---
-id: valid-palindrome
-source: leetcode
-series: top-interview
-category: top-interview
-difficulty: easy
+title: "valid-palindrome"
+difficulty: "easy"
 topics:
   - Two Pointers
   - String
-createdAt: 2025-09-02
+source: "leetcode"
+series: "top-interview"
+category: "top-interview"
+createdAt: "2025-09-02"
 ---
 
 # Valid Palindrome - Análisis y Explicación

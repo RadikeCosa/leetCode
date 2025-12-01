@@ -1,17 +1,13 @@
 ---
-name: password-strength
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-08
-difficulty: easy
+title: "password-strength"
+difficulty: "easy"
 topics:
   - String
   - Regex
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-08"
 ---
 
 # Análisis del Problema: P@ssw0rd Str3ngth!

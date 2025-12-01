@@ -1,11 +1,14 @@
 ---
-name: best-time-to-sell-and-buy-stocks-ii
-difficulty: medium
-category: top-interview-array-string
-topics: [Array, Greedy, Multiple Transactions]
-source: leetcode
-series: top-interview
-createdAt: 2025-11-29
+title: "best-time-to-sell-and-buy-stocks-ii"
+difficulty: "medium"
+topics:
+  - Array
+  - Greedy
+  - Multiple Transactions
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-29"
 ---
 
 # Best Time To Sell And Buy Stocks II - Análisis y Explicación
@@ -54,7 +57,9 @@ Imagina que el precio sube de 1 → 3 → 2 → 4:
 ## Casos de Prueba Identificados
 
 | Input           | Output | Explicación                             |
-| --------------- | ------ | --------------------------------------- |
+|
+
+--------- | ------ | --------------------------------------- |
 | `[7,1,5,3,6,4]` | 7      | (5-1) + (6-3) = 4 + 3 = 7               |
 | `[1,2,3,4,5]`   | 4      | Sube todos los días → suma diaria = 4   |
 | `[7,6,4,3,1]`   | 0      | Solo baja → no hay ganancia             |

@@ -1,11 +1,12 @@
 ---
-name: gcd
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-05
+title: "gcd"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-05"
 ---
 
 # Gcd - Análisis y Explicación

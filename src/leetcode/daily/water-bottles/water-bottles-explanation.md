@@ -1,11 +1,14 @@
 ---
-name: water-bottles
-difficulty: easy
-category: daily
-topics: [Simulation, Math, Greedy]
-source: leetcode
-series: daily
-createdAt: 2025-11-29
+title: "water-bottles"
+difficulty: "easy"
+topics:
+  - Simulation
+  - Math
+  - Greedy
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-29"
 ---
 
 # Explicación detallada: Water Bottles
@@ -109,7 +112,9 @@ function numWaterBottlesOptimized(
 ### Comparación de enfoques:
 
 | Aspecto              | Simulación | Fórmula Matemática |
-| -------------------- | ---------- | ------------------ |
+|
+
+-------------- | ---------- | ------------------ |
 | Complejidad temporal | O(log n)   | O(1)               |
 | Legibilidad          | ⭐⭐⭐⭐⭐ | ⭐⭐               |
 | Intuitividad         | ⭐⭐⭐⭐⭐ | ⭐⭐               |

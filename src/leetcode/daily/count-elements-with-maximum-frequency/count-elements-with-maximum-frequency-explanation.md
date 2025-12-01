@@ -1,11 +1,14 @@
 ---
-name: count-elements-with-maximum-frequency
-difficulty: easy
-category: daily
-topics: [Array, Hash Table, Counting]
-source: leetcode
-series: daily
-createdAt: 2025-11-29
+title: "count-elements-with-maximum-frequency"
+difficulty: "easy"
+topics:
+  - Array
+  - Hash Table
+  - Counting
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-29"
 ---
 
 # Count Elements With Maximum Frequency - Explicación Detallada

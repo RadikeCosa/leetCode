@@ -1,11 +1,12 @@
 ---
-name: count-rectangles
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-16
+title: "count-rectangles"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-16"
 ---
 
 # Count Rectangles — Análisis y Explicación

@@ -1,16 +1,22 @@
+---
+title: "Jumbled Text"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Hash Table
+  - Sorting
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Jumbled Text
 
 # Jumbled Text
-
----
-
-difficulty: easy
-topics: []
-source: freecodecamp
-category: daily
-createdAt: 2025-10-27
-
----
 
 ## Enunciado del Problema
 

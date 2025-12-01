@@ -1,11 +1,14 @@
 ---
-name: add-two-promises
-difficulty: easy
-category: 30-days-js
-topics: [Promise, Async/Await, Concurrency]
-source: leetcode
-series: parte-4-programacion-asincrona
-createdAt: 2025-09-10
+title: "add-two-promises"
+difficulty: "easy"
+topics:
+  - Promise
+  - Async/Await
+  - Concurrency
+source: "leetcode"
+series: "parte-4-programacion-asincrona"
+category: "30-days-js"
+createdAt: "2025-09-10"
 ---
 
 # Add Two Promises
@@ -94,7 +97,9 @@ export async function addTwoPromises(
 ### Comparación de enfoques:
 
 | Aspecto         | Secuencial (await)            | Concurrente (Promise.all)              |
-| --------------- | ----------------------------- | -------------------------------------- |
+|
+
+--------- | ----------------------------- | -------------------------------------- |
 | **Tiempo**      | promise1_time + promise2_time | Math.max(promise1_time, promise2_time) |
 | **Legibilidad** | ⭐⭐⭐⭐⭐                    | ⭐⭐⭐⭐                               |
 | **Eficiencia**  | ⭐⭐⭐                        | ⭐⭐⭐⭐⭐                             |

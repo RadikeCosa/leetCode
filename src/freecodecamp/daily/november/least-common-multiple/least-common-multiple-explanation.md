@@ -1,11 +1,12 @@
 ---
-name: least-common-multiple
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-22
+title: "least-common-multiple"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-22"
 ---
 
 # Least Common Multiple - Análisis y Explicación
@@ -80,7 +81,9 @@ O con la fórmula rápida:
 ### Casos de Prueba Identificados
 
 | Entrada | Salida Esperada | Explicación                    |
-| ------- | --------------- | ------------------------------ |
+|
+
+- | --------------- | ------------------------------ |
 | (4, 6)  | 12              | Múltiplos comunes: 12, 24, ... |
 | (5, 10) | 10              | Múltiplos comunes: 10, 20, ... |
 | (7, 3)  | 21              | Múltiplos comunes: 21, 42, ... |

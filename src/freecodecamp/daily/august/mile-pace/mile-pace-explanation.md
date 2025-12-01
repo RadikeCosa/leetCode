@@ -1,11 +1,12 @@
 ---
-title: Mile Pace
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
-topics: []
-createdAt: 2025-10-28
+title: "Mile Pace"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-28"
 ---
 
 # Mile Pace
@@ -222,7 +223,9 @@ Se eligió el enfoque directo por las siguientes razones:
 **Comparación con otras soluciones:**
 
 | Enfoque               | Tiempo | Espacio | Legibilidad | Robustez  |
-| --------------------- | ------ | ------- | ----------- | --------- |
+|
+
+--------------- | ------ | ------- | ----------- | --------- |
 | **Directo**           | O(1)   | O(1)    | Excelente   | Buena     |
 | **Funciones helper**  | O(1)   | O(1)    | Muy buena   | Buena     |
 | **Template literals** | O(1)   | O(1)    | Buena       | Buena     |

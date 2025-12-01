@@ -1,11 +1,12 @@
 ---
-name: weekday-finder
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
-topics: []
-createdAt: 2025-11-06
+title: "weekday-finder"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-06"
 ---
 
 # Weekday Finder

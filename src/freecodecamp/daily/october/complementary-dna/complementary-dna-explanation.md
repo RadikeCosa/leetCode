@@ -1,3 +1,17 @@
+---
+title: "Complementary Dna"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Hash Table
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Análisis del Problema: Complementary DNA
 
 ## Enunciado

@@ -1,11 +1,12 @@
 ---
-name: extension-extractor
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-10
+title: "extension-extractor"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-10"
 ---
 
 # 🔍 Extension Extractor - Análisis y Explicación
@@ -73,7 +74,9 @@ function getExtension(filename) {
 ### ✅ Casos de Prueba Identificados
 
 | Caso | Entrada            | Salida Esperada | Explicación                      |
-| ---- | ------------------ | --------------- | -------------------------------- |
+|
+
+--------------- | --------------- | -------------------------------- |
 | 1    | `"document.txt"`   | `"txt"`         | Extensión estándar               |
 | 2    | `"README"`         | `"none"`        | Sin extensión                    |
 | 3    | `"image.PNG"`      | `"PNG"`         | Preserva mayúsculas              |

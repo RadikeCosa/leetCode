@@ -1,11 +1,15 @@
 ---
-name: maximum-area-of-longest-diagonal-rectangle
-difficulty: easy
-category: daily
-topics: [Array, Math, Geometry, Sorting]
-source: leetcode
-series: daily
-createdAt: 2025-08-26
+title: "maximum-area-of-longest-diagonal-rectangle"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+  - Geometry
+  - Sorting
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-26"
 ---
 
 # Maximum Area of Longest Diagonal Rectangle

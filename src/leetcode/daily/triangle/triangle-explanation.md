@@ -1,11 +1,14 @@
 ---
-name: triangle
-difficulty: medium
-category: daily
-topics: [Array, Dynamic Programming, Path Sum]
-source: leetcode
-series: daily
-createdAt: 2025-09-25
+title: "triangle"
+difficulty: "medium"
+topics:
+  - Array
+  - Dynamic Programming
+  - Path Sum
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-25"
 ---
 
 # LeetCode 120: Triangle

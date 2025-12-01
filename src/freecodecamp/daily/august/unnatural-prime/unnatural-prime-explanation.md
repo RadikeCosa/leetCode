@@ -1,12 +1,12 @@
 ---
-title: Unnatural Prime
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Unnatural Prime"
+difficulty: "easy"
 topics:
   - Math
-createdAt: 2025-11-06
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-06"
 ---
 
 ## Enunciado del Problema

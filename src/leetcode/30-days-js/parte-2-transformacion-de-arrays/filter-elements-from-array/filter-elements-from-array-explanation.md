@@ -1,11 +1,14 @@
 ---
-name: filter-elements-from-array
-difficulty: easy
-category: 30-days-js
-topics: [Array, Predicate, Filter]
-source: leetcode
-series: parte-2-transformacion-de-arrays
-createdAt: 2025-09-06
+title: "filter-elements-from-array"
+difficulty: "easy"
+topics:
+  - Array
+  - Predicate
+  - Filter
+source: "leetcode"
+series: "parte-2-transformacion-de-arrays"
+category: "30-days-js"
+createdAt: "2025-09-06"
 ---
 
 # Filter Elements from Array

@@ -1,11 +1,14 @@
 ---
-name: jump-game
-difficulty: medium
-category: top-interview-array-string
-topics: [Array, Greedy, Reachability]
-source: leetcode
-series: top-interview
-createdAt: 2025-11-26
+title: "jump-game"
+difficulty: "medium"
+topics:
+  - Array
+  - Greedy
+  - Reachability
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-26"
 ---
 
 # Jump Game - Análisis y Explicación

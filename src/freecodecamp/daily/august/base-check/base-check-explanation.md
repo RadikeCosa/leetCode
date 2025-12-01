@@ -1,14 +1,14 @@
 ---
-title: Base Check
-source: freecodecamp
-series: daily
-category: coding interview prep
-difficulty: easy
+title: "Base Check"
+difficulty: "easy"
 topics:
   - String
   - Base Conversion
   - Validation
-createdAt: 2025-10-11
+source: "freecodecamp"
+series: "daily"
+category: "coding interview prep"
+createdAt: "2025-10-11"
 ---
 
 # Análisis del Problema

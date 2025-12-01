@@ -1,17 +1,13 @@
 ---
-name: hidden-treasure
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-15
-difficulty: easy
+title: "hidden-treasure"
+difficulty: "easy"
 topics:
   - Array
   - Matrix
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-15"
 ---
 
 # Análisis del Problema: Hidden Treasure

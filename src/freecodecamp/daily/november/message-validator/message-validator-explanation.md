@@ -1,11 +1,12 @@
 ---
-name: message-validator
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-24
+title: "message-validator"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-24"
 ---
 
 # Message Validator - Análisis y Explicación
@@ -32,7 +33,9 @@ Las palabras en el mensaje están separadas por espacios simples.
 ### Casos de Prueba Identificados
 
 | Entrada                                                        | Salida Esperada | Cumple |
-| -------------------------------------------------------------- | --------------- | ------ |
+|
+
+-------------------------------------------------------- | --------------- | ------ |
 | `"hello world", "hw"`                                          | `true`          | Yes    |
 | `"ALL CAPITAL LETTERS", "acl"`                                 | `true`          | Yes    |
 | `"Coding challenge are boring.", "cca"`                        | `false`         | Yes    |

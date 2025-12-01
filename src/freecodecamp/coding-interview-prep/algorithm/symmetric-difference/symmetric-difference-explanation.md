@@ -1,14 +1,14 @@
 ---
-id: symmetric-difference
-source: freecodecamp
-series: coding-interview-prep
-category: algorithm
-difficulty: medium
+title: "symmetric-difference"
+difficulty: "medium"
 topics:
   - Set
   - Array
   - Map
-createdAt: 2025-10-08
+source: "freecodecamp"
+series: "coding-interview-prep"
+category: "algorithm"
+createdAt: "2025-10-08"
 ---
 
 # Explicación

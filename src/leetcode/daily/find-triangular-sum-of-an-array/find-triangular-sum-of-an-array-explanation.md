@@ -243,7 +243,9 @@ while (n > 1) {
 ### Comparación de Estrategias de Memoria
 
 | Estrategia        | Espacio | Ventajas                  | Desventajas             |
-| ----------------- | ------- | ------------------------- | ----------------------- |
+|
+
+----------- | ------- | ------------------------- | ----------------------- |
 | **Nuevos arrays** | O(n)    | Simple, no modifica input | Más memoria, más lento  |
 | **In-place**      | O(1)    | Eficiente, rápido         | Modifica input original |
 | **Dos arrays**    | O(n)    | Preserva input, claro     | Más complejo            |

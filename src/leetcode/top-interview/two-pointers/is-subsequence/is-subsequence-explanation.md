@@ -1,14 +1,14 @@
 ---
-id: is-subsequence
-source: leetcode
-series: top-interview
-category: top-interview
-difficulty: easy
+title: "is-subsequence"
+difficulty: "easy"
 topics:
   - Two Pointers
   - String
   - Dynamic Programming
-createdAt: 2025-09-03
+source: "leetcode"
+series: "top-interview"
+category: "top-interview"
+createdAt: "2025-09-03"
 ---
 
 # Is Subsequence - Análisis y Explicación

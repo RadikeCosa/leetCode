@@ -1,16 +1,12 @@
 ---
-name: string-count
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-05
-difficulty: easy
+title: "string-count"
+difficulty: "easy"
 topics:
   - String
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-05"
 ---
 
 # Análisis del Problema

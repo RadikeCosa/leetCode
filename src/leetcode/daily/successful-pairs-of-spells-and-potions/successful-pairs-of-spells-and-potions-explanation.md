@@ -1,11 +1,14 @@
 ---
-name: successful-pairs-of-spells-and-potions
-difficulty: medium
-category: daily
-topics: [Binary Search, Sorting, Prefix Sum]
-source: leetcode
-series: daily
-createdAt: 2025-10-08
+title: "successful-pairs-of-spells-and-potions"
+difficulty: "medium"
+topics:
+  - Binary Search
+  - Sorting
+  - Prefix Sum
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-08"
 ---
 
 # Explicación y análisis

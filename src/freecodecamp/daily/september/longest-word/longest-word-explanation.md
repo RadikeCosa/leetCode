@@ -1,17 +1,13 @@
 ---
-name: longest-word
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-05
-difficulty: easy
+title: "longest-word"
+difficulty: "easy"
 topics:
   - String
   - Array
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-05"
 ---
 
 # Longest Word - Explicación

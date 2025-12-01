@@ -1,11 +1,13 @@
 ---
-name: guess-number-higher-or-lower
-difficulty: easy
-category: binary-search
-topics: [Binary Search, Game]
-source: leetcode
-series: standard-search
-createdAt: 2025-09-09
+title: "guess-number-higher-or-lower"
+difficulty: "easy"
+topics:
+  - Binary Search
+  - Game
+source: "leetcode"
+series: "standard-search"
+category: "binary-search"
+createdAt: "2025-09-09"
 ---
 
 # Guess Number Higher or Lower

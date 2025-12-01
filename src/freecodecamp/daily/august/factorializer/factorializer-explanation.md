@@ -1,11 +1,12 @@
 ---
-title: Factorializer
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
-topics: []
-createdAt: 2025-10-27
+title: "Factorializer"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-27"
 ---
 
 # Factorializer
@@ -190,7 +191,9 @@ Se eligió el enfoque iterativo descendente por las siguientes razones:
 **Comparación con otras soluciones:**
 
 | Enfoque               | Tiempo | Espacio | Legibilidad | Riesgos        |
-| --------------------- | ------ | ------- | ----------- | -------------- |
+|
+
+--------------- | ------ | ------- | ----------- | -------------- |
 | Iterativo Descendente | O(n)   | O(1)    | Buena       | Ninguno        |
 | Iterativo Ascendente  | O(n)   | O(1)    | Excelente   | Ninguno        |
 | Recursivo             | O(n)   | O(n)    | Buena       | Stack overflow |

@@ -1,17 +1,13 @@
 ---
-name: landing-spot
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-12
-difficulty: easy
+title: "landing-spot"
+difficulty: "easy"
 topics:
   - Array
   - Matrix
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-12"
 ---
 
 # Explicación

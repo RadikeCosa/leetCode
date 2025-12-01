@@ -1,11 +1,15 @@
 ---
-name: valid-triangle-number
-difficulty: medium
-category: daily
-topics: [Array, Two Pointers, Sorting, Triangle Inequality]
-source: leetcode
-series: daily
-createdAt: 2025-09-26
+title: "valid-triangle-number"
+difficulty: "medium"
+topics:
+  - Array
+  - Two Pointers
+  - Sorting
+  - Triangle Inequality
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-26"
 ---
 
 # Valid Triangle Number

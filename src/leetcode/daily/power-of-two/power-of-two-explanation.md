@@ -1,11 +1,13 @@
 ---
-name: power-of-two
-difficulty: easy
-category: daily
-topics: [Bit Manipulation, Math]
-source: leetcode
-series: daily
-createdAt: 2025-08-09
+title: "power-of-two"
+difficulty: "easy"
+topics:
+  - Bit Manipulation
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-09"
 ---
 
 # Power of Two - Documentación
@@ -19,7 +21,9 @@ Un entero `n` es potencia de dos si existe un entero `x` tal que `n = 2^x`.
 ## Ejemplos
 
 | Input | Output | Explicación                    |
-| ----- | ------ | ------------------------------ |
+|
+
+--- | ------------------------------ |
 | 1     | true   | 2^0 = 1                        |
 | 16    | true   | 2^4 = 16                       |
 | 3     | false  | No es potencia de 2            |

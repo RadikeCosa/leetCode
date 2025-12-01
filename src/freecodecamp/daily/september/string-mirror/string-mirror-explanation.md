@@ -1,17 +1,13 @@
 ---
-name: string-mirror
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-11
-difficulty: easy
+title: "string-mirror"
+difficulty: "easy"
 topics:
   - String
   - Array
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-11"
 ---
 
 # String Mirror

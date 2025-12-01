@@ -1,11 +1,12 @@
 ---
-name: vowels-and-consonants
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
-topics: []
-createdAt: 2025-11-11
+title: "vowels-and-consonants"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-11"
 ---
 
 # ✨ Vowels And Consonants - Análisis y Explicación
@@ -25,18 +26,7 @@ Input: "Hello World!"
 Output: [3, 7] // 3 vocales (e, o, o) y 7 consonantes (H, l, l, W, r, l, d)
 ```
 
----
-
-## 🧠 Análisis Inicial
-
-### Comprensión del Problema
-
-La función debe contar el número de vocales y consonantes en el string dado y devolver un array con estos dos valores.
-
-### Casos de Prueba Identificados
-
-| Entrada                                        | Salida Esperada |
-| ---------------------------------------------- | --------------- |
+------------------------------------------- | --------------- |
 | "Hello World!"                                 | [3, 7]          |
 | "JavaScript"                                   | [3, 7]          |
 | "Python"                                       | [1, 5]          |

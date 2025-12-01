@@ -1,17 +1,13 @@
 ---
-name: moon-phase
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-09
-difficulty: easy
+title: "moon-phase"
+difficulty: "easy"
 topics:
   - Date
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-09"
 ---
 
 # Explicación

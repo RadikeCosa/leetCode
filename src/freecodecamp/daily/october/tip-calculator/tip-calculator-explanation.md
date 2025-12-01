@@ -1,17 +1,13 @@
 ---
-name: tip-calculator
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-01
-difficulty: easy
+title: "tip-calculator"
+difficulty: "easy"
 topics:
   - Math
   - String
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-01"
 ---
 
 # Tip Calculator - Explicación

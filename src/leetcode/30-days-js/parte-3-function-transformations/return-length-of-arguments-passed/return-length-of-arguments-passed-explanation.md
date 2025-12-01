@@ -1,11 +1,14 @@
 ---
-name: return-length-of-arguments-passed
-difficulty: easy
-category: 30-days-js
-topics: [Rest Parameters, Arguments, Function]
-source: leetcode
-series: parte-3-function-transformations
-createdAt: 2025-09-09
+title: "return-length-of-arguments-passed"
+difficulty: "easy"
+topics:
+  - Rest Parameters
+  - Arguments
+  - Function
+source: "leetcode"
+series: "parte-3-function-transformations"
+category: "30-days-js"
+createdAt: "2025-09-09"
 ---
 
 # Return Length of Arguments Passed

@@ -1,11 +1,13 @@
 ---
-name: even-fibonacci-numbers
-source: freecodecamp
-series: project-euler
-category: freecodecamp
-difficulty: easy
-topics: [math, sequence]
-createdAt: 2025-11-01
+title: "even-fibonacci-numbers"
+difficulty: "easy"
+topics:
+  - math
+  - sequence
+source: "freecodecamp"
+series: "project-euler"
+category: "freecodecamp"
+createdAt: "2025-11-01"
 ---
 
 # Even Fibonacci Numbers - Explicación Detallada
@@ -281,7 +283,9 @@ function fiboEvenSumClosedForm(n) {
 ## Comparación de Optimizaciones
 
 | Versión             | Tiempo   | Espacio  | Iteraciones (n=4M) | Legibilidad | Complejidad |
-| ------------------- | -------- | -------- | ------------------ | ----------- | ----------- |
+|
+
+------------- | -------- | -------- | ------------------ | ----------- | ----------- |
 | **Original**        | O(log n) | O(log n) | ~33                | ⭐⭐⭐⭐⭐  | Baja        |
 | **Sin Array**       | O(log n) | **O(1)** | ~33                | ⭐⭐⭐⭐⭐  | Baja        |
 | **Solo Pares**      | O(log n) | **O(1)** | **~11**            | ⭐⭐⭐⭐    | Media       |

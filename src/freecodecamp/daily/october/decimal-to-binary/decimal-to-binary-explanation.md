@@ -1,3 +1,18 @@
+---
+title: "Decimal To Binary"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Validation
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Análisis: Decimal to Binary
 
 ## Enunciado del Problema

@@ -1,16 +1,12 @@
 ---
-name: goldilocks-zone
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-18
-difficulty: easy
+title: "goldilocks-zone"
+difficulty: "easy"
 topics:
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-18"
 ---
 
 # Explicación

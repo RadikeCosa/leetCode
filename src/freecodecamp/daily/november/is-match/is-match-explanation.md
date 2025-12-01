@@ -1,11 +1,12 @@
 ---
-name: is-match
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-17
+title: "is-match"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-17"
 ---
 
 # Is Match - Análisis y Explicación

@@ -1,11 +1,14 @@
 ---
-name: memoize
-difficulty: medium
-category: 30-days-js
-topics: [Memoization, Closure, Cache]
-source: leetcode
-series: parte-3-function-transformations
-createdAt: 2025-09-08
+title: "memoize"
+difficulty: "medium"
+topics:
+  - Memoization
+  - Closure
+  - Cache
+source: "leetcode"
+series: "parte-3-function-transformations"
+category: "30-days-js"
+createdAt: "2025-09-08"
 ---
 
 # Memoize
