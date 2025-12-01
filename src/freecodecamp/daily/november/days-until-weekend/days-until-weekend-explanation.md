@@ -9,7 +9,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-12-01"
+createdAt: "2025-11-15"
 ---
 
 # Days Until Weekend - Análisis y Explicación

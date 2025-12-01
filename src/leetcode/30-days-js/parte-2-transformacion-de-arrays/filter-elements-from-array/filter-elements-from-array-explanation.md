@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-2-transformacion-de-arrays"
 category: "30-days-js"
-createdAt: "2025-09-06"
+createdAt: "2025-08-27"
 ---
 
 # Filter Elements from Array

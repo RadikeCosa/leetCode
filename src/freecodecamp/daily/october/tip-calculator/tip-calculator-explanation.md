@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-01"
+createdAt: "2025-10-20"
 ---
 
 # Tip Calculator - Explicación

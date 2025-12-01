@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-19"
+createdAt: "2025-11-25"
 ---
 
 # Markdown Heading Converter - Análisis y Explicación

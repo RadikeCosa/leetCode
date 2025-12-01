@@ -9,7 +9,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-28"
+createdAt: "2025-09-29"
 ---
 
 ## Problema 976: Largest Perimeter Triangle

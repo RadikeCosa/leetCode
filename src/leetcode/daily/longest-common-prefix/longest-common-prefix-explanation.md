@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-15"
+createdAt: "2025-08-16"
 ---
 
 ## Longest Common Prefix - LeetCode 14

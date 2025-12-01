@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-06"
+createdAt: "2025-10-25"
 ---
 
 # Análisis del Problema: Perfect Square

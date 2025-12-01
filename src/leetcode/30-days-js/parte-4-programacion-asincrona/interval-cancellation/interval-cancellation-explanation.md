@@ -9,7 +9,7 @@ topics:
 source: "leetcode"
 series: "parte-4-programacion-asincrona"
 category: "30-days-js"
-createdAt: "2025-09-12"
+createdAt: "2025-09-01"
 ---
 
 # Problema: Interval Cancellation (LeetCode 2725)

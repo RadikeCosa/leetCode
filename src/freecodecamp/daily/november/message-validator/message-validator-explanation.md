@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-24"
+createdAt: "2025-11-25"
 ---
 
 # Message Validator - Análisis y Explicación

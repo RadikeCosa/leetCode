@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-05"
+createdAt: "2025-10-21"
 ---
 
 # Longest Word - Explicación

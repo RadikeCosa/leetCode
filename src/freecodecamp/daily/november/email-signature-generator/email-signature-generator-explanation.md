@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-12-01"
+createdAt: "2025-11-12"
 ---
 
 # Email Signature Generator - Análisis y Explicación

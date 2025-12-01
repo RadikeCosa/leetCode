@@ -11,7 +11,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-12-01"
+createdAt: "2025-10-12"
 ---
 
 # Battle of Words

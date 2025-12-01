@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-11-29"
+createdAt: "2025-11-26"
 ---
 
 # Best Time To Sell And Buy Stocks II - Análisis y Explicación
@@ -41,7 +41,7 @@ Input: prices = [7,6,4,3,1]      → Output: 0
 ### Comprensión del Problema
 
 Queremos maximizar las ganancias comprando y vendiendo acciones **sin límite** en la cantidad de transacciones, con la única restricción de no poder tener más de una acción al mismo tiempo (pero sí podemos comprar y vender el mismo día).
-createdAt: 2025-11-26
+
 ¡No necesitamos rastrear cuándo compramos o vendimos!
 La ganancia máxima se obtiene simplemente **sumando todas las subidas diarias del precio**.
 

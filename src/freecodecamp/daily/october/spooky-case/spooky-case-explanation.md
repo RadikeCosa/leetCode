@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-06"
+createdAt: "2025-11-01"
 ---
 
 # SpOoKy~CaSe - Análisis y Solución

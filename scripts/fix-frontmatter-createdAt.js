@@ -34,8 +34,8 @@ function getGitCreationDate(filePath) {
 function updateFrontmatterDate(filePath, newDate) {
   const content = fs.readFileSync(filePath, "utf8");
   const updated = content.replace(
-    /(createdAt:\s*)\d{4}-\d{2}-\d{2}/,
-    `$1${newDate}`
+    /(createdAt:\s*)["']?\d{4}-\d{2}-\d{2}["']?/,
+    `$1"${newDate}"`
   );
   fs.writeFileSync(filePath, updated, "utf8");
 }

@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-24"
+createdAt: "2025-11-25"
 ---
 
 ## Binary Prefix Divisible By Five - Análisis y Explicación

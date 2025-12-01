@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-28"
+createdAt: "2025-11-29"
 ---
 
 # Word Guesser - Análisis y Explicación

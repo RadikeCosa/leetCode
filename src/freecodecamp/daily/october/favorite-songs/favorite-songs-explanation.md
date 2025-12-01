@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-19"
+createdAt: "2025-10-23"
 ---
 
 # Favorite Songs - Análisis Detallado

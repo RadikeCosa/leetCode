@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-07"
+createdAt: "2025-10-21"
 ---
 
 # Phone Number Formatter - Explicación

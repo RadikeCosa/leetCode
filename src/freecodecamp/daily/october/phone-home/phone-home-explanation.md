@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-02"
+createdAt: "2025-10-06"
 ---
 
 # Análisis del Problema: Space Week Day 3: Phone Home

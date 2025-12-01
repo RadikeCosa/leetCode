@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "rosetta-code"
 category: "freecodecamp"
-createdAt: "2025-11-02"
+createdAt: "2025-10-20"
 ---
 
 # 100 Doors - Explicación

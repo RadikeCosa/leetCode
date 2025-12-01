@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-09-25"
+createdAt: "2025-09-02"
 ---
 
 # Merge Sorted Array - Análisis y Explicación

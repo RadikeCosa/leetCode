@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-13"
+createdAt: "2025-09-14"
 ---
 
 ## Find Most Frequent Vowel and Consonant

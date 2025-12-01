@@ -9,7 +9,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-12"
+createdAt: "2025-08-13"
 ---
 
 # Power of Three - Documentación

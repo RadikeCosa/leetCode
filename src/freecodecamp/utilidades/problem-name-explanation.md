@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "utilidades"
 category: "utilidades"
-createdAt: "2025-12-01"
+createdAt: "2025-08-19"
 ---
 
 # Título del Problema
