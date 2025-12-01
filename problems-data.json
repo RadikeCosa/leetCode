@@ -16,8 +16,8 @@
       "Recursion"
     ],
     "createdAt": "2025-09-24",
-    "title": "add-two-numbers",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "add-two-numbers"
   },
   {
     "name": "adjacent-increasing-subarrays-detection-i",
@@ -36,8 +36,8 @@
       "Brute Force"
     ],
     "createdAt": "2025-10-14",
-    "title": "adjacent-increasing-subarrays-detection-i",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "adjacent-increasing-subarrays-detection-i"
   },
   {
     "name": "binary-prefix-divisible-by-five",
@@ -56,8 +56,8 @@
       "String"
     ],
     "createdAt": "2025-11-25",
-    "title": "Binary Prefix Divisible By Five",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Binary Prefix Divisible By Five"
   },
   {
     "name": "calculate-money-in-leetcode-bank",
@@ -74,8 +74,8 @@
       "Math"
     ],
     "createdAt": "2025-10-25",
-    "title": "Calculate Money in LeetCode Bank",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Calculate Money in LeetCode Bank"
   },
   {
     "name": "compare-version-numbers",
@@ -93,8 +93,8 @@
       "String"
     ],
     "createdAt": "2025-09-23",
-    "title": "Compare Version Numbers",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Compare Version Numbers"
   },
   {
     "name": "container-with-most-water",
@@ -113,8 +113,8 @@
       "Greedy"
     ],
     "createdAt": "2025-10-04",
-    "title": "Container With Most Water",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Container With Most Water"
   },
   {
     "name": "convert-integer-to-the-sum-of-two-no-zero-integers",
@@ -131,8 +131,8 @@
       "Math"
     ],
     "createdAt": "2025-09-08",
-    "title": "Convert Integer to the Sum of Two No-Zero Integers",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Convert Integer to the Sum of Two No-Zero Integers"
   },
   {
     "name": "count-elements-with-maximum-frequency",
@@ -151,8 +151,8 @@
       "Counting"
     ],
     "createdAt": "2025-09-22",
-    "title": "count-elements-with-maximum-frequency",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "count-elements-with-maximum-frequency"
   },
   {
     "name": "count-operations-to-obtain-zero",
@@ -170,8 +170,8 @@
       "Math"
     ],
     "createdAt": "2025-11-09",
-    "title": "Count Operations to Obtain Zero",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Count Operations to Obtain Zero"
   },
   {
     "name": "final-value-of-variable-after-performing-operations",
@@ -191,8 +191,8 @@
       "State Machine"
     ],
     "createdAt": "2025-10-20",
-    "title": "final-value-of-variable-after-performing-operations",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "final-value-of-variable-after-performing-operations"
   },
   {
     "name": "find-closest-person",
@@ -209,8 +209,8 @@
       "Math"
     ],
     "createdAt": "2025-09-04",
-    "title": "Find Closest Person",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Find Closest Person"
   },
   {
     "name": "find-most-frequent-vowel-and-consonant",
@@ -229,8 +229,8 @@
       "Counting"
     ],
     "createdAt": "2025-09-14",
-    "title": "Find Most Frequent Vowel and Consonant",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Find Most Frequent Vowel and Consonant"
   },
   {
     "name": "find-n-unique-integers-sum-up-to-zero",
@@ -248,8 +248,8 @@
       "Math"
     ],
     "createdAt": "2025-09-07",
-    "title": "Find N Unique Integers Sum up to Zero",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Find N Unique Integers Sum up to Zero"
   },
   {
     "name": "find-resultant-array-after-removing-anagrams",
@@ -269,8 +269,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-14",
-    "title": "Find Resultant Array After Removing Anagrams",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Find Resultant Array After Removing Anagrams"
   },
   {
     "name": "find-triangular-sum-of-an-array",
@@ -290,8 +290,8 @@
       "Combinatorics"
     ],
     "createdAt": "2025-09-30",
-    "title": "Find Triangular Sum of an Array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Find Triangular Sum of an Array"
   },
   {
     "name": "fraction-to-recurring-decimal",
@@ -310,8 +310,8 @@
       "String"
     ],
     "createdAt": "2025-09-24",
-    "title": "Fraction to Recurring Decimal",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Fraction to Recurring Decimal"
   },
   {
     "name": "fruits-into-baskets-ii",
@@ -330,8 +330,8 @@
       "arrays"
     ],
     "createdAt": "2025-08-06",
-    "title": "Fruits Into Baskets II",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Fruits Into Baskets II"
   },
   {
     "name": "fruits-into-baskets-iii",
@@ -351,8 +351,8 @@
       "Ordered Set"
     ],
     "createdAt": "2025-08-10",
-    "title": "Fruits Into Baskets III",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Fruits Into Baskets III"
   },
   {
     "name": "largest-3-same-digit-number-in-string",
@@ -371,8 +371,8 @@
       "Counting"
     ],
     "createdAt": "2025-08-14",
-    "title": "Largest 3 Same Digit Number in String",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Largest 3 Same Digit Number in String"
   },
   {
     "name": "largest-perimeter-triangle",
@@ -392,8 +392,8 @@
       "Sorting"
     ],
     "createdAt": "2025-09-29",
-    "title": "largest perimeter triangle",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "largest perimeter triangle"
   },
   {
     "name": "largest-triangle-area",
@@ -412,8 +412,8 @@
       "Geometry"
     ],
     "createdAt": "2025-09-28",
-    "title": "Largest Triangle Area",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Largest Triangle Area"
   },
   {
     "name": "longest-common-prefix",
@@ -432,8 +432,8 @@
       "String"
     ],
     "createdAt": "2025-08-16",
-    "title": "Longest Common Prefix",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Longest Common Prefix"
   },
   {
     "name": "maximum-69-number",
@@ -452,8 +452,8 @@
       "String Manipulation"
     ],
     "createdAt": "2025-08-16",
-    "title": "maximum-69-number",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "maximum-69-number"
   },
   {
     "name": "maximum-area-of-longest-diagonal-rectangle",
@@ -473,8 +473,8 @@
       "Sorting"
     ],
     "createdAt": "2025-08-26",
-    "title": "maximum-area-of-longest-diagonal-rectangle",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "maximum-area-of-longest-diagonal-rectangle"
   },
   {
     "name": "maximum-number-of-words-you-can-type",
@@ -493,8 +493,8 @@
       "Filtering"
     ],
     "createdAt": "2025-09-15",
-    "title": "maximum-number-of-words-you-can-type",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "maximum-number-of-words-you-can-type"
   },
   {
     "name": "maximun-subarray-sum-with-length-divisible-by-k",
@@ -515,8 +515,8 @@
       "Math"
     ],
     "createdAt": "2025-11-28",
-    "title": "maximun-subarray-sum-with-length-divisible-by-k",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "maximun-subarray-sum-with-length-divisible-by-k"
   },
   {
     "name": "merge-two-sorted-lists",
@@ -535,8 +535,8 @@
       "Merge"
     ],
     "createdAt": "2025-08-19",
-    "title": "merge-two-sorted-lists",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "merge-two-sorted-lists"
   },
   {
     "name": "minimum-score-triangulation-of-polygon",
@@ -555,8 +555,8 @@
       "Interval DP"
     ],
     "createdAt": "2025-09-30",
-    "title": "minimum-score-triangulation-of-polygon",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "minimum-score-triangulation-of-polygon"
   },
   {
     "name": "minimun-one-bit-operations",
@@ -574,8 +574,8 @@
       "Dynamic Programming"
     ],
     "createdAt": "2025-11-09",
-    "title": "Minimum One Bit Operations to Make Integers Zero",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Minimum One Bit Operations to Make Integers Zero"
   },
   {
     "name": "pacific-atlantic-water-flow",
@@ -595,8 +595,8 @@
       "Water Flow"
     ],
     "createdAt": "2025-10-06",
-    "title": "pacific-atlantic-water-flow",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "pacific-atlantic-water-flow"
   },
   {
     "name": "palindrome-number",
@@ -615,8 +615,8 @@
       "Integer"
     ],
     "createdAt": "2025-08-14",
-    "title": "palindrome-number",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "palindrome-number"
   },
   {
     "name": "power-of-three",
@@ -636,8 +636,8 @@
       "Magic Number"
     ],
     "createdAt": "2025-08-13",
-    "title": "power-of-three",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "power-of-three"
   },
   {
     "name": "power-of-two",
@@ -655,8 +655,8 @@
       "Math"
     ],
     "createdAt": "2025-08-10",
-    "title": "power-of-two",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "power-of-two"
   },
   {
     "name": "remove-duplicates-from-sorted-array",
@@ -675,8 +675,8 @@
       "In-place"
     ],
     "createdAt": "2025-08-19",
-    "title": "remove-duplicates-from-sorted-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "remove-duplicates-from-sorted-array"
   },
   {
     "name": "roman-to-integer",
@@ -695,8 +695,8 @@
       "Roman Numerals"
     ],
     "createdAt": "2025-08-20",
-    "title": "roman-to-integer",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "roman-to-integer"
   },
   {
     "name": "smallest-number-with-all-set-bits",
@@ -715,8 +715,8 @@
       "Powers of Two"
     ],
     "createdAt": "2025-10-30",
-    "title": "smallest-number-with-all-set-bits",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "smallest-number-with-all-set-bits"
   },
   {
     "name": "successful-pairs-of-spells-and-potions",
@@ -735,8 +735,8 @@
       "Prefix Sum"
     ],
     "createdAt": "2025-10-08",
-    "title": "successful-pairs-of-spells-and-potions",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "successful-pairs-of-spells-and-potions"
   },
   {
     "name": "triangle",
@@ -755,8 +755,8 @@
       "Path Sum"
     ],
     "createdAt": "2025-09-26",
-    "title": "triangle",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "triangle"
   },
   {
     "name": "two-sum",
@@ -775,8 +775,8 @@
       "Two Sum"
     ],
     "createdAt": "2025-08-19",
-    "title": "two-sum",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "two-sum"
   },
   {
     "name": "valid-triangle-number",
@@ -796,8 +796,8 @@
       "Triangle Inequality"
     ],
     "createdAt": "2025-09-26",
-    "title": "valid-triangle-number",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "valid-triangle-number"
   },
   {
     "name": "water-bottles",
@@ -816,8 +816,8 @@
       "Greedy"
     ],
     "createdAt": "2025-10-01",
-    "title": "water-bottles",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "water-bottles"
   },
   {
     "name": "water-bottles-ii",
@@ -836,8 +836,8 @@
       "Greedy"
     ],
     "createdAt": "2025-10-02",
-    "title": "water-bottles-ii",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "water-bottles-ii"
   },
   {
     "name": "best-time-to-buy-and-sell-stock",
@@ -856,8 +856,8 @@
       "One Pass"
     ],
     "createdAt": "2025-11-25",
-    "title": "best-time-to-buy-and-sell-stock",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "best-time-to-buy-and-sell-stock"
   },
   {
     "name": "best-time-to-sell-and-buy-stocks-ii",
@@ -876,8 +876,8 @@
       "Multiple Transactions"
     ],
     "createdAt": "2025-11-26",
-    "title": "best-time-to-sell-and-buy-stocks-ii",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "best-time-to-sell-and-buy-stocks-ii"
   },
   {
     "name": "jump-game",
@@ -896,8 +896,8 @@
       "Reachability"
     ],
     "createdAt": "2025-11-28",
-    "title": "jump-game",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "jump-game"
   },
   {
     "name": "majority-element",
@@ -916,8 +916,8 @@
       "Boyer-Moore"
     ],
     "createdAt": "2025-11-25",
-    "title": "majority-element",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "majority-element"
   },
   {
     "name": "merge-sorted-array",
@@ -936,8 +936,8 @@
       "Sorting"
     ],
     "createdAt": "2025-09-02",
-    "title": "merge-sorted-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "merge-sorted-array"
   },
   {
     "name": "remove-duplicates-from-sorted-array",
@@ -956,8 +956,8 @@
       "In-place"
     ],
     "createdAt": "2025-09-03",
-    "title": "remove-duplicates-from-sorted-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "remove-duplicates-from-sorted-array"
   },
   {
     "name": "remove-duplicates-from-sorted-array-ii",
@@ -976,8 +976,8 @@
       "In-place"
     ],
     "createdAt": "2025-09-16",
-    "title": "remove-duplicates-from-sorted-array-ii",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "remove-duplicates-from-sorted-array-ii"
   },
   {
     "name": "remove-element",
@@ -996,8 +996,8 @@
       "In-place"
     ],
     "createdAt": "2025-09-02",
-    "title": "remove-element",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "remove-element"
   },
   {
     "name": "rotate-array",
@@ -1017,8 +1017,8 @@
       "Reverse"
     ],
     "createdAt": "2025-11-25",
-    "title": "rotate-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "rotate-array"
   },
   {
     "name": "isomorphic-strings",
@@ -1037,8 +1037,8 @@
       "Mapping"
     ],
     "createdAt": "2025-09-08",
-    "title": "isomorphic-strings",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "isomorphic-strings"
   },
   {
     "name": "ransom-note",
@@ -1057,8 +1057,8 @@
       "Frequency Counter"
     ],
     "createdAt": "2025-09-03",
-    "title": "ransom-note",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "ransom-note"
   },
   {
     "name": "summary-ranges",
@@ -1075,8 +1075,8 @@
       "Array"
     ],
     "createdAt": "2025-09-10",
-    "title": "Summary Ranges",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Summary Ranges"
   },
   {
     "name": "valid-sudoku",
@@ -1095,8 +1095,8 @@
       "Matrix"
     ],
     "createdAt": "2025-09-04",
-    "title": "Valid Sudoku",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Valid Sudoku"
   },
   {
     "name": "longest-substring-without-repeating-characters",
@@ -1115,8 +1115,8 @@
       "String"
     ],
     "createdAt": "2025-10-01",
-    "title": "Longest Substring Without Repeating Characters",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Longest Substring Without Repeating Characters"
   },
   {
     "name": "minimum-size-subarray-sum",
@@ -1136,8 +1136,8 @@
       "Prefix Sum"
     ],
     "createdAt": "2025-09-03",
-    "title": "minimum-size-subarray-sum",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "minimum-size-subarray-sum"
   },
   {
     "name": "valid-parentheses",
@@ -1155,8 +1155,8 @@
       "String"
     ],
     "createdAt": "2025-09-09",
-    "title": "Valid Parentheses",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Valid Parentheses"
   },
   {
     "name": "is-subsequence",
@@ -1175,8 +1175,8 @@
       "Dynamic Programming"
     ],
     "createdAt": "2025-09-03",
-    "title": "is-subsequence",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "is-subsequence"
   },
   {
     "name": "valid-palindrome",
@@ -1194,8 +1194,8 @@
       "String"
     ],
     "createdAt": "2025-09-03",
-    "title": "valid-palindrome",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "valid-palindrome"
   },
   {
     "name": "valid-perfect-square",
@@ -1213,8 +1213,8 @@
       "Math"
     ],
     "createdAt": "2025-09-10",
-    "title": "valid-perfect-square",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "valid-perfect-square"
   },
   {
     "name": "binary-search",
@@ -1232,8 +1232,8 @@
       "Array"
     ],
     "createdAt": "2025-09-07",
-    "title": "binary-search",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "binary-search"
   },
   {
     "name": "search-insert-position",
@@ -1252,8 +1252,8 @@
       "Insert"
     ],
     "createdAt": "2025-09-07",
-    "title": "search-insert-position",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "search-insert-position"
   },
   {
     "name": "first-bad-version",
@@ -1271,8 +1271,8 @@
       "Version Control"
     ],
     "createdAt": "2025-09-10",
-    "title": "first-bad-version",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "first-bad-version"
   },
   {
     "name": "guess-number-higher-or-lower",
@@ -1290,8 +1290,8 @@
       "Game"
     ],
     "createdAt": "2025-09-09",
-    "title": "guess-number-higher-or-lower",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "guess-number-higher-or-lower"
   },
   {
     "name": "counter",
@@ -1310,8 +1310,8 @@
       "State Management"
     ],
     "createdAt": "2025-08-26",
-    "title": "counter",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "counter"
   },
   {
     "name": "counter-ii",
@@ -1330,8 +1330,8 @@
       "State Management"
     ],
     "createdAt": "2025-08-26",
-    "title": "counter-ii",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "counter-ii"
   },
   {
     "name": "to-be-or-not-to-be",
@@ -1350,8 +1350,8 @@
       "Error Handling"
     ],
     "createdAt": "2025-08-26",
-    "title": "to-be-or-not-to-be",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "to-be-or-not-to-be"
   },
   {
     "name": "apply-transform-over-each-element-in-array",
@@ -1370,8 +1370,8 @@
       "Map"
     ],
     "createdAt": "2025-08-27",
-    "title": "apply-transform-over-each-element-in-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "apply-transform-over-each-element-in-array"
   },
   {
     "name": "array-reduce-transformation",
@@ -1390,8 +1390,8 @@
       "Functional Programming"
     ],
     "createdAt": "2025-08-27",
-    "title": "array-reduce-transformation",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "array-reduce-transformation"
   },
   {
     "name": "filter-elements-from-array",
@@ -1410,8 +1410,8 @@
       "Filter"
     ],
     "createdAt": "2025-08-27",
-    "title": "filter-elements-from-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "filter-elements-from-array"
   },
   {
     "name": "allow-one-function-call",
@@ -1430,8 +1430,8 @@
       "String"
     ],
     "createdAt": "2025-08-28",
-    "title": "Allow One Function Call",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Allow One Function Call"
   },
   {
     "name": "function-composition",
@@ -1450,8 +1450,8 @@
       "Array"
     ],
     "createdAt": "2025-08-28",
-    "title": "function-composition",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "function-composition"
   },
   {
     "name": "memoize",
@@ -1470,8 +1470,8 @@
       "Cache"
     ],
     "createdAt": "2025-09-01",
-    "title": "memoize",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "memoize"
   },
   {
     "name": "return-length-of-arguments-passed",
@@ -1490,8 +1490,8 @@
       "Function"
     ],
     "createdAt": "2025-08-28",
-    "title": "return-length-of-arguments-passed",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "return-length-of-arguments-passed"
   },
   {
     "name": "add-two-promises",
@@ -1510,8 +1510,8 @@
       "Concurrency"
     ],
     "createdAt": "2025-09-01",
-    "title": "add-two-promises",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "add-two-promises"
   },
   {
     "name": "cache-with-time-limit",
@@ -1531,8 +1531,8 @@
       "OOP"
     ],
     "createdAt": "2025-09-02",
-    "title": "cache-with-time-limit",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "cache-with-time-limit"
   },
   {
     "name": "interval-cancellation",
@@ -1552,8 +1552,8 @@
       "Async"
     ],
     "createdAt": "2025-09-01",
-    "title": "interval-cancellation",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "interval-cancellation"
   },
   {
     "name": "promise-time-limit",
@@ -1573,8 +1573,8 @@
       "Race Condition"
     ],
     "createdAt": "2025-09-02",
-    "title": "promise-time-limit",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "promise-time-limit"
   },
   {
     "name": "sleep",
@@ -1593,8 +1593,8 @@
       "Timer"
     ],
     "createdAt": "2025-09-01",
-    "title": "sleep",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "sleep"
   },
   {
     "name": "timeout-cancellation",
@@ -1613,8 +1613,8 @@
       "Async"
     ],
     "createdAt": "2025-09-01",
-    "title": "timeout-cancellation",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "timeout-cancellation"
   },
   {
     "name": "array-prototype-last",
@@ -1633,8 +1633,8 @@
       "Extension"
     ],
     "createdAt": "2025-09-22",
-    "title": "array-prototype-last",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "array-prototype-last"
   },
   {
     "name": "chunk-array",
@@ -1653,8 +1653,8 @@
       "Slicing"
     ],
     "createdAt": "2025-09-09",
-    "title": "chunk-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "chunk-array"
   },
   {
     "name": "is-object-empty",
@@ -1673,8 +1673,8 @@
       "Empty Check"
     ],
     "createdAt": "2025-09-06",
-    "title": "is-object-empty",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "is-object-empty"
   },
   {
     "name": "3-strikes",
@@ -1692,8 +1692,8 @@
       "String"
     ],
     "createdAt": "2025-10-28",
-    "title": "3 Strikes",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "3 Strikes"
   },
   {
     "name": "base-check",
@@ -1712,8 +1712,8 @@
       "Validation"
     ],
     "createdAt": "2025-10-11",
-    "title": "Base Check",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Base Check"
   },
   {
     "name": "camel-case",
@@ -1730,8 +1730,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-28",
-    "title": "Camel Case",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Camel Case"
   },
   {
     "name": "character-battle",
@@ -1748,8 +1748,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "Character Battle",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Character Battle"
   },
   {
     "name": "factorializer",
@@ -1766,8 +1766,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-10-27",
-    "title": "Factorializer",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Factorializer"
   },
   {
     "name": "fibonacci-sequence",
@@ -1786,8 +1786,8 @@
       "Algorithms"
     ],
     "createdAt": "2025-10-17",
-    "title": "Fibonacci Sequence",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Fibonacci Sequence"
   },
   {
     "name": "jumbled-text",
@@ -1809,8 +1809,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-27",
-    "title": "Jumbled Text",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Jumbled Text"
   },
   {
     "name": "message-decoder",
@@ -1827,8 +1827,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-03",
-    "title": "Message Decoder",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Message Decoder"
   },
   {
     "name": "mile-pace",
@@ -1845,8 +1845,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-10-28",
-    "title": "Mile Pace",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Mile Pace"
   },
   {
     "name": "navigator",
@@ -1864,8 +1864,8 @@
       "Simulation"
     ],
     "createdAt": "2025-10-28",
-    "title": "Navigator",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Navigator"
   },
   {
     "name": "reverse-parenthesis",
@@ -1883,8 +1883,8 @@
       "Stack"
     ],
     "createdAt": "2025-11-29",
-    "title": "Reverse Parenthesis",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Reverse Parenthesis"
   },
   {
     "name": "space-jam",
@@ -1901,8 +1901,8 @@
       "String"
     ],
     "createdAt": "2025-10-20",
-    "title": "Space Jam",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Space Jam"
   },
   {
     "name": "sum-of-squares",
@@ -1920,8 +1920,8 @@
       "Math"
     ],
     "createdAt": "2025-10-27",
-    "title": "Sum of Squares",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Sum of Squares"
   },
   {
     "name": "targeted-sum",
@@ -1944,8 +1944,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-27",
-    "title": "Targeted Sum",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Targeted Sum"
   },
   {
     "name": "unnatural-prime",
@@ -1962,8 +1962,8 @@
       "Math"
     ],
     "createdAt": "2025-11-06",
-    "title": "Unnatural Prime",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Unnatural Prime"
   },
   {
     "name": "vowel-balance",
@@ -1981,8 +1981,8 @@
       "Array"
     ],
     "createdAt": "2025-10-05",
-    "title": "Vowel Balance",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Vowel Balance"
   },
   {
     "name": "miles-to-kilometers",
@@ -2000,8 +2000,8 @@
       "Conversion"
     ],
     "createdAt": "2025-12-01",
-    "title": "Miles To Kilometers",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Miles To Kilometers"
   },
   {
     "name": "100-characters",
@@ -2018,8 +2018,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "100-characters",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "100-characters"
   },
   {
     "name": "ai-detector",
@@ -2038,8 +2038,8 @@
       "regular expressions"
     ],
     "createdAt": "2025-11-30",
-    "title": "Ai Detector",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Ai Detector"
   },
   {
     "name": "ball-trajectory",
@@ -2056,8 +2056,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-29",
-    "title": "ball-trajectory",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "ball-trajectory"
   },
   {
     "name": "character-count",
@@ -2079,8 +2079,8 @@
       "Conversion"
     ],
     "createdAt": "2025-11-25",
-    "title": "Character Count",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Character Count"
   },
   {
     "name": "character-limit",
@@ -2097,8 +2097,8 @@
       "String"
     ],
     "createdAt": "2025-11-08",
-    "title": "Character Limit",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Character Limit"
   },
   {
     "name": "count-rectangles",
@@ -2115,8 +2115,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-17",
-    "title": "count-rectangles",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "count-rectangles"
   },
   {
     "name": "counting-cards",
@@ -2135,8 +2135,8 @@
       "Conversion"
     ],
     "createdAt": "2025-11-07",
-    "title": "Counting Cards",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Counting Cards"
   },
   {
     "name": "days-until-weekend",
@@ -2156,8 +2156,8 @@
       "Validation"
     ],
     "createdAt": "2025-11-15",
-    "title": "Days Until Weekend",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Days Until Weekend"
   },
   {
     "name": "email-signature-generator",
@@ -2175,8 +2175,8 @@
       "Validation"
     ],
     "createdAt": "2025-11-12",
-    "title": "Email Signature Generator",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Email Signature Generator"
   },
   {
     "name": "extension-extractor",
@@ -2193,8 +2193,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-10",
-    "title": "extension-extractor",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "extension-extractor"
   },
   {
     "name": "fizz-buzz",
@@ -2211,8 +2211,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "fizz-buzz",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "fizz-buzz"
   },
   {
     "name": "gcd",
@@ -2229,8 +2229,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-15",
-    "title": "gcd",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "gcd"
   },
   {
     "name": "image-search",
@@ -2247,8 +2247,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-04",
-    "title": "image-search",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "image-search"
   },
   {
     "name": "infected",
@@ -2265,8 +2265,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-03",
-    "title": "infected",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "infected"
   },
   {
     "name": "is-fizz-buzz",
@@ -2283,8 +2283,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-26",
-    "title": "is-fizz-buzz",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "is-fizz-buzz"
   },
   {
     "name": "is-match",
@@ -2301,8 +2301,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-17",
-    "title": "is-match",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "is-match"
   },
   {
     "name": "least-common-multiple",
@@ -2319,8 +2319,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "least-common-multiple",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "least-common-multiple"
   },
   {
     "name": "longest-word",
@@ -2337,8 +2337,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "longest-word",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "longest-word"
   },
   {
     "name": "markdown-heading-converter",
@@ -2355,8 +2355,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "markdown-heading-converter",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "markdown-heading-converter"
   },
   {
     "name": "matrix-builder",
@@ -2374,8 +2374,8 @@
       "Matrix"
     ],
     "createdAt": "2025-11-05",
-    "title": "matrix-builder",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "matrix-builder"
   },
   {
     "name": "message-validator",
@@ -2392,8 +2392,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "message-validator",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "message-validator"
   },
   {
     "name": "recipe-scale",
@@ -2410,8 +2410,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-25",
-    "title": "recipe-scale",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "recipe-scale"
   },
   {
     "name": "shift-array",
@@ -2428,8 +2428,8 @@
       "array"
     ],
     "createdAt": "2025-11-13",
-    "title": "shift-array",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "shift-array"
   },
   {
     "name": "signature-validation",
@@ -2446,8 +2446,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-02",
-    "title": "signature-validation",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "signature-validation"
   },
   {
     "name": "vowels-and-consonants",
@@ -2464,8 +2464,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-12",
-    "title": "vowels-and-consonants",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "vowels-and-consonants"
   },
   {
     "name": "weekday-finder",
@@ -2482,8 +2482,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-06",
-    "title": "weekday-finder",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "weekday-finder"
   },
   {
     "name": "whats-my-age-again",
@@ -2500,8 +2500,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-28",
-    "title": "whats-my-age-again",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "whats-my-age-again"
   },
   {
     "name": "word-guesser",
@@ -2518,8 +2518,8 @@
       "Algorithm"
     ],
     "createdAt": "2025-11-29",
-    "title": "word-guesser",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "word-guesser"
   },
   {
     "name": "word-search",
@@ -2537,8 +2537,8 @@
       "Matrix"
     ],
     "createdAt": "2025-11-10",
-    "title": "word-search",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "word-search"
   },
   {
     "name": "24-to-12",
@@ -2558,8 +2558,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-13",
-    "title": "24 To 12",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "24 To 12"
   },
   {
     "name": "battle-of-words",
@@ -2581,8 +2581,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-12",
-    "title": "Battle Of Words",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Battle Of Words"
   },
   {
     "name": "binary-to-decimal",
@@ -2602,8 +2602,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-08",
-    "title": "Binary To Decimal",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Binary To Decimal"
   },
   {
     "name": "calcetines-faltantes",
@@ -2622,8 +2622,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-19",
-    "title": "Calcetines Faltantes",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Calcetines Faltantes"
   },
   {
     "name": "complementary-dna",
@@ -2643,8 +2643,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-25",
-    "title": "Complementary Dna",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Complementary Dna"
   },
   {
     "name": "credit-card-masker",
@@ -2665,8 +2665,8 @@
       "Dynamic Programming"
     ],
     "createdAt": "2025-10-17",
-    "title": "Credit Card Masker",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Credit Card Masker"
   },
   {
     "name": "decimal-to-binary",
@@ -2687,8 +2687,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-06",
-    "title": "Decimal To Binary",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Decimal To Binary"
   },
   {
     "name": "duration-formatter",
@@ -2708,8 +2708,8 @@
       "Conversion"
     ],
     "createdAt": "2025-10-26",
-    "title": "Duration Formatter",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Duration Formatter"
   },
   {
     "name": "email-sorter",
@@ -2728,8 +2728,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-29",
-    "title": "Email Sorter",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Email Sorter"
   },
   {
     "name": "email-validator",
@@ -2749,8 +2749,8 @@
       "Validation"
     ],
     "createdAt": "2025-10-16",
-    "title": "Email Validator",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "Email Validator"
   },
   {
     "name": "exoplanet-search",
@@ -2768,8 +2768,8 @@
       "Math"
     ],
     "createdAt": "2025-10-05",
-    "title": "exoplanet-search",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "exoplanet-search"
   },
   {
     "name": "favorite-songs",
@@ -2787,8 +2787,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-23",
-    "title": "favorite-songs",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "favorite-songs"
   },
   {
     "name": "goldilocks-zone",
@@ -2805,8 +2805,8 @@
       "Math"
     ],
     "createdAt": "2025-10-08",
-    "title": "goldilocks-zone",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "goldilocks-zone"
   },
   {
     "name": "hex-to-decimal",
@@ -2824,8 +2824,8 @@
       "String"
     ],
     "createdAt": "2025-10-11",
-    "title": "hex-to-decimal",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "hex-to-decimal"
   },
   {
     "name": "hidden-treasure",
@@ -2843,8 +2843,8 @@
       "Matrix"
     ],
     "createdAt": "2025-10-24",
-    "title": "hidden-treasure",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "hidden-treasure"
   },
   {
     "name": "html-attribute-extractor",
@@ -2862,8 +2862,8 @@
       "Regex"
     ],
     "createdAt": "2025-10-20",
-    "title": "html-attribute-extractor",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "html-attribute-extractor"
   },
   {
     "name": "html-tag-stripper",
@@ -2881,8 +2881,8 @@
       "Regex"
     ],
     "createdAt": "2025-10-16",
-    "title": "html-tag-stripper",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "html-tag-stripper"
   },
   {
     "name": "integer-sequence",
@@ -2900,8 +2900,8 @@
       "Math"
     ],
     "createdAt": "2025-10-27",
-    "title": "integer-sequence",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "integer-sequence"
   },
   {
     "name": "landing-spot",
@@ -2919,8 +2919,8 @@
       "Matrix"
     ],
     "createdAt": "2025-10-08",
-    "title": "landing-spot",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "landing-spot"
   },
   {
     "name": "launch-fuel",
@@ -2938,8 +2938,8 @@
       "Simulation"
     ],
     "createdAt": "2025-10-11",
-    "title": "launch-fuel",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "launch-fuel"
   },
   {
     "name": "moon-phase",
@@ -2957,8 +2957,8 @@
       "Math"
     ],
     "createdAt": "2025-10-11",
-    "title": "moon-phase",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "moon-phase"
   },
   {
     "name": "nth-prime",
@@ -2976,8 +2976,8 @@
       "Prime"
     ],
     "createdAt": "2025-10-31",
-    "title": "nth-prime",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "nth-prime"
   },
   {
     "name": "password-strength",
@@ -2995,8 +2995,8 @@
       "Regex"
     ],
     "createdAt": "2025-10-06",
-    "title": "password-strength",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "password-strength"
   },
   {
     "name": "phone-home",
@@ -3014,8 +3014,8 @@
       "Array"
     ],
     "createdAt": "2025-10-06",
-    "title": "phone-home",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "phone-home"
   },
   {
     "name": "speak-wisely-you-must",
@@ -3033,8 +3033,8 @@
       "Array"
     ],
     "createdAt": "2025-10-23",
-    "title": "speak-wisely-you-must",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "speak-wisely-you-must"
   },
   {
     "name": "spooky-case",
@@ -3052,8 +3052,8 @@
       "Regex"
     ],
     "createdAt": "2025-11-01",
-    "title": "spooky-case",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "spooky-case"
   },
   {
     "name": "stellar-classification",
@@ -3071,8 +3071,8 @@
       "Mapping"
     ],
     "createdAt": "2025-10-04",
-    "title": "stellar-classification",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "stellar-classification"
   },
   {
     "name": "string-count",
@@ -3089,8 +3089,8 @@
       "String"
     ],
     "createdAt": "2025-10-14",
-    "title": "string-count",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "string-count"
   },
   {
     "name": "thermostat-adjuster-2",
@@ -3107,8 +3107,8 @@
       "Math"
     ],
     "createdAt": "2025-10-21",
-    "title": "thermostat-adjuster-2",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "thermostat-adjuster-2"
   },
   {
     "name": "tip-calculator",
@@ -3126,8 +3126,8 @@
       "String"
     ],
     "createdAt": "2025-10-20",
-    "title": "tip-calculator",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "tip-calculator"
   },
   {
     "name": "anagram-checker",
@@ -3146,8 +3146,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-27",
-    "title": "anagram-checker",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "anagram-checker"
   },
   {
     "name": "caught-speeding",
@@ -3166,8 +3166,8 @@
       "Simulation"
     ],
     "createdAt": "2025-10-24",
-    "title": "caught-speeding",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "caught-speeding"
   },
   {
     "name": "csv-header-parser",
@@ -3185,8 +3185,8 @@
       "Array"
     ],
     "createdAt": "2025-10-21",
-    "title": "csv-header-parser",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "csv-header-parser"
   },
   {
     "name": "digits-vs-letters",
@@ -3204,8 +3204,8 @@
       "Counting"
     ],
     "createdAt": "2025-10-25",
-    "title": "digits-vs-letters",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "digits-vs-letters"
   },
   {
     "name": "longest-word",
@@ -3223,8 +3223,8 @@
       "Array"
     ],
     "createdAt": "2025-10-21",
-    "title": "longest-word",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "longest-word"
   },
   {
     "name": "perfect-square",
@@ -3241,8 +3241,8 @@
       "Math"
     ],
     "createdAt": "2025-10-25",
-    "title": "perfect-square",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "perfect-square"
   },
   {
     "name": "phone-number-formatter",
@@ -3260,8 +3260,8 @@
       "Formatting"
     ],
     "createdAt": "2025-10-21",
-    "title": "phone-number-formatter",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "phone-number-formatter"
   },
   {
     "name": "rgb-to-hex",
@@ -3280,8 +3280,8 @@
       "Formatting"
     ],
     "createdAt": "2025-10-27",
-    "title": "rgb-to-hex",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "rgb-to-hex"
   },
   {
     "name": "second-largest",
@@ -3299,8 +3299,8 @@
       "Sorting"
     ],
     "createdAt": "2025-10-24",
-    "title": "second-largest",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "second-largest"
   },
   {
     "name": "spam-detector",
@@ -3318,8 +3318,8 @@
       "Validation"
     ],
     "createdAt": "2025-10-22",
-    "title": "spam-detector",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "spam-detector"
   },
   {
     "name": "string-mirror",
@@ -3337,8 +3337,8 @@
       "Array"
     ],
     "createdAt": "2025-10-25",
-    "title": "string-mirror",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "string-mirror"
   },
   {
     "name": "tribonacci-sequence",
@@ -3356,8 +3356,8 @@
       "Math"
     ],
     "createdAt": "2025-10-27",
-    "title": "tribonacci-sequence",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "tribonacci-sequence"
   },
   {
     "name": "video-storage",
@@ -3375,8 +3375,8 @@
       "String"
     ],
     "createdAt": "2025-10-26",
-    "title": "video-storage",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "video-storage"
   },
   {
     "name": "symmetric-difference",
@@ -3395,8 +3395,8 @@
       "Map"
     ],
     "createdAt": "2025-10-08",
-    "title": "symmetric-difference",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "symmetric-difference"
   },
   {
     "name": "update-inventory",
@@ -3415,8 +3415,8 @@
       "Hash Table"
     ],
     "createdAt": "2025-10-11",
-    "title": "update-inventory",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "update-inventory"
   },
   {
     "name": "even-fibonacci-numbers",
@@ -3434,8 +3434,8 @@
       "sequence"
     ],
     "createdAt": "2025-10-12",
-    "title": "even-fibonacci-numbers",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "even-fibonacci-numbers"
   },
   {
     "name": "largest-prime-factor",
@@ -3453,8 +3453,8 @@
       "prime"
     ],
     "createdAt": "2025-10-14",
-    "title": "largest-prime-factor",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "largest-prime-factor"
   },
   {
     "name": "multiples-of-3-or-5",
@@ -3471,8 +3471,8 @@
       "math"
     ],
     "createdAt": "2025-10-11",
-    "title": "multiples-of-3-or-5",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "multiples-of-3-or-5"
   },
   {
     "name": "100-doors",
@@ -3490,8 +3490,8 @@
       "simulation"
     ],
     "createdAt": "2025-10-20",
-    "title": "100-doors",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "100-doors"
   },
   {
     "name": "24-game",
@@ -3509,7 +3509,7 @@
       "math"
     ],
     "createdAt": "2025-10-21",
-    "title": "24-game",
-    "hasFrontmatter": true
+    "hasFrontmatter": true,
+    "title": "24-game"
   }
 ]

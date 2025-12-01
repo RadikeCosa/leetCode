@@ -283,11 +283,20 @@ function getProblemsFromSeries(seriesInfo: {
                   frontmatterData.frontmatter.createdAt ||
                   getCreatedAt(itemPath),
                 hasFrontmatter: true,
-                // Include all other frontmatter fields
-                ...frontmatterData.frontmatter,
-                // Ensure base fields are not overwritten
-                ...baseFields,
-                hasFrontmatter: true,
+                // Include all other frontmatter fields (e.g., title)
+                ...Object.fromEntries(
+                  Object.entries(frontmatterData.frontmatter).filter(
+                    ([key]) =>
+                      ![
+                        "source",
+                        "series",
+                        "category",
+                        "difficulty",
+                        "topics",
+                        "createdAt",
+                      ].includes(key)
+                  )
+                ),
               }
             : {
                 ...baseFields,
