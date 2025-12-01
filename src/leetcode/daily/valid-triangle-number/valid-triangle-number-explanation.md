@@ -5,7 +5,7 @@ category: daily
 topics: [Array, Two Pointers, Sorting, Triangle Inequality]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-09-26
 ---
 
 # Valid Triangle Number

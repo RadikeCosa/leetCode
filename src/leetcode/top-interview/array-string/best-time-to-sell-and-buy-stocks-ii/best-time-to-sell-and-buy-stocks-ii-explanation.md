@@ -28,29 +28,27 @@ Find and return the **maximum profit** you can achieve.
 
 **Examples:**
 
-```text
+````text
 Input: prices = [7,1,5,3,6,4]    → Output: 7
 Input: prices = [1,2,3,4,5]      → Output: 4
 Input: prices = [7,6,4,3,1]      → Output: 0
-```
 
 ## Análisis Inicial
 
 ### Comprensión del Problema
 
 Queremos maximizar las ganancias comprando y vendiendo acciones **sin límite** en la cantidad de transacciones, con la única restricción de no poder tener más de una acción al mismo tiempo (pero sí podemos comprar y vender el mismo día).
-
-**Clave del insight:**  
-¡No necesitamos rastrear cuándo compramos o vendimos!  
+createdAt: 2025-11-26
+¡No necesitamos rastrear cuándo compramos o vendimos!
 La ganancia máxima se obtiene simplemente **sumando todas las subidas diarias del precio**.
 
-¿Por qué?  
+¿Por qué?
 Imagina que el precio sube de 1 → 3 → 2 → 4:
 
 - Subida 1→3: +2
 - Bajada 3→2: ignoramos
-- Subida 2→4: +2  
-  → Total: 4  
+- Subida 2→4: +2
+  → Total: 4
   Esto es equivalente a comprar en 1, vender en 3, comprar en 3, vender en 4. ¡Funciona!
 
 ## Casos de Prueba Identificados
@@ -68,7 +66,7 @@ Imagina que el precio sube de 1 → 3 → 2 → 4:
 
 ### Enfoque Elegido
 
-**Greedy - Suma de diferencias positivas**  
+**Greedy - Suma de diferencias positivas**
 Recorremos el array una sola vez y cada vez que `prices[i] > prices[i-1]`, añadimos esa diferencia al beneficio total.
 
 Este es el enfoque **óptimo** y el más intuitivo para este problema.
@@ -88,7 +86,7 @@ function maxProfit(prices: number[]): number {
 
   return totalProfit;
 }
-```
+````
 
 **Explicación línea por línea:**
 

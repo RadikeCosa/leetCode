@@ -10,14 +10,6 @@ source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-08-06"
-tags:
-  - greedy
-  - binary-search
-  - segment-tree
-  - ordered-set
-  - arrays
-language: "typescript"
-author: "ramir"
 ---
 
 ## Fruits Into Baskets III - Documentación

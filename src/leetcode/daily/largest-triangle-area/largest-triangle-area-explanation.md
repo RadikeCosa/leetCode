@@ -1,8 +1,21 @@
-# Problema 812: Largest Triangle Area
+---
+title: "Largest Triangle Area"
+difficulty: "easy"
+topics:
+  - Array
+  - Math
+  - Geometry
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-27"
+---
+
+## Problema 812: Largest Triangle Area
 
 ## Descripción del problema
 
-Given an array of points on the X-Y plane points where points[i] = [xi, yi], return the area of the largest triangle that can be formed by any three different points. Answers within 10^-5 of the actual answer will be accepted.
+Dado un array de puntos en el plano XY donde points[i] = [xi, yi], devuelve el área del triángulo más grande que se puede formar con cualquier combinación de tres puntos diferentes. Se aceptan respuestas con una diferencia de hasta 10^-5 respecto al valor real.
 
 ## Análisis inicial
 

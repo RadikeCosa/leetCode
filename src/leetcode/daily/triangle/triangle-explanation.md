@@ -5,7 +5,7 @@ category: daily
 topics: [Array, Dynamic Programming, Path Sum]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-09-25
 ---
 
 # LeetCode 120: Triangle

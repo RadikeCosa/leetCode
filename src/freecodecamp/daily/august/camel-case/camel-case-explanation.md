@@ -5,7 +5,7 @@ series: daily
 category: freecodecamp
 difficulty: easy
 topics: []
-createdAt: 2025-11-27
+createdAt: 2025-11-28
 ---
 
 # Camel Case - Análisis y Explicación

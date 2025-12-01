@@ -9,12 +9,6 @@ source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-08-14"
-tags:
-  - sliding-window
-  - string
-  - counting
-language: "typescript"
-author: "ramiro"
 ---
 
 ## Largest 3-Same-Digit Number in String - Explicación

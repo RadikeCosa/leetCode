@@ -5,7 +5,7 @@ category: daily
 topics: [Bit Manipulation, Math]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-09
 ---
 
 # Power of Two - Documentación

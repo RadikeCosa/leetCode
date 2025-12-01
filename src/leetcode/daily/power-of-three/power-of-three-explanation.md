@@ -5,7 +5,7 @@ category: daily
 topics: [Math, Powers, Division, Magic Number]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-12
 ---
 
 # Power of Three - Documentación

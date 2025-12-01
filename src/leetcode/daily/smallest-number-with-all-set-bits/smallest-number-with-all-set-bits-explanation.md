@@ -5,7 +5,7 @@ category: daily
 topics: [Bit Manipulation, Math, Powers of Two]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-10-30
 ---
 
 # Smallest Number With All Set Bits

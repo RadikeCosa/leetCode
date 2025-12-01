@@ -8,7 +8,7 @@ topics:
   - String
   - Base Conversion
   - Validation
-createdAt: 2025-10-14
+createdAt: 2025-10-11
 ---
 
 # Análisis del Problema

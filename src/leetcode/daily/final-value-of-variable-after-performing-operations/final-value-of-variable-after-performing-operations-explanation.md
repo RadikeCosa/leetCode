@@ -5,7 +5,7 @@ category: daily
 topics: [Simulation, Increment, Decrement, State Machine]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-1-20
 ---
 
 # Final Value of Variable After Performing Operations - Explicación

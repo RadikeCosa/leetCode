@@ -6,11 +6,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Linked List",
-      "Math",
-      "Recursion"
-    ],
+    "topics": ["Linked List", "Math", "Recursion"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -25,11 +21,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Sliding Window",
-      "Brute Force"
-    ],
+    "topics": ["Array", "Sliding Window", "Brute Force"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -58,9 +50,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -75,10 +65,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Two Pointers",
-      "String"
-    ],
+    "topics": ["Two Pointers", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -93,11 +80,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "Greedy"
-    ],
+    "topics": ["Array", "Two Pointers", "Greedy"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -112,9 +95,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -129,11 +110,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Hash Table",
-      "Counting"
-    ],
+    "topics": ["Array", "Hash Table", "Counting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -163,17 +140,12 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Simulation",
-      "Increment",
-      "Decrement",
-      "State Machine"
-    ],
+    "topics": ["Simulation", "Increment", "Decrement", "State Machine"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-29T00:00:00.000Z",
+    "createdAt": "2025-10-20",
     "hasFrontmatter": true
   },
   {
@@ -183,9 +155,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -200,11 +170,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Hash Table",
-      "String",
-      "Counting"
-    ],
+    "topics": ["Hash Table", "String", "Counting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -219,10 +185,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math"
-    ],
+    "topics": ["Array", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -237,12 +200,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Hash Table",
-      "String",
-      "Sorting"
-    ],
+    "topics": ["Array", "Hash Table", "String", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -257,12 +215,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Math",
-      "Simulation",
-      "Combinatorics"
-    ],
+    "topics": ["Array", "Math", "Simulation", "Combinatorics"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -277,11 +230,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Hash Table",
-      "Math",
-      "String"
-    ],
+    "topics": ["Hash Table", "Math", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -310,12 +259,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Binary Search",
-      "Segment Tree",
-      "Ordered Set"
-    ],
+    "topics": ["Array", "Binary Search", "Segment Tree", "Ordered Set"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -330,11 +274,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Sliding Window",
-      "Counting"
-    ],
+    "topics": ["String", "Sliding Window", "Counting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -349,12 +289,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math",
-      "Greedy",
-      "Sorting"
-    ],
+    "topics": ["Array", "Math", "Greedy", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -369,11 +304,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math",
-      "Geometry"
-    ],
+    "topics": ["Array", "Math", "Geometry"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -402,16 +333,12 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Greedy",
-      "String Manipulation"
-    ],
+    "topics": ["Math", "Greedy", "String Manipulation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
     "hasPostSolution": true,
-    "createdAt": "2025-11-29T00:00:00.000Z",
+    "createdAt": "2025-08-16",
     "hasFrontmatter": true
   },
   {
@@ -421,12 +348,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math",
-      "Geometry",
-      "Sorting"
-    ],
+    "topics": ["Array", "Math", "Geometry", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -441,11 +363,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Set",
-      "Filtering"
-    ],
+    "topics": ["String", "Set", "Filtering"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -460,13 +378,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Subarray",
-      "Kadane",
-      "Prefix Sum",
-      "Math"
-    ],
+    "topics": ["Array", "Subarray", "Kadane", "Prefix Sum", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -481,11 +393,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Linked List",
-      "Recursion",
-      "Merge"
-    ],
+    "topics": ["Linked List", "Recursion", "Merge"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -500,11 +408,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Dynamic Programming",
-      "Polygon",
-      "Interval DP"
-    ],
+    "topics": ["Dynamic Programming", "Polygon", "Interval DP"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -519,12 +423,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "DFS",
-      "BFS",
-      "Matrix",
-      "Water Flow"
-    ],
+    "topics": ["DFS", "BFS", "Matrix", "Water Flow"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -539,11 +438,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Palindrome",
-      "Integer"
-    ],
+    "topics": ["Math", "Palindrome", "Integer"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -558,12 +453,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Powers",
-      "Division",
-      "Magic Number"
-    ],
+    "topics": ["Math", "Powers", "Division", "Magic Number"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -578,10 +468,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Bit Manipulation",
-      "Math"
-    ],
+    "topics": ["Bit Manipulation", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -596,11 +483,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "In-place"
-    ],
+    "topics": ["Array", "Two Pointers", "In-place"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -615,11 +498,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Hash Map",
-      "Roman Numerals"
-    ],
+    "topics": ["String", "Hash Map", "Roman Numerals"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -634,11 +513,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Bit Manipulation",
-      "Math",
-      "Powers of Two"
-    ],
+    "topics": ["Bit Manipulation", "Math", "Powers of Two"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -653,11 +528,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Binary Search",
-      "Sorting",
-      "Prefix Sum"
-    ],
+    "topics": ["Binary Search", "Sorting", "Prefix Sum"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -672,11 +543,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Dynamic Programming",
-      "Path Sum"
-    ],
+    "topics": ["Array", "Dynamic Programming", "Path Sum"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -691,11 +558,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Hash Map",
-      "Two Sum"
-    ],
+    "topics": ["Array", "Hash Map", "Two Sum"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -710,12 +573,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "Sorting",
-      "Triangle Inequality"
-    ],
+    "topics": ["Array", "Two Pointers", "Sorting", "Triangle Inequality"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -730,11 +588,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Simulation",
-      "Math",
-      "Greedy"
-    ],
+    "topics": ["Simulation", "Math", "Greedy"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -749,11 +603,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Math",
-      "Simulation",
-      "Greedy"
-    ],
+    "topics": ["Math", "Simulation", "Greedy"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -768,11 +618,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Greedy",
-      "One Pass"
-    ],
+    "topics": ["Array", "Greedy", "One Pass"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -787,11 +633,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Greedy",
-      "Multiple Transactions"
-    ],
+    "topics": ["Array", "Greedy", "Multiple Transactions"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -806,11 +648,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Greedy",
-      "Reachability"
-    ],
+    "topics": ["Array", "Greedy", "Reachability"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -825,11 +663,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Hash Map",
-      "Boyer-Moore"
-    ],
+    "topics": ["Array", "Hash Map", "Boyer-Moore"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -844,11 +678,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "Sorting"
-    ],
+    "topics": ["Array", "Two Pointers", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -863,11 +693,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "In-place"
-    ],
+    "topics": ["Array", "Two Pointers", "In-place"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -882,11 +708,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "In-place"
-    ],
+    "topics": ["Array", "Two Pointers", "In-place"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -901,11 +723,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Two Pointers",
-      "In-place"
-    ],
+    "topics": ["Array", "Two Pointers", "In-place"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -920,12 +738,7 @@
     "series": "top-interview",
     "category": "top-interview-array-string",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Rotation",
-      "In-place",
-      "Reverse"
-    ],
+    "topics": ["Array", "Rotation", "In-place", "Reverse"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -940,11 +753,7 @@
     "series": "top-interview",
     "category": "top-interview-hash-table",
     "difficulty": "easy",
-    "topics": [
-      "Hash Table",
-      "String",
-      "Mapping"
-    ],
+    "topics": ["Hash Table", "String", "Mapping"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -959,11 +768,7 @@
     "series": "top-interview",
     "category": "top-interview-hash-table",
     "difficulty": "easy",
-    "topics": [
-      "Hash Table",
-      "String",
-      "Frequency Counter"
-    ],
+    "topics": ["Hash Table", "String", "Frequency Counter"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -978,9 +783,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "easy",
-    "topics": [
-      "Array"
-    ],
+    "topics": ["Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -995,11 +798,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "easy",
-    "topics": [
-      "Hash Table",
-      "Linked List",
-      "Two Pointers"
-    ],
+    "topics": ["Hash Table", "Linked List", "Two Pointers"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1014,11 +813,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Hash Table",
-      "Matrix"
-    ],
+    "topics": ["Array", "Hash Table", "Matrix"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1033,11 +828,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "medium",
-    "topics": [
-      "Hash Table",
-      "String",
-      "Sliding Window"
-    ],
+    "topics": ["Hash Table", "String", "Sliding Window"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1052,12 +843,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "medium",
-    "topics": [
-      "Array",
-      "Binary Search",
-      "Sliding Window",
-      "Prefix Sum"
-    ],
+    "topics": ["Array", "Binary Search", "Sliding Window", "Prefix Sum"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1073,10 +859,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Stack"
-    ],
+    "topics": ["String", "Stack"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1091,11 +874,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "easy",
-    "topics": [
-      "Two Pointers",
-      "String",
-      "Dynamic Programming"
-    ],
+    "topics": ["Two Pointers", "String", "Dynamic Programming"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1111,10 +890,7 @@
     "series": "top-interview",
     "category": "top-interview",
     "difficulty": "easy",
-    "topics": [
-      "Two Pointers",
-      "String"
-    ],
+    "topics": ["Two Pointers", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1130,10 +906,7 @@
     "series": "math",
     "category": "binary-search",
     "difficulty": "easy",
-    "topics": [
-      "Binary Search",
-      "Math"
-    ],
+    "topics": ["Binary Search", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1148,10 +921,7 @@
     "series": "search-in-array",
     "category": "binary-search",
     "difficulty": "easy",
-    "topics": [
-      "Binary Search",
-      "Array"
-    ],
+    "topics": ["Binary Search", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1166,11 +936,7 @@
     "series": "search-in-array",
     "category": "binary-search",
     "difficulty": "easy",
-    "topics": [
-      "Binary Search",
-      "Array",
-      "Insert"
-    ],
+    "topics": ["Binary Search", "Array", "Insert"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1185,10 +951,7 @@
     "series": "standard-search",
     "category": "binary-search",
     "difficulty": "easy",
-    "topics": [
-      "Binary Search",
-      "Version Control"
-    ],
+    "topics": ["Binary Search", "Version Control"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1203,10 +966,7 @@
     "series": "standard-search",
     "category": "binary-search",
     "difficulty": "easy",
-    "topics": [
-      "Binary Search",
-      "Game"
-    ],
+    "topics": ["Binary Search", "Game"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1221,11 +981,7 @@
     "series": "parte-1-introduccion",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Closure",
-      "Function Factory",
-      "State Management"
-    ],
+    "topics": ["Closure", "Function Factory", "State Management"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1240,11 +996,7 @@
     "series": "parte-1-introduccion",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Closure",
-      "Factory Pattern",
-      "State Management"
-    ],
+    "topics": ["Closure", "Factory Pattern", "State Management"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1273,11 +1025,7 @@
     "series": "parte-1-introduccion",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Testing",
-      "Equality",
-      "Error Handling"
-    ],
+    "topics": ["Testing", "Equality", "Error Handling"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1292,11 +1040,7 @@
     "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Higher Order Function",
-      "Map"
-    ],
+    "topics": ["Array", "Higher Order Function", "Map"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1311,11 +1055,7 @@
     "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Reduce",
-      "Functional Programming"
-    ],
+    "topics": ["Array", "Reduce", "Functional Programming"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1330,11 +1070,7 @@
     "series": "parte-2-transformacion-de-arrays",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Predicate",
-      "Filter"
-    ],
+    "topics": ["Array", "Predicate", "Filter"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1363,11 +1099,7 @@
     "series": "parte-3-function-transformations",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Function Composition",
-      "Higher Order Function",
-      "Array"
-    ],
+    "topics": ["Function Composition", "Higher Order Function", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1381,11 +1113,7 @@
     "source": "leetcode",
     "series": "parte-3-function-transformations",
     "category": "30-days-js",
-    "topics": [
-      "Serialization",
-      "Array",
-      "Memoization"
-    ],
+    "topics": ["Serialization", "Array", "Memoization"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1400,11 +1128,7 @@
     "series": "parte-3-function-transformations",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Rest Parameters",
-      "Arguments",
-      "Function"
-    ],
+    "topics": ["Rest Parameters", "Arguments", "Function"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1419,11 +1143,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Promise",
-      "Async/Await",
-      "Concurrency"
-    ],
+    "topics": ["Promise", "Async/Await", "Concurrency"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1438,12 +1158,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "medium",
-    "topics": [
-      "Cache",
-      "Timeout",
-      "Map",
-      "OOP"
-    ],
+    "topics": ["Cache", "Timeout", "Map", "OOP"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1458,12 +1173,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "medium",
-    "topics": [
-      "Interval",
-      "Timer",
-      "Closure",
-      "Async"
-    ],
+    "topics": ["Interval", "Timer", "Closure", "Async"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1478,12 +1188,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "medium",
-    "topics": [
-      "Promise",
-      "Timeout",
-      "Async",
-      "Race Condition"
-    ],
+    "topics": ["Promise", "Timeout", "Async", "Race Condition"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1498,11 +1203,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Async",
-      "Promise",
-      "Timer"
-    ],
+    "topics": ["Async", "Promise", "Timer"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1517,11 +1218,7 @@
     "series": "parte-4-programacion-asincrona",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Timeout",
-      "Closure",
-      "Async"
-    ],
+    "topics": ["Timeout", "Closure", "Async"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1536,11 +1233,7 @@
     "series": "parte-5-JSON",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Prototype",
-      "Extension"
-    ],
+    "topics": ["Array", "Prototype", "Extension"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1555,11 +1248,7 @@
     "series": "parte-5-JSON",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Chunk",
-      "Slicing"
-    ],
+    "topics": ["Array", "Chunk", "Slicing"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1574,11 +1263,7 @@
     "series": "parte-5-JSON",
     "category": "30-days-js",
     "difficulty": "easy",
-    "topics": [
-      "Object",
-      "Array",
-      "Empty Check"
-    ],
+    "topics": ["Object", "Array", "Empty Check"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1593,10 +1278,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "String"
-    ],
+    "topics": ["Math", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1612,11 +1294,7 @@
     "series": "daily",
     "category": "coding interview prep",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Base Conversion",
-      "Validation"
-    ],
+    "topics": ["String", "Base Conversion", "Validation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1680,11 +1358,7 @@
     "series": "daily",
     "category": "coding interview prep",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math",
-      "Algorithms"
-    ],
+    "topics": ["Array", "Math", "Algorithms"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1747,10 +1421,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Simulation"
-    ],
+    "topics": ["Array", "Simulation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1766,10 +1437,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Stack"
-    ],
+    "topics": ["String", "Stack"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1785,9 +1453,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String"
-    ],
+    "topics": ["String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1803,10 +1469,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math"
-    ],
+    "topics": ["Array", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1837,9 +1500,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1855,10 +1516,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1964,9 +1622,7 @@
     "series": "daily",
     "category": "daily/november",
     "difficulty": "easy",
-    "topics": [
-      "counting"
-    ],
+    "topics": ["counting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2161,10 +1817,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "matrix",
-      "Matrix"
-    ],
+    "topics": ["matrix", "Matrix"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2209,9 +1862,7 @@
     "series": "daily",
     "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "array"
-    ],
+    "topics": ["array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2301,10 +1952,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Matrix"
-    ],
+    "topics": ["Array", "Matrix"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2319,11 +1967,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Strings",
-      "Time",
-      "Formatting"
-    ],
+    "topics": ["Strings", "Time", "Formatting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2338,10 +1982,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2356,11 +1997,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "String",
-      "Conversion"
-    ],
+    "topics": ["Math", "String", "Conversion"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2405,11 +2042,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Strings",
-      "Regular Expressions",
-      "Arrays"
-    ],
+    "topics": ["Strings", "Regular Expressions", "Arrays"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2424,11 +2057,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Numbers",
-      "Strings",
-      "Math"
-    ],
+    "topics": ["Numbers", "Strings", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2458,9 +2087,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "sort"
-    ],
+    "topics": ["sort"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2475,11 +2102,7 @@
     "series": "daily",
     "category": "coding interview prep",
     "difficulty": "medium",
-    "topics": [
-      "Strings",
-      "Validation",
-      "Regular Expressions"
-    ],
+    "topics": ["Strings", "Validation", "Regular Expressions"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2494,10 +2117,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Math"
-    ],
+    "topics": ["String", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2512,10 +2132,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Sorting"
-    ],
+    "topics": ["Array", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2530,9 +2147,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2547,10 +2162,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "String"
-    ],
+    "topics": ["Math", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2565,10 +2177,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Matrix"
-    ],
+    "topics": ["Array", "Matrix"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2583,10 +2192,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Regex"
-    ],
+    "topics": ["String", "Regex"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2601,10 +2207,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Regex"
-    ],
+    "topics": ["String", "Regex"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2619,10 +2222,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Math"
-    ],
+    "topics": ["String", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2637,10 +2237,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Matrix"
-    ],
+    "topics": ["Array", "Matrix"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2655,10 +2252,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Simulation"
-    ],
+    "topics": ["Math", "Simulation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2673,10 +2267,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Date",
-      "Math"
-    ],
+    "topics": ["Date", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2691,10 +2282,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "medium",
-    "topics": [
-      "Math",
-      "Prime"
-    ],
+    "topics": ["Math", "Prime"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2709,10 +2297,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Regex"
-    ],
+    "topics": ["String", "Regex"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2727,10 +2312,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Array"
-    ],
+    "topics": ["Math", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2745,10 +2327,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2763,10 +2342,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Regex"
-    ],
+    "topics": ["String", "Regex"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2781,10 +2357,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "Mapping"
-    ],
+    "topics": ["Math", "Mapping"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2799,9 +2372,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String"
-    ],
+    "topics": ["String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2816,9 +2387,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2833,10 +2402,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "String"
-    ],
+    "topics": ["Math", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2851,11 +2417,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Hash Table",
-      "Sorting"
-    ],
+    "topics": ["String", "Hash Table", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2870,11 +2432,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math",
-      "Simulation"
-    ],
+    "topics": ["Array", "Math", "Simulation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2889,10 +2447,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2907,10 +2462,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Counting"
-    ],
+    "topics": ["String", "Counting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2925,10 +2477,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2943,9 +2492,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math"
-    ],
+    "topics": ["Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2960,10 +2507,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Formatting"
-    ],
+    "topics": ["String", "Formatting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2978,11 +2522,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Math",
-      "Formatting"
-    ],
+    "topics": ["String", "Math", "Formatting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2997,10 +2537,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Sorting"
-    ],
+    "topics": ["Array", "Sorting"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3015,10 +2552,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Validation"
-    ],
+    "topics": ["String", "Validation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3033,10 +2567,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "String",
-      "Array"
-    ],
+    "topics": ["String", "Array"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3051,10 +2582,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Array",
-      "Math"
-    ],
+    "topics": ["Array", "Math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3069,10 +2597,7 @@
     "series": "daily",
     "category": "daily",
     "difficulty": "easy",
-    "topics": [
-      "Math",
-      "String"
-    ],
+    "topics": ["Math", "String"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3087,11 +2612,7 @@
     "series": "coding-interview-prep",
     "category": "algorithm",
     "difficulty": "medium",
-    "topics": [
-      "Set",
-      "Array",
-      "Map"
-    ],
+    "topics": ["Set", "Array", "Map"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3107,11 +2628,7 @@
     "series": "coding-interview-prep",
     "category": "algorithm",
     "difficulty": "medium",
-    "topics": [
-      "Map",
-      "Array",
-      "Hash Table"
-    ],
+    "topics": ["Map", "Array", "Hash Table"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3127,10 +2644,7 @@
     "series": "project-euler",
     "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "math",
-      "sequence"
-    ],
+    "topics": ["math", "sequence"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3145,10 +2659,7 @@
     "series": "project-euler",
     "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "math",
-      "prime"
-    ],
+    "topics": ["math", "prime"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3163,9 +2674,7 @@
     "series": "project-euler",
     "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "math"
-    ],
+    "topics": ["math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3180,10 +2689,7 @@
     "series": "rosetta-code",
     "category": "freecodecamp",
     "difficulty": "easy",
-    "topics": [
-      "math",
-      "simulation"
-    ],
+    "topics": ["math", "simulation"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3198,10 +2704,7 @@
     "series": "rosetta-code",
     "category": "freecodecamp",
     "difficulty": "medium",
-    "topics": [
-      "backtracking",
-      "math"
-    ],
+    "topics": ["backtracking", "math"],
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,

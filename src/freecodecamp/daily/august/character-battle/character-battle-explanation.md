@@ -5,7 +5,7 @@ series: daily
 category: freecodecamp
 difficulty: easy
 topics: []
-createdAt: 2025-11-22
+createdAt: 2025-11-25
 ---
 
 # Character Battle - Análisis y Explicación

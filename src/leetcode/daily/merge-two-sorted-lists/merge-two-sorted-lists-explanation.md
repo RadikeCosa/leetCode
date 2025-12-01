@@ -5,7 +5,7 @@ category: daily
 topics: [Linked List, Recursion, Merge]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-25
 ---
 
 # LeetCode Problem 21: Merge Two Sorted Lists

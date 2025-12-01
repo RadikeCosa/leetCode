@@ -5,7 +5,7 @@ category: daily
 topics: [Dynamic Programming, Polygon, Interval DP]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-09-30
 ---
 
 # Minimum Score Triangulation of Polygon - Análisis y Explicación

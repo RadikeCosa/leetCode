@@ -1,4 +1,16 @@
-# Minimum One Bit Operations to Make Integers Zero
+---
+title: "Minimum One Bit Operations to Make Integers Zero"
+difficulty: "hard"
+topics:
+  - Bit Manipulation
+  - Dynamic Programming
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-09"
+---
+
+## Minimum One Bit Operations to Make Integers Zero
 
 ## Conceptos previos (breves definiciones)
 

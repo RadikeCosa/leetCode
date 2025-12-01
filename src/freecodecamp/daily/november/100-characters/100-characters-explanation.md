@@ -5,7 +5,7 @@ series: daily
 category: freecodecamp
 difficulty: easy
 topics: []
-createdAt: 2025-11-18
+createdAt: 2025-11-25
 ---
 
 # 100 Characters - Análisis y Explicación

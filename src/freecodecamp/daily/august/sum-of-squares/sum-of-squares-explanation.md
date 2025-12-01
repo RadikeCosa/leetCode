@@ -7,7 +7,7 @@ difficulty: easy
 topics:
   - Array
   - Math
-createdAt: 2025-10-31
+createdAt: 2025-10-27
 ---
 
 ## Enunciado del Problema

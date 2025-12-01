@@ -5,7 +5,7 @@ category: daily
 topics: [Math, Palindrome, Integer]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-14
 ---
 
 # Palindrome Number - Documentación

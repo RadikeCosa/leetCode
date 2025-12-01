@@ -8,7 +8,7 @@ topics:
   - Map
   - Array
   - Hash Table
-createdAt: 2025-11-29
+createdAt: 2025-10-11
 ---
 
 # Explicación

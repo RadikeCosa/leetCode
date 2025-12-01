@@ -5,7 +5,7 @@ category: daily
 topics: [Array, Two Pointers, In-place]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-19
 ---
 
 # Remove Duplicates from Sorted Array

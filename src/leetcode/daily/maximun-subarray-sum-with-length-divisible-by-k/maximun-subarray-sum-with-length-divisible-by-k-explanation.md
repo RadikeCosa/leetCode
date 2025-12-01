@@ -5,7 +5,7 @@ category: daily
 topics: [Array, Subarray, Kadane, Prefix Sum, Math]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-11-27
 ---
 
 # Maximum Subarray Sum With Length Divisible By K

@@ -7,7 +7,7 @@ difficulty: easy
 topics:
   - String
   - Stack
-createdAt: 2025-10-15
+createdAt: 2025-11-29
 ---
 
 ## Enunciado del Problema

@@ -7,7 +7,7 @@ difficulty: easy
 topics:
   - Array
   - Simulation
-createdAt: 2025-10-29
+createdAt: 2025-10-28
 ---
 
 ## Enunciado del Problema

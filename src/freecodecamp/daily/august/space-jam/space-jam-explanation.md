@@ -6,7 +6,7 @@ category: daily
 difficulty: easy
 topics:
   - String
-createdAt: 2025-10-30
+createdAt: 2025-10-20
 ---
 
 ## Enunciado del Problema

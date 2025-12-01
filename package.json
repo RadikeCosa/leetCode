@@ -10,7 +10,8 @@
     "new-problem": "npx tsx scripts/new-problem.ts",
     "list-problems": "npx tsx scripts/list-problems.ts",
     "validate-problems": "npx tsx scripts/validate-problems.ts",
-    "format-files": "npx tsx scripts/format-files.ts"
+    "format-files": "npx tsx scripts/format-files.ts",
+    "get-creation-date": "node scripts/get-creation-date.js"
   },
   "author": "",
   "license": "ISC",

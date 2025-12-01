@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "30-days-js"
 category: "daily"
-createdAt: "2025-11-30"
+createdAt: "2025-08-28"
 ---
 
 ## Allow One Function Call

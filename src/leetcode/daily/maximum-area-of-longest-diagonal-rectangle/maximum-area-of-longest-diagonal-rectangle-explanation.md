@@ -5,7 +5,7 @@ category: daily
 topics: [Array, Math, Geometry, Sorting]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-26
 ---
 
 # Maximum Area of Longest Diagonal Rectangle

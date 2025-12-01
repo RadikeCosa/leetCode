@@ -5,7 +5,7 @@ category: daily
 topics: [String, Set, Filtering]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-09-15
 ---
 
 # Maximum Number of Words You Can Type

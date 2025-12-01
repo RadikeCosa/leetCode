@@ -6,7 +6,7 @@ category: daily
 difficulty: easy
 topics:
   - Math
-createdAt: 2025-11-01
+createdAt: 2025-11-06
 ---
 
 ## Enunciado del Problema

@@ -5,7 +5,7 @@ category: daily
 topics: [Math, Greedy, String Manipulation]
 source: leetcode
 series: daily
-createdAt: 2025-11-29
+createdAt: 2025-08-16
 ---
 
 # Maximum 69 Number - Análisis y Documentación
