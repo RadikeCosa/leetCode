@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-27"
+createdAt: "2025-11-28"
 ---
 
 # What's My Age Again? - Análisis y Explicación

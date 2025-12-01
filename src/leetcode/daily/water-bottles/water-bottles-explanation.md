@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-29"
+createdAt: "2025-10-01"
 ---
 
 # Explicación detallada: Water Bottles

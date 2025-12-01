@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-5-JSON"
 category: "30-days-js"
-createdAt: "2025-09-17"
+createdAt: "2025-09-09"
 ---
 
 # Chunk Array - Análisis del Problema

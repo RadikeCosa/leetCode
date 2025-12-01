@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-16"
+createdAt: "2025-11-17"
 ---
 
 # Count Rectangles — Análisis y Explicación

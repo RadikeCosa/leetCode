@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-22"
+createdAt: "2025-11-25"
 ---
 
 # Least Common Multiple - Análisis y Explicación

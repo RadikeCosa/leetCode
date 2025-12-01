@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "rosetta-code"
 category: "freecodecamp"
-createdAt: "2025-11-01"
+createdAt: "2025-10-21"
 ---
 
 # 24 Game - Explicación

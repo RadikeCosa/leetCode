@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-10"
+createdAt: "2025-10-31"
 ---
 
 # Nth Prime - Análisis de Soluciones

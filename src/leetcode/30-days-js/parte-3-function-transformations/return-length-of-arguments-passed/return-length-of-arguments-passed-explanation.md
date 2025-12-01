@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-3-function-transformations"
 category: "30-days-js"
-createdAt: "2025-09-09"
+createdAt: "2025-08-28"
 ---
 
 # Return Length of Arguments Passed

@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-14"
+createdAt: "2025-10-27"
 ---
 
 # Tribonacci Sequence

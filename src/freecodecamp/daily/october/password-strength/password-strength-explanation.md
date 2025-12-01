@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-08"
+createdAt: "2025-10-06"
 ---
 
 # Análisis del Problema: P@ssw0rd Str3ngth!

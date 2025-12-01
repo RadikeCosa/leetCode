@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-09"
+createdAt: "2025-10-11"
 ---
 
 # Explicación

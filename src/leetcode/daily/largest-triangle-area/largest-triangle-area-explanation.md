@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-27"
+createdAt: "2025-09-28"
 ---
 
 ## Problema 812: Largest Triangle Area

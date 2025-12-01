@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-10"
+createdAt: "2025-10-22"
 ---
 
 # Spam Detector - Análisis Detallado

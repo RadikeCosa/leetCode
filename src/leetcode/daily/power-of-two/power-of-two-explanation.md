@@ -7,7 +7,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-09"
+createdAt: "2025-08-10"
 ---
 
 # Power of Two - Documentación

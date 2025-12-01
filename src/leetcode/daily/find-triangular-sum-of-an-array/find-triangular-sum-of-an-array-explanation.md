@@ -9,7 +9,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-30"
+createdAt: "2025-09-30"
 ---
 
 ## Enuncaido del Problema
