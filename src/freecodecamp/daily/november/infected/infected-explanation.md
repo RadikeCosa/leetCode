@@ -1,11 +1,12 @@
 ---
-name: infected
-source: freecodecamp
-series: daily
-category: daily november
-difficulty: easy
-topics: []
-createdAt: 2025-11-03
+title: "infected"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily november"
+createdAt: "2025-11-03"
 ---
 
 # Infected - Análisis y Solución

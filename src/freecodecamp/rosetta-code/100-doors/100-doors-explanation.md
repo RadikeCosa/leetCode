@@ -1,11 +1,13 @@
 ---
-name: 100-doors
-source: freecodecamp
-series: rosetta-code
-category: freecodecamp
-difficulty: easy
-topics: [math, simulation]
-createdAt: 2025-11-02
+title: "100-doors"
+difficulty: "easy"
+topics:
+  - math
+  - simulation
+source: "freecodecamp"
+series: "rosetta-code"
+category: "freecodecamp"
+createdAt: "2025-11-02"
 ---
 
 # 100 Doors - Explicación
@@ -205,7 +207,9 @@ function getFinalOpenedDoorsOptimized(numDoors) {
 ### Comparación de Enfoques
 
 | Aspecto           | Simulación O(n²)   | Optimización O(√n)         |
-| ----------------- | ------------------ | -------------------------- |
+|
+
+----------- | ------------------ | -------------------------- |
 | **Claridad**      | ⭐⭐⭐⭐⭐         | ⭐⭐⭐                     |
 | **Eficiencia**    | ⭐⭐               | ⭐⭐⭐⭐⭐                 |
 | **Memoria**       | O(n)               | O(1)                       |

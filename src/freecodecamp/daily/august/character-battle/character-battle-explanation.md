@@ -1,11 +1,12 @@
 ---
-title: Character Battle
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-25
+title: "Character Battle"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-25"
 ---
 
 # Character Battle - Análisis y Explicación

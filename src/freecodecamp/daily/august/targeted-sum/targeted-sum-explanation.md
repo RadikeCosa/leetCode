@@ -1,18 +1,25 @@
+---
+title: "Targeted Sum"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Hash Table
+  - Set
+  - Two Pointers
+  - Sorting
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Targeted Sum
 
 ## Enunciado del Problema
 
 Dado un array de números y un entero target, encontrar dos números únicos en el array que sumen el valor target. Retornar un array con los índices de esos dos números, o "Target not found" si no existen dos números que sumen el target.
-
----
-
-difficulty: easy
-topics: []
-source: freecodecamp
-category: daily
-createdAt: 2025-10-27
-
----
 
 # Targeted Sum
 

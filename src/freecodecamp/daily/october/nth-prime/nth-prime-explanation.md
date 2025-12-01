@@ -1,17 +1,13 @@
 ---
-name: nth-prime
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-10
-difficulty: medium
+title: "nth-prime"
+difficulty: "medium"
 topics:
   - Math
   - Prime
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-10"
 ---
 
 # Nth Prime - Análisis de Soluciones

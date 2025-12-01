@@ -1,11 +1,12 @@
 ---
-name: fizz-buzz
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-25
+title: "fizz-buzz"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-25"
 ---
 
 # Fizz Buzz - Análisis y Explicación

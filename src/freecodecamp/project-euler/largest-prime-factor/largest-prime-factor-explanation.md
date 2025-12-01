@@ -1,11 +1,13 @@
 ---
-name: largest-prime-factor
-source: freecodecamp
-series: project-euler
-category: freecodecamp
-difficulty: easy
-topics: [math, prime]
-createdAt: 2025-11-02
+title: "largest-prime-factor"
+difficulty: "easy"
+topics:
+  - math
+  - prime
+source: "freecodecamp"
+series: "project-euler"
+category: "freecodecamp"
+createdAt: "2025-11-02"
 ---
 
 # Largest Prime Factor

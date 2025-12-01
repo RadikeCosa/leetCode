@@ -1,11 +1,15 @@
 ---
-name: final-value-of-variable-after-performing-operations
-difficulty: easy
-category: daily
-topics: [Simulation, Increment, Decrement, State Machine]
-source: leetcode
-series: daily
-createdAt: 2025-1-20
+title: "final-value-of-variable-after-performing-operations"
+difficulty: "easy"
+topics:
+  - Simulation
+  - Increment
+  - Decrement
+  - State Machine
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-01-20"
 ---
 
 # Final Value of Variable After Performing Operations - Explicación
@@ -255,7 +259,9 @@ return operations.reduce((x, op) => (op.includes("++") ? x + 1 : x - 1), 0);
 **Comparación con enfoques alternativos:**
 
 | Enfoque                | Tiempo | Espacio | Notas                               |
-| ---------------------- | ------ | ------- | ----------------------------------- |
+|
+
+---------------- | ------ | ------- | ----------------------------------- |
 | **Simulación directa** | O(n)   | O(1)    | ✅ Nuestra implementación           |
 | **Conteo matemático**  | O(n)   | O(1)    | Equivalente, menos directo          |
 | **Reduce funcional**   | O(n)   | O(1)    | Más conciso, menos legible          |

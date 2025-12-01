@@ -1,11 +1,12 @@
 ---
-title: Camel Case
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-28
+title: "Camel Case"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-28"
 ---
 
 # Camel Case - Análisis y Explicación

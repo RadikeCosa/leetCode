@@ -1,16 +1,12 @@
 ---
-name: perfect-square
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-06
-difficulty: easy
+title: "perfect-square"
+difficulty: "easy"
 topics:
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-06"
 ---
 
 # Análisis del Problema: Perfect Square

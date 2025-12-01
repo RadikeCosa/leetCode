@@ -1,17 +1,13 @@
 ---
-name: launch-fuel
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-11
-difficulty: easy
+title: "launch-fuel"
+difficulty: "easy"
 topics:
   - Math
   - Simulation
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-11"
 ---
 
 # Explicación

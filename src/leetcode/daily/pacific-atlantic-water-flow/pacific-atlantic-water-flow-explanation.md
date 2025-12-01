@@ -1,11 +1,15 @@
 ---
-name: pacific-atlantic-water-flow
-difficulty: medium
-category: daily
-topics: [DFS, BFS, Matrix, Water Flow]
-source: leetcode
-series: daily
-createdAt: 2025-10-25
+title: "pacific-atlantic-water-flow"
+difficulty: "medium"
+topics:
+  - DFS
+  - BFS
+  - Matrix
+  - Water Flow
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-25"
 ---
 
 # Pacific Atlantic Water Flow - Análisis Detallado

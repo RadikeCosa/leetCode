@@ -1,17 +1,13 @@
 ---
-name: exoplanet-search
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-20
-difficulty: easy
+title: "exoplanet-search"
+difficulty: "easy"
 topics:
   - String
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-20"
 ---
 
 # Exoplanet Search

@@ -1,17 +1,13 @@
 ---
-name: phone-home
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-02
-difficulty: easy
+title: "phone-home"
+difficulty: "easy"
 topics:
   - Math
   - Array
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-02"
 ---
 
 # Análisis del Problema: Space Week Day 3: Phone Home

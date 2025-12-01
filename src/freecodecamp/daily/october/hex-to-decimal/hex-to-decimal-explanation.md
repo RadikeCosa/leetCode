@@ -1,17 +1,13 @@
 ---
-name: hex-to-decimal
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-17
-difficulty: easy
+title: "hex-to-decimal"
+difficulty: "easy"
 topics:
   - Math
   - String
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-17"
 ---
 
 # Hex to Decimal - FreeCodeCamp Daily
@@ -107,42 +103,7 @@ parseInt("2E", 16);
 - **Prototipos**: Para probar ideas rápidamente
 - **Scripts simples**: Donde la claridad del código no es prioridad
 
----
-
-### 2. Método Iterativo Manual 🎓 (Recomendado para aprendizaje)
-
-#### ¿Cómo funciona
-
-Procesamos cada carácter del hexadecimal de izquierda a derecha, acumulando el resultado usando la fórmula `resultado = resultado × base + dígito`.
-
-```javascript
-function hexToDecimal(hex) {
-  // Función auxiliar para convertir carácter a valor numérico
-  function charToValue(char) {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else if (char >= "A" && char <= "F") {
-      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
-    }
-    return -1; // Carácter inválido
-  }
-
-  let result = 0; // Acumulador del resultado
-
-  // Procesar cada carácter de izquierda a derecha
-  for (let i = 0; i < hex.length; i++) {
-    const digit = charToValue(hex[i]); // Convertir char a número
-    result = result * 16 + digit; // Fórmula fundamental
-  }
-
-  return result;
-}
-```
-
-#### Explicación paso a paso con "2E"
-
-| Paso | Carácter | Acción                  | Cálculo       | Resultado     |
-| ---- | -------- | ----------------------- | ------------- | ------------- |
+- | -------- | ----------------------- | ------------- | ------------- |
 | 1    | '2'      | `charToValue('2')` = 2  | `0 × 16 + 2`  | `result = 2`  |
 | 2    | 'E'      | `charToValue('E')` = 14 | `2 × 16 + 14` | `result = 46` |
 

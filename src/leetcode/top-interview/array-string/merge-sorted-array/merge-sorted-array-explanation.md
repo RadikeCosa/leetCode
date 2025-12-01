@@ -1,11 +1,14 @@
 ---
-name: merge-sorted-array
-difficulty: easy
-category: top-interview-array-string
-topics: [Array, Two Pointers, Sorting]
-source: leetcode
-series: top-interview
-createdAt: 2025-09-25
+title: "merge-sorted-array"
+difficulty: "easy"
+topics:
+  - Array
+  - Two Pointers
+  - Sorting
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-09-25"
 ---
 
 # Merge Sorted Array - Análisis y Explicación

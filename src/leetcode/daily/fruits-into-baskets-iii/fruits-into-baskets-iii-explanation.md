@@ -86,34 +86,6 @@ baskets = [6, 4, 7];
 3. Tercera fruta (1) se coloca en la segunda canasta (4)
    **Resultado:** Todas las frutas se colocan correctamente
 
----
-
-## Análisis del Problema
-
-### Diferencias con Fruits Into Baskets II
-
-1. **Escala:** n puede ser hasta 10^5 (vs 100 en el problema anterior)
-2. **Valores:** fruits[i] y baskets[i] pueden ser hasta 10^9 (vs 1000 en el anterior)
-3. **Complejidad requerida:** O(n²) ya no es viable, necesitamos O(n log n) o mejor
-
-### Pistas del Problema (LeetCode Hints)
-
-1. **Ordenar las canastas:** Ordenar por pares (basket[i], i) en el array
-2. **Búsqueda binaria:** Para cada fruta, usar búsqueda binaria para encontrar el primer índice donde basket[i] >= fruit
-3. **Segment Tree:** Mantener los índices originales más pequeños donde basket[i] >= fruit
-4. **Marcar como usado:** Cuando se encuentra un índice válido, marcarlo como infinito
-
-### Estrategia de Solución Optimizada
-
-La solución ingenua O(n²) no funcionará. Necesitamos:
-
-1. **Preprocesamiento:** Ordenar las canastas manteniendo sus índices originales
-2. **Búsqueda eficiente:** Usar búsqueda binaria para encontrar candidatos
-3. **Estructura de datos avanzada:** Segment Tree o Ordered Set para mantener disponibilidad
-4. **Actualización eficiente:** Marcar canastas usadas sin recorrer todo el array
-
----
-
 ## Conceptos Algorítmicos Avanzados
 
 ### Binary Search (Búsqueda Binaria)

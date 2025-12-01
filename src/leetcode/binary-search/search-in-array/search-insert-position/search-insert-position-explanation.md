@@ -1,11 +1,14 @@
 ---
-name: search-insert-position
-difficulty: easy
-category: binary-search
-topics: [Binary Search, Array, Insert]
-source: leetcode
-series: search-in-array
-createdAt: 2025-09-07
+title: "search-insert-position"
+difficulty: "easy"
+topics:
+  - Binary Search
+  - Array
+  - Insert
+source: "leetcode"
+series: "search-in-array"
+category: "binary-search"
+createdAt: "2025-09-07"
 ---
 
 # Search Insert Position

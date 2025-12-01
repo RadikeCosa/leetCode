@@ -1,13 +1,13 @@
 ---
-title: Sum of Squares
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Sum of Squares"
+difficulty: "easy"
 topics:
   - Array
   - Math
-createdAt: 2025-10-27
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-27"
 ---
 
 ## Enunciado del Problema

@@ -1,17 +1,13 @@
 ---
-name: phone-number-formatter
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-07
-difficulty: easy
+title: "phone-number-formatter"
+difficulty: "easy"
 topics:
   - String
   - Formatting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-07"
 ---
 
 # Phone Number Formatter - Explicación

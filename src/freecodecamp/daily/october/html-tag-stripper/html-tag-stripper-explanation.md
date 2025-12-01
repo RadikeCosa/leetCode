@@ -1,17 +1,13 @@
 ---
-name: html-tag-stripper
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-14
-difficulty: easy
+title: "html-tag-stripper"
+difficulty: "easy"
 topics:
   - String
   - Regex
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-14"
 ---
 
 # HTML Tag Stripper

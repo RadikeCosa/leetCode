@@ -1,18 +1,14 @@
 ---
-
-title: Ai Detector
-source: freecodecamp  
-date: 2025-11-30
-source: freecodecamp
-series: daily
-date: 2025-11-30
-category: string analysis, AI detection
-createdAt: 2025-11-30
-difficulty: easy
+title: "Ai Detector"
+difficulty: "easy"
 topics:
-- string manipulation
-- algorithms
-- regular expressions
+  - string manipulation
+  - algorithms
+  - regular expressions
+source: "freecodecamp"
+series: "daily"
+category: "string analysis, AI detection"
+createdAt: "2025-11-30"
 ---
 
 ## Enunciado del Problema
@@ -148,29 +144,6 @@ El código implementa estas reglas en orden y retorna "AI" si alguna se cumple.
      - `{7,}` indica "siete o más" letras consecutivas.
    - El segundo `\b` marca el final de la palabra.
    - La bandera `g` busca todas las coincidencias en el texto.
-
----
-
-## Análisis de Complejidad
-
-### Complejidad Temporal
-
-Cada expresión regular recorre el texto una vez:
-
-- Buscar guiones: O(n)
-- Buscar paréntesis: O(n)
-- Buscar palabras largas: O(n)
-
-Donde _n_ es la longitud del texto.  
-La complejidad total es **O(n)**.
-
-### Complejidad Espacial
-
-Las búsquedas con regex pueden crear arreglos temporales con los resultados:
-
-- Espacio proporcional al número de coincidencias encontradas, pero en el peor caso es **O(n)**.
-
----
 
 ## Casos Edge y Consideraciones
 

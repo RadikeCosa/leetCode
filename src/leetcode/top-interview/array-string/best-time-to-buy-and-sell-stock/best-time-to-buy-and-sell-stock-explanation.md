@@ -1,11 +1,14 @@
 ---
-name: best-time-to-buy-and-sell-stock
-difficulty: easy
-category: top-interview-array-string
-topics: [Array, Greedy, One Pass]
-source: leetcode
-series: top-interview
-createdAt: 2025-11-25
+title: "best-time-to-buy-and-sell-stock"
+difficulty: "easy"
+topics:
+  - Array
+  - Greedy
+  - One Pass
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-25"
 ---
 
 # Best Time To Buy And Sell Stock - Análisis y Explicación
@@ -51,7 +54,9 @@ Output: 2
 ## Casos de Prueba Identificados
 
 | Caso                    | Input           | Output | Comentario                  |
-| ----------------------- | --------------- | ------ | --------------------------- |
+|
+
+----------------- | --------------- | ------ | --------------------------- |
 | Caso clásico            | `[7,1,5,3,6,4]` | 5      | Múltiples subidas y bajadas |
 | Precios decrecientes    | `[7,6,4,3,1]`   | 0      | Sin ganancia                |
 | Solo 2 días (sube)      | `[1,5]`         | 4      | Caso mínimo con ganancia    |

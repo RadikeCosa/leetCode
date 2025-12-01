@@ -1,18 +1,14 @@
 ---
-name: anagram-checker
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-01
-difficulty: easy
+title: "anagram-checker"
+difficulty: "easy"
 topics:
   - String
   - Hash Table
   - Sorting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-01"
 ---
 
 # Anagram Checker
@@ -306,7 +302,9 @@ Se eligió el enfoque de ordenamiento por las siguientes razones:
 ### Comparación de Rendimiento
 
 | Enfoque      | Tiempo     | Espacio | Mejor para                            |
-| ------------ | ---------- | ------- | ------------------------------------- |
+|
+
+------ | ---------- | ------- | ------------------------------------- |
 | Ordenamiento | O(n log n) | O(n)    | Strings cortos (<1000 chars)          |
 | Hash Map     | O(n)       | O(k)    | Strings largos, flexibilidad          |
 | Array Conteo | O(n)       | O(1)    | Alfabeto limitado, máximo rendimiento |

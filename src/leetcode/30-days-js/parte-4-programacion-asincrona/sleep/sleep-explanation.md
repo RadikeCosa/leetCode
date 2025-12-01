@@ -1,11 +1,14 @@
 ---
-name: sleep
-difficulty: easy
-category: 30-days-js
-topics: [Async, Promise, Timer]
-source: leetcode
-series: parte-4-programacion-asincrona
-createdAt: 2025-09-14
+title: "sleep"
+difficulty: "easy"
+topics:
+  - Async
+  - Promise
+  - Timer
+source: "leetcode"
+series: "parte-4-programacion-asincrona"
+category: "30-days-js"
+createdAt: "2025-09-14"
 ---
 
 # Sleep - Análisis del Problema

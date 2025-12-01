@@ -1,14 +1,14 @@
 ---
-title: Fibonacci Sequence
-source: freecodecamp
-series: daily
-category: coding interview prep
-difficulty: easy
+title: "Fibonacci Sequence"
+difficulty: "easy"
 topics:
   - Array
   - Math
   - Algorithms
-createdAt: 2025-10-17
+source: "freecodecamp"
+series: "daily"
+category: "coding interview prep"
+createdAt: "2025-10-17"
 ---
 
 # Fibonacci Sequence - Análisis y Solución
@@ -405,7 +405,9 @@ function fibonacciMatrix(startSequence, length) {
 ### Análisis Comparativo
 
 | Enfoque                | Tiempo   | Espacio    | Complejidad | Casos de Uso          |
-| ---------------------- | -------- | ---------- | ----------- | --------------------- |
+|
+
+---------------- | -------- | ---------- | ----------- | --------------------- |
 | **Actual (Iterativo)** | O(n)     | O(n)       | Baja        | ✅ General            |
 | **Two Variables**      | O(n)     | O(1) extra | Baja        | ✅ Memoria limitada   |
 | **Generador**          | O(n)     | O(1)       | Media       | ✅ Streams grandes    |

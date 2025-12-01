@@ -1,11 +1,12 @@
 ---
-name: 100-characters
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-25
+title: "100-characters"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-25"
 ---
 
 # 100 Characters - Análisis y Explicación

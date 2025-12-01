@@ -1,13 +1,13 @@
 ---
-title: 3 Strikes
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-28
-difficulty: easy
+title: "3 Strikes"
+difficulty: "easy"
 topics:
   - Math
   - String
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-28"
 ---
 
 ## Enunciado del Problema
@@ -213,7 +213,9 @@ Se eligió el enfoque iterativo con `includes()` por las siguientes razones:
 **Comparación con otras soluciones:**
 
 | Enfoque                | Tiempo | Espacio | Legibilidad | Ventajas      |
-| ---------------------- | ------ | ------- | ----------- | ------------- |
+|
+
+---------------- | ------ | ------- | ----------- | ------------- |
 | Iterativo + includes() | O(n)   | O(1)    | Excelente   | Implementado  |
 | Funcional + filter()   | O(n)   | O(n)    | Buena       | Más expresivo |
 | Regex                  | O(n)   | O(1)    | Buena       | Más flexible  |

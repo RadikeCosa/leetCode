@@ -1,11 +1,15 @@
 ---
-name: rotate-array
-difficulty: medium
-category: top-interview-array-string
-topics: [Array, Rotation, In-place, Reverse]
-source: leetcode
-series: top-interview
-createdAt: 2025-11-25
+title: "rotate-array"
+difficulty: "medium"
+topics:
+  - Array
+  - Rotation
+  - In-place
+  - Reverse
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-25"
 ---
 
 # Rotate Array - Análisis y Explicación
@@ -129,7 +133,9 @@ function rotate(nums: number[], k: number): void {
 
 Vamos a ver qué pasa en cada vuelta del for
 | Vuelta | i | i | número actual (nums[i]) | nuevaPosicion = (i + 3) % 7 | result después de esta vuelta |
-|-----|-----|------------------------|-----------------------------|-----------------------------------------------|
+|
+
+--|------------------------|-----------------------------|-----------------------------------------------|
 | 1 | 0 | 1 | (0+3)%7 = 3 | [ , , , 1, , , ] |
 | 2 | 1 | 2 | (1+3)%7 = 4 | [ , , , 1, 2, , ] |
 | 3 | 2 | 3 | (2+3)%7 = 5 | [ , , , 1, 2, 3, ] |

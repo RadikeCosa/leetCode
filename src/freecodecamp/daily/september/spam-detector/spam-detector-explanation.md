@@ -1,17 +1,13 @@
 ---
-name: spam-detector
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-10
-difficulty: easy
+title: "spam-detector"
+difficulty: "easy"
 topics:
   - String
   - Validation
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-10"
 ---
 
 # Spam Detector - Análisis Detallado

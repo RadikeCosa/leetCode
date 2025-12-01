@@ -1,11 +1,15 @@
 ---
-name: interval-cancellation
-difficulty: medium
-category: 30-days-js
-topics: [Interval, Timer, Closure, Async]
-source: leetcode
-series: parte-4-programacion-asincrona
-createdAt: 2025-09-12
+title: "interval-cancellation"
+difficulty: "medium"
+topics:
+  - Interval
+  - Timer
+  - Closure
+  - Async
+source: "leetcode"
+series: "parte-4-programacion-asincrona"
+category: "30-days-js"
+createdAt: "2025-09-12"
 ---
 
 # Problema: Interval Cancellation (LeetCode 2725)

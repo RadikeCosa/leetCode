@@ -1,17 +1,13 @@
 ---
-name: tribonacci-sequence
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-14
-difficulty: easy
+title: "tribonacci-sequence"
+difficulty: "easy"
 topics:
   - Array
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-14"
 ---
 
 # Tribonacci Sequence

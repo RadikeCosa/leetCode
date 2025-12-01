@@ -1,11 +1,12 @@
 ---
-name: ball-trajectory
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-29
+title: "ball-trajectory"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-29"
 ---
 
 # Ball Trajectory - Análisis y Explicación
@@ -118,29 +119,6 @@ La función recorre toda la matriz una sola vez para encontrar las posiciones ac
 
 **Complejidad Espacial:**  
 Se utilizan solo unas pocas variables para almacenar posiciones y dimensiones, por lo que la complejidad espacial es **O(1)**.
-
----
-
-### Casos Edge y Consideraciones
-
-- **Pelota en una esquina:** Si la pelota está en una esquina y el siguiente movimiento la llevaría fuera de la matriz en ambas direcciones, se invierten ambos componentes del vector de movimiento.
-- **Pelota en un borde:** Si la pelota está en un borde (superior/inferior o izquierdo/derecho), solo se invierte la dirección correspondiente.
-- **Matriz sin posiciones válidas:** Si no se encuentra la posición actual (`2`) o la previa (`1`), la función retorna `null`.
-- **Matriz de tamaño mínimo:** El algoritmo funciona correctamente incluso en matrices pequeñas (por ejemplo, 2x2).
-- **Movimientos diagonales:** El cálculo del vector de movimiento permite movimientos en cualquier dirección, incluyendo diagonales.
-
-Estos casos aseguran que la función maneje correctamente los rebotes y situaciones límite.
-
-## Reflexiones y Aprendizajes
-
-### Conceptos Aplicados
-
-- **Recorrido de matrices:** Se utilizó un doble bucle para recorrer la matriz y localizar posiciones específicas.
-- **Vectores de movimiento:** El cálculo de la dirección se realizó mediante la diferencia entre posiciones, aplicando el concepto de vectores en 2D.
-- **Simulación de física básica:** Se implementó la lógica de rebote en los bordes, similar a la física de colisiones en videojuegos.
-- **Control de límites:** Se aplicaron validaciones para evitar accesos fuera de los límites de la matriz.
-
----
 
 ### Posibles Optimizaciones
 

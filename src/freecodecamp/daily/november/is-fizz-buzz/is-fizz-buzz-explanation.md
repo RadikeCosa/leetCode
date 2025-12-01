@@ -1,11 +1,12 @@
 ---
-name: is-fizz-buzz
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
-topics: []
-createdAt: 2025-11-26
+title: "is-fizz-buzz"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-26"
 ---
 
 # Is Fizz Buzz - Análisis y Explicación

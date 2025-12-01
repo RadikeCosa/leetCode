@@ -1,17 +1,13 @@
 ---
-name: spooky-case
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-06
-difficulty: easy
+title: "spooky-case"
+difficulty: "easy"
 topics:
   - String
   - Regex
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-06"
 ---
 
 # SpOoKy~CaSe - Análisis y Solución

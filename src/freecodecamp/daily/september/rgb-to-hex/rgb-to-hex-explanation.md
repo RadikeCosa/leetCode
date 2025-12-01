@@ -1,18 +1,14 @@
 ---
-name: rgb-to-hex
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-08
-difficulty: easy
+title: "rgb-to-hex"
+difficulty: "easy"
 topics:
   - String
   - Math
   - Formatting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-08"
 ---
 
 # RGB to Hex
@@ -24,7 +20,9 @@ Dado un string de color CSS en formato `rgb(r, g, b)`, se debe retornar su equiv
 Aquí hay algunos ejemplos de salidas para una entrada dada:
 
 | Input                | Output    |
-| -------------------- | --------- |
+|
+
+-------------- | --------- |
 | "rgb(255, 255, 255)" | "#ffffff" |
 | "rgb(1, 2, 3)"       | "#010203" |
 

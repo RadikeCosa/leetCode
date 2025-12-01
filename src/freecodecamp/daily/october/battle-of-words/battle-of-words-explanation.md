@@ -1,3 +1,19 @@
+---
+title: "Battle Of Words"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Hash Table
+  - Validation
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Battle of Words
 
 ## Análisis del Problema

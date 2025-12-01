@@ -1,11 +1,16 @@
 ---
-name: maximun-subarray-sum-with-length-divisible-by-k
-difficulty: medium
-category: daily
-topics: [Array, Subarray, Kadane, Prefix Sum, Math]
-source: leetcode
-series: daily
-createdAt: 2025-11-27
+title: "maximun-subarray-sum-with-length-divisible-by-k"
+difficulty: "medium"
+topics:
+  - Array
+  - Subarray
+  - Kadane
+  - Prefix Sum
+  - Math
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-27"
 ---
 
 # Maximum Subarray Sum With Length Divisible By K
@@ -45,7 +50,9 @@ Acá SÍ tenemos restricción → no sirve directamente.
 Es simplemente ir sumando mientras avanzás:
 
 | índice | valor | prefix |
-| ------ | ----- | ------ |
+|
+
+| ----- | ------ |
 | 0      |       | 0      |
 | 1      | 5     | 5      |
 | 2      | -2    | 3      |

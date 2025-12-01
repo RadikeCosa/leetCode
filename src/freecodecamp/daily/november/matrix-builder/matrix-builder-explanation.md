@@ -1,13 +1,13 @@
 ---
-name: matrix-builder
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "matrix-builder"
+difficulty: "easy"
 topics:
   - matrix
   - Matrix
-createdAt: 2025-11-05
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-05"
 ---
 
 # Matrix Builder

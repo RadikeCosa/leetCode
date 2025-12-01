@@ -1,11 +1,14 @@
 ---
-name: remove-duplicates-from-sorted-array
-difficulty: easy
-category: top-interview-array-string
-topics: [Array, Two Pointers, In-place]
-source: leetcode
-series: top-interview
-createdAt: 2025-09-02
+title: "remove-duplicates-from-sorted-array"
+difficulty: "easy"
+topics:
+  - Array
+  - Two Pointers
+  - In-place
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-09-02"
 ---
 
 # Remove Duplicates from Sorted Array - Análisis del Problema

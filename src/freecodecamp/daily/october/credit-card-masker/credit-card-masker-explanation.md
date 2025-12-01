@@ -1,3 +1,18 @@
+---
+title: "Credit Card Masker"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Hash Table
+  - Dynamic Programming
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Credit Card Masker - Análisis y Solución
 
 ## Análisis del Problema

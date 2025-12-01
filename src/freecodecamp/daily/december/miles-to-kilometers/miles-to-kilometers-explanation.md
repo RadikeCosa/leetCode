@@ -1,13 +1,13 @@
 ---
-title: Miles To Kilometers
-source: freeCodeCamp
-series: daily
-category: daily
-createdAt: 2025-12-01
-difficulty:
+title: "Miles To Kilometers"
+difficulty: "easy"
 topics:
   - Math
   - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
 ---
 
 ## Miles To Kilometers - Análisis y Explicación
@@ -18,25 +18,6 @@ Dada una distancia en millas en forma de número, retorna la distancia equivalen
 La entrada siempre será un número no negativo.  
 1 milla equivale a 1.60934 kilómetros.  
 Redondea el resultado a dos decimales.
-
----
-
-## Análisis Inicial
-
-### Comprensión del Problema
-
-El objetivo es convertir una distancia dada en millas a su equivalente en kilómetros utilizando la tasa de conversión proporcionada (1 milla = 1.60934 kilómetros) y luego redondear el resultado a dos decimales.  
-La primera intuición es multiplicar el número de millas por 1.60934 para obtener los kilómetros y luego usar una función de redondeo para ajustar el resultado a dos decimales.
-
-### Casos de Prueba Identificados
-
-1. convertToKm(1) debería retornar 1.61.
-2. convertToKm(21) debería retornar 33.8.
-3. convertToKm(3.5) debería retornar 5.63.
-4. convertToKm(0) debería retornar 0.
-5. convertToKm(0.621371) debería retornar 1.
-
----
 
 ## Desarrollo de la Solución
 

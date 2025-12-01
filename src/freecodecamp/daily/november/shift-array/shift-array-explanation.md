@@ -1,12 +1,12 @@
 ---
-name: shift-array
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
+title: "shift-array"
+difficulty: "easy"
 topics:
   - array
-createdAt: 2025-11-13
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-13"
 ---
 
 # Shift Array — Proceso de Resolución y Aprendizaje
@@ -19,34 +19,6 @@ A positive integer shifts the array to the left.
 A negative integer shifts the array to the right.
 The shift wraps around the array.
 For example, given [1, 2, 3] and 1, shift the array 1 to the left, returning [2, 3, 1]
-
----
-
-## 🧠 Proceso de Resolución
-
-### 1. Exploración y Casos de Prueba
-
-- **Detectar casos especiales:** ¿Qué pasa si el array está vacío? ¿Si el desplazamiento es negativo o mayor que el tamaño del array? Pensar en estos casos evita errores comunes.
-
-### 2. Normalización del Desplazamiento
-
-- **¿Por qué normalizar?** Si desplazamos más veces que el tamaño del array, en realidad solo importa el resto. Por ejemplo, desplazar 12 posiciones en un array de 5 es igual a desplazar 2 posiciones (12 % 5 = 2).
-- **Desplazamientos negativos:** Un número negativo significa que queremos mover los elementos en la dirección opuesta. Convertimos ese número en positivo para simplificar el código, usando `n += length`.
-- **Ejemplo visual:** Si tienes `[A, B, C]` y desplazas -1, es como mover todo una posición a la izquierda: `[B, C, A]`. Pero con la normalización, -1 se convierte en 2 (para un array de 3), y desplazamos 2 a la derecha, que es lo mismo.
-
-### 3. Ajuste de Implementación
-
-- **Pensar en el sentido del desplazamiento:** Los tests pueden pedir que los desplazamientos positivos sean a la izquierda y los negativos a la derecha (o viceversa). Es importante leer bien los tests y ajustar el código para que coincida con lo que se espera.
-- **Uso de slice y concat:** Para "rotar" el array, lo dividimos en dos partes y las unimos en orden. Por ejemplo, para desplazar 2 posiciones: `[1,2,3,4,5]` → `[3,4,5,1,2]`.
-- **Validar con ejemplos:** Probar manualmente con arrays pequeños ayuda a ver si la lógica es correcta antes de confiar solo en los tests.
-
-### 4. Aprendizaje y Reflexión
-
-- **El valor del módulo:** Usar el operador `%` es una técnica poderosa para problemas cíclicos, como rotaciones o movimientos en círculos.
-- **Leer y probar:** Leer el enunciado y los tests con atención, y probar con ejemplos propios, es clave para evitar errores de interpretación.
-- **No asumir:** Si algo no queda claro, escribir más tests o dibujar el array puede ayudar a visualizar el problema.
-
----
 
 ## 📋 Ejemplos
 

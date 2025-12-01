@@ -1,3 +1,15 @@
+---
+title: "Email Signature Generator"
+difficulty: "easy"
+topics:
+  - String
+  - Validation
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Email Signature Generator - Análisis y Explicación
 
 ## Enunciado del Problema

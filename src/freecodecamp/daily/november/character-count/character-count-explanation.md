@@ -1,3 +1,19 @@
+---
+title: "Character Count"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Math
+  - Hash Table
+  - Sorting
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Character Count
 
 ## Enunciado del Problema
@@ -113,7 +129,9 @@ graph TD
 ## Análisis de Complejidad
 
 | Métrica          | Complejidad | Explicación                                                   |
-| ---------------- | ----------- | ------------------------------------------------------------- |
+|
+
+---------- | ----------- | ------------------------------------------------------------- |
 | Tiempo           | **O(n)**    | Un pase por el string + un pase fijo de 26 → O(n + 26) = O(n) |
 | Espacio auxiliar | **O(1)**    | Siempre 26 enteros (array fijo)                               |
 | Espacio total    | O(k)        | k ≤ 26 (salida) → sigue siendo O(1) en práctica               |

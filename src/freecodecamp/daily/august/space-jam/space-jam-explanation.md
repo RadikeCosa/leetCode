@@ -1,12 +1,12 @@
 ---
-title: Space Jam
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Space Jam"
+difficulty: "easy"
 topics:
   - String
-createdAt: 2025-10-20
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-20"
 ---
 
 ## Enunciado del Problema

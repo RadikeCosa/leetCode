@@ -1,11 +1,12 @@
 ---
-name: longest-word
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-20
+title: "longest-word"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-20"
 ---
 
 # Longest Word - Análisis y Explicación

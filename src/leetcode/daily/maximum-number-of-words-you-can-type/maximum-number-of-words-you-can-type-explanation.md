@@ -1,11 +1,14 @@
 ---
-name: maximum-number-of-words-you-can-type
-difficulty: easy
-category: daily
-topics: [String, Set, Filtering]
-source: leetcode
-series: daily
-createdAt: 2025-09-15
+title: "maximum-number-of-words-you-can-type"
+difficulty: "easy"
+topics:
+  - String
+  - Set
+  - Filtering
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-15"
 ---
 
 # Maximum Number of Words You Can Type

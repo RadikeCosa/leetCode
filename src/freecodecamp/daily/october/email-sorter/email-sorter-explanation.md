@@ -1,3 +1,16 @@
+---
+title: "Email Sorter"
+difficulty: "easy"
+topics:
+  - Array
+  - String
+  - Sorting
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Email Sorter
 
 ## Análisis del Problema

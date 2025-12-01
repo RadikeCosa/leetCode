@@ -1,16 +1,12 @@
 ---
-name: thermostat-adjuster-2
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-03
-difficulty: easy
+title: "thermostat-adjuster-2"
+difficulty: "easy"
 topics:
   - Math
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-03"
 ---
 
 # Thermostat Adjuster 2 - Explicación

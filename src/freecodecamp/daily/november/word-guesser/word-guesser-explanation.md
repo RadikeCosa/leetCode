@@ -1,11 +1,12 @@
 ---
-name: word-guesser
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-28
+title: "word-guesser"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-28"
 ---
 
 # Word Guesser - Análisis y Explicación

@@ -1,3 +1,17 @@
+---
+title: "24 To 12"
+difficulty: "easy"
+topics:
+  - String
+  - Math
+  - Validation
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # 24 to 12 - Explicación Detallada
 
 ## Descripción del Problema

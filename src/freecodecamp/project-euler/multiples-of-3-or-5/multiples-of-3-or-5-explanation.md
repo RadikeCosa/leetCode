@@ -1,11 +1,12 @@
 ---
-name: multiples-of-3-or-5
-source: freecodecamp
-series: project-euler
-category: freecodecamp
-difficulty: easy
-topics: [math]
-createdAt: 2025-11-03
+title: "multiples-of-3-or-5"
+difficulty: "easy"
+topics:
+  - math
+source: "freecodecamp"
+series: "project-euler"
+category: "freecodecamp"
+createdAt: "2025-11-03"
 ---
 
 # Análisis del Problema

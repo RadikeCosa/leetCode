@@ -1,11 +1,14 @@
 ---
-name: two-sum
-difficulty: easy
-category: daily
-topics: [Array, Hash Map, Two Sum]
-source: leetcode
-series: daily
-createdAt: 2025-08-18
+title: "two-sum"
+difficulty: "easy"
+topics:
+  - Array
+  - Hash Map
+  - Two Sum
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-18"
 ---
 
 # Two Sum - Análisis y Explicación

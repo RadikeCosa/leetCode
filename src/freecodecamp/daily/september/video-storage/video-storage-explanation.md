@@ -1,17 +1,13 @@
 ---
-name: video-storage
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-15
-difficulty: easy
+title: "video-storage"
+difficulty: "easy"
 topics:
   - Math
   - String
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-15"
 ---
 
 # Video Storage

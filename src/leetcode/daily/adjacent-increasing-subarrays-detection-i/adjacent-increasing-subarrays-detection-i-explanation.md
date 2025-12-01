@@ -1,11 +1,14 @@
 ---
-name: adjacent-increasing-subarrays-detection-i
-difficulty: medium
-category: daily
-topics: [Array, Sliding Window, Brute Force]
-source: leetcode
-series: daily
-createdAt: 2025-11-30
+title: "adjacent-increasing-subarrays-detection-i"
+difficulty: "medium"
+topics:
+  - Array
+  - Sliding Window
+  - Brute Force
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-30"
 ---
 
 # Adjacent Increasing Subarrays Detection I
@@ -256,7 +259,9 @@ export function hasIncreasingSubarrays(nums: number[], k: number): boolean {
 **Comparación de versiones:**
 
 | Aspecto            | Versión Inicial               | Versión Optimizada                             |
-| ------------------ | ----------------------------- | ---------------------------------------------- |
+|
+
+------------ | ----------------------------- | ---------------------------------------------- |
 | **Espacio**        | O(1)                          | O(n)                                           |
 | **Claridad**       | Menos clara (lógica mezclada) | Más clara (separación de responsabilidades)    |
 | **Mantenibilidad** | Más difícil de modificar      | Más fácil de extender                          |

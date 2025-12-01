@@ -1,3 +1,17 @@
+---
+title: "Duration Formatter"
+difficulty: "easy"
+topics:
+  - String
+  - Math
+  - Hash Table
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Duration Formatter
 
 ## Enunciado del problema

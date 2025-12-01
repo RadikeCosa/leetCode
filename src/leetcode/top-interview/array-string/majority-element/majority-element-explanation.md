@@ -1,11 +1,14 @@
 ---
-name: majority-element
-difficulty: easy
-category: top-interview-array-string
-topics: [Array, Hash Map, Boyer-Moore]
-source: leetcode
-series: top-interview
-createdAt: 2025-11-25
+title: "majority-element"
+difficulty: "easy"
+topics:
+  - Array
+  - Hash Map
+  - Boyer-Moore
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-25"
 ---
 
 # Majority Element - Análisis y Explicación
@@ -26,7 +29,9 @@ El problema requiere identificar el numero que aparece mas de n/2 veces en el ar
 ### Casos de Prueba Identificados
 
 | Caso de Prueba | Entrada         | Salida Esperada | Descripción                             |
-| -------------- | --------------- | --------------- | --------------------------------------- |
+|
+
+-------- | --------------- | --------------- | --------------------------------------- |
 | Caso 1         | [3,2,3]         | 3               | Elemento mayoritario es 3               |
 | Caso 2         | [2,2,1,1,1,2,2] | 2               | Elemento mayoritario es 2               |
 | Caso 3         | [1]             | 1               | Un solo elemento, que es el mayoritario |

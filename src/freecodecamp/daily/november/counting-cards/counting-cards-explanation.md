@@ -1,3 +1,16 @@
+---
+title: "Counting Cards"
+difficulty: "easy"
+topics:
+  - Math
+  - Set
+  - Conversion
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Contar combinaciones de cartas
 
 ## Enunciado

@@ -1,17 +1,13 @@
 ---
-name: stellar-classification
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-10-04
-difficulty: easy
+title: "stellar-classification"
+difficulty: "easy"
 topics:
   - Math
   - Mapping
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-04"
 ---
 
 # Clasificación Estelar

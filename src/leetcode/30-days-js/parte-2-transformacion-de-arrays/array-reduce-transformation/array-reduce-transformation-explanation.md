@@ -1,11 +1,14 @@
 ---
-name: array-reduce-transformation
-difficulty: easy
-category: 30-days-js
-topics: [Array, Reduce, Functional Programming]
-source: leetcode
-series: parte-2-transformacion-de-arrays
-createdAt: 2025-09-05
+title: "array-reduce-transformation"
+difficulty: "easy"
+topics:
+  - Array
+  - Reduce
+  - Functional Programming
+source: "leetcode"
+series: "parte-2-transformacion-de-arrays"
+category: "30-days-js"
+createdAt: "2025-09-05"
 ---
 
 # Array Reduce Transformation

@@ -1,17 +1,13 @@
 ---
-name: digits-vs-letters
-source: freecodecamp
-series: daily
-category: daily
-createdAt: 2025-09-04
-difficulty: easy
+title: "digits-vs-letters"
+difficulty: "easy"
 topics:
   - String
   - Counting
-hasImplementation: true
-hasTests: true
-hasExplanation: true
-hasPostSolution: false
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-09-04"
 ---
 
 # Digits vs Letters

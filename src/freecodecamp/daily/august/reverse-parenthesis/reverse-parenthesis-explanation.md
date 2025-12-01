@@ -1,13 +1,13 @@
 ---
-title: Reverse Parenthesis
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Reverse Parenthesis"
+difficulty: "easy"
 topics:
   - String
   - Stack
-createdAt: 2025-11-29
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-11-29"
 ---
 
 ## Enunciado del Problema

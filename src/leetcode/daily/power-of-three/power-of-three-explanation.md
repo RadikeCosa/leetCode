@@ -1,11 +1,15 @@
 ---
-name: power-of-three
-difficulty: easy
-category: daily
-topics: [Math, Powers, Division, Magic Number]
-source: leetcode
-series: daily
-createdAt: 2025-08-12
+title: "power-of-three"
+difficulty: "easy"
+topics:
+  - Math
+  - Powers
+  - Division
+  - Magic Number
+source: "leetcode"
+series: "daily"
+category: "daily"
+createdAt: "2025-08-12"
 ---
 
 # Power of Three - Documentación
@@ -208,7 +212,9 @@ isPowerOfThree(-3)  → false ✓
 ## Complejidad Comparativa
 
 | Enfoque                | Tiempo   | Espacio  | Elegancia  | Recomendado      |
-| ---------------------- | -------- | -------- | ---------- | ---------------- |
+|
+
+---------------- | -------- | -------- | ---------- | ---------------- |
 | **División iterativa** | O(log n) | O(1)     | ⭐⭐⭐     | Para aprendizaje |
 | **Número mágico**      | **O(1)** | **O(1)** | ⭐⭐⭐⭐⭐ | **✅ Óptimo**    |
 | **Recursión**          | O(log n) | O(log n) | ⭐⭐       | Educativo        |

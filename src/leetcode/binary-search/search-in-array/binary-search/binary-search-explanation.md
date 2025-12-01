@@ -1,11 +1,13 @@
 ---
-name: binary-search
-difficulty: easy
-category: binary-search
-topics: [Binary Search, Array]
-source: leetcode
-series: search-in-array
-createdAt: 2025-09-07
+title: "binary-search"
+difficulty: "easy"
+topics:
+  - Binary Search
+  - Array
+source: "leetcode"
+series: "search-in-array"
+category: "binary-search"
+createdAt: "2025-09-07"
 ---
 
 # Binary Search - Problema Fundamental

@@ -1,11 +1,13 @@
 ---
-name: first-bad-version
-difficulty: easy
-category: binary-search
-topics: [Binary Search, Version Control]
-source: leetcode
-series: standard-search
-createdAt: 2025-09-10
+title: "first-bad-version"
+difficulty: "easy"
+topics:
+  - Binary Search
+  - Version Control
+source: "leetcode"
+series: "standard-search"
+category: "binary-search"
+createdAt: "2025-09-10"
 ---
 
 # First Bad Version - Análisis del Problema
@@ -89,7 +91,9 @@ for (let i = 1; i <= n; i++) {
 ### Diferencias con Binary Search Clásico
 
 | Aspecto             | Binary Search Clásico      | First Occurrence Search      |
-| ------------------- | -------------------------- | ---------------------------- |
+|
+
+------------- | -------------------------- | ---------------------------- |
 | **Objetivo**        | Encontrar valor específico | Encontrar primera transición |
 | **Condición true**  | `right = mid - 1`          | `right = mid`                |
 | **Condición false** | `left = mid + 1`           | `left = mid + 1`             |

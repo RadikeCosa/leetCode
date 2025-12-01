@@ -1,13 +1,13 @@
 ---
-title: Vowel Balance
-source: freecodecamp
-series: daily
-category: daily
-difficulty: easy
+title: "Vowel Balance"
+difficulty: "easy"
 topics:
   - String
   - Array
-createdAt: 2025-10-05
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-10-05"
 ---
 
 ## Enunciado del Problema

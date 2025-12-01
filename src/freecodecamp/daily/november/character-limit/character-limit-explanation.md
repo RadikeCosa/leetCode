@@ -1,3 +1,14 @@
+---
+title: "Character Limit"
+difficulty: "easy"
+topics:
+  - String
+source: "freecodecamp"
+series: "daily"
+category: "daily"
+createdAt: "2025-12-01"
+---
+
 # Character Limit
 
 ## Enunciado

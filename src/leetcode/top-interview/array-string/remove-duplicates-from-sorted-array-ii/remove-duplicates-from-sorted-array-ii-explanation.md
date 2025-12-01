@@ -1,11 +1,14 @@
 ---
-name: remove-duplicates-from-sorted-array-ii
-difficulty: medium
-category: top-interview-array-string
-topics: [Array, Two Pointers, In-place]
-source: leetcode
-series: top-interview
-createdAt: 2025-09-16
+title: "remove-duplicates-from-sorted-array-ii"
+difficulty: "medium"
+topics:
+  - Array
+  - Two Pointers
+  - In-place
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-09-16"
 ---
 
 # Remove Duplicates from Sorted Array II
@@ -157,7 +160,9 @@ Si queremos máximo **k** duplicados, comparamos con `nums[w-k]`:
 ### Simulación con [1,1,1,2,2,3]:
 
 | Iteración | `num` | `w` | `nums[w-2]`   | Condición    | Acción               | Array resultante |
-| --------- | ----- | --- | ------------- | ------------ | -------------------- | ---------------- |
+|
+
+--- | ----- | --- | ------------- | ------------ | -------------------- | ---------------- |
 | 1         | 1     | 0   | -             | `w < 2` ✅   | `nums[0] = 1, w = 1` | `[1,1,1,2,2,3]`  |
 | 2         | 1     | 1   | -             | `w < 2` ✅   | `nums[1] = 1, w = 2` | `[1,1,1,2,2,3]`  |
 | 3         | 1     | 2   | `nums[0] = 1` | `1 !== 1` ❌ | No escribe           | `[1,1,1,2,2,3]`  |

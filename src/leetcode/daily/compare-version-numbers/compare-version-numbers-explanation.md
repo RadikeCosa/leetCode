@@ -1,5 +1,5 @@
 ---
-title: Compare Version Numbers
+title: "Compare Version Numbers"
 difficulty: "medium"
 topics:
   - Two Pointers
@@ -7,7 +7,7 @@ topics:
 source: "leetcode"
 series: "daily "
 category: "daily"
-"createdAt": "2025-09-23"
+createdAt: "2025-12-01"
 ---
 
 ## Compare Version Numbers - Explicación Detallada
@@ -197,7 +197,9 @@ if (result !== 0) return result;
 ## Comparación de Enfoques
 
 | Aspecto             | Split      | Two Pointers |
-| ------------------- | ---------- | ------------ |
+|
+
+------------- | ---------- | ------------ |
 | **Legibilidad**     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐     |
 | **Tiempo**          | O(n + m)   | O(n + m)     |
 | **Espacio**         | O(n + m)   | **O(1)** ✅  |

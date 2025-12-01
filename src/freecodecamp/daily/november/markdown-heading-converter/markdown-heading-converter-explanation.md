@@ -1,11 +1,12 @@
 ---
-name: markdown-heading-converter
-source: freecodecamp
-series: daily
-category: freecodecamp
-difficulty: easy
-topics: []
-createdAt: 2025-11-19
+title: "markdown-heading-converter"
+difficulty: "easy"
+topics:
+  - Algorithm
+source: "freecodecamp"
+series: "daily"
+category: "freecodecamp"
+createdAt: "2025-11-19"
 ---
 
 # Markdown Heading Converter - Análisis y Explicación

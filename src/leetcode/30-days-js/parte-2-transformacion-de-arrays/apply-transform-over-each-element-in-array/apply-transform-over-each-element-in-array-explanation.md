@@ -1,11 +1,14 @@
 ---
-name: apply-transform-over-each-element-in-array
-difficulty: easy
-category: 30-days-js
-topics: [Array, Higher Order Function, Map]
-source: leetcode
-series: parte-2-transformacion-de-arrays
-createdAt: 2025-09-04
+title: "apply-transform-over-each-element-in-array"
+difficulty: "easy"
+topics:
+  - Array
+  - Higher Order Function
+  - Map
+source: "leetcode"
+series: "parte-2-transformacion-de-arrays"
+category: "30-days-js"
+createdAt: "2025-09-04"
 ---
 
 # Apply Transform Over Each Element in Array
