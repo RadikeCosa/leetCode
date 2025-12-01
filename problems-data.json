@@ -1,7 +1,7 @@
 [
   {
     "name": "add-two-numbers",
-    "path": "src/leetcode/daily/add-two-numbers",
+    "path": "src\\leetcode\\daily\\add-two-numbers",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -21,7 +21,7 @@
   },
   {
     "name": "adjacent-increasing-subarrays-detection-i",
-    "path": "src/leetcode/daily/adjacent-increasing-subarrays-detection-i",
+    "path": "src\\leetcode\\daily\\adjacent-increasing-subarrays-detection-i",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -41,7 +41,7 @@
   },
   {
     "name": "binary-prefix-divisible-by-five",
-    "path": "src/leetcode/daily/binary-prefix-divisible-by-five",
+    "path": "src\\leetcode\\daily\\binary-prefix-divisible-by-five",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -61,7 +61,7 @@
   },
   {
     "name": "calculate-money-in-leetcode-bank",
-    "path": "src/leetcode/daily/calculate-money-in-leetcode-bank",
+    "path": "src\\leetcode\\daily\\calculate-money-in-leetcode-bank",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -79,7 +79,7 @@
   },
   {
     "name": "compare-version-numbers",
-    "path": "src/leetcode/daily/compare-version-numbers",
+    "path": "src\\leetcode\\daily\\compare-version-numbers",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -98,7 +98,7 @@
   },
   {
     "name": "container-with-most-water",
-    "path": "src/leetcode/daily/container-with-most-water",
+    "path": "src\\leetcode\\daily\\container-with-most-water",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -118,7 +118,7 @@
   },
   {
     "name": "convert-integer-to-the-sum-of-two-no-zero-integers",
-    "path": "src/leetcode/daily/convert-integer-to-the-sum-of-two-no-zero-integers",
+    "path": "src\\leetcode\\daily\\convert-integer-to-the-sum-of-two-no-zero-integers",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -136,7 +136,7 @@
   },
   {
     "name": "count-elements-with-maximum-frequency",
-    "path": "src/leetcode/daily/count-elements-with-maximum-frequency",
+    "path": "src\\leetcode\\daily\\count-elements-with-maximum-frequency",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -156,7 +156,7 @@
   },
   {
     "name": "count-operations-to-obtain-zero",
-    "path": "src/leetcode/daily/count-operations-to-obtain-zero",
+    "path": "src\\leetcode\\daily\\count-operations-to-obtain-zero",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -175,7 +175,7 @@
   },
   {
     "name": "final-value-of-variable-after-performing-operations",
-    "path": "src/leetcode/daily/final-value-of-variable-after-performing-operations",
+    "path": "src\\leetcode\\daily\\final-value-of-variable-after-performing-operations",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -196,7 +196,7 @@
   },
   {
     "name": "find-closest-person",
-    "path": "src/leetcode/daily/find-closest-person",
+    "path": "src\\leetcode\\daily\\find-closest-person",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -214,7 +214,7 @@
   },
   {
     "name": "find-most-frequent-vowel-and-consonant",
-    "path": "src/leetcode/daily/find-most-frequent-vowel-and-consonant",
+    "path": "src\\leetcode\\daily\\find-most-frequent-vowel-and-consonant",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -234,7 +234,7 @@
   },
   {
     "name": "find-n-unique-integers-sum-up-to-zero",
-    "path": "src/leetcode/daily/find-n-unique-integers-sum-up-to-zero",
+    "path": "src\\leetcode\\daily\\find-n-unique-integers-sum-up-to-zero",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -253,7 +253,7 @@
   },
   {
     "name": "find-resultant-array-after-removing-anagrams",
-    "path": "src/leetcode/daily/find-resultant-array-after-removing-anagrams",
+    "path": "src\\leetcode\\daily\\find-resultant-array-after-removing-anagrams",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -274,7 +274,7 @@
   },
   {
     "name": "find-triangular-sum-of-an-array",
-    "path": "src/leetcode/daily/find-triangular-sum-of-an-array",
+    "path": "src\\leetcode\\daily\\find-triangular-sum-of-an-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -295,7 +295,7 @@
   },
   {
     "name": "fraction-to-recurring-decimal",
-    "path": "src/leetcode/daily/fraction-to-recurring-decimal",
+    "path": "src\\leetcode\\daily\\fraction-to-recurring-decimal",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -315,7 +315,7 @@
   },
   {
     "name": "fruits-into-baskets-ii",
-    "path": "src/leetcode/daily/fruits-into-baskets-ii",
+    "path": "src\\leetcode\\daily\\fruits-into-baskets-ii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -335,7 +335,7 @@
   },
   {
     "name": "fruits-into-baskets-iii",
-    "path": "src/leetcode/daily/fruits-into-baskets-iii",
+    "path": "src\\leetcode\\daily\\fruits-into-baskets-iii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -356,7 +356,7 @@
   },
   {
     "name": "largest-3-same-digit-number-in-string",
-    "path": "src/leetcode/daily/largest-3-same-digit-number-in-string",
+    "path": "src\\leetcode\\daily\\largest-3-same-digit-number-in-string",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -376,7 +376,7 @@
   },
   {
     "name": "largest-perimeter-triangle",
-    "path": "src/leetcode/daily/largest-perimeter-triangle",
+    "path": "src\\leetcode\\daily\\largest-perimeter-triangle",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -397,7 +397,7 @@
   },
   {
     "name": "largest-triangle-area",
-    "path": "src/leetcode/daily/largest-triangle-area",
+    "path": "src\\leetcode\\daily\\largest-triangle-area",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -417,7 +417,7 @@
   },
   {
     "name": "longest-common-prefix",
-    "path": "src/leetcode/daily/longest-common-prefix",
+    "path": "src\\leetcode\\daily\\longest-common-prefix",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -437,7 +437,7 @@
   },
   {
     "name": "maximum-69-number",
-    "path": "src/leetcode/daily/maximum-69-number",
+    "path": "src\\leetcode\\daily\\maximum-69-number",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -457,7 +457,7 @@
   },
   {
     "name": "maximum-area-of-longest-diagonal-rectangle",
-    "path": "src/leetcode/daily/maximum-area-of-longest-diagonal-rectangle",
+    "path": "src\\leetcode\\daily\\maximum-area-of-longest-diagonal-rectangle",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -478,7 +478,7 @@
   },
   {
     "name": "maximum-number-of-words-you-can-type",
-    "path": "src/leetcode/daily/maximum-number-of-words-you-can-type",
+    "path": "src\\leetcode\\daily\\maximum-number-of-words-you-can-type",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -498,7 +498,7 @@
   },
   {
     "name": "maximun-subarray-sum-with-length-divisible-by-k",
-    "path": "src/leetcode/daily/maximun-subarray-sum-with-length-divisible-by-k",
+    "path": "src\\leetcode\\daily\\maximun-subarray-sum-with-length-divisible-by-k",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -520,7 +520,7 @@
   },
   {
     "name": "merge-two-sorted-lists",
-    "path": "src/leetcode/daily/merge-two-sorted-lists",
+    "path": "src\\leetcode\\daily\\merge-two-sorted-lists",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -540,7 +540,7 @@
   },
   {
     "name": "minimum-score-triangulation-of-polygon",
-    "path": "src/leetcode/daily/minimum-score-triangulation-of-polygon",
+    "path": "src\\leetcode\\daily\\minimum-score-triangulation-of-polygon",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -560,7 +560,7 @@
   },
   {
     "name": "minimun-one-bit-operations",
-    "path": "src/leetcode/daily/minimun-one-bit-operations",
+    "path": "src\\leetcode\\daily\\minimun-one-bit-operations",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -579,7 +579,7 @@
   },
   {
     "name": "pacific-atlantic-water-flow",
-    "path": "src/leetcode/daily/pacific-atlantic-water-flow",
+    "path": "src\\leetcode\\daily\\pacific-atlantic-water-flow",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -600,7 +600,7 @@
   },
   {
     "name": "palindrome-number",
-    "path": "src/leetcode/daily/palindrome-number",
+    "path": "src\\leetcode\\daily\\palindrome-number",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -620,7 +620,7 @@
   },
   {
     "name": "power-of-three",
-    "path": "src/leetcode/daily/power-of-three",
+    "path": "src\\leetcode\\daily\\power-of-three",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -641,7 +641,7 @@
   },
   {
     "name": "power-of-two",
-    "path": "src/leetcode/daily/power-of-two",
+    "path": "src\\leetcode\\daily\\power-of-two",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -660,7 +660,7 @@
   },
   {
     "name": "remove-duplicates-from-sorted-array",
-    "path": "src/leetcode/daily/remove-duplicates-from-sorted-array",
+    "path": "src\\leetcode\\daily\\remove-duplicates-from-sorted-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -680,7 +680,7 @@
   },
   {
     "name": "roman-to-integer",
-    "path": "src/leetcode/daily/roman-to-integer",
+    "path": "src\\leetcode\\daily\\roman-to-integer",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -700,7 +700,7 @@
   },
   {
     "name": "smallest-number-with-all-set-bits",
-    "path": "src/leetcode/daily/smallest-number-with-all-set-bits",
+    "path": "src\\leetcode\\daily\\smallest-number-with-all-set-bits",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -720,7 +720,7 @@
   },
   {
     "name": "successful-pairs-of-spells-and-potions",
-    "path": "src/leetcode/daily/successful-pairs-of-spells-and-potions",
+    "path": "src\\leetcode\\daily\\successful-pairs-of-spells-and-potions",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -740,7 +740,7 @@
   },
   {
     "name": "triangle",
-    "path": "src/leetcode/daily/triangle",
+    "path": "src\\leetcode\\daily\\triangle",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -760,7 +760,7 @@
   },
   {
     "name": "two-sum",
-    "path": "src/leetcode/daily/two-sum",
+    "path": "src\\leetcode\\daily\\two-sum",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -780,7 +780,7 @@
   },
   {
     "name": "valid-triangle-number",
-    "path": "src/leetcode/daily/valid-triangle-number",
+    "path": "src\\leetcode\\daily\\valid-triangle-number",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -801,7 +801,7 @@
   },
   {
     "name": "water-bottles",
-    "path": "src/leetcode/daily/water-bottles",
+    "path": "src\\leetcode\\daily\\water-bottles",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -821,7 +821,7 @@
   },
   {
     "name": "water-bottles-ii",
-    "path": "src/leetcode/daily/water-bottles-ii",
+    "path": "src\\leetcode\\daily\\water-bottles-ii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -841,7 +841,7 @@
   },
   {
     "name": "best-time-to-buy-and-sell-stock",
-    "path": "src/leetcode/top-interview/array-string/best-time-to-buy-and-sell-stock",
+    "path": "src\\leetcode\\top-interview\\array-string\\best-time-to-buy-and-sell-stock",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -861,7 +861,7 @@
   },
   {
     "name": "best-time-to-sell-and-buy-stocks-ii",
-    "path": "src/leetcode/top-interview/array-string/best-time-to-sell-and-buy-stocks-ii",
+    "path": "src\\leetcode\\top-interview\\array-string\\best-time-to-sell-and-buy-stocks-ii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -881,7 +881,7 @@
   },
   {
     "name": "jump-game",
-    "path": "src/leetcode/top-interview/array-string/jump-game",
+    "path": "src\\leetcode\\top-interview\\array-string\\jump-game",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -901,7 +901,7 @@
   },
   {
     "name": "majority-element",
-    "path": "src/leetcode/top-interview/array-string/majority-element",
+    "path": "src\\leetcode\\top-interview\\array-string\\majority-element",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -921,7 +921,7 @@
   },
   {
     "name": "merge-sorted-array",
-    "path": "src/leetcode/top-interview/array-string/merge-sorted-array",
+    "path": "src\\leetcode\\top-interview\\array-string\\merge-sorted-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -941,7 +941,7 @@
   },
   {
     "name": "remove-duplicates-from-sorted-array",
-    "path": "src/leetcode/top-interview/array-string/remove-duplicates-from-sorted-array",
+    "path": "src\\leetcode\\top-interview\\array-string\\remove-duplicates-from-sorted-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -961,7 +961,7 @@
   },
   {
     "name": "remove-duplicates-from-sorted-array-ii",
-    "path": "src/leetcode/top-interview/array-string/remove-duplicates-from-sorted-array-ii",
+    "path": "src\\leetcode\\top-interview\\array-string\\remove-duplicates-from-sorted-array-ii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -981,7 +981,7 @@
   },
   {
     "name": "remove-element",
-    "path": "src/leetcode/top-interview/array-string/remove-element",
+    "path": "src\\leetcode\\top-interview\\array-string\\remove-element",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1001,7 +1001,7 @@
   },
   {
     "name": "rotate-array",
-    "path": "src/leetcode/top-interview/array-string/rotate-array",
+    "path": "src\\leetcode\\top-interview\\array-string\\rotate-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1022,7 +1022,7 @@
   },
   {
     "name": "isomorphic-strings",
-    "path": "src/leetcode/top-interview/hash-table/isomorphic-strings",
+    "path": "src\\leetcode\\top-interview\\hash-table\\isomorphic-strings",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1042,7 +1042,7 @@
   },
   {
     "name": "ransom-note",
-    "path": "src/leetcode/top-interview/hash-table/ransom-note",
+    "path": "src\\leetcode\\top-interview\\hash-table\\ransom-note",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1062,7 +1062,7 @@
   },
   {
     "name": "summary-ranges",
-    "path": "src/leetcode/top-interview/intervals/summary-ranges",
+    "path": "src\\leetcode\\top-interview\\intervals\\summary-ranges",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1080,7 +1080,7 @@
   },
   {
     "name": "valid-sudoku",
-    "path": "src/leetcode/top-interview/matrix/valid-sudoku",
+    "path": "src\\leetcode\\top-interview\\matrix\\valid-sudoku",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1100,7 +1100,7 @@
   },
   {
     "name": "longest-substring-without-repeating-characters",
-    "path": "src/leetcode/top-interview/sliding-window/longest-substring-without-repeating-characters",
+    "path": "src\\leetcode\\top-interview\\sliding-window\\longest-substring-without-repeating-characters",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1120,7 +1120,7 @@
   },
   {
     "name": "minimum-size-subarray-sum",
-    "path": "src/leetcode/top-interview/sliding-window/minimum-size-subarray-sum",
+    "path": "src\\leetcode\\top-interview\\sliding-window\\minimum-size-subarray-sum",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1141,7 +1141,7 @@
   },
   {
     "name": "valid-parentheses",
-    "path": "src/leetcode/top-interview/stack/valid-parentheses",
+    "path": "src\\leetcode\\top-interview\\stack\\valid-parentheses",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1160,7 +1160,7 @@
   },
   {
     "name": "is-subsequence",
-    "path": "src/leetcode/top-interview/two-pointers/is-subsequence",
+    "path": "src\\leetcode\\top-interview\\two-pointers\\is-subsequence",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1180,7 +1180,7 @@
   },
   {
     "name": "valid-palindrome",
-    "path": "src/leetcode/top-interview/two-pointers/valid-palindrome",
+    "path": "src\\leetcode\\top-interview\\two-pointers\\valid-palindrome",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1199,7 +1199,7 @@
   },
   {
     "name": "valid-perfect-square",
-    "path": "src/leetcode/binary-search/math/valid-perfect-square",
+    "path": "src\\leetcode\\binary-search\\math\\valid-perfect-square",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1218,7 +1218,7 @@
   },
   {
     "name": "binary-search",
-    "path": "src/leetcode/binary-search/search-in-array/binary-search",
+    "path": "src\\leetcode\\binary-search\\search-in-array\\binary-search",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1237,7 +1237,7 @@
   },
   {
     "name": "search-insert-position",
-    "path": "src/leetcode/binary-search/search-in-array/search-insert-position",
+    "path": "src\\leetcode\\binary-search\\search-in-array\\search-insert-position",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1257,7 +1257,7 @@
   },
   {
     "name": "first-bad-version",
-    "path": "src/leetcode/binary-search/standard-search/first-bad-version",
+    "path": "src\\leetcode\\binary-search\\standard-search\\first-bad-version",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1276,7 +1276,7 @@
   },
   {
     "name": "guess-number-higher-or-lower",
-    "path": "src/leetcode/binary-search/standard-search/guess-number-higher-or-lower",
+    "path": "src\\leetcode\\binary-search\\standard-search\\guess-number-higher-or-lower",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1295,7 +1295,7 @@
   },
   {
     "name": "counter",
-    "path": "src/leetcode/30-days-js/parte-1-introduccion/counter",
+    "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\counter",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1315,7 +1315,7 @@
   },
   {
     "name": "counter-ii",
-    "path": "src/leetcode/30-days-js/parte-1-introduccion/counter-ii",
+    "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\counter-ii",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1335,7 +1335,7 @@
   },
   {
     "name": "to-be-or-not-to-be",
-    "path": "src/leetcode/30-days-js/parte-1-introduccion/to-be-or-not-to-be",
+    "path": "src\\leetcode\\30-days-js\\parte-1-introduccion\\to-be-or-not-to-be",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1355,7 +1355,7 @@
   },
   {
     "name": "apply-transform-over-each-element-in-array",
-    "path": "src/leetcode/30-days-js/parte-2-transformacion-de-arrays/apply-transform-over-each-element-in-array",
+    "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\apply-transform-over-each-element-in-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1375,7 +1375,7 @@
   },
   {
     "name": "array-reduce-transformation",
-    "path": "src/leetcode/30-days-js/parte-2-transformacion-de-arrays/array-reduce-transformation",
+    "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\array-reduce-transformation",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1395,7 +1395,7 @@
   },
   {
     "name": "filter-elements-from-array",
-    "path": "src/leetcode/30-days-js/parte-2-transformacion-de-arrays/filter-elements-from-array",
+    "path": "src\\leetcode\\30-days-js\\parte-2-transformacion-de-arrays\\filter-elements-from-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1415,7 +1415,7 @@
   },
   {
     "name": "allow-one-function-call",
-    "path": "src/leetcode/30-days-js/parte-3-function-transformations/allow-one-function-call",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\allow-one-function-call",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1435,7 +1435,7 @@
   },
   {
     "name": "function-composition",
-    "path": "src/leetcode/30-days-js/parte-3-function-transformations/function-composition",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\function-composition",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1455,7 +1455,7 @@
   },
   {
     "name": "memoize",
-    "path": "src/leetcode/30-days-js/parte-3-function-transformations/memoize",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\memoize",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1475,7 +1475,7 @@
   },
   {
     "name": "return-length-of-arguments-passed",
-    "path": "src/leetcode/30-days-js/parte-3-function-transformations/return-length-of-arguments-passed",
+    "path": "src\\leetcode\\30-days-js\\parte-3-function-transformations\\return-length-of-arguments-passed",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1495,7 +1495,7 @@
   },
   {
     "name": "add-two-promises",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/add-two-promises",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\add-two-promises",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1515,7 +1515,7 @@
   },
   {
     "name": "cache-with-time-limit",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/cache-with-time-limit",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\cache-with-time-limit",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1536,7 +1536,7 @@
   },
   {
     "name": "interval-cancellation",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/interval-cancellation",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\interval-cancellation",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1557,7 +1557,7 @@
   },
   {
     "name": "promise-time-limit",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/promise-time-limit",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\promise-time-limit",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1578,7 +1578,7 @@
   },
   {
     "name": "sleep",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/sleep",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\sleep",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1598,7 +1598,7 @@
   },
   {
     "name": "timeout-cancellation",
-    "path": "src/leetcode/30-days-js/parte-4-programacion-asincrona/timeout-cancellation",
+    "path": "src\\leetcode\\30-days-js\\parte-4-programacion-asincrona\\timeout-cancellation",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1618,7 +1618,7 @@
   },
   {
     "name": "array-prototype-last",
-    "path": "src/leetcode/30-days-js/parte-5-JSON/array-prototype-last",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\array-prototype-last",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1638,7 +1638,7 @@
   },
   {
     "name": "chunk-array",
-    "path": "src/leetcode/30-days-js/parte-5-JSON/chunk-array",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\chunk-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1658,7 +1658,7 @@
   },
   {
     "name": "is-object-empty",
-    "path": "src/leetcode/30-days-js/parte-5-JSON/is-object-empty",
+    "path": "src\\leetcode\\30-days-js\\parte-5-JSON\\is-object-empty",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1678,7 +1678,7 @@
   },
   {
     "name": "3-strikes",
-    "path": "src/freecodecamp/daily/august/3-strikes",
+    "path": "src\\freecodecamp\\daily\\august\\3-strikes",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1697,7 +1697,7 @@
   },
   {
     "name": "base-check",
-    "path": "src/freecodecamp/daily/august/base-check",
+    "path": "src\\freecodecamp\\daily\\august\\base-check",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1717,7 +1717,7 @@
   },
   {
     "name": "camel-case",
-    "path": "src/freecodecamp/daily/august/camel-case",
+    "path": "src\\freecodecamp\\daily\\august\\camel-case",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1735,7 +1735,7 @@
   },
   {
     "name": "character-battle",
-    "path": "src/freecodecamp/daily/august/character-battle",
+    "path": "src\\freecodecamp\\daily\\august\\character-battle",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1753,7 +1753,7 @@
   },
   {
     "name": "factorializer",
-    "path": "src/freecodecamp/daily/august/factorializer",
+    "path": "src\\freecodecamp\\daily\\august\\factorializer",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1771,7 +1771,7 @@
   },
   {
     "name": "fibonacci-sequence",
-    "path": "src/freecodecamp/daily/august/fibonacci-sequence",
+    "path": "src\\freecodecamp\\daily\\august\\fibonacci-sequence",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1791,7 +1791,7 @@
   },
   {
     "name": "jumbled-text",
-    "path": "src/freecodecamp/daily/august/jumbled-text",
+    "path": "src\\freecodecamp\\daily\\august\\jumbled-text",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1814,7 +1814,7 @@
   },
   {
     "name": "message-decoder",
-    "path": "src/freecodecamp/daily/august/message-decoder",
+    "path": "src\\freecodecamp\\daily\\august\\message-decoder",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1832,7 +1832,7 @@
   },
   {
     "name": "mile-pace",
-    "path": "src/freecodecamp/daily/august/mile-pace",
+    "path": "src\\freecodecamp\\daily\\august\\mile-pace",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1850,7 +1850,7 @@
   },
   {
     "name": "navigator",
-    "path": "src/freecodecamp/daily/august/navigator",
+    "path": "src\\freecodecamp\\daily\\august\\navigator",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1869,7 +1869,7 @@
   },
   {
     "name": "reverse-parenthesis",
-    "path": "src/freecodecamp/daily/august/reverse-parenthesis",
+    "path": "src\\freecodecamp\\daily\\august\\reverse-parenthesis",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1888,7 +1888,7 @@
   },
   {
     "name": "space-jam",
-    "path": "src/freecodecamp/daily/august/space-jam",
+    "path": "src\\freecodecamp\\daily\\august\\space-jam",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1906,7 +1906,7 @@
   },
   {
     "name": "sum-of-squares",
-    "path": "src/freecodecamp/daily/august/sum-of-squares",
+    "path": "src\\freecodecamp\\daily\\august\\sum-of-squares",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1925,7 +1925,7 @@
   },
   {
     "name": "targeted-sum",
-    "path": "src/freecodecamp/daily/august/targeted-sum",
+    "path": "src\\freecodecamp\\daily\\august\\targeted-sum",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1949,7 +1949,7 @@
   },
   {
     "name": "unnatural-prime",
-    "path": "src/freecodecamp/daily/august/unnatural-prime",
+    "path": "src\\freecodecamp\\daily\\august\\unnatural-prime",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1967,7 +1967,7 @@
   },
   {
     "name": "vowel-balance",
-    "path": "src/freecodecamp/daily/august/vowel-balance",
+    "path": "src\\freecodecamp\\daily\\august\\vowel-balance",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -1986,7 +1986,7 @@
   },
   {
     "name": "miles-to-kilometers",
-    "path": "src/freecodecamp/daily/december/miles-to-kilometers",
+    "path": "src\\freecodecamp\\daily\\december\\miles-to-kilometers",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2005,7 +2005,7 @@
   },
   {
     "name": "100-characters",
-    "path": "src/freecodecamp/daily/november/100-characters",
+    "path": "src\\freecodecamp\\daily\\november\\100-characters",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2023,7 +2023,7 @@
   },
   {
     "name": "ai-detector",
-    "path": "src/freecodecamp/daily/november/ai-detector",
+    "path": "src\\freecodecamp\\daily\\november\\ai-detector",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2043,7 +2043,7 @@
   },
   {
     "name": "ball-trajectory",
-    "path": "src/freecodecamp/daily/november/ball-trajectory",
+    "path": "src\\freecodecamp\\daily\\november\\ball-trajectory",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2061,7 +2061,7 @@
   },
   {
     "name": "character-count",
-    "path": "src/freecodecamp/daily/november/character-count",
+    "path": "src\\freecodecamp\\daily\\november\\character-count",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2084,7 +2084,7 @@
   },
   {
     "name": "character-limit",
-    "path": "src/freecodecamp/daily/november/character-limit",
+    "path": "src\\freecodecamp\\daily\\november\\character-limit",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2102,7 +2102,7 @@
   },
   {
     "name": "count-rectangles",
-    "path": "src/freecodecamp/daily/november/count-rectangles",
+    "path": "src\\freecodecamp\\daily\\november\\count-rectangles",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2120,7 +2120,7 @@
   },
   {
     "name": "counting-cards",
-    "path": "src/freecodecamp/daily/november/counting-cards",
+    "path": "src\\freecodecamp\\daily\\november\\counting-cards",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2140,7 +2140,7 @@
   },
   {
     "name": "days-until-weekend",
-    "path": "src/freecodecamp/daily/november/days-until-weekend",
+    "path": "src\\freecodecamp\\daily\\november\\days-until-weekend",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2161,7 +2161,7 @@
   },
   {
     "name": "email-signature-generator",
-    "path": "src/freecodecamp/daily/november/email-signature-generator",
+    "path": "src\\freecodecamp\\daily\\november\\email-signature-generator",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2180,7 +2180,7 @@
   },
   {
     "name": "extension-extractor",
-    "path": "src/freecodecamp/daily/november/extension-extractor",
+    "path": "src\\freecodecamp\\daily\\november\\extension-extractor",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2198,7 +2198,7 @@
   },
   {
     "name": "fizz-buzz",
-    "path": "src/freecodecamp/daily/november/fizz-buzz",
+    "path": "src\\freecodecamp\\daily\\november\\fizz-buzz",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2216,7 +2216,7 @@
   },
   {
     "name": "gcd",
-    "path": "src/freecodecamp/daily/november/gcd",
+    "path": "src\\freecodecamp\\daily\\november\\gcd",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2234,7 +2234,7 @@
   },
   {
     "name": "image-search",
-    "path": "src/freecodecamp/daily/november/image-search",
+    "path": "src\\freecodecamp\\daily\\november\\image-search",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2252,7 +2252,7 @@
   },
   {
     "name": "infected",
-    "path": "src/freecodecamp/daily/november/infected",
+    "path": "src\\freecodecamp\\daily\\november\\infected",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2270,7 +2270,7 @@
   },
   {
     "name": "is-fizz-buzz",
-    "path": "src/freecodecamp/daily/november/is-fizz-buzz",
+    "path": "src\\freecodecamp\\daily\\november\\is-fizz-buzz",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2288,7 +2288,7 @@
   },
   {
     "name": "is-match",
-    "path": "src/freecodecamp/daily/november/is-match",
+    "path": "src\\freecodecamp\\daily\\november\\is-match",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2306,7 +2306,7 @@
   },
   {
     "name": "least-common-multiple",
-    "path": "src/freecodecamp/daily/november/least-common-multiple",
+    "path": "src\\freecodecamp\\daily\\november\\least-common-multiple",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2324,7 +2324,7 @@
   },
   {
     "name": "longest-word",
-    "path": "src/freecodecamp/daily/november/longest-word",
+    "path": "src\\freecodecamp\\daily\\november\\longest-word",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2342,7 +2342,7 @@
   },
   {
     "name": "markdown-heading-converter",
-    "path": "src/freecodecamp/daily/november/markdown-heading-converter",
+    "path": "src\\freecodecamp\\daily\\november\\markdown-heading-converter",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2360,7 +2360,7 @@
   },
   {
     "name": "matrix-builder",
-    "path": "src/freecodecamp/daily/november/matrix-builder",
+    "path": "src\\freecodecamp\\daily\\november\\matrix-builder",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2379,7 +2379,7 @@
   },
   {
     "name": "message-validator",
-    "path": "src/freecodecamp/daily/november/message-validator",
+    "path": "src\\freecodecamp\\daily\\november\\message-validator",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2397,7 +2397,7 @@
   },
   {
     "name": "recipe-scale",
-    "path": "src/freecodecamp/daily/november/recipe-scale",
+    "path": "src\\freecodecamp\\daily\\november\\recipe-scale",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2415,7 +2415,7 @@
   },
   {
     "name": "shift-array",
-    "path": "src/freecodecamp/daily/november/shift-array",
+    "path": "src\\freecodecamp\\daily\\november\\shift-array",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2433,7 +2433,7 @@
   },
   {
     "name": "signature-validation",
-    "path": "src/freecodecamp/daily/november/signature-validation",
+    "path": "src\\freecodecamp\\daily\\november\\signature-validation",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2451,7 +2451,7 @@
   },
   {
     "name": "vowels-and-consonants",
-    "path": "src/freecodecamp/daily/november/vowels-and-consonants",
+    "path": "src\\freecodecamp\\daily\\november\\vowels-and-consonants",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2469,7 +2469,7 @@
   },
   {
     "name": "weekday-finder",
-    "path": "src/freecodecamp/daily/november/weekday-finder",
+    "path": "src\\freecodecamp\\daily\\november\\weekday-finder",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2487,7 +2487,7 @@
   },
   {
     "name": "whats-my-age-again",
-    "path": "src/freecodecamp/daily/november/whats-my-age-again",
+    "path": "src\\freecodecamp\\daily\\november\\whats-my-age-again",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2505,7 +2505,7 @@
   },
   {
     "name": "word-guesser",
-    "path": "src/freecodecamp/daily/november/word-guesser",
+    "path": "src\\freecodecamp\\daily\\november\\word-guesser",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2523,7 +2523,7 @@
   },
   {
     "name": "word-search",
-    "path": "src/freecodecamp/daily/november/word-search",
+    "path": "src\\freecodecamp\\daily\\november\\word-search",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2542,7 +2542,7 @@
   },
   {
     "name": "24-to-12",
-    "path": "src/freecodecamp/daily/october/24-to-12",
+    "path": "src\\freecodecamp\\daily\\october\\24-to-12",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2563,7 +2563,7 @@
   },
   {
     "name": "battle-of-words",
-    "path": "src/freecodecamp/daily/october/battle-of-words",
+    "path": "src\\freecodecamp\\daily\\october\\battle-of-words",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2586,7 +2586,7 @@
   },
   {
     "name": "binary-to-decimal",
-    "path": "src/freecodecamp/daily/october/binary-to-decimal",
+    "path": "src\\freecodecamp\\daily\\october\\binary-to-decimal",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2607,7 +2607,7 @@
   },
   {
     "name": "calcetines-faltantes",
-    "path": "src/freecodecamp/daily/october/calcetines-faltantes",
+    "path": "src\\freecodecamp\\daily\\october\\calcetines-faltantes",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2627,7 +2627,7 @@
   },
   {
     "name": "complementary-dna",
-    "path": "src/freecodecamp/daily/october/complementary-dna",
+    "path": "src\\freecodecamp\\daily\\october\\complementary-dna",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2648,7 +2648,7 @@
   },
   {
     "name": "credit-card-masker",
-    "path": "src/freecodecamp/daily/october/credit-card-masker",
+    "path": "src\\freecodecamp\\daily\\october\\credit-card-masker",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2670,7 +2670,7 @@
   },
   {
     "name": "decimal-to-binary",
-    "path": "src/freecodecamp/daily/october/decimal-to-binary",
+    "path": "src\\freecodecamp\\daily\\october\\decimal-to-binary",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2692,7 +2692,7 @@
   },
   {
     "name": "duration-formatter",
-    "path": "src/freecodecamp/daily/october/duration-formatter",
+    "path": "src\\freecodecamp\\daily\\october\\duration-formatter",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2713,7 +2713,7 @@
   },
   {
     "name": "email-sorter",
-    "path": "src/freecodecamp/daily/october/email-sorter",
+    "path": "src\\freecodecamp\\daily\\october\\email-sorter",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2733,7 +2733,7 @@
   },
   {
     "name": "email-validator",
-    "path": "src/freecodecamp/daily/october/email-validator",
+    "path": "src\\freecodecamp\\daily\\october\\email-validator",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2754,7 +2754,7 @@
   },
   {
     "name": "exoplanet-search",
-    "path": "src/freecodecamp/daily/october/exoplanet-search",
+    "path": "src\\freecodecamp\\daily\\october\\exoplanet-search",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2773,7 +2773,7 @@
   },
   {
     "name": "favorite-songs",
-    "path": "src/freecodecamp/daily/october/favorite-songs",
+    "path": "src\\freecodecamp\\daily\\october\\favorite-songs",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2792,7 +2792,7 @@
   },
   {
     "name": "goldilocks-zone",
-    "path": "src/freecodecamp/daily/october/goldilocks-zone",
+    "path": "src\\freecodecamp\\daily\\october\\goldilocks-zone",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2810,7 +2810,7 @@
   },
   {
     "name": "hex-to-decimal",
-    "path": "src/freecodecamp/daily/october/hex-to-decimal",
+    "path": "src\\freecodecamp\\daily\\october\\hex-to-decimal",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2829,7 +2829,7 @@
   },
   {
     "name": "hidden-treasure",
-    "path": "src/freecodecamp/daily/october/hidden-treasure",
+    "path": "src\\freecodecamp\\daily\\october\\hidden-treasure",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2848,7 +2848,7 @@
   },
   {
     "name": "html-attribute-extractor",
-    "path": "src/freecodecamp/daily/october/html-attribute-extractor",
+    "path": "src\\freecodecamp\\daily\\october\\html-attribute-extractor",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2867,7 +2867,7 @@
   },
   {
     "name": "html-tag-stripper",
-    "path": "src/freecodecamp/daily/october/html-tag-stripper",
+    "path": "src\\freecodecamp\\daily\\october\\html-tag-stripper",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2886,7 +2886,7 @@
   },
   {
     "name": "integer-sequence",
-    "path": "src/freecodecamp/daily/october/integer-sequence",
+    "path": "src\\freecodecamp\\daily\\october\\integer-sequence",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2905,7 +2905,7 @@
   },
   {
     "name": "landing-spot",
-    "path": "src/freecodecamp/daily/october/landing-spot",
+    "path": "src\\freecodecamp\\daily\\october\\landing-spot",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2924,7 +2924,7 @@
   },
   {
     "name": "launch-fuel",
-    "path": "src/freecodecamp/daily/october/launch-fuel",
+    "path": "src\\freecodecamp\\daily\\october\\launch-fuel",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2943,7 +2943,7 @@
   },
   {
     "name": "moon-phase",
-    "path": "src/freecodecamp/daily/october/moon-phase",
+    "path": "src\\freecodecamp\\daily\\october\\moon-phase",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2962,7 +2962,7 @@
   },
   {
     "name": "nth-prime",
-    "path": "src/freecodecamp/daily/october/nth-prime",
+    "path": "src\\freecodecamp\\daily\\october\\nth-prime",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -2981,7 +2981,7 @@
   },
   {
     "name": "password-strength",
-    "path": "src/freecodecamp/daily/october/password-strength",
+    "path": "src\\freecodecamp\\daily\\october\\password-strength",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3000,7 +3000,7 @@
   },
   {
     "name": "phone-home",
-    "path": "src/freecodecamp/daily/october/phone-home",
+    "path": "src\\freecodecamp\\daily\\october\\phone-home",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3019,7 +3019,7 @@
   },
   {
     "name": "speak-wisely-you-must",
-    "path": "src/freecodecamp/daily/october/speak-wisely-you-must",
+    "path": "src\\freecodecamp\\daily\\october\\speak-wisely-you-must",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3038,7 +3038,7 @@
   },
   {
     "name": "spooky-case",
-    "path": "src/freecodecamp/daily/october/spooky-case",
+    "path": "src\\freecodecamp\\daily\\october\\spooky-case",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3057,7 +3057,7 @@
   },
   {
     "name": "stellar-classification",
-    "path": "src/freecodecamp/daily/october/stellar-classification",
+    "path": "src\\freecodecamp\\daily\\october\\stellar-classification",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3076,7 +3076,7 @@
   },
   {
     "name": "string-count",
-    "path": "src/freecodecamp/daily/october/string-count",
+    "path": "src\\freecodecamp\\daily\\october\\string-count",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3094,7 +3094,7 @@
   },
   {
     "name": "thermostat-adjuster-2",
-    "path": "src/freecodecamp/daily/october/thermostat-adjuster-2",
+    "path": "src\\freecodecamp\\daily\\october\\thermostat-adjuster-2",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3112,7 +3112,7 @@
   },
   {
     "name": "tip-calculator",
-    "path": "src/freecodecamp/daily/october/tip-calculator",
+    "path": "src\\freecodecamp\\daily\\october\\tip-calculator",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3131,7 +3131,7 @@
   },
   {
     "name": "anagram-checker",
-    "path": "src/freecodecamp/daily/september/anagram-checker",
+    "path": "src\\freecodecamp\\daily\\september\\anagram-checker",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3151,7 +3151,7 @@
   },
   {
     "name": "caught-speeding",
-    "path": "src/freecodecamp/daily/september/caught-speeding",
+    "path": "src\\freecodecamp\\daily\\september\\caught-speeding",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3171,7 +3171,7 @@
   },
   {
     "name": "csv-header-parser",
-    "path": "src/freecodecamp/daily/september/csv-header-parser",
+    "path": "src\\freecodecamp\\daily\\september\\csv-header-parser",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3190,7 +3190,7 @@
   },
   {
     "name": "digits-vs-letters",
-    "path": "src/freecodecamp/daily/september/digits-vs-letters",
+    "path": "src\\freecodecamp\\daily\\september\\digits-vs-letters",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3209,7 +3209,7 @@
   },
   {
     "name": "longest-word",
-    "path": "src/freecodecamp/daily/september/longest-word",
+    "path": "src\\freecodecamp\\daily\\september\\longest-word",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3228,7 +3228,7 @@
   },
   {
     "name": "perfect-square",
-    "path": "src/freecodecamp/daily/september/perfect-square",
+    "path": "src\\freecodecamp\\daily\\september\\perfect-square",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3246,7 +3246,7 @@
   },
   {
     "name": "phone-number-formatter",
-    "path": "src/freecodecamp/daily/september/phone-number-formatter",
+    "path": "src\\freecodecamp\\daily\\september\\phone-number-formatter",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3265,7 +3265,7 @@
   },
   {
     "name": "rgb-to-hex",
-    "path": "src/freecodecamp/daily/september/rgb-to-hex",
+    "path": "src\\freecodecamp\\daily\\september\\rgb-to-hex",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3285,7 +3285,7 @@
   },
   {
     "name": "second-largest",
-    "path": "src/freecodecamp/daily/september/second-largest",
+    "path": "src\\freecodecamp\\daily\\september\\second-largest",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3304,7 +3304,7 @@
   },
   {
     "name": "spam-detector",
-    "path": "src/freecodecamp/daily/september/spam-detector",
+    "path": "src\\freecodecamp\\daily\\september\\spam-detector",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3323,7 +3323,7 @@
   },
   {
     "name": "string-mirror",
-    "path": "src/freecodecamp/daily/september/string-mirror",
+    "path": "src\\freecodecamp\\daily\\september\\string-mirror",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3342,7 +3342,7 @@
   },
   {
     "name": "tribonacci-sequence",
-    "path": "src/freecodecamp/daily/september/tribonacci-sequence",
+    "path": "src\\freecodecamp\\daily\\september\\tribonacci-sequence",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3361,7 +3361,7 @@
   },
   {
     "name": "video-storage",
-    "path": "src/freecodecamp/daily/september/video-storage",
+    "path": "src\\freecodecamp\\daily\\september\\video-storage",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3380,7 +3380,7 @@
   },
   {
     "name": "symmetric-difference",
-    "path": "src/freecodecamp/coding-interview-prep/algorithm/symmetric-difference",
+    "path": "src\\freecodecamp\\coding-interview-prep\\algorithm\\symmetric-difference",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3400,7 +3400,7 @@
   },
   {
     "name": "update-inventory",
-    "path": "src/freecodecamp/coding-interview-prep/algorithm/update-inventory",
+    "path": "src\\freecodecamp\\coding-interview-prep\\algorithm\\update-inventory",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3420,7 +3420,7 @@
   },
   {
     "name": "even-fibonacci-numbers",
-    "path": "src/freecodecamp/project-euler/even-fibonacci-numbers",
+    "path": "src\\freecodecamp\\project-euler\\even-fibonacci-numbers",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3439,7 +3439,7 @@
   },
   {
     "name": "largest-prime-factor",
-    "path": "src/freecodecamp/project-euler/largest-prime-factor",
+    "path": "src\\freecodecamp\\project-euler\\largest-prime-factor",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3458,7 +3458,7 @@
   },
   {
     "name": "multiples-of-3-or-5",
-    "path": "src/freecodecamp/project-euler/multiples-of-3-or-5",
+    "path": "src\\freecodecamp\\project-euler\\multiples-of-3-or-5",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3476,7 +3476,7 @@
   },
   {
     "name": "100-doors",
-    "path": "src/freecodecamp/rosetta-code/100-doors",
+    "path": "src\\freecodecamp\\rosetta-code\\100-doors",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
@@ -3495,7 +3495,7 @@
   },
   {
     "name": "24-game",
-    "path": "src/freecodecamp/rosetta-code/24-game",
+    "path": "src\\freecodecamp\\rosetta-code\\24-game",
     "hasImplementation": true,
     "hasTests": true,
     "hasExplanation": true,
