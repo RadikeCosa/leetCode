@@ -1,3 +1,16 @@
+---
+title: "Longest Substring Without Repeating Characters"
+difficulty: "medium"
+topics:
+  - Array
+  - Math
+  - String
+source: "leetcode"
+series: "top-interview"
+category: "daily | binary-search | ..."
+createdAt: "2025-10-01"
+---
+
 # Longest Substring With## Análisis
 
 Este problema es un ejemplo clásico de **sliding window** (ventana deslizante) donde necesitamos:

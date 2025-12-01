@@ -5,7 +5,7 @@ category: top-interview-array-string
 topics: [Array, Two Pointers, Sorting]
 source: leetcode
 series: top-interview
-createdAt: 2025-11-29
+createdAt: 2025-09-25
 ---
 
 # Merge Sorted Array - Análisis y Explicación

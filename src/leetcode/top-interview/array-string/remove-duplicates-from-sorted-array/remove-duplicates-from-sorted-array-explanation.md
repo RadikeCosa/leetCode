@@ -5,7 +5,7 @@ category: top-interview-array-string
 topics: [Array, Two Pointers, In-place]
 source: leetcode
 series: top-interview
-createdAt: 2025-11-29
+createdAt: 2025-09-02
 ---
 
 # Remove Duplicates from Sorted Array - Análisis del Problema

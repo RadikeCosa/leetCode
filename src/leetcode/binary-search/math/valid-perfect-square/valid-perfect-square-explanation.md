@@ -5,7 +5,7 @@ category: binary-search
 topics: [Binary Search, Math]
 source: leetcode
 series: math
-createdAt: 2025-11-29
+createdAt: 2025-09-10
 ---
 
 # Valid Perfect Square - Análisis del Problema

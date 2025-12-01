@@ -6,7 +6,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-30"
+createdAt: "2025-09-10"
 ---
 
 ## Summary Ranges - Análisis del Problema

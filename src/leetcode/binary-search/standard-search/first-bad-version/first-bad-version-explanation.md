@@ -5,7 +5,7 @@ category: binary-search
 topics: [Binary Search, Version Control]
 source: leetcode
 series: standard-search
-createdAt: 2025-11-29
+createdAt: 2025-09-10
 ---
 
 # First Bad Version - Análisis del Problema

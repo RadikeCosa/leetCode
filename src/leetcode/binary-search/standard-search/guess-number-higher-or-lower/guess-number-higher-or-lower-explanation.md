@@ -5,7 +5,7 @@ category: binary-search
 topics: [Binary Search, Game]
 source: leetcode
 series: standard-search
-createdAt: 2025-11-29
+createdAt: 2025-09-09
 ---
 
 # Guess Number Higher or Lower
