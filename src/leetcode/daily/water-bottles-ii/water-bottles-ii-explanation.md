@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-02"
+createdAt: "2025-12-01"
 ---
 
 # LeetCode 3100: Water Bottles II

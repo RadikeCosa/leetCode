@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-16"
+createdAt: "2025-12-01"
 ---
 
 # HTML Tag Stripper

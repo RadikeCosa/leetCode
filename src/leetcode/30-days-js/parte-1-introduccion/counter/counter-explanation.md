@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-1-introduccion"
 category: "30-days-js"
-createdAt: "2025-08-26"
+createdAt: "2025-12-01"
 ---
 
 # Counter

@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-13"
+createdAt: "2025-12-01"
 ---
 
 # Shift Array — Proceso de Resolución y Aprendizaje

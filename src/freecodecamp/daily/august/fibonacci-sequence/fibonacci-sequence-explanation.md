@@ -8,7 +8,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "coding interview prep"
-createdAt: "2025-10-17"
+createdAt: "2025-12-01"
 ---
 
 # Fibonacci Sequence - Análisis y Solución

@@ -9,7 +9,7 @@ topics:
 source: "leetcode"
 series: "parte-4-programacion-asincrona"
 category: "30-days-js"
-createdAt: "2025-09-02"
+createdAt: "2025-12-01"
 ---
 
 # Problema: Promise Time Limit (LeetCode 2637)

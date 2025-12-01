@@ -8,7 +8,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-24"
+createdAt: "2025-12-01"
 ---
 
 # Análisis del Problema: Caught Speeding

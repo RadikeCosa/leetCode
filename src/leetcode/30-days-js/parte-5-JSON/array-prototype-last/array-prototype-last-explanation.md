@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-5-JSON"
 category: "30-days-js"
-createdAt: "2025-09-22"
+createdAt: "2025-12-01"
 ---
 
 # LeetCode Problem 2619: Array Prototype Last

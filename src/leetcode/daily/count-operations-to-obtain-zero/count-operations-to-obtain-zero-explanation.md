@@ -7,7 +7,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-09"
+createdAt: "2025-12-01"
 ---
 
 ## Count Operations to Obtain Zero

@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-11-28"
+createdAt: "2025-12-01"
 ---
 
 # Jump Game - Análisis y Explicación

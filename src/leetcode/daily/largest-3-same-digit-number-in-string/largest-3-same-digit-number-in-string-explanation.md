@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-14"
+createdAt: "2025-12-01"
 ---
 
 ## Largest 3-Same-Digit Number in String - Explicación

@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-04"
+createdAt: "2025-12-01"
 ---
 
 # Image Search

@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-29"
+createdAt: "2025-12-01"
 ---
 
 # Ball Trajectory - Análisis y Explicación

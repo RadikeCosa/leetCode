@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-14"
+createdAt: "2025-12-01"
 ---
 
 # Adjacent Increasing Subarrays Detection I

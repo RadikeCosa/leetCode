@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-11"
+createdAt: "2025-12-01"
 ---
 
 # Hex to Decimal - FreeCodeCamp Daily

@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-06"
+createdAt: "2025-12-01"
 ---
 
 ## Fruits Into Baskets II - Proceso de Aprendizaje y Solución

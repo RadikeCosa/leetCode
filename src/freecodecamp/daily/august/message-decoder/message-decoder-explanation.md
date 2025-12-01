@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily august"
-createdAt: "2025-11-03"
+createdAt: "2025-12-01"
 ---
 
 # Message Decoder - Análisis y Solución

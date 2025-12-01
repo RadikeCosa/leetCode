@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "project-euler"
 category: "freecodecamp"
-createdAt: "2025-10-12"
+createdAt: "2025-12-01"
 ---
 
 # Even Fibonacci Numbers - Explicación Detallada

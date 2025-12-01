@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-22"
+createdAt: "2025-12-01"
 ---
 
 # Count Elements With Maximum Frequency - Explicación Detallada

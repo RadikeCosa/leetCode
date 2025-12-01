@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-10-30"
+createdAt: "2025-12-01"
 ---
 
 # Smallest Number With All Set Bits

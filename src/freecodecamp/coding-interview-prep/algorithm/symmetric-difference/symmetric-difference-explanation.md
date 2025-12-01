@@ -8,7 +8,7 @@ topics:
 source: "freecodecamp"
 series: "coding-interview-prep"
 category: "algorithm"
-createdAt: "2025-10-08"
+createdAt: "2025-12-01"
 ---
 
 # Explicación

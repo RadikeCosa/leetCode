@@ -6,7 +6,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-04"
+createdAt: "2025-12-01"
 ---
 
 ## Find Closest Person - Explicación Detallada

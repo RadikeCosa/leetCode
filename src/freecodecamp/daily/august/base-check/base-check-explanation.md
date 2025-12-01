@@ -8,7 +8,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "coding interview prep"
-createdAt: "2025-10-11"
+createdAt: "2025-12-01"
 ---
 
 # Análisis del Problema

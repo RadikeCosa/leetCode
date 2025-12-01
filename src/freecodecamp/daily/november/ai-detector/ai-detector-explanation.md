@@ -8,7 +8,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "string analysis, AI detection"
-createdAt: "2025-11-30"
+createdAt: "2025-12-01"
 ---
 
 ## Enunciado del Problema

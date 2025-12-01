@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "matrix"
-createdAt: "2025-09-04"
+createdAt: "2025-12-01"
 ---
 
 ## Valid Sudoku - Explicación Detallada

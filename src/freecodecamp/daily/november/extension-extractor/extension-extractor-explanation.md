@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-10"
+createdAt: "2025-12-01"
 ---
 
 # 🔍 Extension Extractor - Análisis y Explicación

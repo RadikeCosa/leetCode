@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-12"
+createdAt: "2025-12-01"
 ---
 
 # ✨ Vowels And Consonants - Análisis y Explicación

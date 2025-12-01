@@ -7,7 +7,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-05"
+createdAt: "2025-12-01"
 ---
 
 # Matrix Builder

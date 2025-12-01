@@ -7,7 +7,7 @@ topics:
 source: "leetcode"
 series: "standard-search"
 category: "binary-search"
-createdAt: "2025-09-09"
+createdAt: "2025-12-01"
 ---
 
 # Guess Number Higher or Lower

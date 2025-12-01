@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "parte-5-JSON"
 category: "30-days-js"
-createdAt: "2025-09-06"
+createdAt: "2025-12-01"
 ---
 
 # Problema 2727: Is Object Empty

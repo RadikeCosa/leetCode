@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-15"
+createdAt: "2025-12-01"
 ---
 
 # Maximum Number of Words You Can Type

@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-25"
+createdAt: "2025-12-01"
 ---
 
 # Longest Word - Análisis y Explicación

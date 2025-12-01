@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-09-24"
+createdAt: "2025-12-01"
 ---
 
 ## LeetCode 166: Fraction to Recurring Decimal

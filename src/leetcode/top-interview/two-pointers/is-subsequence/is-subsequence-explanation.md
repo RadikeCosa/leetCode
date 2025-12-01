@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview"
-createdAt: "2025-09-03"
+createdAt: "2025-12-01"
 ---
 
 # Is Subsequence - Análisis y Explicación

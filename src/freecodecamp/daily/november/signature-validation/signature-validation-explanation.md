@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-02"
+createdAt: "2025-12-01"
 ---
 
 # Validación de Firmas (Signature Validation)
