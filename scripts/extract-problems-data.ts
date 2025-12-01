@@ -247,11 +247,19 @@ function getProblemsFromSeries(seriesInfo: {
           } else {
             meta = extractMetadataFromFile(join(itemPath, implFile));
           }
-          // Si hay frontmatter, usarlo como fuente principal; heurísticas solo como fallback
+          // Use frontmatter as primary source; heuristics only as fallback
+          const baseFields = {
+            name: item,
+            path: itemPath,
+            hasImplementation: !!implFile,
+            hasTests: !!testFile,
+            hasExplanation: !!explanationFile,
+            hasPostSolution: !!postSolutionFile,
+          };
+
           const problemObj = frontmatterData.hasFrontmatter
             ? {
-                name: item,
-                path: itemPath,
+                ...baseFields,
                 source: frontmatterData.frontmatter.source || seriesInfo.source,
                 series: frontmatterData.frontmatter.series || seriesInfo.series,
                 category:
@@ -271,28 +279,18 @@ function getProblemsFromSeries(seriesInfo: {
                 topics:
                   frontmatterData.frontmatter.topics ||
                   extractTopics({ ...meta, name: item, path: itemPath }),
-                hasImplementation: !!implFile,
-                hasTests: !!testFile,
-                hasExplanation: !!explanationFile,
-                hasPostSolution: !!postSolutionFile,
                 createdAt:
                   frontmatterData.frontmatter.createdAt ||
                   getCreatedAt(itemPath),
                 hasFrontmatter: true,
-                // Incluir todos los demás campos del frontmatter
+                // Include all other frontmatter fields
                 ...frontmatterData.frontmatter,
-                // Asegurar que los campos base no se sobrescriban
-                name: item,
-                path: itemPath,
-                hasImplementation: !!implFile,
-                hasTests: !!testFile,
-                hasExplanation: !!explanationFile,
-                hasPostSolution: !!postSolutionFile,
+                // Ensure base fields are not overwritten
+                ...baseFields,
                 hasFrontmatter: true,
               }
             : {
-                name: item,
-                path: itemPath,
+                ...baseFields,
                 source: seriesInfo.source,
                 series: seriesInfo.series,
                 category: normalizeCategory({
@@ -306,10 +304,6 @@ function getProblemsFromSeries(seriesInfo: {
                   source: seriesInfo.source,
                 }),
                 topics: extractTopics({ ...meta, name: item, path: itemPath }),
-                hasImplementation: !!implFile,
-                hasTests: !!testFile,
-                hasExplanation: !!explanationFile,
-                hasPostSolution: !!postSolutionFile,
                 createdAt: getCreatedAt(itemPath),
                 hasFrontmatter: false,
               };
