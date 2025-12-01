@@ -247,32 +247,72 @@ function getProblemsFromSeries(seriesInfo: {
           } else {
             meta = extractMetadataFromFile(join(itemPath, implFile));
           }
-          const problemObj = {
-            name: item,
-            path: itemPath,
-            source: seriesInfo.source,
-            series: seriesInfo.series,
-            category: normalizeCategory({
-              ...meta,
-              path: itemPath,
-              series: seriesInfo.series,
-            }),
-            difficulty: normalizeDifficulty({
-              ...meta,
-              path: itemPath,
-              source: seriesInfo.source,
-            }),
-            topics: extractTopics({ ...meta, name: item, path: itemPath }),
-            hasImplementation: !!implFile,
-            hasTests: !!testFile,
-            hasExplanation: !!explanationFile,
-            hasPostSolution: !!postSolutionFile,
-            createdAt: getCreatedAt(itemPath),
-            hasFrontmatter: frontmatterData.hasFrontmatter,
-            ...(frontmatterData.hasFrontmatter
-              ? frontmatterData.frontmatter
-              : {}),
-          };
+          // Si hay frontmatter, usarlo como fuente principal; heurísticas solo como fallback
+          const problemObj = frontmatterData.hasFrontmatter
+            ? {
+                name: item,
+                path: itemPath,
+                source: frontmatterData.frontmatter.source || seriesInfo.source,
+                series: frontmatterData.frontmatter.series || seriesInfo.series,
+                category:
+                  frontmatterData.frontmatter.category ||
+                  normalizeCategory({
+                    ...meta,
+                    path: itemPath,
+                    series: seriesInfo.series,
+                  }),
+                difficulty:
+                  frontmatterData.frontmatter.difficulty ||
+                  normalizeDifficulty({
+                    ...meta,
+                    path: itemPath,
+                    source: seriesInfo.source,
+                  }),
+                topics:
+                  frontmatterData.frontmatter.topics ||
+                  extractTopics({ ...meta, name: item, path: itemPath }),
+                hasImplementation: !!implFile,
+                hasTests: !!testFile,
+                hasExplanation: !!explanationFile,
+                hasPostSolution: !!postSolutionFile,
+                createdAt:
+                  frontmatterData.frontmatter.createdAt ||
+                  getCreatedAt(itemPath),
+                hasFrontmatter: true,
+                // Incluir todos los demás campos del frontmatter
+                ...frontmatterData.frontmatter,
+                // Asegurar que los campos base no se sobrescriban
+                name: item,
+                path: itemPath,
+                hasImplementation: !!implFile,
+                hasTests: !!testFile,
+                hasExplanation: !!explanationFile,
+                hasPostSolution: !!postSolutionFile,
+                hasFrontmatter: true,
+              }
+            : {
+                name: item,
+                path: itemPath,
+                source: seriesInfo.source,
+                series: seriesInfo.series,
+                category: normalizeCategory({
+                  ...meta,
+                  path: itemPath,
+                  series: seriesInfo.series,
+                }),
+                difficulty: normalizeDifficulty({
+                  ...meta,
+                  path: itemPath,
+                  source: seriesInfo.source,
+                }),
+                topics: extractTopics({ ...meta, name: item, path: itemPath }),
+                hasImplementation: !!implFile,
+                hasTests: !!testFile,
+                hasExplanation: !!explanationFile,
+                hasPostSolution: !!postSolutionFile,
+                createdAt: getCreatedAt(itemPath),
+                hasFrontmatter: false,
+              };
           problems.push(problemObj);
         }
       }
