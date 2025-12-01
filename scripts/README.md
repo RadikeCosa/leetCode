@@ -83,6 +83,24 @@ npm run format-files
 npm run format-files src/daily
 ```
 
+### `npx tsx scripts/fix-frontmatter-dates.ts`
+
+Corrige las fechas en el frontmatter de los archivos markdown para que coincidan con la fecha de creación en git.
+
+**Uso:**
+
+```bash
+# Ejecutar el script para actualizar todas las fechas
+npx tsx scripts/fix-frontmatter-dates.ts
+```
+
+**Qué hace:**
+
+- Encuentra todos los archivos `*-explanation.md` en el proyecto
+- Obtiene la fecha de creación de cada archivo desde git (primer commit)
+- Actualiza el campo `createdAt` en el frontmatter para que coincida con la fecha de git
+- Muestra un resumen de los archivos actualizados
+
 ## 📁 Estructura Generada
 
 ### LeetCode Problems (TS)
