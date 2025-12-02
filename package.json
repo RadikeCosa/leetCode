@@ -11,6 +11,7 @@
     "list-problems": "npx tsx scripts/list-problems.ts",
     "validate-problems": "npx tsx scripts/validate-problems.ts",
     "format-files": "npx tsx scripts/format-files.ts",
+    "created-at": "node scripts/created-at.js",
     "get-creation-date": "node scripts/get-creation-date.js"
   },
   "author": "",
