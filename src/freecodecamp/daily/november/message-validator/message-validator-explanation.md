@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-25"
+createdAt: "2025-11-18"
 ---
 
 # Message Validator - Análisis y Explicación
@@ -32,15 +32,15 @@ Las palabras en el mensaje están separadas por espacios simples.
 
 ### Casos de Prueba Identificados
 
-| Entrada                                                        | Salida Esperada | Cumple |
+| Entrada | Salida Esperada | Cumple |
 |
 
 -------------------------------------------------------- | --------------- | ------ |
-| `"hello world", "hw"`                                          | `true`          | Yes    |
-| `"ALL CAPITAL LETTERS", "acl"`                                 | `true`          | Yes    |
-| `"Coding challenge are boring.", "cca"`                        | `false`         | Yes    |
-| `"The quick brown fox jumps over the lazy dog.", "TQBFJOTLD"`  | `true`          | Yes    |
-| `"The quick brown fox jumps over the lazy dog.", "TQBFJOTLDT"` | `false`         | Yes    |
+| `"hello world", "hw"` | `true` | Yes |
+| `"ALL CAPITAL LETTERS", "acl"` | `true` | Yes |
+| `"Coding challenge are boring.", "cca"` | `false` | Yes |
+| `"The quick brown fox jumps over the lazy dog.", "TQBFJOTLD"` | `true` | Yes |
+| `"The quick brown fox jumps over the lazy dog.", "TQBFJOTLDT"` | `false` | Yes |
 
 ## Desarrollo de la Solución
 

@@ -11,7 +11,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "daily"
-createdAt: "2025-11-25"
+createdAt: "2025-11-22"
 ---
 
 # Character Count

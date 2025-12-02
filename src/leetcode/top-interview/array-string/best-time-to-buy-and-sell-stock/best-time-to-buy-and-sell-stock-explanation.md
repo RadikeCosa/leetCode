@@ -8,7 +8,7 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-11-25"
+createdAt: "2025-11-17"
 ---
 
 # Best Time To Buy And Sell Stock - Análisis y Explicación
@@ -53,17 +53,17 @@ Output: 2
 
 ## Casos de Prueba Identificados
 
-| Caso                    | Input           | Output | Comentario                  |
+| Caso | Input | Output | Comentario |
 |
 
 ----------------- | --------------- | ------ | --------------------------- |
-| Caso clásico            | `[7,1,5,3,6,4]` | 5      | Múltiples subidas y bajadas |
-| Precios decrecientes    | `[7,6,4,3,1]`   | 0      | Sin ganancia                |
-| Solo 2 días (sube)      | `[1,5]`         | 4      | Caso mínimo con ganancia    |
-| Solo 2 días (baja)      | `[5,1]`         | 0      | Caso mínimo sin ganancia    |
-| Un solo día             | `[10]`          | 0      | Imposible operar            |
-| Todos precios iguales   | `[3,3,3,3]`     | 0      | Sin variación               |
-| Mejor ganancia al final | `[1,2,3,4,5]`   | 4      | Compra día 0, vende día 4   |
+| Caso clásico | `[7,1,5,3,6,4]` | 5 | Múltiples subidas y bajadas |
+| Precios decrecientes | `[7,6,4,3,1]` | 0 | Sin ganancia |
+| Solo 2 días (sube) | `[1,5]` | 4 | Caso mínimo con ganancia |
+| Solo 2 días (baja) | `[5,1]` | 0 | Caso mínimo sin ganancia |
+| Un solo día | `[10]` | 0 | Imposible operar |
+| Todos precios iguales | `[3,3,3,3]` | 0 | Sin variación |
+| Mejor ganancia al final | `[1,2,3,4,5]` | 4 | Compra día 0, vende día 4 |
 
 ## Desarrollo de la Solución
 

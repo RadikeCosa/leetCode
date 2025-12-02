@@ -6,7 +6,7 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-25"
+createdAt: "2025-11-24"
 ---
 
 # Least Common Multiple - Análisis y Explicación
@@ -80,15 +80,15 @@ O con la fórmula rápida:
 
 ### Casos de Prueba Identificados
 
-| Entrada | Salida Esperada | Explicación                    |
+| Entrada | Salida Esperada | Explicación |
 |
 
 - | --------------- | ------------------------------ |
-| (4, 6)  | 12              | Múltiplos comunes: 12, 24, ... |
-| (5, 10) | 10              | Múltiplos comunes: 10, 20, ... |
-| (7, 3)  | 21              | Múltiplos comunes: 21, 42, ... |
-| (0, 5)  | Indefinido      | MCM no está definido para 0    |
-| (1, 1)  | 1               | MCM(1,1) = 1                   |
+  | (4, 6) | 12 | Múltiplos comunes: 12, 24, ... |
+  | (5, 10) | 10 | Múltiplos comunes: 10, 20, ... |
+  | (7, 3) | 21 | Múltiplos comunes: 21, 42, ... |
+  | (0, 5) | Indefinido | MCM no está definido para 0 |
+  | (1, 1) | 1 | MCM(1,1) = 1 |
 
 ## Desarrollo de la Solución
 
