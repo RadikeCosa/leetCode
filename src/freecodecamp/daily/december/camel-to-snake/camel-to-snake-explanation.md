@@ -1,5 +1,5 @@
 ---
-title: De Camel a Snake - FreeCodeCamp Daily Challenge
+title: Camel to Snake
 source: freecodecamp
 series: daily
 category: TODO

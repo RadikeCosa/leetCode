@@ -55,7 +55,7 @@
       "Math",
       "String"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-16",
     "hasFrontmatter": true,
     "title": "Binary Prefix Divisible By Five"
   },
@@ -855,7 +855,7 @@
       "Greedy",
       "One Pass"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-17",
     "hasFrontmatter": true,
     "title": "best-time-to-buy-and-sell-stock"
   },
@@ -915,7 +915,7 @@
       "Hash Map",
       "Boyer-Moore"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-18",
     "hasFrontmatter": true,
     "title": "majority-element"
   },
@@ -1016,7 +1016,7 @@
       "In-place",
       "Reverse"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-19",
     "hasFrontmatter": true,
     "title": "rotate-array"
   },
@@ -1747,7 +1747,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-20",
     "hasFrontmatter": true,
     "title": "Character Battle"
   },
@@ -1985,6 +1985,24 @@
     "title": "Vowel Balance"
   },
   {
+    "name": "camel-to-snake",
+    "path": "src\\freecodecamp\\daily\\december\\camel-to-snake",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "TODO",
+    "difficulty": "easy",
+    "topics": [
+      "string manipulation"
+    ],
+    "createdAt": "2025-12-02T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Camel to Snake"
+  },
+  {
     "name": "miles-to-kilometers",
     "path": "src\\freecodecamp\\daily\\december\\miles-to-kilometers",
     "hasImplementation": true,
@@ -2017,7 +2035,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-21",
     "hasFrontmatter": true,
     "title": "100-characters"
   },
@@ -2078,7 +2096,7 @@
       "Sorting",
       "Conversion"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-22",
     "hasFrontmatter": true,
     "title": "Character Count"
   },
@@ -2210,7 +2228,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-23",
     "hasFrontmatter": true,
     "title": "fizz-buzz"
   },
@@ -2318,7 +2336,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-24",
     "hasFrontmatter": true,
     "title": "least-common-multiple"
   },
@@ -2354,7 +2372,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-17",
     "hasFrontmatter": true,
     "title": "markdown-heading-converter"
   },
@@ -2391,7 +2409,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-18",
     "hasFrontmatter": true,
     "title": "message-validator"
   },
@@ -2409,7 +2427,7 @@
     "topics": [
       "Algorithm"
     ],
-    "createdAt": "2025-11-25",
+    "createdAt": "2025-11-20",
     "hasFrontmatter": true,
     "title": "recipe-scale"
   },

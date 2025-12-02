@@ -12,7 +12,8 @@
     "validate-problems": "npx tsx scripts/validate-problems.ts",
     "format-files": "npx tsx scripts/format-files.ts",
     "created-at": "node scripts/created-at.js",
-    "get-creation-date": "node scripts/get-creation-date.js"
+    "get-creation-date": "node scripts/get-creation-date.js",
+    "extract-problems-data": "npx tsx scripts/extract-problems-data.ts"
   },
   "author": "",
   "license": "ISC",

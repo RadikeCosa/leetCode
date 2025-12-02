@@ -2,14 +2,13 @@
 title: "majority-element"
 difficulty: "easy"
 topics:
-
-- Array
-- Hash Map
-- Boyer-Moore
-  source: "leetcode"
-  series: "top-interview"
-  category: "top-interview-array-string"
-  createdAt: "2025-11-18"
+  - Array
+  - Hash Map
+  - Boyer-Moore
+source: "leetcode"
+series: "top-interview"
+category: "top-interview-array-string"
+createdAt: "2025-11-18"
 ---
 
 # Majority Element - Análisis y Explicación
