@@ -2,11 +2,13 @@
 title: "100-characters"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - strings
+  - basic math
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-21"
+blogLink: https://blog-astro-rouge.vercel.app/posts/100-characters/
 ---
 
 # 100 Characters - Análisis y Explicación

@@ -2,11 +2,14 @@
 title: "markdown-heading-converter"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - regex
+  - strings
+  - parsing
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-17"
+blogLink: https://blog-astro-rouge.vercel.app/posts/markdown-heading-converter/
 ---
 
 # Markdown Heading Converter - Análisis y Explicación

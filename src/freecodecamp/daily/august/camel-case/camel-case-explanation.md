@@ -1,5 +1,5 @@
 ---
-title: "Camel Case"
+title: Camel Case
 difficulty: "easy"
 topics:
   - Algorithm
@@ -7,9 +7,10 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-28"
+blogLink: https://blog-astro-rouge.vercel.app/posts/camel-case/
 ---
 
-# Camel Case - Análisis y Explicación
+## Camel Case - Análisis y Explicación
 
 ## Enunciado del Problema
 

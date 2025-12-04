@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-04"
+blogLink: https://blog-astro-rouge.vercel.app/posts/image-search-freecodecamp/
 ---
 
 # Image Search

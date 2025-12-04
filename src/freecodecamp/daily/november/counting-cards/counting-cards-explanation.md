@@ -9,6 +9,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-07"
+blogLink: https://blog-astro-rouge.vercel.app/posts/counting-cards-freecodecamp/
 ---
 
 # Contar combinaciones de cartas

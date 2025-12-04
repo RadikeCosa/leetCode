@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-13"
+blogLink: https://blog-astro-rouge.vercel.app/posts/shift-array/
 ---
 
 # Shift Array — Proceso de Resolución y Aprendizaje

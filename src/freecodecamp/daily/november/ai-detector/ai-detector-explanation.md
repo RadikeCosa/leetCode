@@ -9,6 +9,7 @@ source: "freecodecamp"
 series: "daily"
 category: "string analysis, AI detection"
 createdAt: "2025-11-30"
+blogLink: https://blog-astro-rouge.vercel.app/posts/ai-detector/
 ---
 
 ## Enunciado del Problema

@@ -2,11 +2,13 @@
 title: "weekday-finder"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - Date Computation
+  - String Manipulation
 source: "freecodecamp"
 series: "daily"
-category: "daily"
+category: "freecodecamp"
 createdAt: "2025-11-06"
+blogLink: https://blog-astro-rouge.vercel.app/posts/weekday-finder/
 ---
 
 # Weekday Finder

@@ -2,11 +2,12 @@
 title: Camel to Snake
 source: freecodecamp
 series: daily
-category: TODO
+category: freecodecamp
 createdAt: 2025-12-02
 difficulty: easy
 topics:
   - string manipulation
+blogLink: https://blog-astro-rouge.vercel.app/posts/camel-to-snake/
 ---
 
 ## De Camel a Snake - Análisis y Explicación

@@ -12,6 +12,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-22"
+blogLink: https://blog-astro-rouge.vercel.app/posts/character-count/
 ---
 
 # Character Count

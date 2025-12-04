@@ -6,7 +6,8 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-18"
+createdAt: "2025-11-24"
+blogLink: https://blog-astro-rouge.vercel.app/posts/message-validator/
 ---
 
 # Message Validator - Análisis y Explicación

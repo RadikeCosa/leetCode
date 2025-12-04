@@ -9,6 +9,7 @@ source: "leetcode"
 series: "top-interview"
 category: "matrix"
 createdAt: "2025-09-04"
+blogLink: "https://blog-astro-rouge.vercel.app/posts/valid-sudoku"
 ---
 
 ## Valid Sudoku - Explicación Detallada

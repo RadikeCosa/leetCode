@@ -8,7 +8,8 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-09-02"
+createdAt: "2025-11-11"
+blogLink: https://blog-astro-rouge.vercel.app/posts/merge-sorted-arrays/
 ---
 
 # Merge Sorted Array - Análisis y Explicación

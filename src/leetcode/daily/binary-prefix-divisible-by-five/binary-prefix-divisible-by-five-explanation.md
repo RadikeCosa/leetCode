@@ -9,6 +9,7 @@ source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-16"
+blogLink: https://blog-astro-rouge.vercel.app/posts/binary-prefix-divisibility-by-five/
 ---
 
 ## Binary Prefix Divisible By Five - Análisis y Explicación

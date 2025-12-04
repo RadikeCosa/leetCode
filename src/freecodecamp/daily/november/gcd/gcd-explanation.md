@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-15"
+blogLink: https://blog-astro-rouge.vercel.app/posts/gcd/
 ---
 
 # Gcd - Análisis y Explicación

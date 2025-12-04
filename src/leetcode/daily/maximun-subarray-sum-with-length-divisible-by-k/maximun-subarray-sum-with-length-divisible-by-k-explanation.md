@@ -11,6 +11,7 @@ source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-28"
+blogLink: https://blog-astro-rouge.vercel.app/posts/maximum-subarray-sum-with-length-divisible-by-k/
 ---
 
 # Maximum Subarray Sum With Length Divisible By K
@@ -53,10 +54,10 @@ Es simplemente ir sumando mientras avanzás:
 |
 
 | ----- | ------ |
-| 0      |       | 0      |
-| 1      | 5     | 5      |
-| 2      | -2    | 3      |
-| 3      | 7     | 10     |
+| 0 | | 0 |
+| 1 | 5 | 5 |
+| 2 | -2 | 3 |
+| 3 | 7 | 10 |
 
 Con prefix, la suma de cualquier subarray i→j es: `prefix[j] - prefix[i]`
 

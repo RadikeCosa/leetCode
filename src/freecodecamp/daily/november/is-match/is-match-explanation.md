@@ -2,11 +2,13 @@
 title: "is-match"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - Strings
+  - Comparison
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-17"
+blogPost: https://blog-astro-rouge.vercel.app/posts/fingerprint-test/
 ---
 
 # Is Match - Análisis y Explicación

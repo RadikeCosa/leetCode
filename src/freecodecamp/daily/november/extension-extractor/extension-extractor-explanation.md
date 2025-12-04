@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-10"
+blogLink: https://blog-astro-rouge.vercel.app/posts/get-extension/
 ---
 
 # 🔍 Extension Extractor - Análisis y Explicación
@@ -73,16 +74,16 @@ function getExtension(filename) {
 
 ### ✅ Casos de Prueba Identificados
 
-| Caso | Entrada            | Salida Esperada | Explicación                      |
+| Caso | Entrada | Salida Esperada | Explicación |
 |
 
 --------------- | --------------- | -------------------------------- |
-| 1    | `"document.txt"`   | `"txt"`         | Extensión estándar               |
-| 2    | `"README"`         | `"none"`        | Sin extensión                    |
-| 3    | `"image.PNG"`      | `"PNG"`         | Preserva mayúsculas              |
-| 4    | `".gitignore"`     | `"gitignore"`   | Archivo que empieza con punto    |
-| 5    | `"archive.tar.gz"` | `"gz"`          | Múltiples puntos, toma el último |
-| 6    | `"final.draft."`   | `"none"`        | Termina con punto                |
+| 1 | `"document.txt"` | `"txt"` | Extensión estándar |
+| 2 | `"README"` | `"none"` | Sin extensión |
+| 3 | `"image.PNG"` | `"PNG"` | Preserva mayúsculas |
+| 4 | `".gitignore"` | `"gitignore"` | Archivo que empieza con punto |
+| 5 | `"archive.tar.gz"` | `"gz"` | Múltiples puntos, toma el último |
+| 6 | `"final.draft."` | `"none"` | Termina con punto |
 
 ## 🛠️ Desarrollo de la Solución
 

@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-12"
+blogLink: https://blog-astro-rouge.vercel.app/posts/vowels-and-consonants/
 ---
 
 # ✨ Vowels And Consonants - Análisis y Explicación
@@ -27,12 +28,12 @@ Output: [3, 7] // 3 vocales (e, o, o) y 7 consonantes (H, l, l, W, r, l, d)
 ```
 
 ------------------------------------------- | --------------- |
-| "Hello World!"                                 | [3, 7]          |
-| "JavaScript"                                   | [3, 7]          |
-| "Python"                                       | [1, 5]          |
-| "freeCodeCamp"                                 | [5, 7]          |
-| "Hello, World!"                                | [3, 7]          |
-| "The quick brown fox jumps over the lazy dog." | [11, 24]        |
+| "Hello World!" | [3, 7] |
+| "JavaScript" | [3, 7] |
+| "Python" | [1, 5] |
+| "freeCodeCamp" | [5, 7] |
+| "Hello, World!" | [3, 7] |
+| "The quick brown fox jumps over the lazy dog." | [11, 24] |
 
 ---
 

@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-23"
+blogLink: https://blog-astro-rouge.vercel.app/posts/fizz-buzz/
 ---
 
 # Fizz Buzz - Análisis y Explicación

@@ -2,11 +2,13 @@
 title: "least-common-multiple"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - Math
+  - Euclidean Algorithm
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-24"
+createdAt: "2025-11-22"
+blogLink: https://blog-astro-rouge.vercel.app/posts/least-common-multiple/
 ---
 
 # Least Common Multiple - Análisis y Explicación

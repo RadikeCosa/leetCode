@@ -7,7 +7,8 @@ topics:
 source: "leetcode"
 series: "daily "
 category: "daily"
-createdAt: "2025-09-23"
+createdAt: "2025-11-28"
+blogLink: https://blog-astro-rouge.vercel.app/posts/compare-version-number-leetcode/
 ---
 
 ## Compare Version Numbers - Explicación Detallada
@@ -196,15 +197,15 @@ if (result !== 0) return result;
 
 ## Comparación de Enfoques
 
-| Aspecto             | Split      | Two Pointers |
+| Aspecto | Split | Two Pointers |
 |
 
 ------------- | ---------- | ------------ |
-| **Legibilidad**     | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐     |
-| **Tiempo**          | O(n + m)   | O(n + m)     |
-| **Espacio**         | O(n + m)   | **O(1)** ✅  |
-| **Facilidad debug** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐       |
-| **Memoria óptima**  | ❌         | ✅           |
+| **Legibilidad** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **Tiempo** | O(n + m) | O(n + m) |
+| **Espacio** | O(n + m) | **O(1)** ✅ |
+| **Facilidad debug** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| **Memoria óptima** | ❌ | ✅ |
 
 ## Enfoques Alternativos
 

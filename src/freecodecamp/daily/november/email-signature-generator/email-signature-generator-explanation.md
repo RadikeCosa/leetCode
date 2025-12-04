@@ -8,6 +8,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-12"
+blogLink: https://blog-astro-rouge.vercel.app/posts/generate-signature/
 ---
 
 # Email Signature Generator - Análisis y Explicación

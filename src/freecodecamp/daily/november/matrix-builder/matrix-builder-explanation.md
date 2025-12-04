@@ -8,6 +8,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-05"
+blogLink: https://blog-astro-rouge.vercel.app/posts/matrix-builder/
 ---
 
 # Matrix Builder

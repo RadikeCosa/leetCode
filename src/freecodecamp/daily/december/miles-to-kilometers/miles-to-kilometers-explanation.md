@@ -8,6 +8,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-12-01"
+blogLink: https://blog-astro-rouge.vercel.app/posts/miles-to-kilometers/
 ---
 
 ## Miles To Kilometers - Análisis y Explicación

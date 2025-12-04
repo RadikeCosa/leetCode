@@ -6,8 +6,9 @@ topics:
   - Matrix
 source: "freecodecamp"
 series: "daily"
-category: "daily"
+category: "freecodecamp"
 createdAt: "2025-11-10"
+blogLink: https://blog-astro-rouge.vercel.app/posts/word-search-freecodecamp/
 ---
 
 # Word Search – Análisis y Explicación

@@ -2,11 +2,13 @@
 title: "longest-word"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - strings
+  - regex
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-25"
+createdAt: "2025-11-20"
+blogLink: https://blog-astro-rouge.vercel.app/posts/longest-word/
 ---
 
 # Longest Word - Análisis y Explicación

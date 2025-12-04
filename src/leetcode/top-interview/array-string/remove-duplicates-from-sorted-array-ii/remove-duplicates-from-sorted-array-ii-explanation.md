@@ -8,7 +8,8 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-09-16"
+createdAt: "2025-11-19"
+blogLink: https://blog-astro-rouge.vercel.app/posts/remove-duplicates-from-sorted-array-ii/
 ---
 
 # Remove Duplicates from Sorted Array II
@@ -159,16 +160,16 @@ Si queremos máximo **k** duplicados, comparamos con `nums[w-k]`:
 
 ### Simulación con [1,1,1,2,2,3]:
 
-| Iteración | `num` | `w` | `nums[w-2]`   | Condición    | Acción               | Array resultante |
+| Iteración | `num` | `w` | `nums[w-2]` | Condición | Acción | Array resultante |
 |
 
 --- | ----- | --- | ------------- | ------------ | -------------------- | ---------------- |
-| 1         | 1     | 0   | -             | `w < 2` ✅   | `nums[0] = 1, w = 1` | `[1,1,1,2,2,3]`  |
-| 2         | 1     | 1   | -             | `w < 2` ✅   | `nums[1] = 1, w = 2` | `[1,1,1,2,2,3]`  |
-| 3         | 1     | 2   | `nums[0] = 1` | `1 !== 1` ❌ | No escribe           | `[1,1,1,2,2,3]`  |
-| 4         | 2     | 2   | `nums[0] = 1` | `1 !== 2` ✅ | `nums[2] = 2, w = 3` | `[1,1,2,2,2,3]`  |
-| 5         | 2     | 3   | `nums[1] = 1` | `1 !== 2` ✅ | `nums[3] = 2, w = 4` | `[1,1,2,2,2,3]`  |
-| 6         | 3     | 4   | `nums[2] = 2` | `2 !== 3` ✅ | `nums[4] = 3, w = 5` | `[1,1,2,2,3,3]`  |
+| 1 | 1 | 0 | - | `w < 2` ✅ | `nums[0] = 1, w = 1` | `[1,1,1,2,2,3]` |
+| 2 | 1 | 1 | - | `w < 2` ✅ | `nums[1] = 1, w = 2` | `[1,1,1,2,2,3]` |
+| 3 | 1 | 2 | `nums[0] = 1` | `1 !== 1` ❌ | No escribe | `[1,1,1,2,2,3]` |
+| 4 | 2 | 2 | `nums[0] = 1` | `1 !== 2` ✅ | `nums[2] = 2, w = 3` | `[1,1,2,2,2,3]` |
+| 5 | 2 | 3 | `nums[1] = 1` | `1 !== 2` ✅ | `nums[3] = 2, w = 4` | `[1,1,2,2,2,3]` |
+| 6 | 3 | 4 | `nums[2] = 2` | `2 !== 3` ✅ | `nums[4] = 3, w = 5` | `[1,1,2,2,3,3]` |
 
 **Resultado**: `w = 5`, array: `[1,1,2,2,3]` ✅
 

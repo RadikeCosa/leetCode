@@ -7,7 +7,8 @@ topics:
 source: "leetcode"
 series: "daily"
 category: "daily"
-createdAt: "2025-08-10"
+createdAt: "2025-11-04"
+blogLink: https://blog-astro-rouge.vercel.app/posts/power-of-two-leetcode/
 ---
 
 # Power of Two - Documentación
@@ -20,15 +21,15 @@ Un entero `n` es potencia de dos si existe un entero `x` tal que `n = 2^x`.
 
 ## Ejemplos
 
-| Input | Output | Explicación                    |
+| Input | Output | Explicación |
 |
 
 --- | ------------------------------ |
-| 1     | true   | 2^0 = 1                        |
-| 16    | true   | 2^4 = 16                       |
-| 3     | false  | No es potencia de 2            |
-| 0     | false  | No existe x tal que 2^x = 0    |
-| -8    | false  | Potencias de dos son positivas |
+| 1 | true | 2^0 = 1 |
+| 16 | true | 2^4 = 16 |
+| 3 | false | No es potencia de 2 |
+| 0 | false | No existe x tal que 2^x = 0 |
+| -8 | false | Potencias de dos son positivas |
 
 ## Restricciones
 

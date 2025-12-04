@@ -5,8 +5,9 @@ topics:
   - String
 source: "freecodecamp"
 series: "daily"
-category: "daily"
+category: "freecodecamp"
 createdAt: "2025-11-08"
+blogLink: https://blog-astro-rouge.vercel.app/posts/charlimit-freecodecamp/
 ---
 
 # Character Limit

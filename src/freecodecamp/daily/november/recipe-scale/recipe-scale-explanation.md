@@ -6,7 +6,8 @@ topics:
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
-createdAt: "2025-11-20"
+createdAt: "2025-11-22"
+blogLink: https://blog-astro-rouge.vercel.app/posts/recipe-scale/
 ---
 
 # Recipe Scale - Análisis y Explicación

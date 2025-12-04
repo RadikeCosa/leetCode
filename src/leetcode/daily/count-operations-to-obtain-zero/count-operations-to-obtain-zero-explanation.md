@@ -8,6 +8,7 @@ source: "leetcode"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-09"
+blogLink: https://blog-astro-rouge.vercel.app/posts/count-operations-to-obtain-zero-leetcode/
 ---
 
 ## Count Operations to Obtain Zero

@@ -10,6 +10,7 @@ source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
 createdAt: "2025-11-19"
+blogLink: https://blog-astro-rouge.vercel.app/posts/shift-array-leetcode/
 ---
 
 # Rotate Array - Análisis y Explicación

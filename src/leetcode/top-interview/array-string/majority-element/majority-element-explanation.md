@@ -9,6 +9,7 @@ source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
 createdAt: "2025-11-18"
+blogLink: https://blog-astro-rouge.vercel.app/posts/majority-element/
 ---
 
 # Majority Element - Análisis y Explicación

@@ -2,11 +2,13 @@
 title: "whats-my-age-again"
 difficulty: "easy"
 topics:
-  - Algorithm
+  - date
+  - math
 source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-28"
+blogLink: https://blog-astro-rouge.vercel.app/posts/whats-my-age-again/
 ---
 
 # What's My Age Again? - Análisis y Explicación
@@ -34,16 +36,16 @@ Ejemplo:
 
 ## Casos de Prueba Identificados
 
-| Fecha de nacimiento | Edad esperada (27-nov-2025) | Razón                                |
+| Fecha de nacimiento | Edad esperada (27-nov-2025) | Razón |
 |
 
 ------------- | --------------------------- | ------------------------------------ |
-| 2000-01-01          | 25                          | Cumpleaños pasó hace meses           |
-| 2000-11-27          | 25                          | Cumple exactamente hoy               |
-| 2000-11-28          | 24                          | Cumple mañana                        |
-| 1995-12-31          | 29                          | Cumple en diciembre → no cumplió aún |
-| 2025-01-01          | 0                           | Tiene menos de 1 año                 |
-| 1950-06-15          | 75                          | Caso normal, ya cumplió              |
+| 2000-01-01 | 25 | Cumpleaños pasó hace meses |
+| 2000-11-27 | 25 | Cumple exactamente hoy |
+| 2000-11-28 | 24 | Cumple mañana |
+| 1995-12-31 | 29 | Cumple en diciembre → no cumplió aún |
+| 2025-01-01 | 0 | Tiene menos de 1 año |
+| 1950-06-15 | 75 | Caso normal, ya cumplió |
 
 ## Desarrollo de la Solución
 

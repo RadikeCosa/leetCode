@@ -3,10 +3,13 @@ title: "is-fizz-buzz"
 difficulty: "easy"
 topics:
   - Algorithm
+  - Simulation
+  - Math
 source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-26"
+blogLink: https://blog-astro-rouge.vercel.app/posts/is-fiz-buzz/
 ---
 
 # Is Fizz Buzz - Análisis y Explicación

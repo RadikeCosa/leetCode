@@ -8,6 +8,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-29"
+blogLink: https://blog-astro-rouge.vercel.app/posts/reverse-parenthesis/
 ---
 
 ## Enunciado del Problema

@@ -8,7 +8,8 @@ topics:
 source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
-createdAt: "2025-09-03"
+createdAt: "2025-11-17"
+blogLink: https://blog-astro-rouge.vercel.app/posts/remove-duplicates-from-sorted-array/
 ---
 
 # Remove Duplicates from Sorted Array - Análisis del Problema

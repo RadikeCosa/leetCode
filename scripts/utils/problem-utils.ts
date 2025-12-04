@@ -35,14 +35,14 @@ export interface SeriesConfig {
 // Series configuration according to copilot-instructions.md
 export const SERIES_CONFIG: Record<SeriesType, SeriesConfig> = {
   daily: {
-    path: "daily",
+    path: "leetcode/daily",
     structure: "flat",
     language: "ts",
     hasPostSolution: true,
     requiresCategory: false,
   },
   "30-days-js": {
-    path: "30-days-js",
+    path: "leetcode/30-days-js",
     structure: "sectioned",
     language: "ts",
     hasPostSolution: true,
@@ -56,7 +56,7 @@ export const SERIES_CONFIG: Record<SeriesType, SeriesConfig> = {
     ],
   },
   "top-interview": {
-    path: "top-interview",
+    path: "leetcode/top-interview",
     structure: "categorized",
     language: "ts",
     hasPostSolution: true,
@@ -71,7 +71,7 @@ export const SERIES_CONFIG: Record<SeriesType, SeriesConfig> = {
     ],
   },
   "binary-search": {
-    path: "binary-search",
+    path: "leetcode/binary-search",
     structure: "sectioned",
     language: "ts",
     hasPostSolution: true,

@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-29"
+blogLink: https://blog-astro-rouge.vercel.app/posts/ball-trajectory/
 ---
 
 # Ball Trajectory - Análisis y Explicación

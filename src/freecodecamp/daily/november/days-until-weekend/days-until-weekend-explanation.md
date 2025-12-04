@@ -10,6 +10,7 @@ source: "freecodecamp"
 series: "daily"
 category: "daily"
 createdAt: "2025-11-15"
+blogLink: https://blog-astro-rouge.vercel.app/posts/days-until-weekend/
 ---
 
 # Days Until Weekend - Análisis y Explicación

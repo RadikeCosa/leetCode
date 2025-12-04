@@ -9,6 +9,7 @@ source: "leetcode"
 series: "top-interview"
 category: "top-interview-array-string"
 createdAt: "2025-11-26"
+blogLink: https://blog-astro-rouge.vercel.app/posts/best-time-to-buy-and-sell-stock-ii/
 ---
 
 # Best Time To Sell And Buy Stocks II - Análisis y Explicación

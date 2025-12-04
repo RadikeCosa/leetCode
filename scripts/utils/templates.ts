@@ -118,6 +118,8 @@ export function createExplanationTemplate(problemName: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
+  const blogLink = `https://blog-astro-rouge.vercel.app/posts/${problemName}/`;
+
   return `---
 title: ${titleCase}
 source: leetcode
@@ -127,9 +129,10 @@ createdAt: ${new Date().toISOString().slice(0, 10)}
 difficulty: TODO
 topics:
   - TODO
+blogLink: ${blogLink}
 ---
 
-# ${titleCase} - Análisis y Explicación
+## ${titleCase} - Análisis y Explicación
 
 ## Enunciado del Problema
 

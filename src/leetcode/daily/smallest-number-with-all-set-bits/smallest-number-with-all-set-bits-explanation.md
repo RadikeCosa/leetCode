@@ -7,8 +7,9 @@ topics:
   - Powers of Two
 source: "leetcode"
 series: "daily"
-category: "daily"
-createdAt: "2025-10-30"
+category: "leetcode"
+createdAt: 2025-11-07
+blogLink: https://blog-astro-rouge.vercel.app/posts/smallest-number-all-set-bits/
 ---
 
 # Smallest Number With All Set Bits

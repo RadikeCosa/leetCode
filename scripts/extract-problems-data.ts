@@ -330,8 +330,15 @@ function main(): void {
     allProblems = allProblems.concat(getProblemsFromSeries(seriesInfo));
   }
   writeFileSync("problems-data.json", JSON.stringify(allProblems, null, 2));
+  writeFileSync(
+    "C:\\Users\\ramir\\Documents\\my-app\\app\\data-viz\\data\\problems.data.json",
+    JSON.stringify(allProblems, null, 2)
+  );
   console.log(
     `Extraídos ${allProblems.length} ejercicios en problems-data.json`
+  );
+  console.log(
+    "Archivo C:\\Users\\ramir\\Documents\\my-app\\app\\data-viz\\data\\problems.data.json sobrescrito correctamente."
   );
 }
 

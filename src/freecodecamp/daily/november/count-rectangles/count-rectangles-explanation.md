@@ -7,6 +7,7 @@ source: "freecodecamp"
 series: "daily"
 category: "freecodecamp"
 createdAt: "2025-11-17"
+blogLink: https://blog-astro-rouge.vercel.app/posts/count-rectangles/
 ---
 
 # Count Rectangles — Análisis y Explicación
