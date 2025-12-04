@@ -1111,7 +1111,8 @@
     ],
     "createdAt": "2025-09-04",
     "hasFrontmatter": true,
-    "title": "Valid Sudoku"
+    "title": "Valid Sudoku",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/valid-sudoku"
   },
   {
     "name": "longest-substring-without-repeating-characters",
@@ -2063,6 +2064,28 @@
     "hasFrontmatter": true,
     "title": "Miles To Kilometers",
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/miles-to-kilometers/"
+  },
+  {
+    "name": "permutation-count",
+    "path": "src\\freecodecamp\\daily\\december\\permutation-count",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily-challenge",
+    "category": "daily",
+    "difficulty": "medium",
+    "topics": [
+      "strings",
+      "math",
+      "permutations",
+      "combinatorics"
+    ],
+    "createdAt": "2025-12-04T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Permutation Count",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/permutation-count/"
   },
   {
     "name": "100-characters",

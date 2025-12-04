@@ -86,11 +86,23 @@ function extractFrontmatterFromExplanation(
     const match = content.match(/^---\s*([\s\S]*?)---/);
     if (match) {
       const yamlText = match[1];
-      const data = yaml.load(yamlText) as Record<string, any>;
-      return { hasFrontmatter: true, frontmatter: data };
+      try {
+        const data = yaml.load(yamlText) as Record<string, any>;
+        return { hasFrontmatter: true, frontmatter: data };
+      } catch (yamlError) {
+        console.warn(
+          `⚠️  Error parsing YAML frontmatter in ${explanationPath}:`,
+          yamlError instanceof Error ? yamlError.message : yamlError
+        );
+        return { hasFrontmatter: false };
+      }
     }
     return { hasFrontmatter: false };
-  } catch {
+  } catch (error) {
+    console.warn(
+      `⚠️  Error reading file ${explanationPath}:`,
+      error instanceof Error ? error.message : error
+    );
     return { hasFrontmatter: false };
   }
 }

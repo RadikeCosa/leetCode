@@ -1,6 +1,5 @@
 ---
 title: Permutation Count
-createdAt: 2025-12-04
 source: freecodecamp
 series: daily-challenge
 category: daily
