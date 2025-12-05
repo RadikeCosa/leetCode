@@ -1094,6 +1094,27 @@
     "title": "Summary Ranges"
   },
   {
+    "name": "rotate-image",
+    "path": "src\\leetcode\\top-interview\\matrix\\rotate-image",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "source": "leetcode",
+    "series": "top-interview-150",
+    "category": "matrix",
+    "difficulty": "medium",
+    "topics": [
+      "array",
+      "math",
+      "matrix"
+    ],
+    "createdAt": "2025-12-04T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Rotate Image",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/rotate-image/"
+  },
+  {
     "name": "valid-sudoku",
     "path": "src\\leetcode\\top-interview\\matrix\\valid-sudoku",
     "hasImplementation": true,

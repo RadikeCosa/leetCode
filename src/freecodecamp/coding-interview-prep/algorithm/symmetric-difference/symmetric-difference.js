@@ -17,7 +17,7 @@
  * setA = {1, 2, 3}, setB = {2, 3, 4} => resultado = {1, 4}
  */
 
-export function symmetricDifference(...args) {
+export function symmetricDifference(arr1, arr2) {
   /**
    * Calcula la diferencia simétrica entre dos conjuntos (sets).
    * La diferencia simétrica es el conjunto de elementos que están en uno u otro, pero no en ambos.
