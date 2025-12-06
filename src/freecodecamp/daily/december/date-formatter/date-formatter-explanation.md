@@ -50,30 +50,57 @@ El enfoque elegido es dividir la cadena de entrada en partes utilizando espacios
 4. Construir la cadena de salida en el formato "AAAA-MM-DD".
 5. Retornar la cadena formateada.
 
+```javascript
+function formatDate(dateString) {
+  const day = dateString.split(" ")[1].replace(",", "").padStart(2, "0");
+  const year = dateString.split(" ")[2];
+  const monthMap = {
+    January: "01",
+    February: "02",
+    March: "03",
+    April: "04",
+    May: "05",
+    June: "06",
+    July: "07",
+    August: "08",
+    September: "09",
+    October: "10",
+    November: "11",
+    December: "12",
+  };
+  const month = monthMap[dateString.split(" ")[0]];
+  dateString = `${year}-${month}-${day}`;
+
+  return dateString;
+}
+```
+
 ## Análisis de Complejidad
 
 ### Complejidad Temporal
 
-<!-- TODO: Analizar Big O tiempo -->
+El algoritmo tiene una complejidad temporal de O(1) ya que las operaciones realizadas (división de cadenas, mapeo y formateo) no dependen del tamaño de la entrada, sino que son constantes.
 
 ### Complejidad Espacial
 
-<!-- TODO: Analizar Big O espacio -->
+La complejidad espacial también es O(1) ya que el espacio adicional utilizado no crece con el tamaño de la entrada; solo se utilizan unas pocas variables para almacenar partes de la fecha.
 
 ## Casos Edge y Consideraciones
 
-<!-- TODO: Documentar casos especiales manejados -->
+### Manejo de Entradas Inválidas
+
+El problema no especifica cómo manejar entradas inválidas, por lo que se asume que la entrada siempre estará en el formato correcto. Sin embargo, en un escenario real, sería prudente agregar validaciones para asegurarse de que la entrada cumple con el formato esperado.
 
 ## Reflexiones y Aprendizajes
 
 ### Conceptos Aplicados
 
-<!-- TODO: ¿Qué patrones/técnicas se usaron? -->
+Este problema permitió practicar la manipulación de cadenas, el uso de objetos para mapeo y el formateo de fechas, habilidades fundamentales en la programación diaria.
 
 ### Posibles Optimizaciones
 
-<!-- TODO: ¿Se puede mejorar? -->
+La solucion es bastante eficiente para el problema dado, en cuanto a mayor legibilidad, se podria considerar el uso de expresiones regulares para extraer las partes de la fecha.
 
 ## Recursos y Referencias
 
-<!-- TODO: Links útiles, algoritmos relacionados, etc. -->
+- [Documentación de JavaScript sobre Manipulación de Cadenas](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
