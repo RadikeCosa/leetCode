@@ -9,7 +9,7 @@ topics:
   - string manipulation
   - date formatting
 blogLink: https://blog-astro-rouge.vercel.app/posts/date-formatter/
-problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-06
+problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-06/
 ---
 
 ## Date Formatter - Análisis y Explicación
