@@ -11,6 +11,7 @@ topics:
   - Map
 
 blogLink: https://blog-astro-rouge.vercel.app/posts/symmetric-difference-daily/
+problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-05
 ---
 
 ## Diferencia Simétrica

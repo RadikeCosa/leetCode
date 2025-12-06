@@ -119,6 +119,7 @@ export function createExplanationTemplate(problemName: string): string {
     .join(" ");
 
   const blogLink = `https://blog-astro-rouge.vercel.app/posts/${problemName}/`;
+  const problemLink = `https://leetcode.com/problems/${problemName}/`;
 
   return `---
 title: ${titleCase}
@@ -130,6 +131,7 @@ difficulty: TODO
 topics:
   - TODO
 blogLink: ${blogLink}
+problemLink: ${problemLink}
 ---
 
 ## ${titleCase} - Análisis y Explicación

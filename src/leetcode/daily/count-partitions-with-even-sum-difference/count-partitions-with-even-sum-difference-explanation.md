@@ -1,5 +1,5 @@
 ---
-title: Count Partitios With Even Sum Difference
+title: Count Partitions With Even Sum Difference
 source: leetcode
 series: daily
 category: daily-challenge
@@ -9,10 +9,11 @@ topics:
   - Array
   - Math
   - Prefix Sum
-blogLink: https://blog-astro-rouge.vercel.app/posts/count-partitios-with-even-sum-difference/
+blogLink: https://blog-astro-rouge.vercel.app/posts/count-partitions-with-even-sum-difference/
+problemLink: https://leetcode.com/problems/count-partitions-with-even-sum-difference/
 ---
 
-## Count Partitios With Even Sum Difference - Análisis y Explicación
+## Count Partitions With Even Sum Difference - Análisis y Explicación
 
 ## Enunciado del Problema
 
