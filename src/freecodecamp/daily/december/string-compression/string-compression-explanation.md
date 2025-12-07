@@ -1,12 +1,14 @@
 ---
 title: String Compression
-source: leetcode
-series: TODO
-category: TODO
+source: freecodecamp
+series: daily
+category: daily
 createdAt: 2025-12-07
-difficulty: TODO
+difficulty: easy
 topics:
-  - TODO
+  - string manipulation
+  - arrays
+  - regular expressions
 blogLink: https://blog-astro-rouge.vercel.app/posts/string-compression/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-07/
 ---
