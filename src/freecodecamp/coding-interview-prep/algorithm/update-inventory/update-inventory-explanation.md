@@ -30,6 +30,38 @@ Para resolver el problema de forma eficiente:
 
 Este enfoque permite búsquedas y actualizaciones rápidas (O(1) por producto) y facilita la ordenación final.
 
+### Codigo completo
+
+```javascript
+function updateInventory(arr1, arr2) {
+  // Mapa para almacenar el inventario actualizado
+  let inventoryMap = new Map();
+  // Agregar inventario actual al mapa
+  for (let [quantity, item] of arr1) {
+    inventoryMap.set(item, quantity);
+  }
+
+  // Actualizar el inventario con la nueva entrega
+  for (let [quantity, item] of arr2) {
+    if (inventoryMap.has(item)) {
+      inventoryMap.set(item, inventoryMap.get(item) + quantity);
+    } else {
+      inventoryMap.set(item, quantity);
+    }
+  }
+
+  // Convertir el mapa de inventario actualizado a un array en formato [cantidad, nombre]
+  let updatedInventory = Array.from(inventoryMap.entries()).map(
+    ([item, quantity]) => [quantity, item]
+  );
+
+  // Ordenar el inventario actualizado alfabéticamente por nombre de artículo
+  updatedInventory.sort((a, b) => a[1].localeCompare(b[1]));
+
+  return updatedInventory;
+}
+```
+
 ## Complejidad
 
 **Tiempo:**

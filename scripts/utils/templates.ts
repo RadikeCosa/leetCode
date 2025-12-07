@@ -67,8 +67,9 @@ export function createTestTemplate(
     .join(" ");
 
   if (seriesConfig.language === "ts") {
-    return `import { ${functionName} } from './${problemName}';
-
+    return `import { describe, it, expect } from "vitest";
+import { ${functionName} } from './${problemName}';
+    
 /**
  * TODO: Add complete problem statement here
  * 
