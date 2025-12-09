@@ -107,7 +107,9 @@ Cuando end=4 encuentra 'a':
 - Con Math.max: start = Math.max(2, 1) = 2 (mantiene progreso)
 ```
 
-El `Math.max` garantiza que `start` solo avance, nunca retroceda.C## Casos extremos
+El `Math.max` garantiza que `start` solo avance, nunca retroceda.
+
+## Casos extremos
 
 ### Casos manejados correctamente:
 
@@ -138,7 +140,9 @@ El `Math.max` garantiza que `start` solo avance, nunca retroceda.C## Casos extre
 
 **Problema**: Duplicados fuera de ventana actual
 **Ejemplo**: `"abcba"` cuando `start=2` y encontramos 'a' en posición 0
-**Solución**: `Math.max(start, duplicatePos + 1)` evita retrocesos## Complejidad
+**Solución**: `Math.max(start, duplicatePos + 1)` evita retrocesos
+
+## Complejidad
 
 ### Time Complexity: O(n)
 
