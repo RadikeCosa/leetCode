@@ -4,9 +4,12 @@ source: freecodecamp
 series: daily
 category: august
 createdAt: 2025-12-09
-difficulty: TODO
+difficulty: medium
 topics:
-  - TODO
+  - arrays
+  - sorting
+  - sets
+  - filtering
 blogLink: https://blog-astro-rouge.vercel.app/posts/second-best/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-08-28/
 ---
