@@ -6,7 +6,10 @@ category: december
 createdAt: 2025-12-11
 difficulty: medium
 topics:
-  - TODO
+  - greedy
+  - lookup table
+  - string manipulation
+  - math
 blogLink: https://blog-astro-rouge.vercel.app/posts/roman-numeral-builder/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-11/
 ---
