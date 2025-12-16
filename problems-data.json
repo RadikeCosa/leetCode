@@ -2173,6 +2173,27 @@
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-14/"
   },
   {
+    "name": "consonant-count",
+    "path": "src\\freecodecamp\\daily\\december\\consonant-count",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freeCodeCamp",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "easy",
+    "topics": [
+      "strings",
+      "counting"
+    ],
+    "createdAt": "2025-12-16T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Consonant Count",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/consonant-count/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-16/"
+  },
+  {
     "name": "date-formatter",
     "path": "src\\freecodecamp\\daily\\december\\date-formatter",
     "hasImplementation": true,
@@ -2395,6 +2416,27 @@
     "title": "Roman Numeral Builder",
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/roman-numeral-builder/",
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-11/"
+  },
+  {
+    "name": "speed-check",
+    "path": "src\\freecodecamp\\daily\\december\\speed-check",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "easy",
+    "topics": [
+      "math",
+      "conditionals"
+    ],
+    "createdAt": "2025-12-15T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Speed Check",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/speed-check/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-15/"
   },
   {
     "name": "string-compression",
@@ -3603,6 +3645,27 @@
     "title": "tip-calculator"
   },
   {
+    "name": "acronym-builder",
+    "path": "src\\freecodecamp\\daily\\september\\acronym-builder",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "september",
+    "difficulty": "easy",
+    "topics": [
+      "strings",
+      "arrays"
+    ],
+    "createdAt": "2025-12-16T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Acronym Builder",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/acronym-builder/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-08/"
+  },
+  {
     "name": "anagram-checker",
     "path": "src\\freecodecamp\\daily\\september\\anagram-checker",
     "hasImplementation": true,
@@ -3843,6 +3906,27 @@
     "title": "rgb-to-hex"
   },
   {
+    "name": "roman-numeral-parser",
+    "path": "src\\freecodecamp\\daily\\september\\roman-numeral-parser",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "september",
+    "difficulty": "easy",
+    "topics": [
+      "strings",
+      "parsing"
+    ],
+    "createdAt": "2025-12-15T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Roman Numeral Parser",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/roman-numeral-parser/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-07/"
+  },
+  {
     "name": "second-largest",
     "path": "src\\freecodecamp\\daily\\september\\second-largest",
     "hasImplementation": true,
@@ -3917,6 +4001,27 @@
     "createdAt": "2025-10-27",
     "hasFrontmatter": true,
     "title": "tribonacci-sequence"
+  },
+  {
+    "name": "unique-characters",
+    "path": "src\\freecodecamp\\daily\\september\\unique-characters",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "september",
+    "difficulty": "easy",
+    "topics": [
+      "strings",
+      "hash tables"
+    ],
+    "createdAt": "2025-12-16T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Unique Characters",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/unique-characters/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-09/"
   },
   {
     "name": "video-storage",
