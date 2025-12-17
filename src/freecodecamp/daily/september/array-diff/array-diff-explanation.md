@@ -6,8 +6,13 @@ category: september
 createdAt: 2025-12-17
 difficulty: easy
 topics:
-  - freecodecamp
-  - daily-challenge
+  - arrays
+  - set
+  - difference
+  - sorting
+  - string
+  - symmetric-difference
+
 blogLink: https://blog-astro-rouge.vercel.app/posts/array-diff/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-10
 ---
