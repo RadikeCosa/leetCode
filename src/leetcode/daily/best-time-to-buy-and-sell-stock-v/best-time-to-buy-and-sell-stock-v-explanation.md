@@ -1,6 +1,25 @@
+---
+title: Best Time To Buy And Sell Stock V
+source: leetcode
+series: daily
+category: december
+createdAt: 2025-12-17
+difficulty: medium
+topics:
+- array
+- dynamic-programming
+blogLink: https://blog-astro-rouge.vercel.app/posts/best-time-to-buy-and-sell-stock-v/
+problemLink: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-v/?envType=daily-question&envId=2025-12-17/
+
+---
+
+> **Nota importante:**
+>
+> La primera versión de la solución fue **top-down** (recursiva con memoización), pero la versión final y eficiente es **bottom-up** (tabular, iterativa). El cambio de enfoque se explica en la sección de Reflexiones y Aprendizajes al final de este documento.
+
 #### ¿Usamos bottom-up o top-down en este problema?
 
-En este caso, la solución implementada es **top-down** (de arriba hacia abajo), no bottom-up. Esto se identifica porque:
+En la versión inicial, la solución implementada fue **top-down** (de arriba hacia abajo), identificable porque:
 
 - Usamos una función recursiva que resuelve el problema grande llamando a subproblemas más pequeños.
 - Guardamos los resultados de cada subproblema en un mapa (memoización) para no recalcularlos.
@@ -11,22 +30,8 @@ En este caso, la solución implementada es **top-down** (de arriba hacia abajo),
 - Si tu código es recursivo y usa memoización, es top-down.
 - Si tu código usa bucles y una tabla para construir la solución desde los casos base, es bottom-up.
 
-## En este problema, elegimos top-down porque es más intuitivo para modelar los estados complejos y las transiciones, y la memoización ya nos da eficiencia suficiente para los límites del problema.
+## En este problema, la versión final es bottom-up, ya que permite máxima eficiencia y escalabilidad para los límites grandes del problema. La versión top-down es útil para modelar y entender, pero no es óptima para producción en este caso.
 
-title: Best Time To Buy And Sell Stock V
-source: leetcode
-series: daily
-category: december
-createdAt: 2025-12-17
-difficulty: medium
-topics:
-
-- array
-- dynamic-programming
-  blogLink: https://blog-astro-rouge.vercel.app/posts/best-time-to-buy-and-sell-stock-v/
-  problemLink: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-v/
-
----
 
 ## Best Time To Buy And Sell Stock V - Análisis y Explicación
 
@@ -68,11 +73,13 @@ Para aplicar DP aquí, necesitamos definir claramente el "estado" en cada paso. 
 
 - **Día actual (`idx`)**: en qué día estamos del array de precios.
 - **Transacciones realizadas (`transactionsDone`)**: cuántas transacciones completas llevamos.
-- **Tipo de transacción (`transactionType`)**: si estamos en una transacción normal, en una venta en corto, o sin ninguna abierta.
+- **Tipo de transacción (`transactionType`)**: si estamos en una transacción normal, en una venta en corto (también llamada "posición corta"), o sin ninguna abierta.
 - **¿Hay una transacción en curso? (`isTransactionRunning`)**: indica si actualmente tenemos una operación abierta.
 
+> **Nota:** En la literatura y en este documento, "venta en corto" y "posición corta" se usan como sinónimos: ambas refieren a vender primero y recomprar después para obtener ganancia si el precio baja.
+
 **Ejemplo de estado:**
-"Estoy en el día 3, ya hice 1 transacción, tengo una venta en corto abierta".
+"Estoy en el día 3, ya hice 1 transacción, tengo una venta en corto (posición corta) abierta".
 
 En cada estado, tenemos opciones:
 
@@ -248,33 +255,57 @@ Algunos casos especiales a considerar:
 - Si los precios bajan siempre, la mejor estrategia puede ser solo ventas en corto.
 - Si los precios suben siempre, la mejor estrategia es solo transacciones normales.
 
-## Reflexiones y Aprendizajes
+## Reflexiones, Aprendizajes y Mejora de la Solución
 
-### Conceptos Aplicados
+### De la idea inicial al envío final
 
-Se aplicó programación dinámica con memoización, modelado de estados y análisis de transiciones. Se usó un enfoque bottom-up en la definición de subproblemas y se exploraron todas las rutas posibles para garantizar la optimalidad.
+Al abordar este problema, implementamos primero una solución de Programación Dinámica recursiva con memoización (top-down), modelando explícitamente los estados y transiciones. Esta versión pasó la primera comprobación en LeetCode (casos de ejemplo y algunos tests pequeños), pero al enviarla para evaluación completa, arrojó un error de "Time Limit Exceeded" (TLE) en los casos grandes.
 
-#### ¿Qué es el enfoque bottom-up en DP?
+**¿Por qué falló la versión recursiva?**
 
-En programación dinámica, existen dos formas principales de resolver los subproblemas:
+- El estado incluía el precio de apertura de la transacción (`lastPrice`), lo que multiplicaba la cantidad de subproblemas.
+- En cada día, la recursión podía abrir una transacción en cualquier otro día futuro, generando muchas ramas y subproblemas redundantes.
+- La complejidad era $O(n^2 \cdot k)$ en el peor caso, lo que no escala para $n$ grande.
 
-- **Top-down (de arriba hacia abajo):** Se resuelve el problema grande llamando recursivamente a subproblemas más pequeños, y se guardan los resultados (memoización) para no repetir cálculos.
-- **Bottom-up (de abajo hacia arriba):** Se resuelven primero los subproblemas más pequeños y se usan sus resultados para construir soluciones a problemas más grandes, normalmente usando bucles y una tabla (array) en vez de recursión.
+### ¿Cómo lo resolvimos?
 
-**Ejemplo simple:**
-Para calcular Fibonacci:
+Analizando el patrón de los problemas clásicos de "Best Time to Buy and Sell Stock" con $k$ transacciones, adaptamos el enfoque tabular (bottom-up) $O(nk)$, modelando los estados de la siguiente manera:
 
-- Top-down: `fib(n)` llama a `fib(n-1)` y `fib(n-2)` recursivamente.
-- Bottom-up: Se calcula `fib(0)`, `fib(1)`, luego `fib(2)`, etc., hasta llegar a `fib(n)` llenando una tabla.
+- `free[t]`: máxima ganancia con $t$ transacciones completadas y sin posición abierta.
+- `holdLong[t]`: máxima ganancia con $t$ transacciones y una posición larga abierta.
+- `holdShort[t]`: máxima ganancia con $t$ transacciones y una posición corta abierta.
 
-**Ventaja del bottom-up:**
-Evita el uso de la pila de llamadas recursivas y puede ser más eficiente en espacio y tiempo para ciertos problemas.
+En cada día y para cada cantidad de transacciones, actualizamos estos estados considerando abrir/cerrar posiciones largas o cortas, usando solo arrays y bucles. Así, evitamos la recursión y la dependencia explícita del precio de apertura.
 
-En este problema, aunque la implementación principal es recursiva (top-down), también se podría plantear una versión bottom-up usando bucles y una tabla multidimensional para construir la solución desde los casos base.
+**Ventajas del nuevo enfoque:**
 
-### Posibles Optimizaciones
+- Complejidad temporal $O(nk)$ y espacial $O(k)$.
+- Escala perfectamente para $n$ y $k$ grandes.
+- El código es más compacto y fácil de depurar.
 
-Se podría optimizar el espacio usando técnicas de compresión de estados, por ejemplo, evitando guardar lastPrice si se puede deducir de otra forma, o usando arrays en vez de Map. También se puede intentar una versión iterativa/tabular si el límite de n y k lo permite.
+### ¿Qué aprendimos?
+
+- Aunque la DP recursiva con memoización es intuitiva y fácil de escribir, para problemas con muchos subestados (especialmente si uno de los parámetros puede tomar muchos valores, como el precio de apertura), puede ser ineficiente.
+- Analizar la estructura del problema y buscar patrones de DP tabular permite optimizar drásticamente el rendimiento.
+- Modelar los estados de forma minimalista (solo lo necesario para la transición) es clave para eficiencia.
+
+### Complejidad de la solución final
+
+- **Temporal:** $O(nk)$, donde $n$ es la cantidad de días y $k$ el máximo de transacciones.
+- **Espacial:** $O(k)$, ya que solo se mantienen arrays de tamaño $k+1$ para cada estado.
+
+### Comparación de enfoques
+
+| Enfoque                     | Complejidad temporal | Complejidad espacial | Observaciones                         |
+| --------------------------- | -------------------- | -------------------- | ------------------------------------- |
+| Recursivo + memo (top-down) | $O(n^2 k)$           | $O(n^2 k)$           | Intuitivo, pero lento para $n$ grande |
+| Tabular (bottom-up, actual) | $O(nk)$              | $O(k)$               | Eficiente y escalable                 |
+
+### Recomendación
+
+Siempre que un problema de DP tenga parámetros que pueden tomar muchos valores (como precios, índices, etc.), buscar una formulación tabular y minimizar el estado es fundamental para eficiencia y escalabilidad.
+
+---
 
 ## Recursos y Referencias
 

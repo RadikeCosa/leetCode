@@ -48,10 +48,17 @@
     "hasPostSolution": true,
     "source": "leetcode",
     "series": "daily",
-    "category": "daily",
-    "topics": [],
-    "createdAt": "2025-12-17",
-    "hasFrontmatter": false
+    "category": "december",
+    "difficulty": "medium",
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ],
+    "createdAt": "2025-12-17T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Best Time To Buy And Sell Stock V",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/best-time-to-buy-and-sell-stock-v/",
+    "problemLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-v/?envType=daily-question&envId=2025-12-17/"
   },
   {
     "name": "binary-prefix-divisible-by-five",
@@ -2185,6 +2192,28 @@
     "title": "Capitalize It",
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/capitalize-it/",
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-14/"
+  },
+  {
+    "name": "checkerboard",
+    "path": "src\\freecodecamp\\daily\\december\\checkerboard",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "Easy",
+    "topics": [
+      "matrices",
+      "patrones",
+      "bucles"
+    ],
+    "createdAt": "2025-12-18T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Checkerboard",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/checkerboard/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-18/"
   },
   {
     "name": "consonant-count",
