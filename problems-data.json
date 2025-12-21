@@ -544,6 +544,28 @@
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/maximum-subarray-sum-with-length-divisible-by-k/"
   },
   {
+    "name": "median-of-two-sorted-arrays",
+    "path": "src\\leetcode\\daily\\median-of-two-sorted-arrays",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "source": "leetcode",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "TODO",
+    "topics": [
+      "array",
+      "binary-search",
+      "divide-and-conquer"
+    ],
+    "createdAt": "2025-12-20T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Median Of Two Sorted Arrays",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/median-of-two-sorted-arrays/",
+    "problemLink": "https://leetcode.com/problems/median-of-two-sorted-arrays/description/"
+  },
+  {
     "name": "merge-two-sorted-lists",
     "path": "src\\leetcode\\daily\\merge-two-sorted-lists",
     "hasImplementation": true,
@@ -703,6 +725,26 @@
     "createdAt": "2025-09-03",
     "hasFrontmatter": true,
     "title": "remove-duplicates-from-sorted-array"
+  },
+  {
+    "name": "reverse-integer",
+    "path": "src\\leetcode\\daily\\reverse-integer",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": true,
+    "source": "leetcode",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "medium",
+    "topics": [
+      "Math"
+    ],
+    "createdAt": "2025-12-20T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Reverse Integer",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/reverse-integer/",
+    "problemLink": "https://leetcode.com/problems/reverse-integer/description/"
   },
   {
     "name": "roman-to-integer",
@@ -2258,6 +2300,29 @@
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-06/"
   },
   {
+    "name": "daylight-hours",
+    "path": "src\\freecodecamp\\daily\\december\\daylight-hours",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "easy",
+    "topics": [
+      "lookup-table",
+      "search",
+      "edge-cases",
+      "math"
+    ],
+    "createdAt": "2025-12-21T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Daylight Hours",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/daylight-hours/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-21/"
+  },
+  {
     "name": "game-of-life",
     "path": "src\\freecodecamp\\daily\\december\\game-of-life",
     "hasImplementation": true,
@@ -2479,6 +2544,30 @@
     "title": "Pounds To Kilograms",
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/pounds-to-kilograms/",
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-08/"
+  },
+  {
+    "name": "purge-most-frequent",
+    "path": "src\\freecodecamp\\daily\\december\\purge-most-frequent",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "december",
+    "difficulty": "easy",
+    "topics": [
+      "array",
+      "hash-map",
+      "frequency-counting",
+      "filtering",
+      "data-structures"
+    ],
+    "createdAt": "2025-12-20T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Purge Most Frequent",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/purge-most-frequent/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-20/"
   },
   {
     "name": "roman-numeral-builder",
