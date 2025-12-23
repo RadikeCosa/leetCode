@@ -4,9 +4,10 @@ source: freecodecamp
 series: daily
 category: september
 createdAt: 2025-12-22
-difficulty: TODO
+difficulty: easy
 topics:
-  - TODO
+  - strings
+  - regex
 blogLink: https://blog-astro-rouge.vercel.app/posts/reverse-sentence/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-11/
 ---
