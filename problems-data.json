@@ -4072,6 +4072,27 @@
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-06/"
   },
   {
+    "name": "missing-numbers",
+    "path": "src\\freecodecamp\\daily\\september\\missing-numbers",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freecodecamp",
+    "series": "daily",
+    "category": "september",
+    "difficulty": "easy",
+    "topics": [
+      "arrays",
+      "counting"
+    ],
+    "createdAt": "2025-12-24T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Missing Numbers",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/missing-numbers/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-13/"
+  },
+  {
     "name": "pangram",
     "path": "src\\freecodecamp\\daily\\september\\pangram",
     "hasImplementation": true,
@@ -4190,6 +4211,29 @@
     "title": "Roman Numeral Parser",
     "blogLink": "https://blog-astro-rouge.vercel.app/posts/roman-numeral-parser/",
     "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-07/"
+  },
+  {
+    "name": "screen-time",
+    "path": "src\\freecodecamp\\daily\\september\\screen-time",
+    "hasImplementation": true,
+    "hasTests": true,
+    "hasExplanation": true,
+    "hasPostSolution": false,
+    "source": "freeCodeCamp",
+    "series": "daily",
+    "category": "september",
+    "difficulty": "easy",
+    "topics": [
+      "math",
+      "sliding-window",
+      "arrays",
+      "averages"
+    ],
+    "createdAt": "2025-12-23T00:00:00.000Z",
+    "hasFrontmatter": true,
+    "title": "Screen Time",
+    "blogLink": "https://blog-astro-rouge.vercel.app/posts/screen-time/",
+    "problemLink": "https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-12/"
   },
   {
     "name": "second-largest",
