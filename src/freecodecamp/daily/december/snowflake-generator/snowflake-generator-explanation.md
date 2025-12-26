@@ -4,9 +4,9 @@ source: freecodecamp
 series: daily
 category: december
 createdAt: 2025-12-25
-difficulty: TODO
+difficulty: easy
 topics:
-  - TODO
+  - string-manipulation
 blogLink: https://blog-astro-rouge.vercel.app/posts/snowflake-generator/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-25/
 ---
