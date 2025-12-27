@@ -109,3 +109,4 @@ Para valores de n muy grandes, se puede optimizar iterando solo hasta $\sqrt{n}$
 
 - [Divisor (Wikipedia)](https://es.wikipedia.org/wiki/Divisor)
 - [Sum of Divisors - GeeksforGeeks](https://www.geeksforgeeks.org/sum-of-all-divisors-from-1-to-n/)
+- [Teoría de números - FreeCodeCamp](https://www.freecodecamp.org/news/tag/number-theory/)
