@@ -8,6 +8,8 @@ difficulty: easy
 topics:
   - strings
   - parsing
+  - regex
+  - math
 blogLink: https://blog-astro-rouge.vercel.app/posts/sum-the-string/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-12-30/
 ---
