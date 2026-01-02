@@ -4,10 +4,11 @@ source: freecodecamp
 series: daily
 category: january
 createdAt: 2026-01-01
-difficulty: medium
+difficulty: easy
 topics:
   - arrays
-  - hash-table
+  - iteration
+  - input-validation
 blogLink: https://blog-astro-rouge.vercel.app/posts/resolution-streak/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2026-01-01/
 ---
