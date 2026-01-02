@@ -7,6 +7,7 @@ createdAt: 2026-01-02
 difficulty: easy
 topics:
   - math
+  - iteration
 blogLink: https://blog-astro-rouge.vercel.app/posts/nth-fibonacci-number/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2026-01-02/
 ---
