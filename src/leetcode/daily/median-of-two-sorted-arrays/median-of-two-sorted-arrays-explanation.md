@@ -4,11 +4,12 @@ source: leetcode
 series: daily
 category: december
 createdAt: 2025-12-20
-difficulty: TODO
+difficulty: hard
 topics:
   - array
   - binary-search
   - divide-and-conquer
+  - two-pointers
 blogLink: https://blog-astro-rouge.vercel.app/posts/median-of-two-sorted-arrays/
 problemLink: https://leetcode.com/problems/median-of-two-sorted-arrays/description/
 ---
@@ -119,32 +120,55 @@ Este proceso garantiza encontrar la mediana en tiempo logarítmico respecto al t
 
 ### Implementación Paso a Paso
 
-<!-- TODO: Detallar la lógica de implementación -->
+1. Garantizar que buscamos en el array más pequeño: si `nums1.length > nums2.length` intercambiar los arrays.
+2. Hacer una búsqueda binaria sobre el índice de partición `i` en `nums1` entre `0` y `m`.
+3. Calcular la partición correspondiente `j = (m + n + 1) // 2 - i` en `nums2` de forma que el lado izquierdo total tenga la mitad (o la mitad +1) de los elementos.
+4. Obtener los cuatro valores borde necesarios (usar `-Infinity` / `Infinity` cuando la partición quede en un extremo):
+
+- `nums1LeftMax = i === 0 ? -Infinity : nums1[i-1]`
+- `nums1RightMin = i === m ? Infinity : nums1[i]`
+- `nums2LeftMax = j === 0 ? -Infinity : nums2[j-1]`
+- `nums2RightMin = j === n ? Infinity : nums2[j]`
+
+5. Si `nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin` entonces la partición es válida:
+
+- Si `(m + n)` es impar → la mediana es `max(nums1LeftMax, nums2LeftMax)`.
+- Si es par → la mediana es `(max(nums1LeftMax, nums2LeftMax) + min(nums1RightMin, nums2RightMin)) / 2`.
+
+6. Si `nums1LeftMax > nums2RightMin` mover `high = i - 1` (desplazar partición i a la izquierda).
+7. Si `nums2LeftMax > nums1RightMin` mover `low = i + 1` (desplazar partición i a la derecha).
+8. Repetir hasta encontrar la partición válida. El proceso termina en O(log m) pasos.
 
 ## Análisis de Complejidad
 
 ### Complejidad Temporal
 
-<!-- TODO: Analizar Big O tiempo -->
+La complejidad temporal es O(log(min(m, n))). Hacemos búsqueda binaria sobre el array más pequeño (`m = min(len(nums1), len(nums2))`). Cada iteración realiza operaciones O(1).
 
 ### Complejidad Espacial
 
-<!-- TODO: Analizar Big O espacio -->
+La complejidad espacial es O(1) adicional: sólo usamos contadores y constantes temporales para los bordes de partición.
 
 ## Casos Edge y Consideraciones
 
-<!-- TODO: Documentar casos especiales manejados -->
+- Si uno de los arrays está vacío, la mediana es la mediana del otro array (el algoritmo maneja esto con `-Infinity`/`Infinity` en los bordes).
+- Valores repetidos están soportados sin cambios adicionales.
+- Manejo cuidadoso de particiones en los extremos (i = 0, i = m, j = 0, j = n) usando `Infinity`/`-Infinity`.
+- Se asume que los arrays están ordenados; si no lo están, el resultado es indefinido (el algoritmo puede lanzar excepción en caso de particiones inválidas).
 
 ## Reflexiones y Aprendizajes
 
 ### Conceptos Aplicados
 
-<!-- TODO: ¿Qué patrones/técnicas se usaron? -->
+- Búsqueda binaria aplicada a la partición de dos arrays ordenados (buscar la partición correcta en el array más corto).
+- Uso de sentinelas (`Infinity`, `-Infinity`) para simplificar el manejo de bordes.
+- Early exit: devolver la respuesta en cuanto se encuentra una partición válida.
 
 ### Posibles Optimizaciones
 
-<!-- TODO: ¿Se puede mejorar? -->
+La solución ya cumple la restricción esperada O(log(min(m,n))). Para casos prácticos con arrays muy desbalanceados, otra alternativa es usar un enfoque de selección (k-th element) que también puede implementarse con particiones y mantener complejidad logarítmica en el menor de los tamaños.
 
 ## Recursos y Referencias
 
-<!-- TODO: Links útiles, algoritmos relacionados, etc. -->
+- Artículo/explicación clásico: "Median of Two Sorted Arrays" — soluciones que usan particiones y búsqueda binaria.
+- LeetCode problem: https://leetcode.com/problems/median-of-two-sorted-arrays/
