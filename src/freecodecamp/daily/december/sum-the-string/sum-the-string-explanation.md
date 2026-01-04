@@ -33,17 +33,17 @@ El objetivo es extraer y sumar todos los números enteros positivos que se encue
 
 Los casos de prueba base son:
 
-1. `stringSum("3apples2bananas")` → `5` ($3 + 2$).
-2. `stringSum("10cats5dogs2birds")` → `17` ($10 + 5 + 2$).
+1. `stringSum("3 apples 2 bananas")` → `5` ($3 + 2$).
+2. `stringSum("10 cats 5 dogs 2 birds")` → `17` ($10 + 5 + 2$).
 3. `stringSum("125344")` → `125344`.
-4. `stringSum("a1b20c300")` → `321` ($1 + 20 + 300$).
-5. `stringSum("a12b34c56d78e90f123g456h789i0j1k2l3m4n5")` → `1653`.
+4. `stringSum("a 1 b 20 c 300")` → `321` ($1 + 20 + 300$).
+5. `stringSum("a 12 b 34 c 56 d 78 e 90 f 123 g 456 h 789 i 0 j 1 k 2 l 3 m 4 n 5")` → `1653`.
 
 Casos borde adicionales:
 
 - `stringSum("")` → `0` (string vacío).
 - `stringSum("abc")` → `0` (sin números).
-- `stringSum("0a0b0")` → `0` (ceros explícitos).
+- `stringSum("0 a 0 b 0")` → `0` (ceros explícitos).
 
 ## Desarrollo de la solución
 
@@ -62,11 +62,11 @@ Utilizaremos una **expresión regular** (`/\d+/g`) para capturar todas las secue
 
 ```javascript
 function stringSum(str) {
-  const matches = str.match(/\d+/g);
+ const matches = str.match(/\d+/g);
 
-  if (!matches) return 0;
+ if (!matches) return 0;
 
-  return matches.reduce((acc, num) => acc + Number(num), 0);
+ return matches.reduce((acc, num) => acc + Number(num), 0);
 }
 
 export default stringSum;

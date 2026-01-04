@@ -15,28 +15,28 @@ I'll use a two-phase approach: first precompute which subarrays of length k are 
 
 ```typescript
 export function hasIncreasingSubarrays(nums: number[], k: number): boolean {
-  // Precomputar cuáles subarrays de longitud k son crecientes
-  const increasingSubarrays = new Array(nums.length - k + 1).fill(false);
+ // Precomputar cuáles subarrays de longitud k son crecientes
+ const increasingSubarrays = new Array(nums.length - k + 1).fill(false);
 
-  for (let i = 0; i <= nums.length - k; i++) {
-    let isIncreasing = true;
-    for (let j = i; j < i + k - 1; j++) {
-      if (nums[j] >= nums[j + 1]) {
-        isIncreasing = false;
-        break;
-      }
-    }
-    increasingSubarrays[i] = isIncreasing;
-  }
+ for (let i = 0; i <= nums.length - k; i++) {
+ let isIncreasing = true;
+ for (let j = i; j < i + k - 1; j++) {
+ if (nums[j] >= nums[j + 1]) {
+ isIncreasing = false;
+ break;
+ }
+ }
+ increasingSubarrays[i] = isIncreasing;
+ }
 
-  // Verificar pares adyacentes
-  for (let i = 0; i <= nums.length - 2 * k; i++) {
-    if (increasingSubarrays[i] && increasingSubarrays[i + k]) {
-      return true;
-    }
-  }
+ // Verificar pares adyacentes
+ for (let i = 0; i <= nums.length - 2 * k; i++) {
+ if (increasingSubarrays[i] && increasingSubarrays[i + k]) {
+ return true;
+ }
+ }
 
-  return false;
+ return false;
 }
 ```
 

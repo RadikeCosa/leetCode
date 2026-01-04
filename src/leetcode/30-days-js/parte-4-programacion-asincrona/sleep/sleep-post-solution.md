@@ -20,7 +20,7 @@ The key insight is that `setTimeout` naturally provides the delay mechanism we n
 
 ```typescript
 export async function sleep(millis: number): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, millis));
+ await new Promise((resolve) => setTimeout(resolve, millis));
 }
 ```
 

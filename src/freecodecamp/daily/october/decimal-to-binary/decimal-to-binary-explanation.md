@@ -27,15 +27,15 @@ La solución implementa el algoritmo clásico de conversión decimal a binario m
 
 ```javascript
 function toBinary(decimal) {
-  if (decimal === 0) return "0";
+ if (decimal === 0) return "0";
 
-  let binary = "";
-  while (decimal > 0) {
-    binary = (decimal % 2) + binary; // Prepend remainder
-    decimal = Math.floor(decimal / 2); // Update decimal
-  }
+ let binary = "";
+ while (decimal > 0) {
+ binary = (decimal % 2) + binary; // Prepend remainder
+ decimal = Math.floor(decimal / 2); // Update decimal
+ }
 
-  return binary;
+ return binary;
 }
 ```
 
@@ -44,10 +44,10 @@ function toBinary(decimal) {
 Para convertir 12 a binario:
 
 ```
-12 ÷ 2 = 6  resto 0  → binary = "0"
- 6 ÷ 2 = 3  resto 0  → binary = "00"
- 3 ÷ 2 = 1  resto 1  → binary = "100"
- 1 ÷ 2 = 0  resto 1  → binary = "1100"
+12 ÷ 2 = 6 resto 0 → binary = "0"
+ 6 ÷ 2 = 3 resto 0 → binary = "00"
+ 3 ÷ 2 = 1 resto 1 → binary = "100"
+ 1 ÷ 2 = 0 resto 1 → binary = "1100"
 ```
 
 Resultado final: "1100"
@@ -120,15 +120,15 @@ decimal = Math.floor(decimal / 2);
 
 ```javascript
 function toBinary(decimal) {
-  if (decimal === 0) return "0";
+ if (decimal === 0) return "0";
 
-  const bits = [];
-  while (decimal > 0) {
-    bits.push(decimal % 2);
-    decimal = Math.floor(decimal / 2);
-  }
+ const bits = [];
+ while (decimal > 0) {
+ bits.push(decimal % 2);
+ decimal = Math.floor(decimal / 2);
+ }
 
-  return bits.reverse().join("");
+ return bits.reverse().join("");
 }
 ```
 
@@ -139,7 +139,7 @@ function toBinary(decimal) {
 
 ```javascript
 function toBinary(decimal) {
-  return decimal.toString(2);
+ return decimal.toString(2);
 }
 ```
 
@@ -198,10 +198,10 @@ Para convertir un número decimal a binario, se debe:
 ### Ejemplo Detallado: Convertir 12 a Binario
 
 ```
-12 ÷ 2 = 6  resto 0
- 6 ÷ 2 = 3  resto 0
- 3 ÷ 2 = 1  resto 1
- 1 ÷ 2 = 0  resto 1
+12 ÷ 2 = 6 resto 0
+ 6 ÷ 2 = 3 resto 0
+ 3 ÷ 2 = 1 resto 1
+ 1 ÷ 2 = 0 resto 1
 ```
 
 Los restos en orden inverso: 1, 1, 0, 0
@@ -219,9 +219,9 @@ Resultado: "1100"
 
 1. Inicializar una cadena vacía para almacenar los bits
 2. Mientras el número sea mayor que 0:
-   - Calcular el resto de dividir por 2
-   - Agregar el resto al inicio de la cadena (o usar un array y reverse)
-   - Dividir el número entre 2 (división entera)
+ - Calcular el resto de dividir por 2
+ - Agregar el resto al inicio de la cadena (o usar un array y reverse)
+ - Dividir el número entre 2 (división entera)
 3. Manejar el caso especial del cero
 
 ### Complejidad
@@ -235,15 +235,15 @@ Resultado: "1100"
 
 ```javascript
 function toBinary(decimal) {
-  if (decimal === 0) return "0";
+ if (decimal === 0) return "0";
 
-  const bits = [];
-  while (decimal > 0) {
-    bits.push(decimal % 2);
-    decimal = Math.floor(decimal / 2);
-  }
+ const bits = [];
+ while (decimal > 0) {
+ bits.push(decimal % 2);
+ decimal = Math.floor(decimal / 2);
+ }
 
-  return bits.reverse().join("");
+ return bits.reverse().join("");
 }
 ```
 
@@ -251,15 +251,15 @@ function toBinary(decimal) {
 
 ```javascript
 function toBinary(decimal) {
-  if (decimal === 0) return "0";
+ if (decimal === 0) return "0";
 
-  let binary = "";
-  while (decimal > 0) {
-    binary = (decimal % 2) + binary;
-    decimal = Math.floor(decimal / 2);
-  }
+ let binary = "";
+ while (decimal > 0) {
+ binary = (decimal % 2) + binary;
+ decimal = Math.floor(decimal / 2);
+ }
 
-  return binary;
+ return binary;
 }
 ```
 

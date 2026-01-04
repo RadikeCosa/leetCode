@@ -11,7 +11,7 @@
 
 ```ts
 function romanToInt(s: string): number {
-  // [A completar con la versión final]
+ // [A completar con la versión final]
 }
 ```
 

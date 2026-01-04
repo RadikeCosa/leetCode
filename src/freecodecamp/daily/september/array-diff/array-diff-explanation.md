@@ -36,22 +36,22 @@ Los casos de prueba significativos incluyen:
 
 - **Caso base:** ambos arrays contienen varios elementos, con algunos en común y otros únicos.
 
-  - Entrada: `["a", "b", "c"]`, `["b", "c", "d"]`
-  - Salida esperada: `["a", "d"]`
+ - Entrada: `["a", "b", "c"]`, `["b", "c", "d"]`
+ - Salida esperada: `["a", "d"]`
 
 - **Caso con ambos arrays vacíos:**
 
-  - Entrada: `[]`, `[]`
-  - Salida esperada: `[]`
+ - Entrada: `[]`, `[]`
+ - Salida esperada: `[]`
 
 - **Caso sin elementos en común:** todos los elementos de ambos arrays deben aparecer en el resultado, ordenados alfabéticamente.
 
-  - Entrada: `["x", "y"]`, `["a", "b"]`
-  - Salida esperada: `["a", "b", "x", "y"]`
+ - Entrada: `["x", "y"]`, `["a", "b"]`
+ - Salida esperada: `["a", "b", "x", "y"]`
 
 - **Caso con elementos repetidos en los arrays:** el resultado solo debe incluir cada string una vez, si aparece en un solo array.
-  - Entrada: `["a", "a", "b"]`, `["b", "c", "c"]`
-  - Salida esperada: `["a", "c"]`
+ - Entrada: `["a", "a", "b"]`, `["b", "c", "c"]`
+ - Salida esperada: `["a", "c"]`
 
 ## Desarrollo de la Solución
 

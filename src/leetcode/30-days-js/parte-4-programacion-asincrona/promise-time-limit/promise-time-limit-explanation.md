@@ -37,21 +37,21 @@ Este problema introduce el concepto de **race conditions** entre:
 
 **Ejemplo 1 - Timeout excedido:**
 
-- `fn` toma 100ms para completarse
-- Límite de tiempo: 50ms
-- Resultado: Rechaza con "Time Limit Exceeded" en t=50ms
+- `fn` toma 100 ms para completarse
+- Límite de tiempo: 50 ms
+- Resultado: Rechaza con "Time Limit Exceeded" en t=50 ms
 
 **Ejemplo 2 - Función completa a tiempo:**
 
-- `fn` toma 100ms para completarse
-- Límite de tiempo: 150ms
-- Resultado: Resuelve con el valor de la función en t=100ms
+- `fn` toma 100 ms para completarse
+- Límite de tiempo: 150 ms
+- Resultado: Resuelve con el valor de la función en t=100 ms
 
 **Ejemplo 3 - Múltiples argumentos:**
 
-- `fn(5, 10)` toma 120ms
-- Límite de tiempo: 150ms
-- Resultado: Resuelve con `15` en t=120ms
+- `fn(5, 10)` toma 120 ms
+- Límite de tiempo: 150 ms
+- Resultado: Resuelve con `15` en t=120 ms
 
 **Ejemplo 4 - Error inmediato:**
 
@@ -61,7 +61,7 @@ Este problema introduce el concepto de **race conditions** entre:
 ### Restricciones Importantes
 
 - `0 <= inputs.length <= 10` (función puede no tener argumentos)
-- `0 <= t <= 1000` (timeout entre 0ms y 1 segundo)
+- `0 <= t <= 1000` (timeout entre 0 ms y 1 segundo)
 - `fn` retorna una Promise
 
 ## Enfoque de Solución
@@ -85,15 +85,15 @@ El primero que se resuelva o rechace determina el resultado final.
 
 ```typescript
 function timeLimit(fn: Fn, t: number): Fn {
-  return async function (...args) {
-    // Promise de timeout
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject("Time Limit Exceeded"), t);
-    });
+ return async function (...args) {
+ // Promise de timeout
+ const timeoutPromise = new Promise((_, reject) => {
+ setTimeout(() => reject("Time Limit Exceeded"), t);
+ });
 
-    // Race entre función original y timeout
-    return Promise.race([fn(...args), timeoutPromise]);
-  };
+ // Race entre función original y timeout
+ return Promise.race([fn(...args), timeoutPromise]);
+ };
 }
 ```
 
@@ -118,7 +118,7 @@ function timeLimit(fn: Fn, t: number): Fn {
 
 ## Casos Edge
 
-### Timeout de 0ms
+### Timeout de 0 ms
 
 ```typescript
 const limited = timeLimit(fn, 0);
@@ -136,7 +136,7 @@ const fn = async (x) => x; // Sin delay
 
 ```typescript
 const fn = async () => {
-  throw "Error";
+ throw "Error";
 };
 // El error original se propaga, no el timeout
 ```

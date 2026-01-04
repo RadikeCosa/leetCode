@@ -24,20 +24,20 @@ This works because we only need the first n-1 elements for the next iteration, a
 
 ```typescript
 export function triangularSum(nums: number[]): number {
-  let n = nums.length;
-  if (n === 1) {
-    return nums[0];
-  }
+ let n = nums.length;
+ if (n === 1) {
+ return nums[0];
+ }
 
-  while (n > 1) {
-    // Modify array in-place from left to right
-    for (let i = 0; i < n - 1; i++) {
-      nums[i] = (nums[i] + nums[i + 1]) % 10;
-    }
-    n--; // Reduce effective array size
-  }
+ while (n > 1) {
+ // Modify array in-place from left to right
+ for (let i = 0; i < n - 1; i++) {
+ nums[i] = (nums[i] + nums[i + 1]) % 10;
+ }
+ n--; // Reduce effective array size
+ }
 
-  return nums[0];
+ return nums[0];
 }
 ```
 

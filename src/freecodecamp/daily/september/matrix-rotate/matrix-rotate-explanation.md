@@ -29,18 +29,18 @@ La función debe tomar una matriz (un array de arrays) y rotarla 90 grados en el
 
 Los siguientes casos de prueba ayudan a entender mejor el problema:
 
-- Caso 1: Matriz 1x1
-  - Entrada: [[1]]
-  - Salida Esperada: [[1]]
-- Caso 2: Matriz 2x2
-  - Entrada: [[1, 2], [3, 4]]
-  - Salida Esperada: [[3, 1], [4, 2]]
-- Caso 3: Matriz 3x3
-  - Entrada: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-  - Salida Esperada: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+- Caso 1: Matriz 1 x 1
+ - Entrada: [[1]]
+ - Salida Esperada: [[1]]
+- Caso 2: Matriz 2 x 2
+ - Entrada: [[1, 2], [3, 4]]
+ - Salida Esperada: [[3, 1], [4, 2]]
+- Caso 3: Matriz 3 x 3
+ - Entrada: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ - Salida Esperada: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
 - Caso 4: Matriz con ceros
-  - Entrada: [[0, 1, 0], [1, 0, 1], [0, 0, 0]]
-  - Salida Esperada: [[0, 1, 0], [0, 0, 1], [0, 1, 0]]
+ - Entrada: [[0, 1, 0], [1, 0, 1], [0, 0, 0]]
+ - Salida Esperada: [[0, 1, 0], [0, 0, 1], [0, 1, 0]]
 
 ## Desarrollo de la Solución
 
@@ -60,15 +60,15 @@ El enfoque que elegimos es el que considero mas sencillo para rotar una matriz e
 
 ```js
 function rotate(matrix) {
-  const n = matrix.length;
-  const m = matrix[0].length;
-  const rotated = Array.from({ length: m }, () => Array(n));
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < m; j++) {
-      rotated[j][n - 1 - i] = matrix[i][j];
-    }
-  }
-  return rotated;
+ const n = matrix.length;
+ const m = matrix[0].length;
+ const rotated = Array.from({ length: m }, () => Array(n));
+ for (let i = 0; i < n; i++) {
+ for (let j = 0; j < m; j++) {
+ rotated[j][n - 1 - i] = matrix[i][j];
+ }
+ }
+ return rotated;
 }
 ```
 
@@ -85,7 +85,7 @@ Se utiliza una nueva matriz de tamaño m x n para almacenar el resultado, por lo
 ## Casos Edge y Consideraciones
 
 - Matriz vacía: Si la matriz está vacía o alguna de sus filas está vacía, la función debe manejarlo correctamente.
-- Matriz 1x1: La rotación de una matriz de un solo elemento debe devolver la misma matriz.
+- Matriz 1 x 1: La rotación de una matriz de un solo elemento debe devolver la misma matriz.
 - Matriz no cuadrada: El algoritmo funciona para matrices rectangulares, no solo cuadradas.
 
 ## Reflexiones y Aprendizajes

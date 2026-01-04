@@ -82,15 +82,15 @@ con slice obtenemos los elementos que necesitamos y con spread operator los expa
 
 ```typescript
 function rotate(nums: number[], k: number): void {
-  const n = nums.length;
-  k = k % n;
+ const n = nums.length;
+ k = k % n;
 
-  // Si k === 0 después de la reducción, no rotamos
-  if (k === 0) return;
+ // Si k === 0 después de la reducción, no rotamos
+ if (k === 0) return;
 
-  // Usamos slice + spread para reasignar el array in-place
-  // Últimos k elementos + primeros n-k elementos
-  nums.splice(0, n, ...nums.slice(-k), ...nums.slice(0, -k));
+ // Usamos slice + spread para reasignar el array in-place
+ // Últimos k elementos + primeros n-k elementos
+ nums.splice(0, n, ...nums.slice(-k), ...nums.slice(0, -k));
 }
 ```
 
@@ -108,27 +108,27 @@ La complejidad espacial de esta solución es O(k), donde k es el número de paso
 
 ```typescript
 function rotate(nums: number[], k: number): void {
-  const n = nums.length; // n = 7
-  k = k % n; // k = 3 (por si k fuera más grande que n)
+ const n = nums.length; // n = 7
+ k = k % n; // k = 3 (por si k fuera más grande que n)
 
-  // 1. Creamos un array vacío del mismo tamaño
-  const result: number[] = new Array(7); // [undefined, undefined, ...]
+ // 1. Creamos un array vacío del mismo tamaño
+ const result: number[] = new Array(7); // [undefined, undefined, ...]
 
-  // 2. Recorremos el array original con un for normal
-  for (let i = 0; i < n; i++) {
-    // ¿Dónde tiene que ir el número que está en la posición i?
-    // Respuesta: k posiciones más a la derecha, pero si se pasa del final,
-    // vuelve al principio → eso lo hace el módulo (%)
-    const nuevaPosicion = (i + k) % n;
+ // 2. Recorremos el array original con un for normal
+ for (let i = 0; i < n; i++) {
+ // ¿Dónde tiene que ir el número que está en la posición i?
+ // Respuesta: k posiciones más a la derecha, pero si se pasa del final,
+ // vuelve al principio → eso lo hace el módulo (%)
+ const nuevaPosicion = (i + k) % n;
 
-    // Ponemos el número directamente en su sitio final
-    result[nuevaPosicion] = nums[i];
-  }
+ // Ponemos el número directamente en su sitio final
+ result[nuevaPosicion] = nums[i];
+ }
 
-  // 3. Al terminar el bucle, copiamos todo de vuelta al array original
-  for (let i = 0; i < n; i++) {
-    nums[i] = result[i];
-  }
+ // 3. Al terminar el bucle, copiamos todo de vuelta al array original
+ for (let i = 0; i < n; i++) {
+ nums[i] = result[i];
+ }
 }
 ```
 
@@ -159,7 +159,7 @@ etc.
 
 1. Crea un array vacío del mismo tamaño.
 2. Para cada posición i del array original, calcula dónde irá después de rotar: (i + k) % longitud.
-   Pon el número directamente ahí.
+ Pon el número directamente ahí.
 3. Cuando termines, copia el array nuevo encima del original.
 
 ## Tercer Enfoque La técnica de los 3 reverses → O(1) espacio extra
@@ -175,10 +175,10 @@ Queremos → `[5, 6, 7, 1, 2, 3, 4]`
 
 ### El Concepto
 
-"Para rotar un array k posiciones a la derecha,  
-si invierto todo el array,  
-luego invierto los primeros k elementos,  
-y por último invierto el resto…  
+"Para rotar un array k posiciones a la derecha, 
+si invierto todo el array, 
+luego invierto los primeros k elementos, 
+y por último invierto el resto… 
 ¡magia! queda perfectamente rotado"
 
 ### Paso a paso con dibujos (pizarra mode ON)
@@ -186,7 +186,7 @@ y por último invierto el resto…
 ### Paso 0 – Estado inicial
 
 ```text
-índices:  0  1  2  3  4  5  6
+índices: 0 1 2 3 4 5 6
 valores: [1, 2, 3, 4, 5, 6, 7]
 ```
 
@@ -198,8 +198,8 @@ reverse(0, 6) → [7, 6, 5, 4, 3, 2, 1]
 Ahora queda:
 ```text
 [7, 6, 5, 4, 3, 2, 1]
- ↑        ↑
- 0       n-1
+ ↑ ↑
+ 0 n-1
 ````
 
 ### Paso 2 – Invertir los primeros k elementos (k=3)\*\*
@@ -215,59 +215,59 @@ reverse(0, 2) → invierto posiciones 0 a 2
 
 ```text
 reverse(3, 6) → invierto posiciones 3 a 6
-[5, 6, 7, 1, 2, 3, 4]   ← ¡EXACTAMENTE lo que queríamos!
+[5, 6, 7, 1, 2, 3, 4] ← ¡EXACTAMENTE lo que queríamos!
 ```
 
 ### Diagrama completo (pizarra estilo entrevista)
 
 ```text
-Original:      1   2   3   4   5   6   7
-                  ├────── k = 3 ──────┤
+Original: 1 2 3 4 5 6 7
+ ├────── k = 3 ──────┤
 
-Paso 1:        7   6   5   4   3   2   1    ← reverse todo
+Paso 1: 7 6 5 4 3 2 1 ← reverse todo
 
-Paso 2:        5   6   7 │ 4   3   2   1    ← reverse primeros k
+Paso 2: 5 6 7 │ 4 3 2 1 ← reverse primeros k
 
-Paso 3:        5   6   7   1   2   3   4    ← reverse el resto
-                                          ✓ ¡Rotado perfectamente!
+Paso 3: 5 6 7 1 2 3 4 ← reverse el resto
+ ✓ ¡Rotado perfectamente!
 ```
 
 ### Código final en TypeScript
 
 ```ts
 function rotate(nums: number[], k: number): void {
-  const n = nums.length;
-  if (n <= 1) return;
+ const n = nums.length;
+ if (n <= 1) return;
 
-  k = k % n; // importantísimo si k > n
-  if (k === 0) return;
+ k = k % n; // importantísimo si k > n
+ if (k === 0) return;
 
-  // Función auxiliar para invertir un rango
-  const reverse = (start: number, end: number) => {
-    while (start < end) {
-      // swap sin variable temporal (ES6 destructuring)
-      [nums[start], nums[end]] = [nums[end], nums[start]];
-      start++;
-      end--;
-    }
-  };
+ // Función auxiliar para invertir un rango
+ const reverse = (start: number, end: number) => {
+ while (start < end) {
+ // swap sin variable temporal (ES 6 destructuring)
+ [nums[start], nums[end]] = [nums[end], nums[start]];
+ start++;
+ end--;
+ }
+ };
 
-  // Los 3 reverses mágicos
-  reverse(0, n - 1); // 1. todo el array
-  reverse(0, k - 1); // 2. primeros k
-  reverse(k, n - 1); // 3. el resto
+ // Los 3 reverses mágicos
+ reverse(0, n - 1); // 1. todo el array
+ reverse(0, k - 1); // 2. primeros k
+ reverse(k, n - 1); // 3. el resto
 }
 ```
 
 ### ¿Por qué esto impresiona tanto a los entrevistadores?
 
-| Ventaja                         | Qué dicen ellos en su cabeza                        |
+| Ventaja | Qué dicen ellos en su cabeza |
 | ------------------------------- | --------------------------------------------------- |
-| Tiempo O(n), espacio O(1)       | "Sabe optimizar memoria, clave en sistemas grandes" |
-| Solo 3 pasadas lineales         | "Muy eficiente, no hace cosas raras"                |
-| Usa swap in-place               | "Entiende mutación y pointers básicamente"          |
-| Elegante y matemático           | "Este candidato piensa bonito"                      |
-| Fácil de explicar con dibujitos | "Comunicación 10/10"                                |
+| Tiempo O(n), espacio O(1) | "Sabe optimizar memoria, clave en sistemas grandes" |
+| Solo 3 pasadas lineales | "Muy eficiente, no hace cosas raras" |
+| Usa swap in-place | "Entiende mutación y pointers básicamente" |
+| Elegante y matemático | "Este candidato piensa bonito" |
+| Fácil de explicar con dibujitos | "Comunicación 10/10" |
 
 ## Reflexiones y Aprendizajes
 

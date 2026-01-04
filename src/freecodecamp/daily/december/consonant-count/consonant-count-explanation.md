@@ -47,23 +47,23 @@ El enfoque consiste en iterar sobre cada caracter del string, durante el recorri
 
 1. Inicializar un contador de consonantes en 0.
 2. Recorrer cada caracter del string:
-   - Convertir el caracter a minúscula para facilitar la comparación.
-   - Verificar si el caracter es una letra del alfabeto.
-   - Si es una letra y no es una vocal, incrementar el contador de consonantes.
+ - Convertir el caracter a minúscula para facilitar la comparación.
+ - Verificar si el caracter es una letra del alfabeto.
+ - Si es una letra y no es una vocal, incrementar el contador de consonantes.
 3. Al finalizar el recorrido, comparar el contador de consonantes con el entero objetivo.
 
 ### Código Final
 
 ```javascript
 function hasConsonantCount(text, target) {
-  let consonantCount = 0;
-  const vowels = "aeiou";
-  for (let char of text.toLowerCase()) {
-    if (char >= "a" && char <= "z" && !vowels.includes(char)) {
-      consonantCount++;
-    }
-  }
-  return consonantCount === target;
+ let consonantCount = 0;
+ const vowels = "aeiou";
+ for (let char of text.toLowerCase()) {
+ if (char >= "a" && char <= "z" && !vowels.includes(char)) {
+ consonantCount++;
+ }
+ }
+ return consonantCount === target;
 }
 ```
 

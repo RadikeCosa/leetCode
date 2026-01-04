@@ -16,13 +16,13 @@ I used a single-pass algorithm with two tracking variables:
 
 2. **Calculate diagonal and area** for each rectangle:
 
-   - Diagonal: `Math.hypot(length, width)` (equivalent to √(length² + width²))
-   - Area: `length * width`
+ - Diagonal: `Math.hypot(length, width)` (equivalent to √(length² + width²))
+ - Area: `length * width`
 
 3. **Update tracking variables** using priority logic:
 
-   - If current diagonal > max diagonal: update both maxDiagonal and maxArea
-   - If current diagonal == max diagonal: update maxArea only if current area is larger
+ - If current diagonal > max diagonal: update both maxDiagonal and maxArea
+ - If current diagonal == max diagonal: update maxArea only if current area is larger
 
 4. **Return the area** of the rectangle with the longest diagonal (with area as tiebreaker)
 
@@ -35,22 +35,22 @@ I used a single-pass algorithm with two tracking variables:
 
 ```typescript
 export function areaOfMaxDiagonal(dimensions: number[][]): number {
-  let maxDiagonal = 0;
-  let maxArea = 0;
+ let maxDiagonal = 0;
+ let maxArea = 0;
 
-  for (const [length, width] of dimensions) {
-    const diagonal = Math.hypot(length, width);
-    const area = length * width;
+ for (const [length, width] of dimensions) {
+ const diagonal = Math.hypot(length, width);
+ const area = length * width;
 
-    if (diagonal > maxDiagonal) {
-      maxDiagonal = diagonal;
-      maxArea = area;
-    } else if (diagonal === maxDiagonal) {
-      maxArea = Math.max(maxArea, area);
-    }
-  }
+ if (diagonal > maxDiagonal) {
+ maxDiagonal = diagonal;
+ maxArea = area;
+ } else if (diagonal === maxDiagonal) {
+ maxArea = Math.max(maxArea, area);
+ }
+ }
 
-  return maxArea;
+ return maxArea;
 }
 ```
 

@@ -14,11 +14,11 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/get-extension/
 
 ## 📋 Enunciado del Problema
 
-**Extension Extractor**  
+**Extension Extractor** 
 Dado una cadena de texto que representa el nombre de un archivo, devuelve la extensión del archivo.
 
-La extensión es la parte del nombre del archivo que viene después del último punto (`.`).  
-Si el nombre del archivo no contiene un punto o termina con un punto, devuelve `"none"`.  
+La extensión es la parte del nombre del archivo que viene después del último punto (`.`). 
+Si el nombre del archivo no contiene un punto o termina con un punto, devuelve `"none"`. 
 La extensión debe devolverse tal cual, preservando mayúsculas y minúsculas.
 
 ## 🧠 Análisis Inicial
@@ -64,11 +64,11 @@ Por ejemplo:
 ```javascript
 // Pseudocódigo básico
 function getExtension(filename) {
-  const lastDotIndex = filename.lastIndexOf(".");
-  if (lastDotIndex === -1 || lastDotIndex === filename.length - 1) {
-    return "none";
-  }
-  return filename.substring(lastDotIndex + 1);
+ const lastDotIndex = filename.lastIndexOf(".");
+ if (lastDotIndex === -1 || lastDotIndex === filename.length - 1) {
+ return "none";
+ }
+ return filename.substring(lastDotIndex + 1);
 }
 ```
 
@@ -89,7 +89,7 @@ function getExtension(filename) {
 
 ### 🎯 Enfoque Elegido
 
-**Algoritmo Simple con String Methods**  
+**Algoritmo Simple con String Methods** 
 Utilizar métodos nativos de JavaScript para manipulación de strings:
 
 - `lastIndexOf('.')` para encontrar la posición del último punto
@@ -100,8 +100,8 @@ Utilizar métodos nativos de JavaScript para manipulación de strings:
 
 1. **Buscar el último punto**: `filename.lastIndexOf('.')`
 2. **Validar casos inválidos**:
-   - Si no hay punto (`index === -1`)
-   - Si el punto es el último carácter (`index === length - 1`)
+ - Si no hay punto (`index === -1`)
+ - Si el punto es el último carácter (`index === length - 1`)
 3. **Extraer extensión**: `filename.substring(index + 1)`
 4. **Retornar resultado**
 

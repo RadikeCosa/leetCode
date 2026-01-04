@@ -10,9 +10,9 @@ The solution uses an **exhaustive search with early termination**:
 
 2. **Iterate through possibilities**: For each `i` from 1 to n-1:
 
-   - Set `a = i` and `b = n - i` (guarantees `a + b = n`)
-   - Check if both `a` and `b` are No-Zero integers
-   - Return immediately when we find the first valid combination
+ - Set `a = i` and `b = n - i` (guarantees `a + b = n`)
+ - Check if both `a` and `b` are No-Zero integers
+ - Return immediately when we find the first valid combination
 
 3. **Early termination**: Stop as soon as we find a valid pair, making the algorithm efficient in practice
 
@@ -27,16 +27,16 @@ The key insight is that since the problem guarantees at least one solution exist
 
 ```typescript
 export function getNoZeroIntegers(n: number): number[] {
-  const isNoZeroInteger = (n: number): boolean => {
-    return !n.toString().includes("0");
-  };
-  for (let i = 1; i < n; i++) {
-    let a = i;
-    let b = n - i;
-    if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
-  }
+ const isNoZeroInteger = (n: number): boolean => {
+ return !n.toString().includes("0");
+ };
+ for (let i = 1; i < n; i++) {
+ let a = i;
+ let b = n - i;
+ if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
+ }
 
-  return [];
+ return [];
 }
 ```
 

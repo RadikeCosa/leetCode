@@ -15,8 +15,8 @@ createdAt: "2025-08-16"
 
 ## Descripción del Problema
 
-**LeetCode 1323 - Easy**  
-**Daily Challenge: 16 de Agosto, 2025**  
+**LeetCode 1323 - Easy** 
+**Daily Challenge: 16 de Agosto, 2025** 
 **Topics: Math, Greedy**
 
 Dado un número entero positivo `num` que consiste únicamente de dígitos 6 y 9, retorna el número máximo que puedes obtener cambiando **como máximo un dígito** (6 se convierte en 9, y 9 se convierte en 6).
@@ -66,13 +66,13 @@ Antes de implementar, reflexiona sobre estas preguntas clave:
 ### 🧠 Estrategia Algorítmica
 
 1. **¿Qué enfoque algorítmico usarías?**
-   - Greedy (decisión óptima local)
-   - String manipulation
-   - Matemáticas puras
+ - Greedy (decisión óptima local)
+ - String manipulation
+ - Matemáticas puras
 2. **¿Desde qué dirección procesarías el número?**
 
-   - Izquierda a derecha (dígito más significativo primero)
-   - Derecha a izquierda (dígito menos significativo primero)
+ - Izquierda a derecha (dígito más significativo primero)
+ - Derecha a izquierda (dígito menos significativo primero)
 
 3. **¿Qué condición de parada usarías?**
 
@@ -151,20 +151,20 @@ Resultados verificados ✅:
 **Algoritmo Elegido: Array de Dígitos + Greedy**
 
 ```typescript
-export function maximum69Number(num: number): number {
-  // 1. Convertir a array de dígitos
-  const digits = num.toString().split("").map(Number);
+export function maximum 69 Number(num: number): number {
+ // 1. Convertir a array de dígitos
+ const digits = num.toString().split("").map(Number);
 
-  // 2. Buscar el primer 6 desde la izquierda (greedy)
-  for (let i = 0; i < digits.length; i++) {
-    if (digits[i] === 6) {
-      digits[i] = 9; // 3. Cambiar a 9
-      break; // 4. Parar (máximo un cambio)
-    }
-  }
+ // 2. Buscar el primer 6 desde la izquierda (greedy)
+ for (let i = 0; i < digits.length; i++) {
+ if (digits[i] === 6) {
+ digits[i] = 9; // 3. Cambiar a 9
+ break; // 4. Parar (máximo un cambio)
+ }
+ }
 
-  // 5. Convertir de vuelta a número
-  return parseInt(digits.join(""), 10);
+ // 5. Convertir de vuelta a número
+ return parseInt(digits.join(""), 10);
 }
 ```
 
@@ -191,15 +191,15 @@ export function maximum69Number(num: number): number {
 ## Casos Extremos Identificados
 
 1. **Número con todos 9's**: No hacer cambios
-   - `9999 → 9999` ✅
+ - `9999 → 9999` ✅
 2. **Número con todos 6's**: Cambiar el primero
-   - `6666 → 9666` ✅
+ - `6666 → 9666` ✅
 3. **Un solo dígito**:
-   - `6 → 9` ✅
-   - `9 → 9` ✅
+ - `6 → 9` ✅
+ - `9 → 9` ✅
 4. **Alternating patterns**:
-   - `6969 → 9969` (primer 6) ✅
-   - `9696 → 9996` (primer 6 en posición 1) ✅
+ - `6969 → 9969` (primer 6) ✅
+ - `9696 → 9996` (primer 6 en posición 1) ✅
 5. **Edge case máximo**: `9999` (ya óptimo)
 6. **Edge case mínimo**: `6` (máximo impacto)5. **Edge case máximo**: `9999` (ya óptimo)
 7. **Edge case mínimo**: `6` (máximo impacto)

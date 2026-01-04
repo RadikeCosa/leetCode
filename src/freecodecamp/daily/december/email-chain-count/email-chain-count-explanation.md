@@ -32,21 +32,21 @@ El problema requiere identificar y contar las ocurrencias de ciertos prefijos en
 ### Casos de Prueba Identificados
 
 1. Caso Básico:
-   - Input: "RE: Meeting Tomorrow"
-   - Output: 1
-   - Explicación: El email ha sido respondido una vez.
+ - Input: "RE: Meeting Tomorrow"
+ - Output: 1
+ - Explicación: El email ha sido respondido una vez.
 2. Caso con Múltiples Prefijos:
-   - Input: "FWD: RE: Fw: Project Update"
-   - Output: 3
-   - Explicación: El email ha sido reenviado dos veces y respondido una vez.
+ - Input: "FWD: RE: Fw: Project Update"
+ - Output: 3
+ - Explicación: El email ha sido reenviado dos veces y respondido una vez.
 3. Caso sin Prefijos:
-   - Input: "Project Update"
-   - Output: 0
-   - Explicación: El email no ha sido reenviado ni respondido.
+ - Input: "Project Update"
+ - Output: 0
+ - Explicación: El email no ha sido reenviado ni respondido.
 4. Caso con Diferentes Mayúsculas/Minúsculas:
-   - Input: "fWd: rE: fW: Important Notice"
-   - Output: 3
-   - Explicación: El email ha sido reenviado dos veces y respondido una vez, sin importar las mayúsculas o minúsculas.
+ - Input: "fWd: rE: fW: Important Notice"
+ - Output: 3
+ - Explicación: El email ha sido reenviado dos veces y respondido una vez, sin importar las mayúsculas o minúsculas.
 
 ## Desarrollo de la Solución
 
@@ -64,12 +64,12 @@ Para este problema elegimos un enfoque basado en la busqueda de patrones utiliza
 
 ```javascript
 function emailChainCount(subject) {
-  // Expresión regular para encontrar los prefijos
-  const regex = /(FWD:|FW:|RE:)/gi;
-  // Buscar todas las coincidencias y almacenarlas en la variable matches
-  const matches = subject.match(regex);
-  // devolver el conteo de coincidencias, o 0 si no hay ninguna
-  return matches ? matches.length : 0;
+ // Expresión regular para encontrar los prefijos
+ const regex = /(FWD:|FW:|RE:)/gi;
+ // Buscar todas las coincidencias y almacenarlas en la variable matches
+ const matches = subject.match(regex);
+ // devolver el conteo de coincidencias, o 0 si no hay ninguna
+ return matches ? matches.length : 0;
 }
 ```
 

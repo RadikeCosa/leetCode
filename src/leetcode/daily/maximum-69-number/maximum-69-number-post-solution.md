@@ -31,29 +31,29 @@ Mi enfoque usa **algoritmo greedy** con manipulación de arrays:
 
 - Time complexity: $$O(\log n)$$
 
-  - Donde n es el número de entrada
-  - Necesitamos procesar cada dígito una vez (número de dígitos = log₁₀(n))
+ - Donde n es el número de entrada
+ - Necesitamos procesar cada dígito una vez (número de dígitos = log₁₀(n))
 
 - Space complexity: $$O(\log n)$$
-  - Para almacenar el array de dígitos
+ - Para almacenar el array de dígitos
 
 # Code
 
 ```typescript
-export function maximum69Number(num: number): number {
-  // Convert number to array of digits for easy manipulation
-  const digits = num.toString().split("").map(Number);
+export function maximum 69 Number(num: number): number {
+ // Convert number to array of digits for easy manipulation
+ const digits = num.toString().split("").map(Number);
 
-  // Find the first (leftmost) 6 and change it to 9 for maximum impact
-  // Using greedy approach: leftmost digit has the highest positional value
-  for (let i = 0; i < digits.length; i++) {
-    if (digits[i] === 6) {
-      digits[i] = 9;
-      break; // Only change the first 6 found (at most one digit)
-    }
-  }
+ // Find the first (leftmost) 6 and change it to 9 for maximum impact
+ // Using greedy approach: leftmost digit has the highest positional value
+ for (let i = 0; i < digits.length; i++) {
+ if (digits[i] === 6) {
+ digits[i] = 9;
+ break; // Only change the first 6 found (at most one digit)
+ }
+ }
 
-  // Convert array back to number
-  return parseInt(digits.join(""), 10);
+ // Convert array back to number
+ return parseInt(digits.join(""), 10);
 }
 ```

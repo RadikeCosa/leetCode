@@ -33,9 +33,9 @@ Este es un problema **interactivo** especial donde no tenemos acceso directo al 
 
 ```typescript
 guess(num) → {
-  return 0;   // Si num === pick (¡encontrado!)
-  return -1;  // Si num > pick (tu guess es muy alto)
-  return 1;   // Si num < pick (tu guess es muy bajo)
+ return 0; // Si num === pick (¡encontrado!)
+ return -1; // Si num > pick (tu guess es muy alto)
+ return 1; // Si num < pick (tu guess es muy bajo)
 }
 ```
 
@@ -49,11 +49,11 @@ Como el espacio de búsqueda está ordenado (números del 1 al n) y tenemos feed
 
 1. **Inicializar punteros**: `start = 1`, `end = n`
 2. **Mientras start <= end**:
-   - Calcular punto medio: `mid = Math.floor((start + end) / 2)`
-   - Hacer guess: `result = guess(mid)`
-   - **Si result === 0**: ¡Encontrado! Retornar `mid`
-   - **Si result === -1**: `mid` es muy alto → buscar en mitad inferior → `end = mid - 1`
-   - **Si result === 1**: `mid` es muy bajo → buscar en mitad superior → `start = mid + 1`
+ - Calcular punto medio: `mid = Math.floor((start + end) / 2)`
+ - Hacer guess: `result = guess(mid)`
+ - **Si result === 0**: ¡Encontrado! Retornar `mid`
+ - **Si result === -1**: `mid` es muy alto → buscar en mitad inferior → `end = mid - 1`
+ - **Si result === 1**: `mid` es muy bajo → buscar en mitad superior → `start = mid + 1`
 
 ### Ejemplo walkthrough (n=10, pick=6):
 
@@ -90,7 +90,7 @@ Este problema presenta un desafío único para testing porque:
 
 ```typescript
 declare global {
-  var guess: (num: number) => number;
+ var guess: (num: number) => number;
 }
 
 global.guess = mockFunction; // Error de TypeScript
@@ -125,11 +125,11 @@ vi.stubGlobal("guess", mockFunction);
 
 ```typescript
 const createGuessLogic = (pick: number) => {
-  return (num: number) => {
-    if (num === pick) return 0; // Correcto
-    else if (num > pick) return -1; // Muy alto
-    else return 1; // Muy bajo
-  };
+ return (num: number) => {
+ if (num === pick) return 0; // Correcto
+ else if (num > pick) return -1; // Muy alto
+ else return 1; // Muy bajo
+ };
 };
 ```
 
@@ -143,11 +143,11 @@ const createGuessLogic = (pick: number) => {
 
 ```typescript
 it("should find pick = 6 in range n = 10", () => {
-  const guessLogic = createGuessLogic(6); // Crear lógica para pick=6
-  vi.stubGlobal("guess", vi.fn(guessLogic)); // Instalar como global mock
+ const guessLogic = createGuessLogic(6); // Crear lógica para pick=6
+ vi.stubGlobal("guess", vi.fn(guessLogic)); // Instalar como global mock
 
-  const result = guessNumber(10); // Ejecutar nuestra función
-  expect(result).toBe(6); // Verificar resultado
+ const result = guessNumber(10); // Ejecutar nuestra función
+ expect(result).toBe(6); // Verificar resultado
 });
 ```
 
@@ -163,15 +163,15 @@ it("should find pick = 6 in range n = 10", () => {
 
 ```typescript
 it("should be efficient - limited number of calls", () => {
-  const guessLogic = createGuessLogic(6);
-  const guessSpy = vi.fn(guessLogic); // Spy para trackear llamadas
-  vi.stubGlobal("guess", guessSpy);
+ const guessLogic = createGuessLogic(6);
+ const guessSpy = vi.fn(guessLogic); // Spy para trackear llamadas
+ vi.stubGlobal("guess", guessSpy);
 
-  guessNumber(10);
+ guessNumber(10);
 
-  // Binary search para n=10 debe hacer máximo 4 llamadas
-  expect(guessSpy.mock.calls.length).toBeLessThanOrEqual(4);
-  expect(guessSpy.mock.calls.length).toBeGreaterThan(0);
+ // Binary search para n=10 debe hacer máximo 4 llamadas
+ expect(guessSpy.mock.calls.length).toBeLessThanOrEqual(4);
+ expect(guessSpy.mock.calls.length).toBeGreaterThan(0);
 });
 ```
 

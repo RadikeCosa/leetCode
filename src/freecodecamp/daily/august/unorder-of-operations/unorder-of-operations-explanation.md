@@ -85,35 +85,35 @@ Código completo:
  * @returns {number} El resultado final de aplicar las operaciones secuencialmente de izquierda a derecha.
  */
 function evaluate(numbers, operators) {
-  let result = numbers[0];
-  for (let i = 1; i < numbers.length; i++) {
-    const op = operators[(i - 1) % operators.length];
-    const num = numbers[i];
-    switch (op) {
-      case "+":
-        result += num;
-        break;
-      case "-":
-        result -= num;
-        break;
-      case "*":
-        result *= num;
-        break;
-      case "/":
-        result = Math.trunc(result / num);
-        break;
-      case "%":
-        result %= num;
-        break;
-    }
-  }
-  return result;
+ let result = numbers[0];
+ for (let i = 1; i < numbers.length; i++) {
+ const op = operators[(i - 1) % operators.length];
+ const num = numbers[i];
+ switch (op) {
+ case "+":
+ result += num;
+ break;
+ case "-":
+ result -= num;
+ break;
+ case "*":
+ result *= num;
+ break;
+ case "/":
+ result = Math.trunc(result / num);
+ break;
+ case "%":
+ result %= num;
+ break;
+ }
+ }
+ return result;
 }
 
 export default evaluate;
 ```
 
-**Explicación del código:**  
+**Explicación del código:** 
 Se utiliza un bucle `for` para recorrer los números y aplicar el operador correspondiente en cada paso. El operador se selecciona de forma cíclica usando el índice y el operador actual. El bloque `switch` permite aplicar de manera clara y eficiente cada operación aritmética según el operador recibido, facilitando la lectura y el mantenimiento del código. El uso de `Math.trunc` en la división asegura que el resultado sea un número entero, tal como se espera en la mayoría de los problemas de este tipo. Finalmente, la función retorna el resultado acumulado.
 
 ---

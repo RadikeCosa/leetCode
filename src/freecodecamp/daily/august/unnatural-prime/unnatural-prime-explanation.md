@@ -45,11 +45,11 @@ Este problema es un clásico de teoría de números. El objetivo es determinar s
 
 ```javascript
 function unnaturalPrime(n) {
-  if (n <= 1) return false;
-  for (let i = 2; i * i <= n; i++) {
-    if (n % i === 0) return false;
-  }
-  return true;
+ if (n <= 1) return false;
+ for (let i = 2; i * i <= n; i++) {
+ if (n % i === 0) return false;
+ }
+ return true;
 }
 ```
 
@@ -66,11 +66,11 @@ function unnaturalPrime(n) {
 
 ```javascript
 function unnaturalPrime(n) {
-  if (n <= 1) return false;
-  for (let i = 2; i < n; i++) {
-    if (n % i === 0) return false;
-  }
-  return true;
+ if (n <= 1) return false;
+ for (let i = 2; i < n; i++) {
+ if (n % i === 0) return false;
+ }
+ return true;
 }
 ```
 

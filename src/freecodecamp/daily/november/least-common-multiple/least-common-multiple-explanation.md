@@ -36,19 +36,19 @@ El **mínimo común múltiplo (mcm)** de dos números enteros \(a\) y \(b\) (don
 #### Por qué funciona esta fórmula
 
 - Todo número natural se puede descomponer en factores primos:
-  \[
-  a = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}, \quad b = p_1^{f_1} p_2^{f_2} \cdots p_k^{f_k}
-  \]
-  (los exponentes que no aparecen son cero).
-- El mcd toma el **mínimo** exponente de cada primo:  
-  \(\operatorname{mcd}(a,b) = p_1^{\min(e_1,f_1)} p_2^{\min(e_2,f_2)} \cdots\)
-- El mcm toma el **máximo** exponente de cada primo:  
-  \(\operatorname{mcm}(a,b) = p_1^{\max(e_1,f_1)} p_2^{\max(e_2,f_2)} \cdots\)
+ \[
+ a = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}, \quad b = p_1^{f_1} p_2^{f_2} \cdots p_k^{f_k}
+ \]
+ (los exponentes que no aparecen son cero).
+- El mcd toma el **mínimo** exponente de cada primo: 
+ \(\operatorname{mcd}(a,b) = p_1^{\min(e_1,f_1)} p_2^{\min(e_2,f_2)} \cdots\)
+- El mcm toma el **máximo** exponente de cada primo: 
+ \(\operatorname{mcm}(a,b) = p_1^{\max(e_1,f_1)} p_2^{\max(e_2,f_2)} \cdots\)
 - Si multiplicas mcm × mcd:
-  \[
-  \operatorname{mcm}(a,b) \cdot \operatorname{mcd}(a,b) = p_1^{\max+\min} p_2^{\max+\min} \cdots = p_1^{e_1+f_1} p_2^{e_2+f_2} \cdots = a \cdot b
-  \]
-  (porque \(\max(e_i,f_i) + \min(e_i,f_i) = e_i + f_i\)).
+ \[
+ \operatorname{mcm}(a,b) \cdot \operatorname{mcd}(a,b) = p_1^{\max+\min} p_2^{\max+\min} \cdots = p_1^{e_1+f_1} p_2^{e_2+f_2} \cdots = a \cdot b
+ \]
+ (porque \(\max(e_i,f_i) + \min(e_i,f_i) = e_i + f_i\)).
 
 Por eso:
 \[\
@@ -62,16 +62,16 @@ El mcd se calcula muy rápido con el algoritmo de Euclides:
 
 ```text
 mcd(a, b):
-    mientras b ≠ 0:
-        a, b = b, a mod b
-    devolver |a|
+ mientras b ≠ 0:
+ a, b = b, a mod b
+ devolver |a|
 ```
 
 Ejemplo paso a paso: mcm(12, 18)
 
 1. Factorización:
-   - 12 = 2² × 3¹
-   - 18 = 2¹ × 3²
+ - 12 = 2² × 3¹
+ - 18 = 2¹ × 3²
 2. mcd = 2^{\min(2,1)} × 3^{\min(1,2)} = 2¹ × 3¹ = 6
 3. mcm = 2^{\max(2,1)} × 3^{\max(1,2)} = 2² × 3² = 4 × 9 = 36
 
@@ -86,11 +86,11 @@ O con la fórmula rápida:
 |
 
 - | --------------- | ------------------------------ |
-  | (4, 6) | 12 | Múltiplos comunes: 12, 24, ... |
-  | (5, 10) | 10 | Múltiplos comunes: 10, 20, ... |
-  | (7, 3) | 21 | Múltiplos comunes: 21, 42, ... |
-  | (0, 5) | Indefinido | MCM no está definido para 0 |
-  | (1, 1) | 1 | MCM(1,1) = 1 |
+ | (4, 6) | 12 | Múltiplos comunes: 12, 24, ... |
+ | (5, 10) | 10 | Múltiplos comunes: 10, 20, ... |
+ | (7, 3) | 21 | Múltiplos comunes: 21, 42, ... |
+ | (0, 5) | Indefinido | MCM no está definido para 0 |
+ | (1, 1) | 1 | MCM(1,1) = 1 |
 
 ## Desarrollo de la Solución
 
@@ -102,17 +102,17 @@ El paso a paso sería:
 
 ```js
 function gcd(a, b) {
-  while (b !== 0) {
-    [a, b] = [b, a % b];
-  }
-  return Math.abs(a);
+ while (b !== 0) {
+ [a, b] = [b, a % b];
+ }
+ return Math.abs(a);
 }
 
 function lcm(a, b) {
-  if (a === 0 || b === 0) {
-    throw new Error("MCM no está definido para 0");
-  }
-  return Math.abs(a * b) / gcd(a, b);
+ if (a === 0 || b === 0) {
+ throw new Error("MCM no está definido para 0");
+ }
+ return Math.abs(a * b) / gcd(a, b);
 }
 ```
 
@@ -150,7 +150,7 @@ La complejidad espacial es \(O(1)\) ya que solo se utilizan unas pocas variables
 
 ## Recursos y Referencias
 
-- [Wikipedia: Mínimo Común Múltiplo](https://es.wikipedia.org/wiki/M%C3%ADnimo_com%C3%BAn_m%C3%BAltiplo)
+- [Wikipedia: Mínimo Común Múltiplo](https://es.wikipedia.org/wiki/M%C 3%ADnimo_com%C 3%BAn_m%C 3%BAltiplo)
 - [Wikipedia: Algoritmo de Euclides](https://es.wikipedia.org/wiki/Algoritmo_de_Euclides)
 - [FreeCodeCamp: GCD and LCM](https://www.freecodecamp.org/news/how-to-find-gcd-and-lcm-in-javascript/)
 -

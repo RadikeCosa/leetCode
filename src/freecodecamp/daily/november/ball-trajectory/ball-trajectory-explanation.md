@@ -53,72 +53,72 @@ Este enfoque permite resolver el problema en una sola pasada por la matriz y con
 
 ### Implementación Paso a Paso
 
-1. **Inicialización de variables y obtención de dimensiones de la matriz:**  
-   Se definen las variables para almacenar las posiciones actual y previa de la pelota, y se obtienen las dimensiones de la matriz.
+1. **Inicialización de variables y obtención de dimensiones de la matriz:** 
+ Se definen las variables para almacenar las posiciones actual y previa de la pelota, y se obtienen las dimensiones de la matriz.
 
-2. **Búsqueda de posiciones actual y previa:**  
-   Se recorre la matriz para localizar la celda con valor `2` (posición actual) y la celda con valor `1` (posición previa).
+2. **Búsqueda de posiciones actual y previa:** 
+ Se recorre la matriz para localizar la celda con valor `2` (posición actual) y la celda con valor `1` (posición previa).
 
-3. **Cálculo del vector de movimiento:**  
-   Se calcula la diferencia entre las posiciones actual y previa para determinar la dirección del movimiento.
+3. **Cálculo del vector de movimiento:** 
+ Se calcula la diferencia entre las posiciones actual y previa para determinar la dirección del movimiento.
 
-4. **Cálculo de la próxima posición:**  
-   Se suma el vector de movimiento a la posición actual para obtener la siguiente posición.
+4. **Cálculo de la próxima posición:** 
+ Se suma el vector de movimiento a la posición actual para obtener la siguiente posición.
 
-5. **Gestión de rebotes en los bordes:**  
-   Si la próxima posición está fuera de los límites de la matriz, se invierte la dirección correspondiente para simular el rebote.
+5. **Gestión de rebotes en los bordes:** 
+ Si la próxima posición está fuera de los límites de la matriz, se invierte la dirección correspondiente para simular el rebote.
 
-6. **Retorno de la próxima posición:**  
-   Se devuelve la posición calculada como un array `[fila, columna]`.
+6. **Retorno de la próxima posición:** 
+ Se devuelve la posición calculada como un array `[fila, columna]`.
 
 #### Código de la implementación
 
 ```javascript
 function getNextLocation(matrix) {
-  const rows = matrix.length;
-  const cols = matrix[0].length;
-  let current = null;
-  let previous = null;
+ const rows = matrix.length;
+ const cols = matrix[0].length;
+ let current = null;
+ let previous = null;
 
-  // 1. Buscar posiciones actual y previa
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      if (matrix[r][c] === 2) current = [r, c];
-      if (matrix[r][c] === 1) previous = [r, c];
-    }
-  }
+ // 1. Buscar posiciones actual y previa
+ for (let r = 0; r < rows; r++) {
+ for (let c = 0; c < cols; c++) {
+ if (matrix[r][c] === 2) current = [r, c];
+ if (matrix[r][c] === 1) previous = [r, c];
+ }
+ }
 
-  if (!current || !previous) return null;
+ if (!current || !previous) return null;
 
-  // 2. Calcular dirección del movimiento
-  let moveRow = current[0] - previous[0];
-  let moveCol = current[1] - previous[1];
+ // 2. Calcular dirección del movimiento
+ let moveRow = current[0] - previous[0];
+ let moveCol = current[1] - previous[1];
 
-  // 3. Calcular próxima posición
-  let nextRow = current[0] + moveRow;
-  let nextCol = current[1] + moveCol;
+ // 3. Calcular próxima posición
+ let nextRow = current[0] + moveRow;
+ let nextCol = current[1] + moveCol;
 
-  // 4. Rebote en bordes
-  if (nextRow < 0 || nextRow >= rows) {
-    moveRow *= -1;
-    nextRow = current[0] + moveRow;
-  }
-  if (nextCol < 0 || nextCol >= cols) {
-    moveCol *= -1;
-    nextCol = current[1] + moveCol;
-  }
+ // 4. Rebote en bordes
+ if (nextRow < 0 || nextRow >= rows) {
+ moveRow *= -1;
+ nextRow = current[0] + moveRow;
+ }
+ if (nextCol < 0 || nextCol >= cols) {
+ moveCol *= -1;
+ nextCol = current[1] + moveCol;
+ }
 
-  // 5. Retornar la próxima posición
-  return [nextRow, nextCol];
+ // 5. Retornar la próxima posición
+ return [nextRow, nextCol];
 }
 ```
 
 ## Análisis de Complejidad
 
-**Complejidad Temporal:**  
+**Complejidad Temporal:** 
 La función recorre toda la matriz una sola vez para encontrar las posiciones actual y previa de la pelota. Si la matriz tiene `n` filas y `m` columnas, la complejidad es **O(n \* m)**.
 
-**Complejidad Espacial:**  
+**Complejidad Espacial:** 
 Se utilizan solo unas pocas variables para almacenar posiciones y dimensiones, por lo que la complejidad espacial es **O(1)**.
 
 ### Posibles Optimizaciones

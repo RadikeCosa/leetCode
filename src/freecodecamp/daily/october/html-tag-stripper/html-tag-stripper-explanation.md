@@ -78,7 +78,7 @@ Se implementó la solución usando expresiones regulares por su simplicidad y ef
 
 ```javascript
 function stripTags(html) {
-  return html.replace(/<[^>]*>/g, "");
+ return html.replace(/<[^>]*>/g, "");
 }
 ```
 
@@ -90,9 +90,9 @@ La expresión regular `/<[^>]*>/g` funciona de la siguiente manera:
 
 1. **`<`** - Carácter literal de apertura de etiqueta
 2. **`[^>]*`** - Clase de caracteres negada:
-   - `[^>]` significa "cualquier caracter excepto `>`"
-   - `*` significa "cero o más ocurrencias"
-   - Esto captura todo el contenido dentro de la etiqueta, incluyendo atributos
+ - `[^>]` significa "cualquier caracter excepto `>`"
+ - `*` significa "cero o más ocurrencias"
+ - Esto captura todo el contenido dentro de la etiqueta, incluyendo atributos
 3. **`>`** - Carácter literal de cierre de etiqueta
 4. **`g`** - Flag global que reemplaza todas las ocurrencias, no solo la primera
 

@@ -53,14 +53,14 @@ Usamos el **template estándar** con una modificación crucial en el return:
 
 ```typescript
 while (left <= right) {
-  const mid = Math.floor(left + (right - left) / 2);
-  if (nums[mid] === target) {
-    return mid; // Caso: elemento encontrado
-  } else if (nums[mid] < target) {
-    left = mid + 1;
-  } else {
-    right = mid - 1;
-  }
+ const mid = Math.floor(left + (right - left) / 2);
+ if (nums[mid] === target) {
+ return mid; // Caso: elemento encontrado
+ } else if (nums[mid] < target) {
+ left = mid + 1;
+ } else {
+ right = mid - 1;
+ }
 }
 return left; // ¡CLAVE! - Posición de inserción
 ```
@@ -97,32 +97,32 @@ Durante la implementación y testing identificamos estos casos críticos:
 
 1. **Target existe en el array**:
 
-   - Input: `[1,3,5,6], target = 5`
-   - Output: `2` (índice exacto)
-   - Comportamiento: Igual que binary search estándar
+ - Input: `[1,3,5,6], target = 5`
+ - Output: `2` (índice exacto)
+ - Comportamiento: Igual que binary search estándar
 
 2. **Target menor que el primer elemento**:
 
-   - Input: `[1,3,5,6], target = 0`
-   - Output: `0` (insertar al inicio)
-   - Comportamiento: `left` nunca se mueve, termina en 0
+ - Input: `[1,3,5,6], target = 0`
+ - Output: `0` (insertar al inicio)
+ - Comportamiento: `left` nunca se mueve, termina en 0
 
 3. **Target en medio del array**:
 
-   - Input: `[1,3,5,6], target = 2`
-   - Output: `1` (insertar entre 1 y 3)
-   - Comportamiento: Binary search termina con `left` apuntando a la posición correcta
+ - Input: `[1,3,5,6], target = 2`
+ - Output: `1` (insertar entre 1 y 3)
+ - Comportamiento: Binary search termina con `left` apuntando a la posición correcta
 
 4. **Target mayor que todos los elementos**:
 
-   - Input: `[1,3,5,6], target = 7`
-   - Output: `4` (insertar al final)
-   - Comportamiento: `left` se mueve hasta `nums.length`
+ - Input: `[1,3,5,6], target = 7`
+ - Output: `4` (insertar al final)
+ - Comportamiento: `left` se mueve hasta `nums.length`
 
 5. **Array de un solo elemento**:
-   - Input: `[1], target = 2`
-   - Output: `1` (insertar después del único elemento)
-   - Comportamiento: Template maneja correctamente
+ - Input: `[1], target = 2`
+ - Output: `1` (insertar después del único elemento)
+ - Comportamiento: Template maneja correctamente
 
 ### Decisiones de implementación
 
@@ -148,14 +148,14 @@ Durante la implementación y testing identificamos estos casos críticos:
 
 - **Time complexity**: O(log n)
 
-  - Binary search divide el espacio de búsqueda a la mitad en cada iteración
-  - En el peor caso, realizamos log₂(n) comparaciones
-  - Mismo que Binary Search (704)
+ - Binary search divide el espacio de búsqueda a la mitad en cada iteración
+ - En el peor caso, realizamos log₂(n) comparaciones
+ - Mismo que Binary Search (704)
 
 - **Space complexity**: O(1)
-  - Solo usamos variables adicionales: `left`, `right`, `mid`
-  - No dependemos del tamaño del input
-  - Algoritmo in-place
+ - Solo usamos variables adicionales: `left`, `right`, `mid`
+ - No dependemos del tamaño del input
+ - Algoritmo in-place
 
 ## Nuevos conceptos aprendidos
 

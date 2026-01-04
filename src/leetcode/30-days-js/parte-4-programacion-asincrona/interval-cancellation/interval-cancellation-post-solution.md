@@ -21,27 +21,27 @@ The approach leverages JavaScript closures to maintain access to the `intervalId
 
 ```ts
 type JSONValue =
-  | null
-  | boolean
-  | number
-  | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
+ | null
+ | boolean
+ | number
+ | string
+ | JSONValue[]
+ | { [key: string]: JSONValue };
 type Fn = (...args: JSONValue[]) => JSONValue;
 
 export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
-  // Execute immediately (time 0)
-  fn(...args);
+ // Execute immediately (time 0)
+ fn(...args);
 
-  // Set up repetition every t milliseconds
-  const intervalId = setInterval(() => {
-    fn(...args);
-  }, t);
+ // Set up repetition every t milliseconds
+ const intervalId = setInterval(() => {
+ fn(...args);
+ }, t);
 
-  // Return cancellation function
-  return () => {
-    clearInterval(intervalId);
-  };
+ // Return cancellation function
+ return () => {
+ clearInterval(intervalId);
+ };
 }
 ```
 
@@ -49,17 +49,17 @@ export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
 
 - **Edge Cases Handled**:
 
-  - Early cancellation (before first interval): Only immediate execution occurs
-  - Multiple arguments: Correctly spread using `...args`
-  - Various function types: Compatible with any function accepting `JSONValue` parameters
+ - Early cancellation (before first interval): Only immediate execution occurs
+ - Multiple arguments: Correctly spread using `...args`
+ - Various function types: Compatible with any function accepting `JSONValue` parameters
 
 - **Key Differences from Timeout Cancellation**:
 
-  - Timeout: Single delayed execution using `setTimeout`
-  - Interval: Immediate + periodic execution using immediate call + `setInterval`
+ - Timeout: Single delayed execution using `setTimeout`
+ - Interval: Immediate + periodic execution using immediate call + `setInterval`
 
 - **Memory Management**: Using `clearInterval` prevents memory leaks from uncanceled intervals
 
 - **Alternative Approaches Rejected**:
-  - Using only `setInterval` without immediate execution would miss the time 0 requirement
-  - Using recursive `setTimeout` would be more complex and less clear than the immediate + interval pattern
+ - Using only `setInterval` without immediate execution would miss the time 0 requirement
+ - Using recursive `setTimeout` would be more complex and less clear than the immediate + interval pattern

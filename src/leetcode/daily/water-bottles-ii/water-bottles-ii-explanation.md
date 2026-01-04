@@ -15,7 +15,7 @@ createdAt: "2025-10-02"
 
 ## Descripción del Problema
 
-**Dificultad:** Medium  
+**Dificultad:** Medium 
 **Temas:** Math, Simulation
 
 [Enlace al problema](https://leetcode.com/problems/water-bottles-ii/)
@@ -62,12 +62,12 @@ Este problema es una evolución del clásico "Water Bottles" donde la **clave di
 
 1. **`numBottles = 1, numExchange = 1`:**
 
-   - Inicial: 1 llena → 1 vacía
-   - Intercambio: 1 vacía = 1 requerida → 1 llena → Total: 2
+ - Inicial: 1 llena → 1 vacía
+ - Intercambio: 1 vacía = 1 requerida → 1 llena → Total: 2
 
 2. **`numBottles = 5, numExchange = 10`:**
-   - Inicial: 5 llenas → 5 vacías
-   - No hay intercambios posibles (5 < 10) → Total: 5
+ - Inicial: 5 llenas → 5 vacías
+ - No hay intercambios posibles (5 < 10) → Total: 5
 
 ### Patrones Identificados
 
@@ -86,13 +86,13 @@ Este problema es una evolución del clásico "Water Bottles" donde la **clave di
 ### Pasos del Algoritmo
 
 ```typescript
-1. totalDrunk = numBottles    // Beber todas las iniciales
-2. emptyBottles = numBottles  // Se convierten en vacías
+1. totalDrunk = numBottles // Beber todas las iniciales
+2. emptyBottles = numBottles // Se convierten en vacías
 3. while (emptyBottles >= numExchange):
-   a. emptyBottles -= numExchange  // Usar botellas para intercambio
-   b. totalDrunk++                 // Beber la nueva botella
-   c. emptyBottles++               // Nueva botella se vuelve vacía
-   d. numExchange++                // Incrementar costo de intercambio
+ a. emptyBottles -= numExchange // Usar botellas para intercambio
+ b. totalDrunk++ // Beber la nueva botella
+ c. emptyBottles++ // Nueva botella se vuelve vacía
+ d. numExchange++ // Incrementar costo de intercambio
 4. return totalDrunk
 ```
 
@@ -105,11 +105,11 @@ Este problema es una evolución del clásico "Water Bottles" donde la **clave di
 ## Análisis de Complejidad
 
 - **Complejidad Temporal:** O(log numBottles)
-  - En cada iteración, `numExchange` incrementa, limitando el número total de iteraciones
-  - La progresión aritmética de costos hace que las iteraciones se agoten logarítmicamente
+ - En cada iteración, `numExchange` incrementa, limitando el número total de iteraciones
+ - La progresión aritmética de costos hace que las iteraciones se agoten logarítmicamente
 - **Complejidad Espacial:** O(1)
-  - Solo se usan variables auxiliares constantes
-  - No depende del tamaño de entrada
+ - Solo se usan variables auxiliares constantes
+ - No depende del tamaño de entrada
 
 ## Consideraciones Adicionales
 

@@ -51,10 +51,10 @@ El enfoque elegido consiste en recorrer el string carácter por carácter utiliz
 3. Inicializar un contador `vowelCount` en 0 para llevar la cuenta de las vocales encontradas.
 4. Definir un conjunto de vocales para facilitar la verificación.
 5. Recorrer cada carácter del string:
-   - Si el carácter es una vocal:
-     - Incrementar `vowelCount`.
-     - Agregar la vocal repetida `vowelCount` veces al `result`.
-     - Si el carácter no es una vocal, agregarlo tal cual al `result`.
+ - Si el carácter es una vocal:
+ - Incrementar `vowelCount`.
+ - Agregar la vocal repetida `vowelCount` veces al `result`.
+ - Si el carácter no es una vocal, agregarlo tal cual al `result`.
 6. Al finalizar el recorrido, devolver el string `result`.
 
 **Consideración importante sobre el case:**
@@ -64,21 +64,21 @@ Según el enunciado y los tests, la primera aparición de cada vocal debe manten
 
 ```javascript
 function repeatVowels(str) {
-  let result = "";
-  let vowelCount = 0;
-  const vowels = "aeiouAEIOU";
+ let result = "";
+ let vowelCount = 0;
+ const vowels = "aeiouAEIOU";
 
-  for (let char of str) {
-    if (vowels.includes(char)) {
-      vowelCount++;
-      // La primera aparición mantiene el case, las repeticiones extra son minúsculas
-      result += char + char.toLowerCase().repeat(vowelCount - 1);
-    } else {
-      result += char;
-    }
-  }
+ for (let char of str) {
+ if (vowels.includes(char)) {
+ vowelCount++;
+ // La primera aparición mantiene el case, las repeticiones extra son minúsculas
+ result += char + char.toLowerCase().repeat(vowelCount - 1);
+ } else {
+ result += char;
+ }
+ }
 
-  return result;
+ return result;
 }
 ```
 

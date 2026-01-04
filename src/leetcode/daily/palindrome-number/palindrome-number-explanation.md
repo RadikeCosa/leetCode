@@ -15,7 +15,7 @@ createdAt: "2025-08-14"
 
 ## Descripción del Problema
 
-**LeetCode 9 - Easy**  
+**LeetCode 9 - Easy** 
 **Daily Challenge: 14 de Agosto, 2025**
 
 Dado un entero `x`, devolver `true` si `x` es un palindromo, `false` en caso contrario.
@@ -24,13 +24,13 @@ Un número palindrómico se lee igual hacia adelante y hacia atrás.
 
 ## Ejemplos
 
-| Input | Output | Explicación                                                                  |
+| Input | Output | Explicación |
 |
 
 --- | ---------------------------------------------------------------------------- |
-| 121   | true   | 121 se lee igual hacia adelante y hacia atrás                                |
-| -121  | false  | De izquierda a derecha: -121. De derecha a izquierda: 121-. No es palindromo |
-| 10    | false  | Se lee 01 de derecha a izquierda. No es palindromo                           |
+| 121 | true | 121 se lee igual hacia adelante y hacia atrás |
+| -121 | false | De izquierda a derecha: -121. De derecha a izquierda: 121-. No es palindromo |
+| 10 | false | Se lee 01 de derecha a izquierda. No es palindromo |
 
 ## Restricciones
 
@@ -56,17 +56,17 @@ Se optó por revertir completamente el número usando solo operaciones matemáti
 
 ```typescript
 export function isPalindrome(x: number): boolean {
-  if (x < 0) return false; // Números negativos nunca son palindromos
+ if (x < 0) return false; // Números negativos nunca son palindromos
 
-  let reverse = 0;
-  let num = x;
+ let reverse = 0;
+ let num = x;
 
-  while (num !== 0) {
-    reverse = reverse * 10 + (num % 10); // Construye el reverso dígito a dígito
-    num = Math.floor(num / 10); // Elimina el último dígito procesado
-  }
+ while (num !== 0) {
+ reverse = reverse * 10 + (num % 10); // Construye el reverso dígito a dígito
+ num = Math.floor(num / 10); // Elimina el último dígito procesado
+ }
 
-  return reverse === x; // Compara original vs reverso
+ return reverse === x; // Compara original vs reverso
 }
 ```
 

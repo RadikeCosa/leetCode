@@ -62,15 +62,15 @@ Para resolver el problema, se opta por utilizar una expresión regular (regex) q
 
 ```javascript
 function parseBold(markdown) {
-  // Regular expression to match bold text in Markdown
-  const boldRegex = /(\*\*|__)(\S(?:.*?\S)?)\1/g;
+ // Regular expression to match bold text in Markdown
+ const boldRegex = /(\*\*|__)(\S(?:.*?\S)?)\1/g;
 
-  // Replace Markdown bold with HTML <b> tags
-  markdown = markdown.replace(boldRegex, (_, delimiter, content) => {
-    return `<b>${content}</b>`;
-  });
+ // Replace Markdown bold with HTML <b> tags
+ markdown = markdown.replace(boldRegex, (_, delimiter, content) => {
+ return `<b>${content}</b>`;
+ });
 
-  return markdown;
+ return markdown;
 }
 ```
 

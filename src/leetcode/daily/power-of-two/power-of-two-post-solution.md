@@ -43,9 +43,9 @@ La clave está en la **técnica de bit manipulation**: `n & (n - 1) === 0`
 
 ```typescript []
 function isPowerOfTwo(n: number): boolean {
-  // Bit manipulation: potencias de 2 tienen exactamente un bit en 1
-  // n & (n-1) elimina el bit más bajo, debe resultar en 0
-  // Condición adicional: n > 0 (excluye negativos y cero)
-  return n > 0 && (n & (n - 1)) === 0;
+ // Bit manipulation: potencias de 2 tienen exactamente un bit en 1
+ // n & (n-1) elimina el bit más bajo, debe resultar en 0
+ // Condición adicional: n > 0 (excluye negativos y cero)
+ return n > 0 && (n & (n - 1)) === 0;
 }
 ```

@@ -41,37 +41,37 @@ Analizando los ejemplos proporcionados:
 
 1. `"You must speak wisely."` → `"Speak wisely, you must."`
 
-   - Palabra clave: "must" (posición 2)
-   - Parte movida: "you must" → "you must,"
-   - Parte restante: "speak wisely" → "Speak wisely"
-   - Resultado: "Speak wisely, you must."
+ - Palabra clave: "must" (posición 2)
+ - Parte movida: "you must" → "you must,"
+ - Parte restante: "speak wisely" → "Speak wisely"
+ - Resultado: "Speak wisely, you must."
 
 2. `"You can do it!"` → `"Do it, you can!"`
 
-   - Palabra clave: "can" (posición 2)
-   - Parte movida: "you can" → "you can,"
-   - Parte restante: "do it" → "Do it"
-   - Resultado: "Do it, you can!"
+ - Palabra clave: "can" (posición 2)
+ - Parte movida: "you can" → "you can,"
+ - Parte restante: "do it" → "Do it"
+ - Resultado: "Do it, you can!"
 
 3. `"Do you think you will complete this?"` → `"Complete this, do you think you will?"`
 
-   - Palabra clave: "will" (posición 4)
-   - Parte movida: "do you think you will" → "do you think you will,"
-   - Parte restante: "complete this" → "Complete this"
-   - Resultado: "Complete this, do you think you will?"
+ - Palabra clave: "will" (posición 4)
+ - Parte movida: "do you think you will" → "do you think you will,"
+ - Parte restante: "complete this" → "Complete this"
+ - Resultado: "Complete this, do you think you will?"
 
 4. `"All your base are belong to us."` → `"Belong to us, all your base are."`
 
-   - Palabra clave: "are" (posición 4)
-   - Parte movida: "all your base are" → "all your base are,"
-   - Parte restante: "belong to us" → "Belong to us"
-   - Resultado: "Belong to us, all your base are."
+ - Palabra clave: "are" (posición 4)
+ - Parte movida: "all your base are" → "all your base are,"
+ - Parte restante: "belong to us" → "Belong to us"
+ - Resultado: "Belong to us, all your base are."
 
 5. `"You have much to learn."` → `"Much to learn, you have."`
-   - Palabra clave: "have" (posición 2)
-   - Parte movida: "you have" → "you have,"
-   - Parte restante: "much to learn" → "Much to learn"
-   - Resultado: "Much to learn, you have."
+ - Palabra clave: "have" (posición 2)
+ - Parte movida: "you have" → "you have,"
+ - Parte restante: "much to learn" → "Much to learn"
+ - Resultado: "Much to learn, you have."
 
 ### Restricciones
 
@@ -99,32 +99,32 @@ La solución utiliza un enfoque directo que procesa la oración en los siguiente
 
 ```javascript
 function wiseSpeak(sentence) {
-  const words = sentence.slice(0, -1).split(" ");
-  const punctuation = sentence.slice(-1);
-  const keywords = ["have", "must", "are", "will", "can"];
-  const foundIndex = words.findIndex((word) => keywords.includes(word));
+ const words = sentence.slice(0, -1).split(" ");
+ const punctuation = sentence.slice(-1);
+ const keywords = ["have", "must", "are", "will", "can"];
+ const foundIndex = words.findIndex((word) => keywords.includes(word));
 
-  const before = words
-    .slice(0, foundIndex + 1)
-    .join(" ")
-    .toLowerCase();
-  const after = words.slice(foundIndex + 1).join(" ");
-  const newFirstWord = after.charAt(0).toUpperCase() + after.slice(1);
+ const before = words
+ .slice(0, foundIndex + 1)
+ .join(" ")
+ .toLowerCase();
+ const after = words.slice(foundIndex + 1).join(" ");
+ const newFirstWord = after.charAt(0).toUpperCase() + after.slice(1);
 
-  return `${newFirstWord}, ${before}${punctuation}`;
+ return `${newFirstWord}, ${before}${punctuation}`;
 }
 ```
 
 ### Complejidad
 
 - **Tiempo:** O(n) donde n es la longitud de la oración
-  - `split()` recorre la cadena: O(n)
-  - `findIndex()` recorre el array de palabras: O(m) donde m es número de palabras
-  - Operaciones de `slice()`, `join()`, `toLowerCase()`: O(m)
-  - Total: O(n + m) = O(n)
+ - `split()` recorre la cadena: O(n)
+ - `findIndex()` recorre el array de palabras: O(m) donde m es número de palabras
+ - Operaciones de `slice()`, `join()`, `toLowerCase()`: O(m)
+ - Total: O(n + m) = O(n)
 - **Espacio:** O(m) donde m es el número de palabras
-  - Se crea un array de palabras
-  - Se crean strings temporales para las partes reordenadas
+ - Se crea un array de palabras
+ - Se crean strings temporales para las partes reordenadas
 
 ## Casos de Prueba
 

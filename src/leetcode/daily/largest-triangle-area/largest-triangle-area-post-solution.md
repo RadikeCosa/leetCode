@@ -21,40 +21,40 @@ The determinant formula is derived from the cross product of vectors and avoids 
 
 - **Time complexity**: **O(n³)** where n is the number of points
 
-  - We generate C(n,3) = n×(n-1)×(n-2)/6 combinations using triple nested loops
-  - Each area calculation is O(1) using the determinant formula
-  - With n ≤ 50, this results in at most ~19,600 operations, which is very manageable
+ - We generate C(n,3) = n×(n-1)×(n-2)/6 combinations using triple nested loops
+ - Each area calculation is O(1) using the determinant formula
+ - With n ≤ 50, this results in at most ~19,600 operations, which is very manageable
 
 - **Space complexity**: **O(1)** - Constant extra space
-  - Only using local variables for coordinates and tracking maximum area
-  - The helper function doesn't create additional data structures
-  - No recursion or dynamic arrays needed
+ - Only using local variables for coordinates and tracking maximum area
+ - The helper function doesn't create additional data structures
+ - No recursion or dynamic arrays needed
 
 # Code
 
 ```typescript
 export function largestTriangleArea(points: number[][]): number {
-  const n = points.length;
-  let maxArea = 0;
+ const n = points.length;
+ let maxArea = 0;
 
-  const area = (p1: number[], p2: number[], p3: number[]) => {
-    return (
-      Math.abs(
-        p1[0] * (p2[1] - p3[1]) +
-          p2[0] * (p3[1] - p1[1]) +
-          p3[0] * (p1[1] - p2[1])
-      ) / 2
-    );
-  };
+ const area = (p 1: number[], p 2: number[], p 3: number[]) => {
+ return (
+ Math.abs(
+ p 1[0] * (p 2[1] - p 3[1]) +
+ p 2[0] * (p 3[1] - p 1[1]) +
+ p 3[0] * (p 1[1] - p 2[1])
+ ) / 2
+ );
+ };
 
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-      for (let k = j + 1; k < n; k++) {
-        maxArea = Math.max(maxArea, area(points[i], points[j], points[k]));
-      }
-    }
-  }
-  return maxArea;
+ for (let i = 0; i < n; i++) {
+ for (let j = i + 1; j < n; j++) {
+ for (let k = j + 1; k < n; k++) {
+ maxArea = Math.max(maxArea, area(points[i], points[j], points[k]));
+ }
+ }
+ }
+ return maxArea;
 }
 ```
 
@@ -63,7 +63,7 @@ export function largestTriangleArea(points: number[][]): number {
 - **Edge cases handled**: Collinear points naturally return area = 0, negative coordinates work seamlessly with the determinant formula
 - **Alternative approaches rejected**: Using distance calculations + Heron's formula would be more complex and prone to floating-point precision issues
 - **Key insights**: The determinant approach is mathematically clean and avoids trigonometry entirely
-- **Code optimization journey**: Evolved from verbose `calculateTriangleArea()` function to concise arrow function `area = (p1, p2, p3) =>` for better readability
-- **Direct coordinate access**: Using `p1[0], p1[1]` instead of destructuring `[x1, y1] = p1` reduces variable assignments and improves conciseness
+- **Code optimization journey**: Evolved from verbose `calculateTriangleArea()` function to concise arrow function `area = (p 1, p 2, p 3) =>` for better readability
+- **Direct coordinate access**: Using `p 1[0], p 1[1]` instead of destructuring `[x 1, y 1] = p 1` reduces variable assignments and improves conciseness
 - **Simplified loop bounds**: `i < n` instead of `i < n-2` makes the code more natural to read while `j = i+1, k = j+1` ensures valid combinations
 - **Modern functional style**: Arrow functions and `const` declarations align with contemporary JavaScript best practices

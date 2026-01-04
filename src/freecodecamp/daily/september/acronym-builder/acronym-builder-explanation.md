@@ -21,12 +21,12 @@ Dada una cadena que contiene una o mas palabras, retornar el acronimo de las pal
 - El acronimo debe consistir en la primer letra de cada palabra en mayúscula a menos que se indique lo contrario.
 - Los Acronimos deben ignorar la primer letra de las siguientes palabras a menos que sean la primer palabra:
 
-  - a
-  - for
-  - an
-  - and
-  - by
-  - of
+ - a
+ - for
+ - an
+ - and
+ - by
+ - of
 
 - Las letras del acronimo deben estar en el mismo orden que las palabras en la cadena original.
 - El Acronimo no debe contener espacios.
@@ -61,16 +61,16 @@ El enfoque consiste en dividir la cadena en palabras, iterar sobre ellas y const
 2. Inicializar una cadena vacía para almacenar el acronimo.
 3. Definir un conjunto de palabras a ignorar (a, for, an, and, by, of).
 4. Iterar sobre el array de palabras:
-   - Si la palabra es la primera o no está en el conjunto de palabras a ignorar
-     - Agregar la primera letra de la palabra en mayúscula al acronimo.
-     - Si la palabra está en el conjunto de palabras a ignorar y no es la primera, omitirla.
+ - Si la palabra es la primera o no está en el conjunto de palabras a ignorar
+ - Agregar la primera letra de la palabra en mayúscula al acronimo.
+ - Si la palabra está en el conjunto de palabras a ignorar y no es la primera, omitirla.
 5. Retornar el acronimo construido.
 
 ## Ventaja de Usar Set en ignoreWords
 
-En la implementación, se utiliza un `Set` para almacenar las palabras a ignorar (`ignoreWords`).  
-La principal ventaja de usar un `Set` es que permite verificar si una palabra debe ser ignorada en tiempo constante $O(1)$, mientras que si se usara un array, la búsqueda sería $O(n)$ (donde $n$ es la cantidad de palabras a ignorar).  
-Esto hace que el código sea más eficiente, especialmente si la lista de palabras a ignorar crece.  
+En la implementación, se utiliza un `Set` para almacenar las palabras a ignorar (`ignoreWords`). 
+La principal ventaja de usar un `Set` es que permite verificar si una palabra debe ser ignorada en tiempo constante $O(1)$, mientras que si se usara un array, la búsqueda sería $O(n)$ (donde $n$ es la cantidad de palabras a ignorar). 
+Esto hace que el código sea más eficiente, especialmente si la lista de palabras a ignorar crece. 
 Además, el `Set` evita duplicados automáticamente y su sintaxis es clara para operaciones de pertenencia.
 
 ## Análisis de Complejidad

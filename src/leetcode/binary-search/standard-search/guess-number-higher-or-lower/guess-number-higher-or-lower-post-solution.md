@@ -12,12 +12,12 @@ The solution implements **standard binary search** with two pointers:
 
 2. **Iterative binary search**:
 
-   - Calculate middle point: `mid = Math.floor((start + end) / 2)`
-   - Call the guess API: `result = guess(mid)`
-   - Process the feedback:
-     - `result === 0`: Found the target! Return `mid`
-     - `result === -1`: Our guess is too high, search lower half: `end = mid - 1`
-     - `result === 1`: Our guess is too low, search upper half: `start = mid + 1`
+ - Calculate middle point: `mid = Math.floor((start + end) / 2)`
+ - Call the guess API: `result = guess(mid)`
+ - Process the feedback:
+ - `result === 0`: Found the target! Return `mid`
+ - `result === -1`: Our guess is too high, search lower half: `end = mid - 1`
+ - `result === 1`: Our guess is too low, search upper half: `start = mid + 1`
 
 3. **Repeat until found**: The problem guarantees a solution exists, so we'll always find it
 
@@ -38,19 +38,19 @@ Iteration 3: [6,7] → mid=6 → guess(6)=0 → Found: 6
 
 ```typescript
 function guessNumber(n: number): number {
-  let start = 1;
-  let end = n;
+ let start = 1;
+ let end = n;
 
-  while (start <= end) {
-    const mid = Math.floor((start + end) / 2);
-    const result = guess(mid);
+ while (start <= end) {
+ const mid = Math.floor((start + end) / 2);
+ const result = guess(mid);
 
-    if (result === 0) return mid; // Found the target
-    else if (result === -1) end = mid - 1; // Guess too high, search lower
-    else start = mid + 1; // Guess too low, search higher
-  }
+ if (result === 0) return mid; // Found the target
+ else if (result === -1) end = mid - 1; // Guess too high, search lower
+ else start = mid + 1; // Guess too low, search higher
+ }
 
-  return -1; // Should never reach here given problem constraints
+ return -1; // Should never reach here given problem constraints
 }
 ```
 
@@ -62,6 +62,6 @@ function guessNumber(n: number): number {
 - **Iterative vs recursive**: Chose iterative implementation for O(1) space complexity instead of O(log n) recursive stack
 - **Integer overflow prevention**: Using `Math.floor((start + end) / 2)` instead of `(start + end) / 2` to handle potential precision issues
 - **Why this works**: Binary search is perfect when we have:
-  1. Sorted search space ✓
-  2. Ability to eliminate half the space each iteration ✓
-  3. Directional feedback to guide the search ✓
+ 1. Sorted search space ✓
+ 2. Ability to eliminate half the space each iteration ✓
+ 3. Directional feedback to guide the search ✓

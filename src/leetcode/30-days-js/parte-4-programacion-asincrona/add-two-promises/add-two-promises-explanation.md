@@ -13,23 +13,23 @@ createdAt: "2025-09-01"
 
 # Add Two Promises
 
-Dado dos promesas promise1 y promise2, retorna una nueva promesa. promise1 y promise2 se resolverán con un número. La promesa retornada debe resolverse con la suma de los dos números.
+Dado dos promesas promise 1 y promise 2, retorna una nueva promesa. promise 1 y promise 2 se resolverán con un número. La promesa retornada debe resolverse con la suma de los dos números.
 
 ## Ejemplos
 
 **Ejemplo 1:**
 
 - Input:
-  - promise1 = new Promise(resolve => setTimeout(() => resolve(2), 20))
-  - promise2 = new Promise(resolve => setTimeout(() => resolve(5), 60))
+ - promise 1 = new Promise(resolve => setTimeout(() => resolve(2), 20))
+ - promise 2 = new Promise(resolve => setTimeout(() => resolve(5), 60))
 - Output: 7
 - Explicación: Las dos promesas de entrada se resuelven con los valores 2 y 5 respectivamente. La promesa retornada debe resolverse con 2 + 5 = 7.
 
 **Ejemplo 2:**
 
 - Input:
-  - promise1 = new Promise(resolve => setTimeout(() => resolve(10), 50))
-  - promise2 = new Promise(resolve => setTimeout(() => resolve(-12), 30))
+ - promise 1 = new Promise(resolve => setTimeout(() => resolve(10), 50))
+ - promise 2 = new Promise(resolve => setTimeout(() => resolve(-12), 30))
 - Output: -2
 - Explicación: Las dos promesas se resuelven con 10 y -12, la suma es 10 + (-12) = -2.
 
@@ -58,20 +58,20 @@ Este problema introduce conceptos fundamentales de **programación asíncrona** 
 ### Paso a paso de la solución:
 
 1. **Declarar función async**: La función debe ser `async` para poder usar `await`
-2. **Esperar primera promesa**: `const valor1 = await promise1;`
-3. **Esperar segunda promesa**: `const valor2 = await promise2;`
-4. **Retornar suma**: `return valor1 + valor2;`
+2. **Esperar primera promesa**: `const valor 1 = await promise 1;`
+3. **Esperar segunda promesa**: `const valor 2 = await promise 2;`
+4. **Retornar suma**: `return valor 1 + valor 2;`
 
 ### Solución elegida: async/await secuencial
 
 ```typescript
 export async function addTwoPromises(
-  promise1: Promise<number>,
-  promise2: Promise<number>
+ promise 1: Promise<number>,
+ promise 2: Promise<number>
 ): Promise<number> {
-  const valor1 = await promise1;
-  const valor2 = await promise2;
-  return valor1 + valor2;
+ const valor 1 = await promise 1;
+ const valor 2 = await promise 2;
+ return valor 1 + valor 2;
 }
 ```
 
@@ -86,24 +86,24 @@ export async function addTwoPromises(
 
 ```typescript
 export async function addTwoPromises(
-  promise1: Promise<number>,
-  promise2: Promise<number>
+ promise 1: Promise<number>,
+ promise 2: Promise<number>
 ): Promise<number> {
-  const [valor1, valor2] = await Promise.all([promise1, promise2]);
-  return valor1 + valor2;
+ const [valor 1, valor 2] = await Promise.all([promise 1, promise 2]);
+ return valor 1 + valor 2;
 }
 ```
 
 ### Comparación de enfoques:
 
-| Aspecto         | Secuencial (await)            | Concurrente (Promise.all)              |
+| Aspecto | Secuencial (await) | Concurrente (Promise.all) |
 |
 
 --------- | ----------------------------- | -------------------------------------- |
-| **Tiempo**      | promise1_time + promise2_time | Math.max(promise1_time, promise2_time) |
-| **Legibilidad** | ⭐⭐⭐⭐⭐                    | ⭐⭐⭐⭐                               |
-| **Eficiencia**  | ⭐⭐⭐                        | ⭐⭐⭐⭐⭐                             |
-| **Simplicidad** | ⭐⭐⭐⭐⭐                    | ⭐⭐⭐⭐                               |
+| **Tiempo** | promise 1_time + promise 2_time | Math.max(promise 1_time, promise 2_time) |
+| **Legibilidad** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **Eficiencia** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **Simplicidad** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
 
 **Para este problema**: Ambos enfoques son válidos. La diferencia de rendimiento es mínima para casos simples.
 

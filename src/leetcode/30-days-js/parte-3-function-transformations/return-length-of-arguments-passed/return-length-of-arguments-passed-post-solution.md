@@ -4,7 +4,7 @@ This problem is about understanding how to work with variable numbers of argumen
 
 # Approach
 
-The solution uses ES6 rest parameters syntax:
+The solution uses ES 6 rest parameters syntax:
 
 1. **Rest Parameters**: Use `...args` to collect all arguments into an array
 2. **Array Length**: Return the `.length` property of the arguments array
@@ -20,7 +20,7 @@ This approach is simple, elegant, and leverages modern JavaScript features.
 
 ```ts
 export function argumentsLength(...args: any[]): number {
-  return args.length;
+ return args.length;
 }
 ```
 
@@ -28,6 +28,6 @@ export function argumentsLength(...args: any[]): number {
 
 - **Rest Parameters**: The `...args` syntax collects all arguments into an array
 - **Type Safety**: Using `any[]` allows any type of arguments while maintaining TypeScript compatibility
-- **ES6 Feature**: Rest parameters are a modern JavaScript feature that's cleaner than the old `arguments` object
+- **ES 6 Feature**: Rest parameters are a modern JavaScript feature that's cleaner than the old `arguments` object
 - **Edge Cases**: Naturally handles 0 arguments (empty array has length 0)
 - **Alternative**: Could use the legacy `arguments` object, but rest parameters are preferred in modern JavaScript

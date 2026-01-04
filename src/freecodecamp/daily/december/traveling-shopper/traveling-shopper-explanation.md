@@ -27,11 +27,11 @@ Usá la siguiente tabla de cambio para convertir los valores:
 
 | Moneda | Equivalente en USD |
 | ------ | ------------------ |
-| USD    | 1.00 USD           |
-| EUR    | 1.10 USD           |
-| GBP    | 1.25 USD           |
-| JPY    | 0.0070 USD         |
-| CAD    | 0.75 USD           |
+| USD | 1.00 USD |
+| EUR | 1.10 USD |
+| GBP | 1.25 USD |
+| JPY | 0.0070 USD |
+| CAD | 0.75 USD |
 
 - Si podés comprar todos los ítems, devolvé "Buy them all!"
 - De lo contrario, devolvé "Buy the first x items", donde x es la cantidad de ítems que podés adquirir comprándolos en el orden dado.
@@ -74,28 +74,28 @@ Ejemplo de implementación en JavaScript:
 
 ```js
 const rates = {
-  USD: 1.0,
-  EUR: 1.1,
-  GBP: 1.25,
-  JPY: 0.007,
-  CAD: 0.75,
+ USD: 1.0,
+ EUR: 1.1,
+ GBP: 1.25,
+ JPY: 0.007,
+ CAD: 0.75,
 };
 
 export default function buyItems(amount, items) {
-  // Convertir monto inicial a USD
-  let budget = parseFloat(amount[0]) * rates[amount[1]];
-  let count = 0;
+ // Convertir monto inicial a USD
+ let budget = parseFloat(amount[0]) * rates[amount[1]];
+ let count = 0;
 
-  for (const [price, currency] of items) {
-    const priceUSD = parseFloat(price) * rates[currency];
-    if (budget >= priceUSD) {
-      budget -= priceUSD;
-      count++;
-    } else {
-      return `Buy the first ${count} items.`;
-    }
-  }
-  return "Buy them all!";
+ for (const [price, currency] of items) {
+ const priceUSD = parseFloat(price) * rates[currency];
+ if (budget >= priceUSD) {
+ budget -= priceUSD;
+ count++;
+ } else {
+ return `Buy the first ${count} items.`;
+ }
+ }
+ return "Buy them all!";
 }
 ```
 

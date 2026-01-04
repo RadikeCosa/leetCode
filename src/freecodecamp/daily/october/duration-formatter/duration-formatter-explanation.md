@@ -38,30 +38,30 @@ La solución utiliza operaciones matemáticas básicas para convertir segundos t
 2. **Calcular minutos restantes**: `Math.floor((totalSeconds % 3600) / 60)`
 3. **Calcular segundos restantes**: `totalSeconds % 60`
 4. **Formatear la salida** siguiendo las reglas específicas:
-   - Segundos siempre con 2 dígitos: `.padStart(2, '0')`
-   - Minutos sin ceros a la izquierda (excepto cuando es 0)
-   - Horas solo si son > 0
+ - Segundos siempre con 2 dígitos: `.padStart(2, '0')`
+ - Minutos sin ceros a la izquierda (excepto cuando es 0)
+ - Horas solo si son > 0
 
 **Implementación paso a paso:**
 
 ```javascript
 function format(seconds) {
-  // Calcular horas, minutos y segundos
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds % 3600) / 60);
-  const secs = seconds % 60;
+ // Calcular horas, minutos y segundos
+ const hours = Math.floor(seconds / 3600);
+ const minutes = Math.floor((seconds % 3600) / 60);
+ const secs = seconds % 60;
 
-  // Formatear segundos con 2 dígitos
-  const formattedSeconds = secs.toString().padStart(2, "0");
+ // Formatear segundos con 2 dígitos
+ const formattedSeconds = secs.toString().padStart(2, "0");
 
-  // Construir resultado según reglas
-  if (hours > 0) {
-    return `${hours}:${minutes
-      .toString()
-      .padStart(2, "0")}:${formattedSeconds}`;
-  } else {
-    return `${minutes}:${formattedSeconds}`;
-  }
+ // Construir resultado según reglas
+ if (hours > 0) {
+ return `${hours}:${minutes
+ .toString()
+ .padStart(2, "0")}:${formattedSeconds}`;
+ } else {
+ return `${minutes}:${formattedSeconds}`;
+ }
 }
 ```
 
@@ -75,42 +75,42 @@ function format(seconds) {
 
 1. **Uso de objetos Date (menos eficiente):**
 
-   ```javascript
-   function formatWithDate(seconds) {
-     const date = new Date(seconds * 1000);
-     const h = date.getUTCHours();
-     const m = date.getUTCMinutes();
-     const s = date.getUTCSeconds();
-     // Formatear según reglas...
-   }
-   ```
+ ```javascript
+ function formatWithDate(seconds) {
+ const date = new Date(seconds * 1000);
+ const h = date.getUTCHours();
+ const m = date.getUTCMinutes();
+ const s = date.getUTCSeconds();
+ // Formatear según reglas...
+ }
+ ```
 
-   - Ventaja: Manejo automático de conversiones
-   - Desventaja: Overhead innecesario para cálculos simples
+ - Ventaja: Manejo automático de conversiones
+ - Desventaja: Overhead innecesario para cálculos simples
 
 2. **Conversión a string y manipulación:**
 
-   ```javascript
-   function formatWithStrings(seconds) {
-     const totalMinutes = Math.floor(seconds / 60);
-     const remainingSeconds = seconds % 60;
-     const hours = Math.floor(totalMinutes / 60);
-     const minutes = totalMinutes % 60;
-     // Formatear strings...
-   }
-   ```
+ ```javascript
+ function formatWithStrings(seconds) {
+ const totalMinutes = Math.floor(seconds / 60);
+ const remainingSeconds = seconds % 60;
+ const hours = Math.floor(totalMinutes / 60);
+ const minutes = totalMinutes % 60;
+ // Formatear strings...
+ }
+ ```
 
-   - Más verboso pero conceptualmente claro
-   - Mayor riesgo de errores en formateo
+ - Más verboso pero conceptualmente claro
+ - Mayor riesgo de errores en formateo
 
 3. **Función auxiliar para padding:**
 
-   ```javascript
-   const pad = (num) => num.toString().padStart(2, "0");
-   // Usar pad() consistentemente
-   ```
+ ```javascript
+ const pad = (num) => num.toString().padStart(2, "0");
+ // Usar pad() consistentemente
+ ```
 
-   - Mejora legibilidad y reusabilidad
+ - Mejora legibilidad y reusabilidad
 
 ## Complejidad
 

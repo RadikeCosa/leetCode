@@ -57,11 +57,11 @@ El enfoque consiste en dividir la cadena en palabras utilizando una expresión r
 
 ```javascript
 function reverseSentence(sentence) {
-  return sentence
-    .trim() // Elimina espacios al inicio y al final
-    .split(/\s+/) // Divide la cadena en palabras, manejando múltiples espacios
-    .reverse() // Invierte el arreglo de palabras
-    .join(" "); // Une las palabras con un solo espacio
+ return sentence
+ .trim() // Elimina espacios al inicio y al final
+ .split(/\s+/) // Divide la cadena en palabras, manejando múltiples espacios
+ .reverse() // Invierte el arreglo de palabras
+ .join(" "); // Une las palabras con un solo espacio
 }
 ```
 

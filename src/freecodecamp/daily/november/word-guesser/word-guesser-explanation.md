@@ -15,10 +15,10 @@ createdAt: "2025-11-29"
 
 Te dan dos cadenas de la misma longitud, una palabra secreta y una suposición. Compara la suposición con la palabra secreta usando las siguientes reglas:
 
-La palabra secreta y la suposición solo consistirán en letras mayúsculas ("A" a "Z");  
-Por cada letra en la suposición, reemplázala con un número según cómo coincida con la palabra secreta:  
-"2" si la letra está en la palabra secreta y en la posición correcta.  
-"1" si la letra está en la palabra secreta pero en la posición incorrecta.  
+La palabra secreta y la suposición solo consistirán en letras mayúsculas ("A" a "Z"); 
+Por cada letra en la suposición, reemplázala con un número según cómo coincida con la palabra secreta: 
+"2" si la letra está en la palabra secreta y en la posición correcta. 
+"1" si la letra está en la palabra secreta pero en la posición incorrecta. 
 "0" si la letra no está en la palabra secreta.
 Cada letra en la palabra secreta puede usarse como máximo una vez.
 Las coincidencias exactas ("2") se asignan primero, luego las coincidencias parciales ("1") se asignan de izquierda a derecha para las letras restantes.
@@ -56,32 +56,32 @@ Aquí tienes la solución en JavaScript, explicada línea por línea:
 
 ```javascript
 function wordGuesser(secret, guess) {
-  const result = Array(secret.length).fill("0"); // Inicializamos el resultado con '0's
-  const secretUsed = Array(secret.length).fill(false); // Marcamos letras usadas en la palabra secreta
-  const guessUsed = Array(guess.length).fill(false); // Marcamos letras usadas en la suposición
+ const result = Array(secret.length).fill("0"); // Inicializamos el resultado con '0's
+ const secretUsed = Array(secret.length).fill(false); // Marcamos letras usadas en la palabra secreta
+ const guessUsed = Array(guess.length).fill(false); // Marcamos letras usadas en la suposición
 
-  // Primer paso: encontrar coincidencias exactas
-  for (let i = 0; i < secret.length; i++) {
-    if (guess[i] === secret[i]) {
-      result[i] = "2"; // Coincidencia exacta
-      secretUsed[i] = true; // Marcamos la letra como usada en la palabra secreta
-      guessUsed[i] = true; // Marcamos la letra como usada en la suposición
-    }
-  }
-  // Segundo paso: encontrar coincidencias parciales
-  for (let i = 0; i < guess.length; i++) {
-    if (!guessUsed[i]) {
-      // Solo consideramos letras no usadas en la suposición
-      for (let j = 0; j < secret.length; j++) {
-        if (!secretUsed[j] && guess[i] === secret[j]) {
-          result[i] = "1"; // Coincidencia parcial
-          secretUsed[j] = true; // Marcamos la letra como usada en la palabra secreta
-          break; // Salimos del bucle interno una vez que encontramos una coincidencia
-        }
-      }
-    }
-  }
-  return result.join("");
+ // Primer paso: encontrar coincidencias exactas
+ for (let i = 0; i < secret.length; i++) {
+ if (guess[i] === secret[i]) {
+ result[i] = "2"; // Coincidencia exacta
+ secretUsed[i] = true; // Marcamos la letra como usada en la palabra secreta
+ guessUsed[i] = true; // Marcamos la letra como usada en la suposición
+ }
+ }
+ // Segundo paso: encontrar coincidencias parciales
+ for (let i = 0; i < guess.length; i++) {
+ if (!guessUsed[i]) {
+ // Solo consideramos letras no usadas en la suposición
+ for (let j = 0; j < secret.length; j++) {
+ if (!secretUsed[j] && guess[i] === secret[j]) {
+ result[i] = "1"; // Coincidencia parcial
+ secretUsed[j] = true; // Marcamos la letra como usada en la palabra secreta
+ break; // Salimos del bucle interno una vez que encontramos una coincidencia
+ }
+ }
+ }
+ }
+ return result.join("");
 }
 ```
 
@@ -107,24 +107,24 @@ Nuestra solución actual tiene una complejidad temporal de O(n^2). Una posible o
 
 ```javascript
 function wordGuesserOptimized(secret, guess) {
-  const result = Array(secret.length).fill("0");
-  const secretFreq = {};
-  // Primer paso: encontrar coincidencias exactas y construir el mapa de frecuencias
-  for (let i = 0; i < secret.length; i++) {
-    if (guess[i] === secret[i]) {
-      result[i] = "2";
-    } else {
-      secretFreq[secret[i]] = (secretFreq[secret[i]] || 0) + 1;
-    }
-  }
-  // Segundo paso: encontrar coincidencias parciales usando el mapa de frecuencias
-  for (let i = 0; i < guess.length; i++) {
-    if (result[i] === "0" && secretFreq[guess[i]] > 0) {
-      result[i] = "1";
-      secretFreq[guess[i]]--;
-    }
-  }
-  return result.join("");
+ const result = Array(secret.length).fill("0");
+ const secretFreq = {};
+ // Primer paso: encontrar coincidencias exactas y construir el mapa de frecuencias
+ for (let i = 0; i < secret.length; i++) {
+ if (guess[i] === secret[i]) {
+ result[i] = "2";
+ } else {
+ secretFreq[secret[i]] = (secretFreq[secret[i]] || 0) + 1;
+ }
+ }
+ // Segundo paso: encontrar coincidencias parciales usando el mapa de frecuencias
+ for (let i = 0; i < guess.length; i++) {
+ if (result[i] === "0" && secretFreq[guess[i]] > 0) {
+ result[i] = "1";
+ secretFreq[guess[i]]--;
+ }
+ }
+ return result.join("");
 }
 ```
 

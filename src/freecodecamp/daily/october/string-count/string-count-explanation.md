@@ -42,8 +42,8 @@ El desafío clave es manejar los solapamientos: si avanzamos más de una posici�
 1. Inicializar un contador en 0
 2. Buscar la primera ocurrencia del patrón usando `indexOf`
 3. Mientras se encuentre una ocurrencia:
-   - Incrementar el contador
-   - Buscar la siguiente ocurrencia comenzando desde la posición siguiente (posición actual + 1)
+ - Incrementar el contador
+ - Buscar la siguiente ocurrencia comenzando desde la posición siguiente (posición actual + 1)
 4. Retornar el contador final
 
 Este algoritmo funciona correctamente para solapamientos porque:
@@ -130,13 +130,13 @@ string.indexOf(searchValue, fromIndex);
 
 ```javascript
 function count(text, pattern) {
-  let count = 0;
-  let pos = text.indexOf(pattern);
-  while (pos !== -1) {
-    count++;
-    pos = text.indexOf(pattern, pos + 1);
-  }
-  return count;
+ let count = 0;
+ let pos = text.indexOf(pattern);
+ while (pos !== -1) {
+ count++;
+ pos = text.indexOf(pattern, pos + 1);
+ }
+ return count;
 }
 ```
 
@@ -145,8 +145,8 @@ function count(text, pattern) {
 1. **Inicialización**: `count = 0` para llevar el conteo de ocurrencias
 2. **Primera búsqueda**: `pos = text.indexOf(pattern)` encuentra la primera ocurrencia desde posición 0
 3. **Bucle principal**: Mientras se encuentren ocurrencias (`pos !== -1`):
-   - Incrementar contador: `count++`
-   - Buscar siguiente ocurrencia desde la posición siguiente: `pos = text.indexOf(pattern, pos + 1)`
+ - Incrementar contador: `count++`
+ - Buscar siguiente ocurrencia desde la posición siguiente: `pos = text.indexOf(pattern, pos + 1)`
 4. **Retorno**: Devolver el contador final
 
 ## Casos de Prueba

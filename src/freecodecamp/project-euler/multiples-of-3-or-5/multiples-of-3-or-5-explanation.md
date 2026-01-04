@@ -56,14 +56,14 @@ La solución implementada utiliza un enfoque funcional con estructuras de datos 
 **Código de la solución:**
 
 ```javascript
-function multiplesOf3Or5(number) {
-  let multiples = new Set();
-  for (let i = 1; i < number; i++) {
-    if (i % 3 === 0 || i % 5 === 0) {
-      multiples.add(i);
-    }
-  }
-  return Array.from(multiples).reduce((acc, curr) => acc + curr, 0);
+function multiplesOf 3 Or 5(number) {
+ let multiples = new Set();
+ for (let i = 1; i < number; i++) {
+ if (i % 3 === 0 || i % 5 === 0) {
+ multiples.add(i);
+ }
+ }
+ return Array.from(multiples).reduce((acc, curr) => acc + curr, 0);
 }
 ```
 
@@ -95,21 +95,21 @@ Los tests implementados cubren todos los ejemplos del enunciado y casos límite 
 
 **Casos de ejemplo del problema:**
 
-- `multiplesOf3Or5(10)` → 23 (múltiplos: 3, 5, 6, 9)
-- `multiplesOf3Or5(49)` → 543
-- `multiplesOf3Or5(1000)` → 233168
-- `multiplesOf3Or5(8456)` → 16687353
-- `multiplesOf3Or5(19564)` → 89301183
+- `multiplesOf 3 Or 5(10)` → 23 (múltiplos: 3, 5, 6, 9)
+- `multiplesOf 3 Or 5(49)` → 543
+- `multiplesOf 3 Or 5(1000)` → 233168
+- `multiplesOf 3 Or 5(8456)` → 16687353
+- `multiplesOf 3 Or 5(19564)` → 89301183
 
 **Casos límite (edge cases):**
 
-- `multiplesOf3Or5(0)` → 0 (sin números naturales por debajo de 0)
-- `multiplesOf3Or5(1)` → 0 (sin múltiplos por debajo de 1)
-- `multiplesOf3Or5(3)` → 0 (sin múltiplos por debajo de 3)
-- `multiplesOf3Or5(4)` → 3 (múltiplos por debajo de 4: 3)
-- `multiplesOf3Or5(6)` → 8 (3 + 5, primer caso con ambos tipos de múltiplos)
-- `multiplesOf3Or5(15)` → 45 (múltiplos: 3,5,6,9,10,12, suma = 3+5+6+9+10+12 = 45)
-- `multiplesOf3Or5(16)` → 60 (múltiplos: 3,5,6,9,10,12,15, suma = 3+5+6+9+10+12+15 = 60)
+- `multiplesOf 3 Or 5(0)` → 0 (sin números naturales por debajo de 0)
+- `multiplesOf 3 Or 5(1)` → 0 (sin múltiplos por debajo de 1)
+- `multiplesOf 3 Or 5(3)` → 0 (sin múltiplos por debajo de 3)
+- `multiplesOf 3 Or 5(4)` → 3 (múltiplos por debajo de 4: 3)
+- `multiplesOf 3 Or 5(6)` → 8 (3 + 5, primer caso con ambos tipos de múltiplos)
+- `multiplesOf 3 Or 5(15)` → 45 (múltiplos: 3,5,6,9,10,12, suma = 3+5+6+9+10+12 = 45)
+- `multiplesOf 3 Or 5(16)` → 60 (múltiplos: 3,5,6,9,10,12,15, suma = 3+5+6+9+10+12+15 = 60)
 
 **Verificación de eliminación de duplicados:**
 
@@ -156,14 +156,14 @@ Durante el proceso de resolución, consideramos varias aproximaciones diferentes
 **Código alternativo:**
 
 ```javascript
-function multiplesOf3Or5(number) {
-  let sum = 0;
-  for (let i = 1; i < number; i++) {
-    if (i % 3 === 0 || i % 5 === 0) {
-      sum += i;
-    }
-  }
-  return sum;
+function multiplesOf 3 Or 5(number) {
+ let sum = 0;
+ for (let i = 1; i < number; i++) {
+ if (i % 3 === 0 || i % 5 === 0) {
+ sum += i;
+ }
+ }
+ return sum;
 }
 ```
 
@@ -187,10 +187,10 @@ Esta es la aproximación más directa y "tradicional". En lugar de almacenar tod
 **Código alternativo:**
 
 ```javascript
-function multiplesOf3Or5(number) {
-  return Array.from({ length: number - 1 }, (_, i) => i + 1)
-    .filter((num) => num % 3 === 0 || num % 5 === 0)
-    .reduce((sum, num) => sum + num, 0);
+function multiplesOf 3 Or 5(number) {
+ return Array.from({ length: number - 1 }, (_, i) => i + 1)
+ .filter((num) => num % 3 === 0 || num % 5 === 0)
+ .reduce((sum, num) => sum + num, 0);
 }
 ```
 
@@ -217,20 +217,20 @@ Es como si tuviéramos una lista de invitados a una fiesta, primero filtramos qu
 **Código alternativo:**
 
 ```javascript
-function multiplesOf3Or5(number) {
-  const n = number - 1; // Ajuste porque el rango es exclusivo
+function multiplesOf 3 Or 5(number) {
+ const n = number - 1; // Ajuste porque el rango es exclusivo
 
-  // Suma de múltiplos de 3: 3 + 6 + 9 + ... + 3*k donde 3*k < number
-  const sum3 = (3 * Math.floor(n / 3) * (Math.floor(n / 3) + 1)) / 2;
+ // Suma de múltiplos de 3: 3 + 6 + 9 + ... + 3*k donde 3*k < number
+ const sum 3 = (3 * Math.floor(n / 3) * (Math.floor(n / 3) + 1)) / 2;
 
-  // Suma de múltiplos de 5: 5 + 10 + 15 + ... + 5*m donde 5*m < number
-  const sum5 = (5 * Math.floor(n / 5) * (Math.floor(n / 5) + 1)) / 2;
+ // Suma de múltiplos de 5: 5 + 10 + 15 + ... + 5*m donde 5*m < number
+ const sum 5 = (5 * Math.floor(n / 5) * (Math.floor(n / 5) + 1)) / 2;
 
-  // Suma de múltiplos de 15: 15 + 30 + 45 + ... + 15*p donde 15*p < number
-  const sum15 = (15 * Math.floor(n / 15) * (Math.floor(n / 15) + 1)) / 2;
+ // Suma de múltiplos de 15: 15 + 30 + 45 + ... + 15*p donde 15*p < number
+ const sum 15 = (15 * Math.floor(n / 15) * (Math.floor(n / 15) + 1)) / 2;
 
-  // Aplicamos principio de inclusión-exclusión
-  return sum3 + sum5 - sum15;
+ // Aplicamos principio de inclusión-exclusión
+ return sum 3 + sum 5 - sum 15;
 }
 ```
 

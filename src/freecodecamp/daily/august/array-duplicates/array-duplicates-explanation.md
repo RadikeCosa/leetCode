@@ -34,20 +34,20 @@ Puntos clave:
 
 ### Casos de Prueba Identificados
 
-1. **Array sin duplicados:**  
-   Entrada: `[1, 2, 3, 4, 5]`  
-   Salida esperada: `[]`  
-   _No hay ningún número que se repita, por lo tanto el resultado es un array vacío._
+1. **Array sin duplicados:** 
+ Entrada: `[1, 2, 3, 4, 5]` 
+ Salida esperada: `[]` 
+ _No hay ningún número que se repita, por lo tanto el resultado es un array vacío._
 
-2. **Array con algunos duplicados:**  
-   Entrada: `[1, 2, 3, 4, 1, 2]`  
-   Salida esperada: `[1, 2]`  
-   _Los números 1 y 2 aparecen más de una vez. El resultado contiene ambos, ordenados._
+2. **Array con algunos duplicados:** 
+ Entrada: `[1, 2, 3, 4, 1, 2]` 
+ Salida esperada: `[1, 2]` 
+ _Los números 1 y 2 aparecen más de una vez. El resultado contiene ambos, ordenados._
 
-3. **Array con múltiples duplicados y valores negativos:**  
-   Entrada: `[2, 34, 0, 1, -6, 23, 5, 3, 2, 5, 67, -6, 23, 2, 43, 2, 12, 0, 2, 4, 4]`  
-   Salida esperada: `[-6, 0, 2, 4, 5, 23]`  
-   _Varios números aparecen más de una vez, incluyendo negativos y ceros. El resultado está ordenado y sin repeticiones._
+3. **Array con múltiples duplicados y valores negativos:** 
+ Entrada: `[2, 34, 0, 1, -6, 23, 5, 3, 2, 5, 67, -6, 23, 2, 43, 2, 12, 0, 2, 4, 4]` 
+ Salida esperada: `[-6, 0, 2, 4, 5, 23]` 
+ _Varios números aparecen más de una vez, incluyendo negativos y ceros. El resultado está ordenado y sin repeticiones._
 
 ## Desarrollo de la Solución
 
@@ -57,20 +57,20 @@ Se utiliza un `Map` para contar la frecuencia de cada número en el array. Esto 
 
 ### Implementación Paso a Paso
 
-1. **Inicializar un Map:**  
-   Crear un `Map` vacío para almacenar la frecuencia de cada número del array.
+1. **Inicializar un Map:** 
+ Crear un `Map` vacío para almacenar la frecuencia de cada número del array.
 
-2. **Contar frecuencias:**  
-   Recorrer el array original y, por cada número, incrementar su contador en el `Map`. Si el número no existe aún en el `Map`, inicializarlo en 1.
+2. **Contar frecuencias:** 
+ Recorrer el array original y, por cada número, incrementar su contador en el `Map`. Si el número no existe aún en el `Map`, inicializarlo en 1.
 
-3. **Filtrar duplicados:**  
-   Recorrer las entradas del `Map` y seleccionar aquellos números cuya frecuencia sea mayor a 1. Agregar estos números a un nuevo array de resultados.
+3. **Filtrar duplicados:** 
+ Recorrer las entradas del `Map` y seleccionar aquellos números cuya frecuencia sea mayor a 1. Agregar estos números a un nuevo array de resultados.
 
-4. **Ordenar el resultado:**  
-   Ordenar el array de duplicados en orden ascendente.
+4. **Ordenar el resultado:** 
+ Ordenar el array de duplicados en orden ascendente.
 
-5. **Retornar el array:**  
-   Devolver el array resultante. Si no hay duplicados, el array estará vacío.
+5. **Retornar el array:** 
+ Devolver el array resultante. Si no hay duplicados, el array estará vacío.
 
 ### Codigo Final
 
@@ -83,25 +83,25 @@ Se utiliza un `Map` para contar la frecuencia de cada número en el array. Esto 
  * @returns {number[]} An array of integers that appear more than once, sorted in ascending order
  */
 function findDuplicates(arr) {
-  const frequencyMap = new Map();
-  const result = [];
+ const frequencyMap = new Map();
+ const result = [];
 
-  // Count the frequency of each number in the array
-  for (const num of arr) {
-    frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
-  }
+ // Count the frequency of each number in the array
+ for (const num of arr) {
+ frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+ }
 
-  // Collect numbers that appear more than once
-  for (const [num, count] of frequencyMap.entries()) {
-    if (count > 1) {
-      result.push(num);
-    }
-  }
+ // Collect numbers that appear more than once
+ for (const [num, count] of frequencyMap.entries()) {
+ if (count > 1) {
+ result.push(num);
+ }
+ }
 
-  // Sort the result array in ascending order
-  result.sort((a, b) => a - b);
+ // Sort the result array in ascending order
+ result.sort((a, b) => a - b);
 
-  return result;
+ return result;
 }
 
 export default findDuplicates;

@@ -15,13 +15,13 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/compare-version-number-leetc
 
 ## Problema
 
-**LeetCode 165: Compare Version Numbers**  
-**Dificultad:** Medium  
+**LeetCode 165: Compare Version Numbers** 
+**Dificultad:** Medium 
 **Temas:** Two Pointers, String
 
 ## Enunciado
 
-Dados dos strings de versión, `version1` y `version2`, compáralos. Un string de versión consiste en revisiones separadas por puntos '.'. El valor de la revisión es su conversión a entero ignorando los ceros a la izquierda.
+Dados dos strings de versión, `version 1` y `version 2`, compáralos. Un string de versión consiste en revisiones separadas por puntos '.'. El valor de la revisión es su conversión a entero ignorando los ceros a la izquierda.
 
 Para comparar strings de versión, compara sus valores de revisión en orden de izquierda a derecha. Si uno de los strings de versión tiene menos revisiones, trata los valores de revisión faltantes como 0.
 
@@ -29,21 +29,21 @@ Para comparar strings de versión, compara sus valores de revisión en orden de 
 
 ### Casos de Ejemplo
 
-1. `version1 = "1.2"`, `version2 = "1.10"` → `-1`
+1. `version 1 = "1.2"`, `version 2 = "1.10"` → `-1`
 
-   - Primera revisión: 1 === 1 ✅ continuar
-   - Segunda revisión: 2 < 10 ✅ retornar -1
+ - Primera revisión: 1 === 1 ✅ continuar
+ - Segunda revisión: 2 < 10 ✅ retornar -1
 
-2. `version1 = "1.01"`, `version2 = "1.001"` → `0`
+2. `version 1 = "1.01"`, `version 2 = "1.001"` → `0`
 
-   - Primera revisión: 1 === 1 ✅ continuar
-   - Segunda revisión: parseInt("01") === parseInt("001") → 1 === 1 ✅ retornar 0
+ - Primera revisión: 1 === 1 ✅ continuar
+ - Segunda revisión: parseInt("01") === parseInt("001") → 1 === 1 ✅ retornar 0
 
-3. `version1 = "1.0"`, `version2 = "1.0.0.0"` → `0`
-   - Primera revisión: 1 === 1 ✅ continuar
-   - Segunda revisión: 0 === 0 ✅ continuar
-   - Tercera revisión: 0 (faltante) === 0 ✅ continuar
-   - Cuarta revisión: 0 (faltante) === 0 ✅ retornar 0
+3. `version 1 = "1.0"`, `version 2 = "1.0.0.0"` → `0`
+ - Primera revisión: 1 === 1 ✅ continuar
+ - Segunda revisión: 0 === 0 ✅ continuar
+ - Tercera revisión: 0 (faltante) === 0 ✅ continuar
+ - Cuarta revisión: 0 (faltante) === 0 ✅ retornar 0
 
 ### Observaciones Clave
 
@@ -64,24 +64,24 @@ Para comparar strings de versión, compara sus valores de revisión en orden de 
 
 ```typescript
 export function compareVersionSplit(
-  version1: string,
-  version2: string
+ version 1: string,
+ version 2: string
 ): number {
-  const parts1 = version1.split("."); // ["1", "2"]
-  const parts2 = version2.split("."); // ["1", "10"]
+ const parts 1 = version 1.split("."); // ["1", "2"]
+ const parts 2 = version 2.split("."); // ["1", "10"]
 
-  const maxLength = Math.max(parts1.length, parts2.length);
+ const maxLength = Math.max(parts 1.length, parts 2.length);
 
-  for (let i = 0; i < maxLength; i++) {
-    const num1 = parseInt(parts1[i] || "0"); // Si no existe, usar "0"
-    const num2 = parseInt(parts2[i] || "0");
+ for (let i = 0; i < maxLength; i++) {
+ const num 1 = parseInt(parts 1[i] || "0"); // Si no existe, usar "0"
+ const num 2 = parseInt(parts 2[i] || "0");
 
-    if (num1 > num2) return 1;
-    if (num1 < num2) return -1;
-    // Si son iguales, continuar al siguiente
-  }
+ if (num 1 > num 2) return 1;
+ if (num 1 < num 2) return -1;
+ // Si son iguales, continuar al siguiente
+ }
 
-  return 0; // Todas las revisiones son iguales
+ return 0; // Todas las revisiones son iguales
 }
 ```
 
@@ -94,39 +94,39 @@ export function compareVersionSplit(
 
 **Proceso paso a paso:**
 
-1. **Inicializar punteros:** `p1` para version1, `p2` para version2
-2. **Loop mientras queden caracteres:** `while (p1 < version1.length || p2 < version2.length)`
+1. **Inicializar punteros:** `p 1` para version 1, `p 2` para version 2
+2. **Loop mientras queden caracteres:** `while (p 1 < version 1.length || p 2 < version 2.length)`
 3. **Extraer números incrementalmente:** construir dígito por dígito sin arrays
 4. **Comparar directamente:** sin almacenamiento intermedio
 
 ```typescript
-export function compareVersion(version1: string, version2: string): number {
-  let p1 = 0; // Puntero para version1
-  let p2 = 0; // Puntero para version2
+export function compareVersion(version 1: string, version 2: string): number {
+ let p 1 = 0; // Puntero para version 1
+ let p 2 = 0; // Puntero para version 2
 
-  while (p1 < version1.length || p2 < version2.length) {
-    // Extraer próximo número de version1
-    let num1 = 0;
-    while (p1 < version1.length && version1[p1] !== ".") {
-      num1 = num1 * 10 + parseInt(version1[p1]); // Construir número dígito a dígito
-      p1++;
-    }
-    p1++; // Saltar el punto '.'
+ while (p 1 < version 1.length || p 2 < version 2.length) {
+ // Extraer próximo número de version 1
+ let num 1 = 0;
+ while (p 1 < version 1.length && version 1[p 1] !== ".") {
+ num 1 = num 1 * 10 + parseInt(version 1[p 1]); // Construir número dígito a dígito
+ p 1++;
+ }
+ p 1++; // Saltar el punto '.'
 
-    // Extraer próximo número de version2
-    let num2 = 0;
-    while (p2 < version2.length && version2[p2] !== ".") {
-      num2 = num2 * 10 + parseInt(version2[p2]); // Construir número dígito a dígito
-      p2++;
-    }
-    p2++; // Saltar el punto '.'
+ // Extraer próximo número de version 2
+ let num 2 = 0;
+ while (p 2 < version 2.length && version 2[p 2] !== ".") {
+ num 2 = num 2 * 10 + parseInt(version 2[p 2]); // Construir número dígito a dígito
+ p 2++;
+ }
+ p 2++; // Saltar el punto '.'
 
-    // Comparar números extraídos
-    if (num1 > num2) return 1;
-    if (num1 < num2) return -1;
-  }
+ // Comparar números extraídos
+ if (num 1 > num 2) return 1;
+ if (num 1 < num 2) return -1;
+ }
 
-  return 0; // Todas las revisiones son iguales
+ return 0; // Todas las revisiones son iguales
 }
 ```
 
@@ -157,10 +157,10 @@ num = 0;
 ### Evitar parseInt() con charCodeAt()
 
 ```typescript
-// En lugar de: parseInt(version1[p1])
-// Usar: version1[p1].charCodeAt(0) - 48
+// En lugar de: parseInt(version 1[p 1])
+// Usar: version 1[p 1].charCodeAt(0) - 48
 
-num1 = num1 * 10 + (version1[p1].charCodeAt(0) - 48);
+num 1 = num 1 * 10 + (version 1[p 1].charCodeAt(0) - 48);
 ```
 
 **Explicación:**
@@ -173,11 +173,11 @@ num1 = num1 * 10 + (version1[p1].charCodeAt(0) - 48);
 ### Manejo Elegante de Puntos
 
 ```typescript
-// En lugar de: p1++ (siempre incrementar)
-// Usar: if (p1 < version1.length) p1++ (solo si no estamos al final)
+// En lugar de: p 1++ (siempre incrementar)
+// Usar: if (p 1 < version 1.length) p 1++ (solo si no estamos al final)
 
-if (p1 < version1.length) p1++; // Evita incrementar fuera de límites
-if (p2 < version2.length) p2++;
+if (p 1 < version 1.length) p 1++; // Evita incrementar fuera de límites
+if (p 2 < version 2.length) p 2++;
 ```
 
 **Explicación:**
@@ -189,9 +189,9 @@ if (p2 < version2.length) p2++;
 
 ```typescript
 // En lugar de múltiples if-else
-// Usar: return num1 > num2 ? 1 : num1 < num2 ? -1 : continuar
+// Usar: return num 1 > num 2 ? 1 : num 1 < num 2 ? -1 : continuar
 
-const result = num1 > num2 ? 1 : num1 < num2 ? -1 : 0;
+const result = num 1 > num 2 ? 1 : num 1 < num 2 ? -1 : 0;
 if (result !== 0) return result;
 ```
 
@@ -218,17 +218,17 @@ if (result !== 0) return result;
 ### Enfoque 4: Normalización de Strings (sin conversión numérica)
 
 - Para evitar conversiones numéricas y posibles problemas de overflow:
-  1. Extraer segmentos con regex o `split`.
-  2. Quitar ceros a la izquierda: `s.replace(/^0+/, "") || "0"`.
-  3. Comparar por longitud; si iguales, comparar lexicográficamente.
+ 1. Extraer segmentos con regex o `split`.
+ 2. Quitar ceros a la izquierda: `s.replace(/^0+/, "") || "0"`.
+ 3. Comparar por longitud; si iguales, comparar lexicográficamente.
 - Útil cuando los segmentos pueden ser arbitrariamente largos y quieres O(1) o bajo overhead por elemento.
 
 ### ¿Mencionar BigInt?
 
 - Recomendación: mencionarlo como alternativa opcional, no como la opción por defecto.
 - ¿Cuándo usar BigInt?
-  - Si esperas segmentos con más de ~15 dígitos (más allá de Number.MAX_SAFE_INTEGER).
-  - Si las constraints no están especificadas o el input puede ser malicioso.
+ - Si esperas segmentos con más de ~15 dígitos (más allá de Number.MAX_SAFE_INTEGER).
+ - Si las constraints no están especificadas o el input puede ser malicioso.
 - Contras: overhead de rendimiento y compatibilidad en entornos muy antiguos.
 - Conclusión práctica: en la mayoría de problemas tipo LeetCode no hace falta; añadir la nota es suficiente para cubrir el caso extremo.
 
@@ -244,4 +244,4 @@ if (result !== 0) return result;
 2. **Dos enfoques válidos:** Split más legible, Two Pointers más eficiente en memoria
 3. **Manejo de casos edge:** Ceros a la izquierda y longitudes diferentes son críticos
 4. **parseInt() vs charCodeAt():** Micro-optimizaciones útiles para casos masivos
-5. **Variables descriptivas:** `p1`, `p2` más claro que `i`, `j`
+5. **Variables descriptivas:** `p 1`, `p 2` más claro que `i`, `j`

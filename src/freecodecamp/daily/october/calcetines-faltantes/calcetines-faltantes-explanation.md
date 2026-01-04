@@ -75,10 +75,10 @@ Analicemos cada caso paso a paso para entender cómo se aplican las reglas:
 
 - **Inicio**: 5 pares = 10 calcetines individuales
 - **Eventos clave en 11 ciclos:**
-  - Ciclos múltiplos de 2 (2,4,6,8,10): 5 calcetines perdidos
-  - Ciclos múltiplos de 3 (3,6,9): 3 calcetines encontrados
-  - Ciclos múltiplos de 5 (5,10): 2 calcetines desechados
-  - Ciclos múltiplos de 10 (10): 1 par comprado (+2 calcetines)
+ - Ciclos múltiplos de 2 (2,4,6,8,10): 5 calcetines perdidos
+ - Ciclos múltiplos de 3 (3,6,9): 3 calcetines encontrados
+ - Ciclos múltiplos de 5 (5,10): 2 calcetines desechados
+ - Ciclos múltiplos de 10 (10): 1 par comprado (+2 calcetines)
 
 **Cálculo**: 10 - 5 + 3 - 2 + 2 = 8 calcetines = 4 pares
 
@@ -86,10 +86,10 @@ Analicemos cada caso paso a paso para entender cómo se aplican las reglas:
 
 - **Inicio**: 6 pares = 12 calcetines individuales
 - **En 25 ciclos:**
-  - Múltiplos de 2: 12 calcetines perdidos
-  - Múltiplos de 3: 8 calcetines encontrados
-  - Múltiplos de 5: 5 calcetines desechados
-  - Múltiplos de 10: 2 pares comprados (+4 calcetines)
+ - Múltiplos de 2: 12 calcetines perdidos
+ - Múltiplos de 3: 8 calcetines encontrados
+ - Múltiplos de 5: 5 calcetines desechados
+ - Múltiplos de 10: 2 pares comprados (+4 calcetines)
 
 **Cálculo**: 12 - 12 + 8 - 5 + 4 = 7 calcetines = 3 pares
 
@@ -97,9 +97,9 @@ Analicemos cada caso paso a paso para entender cómo se aplican las reglas:
 
 - **Inicio**: 1 par = 2 calcetines individuales
 - **En 8 ciclos:**
-  - Múltiplos de 2: 4 calcetines perdidos
-  - Múltiplos de 3: 2 calcetines encontrados
-  - Múltiplos de 5: 1 calcetín desechado
+ - Múltiplos de 2: 4 calcetines perdidos
+ - Múltiplos de 3: 2 calcetines encontrados
+ - Múltiplos de 5: 1 calcetín desechado
 
 **Cálculo**: 2 - 4 + 2 - 1 = -1, pero mínimo es 0 → 0 calcetines = 0 pares
 

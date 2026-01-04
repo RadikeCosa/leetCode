@@ -14,7 +14,7 @@ createdAt: "2025-08-26"
 
 # Maximum Area of Longest Diagonal Rectangle
 
-Dado un array 2D de enteros `dimensions`, donde cada `dimensions[i]` representa `[length, width]` de un rectángulo, retorna el área del rectángulo con la diagonal más larga. Si hay múltiples rectángulos con la misma diagonal más larga, retorna el área del rectángulo con mayor área.
+Dado un array 2 D de enteros `dimensions`, donde cada `dimensions[i]` representa `[length, width]` de un rectángulo, retorna el área del rectángulo con la diagonal más larga. Si hay múltiples rectángulos con la misma diagonal más larga, retorna el área del rectángulo con mayor área.
 
 ## Ejemplos
 
@@ -23,9 +23,9 @@ Dado un array 2D de enteros `dimensions`, donde cada `dimensions[i]` representa 
 - Input: `dimensions = [[9,3],[8,6]]`
 - Output: `48`
 - Explicación:
-  - Rectángulo 0: diagonal = √(9² + 3²) = √90 ≈ 9.487
-  - Rectángulo 1: diagonal = √(8² + 6²) = √100 = 10
-  - El rectángulo 1 tiene la diagonal más larga, área = 8 × 6 = 48
+ - Rectángulo 0: diagonal = √(9² + 3²) = √90 ≈ 9.487
+ - Rectángulo 1: diagonal = √(8² + 6²) = √100 = 10
+ - El rectángulo 1 tiene la diagonal más larga, área = 8 × 6 = 48
 
 ### Ejemplo 2:
 
@@ -73,10 +73,10 @@ const area = length * width;
 
 ```typescript
 if (diagonal > maxDiagonal) {
-  maxDiagonal = diagonal;
-  maxArea = area;
+ maxDiagonal = diagonal;
+ maxArea = area;
 } else if (diagonal === maxDiagonal) {
-  maxArea = Math.max(maxArea, area);
+ maxArea = Math.max(maxArea, area);
 }
 ```
 

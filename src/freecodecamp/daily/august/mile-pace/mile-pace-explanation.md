@@ -86,23 +86,23 @@ Se implementó un enfoque directo que parsea el tiempo, calcula el pace y format
 
 ```javascript
 function milePace(miles, duration) {
-  // Parsear minutos y segundos del formato "MM:SS"
-  const [minutes, seconds] = duration.split(":").map(Number);
+ // Parsear minutos y segundos del formato "MM:SS"
+ const [minutes, seconds] = duration.split(":").map(Number);
 
-  // Convertir tiempo total a segundos
-  const totalSeconds = minutes * 60 + seconds;
+ // Convertir tiempo total a segundos
+ const totalSeconds = minutes * 60 + seconds;
 
-  // Calcular segundos por milla
-  const paceInSeconds = totalSeconds / miles;
+ // Calcular segundos por milla
+ const paceInSeconds = totalSeconds / miles;
 
-  // Convertir segundos por milla a minutos y segundos
-  const paceMinutes = Math.floor(paceInSeconds / 60);
-  const paceRemainingSeconds = Math.round(paceInSeconds % 60);
+ // Convertir segundos por milla a minutos y segundos
+ const paceMinutes = Math.floor(paceInSeconds / 60);
+ const paceRemainingSeconds = Math.round(paceInSeconds % 60);
 
-  // Formatear con ceros a la izquierda
-  return `${String(paceMinutes).padStart(2, "0")}:${String(
-    paceRemainingSeconds
-  ).padStart(2, "0")}`;
+ // Formatear con ceros a la izquierda
+ return `${String(paceMinutes).padStart(2, "0")}:${String(
+ paceRemainingSeconds
+ ).padStart(2, "0")}`;
 }
 ```
 
@@ -129,22 +129,22 @@ function milePace(miles, duration) {
 
 ```javascript
 function parseTime(duration) {
-  const [minutes, seconds] = duration.split(":").map(Number);
-  return minutes * 60 + seconds;
+ const [minutes, seconds] = duration.split(":").map(Number);
+ return minutes * 60 + seconds;
 }
 
 function formatPace(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.round(seconds % 60);
-  return `${String(minutes).padStart(2, "0")}:${String(
-    remainingSeconds
-  ).padStart(2, "0")}`;
+ const minutes = Math.floor(seconds / 60);
+ const remainingSeconds = Math.round(seconds % 60);
+ return `${String(minutes).padStart(2, "0")}:${String(
+ remainingSeconds
+ ).padStart(2, "0")}`;
 }
 
 function milePace(miles, duration) {
-  const totalSeconds = parseTime(duration);
-  const paceInSeconds = totalSeconds / miles;
-  return formatPace(paceInSeconds);
+ const totalSeconds = parseTime(duration);
+ const paceInSeconds = totalSeconds / miles;
+ return formatPace(paceInSeconds);
 }
 ```
 
@@ -160,15 +160,15 @@ function milePace(miles, duration) {
 
 ```javascript
 function milePace(miles, duration) {
-  const [min, sec] = duration.split(":").map(Number);
-  const totalSec = min * 60 + sec;
-  const paceSec = totalSec / miles;
-  const paceMin = Math.floor(paceSec / 60);
-  const paceSecRemain = Math.round(paceSec % 60);
+ const [min, sec] = duration.split(":").map(Number);
+ const totalSec = min * 60 + sec;
+ const paceSec = totalSec / miles;
+ const paceMin = Math.floor(paceSec / 60);
+ const paceSecRemain = Math.round(paceSec % 60);
 
-  return `${paceMin.toString().padStart(2, "0")}:${paceSecRemain
-    .toString()
-    .padStart(2, "0")}`;
+ return `${paceMin.toString().padStart(2, "0")}:${paceSecRemain
+ .toString()
+ .padStart(2, "0")}`;
 }
 ```
 
@@ -184,21 +184,21 @@ function milePace(miles, duration) {
 
 ```javascript
 function milePace(miles, duration) {
-  if (typeof miles !== "number" || miles <= 0) {
-    throw new Error("Miles must be a positive number");
-  }
+ if (typeof miles !== "number" || miles <= 0) {
+ throw new Error("Miles must be a positive number");
+ }
 
-  if (!/^\d{1,3}:\d{2}$/.test(duration)) {
-    throw new Error("Duration must be in MM:SS format");
-  }
+ if (!/^\d{1,3}:\d{2}$/.test(duration)) {
+ throw new Error("Duration must be in MM:SS format");
+ }
 
-  const [minutes, seconds] = duration.split(":").map(Number);
+ const [minutes, seconds] = duration.split(":").map(Number);
 
-  if (seconds >= 60) {
-    throw new Error("Seconds must be less than 60");
-  }
+ if (seconds >= 60) {
+ throw new Error("Seconds must be less than 60");
+ }
 
-  // ... resto de la lógica
+ // ... resto de la lógica
 }
 ```
 
@@ -222,14 +222,14 @@ Se eligió el enfoque directo por las siguientes razones:
 
 **Comparación con otras soluciones:**
 
-| Enfoque               | Tiempo | Espacio | Legibilidad | Robustez  |
+| Enfoque | Tiempo | Espacio | Legibilidad | Robustez |
 |
 
 --------------- | ------ | ------- | ----------- | --------- |
-| **Directo**           | O(1)   | O(1)    | Excelente   | Buena     |
-| **Funciones helper**  | O(1)   | O(1)    | Muy buena   | Buena     |
-| **Template literals** | O(1)   | O(1)    | Buena       | Buena     |
-| **Con validación**    | O(1)   | O(1)    | Regular     | Excelente |
+| **Directo** | O(1) | O(1) | Excelente | Buena |
+| **Funciones helper** | O(1) | O(1) | Muy buena | Buena |
+| **Template literals** | O(1) | O(1) | Buena | Buena |
+| **Con validación** | O(1) | O(1) | Regular | Excelente |
 
 ## Complejidad
 
@@ -252,7 +252,7 @@ Se eligió el enfoque directo por las siguientes razones:
 
 ### Consideraciones Prácticas
 
-- **Para cualquier input razonable**: Instantáneo (< 1ms)
+- **Para cualquier input razonable**: Instantáneo (< 1 ms)
 - **Strings pequeños**: `split()` es muy eficiente en JavaScript
 - **Números decimales**: JavaScript maneja `miles` decimales sin problemas
 - **Redondeo**: `Math.round()` es apropiado para tiempos (no truncar)
@@ -274,7 +274,7 @@ const seconds = Number(duration.slice(3, 5));
 
 ```javascript
 const paceInSeconds =
-  (Number(duration.slice(0, 2)) * 60 + Number(duration.slice(3, 5))) / miles;
+ (Number(duration.slice(0, 2)) * 60 + Number(duration.slice(3, 5))) / miles;
 ```
 
 - ❌ **Menos legible**: Todo en una expresión compleja
@@ -321,26 +321,26 @@ const parsedDuration = duration.split(":").map(Number);
 
 ```python
 def mile_pace(miles, duration):
-    minutes, seconds = map(int, duration.split(':'))
-    total_seconds = minutes * 60 + seconds
-    pace_seconds = total_seconds / miles
-    pace_minutes = int(pace_seconds // 60)
-    pace_remaining_seconds = round(pace_seconds % 60)
-    return f"{pace_minutes:02d}:{pace_remaining_seconds:02d}"
+ minutes, seconds = map(int, duration.split(':'))
+ total_seconds = minutes * 60 + seconds
+ pace_seconds = total_seconds / miles
+ pace_minutes = int(pace_seconds // 60)
+ pace_remaining_seconds = round(pace_seconds % 60)
+ return f"{pace_minutes:02 d}:{pace_remaining_seconds:02 d}"
 ```
 
 **Java:**
 
 ```java
 public String milePace(double miles, String duration) {
-    String[] parts = duration.split(":");
-    int minutes = Integer.parseInt(parts[0]);
-    int seconds = Integer.parseInt(parts[1]);
-    int totalSeconds = minutes * 60 + seconds;
-    double paceInSeconds = totalSeconds / miles;
-    int paceMinutes = (int) Math.floor(paceInSeconds / 60);
-    int paceRemainingSeconds = (int) Math.round(paceInSeconds % 60);
-    return String.format("%02d:%02d", paceMinutes, paceRemainingSeconds);
+ String[] parts = duration.split(":");
+ int minutes = Integer.parseInt(parts[0]);
+ int seconds = Integer.parseInt(parts[1]);
+ int totalSeconds = minutes * 60 + seconds;
+ double paceInSeconds = totalSeconds / miles;
+ int paceMinutes = (int) Math.floor(paceInSeconds / 60);
+ int paceRemainingSeconds = (int) Math.round(paceInSeconds % 60);
+ return String.format("%02 d:%02 d", paceMinutes, paceRemainingSeconds);
 }
 ```
 

@@ -15,13 +15,13 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/generate-signature/
 
 ## Enunciado del Problema
 
-Email Signature Generator  
+Email Signature Generator 
 Dadas cadenas para el nombre, título y compañía de una persona, retornar una firma de correo electrónico como un string único siguiendo estas reglas:
 
 - El nombre debe aparecer primero, precedido por un prefijo que depende de la primera letra del nombre (case-insensitive):
-  - A-I: Usar >> como prefijo.
-  - J-R: Usar -- como prefijo.
-  - S-Z: Usar :: como prefijo.
+ - A-I: Usar >> como prefijo.
+ - J-R: Usar -- como prefijo.
+ - S-Z: Usar :: como prefijo.
 - Luego del nombre, agregar una coma y espacio (, ).
 - El título y la compañía deben seguir, separados por " at " (con espacios).
 - Ejemplo: Para "Quinn Waverly", "Founder and CEO", y "TechCo" retornar "--Quinn Waverly, Founder and CEO at TechCo".
@@ -69,7 +69,7 @@ La función debe construir una firma de correo electrónico formateada, eligiend
 ## Casos Edge y Consideraciones
 
 - Nombres vacíos: `generateSignature("", "Title", "Company")` → prefijo vacío, resultado `", Title at Company"`.
-- Nombres con espacios al inicio: `generateSignature("  Sam", "Dev", "Org")` → se toma el primer carácter, puede requerir trim.
+- Nombres con espacios al inicio: `generateSignature(" Sam", "Dev", "Org")` → se toma el primer carácter, puede requerir trim.
 - Nombres con caracteres especiales: `generateSignature("@lex", "Role", "Biz")` → no entra en ningún rango, prefijo vacío.
 - Títulos o compañías vacías: `generateSignature("Quinn", "", "TechCo")` → resultado válido, solo omite el título.
 - Mayúsculas y minúsculas: la función convierte la inicial a mayúscula para comparar correctamente.

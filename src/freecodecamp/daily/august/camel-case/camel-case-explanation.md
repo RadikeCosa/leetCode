@@ -48,16 +48,16 @@ Finalmente, concatenamos todas las palabras para obtener el resultado final.
 
 ```javascript
 function toCamelCase(s) {
-  let words = s
-    .toLowerCase()
-    .split(/[\s-_]+/)
-    .filter(Boolean);
+ let words = s
+ .toLowerCase()
+ .split(/[\s-_]+/)
+ .filter(Boolean);
 
-  for (let i = 1; i < words.length; i++) {
-    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-  }
+ for (let i = 1; i < words.length; i++) {
+ words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+ }
 
-  return words.join("");
+ return words.join("");
 }
 
 export default toCamelCase;
@@ -97,9 +97,9 @@ Por ejemplo, se podria usar el metodo replace con una funcion de callback para c
 
 ```javascript
 function toCamelCase(s) {
-  return s
-    .toLowerCase()
-    .replace(/[\s-_]+(.)/g, (match, group1) => group1.toUpperCase());
+ return s
+ .toLowerCase()
+ .replace(/[\s-_]+(.)/g, (match, group 1) => group 1.toUpperCase());
 }
 ```
 

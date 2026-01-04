@@ -41,38 +41,38 @@ Analizando los ejemplos proporcionados:
 
 1. `"+0 (200) 234-0182"` → `false`
 
-   - Código de país: "0" (1 dígito, comienza con 0) → Válido
-   - Código de área: "200" (entre 200-900) → Válido
-   - Suma local: 2+3+4=9, no aparece en "0182" → Válido
-   - Sin 4 dígitos repetidos → No es spam
+ - Código de país: "0" (1 dígito, comienza con 0) → Válido
+ - Código de área: "200" (entre 200-900) → Válido
+ - Suma local: 2+3+4=9, no aparece en "0182" → Válido
+ - Sin 4 dígitos repetidos → No es spam
 
 2. `"+091 (555) 309-1922"` → `true`
 
-   - Código de país: "091" (3 dígitos > 2) → Spam por criterio 1
+ - Código de país: "091" (3 dígitos > 2) → Spam por criterio 1
 
 3. `"+1 (555) 435-4792"` → `true`
 
-   - Código de país: "1" (no comienza con 0) → Spam por criterio 1
+ - Código de país: "1" (no comienza con 0) → Spam por criterio 1
 
 4. `"+0 (955) 234-4364"` → `true`
 
-   - Código de área: "955" (> 900) → Spam por criterio 2
+ - Código de área: "955" (> 900) → Spam por criterio 2
 
 5. `"+0 (155) 131-6943"` → `true`
 
-   - Código de área: "155" (< 200) → Spam por criterio 2
+ - Código de área: "155" (< 200) → Spam por criterio 2
 
 6. `"+0 (555) 135-0192"` → `true`
 
-   - Suma local: 1+3+5=9, aparece en "0192" → Spam por criterio 3
+ - Suma local: 1+3+5=9, aparece en "0192" → Spam por criterio 3
 
 7. `"+0 (555) 564-1987"` → `true`
 
-   - Dígitos consecutivos: "5555" (4 cincos seguidos) → Spam por criterio 4
+ - Dígitos consecutivos: "5555" (4 cincos seguidos) → Spam por criterio 4
 
 8. `"+00 (555) 234-0182"` → `false`
-   - Código de país: "00" (2 dígitos, comienza con 0) → Válido
-   - Otros criterios también válidos → No es spam
+ - Código de país: "00" (2 dígitos, comienza con 0) → Válido
+ - Otros criterios también válidos → No es spam
 
 ### Restricciones
 
@@ -97,46 +97,46 @@ La solución utiliza un enfoque secuencial que verifica cada criterio de spam en
 
 ```javascript
 function isSpam(number) {
-  const partes = extraerPartesConRegex(number);
-  if (!partes) return false;
+ const partes = extraerPartesConRegex(number);
+ if (!partes) return false;
 
-  const { countryCode, areaCode, localFirst, localLast } = partes;
+ const { countryCode, areaCode, localFirst, localLast } = partes;
 
-  // Criterio 1: Código de país inválido
-  if (countryCode.length > 2 || countryCode[0] !== "0") {
-    return true;
-  }
+ // Criterio 1: Código de país inválido
+ if (countryCode.length > 2 || countryCode[0] !== "0") {
+ return true;
+ }
 
-  // Criterio 2: Código de área fuera de rango
-  if (areaCode > 900 || areaCode < 200) {
-    return true;
-  }
+ // Criterio 2: Código de área fuera de rango
+ if (areaCode > 900 || areaCode < 200) {
+ return true;
+ }
 
-  // Criterio 3: Suma de primeros 3 dígitos aparece en últimos 4
-  const sumaLocal = localFirst
-    .split("")
-    .reduce((acc, digit) => acc + parseInt(digit, 10), 0);
-  if (localLast.includes(sumaLocal.toString())) {
-    return true;
-  }
+ // Criterio 3: Suma de primeros 3 dígitos aparece en últimos 4
+ const sumaLocal = localFirst
+ .split("")
+ .reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+ if (localLast.includes(sumaLocal.toString())) {
+ return true;
+ }
 
-  // Criterio 4: Cuatro o más dígitos idénticos consecutivos
-  const numeroSinFormato = number.replace(/[^\d]/g, "");
-  if (/(\d)\1{3,}/.test(numeroSinFormato)) {
-    return true;
-  }
+ // Criterio 4: Cuatro o más dígitos idénticos consecutivos
+ const numeroSinFormato = number.replace(/[^\d]/g, "");
+ if (/(\d)\1{3,}/.test(numeroSinFormato)) {
+ return true;
+ }
 
-  return false;
+ return false;
 }
 ```
 
 ### Complejidad
 
 - **Tiempo:** O(n) donde n es la longitud del string de entrada
-  - Regex `match()`: O(n)
-  - Verificación de criterios: O(1) (operaciones constantes)
-  - Cálculo de suma: O(1) (máximo 3 dígitos)
-  - Búsqueda de dígitos repetidos: O(n)
+ - Regex `match()`: O(n)
+ - Verificación de criterios: O(1) (operaciones constantes)
+ - Cálculo de suma: O(1) (máximo 3 dígitos)
+ - Búsqueda de dígitos repetidos: O(n)
 - **Espacio:** O(1) adicional (sin estructuras de datos que crezcan con n)
 
 ## Casos de Prueba
@@ -204,12 +204,12 @@ function isSpam(number) {
 ```javascript
 // Actual: split + reduce
 const sumaLocal = localFirst
-  .split("")
-  .reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+ .split("")
+ .reduce((acc, digit) => acc + parseInt(digit, 10), 0);
 
 // Optimizado: acceso directo por índices
 const sumaLocal =
-  parseInt(localFirst[0]) + parseInt(localFirst[1]) + parseInt(localFirst[2]);
+ parseInt(localFirst[0]) + parseInt(localFirst[1]) + parseInt(localFirst[2]);
 ```
 
 #### Optimización 2: Reutilizar dígitos extraídos
@@ -227,7 +227,7 @@ const numeroSinFormato = countryCode + areaCode + localFirst + localLast;
 ```javascript
 // Actual: función separada
 function extraerPartesConRegex(number) {
-  /* ... */
+ /* ... */
 }
 
 // Optimizado: inline para reducir llamadas a función

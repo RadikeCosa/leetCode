@@ -71,12 +71,12 @@ if (num < 4) return false;
 
 // Binary search en rango optimizado [1, num/2 + 1]
 while (left <= right) {
-  // Protección contra overflow antes de calcular mid²
-  if (mid > num / mid) right = mid - 1;
-  else {
-    const square = mid * mid;
-    // Lógica de binary search estándar
-  }
+ // Protección contra overflow antes de calcular mid²
+ if (mid > num / mid) right = mid - 1;
+ else {
+ const square = mid * mid;
+ // Lógica de binary search estándar
+ }
 }
 ```
 

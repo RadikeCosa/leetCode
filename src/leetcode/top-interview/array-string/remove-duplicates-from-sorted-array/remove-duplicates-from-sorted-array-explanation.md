@@ -72,8 +72,8 @@ Explicación: Tu función debe retornar k = 5, con los primeros cinco elementos 
 2. Inicializar `write = 1` (el primer elemento siempre es único)
 3. Recorrer desde `read = 1` hasta el final
 4. Si `nums[read] ≠ nums[read-1]`, encontramos un nuevo elemento único:
-   - Copiarlo a `nums[write]`
-   - Incrementar `write`
+ - Copiarlo a `nums[write]`
+ - Incrementar `write`
 5. Retornar `write` (cantidad de elementos únicos)
 
 ### Casos Edge
@@ -95,22 +95,22 @@ Explicación: Tu función debe retornar k = 5, con los primeros cinco elementos 
 
 ```typescript
 export function removeDuplicates(nums: number[]): number {
-  // Edge case: arrays con 0 o 1 elementos
-  if (nums.length <= 1) return nums.length;
+ // Edge case: arrays con 0 o 1 elementos
+ if (nums.length <= 1) return nums.length;
 
-  // Puntero para escribir el siguiente elemento único
-  let write = 1;
+ // Puntero para escribir el siguiente elemento único
+ let write = 1;
 
-  // Recorrer desde la segunda posición
-  for (let read = 1; read < nums.length; read++) {
-    // Si encontramos un elemento diferente al anterior
-    if (nums[read] !== nums[read - 1]) {
-      nums[write] = nums[read]; // Escribir elemento único
-      write++; // Avanzar posición de escritura
-    }
-  }
+ // Recorrer desde la segunda posición
+ for (let read = 1; read < nums.length; read++) {
+ // Si encontramos un elemento diferente al anterior
+ if (nums[read] !== nums[read - 1]) {
+ nums[write] = nums[read]; // Escribir elemento único
+ write++; // Avanzar posición de escritura
+ }
+ }
 
-  return write; // Cantidad de elementos únicos
+ return write; // Cantidad de elementos únicos
 }
 ```
 
@@ -120,7 +120,7 @@ export function removeDuplicates(nums: number[]): number {
 Inicial: [1,1,2], write=1
 read=1: nums[1]=1 === nums[0]=1 → no escribir
 read=2: nums[2]=2 !== nums[1]=1 → escribir en write=1
-        [1,2,2], write=2
+ [1,2,2], write=2
 Resultado: k=2, primeros 2 elementos = [1,2] ✓
 ```
 

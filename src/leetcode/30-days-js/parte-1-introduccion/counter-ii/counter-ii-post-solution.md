@@ -31,19 +31,19 @@ The key is that all three methods (`increment`, `decrement`, `reset`) close over
 
 ```typescript
 type Counter = {
-  increment: () => number;
-  decrement: () => number;
-  reset: () => number;
+ increment: () => number;
+ decrement: () => number;
+ reset: () => number;
 };
 
 export function createCounter(init: number): Counter {
-  let count = init;
+ let count = init;
 
-  return {
-    increment: () => ++count,
-    decrement: () => --count,
-    reset: () => (count = init),
-  };
+ return {
+ increment: () => ++count,
+ decrement: () => --count,
+ reset: () => (count = init),
+ };
 }
 ```
 

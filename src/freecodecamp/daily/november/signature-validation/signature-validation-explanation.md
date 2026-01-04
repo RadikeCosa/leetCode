@@ -25,38 +25,38 @@ El problema requiere validar una "firma" basada en la suma de valores numéricos
 
 ```javascript
 function getCharValue(char) {
-  const lowerChar = char.toLowerCase();
-  const lowerCode = lowerChar.charCodeAt(0);
+ const lowerChar = char.toLowerCase();
+ const lowerCode = lowerChar.charCodeAt(0);
 
-  if (lowerCode >= 97 && lowerCode <= 122) {
-    return lowerCode - 96;
-  }
+ if (lowerCode >= 97 && lowerCode <= 122) {
+ return lowerCode - 96;
+ }
 
-  return 0;
+ return 0;
 }
 ```
 
 - Convertimos todo a minúsculas primero para asegurar consistencia
 - Usamos `charCodeAt(0)` para obtener el código ASCII:
-  - 'a' = 97 → valor 1
-  - 'z' = 122 → valor 26
+ - 'a' = 97 → valor 1
+ - 'z' = 122 → valor 26
 - Caracteres no alfabéticos retornan 0
 
 ### 2. Cálculo de la Firma
 
 ```javascript
 function calculateSignature(msg, secret) {
-  let sum = 0;
+ let sum = 0;
 
-  for (const char of msg) {
-    sum += getCharValue(char);
-  }
+ for (const char of msg) {
+ sum += getCharValue(char);
+ }
 
-  for (const char of secret) {
-    sum += getCharValue(char);
-  }
+ for (const char of secret) {
+ sum += getCharValue(char);
+ }
 
-  return sum;
+ return sum;
 }
 ```
 
@@ -75,93 +75,93 @@ return calculatedSignature === signature;
 ## 📊 Complejidad
 
 - **Tiempo**: O(n + m)
-  - n = longitud del mensaje
-  - m = longitud de la clave
-  - Cada carácter se procesa una vez
+ - n = longitud del mensaje
+ - m = longitud de la clave
+ - Cada carácter se procesa una vez
 - **Espacio**: O(1)
-  - Solo usamos variables primitivas
-  - No usamos estructuras de datos adicionales
+ - Solo usamos variables primitivas
+ - No usamos estructuras de datos adicionales
 
 ## 🔄 Casos Especiales
 
 1. **Mayúsculas y Minúsculas**
 
-   - "Foo" y "foo" dan el mismo valor
-   - Se maneja convirtiendo todo a minúsculas
+ - "Foo" y "foo" dan el mismo valor
+ - Se maneja convirtiendo todo a minúsculas
 
 2. **Caracteres No Alfabéticos**
 
-   - Números, símbolos, espacios = 0
-   - Simplifica el manejo de casos especiales
+ - Números, símbolos, espacios = 0
+ - Simplifica el manejo de casos especiales
 
 3. **Cadenas Vacías**
-   - Retornan suma 0
-   - Manejo natural por el bucle
+ - Retornan suma 0
+ - Manejo natural por el bucle
 
 ## 🚀 Posibles Optimizaciones
 
 1. **Cache de Valores**
 
-   ```javascript
-   const charValues = new Map();
+ ```javascript
+ const charValues = new Map();
 
-   function getCharValue(char) {
-     const lowerChar = char.toLowerCase();
-     if (!charValues.has(lowerChar)) {
-       const code = lowerChar.charCodeAt(0);
-       charValues.set(lowerChar, code >= 97 && code <= 122 ? code - 96 : 0);
-     }
-     return charValues.get(lowerChar);
-   }
-   ```
+ function getCharValue(char) {
+ const lowerChar = char.toLowerCase();
+ if (!charValues.has(lowerChar)) {
+ const code = lowerChar.charCodeAt(0);
+ charValues.set(lowerChar, code >= 97 && code <= 122 ? code - 96 : 0);
+ }
+ return charValues.get(lowerChar);
+ }
+ ```
 
-   - Pros: Evita recálculos para caracteres repetidos
-   - Cons: Usa memoria adicional
+ - Pros: Evita recálculos para caracteres repetidos
+ - Cons: Usa memoria adicional
 
 2. **Procesamiento en Paralelo**
 
-   ```javascript
-   async function calculateSignature(msg, secret) {
-     const [msgSum, secretSum] = await Promise.all([
-       calculateStringValue(msg),
-       calculateStringValue(secret),
-     ]);
-     return msgSum + secretSum;
-   }
-   ```
+ ```javascript
+ async function calculateSignature(msg, secret) {
+ const [msgSum, secretSum] = await Promise.all([
+ calculateStringValue(msg),
+ calculateStringValue(secret),
+ ]);
+ return msgSum + secretSum;
+ }
+ ```
 
-   - Pros: Mejor rendimiento para cadenas muy largas
-   - Cons: Overhead para cadenas cortas
+ - Pros: Mejor rendimiento para cadenas muy largas
+ - Cons: Overhead para cadenas cortas
 
 3. **Lookup Table**
 
-   ```javascript
-   const VALUES = {
-     a: 1, b: 2, ..., z: 26,
-     A: 1, B: 2, ..., Z: 26
-   };
+ ```javascript
+ const VALUES = {
+ a: 1, b: 2, ..., z: 26,
+ A: 1, B: 2, ..., Z: 26
+ };
 
-   function getCharValue(char) {
-     return VALUES[char] || 0;
-   }
-   ```
+ function getCharValue(char) {
+ return VALUES[char] || 0;
+ }
+ ```
 
-   - Pros: Acceso directo sin cálculos
-   - Cons: Uso de memoria fijo
+ - Pros: Acceso directo sin cálculos
+ - Cons: Uso de memoria fijo
 
 ## 🎯 Aprendizajes
 
 1. **Consistencia vs Flexibilidad**
 
-   - El manejo de mayúsculas muestra la importancia de seguir el ejemplo del problema por encima de interpretaciones literales de las reglas
+ - El manejo de mayúsculas muestra la importancia de seguir el ejemplo del problema por encima de interpretaciones literales de las reglas
 
 2. **Simplicidad es Clave**
 
-   - La solución final es más simple que versiones anteriores que intentaban manejar mayúsculas/minúsculas por separado
+ - La solución final es más simple que versiones anteriores que intentaban manejar mayúsculas/minúsculas por separado
 
 3. **Testing como Guía**
-   - Los tests ayudaron a identificar inconsistencias en la interpretación del problema
-   - Documentar los tests con comentarios clarifica las expectativas
+ - Los tests ayudaron a identificar inconsistencias en la interpretación del problema
+ - Documentar los tests con comentarios clarifica las expectativas
 
 ## 📝 Notas
 
@@ -174,9 +174,9 @@ return calculatedSignature === signature;
 Dado un mensaje, una clave secreta y un número de firma, determina si la firma es válida utilizando el siguiente método de codificación:
 
 - Las letras en el mensaje y la clave secreta tienen los siguientes valores:
-  - Las letras de `a` a `z` tienen valores de 1 a 26 respectivamente.
-  - Las letras de `A` a `Z` tienen valores de 27 a 52 respectivamente.
-  - Todos los demás caracteres no tienen valor.
+ - Las letras de `a` a `z` tienen valores de 1 a 26 respectivamente.
+ - Las letras de `A` a `Z` tienen valores de 27 a 52 respectivamente.
+ - Todos los demás caracteres no tienen valor.
 - Calcula la firma tomando la suma del mensaje más la suma de la clave secreta.
 
 ### Ejemplo

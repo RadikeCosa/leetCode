@@ -22,15 +22,15 @@ Link: https://leetcode.com/problems/maximum-subarray-sum-with-length-divisible-b
 
 ### 1. ¿Qué es un subarray contiguo?
 
-Es un pedacito seguido del array.  
-Ej: En `[2, -1, 4, 3]` los subarrays son:  
-`[2]`, `[2,-1]`, `[2,-1,4]`, `[-1,4,3]`, `[4]`, etc.  
+Es un pedacito seguido del array. 
+Ej: En `[2, -1, 4, 3]` los subarrays son: 
+`[2]`, `[2,-1]`, `[2,-1,4]`, `[-1,4,3]`, `[4]`, etc. 
 No vale saltarse elementos.
 
 ### 2. Kadane → "la suma máxima de cualquier subarray"
 
-Idea mágica:  
-Mientras recorres el array, en cada paso decidís:  
+Idea mágica: 
+Mientras recorres el array, en cada paso decidís: 
 "¿arranco de nuevo aquí o sigo sumando lo anterior?"
 
 ```js
@@ -38,12 +38,12 @@ let actual = 0;
 let mejor = -Infinity;
 
 for (num of nums) {
-  actual = Math.max(num, actual + num); // ¿sigo o reinicio?
-  mejor = Math.max(mejor, actual);
+ actual = Math.max(num, actual + num); // ¿sigo o reinicio?
+ mejor = Math.max(mejor, actual);
 }
 ```
 
-Este algoritmo te da la suma máxima sin ninguna restricción.  
+Este algoritmo te da la suma máxima sin ninguna restricción. 
 Acá SÍ tenemos restricción → no sirve directamente.
 
 ### 3. Prefix Sum → "suma acumulada"
@@ -63,20 +63,20 @@ Con prefix, la suma de cualquier subarray i→j es: `prefix[j] - prefix[i]`
 
 ### 4. El truco matemático que lo cambia todo
 
-Queremos longitud múltiplo de k → (j - i) % k == 0  
-Esto es lo mismo que decir: **j % k == i % k**  
+Queremos longitud múltiplo de k → (j - i) % k == 0 
+Esto es lo mismo que decir: **j % k == i % k** 
 → Los dos índices tienen el mismo resto al dividir por k.
 
-Ej: k = 3  
-índices con resto 0: 0, 3, 6, 9…  
-índices con resto 1: 1, 4, 7…  
+Ej: k = 3 
+índices con resto 0: 0, 3, 6, 9… 
+índices con resto 1: 1, 4, 7… 
 índices con resto 2: 2, 5, 8…
 
 Si resto(j) == resto(i) → la longitud entre ellos es múltiplo de 3.
 
 ## El problema – Ahora sí, fácil
 
-Queremos la máxima suma de subarray cuya longitud sea múltiplo de k.  
+Queremos la máxima suma de subarray cuya longitud sea múltiplo de k. 
 Gracias al truco anterior, eso equivale a:
 
 → Encontrar dos índices i < j tal que:
@@ -95,39 +95,39 @@ En cada posición j:
 1. Calculo mi prefix actual.
 2. Miro el resto de (j+1) % k (porque llevamos j+1 elementos hasta acá).
 3. Pregunto: "¿Ya pasé antes por un lugar con este mismo resto?"
-   - Si sí → ¡puedo hacer un subarray válido!  
-     Resto prefix[j] - el prefix más chico que vi con este resto.
-   - Guardo esa suma como candidata a la mejor.
+ - Si sí → ¡puedo hacer un subarray válido! 
+ Resto prefix[j] - el prefix más chico que vi con este resto.
+ - Guardo esa suma como candidata a la mejor.
 4. Después, actualizo: "si mi prefix actual es más chico que el que tenía guardado para este resto → lo reemplazo".
 
 ## Código final
 
 ```js
 var maxSubarraySumDivByK = function (nums, k) {
-  let prefix = 0;
-  let max = -Infinity;
+ let prefix = 0;
+ let max = -Infinity;
 
-  // resto → menor prefix visto con ese resto
-  const minPrefix = new Map();
-  minPrefix.set(0, 0); // posición 0, prefix 0
+ // resto → menor prefix visto con ese resto
+ const minPrefix = new Map();
+ minPrefix.set(0, 0); // posición 0, prefix 0
 
-  for (let i = 0; i < nums.length; i++) {
-    prefix += nums[i];
+ for (let i = 0; i < nums.length; i++) {
+ prefix += nums[i];
 
-    const rem = (i + 1) % k; // longitud hasta acá
+ const rem = (i + 1) % k; // longitud hasta acá
 
-    if (minPrefix.has(rem)) {
-      const candidate = prefix - minPrefix.get(rem);
-      max = Math.max(max, candidate);
-    }
+ if (minPrefix.has(rem)) {
+ const candidate = prefix - minPrefix.get(rem);
+ max = Math.max(max, candidate);
+ }
 
-    // actualizamos solo si es más chico (o primera vez)
-    if (!minPrefix.has(rem) || prefix < minPrefix.get(rem)) {
-      minPrefix.set(rem, prefix);
-    }
-  }
+ // actualizamos solo si es más chico (o primera vez)
+ if (!minPrefix.has(rem) || prefix < minPrefix.get(rem)) {
+ minPrefix.set(rem, prefix);
+ }
+ }
 
-  return max === -Infinity ? 0 : max; // por si no hay (raro)
+ return max === -Infinity ? 0 : max; // por si no hay (raro)
 };
 ```
 
@@ -140,13 +140,13 @@ var maxSubarraySumDivByK = function (nums, k) {
 
 nums = [1, -2, 3, 4, -1], k = 3
 
-| i   | valor | prefix | i+1 | (i+1)%3 | acción                   | mejor |
+| i | valor | prefix | i+1 | (i+1)%3 | acción | mejor |
 | --- | ----- | ------ | --- | ------- | ------------------------ | ----- |
-| 0   | 1     | 1      | 1   | 1       | guardo rem1→1            | -     |
-| 1   | -2    | -1     | 2   | 2       | guardo rem2→-1           | -     |
-| 2   | 3     | 2      | 3   | 0       | uso rem0→0 → 2-0 = 2     | 2     |
-| 3   | 4     | 6      | 4   | 1       | uso rem1→1 → 6-1 = 5     | 5     |
-| 4   | -1    | 5      | 5   | 2       | uso rem2→-1 → 5-(-1) = 6 | 6     |
+| 0 | 1 | 1 | 1 | 1 | guardo rem 1→1 | - |
+| 1 | -2 | -1 | 2 | 2 | guardo rem 2→-1 | - |
+| 2 | 3 | 2 | 3 | 0 | uso rem 0→0 → 2-0 = 2 | 2 |
+| 3 | 4 | 6 | 4 | 1 | uso rem 1→1 → 6-1 = 5 | 5 |
+| 4 | -1 | 5 | 5 | 2 | uso rem 2→-1 → 5-(-1) = 6 | 6 |
 
 Respuesta: 6 → subarray [3,4,-1] (longitud 3)
 

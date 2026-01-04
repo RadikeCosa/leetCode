@@ -103,7 +103,7 @@ const count = new Array(max + 1).fill(0);
 
 ```javascript
 for (const num of arr) {
-  count[num] = 1; // Marca que el número está presente
+ count[num] = 1; // Marca que el número está presente
 }
 ```
 
@@ -112,9 +112,9 @@ for (const num of arr) {
 ```javascript
 const missingNumbers = [];
 for (let i = 1; i <= max; i++) {
-  if (count[i] === 0) {
-    missingNumbers.push(i);
-  }
+ if (count[i] === 0) {
+ missingNumbers.push(i);
+ }
 }
 return missingNumbers;
 ```
@@ -123,27 +123,27 @@ return missingNumbers;
 
 ```javascript
 function findMissingNumbers(arr) {
-  // Encontrar el valor máximo del array, que define el rango de búsqueda
-  const max = Math.max(...arr);
+ // Encontrar el valor máximo del array, que define el rango de búsqueda
+ const max = Math.max(...arr);
 
-  // Inicializar un array de conteo para registrar la presencia de cada número
-  const count = new Array(max + 1).fill(0);
+ // Inicializar un array de conteo para registrar la presencia de cada número
+ const count = new Array(max + 1).fill(0);
 
-  // Marcar la presencia de cada número del array en la estructura de conteo
-  for (const num of arr) {
-    count[num] = 1;
-  }
+ // Marcar la presencia de cada número del array en la estructura de conteo
+ for (const num of arr) {
+ count[num] = 1;
+ }
 
-  // Recopilar los números faltantes en el rango [1, max]
-  const missingNumbers = [];
-  for (let i = 1; i <= max; i++) {
-    if (count[i] === 0) {
-      missingNumbers.push(i);
-    }
-  }
+ // Recopilar los números faltantes en el rango [1, max]
+ const missingNumbers = [];
+ for (let i = 1; i <= max; i++) {
+ if (count[i] === 0) {
+ missingNumbers.push(i);
+ }
+ }
 
-  // Retornar el array de números faltantes en orden ascendente
-  return missingNumbers;
+ // Retornar el array de números faltantes en orden ascendente
+ return missingNumbers;
 }
 ```
 
@@ -157,24 +157,24 @@ function findMissingNumbers(arr) {
 
 **Puntos adicionales:**
 
-- **Complejidad Temporal:**  
-  La solución recorre el array original una vez ($O(n)$) y luego recorre el rango de 1 a `max` ($O(m)$, donde $m$ es el valor máximo). Por lo tanto, la complejidad temporal es $O(n + m)$.
+- **Complejidad Temporal:** 
+ La solución recorre el array original una vez ($O(n)$) y luego recorre el rango de 1 a `max` ($O(m)$, donde $m$ es el valor máximo). Por lo tanto, la complejidad temporal es $O(n + m)$.
 
-- **Complejidad Espacial:**  
-  Se utiliza un array auxiliar de tamaño $max + 1$, por lo que la complejidad espacial es $O(m)$.
+- **Complejidad Espacial:** 
+ Se utiliza un array auxiliar de tamaño $max + 1$, por lo que la complejidad espacial es $O(m)$.
 
 - **Edge Cases y Consideraciones:**
 
-  - Si el array está vacío, la función retorna un array vacío, ya que no hay rango definido.
-  - Si el array contiene todos los números del rango, el resultado será un array vacío.
-  - El algoritmo maneja correctamente duplicados y desorden en el array de entrada.
+ - Si el array está vacío, la función retorna un array vacío, ya que no hay rango definido.
+ - Si el array contiene todos los números del rango, el resultado será un array vacío.
+ - El algoritmo maneja correctamente duplicados y desorden en el array de entrada.
 
-- **Posibles Optimizaciones:**  
-  Si el rango máximo (`max`) es muy grande en comparación con la cantidad de elementos, se puede usar un `Set` para registrar los presentes y luego iterar solo sobre el rango necesario, ahorrando espacio en algunos casos.
+- **Posibles Optimizaciones:** 
+ Si el rango máximo (`max`) es muy grande en comparación con la cantidad de elementos, se puede usar un `Set` para registrar los presentes y luego iterar solo sobre el rango necesario, ahorrando espacio en algunos casos.
 
 - **Patrones y técnicas aplicadas:**
-  - Uso de estructuras de conteo (array o mapa) para marcar presencia.
-  - Iteración doble: una para marcar y otra para recolectar los faltantes.
-  - Manejo eficiente de duplicados y desorden.
+ - Uso de estructuras de conteo (array o mapa) para marcar presencia.
+ - Iteración doble: una para marcar y otra para recolectar los faltantes.
+ - Manejo eficiente de duplicados y desorden.
 
 Si necesitas que amplíe algún apartado o agregue referencias, házmelo saber.

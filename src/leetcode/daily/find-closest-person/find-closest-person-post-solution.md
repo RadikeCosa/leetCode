@@ -21,15 +21,15 @@ The key insight is that since both people move at the same speed, the problem re
 
 ```typescript
 export function findClosestPerson(x: number, y: number, z: number): number {
-  const distance1_3 = Math.abs(z - x);
-  const distance2_3 = Math.abs(z - y);
-  return distance1_3 < distance2_3 ? 1 : distance1_3 > distance2_3 ? 2 : 0;
+ const distance 1_3 = Math.abs(z - x);
+ const distance 2_3 = Math.abs(z - y);
+ return distance 1_3 < distance 2_3 ? 1 : distance 1_3 > distance 2_3 ? 2 : 0;
 }
 ```
 
 # Notes
 
-- **Variable naming**: Using `distance1_3` and `distance2_3` makes the code self-documenting by clearly indicating we're measuring distances to Person 3
+- **Variable naming**: Using `distance 1_3` and `distance 2_3` makes the code self-documenting by clearly indicating we're measuring distances to Person 3
 - **Edge cases**: The solution naturally handles all cases including when both people are equidistant from Person 3
 - **Math.abs() usage**: Essential for handling cases where people are on different sides of Person 3
 - **Ternary operator**: The nested ternary cleanly handles all three possible outcomes in a single return statement

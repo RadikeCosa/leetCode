@@ -28,11 +28,11 @@ El producto puede ser muy grande (hasta $10^{10}$), por lo que no conviene calcu
 ## Complejidad
 
 - **Tiempo:** $O(m \log m + n \log m)$
-  - $O(m \log m)$ para ordenar pociones.
-  - $O(n \log m)$ para buscar por cada hechizo.
+ - $O(m \log m)$ para ordenar pociones.
+ - $O(n \log m)$ para buscar por cada hechizo.
 - **Espacio:** $O(n + m)$
-  - $O(m)$ para la copia ordenada de pociones.
-  - $O(n)$ para el array de respuesta.
+ - $O(m)$ para la copia ordenada de pociones.
+ - $O(n)$ para el array de respuesta.
 
 ## Casos borde
 

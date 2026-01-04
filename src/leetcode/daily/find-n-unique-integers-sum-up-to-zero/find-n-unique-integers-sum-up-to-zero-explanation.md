@@ -50,21 +50,21 @@ En lugar de testear respuestas específicas (approach frágil), implementamos **
 
 ```typescript
 const hasCorrectLength = (arr: number[], expectedLength: number): boolean => {
-  return arr.length === expectedLength;
+ return arr.length === expectedLength;
 };
 
 const hasUniqueElements = (arr: number[]): boolean => {
-  const uniqueSet = new Set(arr);
-  return uniqueSet.size === arr.length; // Set elimina duplicados automáticamente
+ const uniqueSet = new Set(arr);
+ return uniqueSet.size === arr.length; // Set elimina duplicados automáticamente
 };
 
 const sumsToZero = (arr: number[]): boolean => {
-  const sum = arr.reduce((acc, num) => acc + num, 0);
-  return sum === 0;
+ const sum = arr.reduce((acc, num) => acc + num, 0);
+ return sum === 0;
 };
 
 const isValidSolution = (arr: number[], n: number): boolean => {
-  return hasCorrectLength(arr, n) && hasUniqueElements(arr) && sumsToZero(arr);
+ return hasCorrectLength(arr, n) && hasUniqueElements(arr) && sumsToZero(arr);
 };
 ```
 
@@ -79,8 +79,8 @@ const isValidSolution = (arr: number[], n: number): boolean => {
 
 ```typescript
 it("should return valid solution for n = 3", () => {
-  const result = sumZero(3);
-  expect(isValidSolution(result, 3)).toBe(true);
+ const result = sumZero(3);
+ expect(isValidSolution(result, 3)).toBe(true);
 });
 ```
 
@@ -101,27 +101,27 @@ La solución se basa en el concepto de **pares simétricos** (-x, +x) que se can
 
 ```typescript
 export function sumZero(n: number): number[] {
-  if (n === 1) return [0]; // Caso base
+ if (n === 1) return [0]; // Caso base
 
-  const result: number[] = [];
-  const numPairs = Math.floor(n / 2); // Cantidad de pares simétricos
+ const result: number[] = [];
+ const numPairs = Math.floor(n / 2); // Cantidad de pares simétricos
 
-  // 1. Generar negativos en orden creciente: [-3, -2, -1]
-  for (let i = numPairs; i >= 1; i--) {
-    result.push(-i);
-  }
+ // 1. Generar negativos en orden creciente: [-3, -2, -1]
+ for (let i = numPairs; i >= 1; i--) {
+ result.push(-i);
+ }
 
-  // 2. Agregar 0 si n es impar (queda en el centro)
-  if (n % 2 === 1) {
-    result.push(0);
-  }
+ // 2. Agregar 0 si n es impar (queda en el centro)
+ if (n % 2 === 1) {
+ result.push(0);
+ }
 
-  // 3. Generar positivos en orden creciente: [1, 2, 3]
-  for (let i = 1; i <= numPairs; i++) {
-    result.push(i);
-  }
+ // 3. Generar positivos en orden creciente: [1, 2, 3]
+ for (let i = 1; i <= numPairs; i++) {
+ result.push(i);
+ }
 
-  return result; // Resultado: [-3, -2, -1, 0, 1, 2, 3]
+ return result; // Resultado: [-3, -2, -1, 0, 1, 2, 3]
 }
 ```
 
@@ -157,7 +157,7 @@ export function sumZero(n: number): number[] {
 ```typescript
 // Genera: [1, -1, 2, -2, 0] para n=5
 for (let i = 1; i <= numPairs; i++) {
-  result.push(i, -i);
+ result.push(i, -i);
 }
 if (n % 2 === 1) result.push(0);
 ```
@@ -173,7 +173,7 @@ if (n % 2 === 1) result.push(0);
 ```typescript
 // Generar números y luego ordenar
 for (let i = 1; i <= numPairs; i++) {
-  result.push(i, -i);
+ result.push(i, -i);
 }
 if (n % 2 === 1) result.push(0);
 return result.sort((a, b) => a - b); // O(n log n)!
@@ -189,8 +189,8 @@ return result.sort((a, b) => a - b); // O(n log n)!
 ```typescript
 // Calcular rangos y construir
 const negatives = Array.from(
-  { length: numPairs },
-  (_, i) => -(i + 1)
+ { length: numPairs },
+ (_, i) => -(i + 1)
 ).reverse();
 const positives = Array.from({ length: numPairs }, (_, i) => i + 1);
 const middle = n % 2 === 1 ? [0] : [];
@@ -287,17 +287,17 @@ result[Math.floor(n / 2)] = 0; // Centro para impares
 
 - **Time Complexity: O(n)**
 
-  - Un solo loop para generar negativos: O(n/2)
-  - Una asignación para el cero (si n es impar): O(1)
-  - Un solo loop para generar positivos: O(n/2)
-  - **Total**: O(n/2) + O(1) + O(n/2) = O(n)
-  - **Operaciones optimizadas**: `result[index++]` en lugar de `push()` elimina overhead
+ - Un solo loop para generar negativos: O(n/2)
+ - Una asignación para el cero (si n es impar): O(1)
+ - Un solo loop para generar positivos: O(n/2)
+ - **Total**: O(n/2) + O(1) + O(n/2) = O(n)
+ - **Operaciones optimizadas**: `result[index++]` en lugar de `push()` elimina overhead
 
 - **Space Complexity: O(n)**
-  - Array `result` pre-allocado con tamaño exacto `n`: O(n)
-  - Variables auxiliares (`numPairs`, `index`, `i`): O(1)
-  - **Sin arrays temporales**: A diferencia de enfoques alternativos que crean múltiples arrays
-  - **Total**: O(n) para el output, sin overhead adicional
+ - Array `result` pre-allocado con tamaño exacto `n`: O(n)
+ - Variables auxiliares (`numPairs`, `index`, `i`): O(1)
+ - **Sin arrays temporales**: A diferencia de enfoques alternativos que crean múltiples arrays
+ - **Total**: O(n) para el output, sin overhead adicional
 
 ### **Comparación de Performance:**
 
@@ -332,7 +332,7 @@ return result.sort((a, b) => a - b); // O(n log n) adicional
 ### **Benchmarks teóricos:**
 
 - **Para n = 1000**: Ahorro de ~30% en allocations comparado con `push()`
-- **Para n = 10000**: Evitamos O(n log n) = 130k operaciones vs O(n) = 10k operaciones
+- **Para n = 10000**: Evitamos O(n log n) = 130 k operaciones vs O(n) = 10 k operaciones
 - **Memory footprint**: Una sola allocación vs múltiples reallocations
 
 ## Conclusión
@@ -341,23 +341,23 @@ return result.sort((a, b) => a - b); // O(n log n) adicional
 
 1. **Property-Based Testing**: Fundamental para problemas con múltiples soluciones válidas
 
-   - Testear invariantes en lugar de respuestas específicas
-   - Helper functions reutilizables y código más mantenible
+ - Testear invariantes en lugar de respuestas específicas
+ - Helper functions reutilizables y código más mantenible
 
 2. **Patrón de Pares Simétricos**: Técnica elegante para problemas de suma cero
 
-   - Construcción matemática garantiza la suma correcta
-   - Fácil de implementar y verificar
+ - Construcción matemática garantiza la suma correcta
+ - Fácil de implementar y verificar
 
 3. **Iterative Refinement**: El proceso de mejora iterativa llevó a una solución óptima
 
-   - V1: Funcional pero desordenada
-   - V2: 0 en el medio pero no ordenada
-   - V3: Ordenada y estéticamente perfecta
+ - V 1: Funcional pero desordenada
+ - V 2: 0 en el medio pero no ordenada
+ - V 3: Ordenada y estéticamente perfecta
 
 4. **Análisis de Casos Par/Impar**: Patrón común en problemas algorítmicos
-   - `Math.floor(n/2)` para calcular pares necesarios
-   - Manejo especial del elemento "neutro" (0) para casos impares
+ - `Math.floor(n/2)` para calcular pares necesarios
+ - Manejo especial del elemento "neutro" (0) para casos impares
 
 ### **Aplicabilidad:**
 
@@ -470,7 +470,7 @@ let index = 0; // Manual index control
 
 ```typescript
 const isValidSolution = (arr, n) =>
-  hasCorrectLength(arr, n) && hasUniqueElements(arr) && sumsToZero(arr);
+ hasCorrectLength(arr, n) && hasUniqueElements(arr) && sumsToZero(arr);
 ```
 
 **Aplicable en**: Cualquier problema con múltiples respuestas válidas.

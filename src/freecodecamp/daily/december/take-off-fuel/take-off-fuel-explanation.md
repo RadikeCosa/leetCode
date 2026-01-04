@@ -60,18 +60,18 @@ La lógica sigue estos pasos:
 2. **Calcular galones requeridos:** Dividir `requiredLiters` por la constante de conversión.
 3. **Calcular el faltante:** Restar `currentGallons` al valor obtenido en el paso anterior.
 4. **Retornar el resultado:**
-   - Si el faltante es menor o igual a 0, retornar `0`.
-   - Si es mayor a 0, retornar `Math.ceil(faltante)` para asegurar que cubrimos el requerimiento con unidades enteras.
+ - Si el faltante es menor o igual a 0, retornar `0`.
+ - Si es mayor a 0, retornar `Math.ceil(faltante)` para asegurar que cubrimos el requerimiento con unidades enteras.
 
 ### Código Completo
 
 ```javascript
 function fuelToAdd(currentGallons, requiredLiters) {
-  const LITERS_PER_GALLON = 3.78541;
-  const requiredGallons = requiredLiters / LITERS_PER_GALLON;
-  const needed = requiredGallons - currentGallons;
+ const LITERS_PER_GALLON = 3.78541;
+ const requiredGallons = requiredLiters / LITERS_PER_GALLON;
+ const needed = requiredGallons - currentGallons;
 
-  return needed <= 0 ? 0 : Math.ceil(needed);
+ return needed <= 0 ? 0 : Math.ceil(needed);
 }
 ```
 

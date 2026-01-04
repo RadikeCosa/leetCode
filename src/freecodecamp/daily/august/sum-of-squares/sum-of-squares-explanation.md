@@ -46,7 +46,7 @@ Este problema es un clásico de reducción y transformación de arrays. El objet
 
 ```javascript
 function sumOfSquares(arr) {
-  return arr.map((x) => x * x).reduce((a, b) => a + b, 0);
+ return arr.map((x) => x * x).reduce((a, b) => a + b, 0);
 }
 ```
 
@@ -62,11 +62,11 @@ function sumOfSquares(arr) {
 
 ```javascript
 function sumOfSquares(arr) {
-  let sum = 0;
-  for (const x of arr) {
-    sum += x * x;
-  }
-  return sum;
+ let sum = 0;
+ for (const x of arr) {
+ sum += x * x;
+ }
+ return sum;
 }
 ```
 
@@ -77,9 +77,9 @@ function sumOfSquares(arr) {
 
 ```javascript
 function sumOfSquares(arr) {
-  let sum = 0;
-  arr.forEach((x) => (sum += x * x));
-  return sum;
+ let sum = 0;
+ arr.forEach((x) => (sum += x * x));
+ return sum;
 }
 ```
 

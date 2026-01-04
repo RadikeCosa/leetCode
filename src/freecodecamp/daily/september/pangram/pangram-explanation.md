@@ -82,8 +82,8 @@ Utilizaremos `Set` para resolver el problema de forma eficiente. El enfoque cons
 3. Crear un Set con las letras únicas de la frase limpia.
 4. Crear un Set con las letras permitidas.
 5. Comparar ambos Sets:
-   - Si tienen el mismo tamaño y todos los elementos del Set de la frase están en el Set de letras permitidas, devolver true.
-   - En caso contrario, devolver false.
+ - Si tienen el mismo tamaño y todos los elementos del Set de la frase están en el Set de letras permitidas, devolver true.
+ - En caso contrario, devolver false.
 
 ### Código Final
 
@@ -97,20 +97,20 @@ Utilizaremos `Set` para resolver el problema de forma eficiente. El enfoque cons
  * @returns {boolean} True if the sentence uses all the letters from the given set at least once and no other letters, false otherwise
  */
 function isPangram(sentence, letters) {
-  // Normalize the sentence to lowercase and remove non-alphabetical characters
-  const normalizedSentence = sentence.toLowerCase().replace(/[^a-z]/g, "");
+ // Normalize the sentence to lowercase and remove non-alphabetical characters
+ const normalizedSentence = sentence.toLowerCase().replace(/[^a-z]/g, "");
 
-  // Create a set of unique letters from the normalized sentence
-  const sentenceSet = new Set(normalizedSentence);
+ // Create a set of unique letters from the normalized sentence
+ const sentenceSet = new Set(normalizedSentence);
 
-  // Create a set of unique letters from the given letters
-  const lettersSet = new Set(letters);
+ // Create a set of unique letters from the given letters
+ const lettersSet = new Set(letters);
 
-  // Check if both sets are equal
-  if (sentenceSet.size !== lettersSet.size) {
-    return false;
-  }
-  return [...sentenceSet].every((letter) => lettersSet.has(letter));
+ // Check if both sets are equal
+ if (sentenceSet.size !== lettersSet.size) {
+ return false;
+ }
+ return [...sentenceSet].every((letter) => lettersSet.has(letter));
 }
 
 export default isPangram;

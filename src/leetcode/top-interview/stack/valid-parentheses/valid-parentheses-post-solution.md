@@ -10,8 +10,8 @@ The algorithm follows a simple stack-based pattern:
 
 1. **Initialize an empty stack** to track opening brackets
 2. **Iterate through each character**:
-   - **Opening brackets** `(`, `{`, `[` → Push to stack
-   - **Closing brackets** `)`, `}`, `]` → Check if stack is empty (invalid), then pop and verify it matches the current closing bracket
+ - **Opening brackets** `(`, `{`, `[` → Push to stack
+ - **Closing brackets** `)`, `}`, `]` → Check if stack is empty (invalid), then pop and verify it matches the current closing bracket
 3. **Final validation**: Stack must be empty (all brackets properly closed)
 
 **Why not use a simple counter?** A counter can't handle cases like `"([)]"` because it doesn't remember the _order_ and _type_ of opening brackets.
@@ -25,26 +25,26 @@ The algorithm follows a simple stack-based pattern:
 
 ```typescript
 export function isValid(s: string): boolean {
-  const stack: string[] = [];
+ const stack: string[] = [];
 
-  // Map closing brackets to their corresponding opening brackets
-  const pairs: Record<string, string> = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
+ // Map closing brackets to their corresponding opening brackets
+ const pairs: Record<string, string> = {
+ ")": "(",
+ "}": "{",
+ "]": "[",
+ };
 
-  for (const char of s) {
-    if (char === "(" || char === "{" || char === "[") {
-      stack.push(char);
-    } else {
-      if (stack.length === 0) return false;
-      const last = stack.pop();
-      if (last !== pairs[char]) return false;
-    }
-  }
+ for (const char of s) {
+ if (char === "(" || char === "{" || char === "[") {
+ stack.push(char);
+ } else {
+ if (stack.length === 0) return false;
+ const last = stack.pop();
+ if (last !== pairs[char]) return false;
+ }
+ }
 
-  return stack.length === 0;
+ return stack.length === 0;
 }
 ```
 

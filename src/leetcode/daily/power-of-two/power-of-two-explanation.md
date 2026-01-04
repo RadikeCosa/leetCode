@@ -65,7 +65,7 @@ Para rango limitado (32 bits), podrías precalcular todas las potencias de dos h
 
 ### 4. Matemática con logaritmos (menos robusto)
 
-`x = log2(n)` y verificar si `x` es entero. Problema: Errores de precisión de punto flotante.
+`x = log 2(n)` y verificar si `x` es entero. Problema: Errores de precisión de punto flotante.
 
 ## Implementación Recomendada
 
@@ -73,7 +73,7 @@ Usar el enfoque de bit manipulation:
 
 ```typescript
 function isPowerOfTwo(n: number): boolean {
-  return n > 0 && (n & (n - 1)) === 0;
+ return n > 0 && (n & (n - 1)) === 0;
 }
 ```
 
@@ -89,11 +89,11 @@ function isPowerOfTwo(n: number): boolean {
 
 - Restar 1 a una potencia de dos invierte todos los bits desde el bit activo hacia la derecha.
 - AND entre ambos da 0 porque no comparten bits en 1.
-  Ejemplo:
+ Ejemplo:
 
 ```
-8  = 1000
-7  = 0111
+8 = 1000
+7 = 0111
 8 & 7 = 0000
 ```
 

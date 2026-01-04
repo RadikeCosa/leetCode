@@ -25,19 +25,19 @@ The key insight is using `JSON.stringify(args)` to create unique keys that prese
 type Fn = (...params: number[]) => number;
 
 export function memoize(fn: Fn): Fn {
-  const cache = new Map<string, number>();
+ const cache = new Map<string, number>();
 
-  return function (...args: number[]): number {
-    const key = JSON.stringify(args);
+ return function (...args: number[]): number {
+ const key = JSON.stringify(args);
 
-    if (cache.has(key)) {
-      return cache.get(key)!;
-    }
+ if (cache.has(key)) {
+ return cache.get(key)!;
+ }
 
-    const result = fn(...args);
-    cache.set(key, result);
-    return result;
-  };
+ const result = fn(...args);
+ cache.set(key, result);
+ return result;
+ };
 }
 ```
 
@@ -55,19 +55,19 @@ export function memoize(fn: Fn): Fn {
 type Fn = (...params: number[]) => number;
 
 export function memoize(fn: Fn): Fn {
-  // Tu implementación aquí
-  // Pista: necesitas almacenar los resultados de llamadas anteriores
-  // y crear una clave única para cada combinación de parámetros
-  const cache = new Map<string, number>();
+ // Tu implementación aquí
+ // Pista: necesitas almacenar los resultados de llamadas anteriores
+ // y crear una clave única para cada combinación de parámetros
+ const cache = new Map<string, number>();
 
-  return function (...args: number[]): number {
-    const key = JSON.stringify(args);
-    if (cache.has(key)) {
-      return cache.get(key)!;
-    }
-    const result = fn(...args);
-    cache.set(key, result);
-    return result;
-  };
+ return function (...args: number[]): number {
+ const key = JSON.stringify(args);
+ if (cache.has(key)) {
+ return cache.get(key)!;
+ }
+ const result = fn(...args);
+ cache.set(key, result);
+ return result;
+ };
 }
 ```

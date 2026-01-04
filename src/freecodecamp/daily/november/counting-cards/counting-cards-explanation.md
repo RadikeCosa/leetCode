@@ -25,9 +25,9 @@ Una baraja estándar tiene 13 valores (ranks) por cada uno de los 4 palos, es de
 **Ejemplos:**
 
 - `combinations(52) => 1`
-- `combinations(1)  => 52`
-- `combinations(2)  => 1326`
-- `combinations(5)  => 2598960`
+- `combinations(1) => 52`
+- `combinations(2) => 1326`
+- `combinations(5) => 2598960`
 - `combinations(10) => 15820024220`
 
 ## Intuición
@@ -40,16 +40,16 @@ Aquí tienes dos versiones breves que ilustran las ideas vistas arriba.
 
 ```javascript
 function combinationsNumber(cards) {
-  const n = 52;
-  if (!Number.isInteger(cards) || cards < 0 || cards > n)
-    throw new Error("invalid");
-  if (cards === 0 || cards === n) return 1;
-  const m = Math.min(cards, n - cards);
-  let result = 1;
-  for (let i = 1; i <= m; i++) {
-    result *= (n - m + i) / i;
-  }
-  return result; // suficiente para n=52 y ejemplos
+ const n = 52;
+ if (!Number.isInteger(cards) || cards < 0 || cards > n)
+ throw new Error("invalid");
+ if (cards === 0 || cards === n) return 1;
+ const m = Math.min(cards, n - cards);
+ let result = 1;
+ for (let i = 1; i <= m; i++) {
+ result *= (n - m + i) / i;
+ }
+ return result; // suficiente para n=52 y ejemplos
 }
 ```
 
@@ -57,16 +57,16 @@ function combinationsNumber(cards) {
 
 ```javascript
 function combinationsBigInt(cards) {
-  const n = 52;
-  if (!Number.isInteger(cards) || cards < 0 || cards > n)
-    throw new Error("invalid");
-  if (cards === 0 || cards === n) return 1n;
-  const m = Math.min(cards, n - cards);
-  let res = 1n;
-  for (let i = 1; i <= m; i++) {
-    res = (res * BigInt(n - m + i)) / BigInt(i);
-  }
-  return res;
+ const n = 52;
+ if (!Number.isInteger(cards) || cards < 0 || cards > n)
+ throw new Error("invalid");
+ if (cards === 0 || cards === n) return 1 n;
+ const m = Math.min(cards, n - cards);
+ let res = 1 n;
+ for (let i = 1; i <= m; i++) {
+ res = (res * BigInt(n - m + i)) / BigInt(i);
+ }
+ return res;
 }
 ```
 
@@ -86,8 +86,8 @@ La versión BigInt devuelve un entero grande (`BigInt`) sin pérdida. Si quieres
 
 - Preferir la versión `Number` para claridad y para problemas con `n` pequeño y donde no se requiera exactitud absoluta en todos los pasos.
 - Usar `BigInt` cuando:
-  - `n` puede crecer mucho (factoriales enormes).
-  - Requieres exactitud entera en todos los pasos (sin riesgo de redondeo).
+ - `n` puede crecer mucho (factoriales enormes).
+ - Requieres exactitud entera en todos los pasos (sin riesgo de redondeo).
 - Si usas `BigInt`, mantén las operaciones en `BigInt` hasta el final para evitar conversiones repetidas.
 - Añade validaciones explícitas al inicio de la función para asegurar entradas limpias y facilitar debugging.
 

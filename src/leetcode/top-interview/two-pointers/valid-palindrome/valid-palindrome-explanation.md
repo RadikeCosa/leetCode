@@ -28,17 +28,17 @@ Una frase es un palíndromo si, después de convertir todas las letras mayúscul
 
 1. **Inicializar punteros:** `left = 0`, `right = s.length - 1`
 2. **Loop principal:** Mientras `left < right`:
-   - **Saltar no alfanuméricos desde izquierda:** Avanzar `left` hasta encontrar carácter válido
-   - **Saltar no alfanuméricos desde derecha:** Retroceder `right` hasta encontrar carácter válido
-   - **Comparar:** Si `s[left].toLowerCase() !== s[right].toLowerCase()` → retornar `false`
-   - **Avanzar:** `left++`, `right--`
+ - **Saltar no alfanuméricos desde izquierda:** Avanzar `left` hasta encontrar carácter válido
+ - **Saltar no alfanuméricos desde derecha:** Retroceder `right` hasta encontrar carácter válido
+ - **Comparar:** Si `s[left].toLowerCase() !== s[right].toLowerCase()` → retornar `false`
+ - **Avanzar:** `left++`, `right--`
 3. **Retornar `true`:** Si completamos el loop sin encontrar diferencias
 
 ### Función auxiliar:
 
 ```typescript
 const isAlphaNumeric = (char: string): boolean => {
-  return /[a-z0-9]/i.test(char);
+ return /[a-z 0-9]/i.test(char);
 };
 ```
 
@@ -68,12 +68,12 @@ Continúa hasta que left >= right → true
 
 ## Casos Edge
 
-✅ **String vacío:** `""` → `true` (no entra al while loop)  
-✅ **Solo caracteres no alfanuméricos:** `".,!@#"` → `true` (punteros se cruzan sin comparar)  
-✅ **Un solo carácter alfanumérico:** `"a"` → `true`  
-✅ **Números mezclados:** `"A1B2b1a"` → `true`  
-✅ **Mayúsculas/minúsculas:** `"Aa"` → `true`  
-✅ **Espacios múltiples:** `"  a  "` → `true`
+✅ **String vacío:** `""` → `true` (no entra al while loop) 
+✅ **Solo caracteres no alfanuméricos:** `".,!@#"` → `true` (punteros se cruzan sin comparar) 
+✅ **Un solo carácter alfanumérico:** `"a"` → `true` 
+✅ **Números mezclados:** `"A 1 B 2 b 1 a"` → `true` 
+✅ **Mayúsculas/minúsculas:** `"Aa"` → `true` 
+✅ **Espacios múltiples:** `" a "` → `true`
 
 ### Casos críticos manejados:
 
@@ -103,7 +103,7 @@ Continúa hasta que left >= right → true
 
 ### **4. Regex para Validación**
 
-- **Pattern:** `/[a-z0-9]/i` - letras y números, case-insensitive
+- **Pattern:** `/[a-z 0-9]/i` - letras y números, case-insensitive
 - **Ventaja:** Expresivo y conciso vs múltiples comparaciones
 - **Rendimiento:** Suficientemente eficiente para verificaciones simples de caracteres
 

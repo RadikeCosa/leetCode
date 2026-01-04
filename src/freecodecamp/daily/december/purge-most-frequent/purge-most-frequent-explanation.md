@@ -32,31 +32,31 @@ El objetivo es identificar el/los elemento(s) que aparecen con mayor frecuencia 
 
 ### Casos de Prueba Identificados
 
-1. `[1, 2, 2, 3]` → `[1, 3]`  
-   El elemento más frecuente es `2` (2 veces). Se eliminan todas sus ocurrencias.
+1. `[1, 2, 2, 3]` → `[1, 3]` 
+ El elemento más frecuente es `2` (2 veces). Se eliminan todas sus ocurrencias.
 
-2. `["a", "b", "d", "b", "c", "d", "c", "d", "c", "d"]` → `["a", "b", "b", "c", "c", "c"]`  
-   El más frecuente es `d` (4 veces). Se eliminan todas las ocurrencias de `d`.
+2. `["a", "b", "d", "b", "c", "d", "c", "d", "c", "d"]` → `["a", "b", "b", "c", "c", "c"]` 
+ El más frecuente es `d` (4 veces). Se eliminan todas las ocurrencias de `d`.
 
-3. `["red", "blue", "green", "red", "blue", "green", "blue"]` → `["red", "green", "red", "green"]`  
-   El más frecuente es `blue` (3 veces). Se eliminan todas las ocurrencias de `blue`.
+3. `["red", "blue", "green", "red", "blue", "green", "blue"]` → `["red", "green", "red", "green"]` 
+ El más frecuente es `blue` (3 veces). Se eliminan todas las ocurrencias de `blue`.
 
-4. `[5, 5, 5, 5]` → `[]`  
-   Todos los elementos son el más frecuente. El resultado es un array vacío.
+4. `[5, 5, 5, 5]` → `[]` 
+ Todos los elementos son el más frecuente. El resultado es un array vacío.
 
 **Casos edge sugeridos:**
 
-- Array vacío: `[]` → `[]`  
-  No hay elementos, el resultado es el mismo array vacío.
+- Array vacío: `[]` → `[]` 
+ No hay elementos, el resultado es el mismo array vacío.
 
-- Todos los elementos con la misma frecuencia: `[1, 2, 3, 4]` → `[]`  
-  Todos aparecen una vez, todos se eliminan.
+- Todos los elementos con la misma frecuencia: `[1, 2, 3, 4]` → `[]` 
+ Todos aparecen una vez, todos se eliminan.
 
-- Elementos no primitivos: `[{a:1}, {a:1}, {b:2}]`  
-  (En JS, objetos distintos nunca son iguales por referencia, así que cada objeto se considera único aunque tenga el mismo contenido.)
+- Elementos no primitivos: `[{a:1}, {a:1}, {b:2}]` 
+ (En JS, objetos distintos nunca son iguales por referencia, así que cada objeto se considera único aunque tenga el mismo contenido.)
 
-- Elementos booleanos: `[true, false, true, false, true]` → `[false, false]`  
-  `true` es el más frecuente (3 veces), se eliminan todos los `true`.
+- Elementos booleanos: `[true, false, true, false, true]` → `[false, false]` 
+ `true` es el más frecuente (3 veces), se eliminan todos los `true`.
 
 ## Desarrollo de la Solución
 
@@ -64,14 +64,14 @@ El objetivo es identificar el/los elemento(s) que aparecen con mayor frecuencia 
 
 El enfoque se divide en dos fases principales:
 
-1. **Contar la frecuencia de cada elemento:**  
-   Se recorre el array y se utiliza un objeto (si los elementos son primitivos) o un `Map` para llevar la cuenta de cuántas veces aparece cada valor.
+1. **Contar la frecuencia de cada elemento:** 
+ Se recorre el array y se utiliza un objeto (si los elementos son primitivos) o un `Map` para llevar la cuenta de cuántas veces aparece cada valor.
 
-2. **Identificar el/los más frecuentes:**  
-   Se determina la frecuencia máxima y se identifican todos los valores que la alcanzan (puede haber empate).
+2. **Identificar el/los más frecuentes:** 
+ Se determina la frecuencia máxima y se identifican todos los valores que la alcanzan (puede haber empate).
 
-3. **Filtrar el array original:**  
-   Se construye un nuevo array excluyendo todos los elementos que sean de los más frecuentes, manteniendo el orden original.
+3. **Filtrar el array original:** 
+ Se construye un nuevo array excluyendo todos los elementos que sean de los más frecuentes, manteniendo el orden original.
 
 Este enfoque es eficiente y claro, y permite manejar empates y cualquier tipo de dato primitivo.
 
@@ -90,27 +90,27 @@ Este proceso requiere dos recorridos principales sobre el array (uno para contar
 
 ```javascript
 function purgeMostFrequent(arr) {
-  const frequencyMap = new Map();
-  // Contar frecuencias
-  for (const item of arr) {
-    frequencyMap.set(item, (frequencyMap.get(item) || 0) + 1);
-  }
-  // Encontrar la frecuencia máxima
-  let maxFrequency = 0;
-  for (const freq of frequencyMap.values()) {
-    if (freq > maxFrequency) {
-      maxFrequency = freq;
-    }
-  }
-  // Identificar los elementos más frecuentes
-  const mostFrequentElements = new Set();
-  for (const [item, freq] of frequencyMap.entries()) {
-    if (freq === maxFrequency) {
-      mostFrequentElements.add(item);
-    }
-  }
-  // Filtrar el array original
-  return arr.filter((item) => !mostFrequentElements.has(item));
+ const frequencyMap = new Map();
+ // Contar frecuencias
+ for (const item of arr) {
+ frequencyMap.set(item, (frequencyMap.get(item) || 0) + 1);
+ }
+ // Encontrar la frecuencia máxima
+ let maxFrequency = 0;
+ for (const freq of frequencyMap.values()) {
+ if (freq > maxFrequency) {
+ maxFrequency = freq;
+ }
+ }
+ // Identificar los elementos más frecuentes
+ const mostFrequentElements = new Set();
+ for (const [item, freq] of frequencyMap.entries()) {
+ if (freq === maxFrequency) {
+ mostFrequentElements.add(item);
+ }
+ }
+ // Filtrar el array original
+ return arr.filter((item) => !mostFrequentElements.has(item));
 }
 ```
 
@@ -124,7 +124,7 @@ El algoritmo realiza dos recorridos principales sobre el array de entrada:
 2. El segundo recorrido identifica la frecuencia máxima y los elementos más frecuentes ($O(k)$, donde $k$ es el número de elementos únicos; en el peor caso $k = n$).
 3. Finalmente, se filtra el array original excluyendo los elementos más frecuentes ($O(n)$).
 
-Por lo tanto, la complejidad temporal total es $O(n + k)$, que en el peor caso (todos los elementos distintos) es $O(2n) = O(n)$.
+Por lo tanto, la complejidad temporal total es $O(n + k)$, que en el peor caso (todos los elementos distintos) es $O(2 n) = O(n)$.
 
 ### Complejidad Espacial
 
@@ -163,7 +163,7 @@ En resumen, la complejidad espacial es $O(k)$.
 
 - [MDN Web Docs: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-- [Artículo relacionado: "Counting Elements in JavaScript"](https://2ality.com/2015/01/es6-set-operations.html)
+- [Artículo relacionado: "Counting Elements in JavaScript"](https://2 ality.com/2015/01/es 6-set-operations.html)
 
 ---
 
@@ -171,10 +171,10 @@ En resumen, la complejidad espacial es $O(k)$.
 
 - **Topics:**
 
-  - `array`: el problema se basa en manipulación de arrays.
-  - `hash-map` y `frequency-counting`: el conteo eficiente de frecuencias es central.
-  - `filtering`: la solución filtra el array original.
-  - `data-structures`: uso de `Map` y `Set`.
+ - `array`: el problema se basa en manipulación de arrays.
+ - `hash-map` y `frequency-counting`: el conteo eficiente de frecuencias es central.
+ - `filtering`: la solución filtra el array original.
+ - `data-structures`: uso de `Map` y `Set`.
 
 - **Dificultad:**
-  - **Fácil-Media**: es un problema clásico de filtrado y conteo, pero requiere atención a detalles de igualdad y tipos de datos, lo que lo hace ligeramente más desafiante que un simple filtrado.
+ - **Fácil-Media**: es un problema clásico de filtrado y conteo, pero requiere atención a detalles de igualdad y tipos de datos, lo que lo hace ligeramente más desafiante que un simple filtrado.

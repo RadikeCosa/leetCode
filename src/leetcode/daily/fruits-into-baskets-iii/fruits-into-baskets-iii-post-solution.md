@@ -29,10 +29,10 @@ La estrategia será:
 
 ```typescript []
 function numOfUnplacedFruits(fruits: number[], baskets: number[]): number {
-  // TODO: Implementar la lógica específica para Fruits into Baskets III
-  // Determinar si hay diferencias con el problema II
-  // Ajustar el algoritmo según las reglas específicas
+ // TODO: Implementar la lógica específica para Fruits into Baskets III
+ // Determinar si hay diferencias con el problema II
+ // Ajustar el algoritmo según las reglas específicas
 
-  return unplaced;
+ return unplaced;
 }
 ```

@@ -14,10 +14,10 @@ I'll use a **two-pointer sliding window** technique:
 
 - Initialize `left = 0`, `sum = 0`, `minLength = Infinity`
 - For each `right` from 0 to n-1:
-  - Add `nums[right]` to current sum (expand window)
-  - While `sum >= target`:
-    - Update minimum length: `min(minLength, right - left + 1)`
-    - Remove `nums[left]` from sum and increment `left` (contract window)
+ - Add `nums[right]` to current sum (expand window)
+ - While `sum >= target`:
+ - Update minimum length: `min(minLength, right - left + 1)`
+ - Remove `nums[left]` from sum and increment `left` (contract window)
 - Return `minLength === Infinity ? 0 : minLength`
 
 # Complexity
@@ -29,20 +29,20 @@ I'll use a **two-pointer sliding window** technique:
 
 ```typescript
 export function minSubArrayLen(target: number, nums: number[]): number {
-  let left = 0; // Puntero izquierdo
-  let sum = 0; //suma
-  let minSubArrayLen = Infinity; // Inicializar con infinito para encontrar el mínimo
+ let left = 0; // Puntero izquierdo
+ let sum = 0; //suma
+ let minSubArrayLen = Infinity; // Inicializar con infinito para encontrar el mínimo
 
-  for (let right = 0; right < nums.length; right++) {
-    sum += nums[right]; // Agregar el valor actual al sum
-    while (sum >= target) {
-      // Mientras la suma sea mayor o igual al objetivo
-      minSubArrayLen = Math.min(minSubArrayLen, right - left + 1); // Actualizar la longitud mínima
-      sum -= nums[left]; // Restar el valor del puntero izquierdo
-      left++; // Mover el puntero izquierdo hacia la derecha
-    }
-  }
-  return minSubArrayLen === Infinity ? 0 : minSubArrayLen;
+ for (let right = 0; right < nums.length; right++) {
+ sum += nums[right]; // Agregar el valor actual al sum
+ while (sum >= target) {
+ // Mientras la suma sea mayor o igual al objetivo
+ minSubArrayLen = Math.min(minSubArrayLen, right - left + 1); // Actualizar la longitud mínima
+ sum -= nums[left]; // Restar el valor del puntero izquierdo
+ left++; // Mover el puntero izquierdo hacia la derecha
+ }
+ }
+ return minSubArrayLen === Infinity ? 0 : minSubArrayLen;
 }
 ```
 

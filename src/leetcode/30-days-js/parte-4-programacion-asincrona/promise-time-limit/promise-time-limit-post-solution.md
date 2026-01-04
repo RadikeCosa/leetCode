@@ -26,15 +26,15 @@ The solution uses **Promise.race()** to create a controlled race between two pro
 type Fn = (...params: any[]) => Promise<any>;
 
 export function timeLimit(fn: Fn, t: number): Fn {
-  return async function (...args) {
-    // Create promise that rejects after t milliseconds
-    const timeoutPromise = new Promise((resolve, reject) => {
-      setTimeout(() => reject("Time Limit Exceeded"), t);
-    });
+ return async function (...args) {
+ // Create promise that rejects after t milliseconds
+ const timeoutPromise = new Promise((resolve, reject) => {
+ setTimeout(() => reject("Time Limit Exceeded"), t);
+ });
 
-    // Race between original function and timeout
-    return Promise.race([fn(...args), timeoutPromise]);
-  };
+ // Race between original function and timeout
+ return Promise.race([fn(...args), timeoutPromise]);
+ };
 }
 ```
 
@@ -42,10 +42,10 @@ export function timeLimit(fn: Fn, t: number): Fn {
 
 - **Edge Cases Handled**:
 
-  - Functions that resolve immediately (faster than timeout)
-  - Functions that throw errors (original error propagates, not timeout)
-  - Zero or very short timeouts
-  - Functions with multiple arguments or no arguments
+ - Functions that resolve immediately (faster than timeout)
+ - Functions that throw errors (original error propagates, not timeout)
+ - Zero or very short timeouts
+ - Functions with multiple arguments or no arguments
 
 - **Key Pattern**: `Promise.race()` is perfect for timeout implementations because it naturally handles the "first to complete wins" scenario
 
@@ -54,5 +54,5 @@ export function timeLimit(fn: Fn, t: number): Fn {
 - **Memory Considerations**: The timeout promise continues to exist even after the race is decided, but this is normal behavior and doesn't cause memory leaks in JavaScript
 
 - **Alternative Approaches Rejected**:
-  - Using `setTimeout` with cancellation would be more complex and doesn't handle promise chaining naturally
-  - Manual promise creation with race logic would reinvent `Promise.race()` functionality
+ - Using `setTimeout` with cancellation would be more complex and doesn't handle promise chaining naturally
+ - Manual promise creation with race logic would reinvent `Promise.race()` functionality

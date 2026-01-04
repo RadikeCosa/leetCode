@@ -81,7 +81,7 @@ Por favor resuélvelo sin usar la función `_.chunk` de lodash.
 
 ```typescript
 for (let i = 0; i < arr.length; i += size) {
-  result.push(arr.slice(i, i + size));
+ result.push(arr.slice(i, i + size));
 }
 ```
 

@@ -39,15 +39,15 @@ La implementación final utiliza una aproximación optimizada sin expresiones re
 
 ```javascript
 function imageSearch(images, term) {
-  if (!Array.isArray(images) || typeof term !== "string") {
-    return [];
-  }
+ if (!Array.isArray(images) || typeof term !== "string") {
+ return [];
+ }
 
-  const lowerTerm = term.toLowerCase();
-  return images.filter(
-    (image) =>
-      typeof image === "string" && image.toLowerCase().includes(lowerTerm)
-  );
+ const lowerTerm = term.toLowerCase();
+ return images.filter(
+ (image) =>
+ typeof image === "string" && image.toLowerCase().includes(lowerTerm)
+ );
 }
 ```
 
@@ -94,14 +94,14 @@ Versión con regex (para comparación):
 
 ```javascript
 function imageSearchRegex(images, term) {
-  if (!Array.isArray(images) || typeof term !== "string") {
-    return [];
-  }
+ if (!Array.isArray(images) || typeof term !== "string") {
+ return [];
+ }
 
-  const regex = new RegExp(term, "i");
-  return images.filter(
-    (image) => typeof image === "string" && regex.test(image)
-  );
+ const regex = new RegExp(term, "i");
+ return images.filter(
+ (image) => typeof image === "string" && regex.test(image)
+ );
 }
 ```
 

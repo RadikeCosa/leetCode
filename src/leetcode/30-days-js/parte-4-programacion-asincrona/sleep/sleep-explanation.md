@@ -27,8 +27,8 @@ Dado un entero positivo `millis`, escribe una función asíncrona que "duerma" p
 
 ### Casos de Prueba
 
-1. **Ejemplo 1**: `millis = 100` → debe resolver después de ~100ms
-2. **Ejemplo 2**: `millis = 200` → debe resolver después de ~200ms
+1. **Ejemplo 1**: `millis = 100` → debe resolver después de ~100 ms
+2. **Ejemplo 2**: `millis = 200` → debe resolver después de ~200 ms
 
 ### Restricciones
 
@@ -57,7 +57,7 @@ La idea es combinar `setTimeout` (que programa ejecución futura) con `Promise` 
 
 ```typescript
 export async function sleep(millis: number): Promise<void> {
-  await new Promise((resolve) => setTimeout(resolve, millis));
+ await new Promise((resolve) => setTimeout(resolve, millis));
 }
 ```
 
@@ -83,8 +83,8 @@ Nota: Aunque el tiempo de "espera" es `millis`, en términos de complejidad algo
 
 ## Casos Edge
 
-1. **Valor mínimo (1ms)**: Funciona correctamente, aunque en la práctica puede tomar un poco más debido a la precisión del timer del navegador
-2. **Valor máximo (1000ms)**: Sin problemas, setTimeout puede manejar fácilmente estos valores
+1. **Valor mínimo (1 ms)**: Funciona correctamente, aunque en la práctica puede tomar un poco más debido a la precisión del timer del navegador
+2. **Valor máximo (1000 ms)**: Sin problemas, setTimeout puede manejar fácilmente estos valores
 3. **Precisión del timing**: Se permite cierta desviación, lo que es realista dado que JavaScript no garantiza precisión perfecta en timers
 
 ## Patrones Aprendidos
@@ -101,7 +101,7 @@ new Promise((resolve) => setTimeout(resolve, delay));
 ```typescript
 // Convertir operaciones callback-based a async/await
 async function asyncOperation() {
-  await new Promise((resolve) => someAsyncAPI(resolve));
+ await new Promise((resolve) => someAsyncAPI(resolve));
 }
 ```
 

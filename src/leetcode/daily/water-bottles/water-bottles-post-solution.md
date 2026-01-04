@@ -15,17 +15,17 @@ Start with the initial number of bottles. Each time you drink a bottle, you gain
 
 ```typescript
 export function numWaterBottles(
-  numBottles: number,
-  numExchange: number
+ numBottles: number,
+ numExchange: number
 ): number {
-  let totalDrank = numBottles;
-  let empty = numBottles;
-  while (empty >= numExchange) {
-    const newBottles = Math.floor(empty / numExchange);
-    totalDrank += newBottles;
-    empty = (empty % numExchange) + newBottles;
-  }
-  return totalDrank;
+ let totalDrank = numBottles;
+ let empty = numBottles;
+ while (empty >= numExchange) {
+ const newBottles = Math.floor(empty / numExchange);
+ totalDrank += newBottles;
+ empty = (empty % numExchange) + newBottles;
+ }
+ return totalDrank;
 }
 ```
 

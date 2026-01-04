@@ -33,12 +33,12 @@ Necesitamos encontrar todas las coordenadas de celdas `[r, c]` desde las cuales 
 
 ### Ejemplo Conceptual
 
-Consideremos esta matriz simple 3x3:
+Consideremos esta matriz simple 3 x 3:
 
 ```
-Pacífico →  [5, 3, 4]  ← Atlántico
-           [1, 2, 6]
-           [7, 8, 9]
+Pacífico → [5, 3, 4] ← Atlántico
+ [1, 2, 6]
+ [7, 8, 9]
 ```
 
 - Celda [0,0] = 5: puede fluir al Pacífico (está en el borde), y al Atlántico vía [0,0]→[1,0]→[2,0]→borde inferior
@@ -47,7 +47,7 @@ Pacífico →  [5, 3, 4]  ← Atlántico
 
 ### Casos Especiales
 
-1. **Isla 1x1**: La única celda puede fluir a ambos océanos
+1. **Isla 1 x 1**: La única celda puede fluir a ambos océanos
 2. **Celdas en bordes**: Siempre pueden fluir al océano correspondiente
 3. **Celdas internas**: Necesitan caminos descendentes a ambos bordes
 4. **Mesetas**: Celdas con misma altura pueden fluir entre sí
@@ -71,19 +71,19 @@ Pacífico →  [5, 3, 4]  ← Atlántico
 
 1. **Inicializar matrices de alcance**:
 
-   - `pacificReachable[m][n]`: celdas que pueden fluir al Pacífico
-   - `atlanticReachable[m][n]`: celdas que pueden fluir al Atlántico
+ - `pacificReachable[m][n]`: celdas que pueden fluir al Pacífico
+ - `atlanticReachable[m][n]`: celdas que pueden fluir al Atlántico
 
 2. **DFS desde Pacífico**:
 
-   - Empezar desde: borde izquierdo (columna 0) + borde superior (fila 0)
-   - Marcar todas las celdas alcanzables siguiendo el flujo del agua
-   - Condición: desde celda actual, ir a vecinas con `altura_vecina <= altura_actual`
+ - Empezar desde: borde izquierdo (columna 0) + borde superior (fila 0)
+ - Marcar todas las celdas alcanzables siguiendo el flujo del agua
+ - Condición: desde celda actual, ir a vecinas con `altura_vecina <= altura_actual`
 
 3. **DFS desde Atlántico**:
 
-   - Empezar desde: borde derecho (columna n-1) + borde inferior (fila m-1)
-   - Marcar todas las celdas alcanzables siguiendo el flujo del agua
+ - Empezar desde: borde derecho (columna n-1) + borde inferior (fila m-1)
+ - Marcar todas las celdas alcanzables siguiendo el flujo del agua
 
 4. **Intersección**: Celdas marcadas en ambas matrices
 
@@ -95,10 +95,10 @@ Pacífico →  [5, 3, 4]  ← Atlántico
 const rows = heights.length;
 const cols = heights[0].length;
 const pacificReachable: boolean[][] = Array.from({ length: rows }, () =>
-  Array(cols).fill(false)
+ Array(cols).fill(false)
 );
 const atlanticReachable: boolean[][] = Array.from({ length: rows }, () =>
-  Array(cols).fill(false)
+ Array(cols).fill(false)
 );
 ```
 
@@ -106,35 +106,35 @@ const atlanticReachable: boolean[][] = Array.from({ length: rows }, () =>
 
 ```typescript
 const dfs = (row: number, col: number, reachable: boolean[][]) => {
-  // Evitar límites y celdas ya visitadas
-  if (row < 0 || row >= rows || col < 0 || col >= cols || reachable[row][col]) {
-    return;
-  }
+ // Evitar límites y celdas ya visitadas
+ if (row < 0 || row >= rows || col < 0 || col >= cols || reachable[row][col]) {
+ return;
+ }
 
-  reachable[row][col] = true;
-  const currentHeight = heights[row][col];
+ reachable[row][col] = true;
+ const currentHeight = heights[row][col];
 
-  // Explorar 4 direcciones con condición de flujo
-  for (const [dr, dc] of [
-    [0, 1],
-    [0, -1],
-    [1, 0],
-    [-1, 0],
-  ]) {
-    const newRow = row + dr;
-    const newCol = col + dc;
+ // Explorar 4 direcciones con condición de flujo
+ for (const [dr, dc] of [
+ [0, 1],
+ [0, -1],
+ [1, 0],
+ [-1, 0],
+ ]) {
+ const newRow = row + dr;
+ const newCol = col + dc;
 
-    if (
-      newRow >= 0 &&
-      newRow < rows &&
-      newCol >= 0 &&
-      newCol < cols &&
-      heights[newRow][newCol] <= currentHeight &&
-      !reachable[newRow][newCol]
-    ) {
-      dfs(newRow, newCol, reachable);
-    }
-  }
+ if (
+ newRow >= 0 &&
+ newRow < rows &&
+ newCol >= 0 &&
+ newCol < cols &&
+ heights[newRow][newCol] <= currentHeight &&
+ !reachable[newRow][newCol]
+ ) {
+ dfs(newRow, newCol, reachable);
+ }
+ }
 };
 ```
 
@@ -155,11 +155,11 @@ for (let col = 0; col < cols; col++) dfs(rows - 1, col, atlanticReachable);
 ```typescript
 const result: number[][] = [];
 for (let row = 0; row < rows; row++) {
-  for (let col = 0; col < cols; col++) {
-    if (pacificReachable[row][col] && atlanticReachable[row][col]) {
-      result.push([row, col]);
-    }
-  }
+ for (let col = 0; col < cols; col++) {
+ if (pacificReachable[row][col] && atlanticReachable[row][col]) {
+ result.push([row, col]);
+ }
+ }
 }
 ```
 
@@ -183,13 +183,13 @@ for (let row = 0; row < rows; row++) {
 
 ```
 Input:
-[1, 2, 2, 3, 5]  ← Fila 0 (Pacífico)
-[3, 2, 3, 4, 4]  ← Fila 1
-[2, 4, 5, 3, 1]  ← Fila 2
-[6, 7, 1, 4, 5]  ← Fila 3
-[5, 1, 1, 2, 4]  ← Fila 4 (Atlántico)
- ↑         ↑
- Col 0    Col 4
+[1, 2, 2, 3, 5] ← Fila 0 (Pacífico)
+[3, 2, 3, 4, 4] ← Fila 1
+[2, 4, 5, 3, 1] ← Fila 2
+[6, 7, 1, 4, 5] ← Fila 3
+[5, 1, 1, 2, 4] ← Fila 4 (Atlántico)
+ ↑ ↑
+ Col 0 Col 4
 (Pacífico)(Atlántico)
 ```
 

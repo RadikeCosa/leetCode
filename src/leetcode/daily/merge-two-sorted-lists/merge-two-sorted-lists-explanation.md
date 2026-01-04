@@ -15,13 +15,13 @@ createdAt: "2025-08-19"
 
 ## Descripción del Problema
 
-You are given the heads of two sorted linked lists `list1` and `list2`.
+You are given the heads of two sorted linked lists `list 1` and `list 2`.
 
 Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
 
 Return the head of the merged linked list.
 
-**Dificultad:** Easy  
+**Dificultad:** Easy 
 **Topics:** Linked List, Recursion
 
 ## Ejemplos
@@ -29,21 +29,21 @@ Return the head of the merged linked list.
 ### Ejemplo 1:
 
 ```
-Input: list1 = [1,2,4], list2 = [1,3,4]
+Input: list 1 = [1,2,4], list 2 = [1,3,4]
 Output: [1,1,2,3,4,4]
 ```
 
 ### Ejemplo 2:
 
 ```
-Input: list1 = [], list2 = []
+Input: list 1 = [], list 2 = []
 Output: []
 ```
 
 ### Ejemplo 3:
 
 ```
-Input: list1 = [], list2 = [0]
+Input: list 1 = [], list 2 = [0]
 Output: [0]
 ```
 
@@ -51,7 +51,7 @@ Output: [0]
 
 - The number of nodes in both lists is in the range `[0, 50]`.
 - `-100 <= Node.val <= 100`
-- Both `list1` and `list2` are sorted in **non-decreasing** order.
+- Both `list 1` and `list 2` are sorted in **non-decreasing** order.
 
 ## Análisis del Problema
 
@@ -93,29 +93,29 @@ Usamos el **enfoque iterativo con nodo dummy**:
 
 ```typescript
 export function mergeTwoLists(
-  list1: ListNode | null,
-  list2: ListNode | null
+ list 1: ListNode | null,
+ list 2: ListNode | null
 ): ListNode | null {
-  // Nodo dummy para simplificar la lógica
-  const dummy = new ListNode(0);
-  let current = dummy;
+ // Nodo dummy para simplificar la lógica
+ const dummy = new ListNode(0);
+ let current = dummy;
 
-  // Mientras ambas listas tengan elementos
-  while (list1 !== null && list2 !== null) {
-    if (list1.val <= list2.val) {
-      current.next = list1;
-      list1 = list1.next;
-    } else {
-      current.next = list2;
-      list2 = list2.next;
-    }
-    current = current.next;
-  }
+ // Mientras ambas listas tengan elementos
+ while (list 1 !== null && list 2 !== null) {
+ if (list 1.val <= list 2.val) {
+ current.next = list 1;
+ list 1 = list 1.next;
+ } else {
+ current.next = list 2;
+ list 2 = list 2.next;
+ }
+ current = current.next;
+ }
 
-  // Conectar lo que queda de cualquier lista no vacía
-  current.next = list1 || list2;
+ // Conectar lo que queda de cualquier lista no vacía
+ current.next = list 1 || list 2;
 
-  return dummy.next; // Saltamos el nodo dummy
+ return dummy.next; // Saltamos el nodo dummy
 }
 ```
 
@@ -128,7 +128,7 @@ export function mergeTwoLists(
 ## Complejidad
 
 - **Tiempo:** O(n + m) - donde n y m son las longitudes de las dos listas
-  - Visitamos cada nodo exactamente una vez
+ - Visitamos cada nodo exactamente una vez
 - **Espacio:** O(1) - solo usamos punteros adicionales, no creamos nuevos nodos
 
 ## Aprendizajes y Patrones

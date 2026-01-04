@@ -49,17 +49,17 @@ Para resolver este problema utilizamos un enfoque iterativo que construye la ser
 
 ```javascript
 function nthFibonacci(n) {
-  if (n === 0) return 0;
-  if (n === 1) return 1;
-  let a = 0,
-    b = 1,
-    temp;
-  for (let i = 2; i <= n; i++) {
-    temp = a + b;
-    a = b;
-    b = temp;
-  }
-  return b;
+ if (n === 0) return 0;
+ if (n === 1) return 1;
+ let a = 0,
+ b = 1,
+ temp;
+ for (let i = 2; i <= n; i++) {
+ temp = a + b;
+ a = b;
+ b = temp;
+ }
+ return b;
 }
 ```
 
@@ -77,7 +77,7 @@ La complejidad espacial es O(1) porque solo usamos un número constante de varia
 
 - Si `n` es 0, la función devuelve 0.
 - Si `n` es 1, la función devuelve 1.
-- Atención a límites numéricos: en JavaScript los enteros precisos están limitados por `Number.MAX_SAFE_INTEGER` (~9e15). El valor para `n = 75` encaja en ese rango, pero para `n` mucho mayores se puede perder precisión. Para entradas muy grandes se recomienda usar `BigInt` o algoritmos en tiempo logarítmico (exponenciación de matrices o multiplicación rápida).
+- Atención a límites numéricos: en JavaScript los enteros precisos están limitados por `Number.MAX_SAFE_INTEGER` (~9 e 15). El valor para `n = 75` encaja en ese rango, pero para `n` mucho mayores se puede perder precisión. Para entradas muy grandes se recomienda usar `BigInt` o algoritmos en tiempo logarítmico (exponenciación de matrices o multiplicación rápida).
 
 ## Reflexiones y Aprendizajes
 
@@ -93,6 +93,6 @@ Aunque la solución iterativa es eficiente, para valores extremadamente grandes 
 
 ## Recursos y Referencias
 
-- [Serie de Fibonacci - Wikipedia](https://es.wikipedia.org/wiki/Sucesi%C3%B3n_de_Fibonacci)
+- [Serie de Fibonacci - Wikipedia](https://es.wikipedia.org/wiki/Sucesi%C 3%B 3 n_de_Fibonacci)
 - [freeCodeCamp - Daily Coding Challenge](https://www.freecodecamp.org/learn/daily-coding-challenge/)
 - [Big O Notation - GeeksforGeeks](https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/)

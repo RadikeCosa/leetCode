@@ -49,8 +49,8 @@ Usar diferentes técnicas según el tipo de input:
 1. Determinar si el input es array usando `Array.isArray()`
 2. Si es array: retornar `obj.length === 0`
 3. Si es objeto: usar `for...in` loop:
-   - Si encuentra al menos una propiedad → retornar `false`
-   - Si nunca entra al loop → retornar `true`
+ - Si encuentra al menos una propiedad → retornar `false`
+ - Si nunca entra al loop → retornar `true`
 
 ### Casos Borde
 
@@ -83,17 +83,17 @@ Usar diferentes técnicas según el tipo de input:
 
 ```typescript
 export function isEmpty(obj: Record<string, any> | any[]): boolean {
-  // Verificar si es array o objeto y aplicar estrategia O(1) correspondiente
-  if (Array.isArray(obj)) {
-    // Para arrays: usar .length es naturalmente O(1)
-    return obj.length === 0;
-  }
+ // Verificar si es array o objeto y aplicar estrategia O(1) correspondiente
+ if (Array.isArray(obj)) {
+ // Para arrays: usar .length es naturalmente O(1)
+ return obj.length === 0;
+ }
 
-  // Para objetos: usar for...in que se rompe en la primera iteración (O(1) verdadero)
-  for (let key in obj) {
-    return false; // Si encontramos al menos una propiedad, no está vacío
-  }
-  return true; // Si nunca entró al loop, el objeto está vacío
+ // Para objetos: usar for...in que se rompe en la primera iteración (O(1) verdadero)
+ for (let key in obj) {
+ return false; // Si encontramos al menos una propiedad, no está vacío
+ }
+ return true; // Si nunca entró al loop, el objeto está vacío
 }
 ```
 

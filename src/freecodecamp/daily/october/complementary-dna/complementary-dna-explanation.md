@@ -29,10 +29,10 @@ Este problema requiere transformar cada carácter de una cadena de ADN según re
 
 1. **Recorrer cada carácter**: Procesar cada letra de la cadena de entrada
 2. **Aplicar reglas de complementariedad**:
-   - "A" → "T"
-   - "T" → "A"
-   - "C" → "G"
-   - "G" → "C"
+ - "A" → "T"
+ - "T" → "A"
+ - "C" → "G"
+ - "G" → "C"
 3. **Construir la cadena resultante**: Unir todos los caracteres complementarios
 4. **Preservar el orden**: La cadena resultante debe mantener el mismo orden que la original
 
@@ -90,9 +90,9 @@ strand.split("");
 
 ```javascript
 return strand
-  .split("")
-  .map((char) => pairs[char])
-  .join("");
+ .split("")
+ .map((char) => pairs[char])
+ .join("");
 ```
 
 - Todo se encadena en una sola línea funcional
@@ -104,14 +104,14 @@ return strand
 
 ```javascript
 function complementaryDNA(strand) {
-  const pairs = { A: "T", T: "A", C: "G", G: "C" };
-  let result = "";
+ const pairs = { A: "T", T: "A", C: "G", G: "C" };
+ let result = "";
 
-  for (let char of strand) {
-    result += pairs[char];
-  }
+ for (let char of strand) {
+ result += pairs[char];
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -122,14 +122,14 @@ function complementaryDNA(strand) {
 
 ```javascript
 function complementaryDNA(strand) {
-  const pairs = { A: "T", T: "A", C: "G", G: "C" };
-  const result = [];
+ const pairs = { A: "T", T: "A", C: "G", G: "C" };
+ const result = [];
 
-  for (let char of strand) {
-    result.push(pairs[char]);
-  }
+ for (let char of strand) {
+ result.push(pairs[char]);
+ }
 
-  return result.join("");
+ return result.join("");
 }
 ```
 
@@ -140,8 +140,8 @@ function complementaryDNA(strand) {
 
 ```javascript
 function complementaryDNA(strand) {
-  const pairs = { A: "T", T: "A", C: "G", G: "C" };
-  return strand.replace(/[ATCG]/g, (match) => pairs[match]);
+ const pairs = { A: "T", T: "A", C: "G", G: "C" };
+ return strand.replace(/[ATCG]/g, (match) => pairs[match]);
 }
 ```
 
@@ -152,17 +152,17 @@ function complementaryDNA(strand) {
 
 ```javascript
 function complementaryDNA(strand) {
-  const pairs = new Map([
-    ["A", "T"],
-    ["T", "A"],
-    ["C", "G"],
-    ["G", "C"],
-  ]);
+ const pairs = new Map([
+ ["A", "T"],
+ ["T", "A"],
+ ["C", "G"],
+ ["G", "C"],
+ ]);
 
-  return strand
-    .split("")
-    .map((char) => pairs.get(char))
-    .join("");
+ return strand
+ .split("")
+ .map((char) => pairs.get(char))
+ .join("");
 }
 ```
 

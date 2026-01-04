@@ -34,34 +34,34 @@ We compute the DP table in order of increasing sub-polygon size.
 
 ```typescript
 export function minScoreTriangulation(values: number[]): number {
-  const n = values.length;
-  const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+ const n = values.length;
+ const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
 
-  // Base case: 2 vertices cannot be triangulated
-  for (let i = 0; i < n - 1; i++) {
-    dp[i][i + 1] = 0;
-  }
+ // Base case: 2 vertices cannot be triangulated
+ for (let i = 0; i < n - 1; i++) {
+ dp[i][i + 1] = 0;
+ }
 
-  // Base case: 3 vertices form one triangle
-  for (let i = 0; i < n - 2; i++) {
-    dp[i][i + 2] = values[i] * values[i + 1] * values[i + 2];
-  }
+ // Base case: 3 vertices form one triangle
+ for (let i = 0; i < n - 2; i++) {
+ dp[i][i + 2] = values[i] * values[i + 1] * values[i + 2];
+ }
 
-  // DP for larger polygons
-  for (let len = 3; len < n; len++) {
-    for (let i = 0; i < n - len; i++) {
-      const j = i + len;
-      dp[i][j] = Infinity;
-      for (let k = i + 1; k < j; k++) {
-        dp[i][j] = Math.min(
-          dp[i][j],
-          dp[i][k] + dp[k][j] + values[i] * values[k] * values[j]
-        );
-      }
-    }
-  }
+ // DP for larger polygons
+ for (let len = 3; len < n; len++) {
+ for (let i = 0; i < n - len; i++) {
+ const j = i + len;
+ dp[i][j] = Infinity;
+ for (let k = i + 1; k < j; k++) {
+ dp[i][j] = Math.min(
+ dp[i][j],
+ dp[i][k] + dp[k][j] + values[i] * values[k] * values[j]
+ );
+ }
+ }
+ }
 
-  return dp[0][n - 1];
+ return dp[0][n - 1];
 }
 ```
 

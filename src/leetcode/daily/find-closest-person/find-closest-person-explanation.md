@@ -28,9 +28,9 @@ Tanto la Persona 1 como la Persona 2 se mueven hacia la Persona 3 a la misma vel
 1. **Distancia**: La distancia entre dos puntos en una línea numérica es el valor absoluto de su diferencia
 2. **Tiempo de llegada**: Como ambas personas se mueven a la misma velocidad, quien tenga menor distancia llegará primero
 3. **Casos posibles**:
-   - Persona 1 llega primero → retornar 1
-   - Persona 2 llega primero → retornar 2
-   - Ambas llegan al mismo tiempo → retornar 0
+ - Persona 1 llega primero → retornar 1
+ - Persona 2 llega primero → retornar 2
+ - Ambas llegan al mismo tiempo → retornar 0
 
 ### Estrategia de Solución
 
@@ -44,9 +44,9 @@ tiempo = distancia / velocidad
 
 Como ambas personas tienen la **misma velocidad**, podemos simplificar:
 
-- Si `distancia_persona1 < distancia_persona2` → Persona 1 llega primero
-- Si `distancia_persona1 > distancia_persona2` → Persona 2 llega primero
-- Si `distancia_persona1 = distancia_persona2` → Llegan al mismo tiempo
+- Si `distancia_persona 1 < distancia_persona 2` → Persona 1 llega primero
+- Si `distancia_persona 1 > distancia_persona 2` → Persona 2 llega primero
+- Si `distancia_persona 1 = distancia_persona 2` → Llegan al mismo tiempo
 
 **Pasos del algoritmo:**
 
@@ -58,18 +58,18 @@ Como ambas personas tienen la **misma velocidad**, podemos simplificar:
 
 ```typescript
 export function findClosestPerson(x: number, y: number, z: number): number {
-  // Calcular distancias absolutas hacia la Persona 3
-  const distance1_3 = Math.abs(z - x);
-  const distance2_3 = Math.abs(z - y);
+ // Calcular distancias absolutas hacia la Persona 3
+ const distance 1_3 = Math.abs(z - x);
+ const distance 2_3 = Math.abs(z - y);
 
-  // Comparar distancias usando operador ternario anidado
-  return distance1_3 < distance2_3 ? 1 : distance1_3 > distance2_3 ? 2 : 0;
+ // Comparar distancias usando operador ternario anidado
+ return distance 1_3 < distance 2_3 ? 1 : distance 1_3 > distance 2_3 ? 2 : 0;
 }
 ```
 
 ### Decisiones de Diseño
 
-1. **Variables descriptivas**: `distance1_3` y `distance2_3` dejan claro que medimos distancias hacia la Persona 3
+1. **Variables descriptivas**: `distance 1_3` y `distance 2_3` dejan claro que medimos distancias hacia la Persona 3
 2. **Math.abs()**: Esencial para manejar casos donde las personas están en lados opuestos de la Persona 3
 3. **Operador ternario anidado**: Maneja los tres casos posibles de forma concisa y legible
 4. **Una sola comparación por distancia**: Eficiente, no recalculamos valores
@@ -91,7 +91,7 @@ No importa qué tan grandes sean los valores de entrada, siempre ejecutamos el m
 
 **O(1) - Espacio constante**
 
-- 2 variables locales (`distance1_3`, `distance2_3`)
+- 2 variables locales (`distance 1_3`, `distance 2_3`)
 - No usamos estructuras de datos auxiliares
 - El espacio usado no depende del tamaño de la entrada
 

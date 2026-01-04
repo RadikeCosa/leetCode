@@ -93,22 +93,22 @@ Se implementó una adaptación del algoritmo Two Sum usando Hash Map:
 
 ```javascript
 function findTarget(arr, target) {
-  // Adaptación del algoritmo Two Sum
-  const seen = new Map();
+ // Adaptación del algoritmo Two Sum
+ const seen = new Map();
 
-  for (let i = 0; i < arr.length; i++) {
-    const complement = target - arr[i];
+ for (let i = 0; i < arr.length; i++) {
+ const complement = target - arr[i];
 
-    if (seen.has(complement)) {
-      // Retornar índices en orden ascendente
-      const indices = [seen.get(complement), i].sort((a, b) => a - b);
-      return indices;
-    }
+ if (seen.has(complement)) {
+ // Retornar índices en orden ascendente
+ const indices = [seen.get(complement), i].sort((a, b) => a - b);
+ return indices;
+ }
 
-    seen.set(arr[i], i);
-  }
+ seen.set(arr[i], i);
+ }
 
-  return "Target not found";
+ return "Target not found";
 }
 ```
 
@@ -116,9 +116,9 @@ function findTarget(arr, target) {
 
 1. Crear Map para almacenar números vistos y sus índices
 2. Para cada número en el array:
-   - Calcular complemento: `target - arr[i]`
-   - Si complemento existe en Map, retornar índices ordenados
-   - Si no, guardar número actual en Map
+ - Calcular complemento: `target - arr[i]`
+ - Si complemento existe en Map, retornar índices ordenados
+ - Si no, guardar número actual en Map
 3. Si no se encontró solución, retornar "Target not found"
 
 **Ventajas de este enfoque:**
@@ -137,14 +137,14 @@ function findTarget(arr, target) {
 
 ```javascript
 function findTarget(arr, target) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] === target) {
-        return [i, j].sort((a, b) => a - b);
-      }
-    }
-  }
-  return "Target not found";
+ for (let i = 0; i < arr.length; i++) {
+ for (let j = i + 1; j < arr.length; j++) {
+ if (arr[i] + arr[j] === target) {
+ return [i, j].sort((a, b) => a - b);
+ }
+ }
+ }
+ return "Target not found";
 }
 ```
 
@@ -167,22 +167,22 @@ function findTarget(arr, target) {
 
 ```javascript
 function findTarget(arr, target) {
-  // Asumiendo array ordenado
-  let left = 0;
-  let right = arr.length - 1;
+ // Asumiendo array ordenado
+ let left = 0;
+ let right = arr.length - 1;
 
-  while (left < right) {
-    const sum = arr[left] + arr[right];
-    if (sum === target) {
-      return [left, right]; // Ya ordenados
-    } else if (sum < target) {
-      left++;
-    } else {
-      right--;
-    }
-  }
+ while (left < right) {
+ const sum = arr[left] + arr[right];
+ if (sum === target) {
+ return [left, right]; // Ya ordenados
+ } else if (sum < target) {
+ left++;
+ } else {
+ right--;
+ }
+ }
 
-  return "Target not found";
+ return "Target not found";
 }
 ```
 
@@ -205,21 +205,21 @@ function findTarget(arr, target) {
 
 ```javascript
 function findTarget(arr, target) {
-  const seen = new Set();
+ const seen = new Set();
 
-  for (let i = 0; i < arr.length; i++) {
-    const complement = target - arr[i];
+ for (let i = 0; i < arr.length; i++) {
+ const complement = target - arr[i];
 
-    if (seen.has(complement)) {
-      // Encontrar índice del complemento (necesita búsqueda adicional)
-      const complementIndex = arr.indexOf(complement);
-      return [complementIndex, i].sort((a, b) => a - b);
-    }
+ if (seen.has(complement)) {
+ // Encontrar índice del complemento (necesita búsqueda adicional)
+ const complementIndex = arr.indexOf(complement);
+ return [complementIndex, i].sort((a, b) => a - b);
+ }
 
-    seen.add(arr[i]);
-  }
+ seen.add(arr[i]);
+ }
 
-  return "Target not found";
+ return "Target not found";
 }
 ```
 
@@ -264,11 +264,11 @@ Se eligió el enfoque con Hash Map por las siguientes razones:
 
 ### Comparación con otras soluciones
 
-| Enfoque      | Tiempo | Espacio | Mejor para        |
+| Enfoque | Tiempo | Espacio | Mejor para |
 | ------------ | ------ | ------- | ----------------- |
-| Hash Map     | O(n)   | O(n)    | **Este problema** |
-| Fuerza Bruta | O(n²)  | O(1)    | Arrays pequeños   |
-| Two Pointers | O(n)   | O(1)    | Arrays ordenados  |
+| Hash Map | O(n) | O(n) | **Este problema** |
+| Fuerza Bruta | O(n²) | O(1) | Arrays pequeños |
+| Two Pointers | O(n) | O(1) | Arrays ordenados |
 
 ### Consideraciones Prácticas
 

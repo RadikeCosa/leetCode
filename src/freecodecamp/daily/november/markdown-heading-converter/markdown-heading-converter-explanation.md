@@ -25,19 +25,19 @@ Un encabezado Markdown debe:
 - el texto del encabezado.
 
 Si el string no cumple con el formato correcto, la función debe devolver "Invalid format".
-Por ejemplo, Dado "# My level 1 heading", la función debe devolver "<h1>My level 1 heading</h1>".
+Por ejemplo, Dado "# My level 1 heading", la función debe devolver "<h 1>My level 1 heading</h 1>".
 
 ## Análisis Inicial
 
 ### Casos de Prueba Identificados
 
-1. convert("# My level 1 heading") should return `"<h1>My level 1 heading</h1>"`.
+1. convert("# My level 1 heading") should return `"<h 1>My level 1 heading</h 1>"`.
 2. convert("My heading") should return `"Invalid format"`.
-3. convert("##### My level 5 heading") `should return "<h5>My level 5 heading</h5>"`.
+3. convert("##### My level 5 heading") `should return "<h 5>My level 5 heading</h 5>"`.
 4. convert("#My heading") should return `"Invalid format"`.
-5. convert(" ### My level 3 heading") should return `"<h3>My level 3 heading</h3>"`.
+5. convert(" ### My level 3 heading") should return `"<h 3>My level 3 heading</h 3>"`.
 6. convert("####### My level 7 heading") should return `"Invalid format"`.
-7. convert("## My #2 heading") should return `"<h2>My #2 heading</h2>"`.
+7. convert("## My #2 heading") should return `"<h 2>My #2 heading</h 2>"`.
 
 ## Desarrollo de la Solución
 
@@ -50,23 +50,23 @@ Se puede utilizar una expresión regular para verificar si el string cumple con 
 - `(#{1,6})` captura entre 1 y 6 caracteres '#',
 - `\s+` asegura que haya al menos un espacio después de los '#',
 - `(.+)$` captura el texto del encabezado hasta el final de la línea.
-  Si la cadena no coincide con esta expresión regular, se puede devolver "Invalid format". Si la cadena coincide con esta expresión regular, se puede extraer el número de '#' para determinar el nivel del encabezado y el texto del encabezado y guardarlos en variables separadas. Luego, se puede construir la cadena HTML correspondiente utilizando estos valores.
+ Si la cadena no coincide con esta expresión regular, se puede devolver "Invalid format". Si la cadena coincide con esta expresión regular, se puede extraer el número de '#' para determinar el nivel del encabezado y el texto del encabezado y guardarlos en variables separadas. Luego, se puede construir la cadena HTML correspondiente utilizando estos valores.
 
 ### Implementación Paso a Paso
 
 ```javascript
 function convert(heading) {
-  const regex = /^(\s*)(#{1,6})\s+(.+)$/;
-  const match = heading.match(regex);
+ const regex = /^(\s*)(#{1,6})\s+(.+)$/;
+ const match = heading.match(regex);
 
-  if (!match) {
-    return "Invalid format";
-  }
+ if (!match) {
+ return "Invalid format";
+ }
 
-  const level = match[2].length; // Número de '#' determina el nivel
-  const text = match[3]; // Texto del encabezado
+ const level = match[2].length; // Número de '#' determina el nivel
+ const text = match[3]; // Texto del encabezado
 
-  return `<h${level}>${text}</h${level}>`;
+ return `<h${level}>${text}</h${level}>`;
 }
 ```
 
@@ -88,7 +88,7 @@ Los casos edge incluyen:
 - Encabezados sin espacio después de los '#'.
 - Encabezados con solo espacios y sin texto.
 - Encabezados con caracteres especiales o símbolos en el texto.
-  Todos estos casos estan manejados por la expresión regular utilizada en la función.
+ Todos estos casos estan manejados por la expresión regular utilizada en la función.
 
 ### Conceptos Aplicados
 

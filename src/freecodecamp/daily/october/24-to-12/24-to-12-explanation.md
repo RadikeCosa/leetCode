@@ -31,7 +31,7 @@ El formato de entrada es un string de exactamente 4 dígitos `"HHMM"` donde:
 
 El formato de salida debe ser `"H:MM AM"` o `"H:MM PM"` donde:
 
-- `H`: horas en formato 12h (1-12, sin cero inicial excepto para 12)
+- `H`: horas en formato 12 h (1-12, sin cero inicial excepto para 12)
 - `MM`: minutos con cero inicial si es necesario
 - `AM/PM`: indicador de período
 
@@ -52,12 +52,12 @@ El formato de salida debe ser `"H:MM AM"` o `"H:MM PM"` donde:
 
 ### Salida
 
-- **string**: Hora en formato 12h con el formato `"H:MM AM"` o `"H:MM PM"`
+- **string**: Hora en formato 12 h con el formato `"H:MM AM"` o `"H:MM PM"`
 - **Reglas de formato:**
-  - Horas: 1-12 (sin cero inicial, excepto 12)
-  - Minutos: 00-59 (con cero inicial si necesario)
-  - Separador: dos puntos `:`
-  - Indicador: espacio + `"AM"` o `"PM"`
+ - Horas: 1-12 (sin cero inicial, excepto 12)
+ - Minutos: 00-59 (con cero inicial si necesario)
+ - Separador: dos puntos `:`
+ - Indicador: espacio + `"AM"` o `"PM"`
 
 ### Restricciones
 
@@ -71,17 +71,17 @@ El formato de salida debe ser `"H:MM AM"` o `"H:MM PM"` donde:
 
 ### Idea Principal
 
-La solución se basa en **parsear el string de entrada**, **determinar el período AM/PM**, y **convertir las horas al formato 12h** siguiendo reglas específicas.
+La solución se basa en **parsear el string de entrada**, **determinar el período AM/PM**, y **convertir las horas al formato 12 h** siguiendo reglas específicas.
 
 **Pasos conceptuales:**
 
 1. **Extraer componentes:** Separar horas y minutos del string `"HHMM"`
 2. **Determinar período:** AM si horas < 12, PM si horas ≥ 12
 3. **Convertir horas:**
-   - Si horas = 0 → 12 (medianoche)
-   - Si horas = 12 → 12 (mediodía)
-   - Si horas > 12 → horas - 12
-   - Si horas < 12 → horas sin cambio
+ - Si horas = 0 → 12 (medianoche)
+ - Si horas = 12 → 12 (mediodía)
+ - Si horas > 12 → horas - 12
+ - Si horas < 12 → horas sin cambio
 4. **Formatear salida:** Combinar horas:minutos + espacio + AM/PM
 
 **Reglas de conversión de horas:**
@@ -103,57 +103,57 @@ La implementación sigue estos pasos secuenciales:
 
 1. **Extraer horas del string:**
 
-   - Usar `time.slice(0, 2)` para obtener los primeros 2 caracteres
-   - Convertir a número entero con `parseInt(..., 10)` para operaciones matemáticas
+ - Usar `time.slice(0, 2)` para obtener los primeros 2 caracteres
+ - Convertir a número entero con `parseInt(..., 10)` para operaciones matemáticas
 
 2. **Extraer minutos del string:**
 
-   - Usar `time.slice(2)` para obtener los últimos 2 caracteres
-   - Mantener como string para preservar formato con cero inicial
+ - Usar `time.slice(2)` para obtener los últimos 2 caracteres
+ - Mantener como string para preservar formato con cero inicial
 
 3. **Determinar el período AM/PM:**
 
-   - Si `hours < 12` → `"AM"`
-   - Si `hours >= 12` → `"PM"`
+ - Si `hours < 12` → `"AM"`
+ - Si `hours >= 12` → `"PM"`
 
-4. **Convertir horas a formato 12h:**
+4. **Convertir horas a formato 12 h:**
 
-   - Calcular `hours % 12` (convierte 13-23 → 1-11, pero 12 → 0)
-   - Usar `|| 12` para manejar casos especiales:
-     - Si resultado es 0 → usar 12
-     - Si resultado es 1-11 → mantener sin cambios
+ - Calcular `hours % 12` (convierte 13-23 → 1-11, pero 12 → 0)
+ - Usar `|| 12` para manejar casos especiales:
+ - Si resultado es 0 → usar 12
+ - Si resultado es 1-11 → mantener sin cambios
 
 5. **Formatear resultado final:**
-   - Combinar `adjustedHours`, `:`, `minutes`, espacio, y `period`
-   - Retornar string en formato `"H:MM AM"` o `"H:MM PM"`
+ - Combinar `adjustedHours`, `:`, `minutes`, espacio, y `period`
+ - Retornar string en formato `"H:MM AM"` o `"H:MM PM"`
 
 ## Implementación
 
 ### Código
 
 ```javascript
-function to12(time) {
-  // Extraer las horas del string de entrada (primeros 2 caracteres)
-  // Convertir a número entero para facilitar las operaciones matemáticas
-  const hours = parseInt(time.slice(0, 2), 10);
+function to 12(time) {
+ // Extraer las horas del string de entrada (primeros 2 caracteres)
+ // Convertir a número entero para facilitar las operaciones matemáticas
+ const hours = parseInt(time.slice(0, 2), 10);
 
-  // Extraer los minutos del string de entrada (últimos 2 caracteres)
-  // Mantener como string para preservar el formato con cero inicial si es necesario
-  const minutes = time.slice(2);
+ // Extraer los minutos del string de entrada (últimos 2 caracteres)
+ // Mantener como string para preservar el formato con cero inicial si es necesario
+ const minutes = time.slice(2);
 
-  // Determinar si es AM o PM: si horas < 12 entonces AM, sino PM
-  const period = hours < 12 ? "AM" : "PM";
+ // Determinar si es AM o PM: si horas < 12 entonces AM, sino PM
+ const period = hours < 12 ? "AM" : "PM";
 
-  // Convertir horas del formato 24h al formato 12h
-  // hours % 12 convierte 13-23 a 1-11, pero 12 % 12 = 0
-  // El operador || 12 maneja el caso especial: si el resultado es 0, usar 12
-  // Esto funciona para: 0→12, 1-11→1-11, 12→12, 13-23→1-11
-  const adjustedHours = hours % 12 || 12;
+ // Convertir horas del formato 24 h al formato 12 h
+ // hours % 12 convierte 13-23 a 1-11, pero 12 % 12 = 0
+ // El operador || 12 maneja el caso especial: si el resultado es 0, usar 12
+ // Esto funciona para: 0→12, 1-11→1-11, 12→12, 13-23→1-11
+ const adjustedHours = hours % 12 || 12;
 
-  // Formatear y retornar el resultado en formato "H:MM AM/PM"
-  // adjustedHours ya no tiene cero inicial (excepto 12)
-  // minutes mantiene el cero inicial si era "00", "01", etc.
-  return `${adjustedHours}:${minutes} ${period}`;
+ // Formatear y retornar el resultado en formato "H:MM AM/PM"
+ // adjustedHours ya no tiene cero inicial (excepto 12)
+ // minutes mantiene el cero inicial si era "00", "01", etc.
+ return `${adjustedHours}:${minutes} ${period}`;
 }
 ```
 
@@ -161,27 +161,27 @@ function to12(time) {
 
 - **Línea 3:** `const hours = parseInt(time.slice(0, 2), 10);`
 
-  - Extrae `"HH"` del input y lo convierte a número (0-23)
-  - El `10` especifica base decimal para evitar problemas con ceros iniciales
+ - Extrae `"HH"` del input y lo convierte a número (0-23)
+ - El `10` especifica base decimal para evitar problemas con ceros iniciales
 
 - **Línea 7:** `const minutes = time.slice(2);`
 
-  - Extrae `"MM"` del input como string
-  - Mantiene el cero inicial si minutos < 10
+ - Extrae `"MM"` del input como string
+ - Mantiene el cero inicial si minutos < 10
 
 - **Línea 10:** `const period = hours < 12 ? "AM" : "PM";`
 
-  - Determina el período basado en horas 24h
-  - Simple comparación: < 12 = AM, >= 12 = PM
+ - Determina el período basado en horas 24 h
+ - Simple comparación: < 12 = AM, >= 12 = PM
 
 - **Línea 15:** `const adjustedHours = hours % 12 || 12;`
 
-  - `hours % 12`: Convierte 13-23 → 1-11, pero 12 → 0
-  - `|| 12`: Si resultado es 0, usar 12 (maneja medianoche y mediodía)
+ - `hours % 12`: Convierte 13-23 → 1-11, pero 12 → 0
+ - `|| 12`: Si resultado es 0, usar 12 (maneja medianoche y mediodía)
 
 - **Línea 20:** `return \`${adjustedHours}:${minutes} ${period}\`;`
-  - Template literal combina todos los componentes
-  - Formato exacto: "H:MM AM/PM"
+ - Template literal combina todos los componentes
+ - Formato exacto: "H:MM AM/PM"
 
 ## Análisis de Complejidad
 
@@ -277,7 +277,7 @@ function to12(time) {
 
 ### 2. Operador Módulo para Conversiones Cíclicas
 
-- **Patrón:** `value % 12 || 12` para conversión 24h → 12h
+- **Patrón:** `value % 12 || 12` para conversión 24 h → 12 h
 - **Lógica:** Maneja el ciclo 13-23 → 1-11 y casos especiales 0,12 → 12
 - **Elegancia:** Una expresión compacta reemplaza múltiples condicionales
 

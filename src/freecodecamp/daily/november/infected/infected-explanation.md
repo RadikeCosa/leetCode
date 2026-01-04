@@ -27,23 +27,23 @@ El problema se puede descomponer en tres aspectos clave:
 
 1. **Propagación Exponencial**:
 
-   - Inicio con 1 computadora en día 0
-   - Duplicación diaria crea un crecimiento exponencial (2^n)
-   - La propagación ocurre primero, antes que el parche
+ - Inicio con 1 computadora en día 0
+ - Duplicación diaria crea un crecimiento exponencial (2^n)
+ - La propagación ocurre primero, antes que el parche
 
 2. **Ciclo de Parches**:
 
-   - Se aplica cada 3 días
-   - Momento crítico: después de la propagación del día
-   - Reducción del 20% del total infectado
-   - Redondeo hacia arriba del número de computadoras parchadas
+ - Se aplica cada 3 días
+ - Momento crítico: después de la propagación del día
+ - Reducción del 20% del total infectado
+ - Redondeo hacia arriba del número de computadoras parchadas
 
 3. **Patrones Numéricos**:
-   - Día 0: 1
-   - Día 1: 2 (1 × 2)
-   - Día 2: 4 (2 × 2)
-   - Día 3: 6 (8 - ⌈8 × 0.2⌉) = (8 - 2)
-   - Los números crecen rápidamente pero tienen reducciones periódicas
+ - Día 0: 1
+ - Día 1: 2 (1 × 2)
+ - Día 2: 4 (2 × 2)
+ - Día 3: 6 (8 - ⌈8 × 0.2⌉) = (8 - 2)
+ - Los números crecen rápidamente pero tienen reducciones periódicas
 
 ### Enfoque Utilizado
 
@@ -52,9 +52,9 @@ La solución requerirá:
 1. **Función Principal**: Iterar día por día para mantener precisión
 2. **Propagación**: Duplicar número de infectados cada día
 3. **Parches**:
-   - Verificar si es día de parche (día % 3 === 0)
-   - Calcular y aplicar reducción del 20%
-   - Usar Math.ceil() para redondeo hacia arriba
+ - Verificar si es día de parche (día % 3 === 0)
+ - Calcular y aplicar reducción del 20%
+ - Usar Math.ceil() para redondeo hacia arriba
 4. **Acumulación**: Mantener cuenta precisa considerando ambos efectos
 
 La solución implementada utiliza un enfoque iterativo directo, pero existen varios abordajes posibles:
@@ -63,17 +63,17 @@ La solución implementada utiliza un enfoque iterativo directo, pero existen var
 
 ```javascript
 function infected(days) {
-  if (days < 0) return 0;
-  let infectedCount = 1;
-  for (let day = 1; day <= days; day++) {
-    let newInfections = infectedCount * 2;
-    if (day % 3 === 0) {
-      const patched = Math.ceil(newInfections * 0.2);
-      newInfections -= patched;
-    }
-    infectedCount = newInfections;
-  }
-  return infectedCount;
+ if (days < 0) return 0;
+ let infectedCount = 1;
+ for (let day = 1; day <= days; day++) {
+ let newInfections = infectedCount * 2;
+ if (day % 3 === 0) {
+ const patched = Math.ceil(newInfections * 0.2);
+ newInfections -= patched;
+ }
+ infectedCount = newInfections;
+ }
+ return infectedCount;
 }
 ```
 
@@ -92,26 +92,26 @@ function infected(days) {
 
 ```javascript
 function infectedMath(days) {
-  if (days <= 0) return days === 0 ? 1 : 0;
+ if (days <= 0) return days === 0 ? 1 : 0;
 
-  const fullCycles = Math.floor(days / 3);
-  const remainingDays = days % 3;
+ const fullCycles = Math.floor(days / 3);
+ const remainingDays = days % 3;
 
-  // Base exponencial por ciclo completo (3 días)
-  // Día 1: x2
-  // Día 2: x2
-  // Día 3: x2 - 20%
-  let total = 1;
-  for (let i = 0; i < fullCycles; i++) {
-    total = total * 8 * 0.8; // (2^3) * 0.8
-  }
+ // Base exponencial por ciclo completo (3 días)
+ // Día 1: x 2
+ // Día 2: x 2
+ // Día 3: x 2 - 20%
+ let total = 1;
+ for (let i = 0; i < fullCycles; i++) {
+ total = total * 8 * 0.8; // (2^3) * 0.8
+ }
 
-  // Días restantes
-  for (let i = 0; i < remainingDays; i++) {
-    total *= 2;
-  }
+ // Días restantes
+ for (let i = 0; i < remainingDays; i++) {
+ total *= 2;
+ }
 
-  return Math.floor(total);
+ return Math.floor(total);
 }
 ```
 
@@ -132,16 +132,16 @@ function infectedMath(days) {
 const cache = new Map();
 
 function infectedMemo(days) {
-  if (days <= 0) return days === 0 ? 1 : 0;
-  if (cache.has(days)) return cache.get(days);
+ if (days <= 0) return days === 0 ? 1 : 0;
+ if (cache.has(days)) return cache.get(days);
 
-  let result = infectedMemo(days - 1) * 2;
-  if (days % 3 === 0) {
-    result -= Math.ceil(result * 0.2);
-  }
+ let result = infectedMemo(days - 1) * 2;
+ if (days % 3 === 0) {
+ result -= Math.ceil(result * 0.2);
+ }
 
-  cache.set(days, result);
-  return result;
+ cache.set(days, result);
+ return result;
 }
 ```
 
@@ -163,9 +163,9 @@ function infectedMemo(days) {
 
 - Bucle principal: n iteraciones
 - Operaciones por iteración: O(1)
-  - Multiplicación: O(1)
-  - Módulo: O(1)
-  - Math.ceil(): O(1)
+ - Multiplicación: O(1)
+ - Módulo: O(1)
+ - Math.ceil(): O(1)
 
 **Espacial: O(1)**
 
@@ -186,14 +186,14 @@ Los otros enfoques, aunque interesantes teóricamente, introducen complejidad in
 
 1. **Edge Cases**:
 
-   - Día 0: retorna 1 (computadora inicial)
-   - Día 1: retorna 2 (primera duplicación)
-   - Días múltiplos de 3: considerar orden de operaciones (propagar → parchar)
-   - Números grandes: posible desbordamiento en días avanzados
+ - Día 0: retorna 1 (computadora inicial)
+ - Día 1: retorna 2 (primera duplicación)
+ - Días múltiplos de 3: considerar orden de operaciones (propagar → parchar)
+ - Números grandes: posible desbordamiento en días avanzados
 
 2. **Puntos de Atención**:
-   - Orden de operaciones es crucial (primero propagar, luego parchar)
-   - Redondeo siempre hacia arriba en el cálculo de parches
-   - Crecimiento exponencial puede llevar a números muy grandes
+ - Orden de operaciones es crucial (primero propagar, luego parchar)
+ - Redondeo siempre hacia arriba en el cálculo de parches
+ - Crecimiento exponencial puede llevar a números muy grandes
 
 [A completar con más detalles después de implementar la solución]

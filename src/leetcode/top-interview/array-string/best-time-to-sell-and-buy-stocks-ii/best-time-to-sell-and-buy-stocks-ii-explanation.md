@@ -14,7 +14,7 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/best-time-to-buy-and-sell-st
 
 # Best Time To Sell And Buy Stocks II - Análisis y Explicación
 
-**LeetCode #122** | Medium | Top Interview 150  
+**LeetCode #122** | Medium | Top Interview 150 
 🔗 [Enlace al problema](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
 
 ## Enunciado del Problema
@@ -33,9 +33,9 @@ Find and return the **maximum profit** you can achieve.
 **Examples:**
 
 ````text
-Input: prices = [7,1,5,3,6,4]    → Output: 7
-Input: prices = [1,2,3,4,5]      → Output: 4
-Input: prices = [7,6,4,3,1]      → Output: 0
+Input: prices = [7,1,5,3,6,4] → Output: 7
+Input: prices = [1,2,3,4,5] → Output: 4
+Input: prices = [7,6,4,3,1] → Output: 0
 
 ## Análisis Inicial
 
@@ -52,21 +52,21 @@ Imagina que el precio sube de 1 → 3 → 2 → 4:
 - Subida 1→3: +2
 - Bajada 3→2: ignoramos
 - Subida 2→4: +2
-  → Total: 4
-  Esto es equivalente a comprar en 1, vender en 3, comprar en 3, vender en 4. ¡Funciona!
+ → Total: 4
+ Esto es equivalente a comprar en 1, vender en 3, comprar en 3, vender en 4. ¡Funciona!
 
 ## Casos de Prueba Identificados
 
-| Input           | Output | Explicación                             |
+| Input | Output | Explicación |
 |
 
 --------- | ------ | --------------------------------------- |
-| `[7,1,5,3,6,4]` | 7      | (5-1) + (6-3) = 4 + 3 = 7               |
-| `[1,2,3,4,5]`   | 4      | Sube todos los días → suma diaria = 4   |
-| `[7,6,4,3,1]`   | 0      | Solo baja → no hay ganancia             |
-| `[1,3,2,4]`     | 4      | (3-1) + (4-2) = 2 + 2 = 4               |
-| `[2,2,2,2]`     | 0      | Precios constantes → 0                  |
-| `[1]`           | 0      | Solo un día → no se puede transaccionar |
+| `[7,1,5,3,6,4]` | 7 | (5-1) + (6-3) = 4 + 3 = 7 |
+| `[1,2,3,4,5]` | 4 | Sube todos los días → suma diaria = 4 |
+| `[7,6,4,3,1]` | 0 | Solo baja → no hay ganancia |
+| `[1,3,2,4]` | 4 | (3-1) + (4-2) = 2 + 2 = 4 |
+| `[2,2,2,2]` | 0 | Precios constantes → 0 |
+| `[1]` | 0 | Solo un día → no se puede transaccionar |
 
 ## Desarrollo de la Solución
 
@@ -81,16 +81,16 @@ Este es el enfoque **óptimo** y el más intuitivo para este problema.
 
 ```ts
 function maxProfit(prices: number[]): number {
-  let totalProfit = 0;
+ let totalProfit = 0;
 
-  for (let i = 1; i < prices.length; i++) {
-    const dailyChange = prices[i] - prices[i - 1];
-    if (dailyChange > 0) {
-      totalProfit += dailyChange;
-    }
-  }
+ for (let i = 1; i < prices.length; i++) {
+ const dailyChange = prices[i] - prices[i - 1];
+ if (dailyChange > 0) {
+ totalProfit += dailyChange;
+ }
+ }
 
-  return totalProfit;
+ return totalProfit;
 }
 ````
 
@@ -115,13 +115,13 @@ function maxProfit(prices: number[]): number {
 
 ## Casos Edge y Consideraciones
 
-| Caso                     | Comportamiento esperado | ¿Está cubierto? |
+| Caso | Comportamiento esperado | ¿Está cubierto? |
 | ------------------------ | ----------------------- | --------------- |
-| Array de longitud 1      | Retorna 0               | Sí              |
-| Precios constantes       | Retorna 0               | Sí              |
-| Todos los días suben     | Suma total máxima       | Sí              |
-| Todos los días bajan     | Retorna 0               | Sí              |
-| Subidas y bajadas mixtas | Captura solo subidas    | Sí              |
+| Array de longitud 1 | Retorna 0 | Sí |
+| Precios constantes | Retorna 0 | Sí |
+| Todos los días suben | Suma total máxima | Sí |
+| Todos los días bajan | Retorna 0 | Sí |
+| Subidas y bajadas mixtas | Captura solo subidas | Sí |
 
 **Nota:** No necesitamos manejar array vacío (por constraints: longitud ≥ 1).
 

@@ -15,23 +15,23 @@ Use two pointers starting from both ends of the array. At each step, calculate t
 
 ```typescript
 export function maxArea(height: number[]): number {
-  let left = 0;
-  let right = height.length - 1;
-  let maxArea = 0;
+ let left = 0;
+ let right = height.length - 1;
+ let maxArea = 0;
 
-  while (left < right) {
-    const width = right - left;
-    const minHeight = Math.min(height[left], height[right]);
-    maxArea = Math.max(maxArea, width * minHeight);
+ while (left < right) {
+ const width = right - left;
+ const minHeight = Math.min(height[left], height[right]);
+ maxArea = Math.max(maxArea, width * minHeight);
 
-    if (height[left] < height[right]) {
-      left++;
-    } else {
-      right--;
-    }
-  }
+ if (height[left] < height[right]) {
+ left++;
+ } else {
+ right--;
+ }
+ }
 
-  return maxArea;
+ return maxArea;
 }
 ```
 

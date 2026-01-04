@@ -15,8 +15,8 @@ createdAt: "2025-09-24"
 
 ## Problema
 
-**LeetCode 2: Add Two Numbers**  
-**Dificultad:** Medium  
+**LeetCode 2: Add Two Numbers** 
+**Dificultad:** Medium 
 **Temas:** Linked List, Math, Recursion
 
 ## Enunciado
@@ -29,18 +29,18 @@ Puedes asumir que los dos números no contienen ceros a la izquierda, excepto el
 
 ### Casos de Ejemplo
 
-1. `l1 = [2,4,3]`, `l2 = [5,6,4]` → `[7,0,8]`
+1. `l 1 = [2,4,3]`, `l 2 = [5,6,4]` → `[7,0,8]`
 
-   - Representa: 342 + 465 = 807
-   - En orden inverso: [2,4,3] = 342, [5,6,4] = 465, [7,0,8] = 807
+ - Representa: 342 + 465 = 807
+ - En orden inverso: [2,4,3] = 342, [5,6,4] = 465, [7,0,8] = 807
 
-2. `l1 = [0]`, `l2 = [0]` → `[0]`
+2. `l 1 = [0]`, `l 2 = [0]` → `[0]`
 
-   - Caso simple: 0 + 0 = 0
+ - Caso simple: 0 + 0 = 0
 
-3. `l1 = [9,9,9,9,9,9,9]`, `l2 = [9,9,9,9]` → `[8,9,9,9,0,0,0,1]`
-   - Representa: 9999999 + 9999 = 10009998
-   - Múltiples carries consecutivos
+3. `l 1 = [9,9,9,9,9,9,9]`, `l 2 = [9,9,9,9]` → `[8,9,9,9,0,0,0,1]`
+ - Representa: 9999999 + 9999 = 10009998
+ - Múltiples carries consecutivos
 
 ### Observaciones Clave
 
@@ -59,11 +59,11 @@ Puedes asumir que los dos números no contienen ceros a la izquierda, excepto el
 
 1. **Inicializar:** Nodo dummy, punteros para ambas listas, carry = 0
 2. **Mientras haya dígitos o carry:**
-   - Obtener valores actuales (0 si la lista se acabó)
-   - Calcular suma total = val1 + val2 + carry
-   - Crear nuevo nodo con suma % 10
-   - Actualizar carry = suma // 10
-   - Avanzar punteros
+ - Obtener valores actuales (0 si la lista se acabó)
+ - Calcular suma total = val 1 + val 2 + carry
+ - Crear nuevo nodo con suma % 10
+ - Actualizar carry = suma // 10
+ - Avanzar punteros
 3. **Retornar:** La lista resultado (saltando el nodo dummy)
 
 ## Implementación
@@ -72,39 +72,39 @@ Puedes asumir que los dos números no contienen ceros a la izquierda, excepto el
 
 ```typescript
 export function addTwoNumbers(
-  l1: ListNode | null,
-  l2: ListNode | null
+ l 1: ListNode | null,
+ l 2: ListNode | null
 ): ListNode | null {
-  // Nodo dummy para facilitar la construcción del resultado
-  const dummyHead = new ListNode(0);
-  let current = dummyHead;
-  let carry = 0;
+ // Nodo dummy para facilitar la construcción del resultado
+ const dummyHead = new ListNode(0);
+ let current = dummyHead;
+ let carry = 0;
 
-  // Mientras tengamos nodos en cualquiera de las listas o carry pendiente
-  while (l1 !== null || l2 !== null || carry !== 0) {
-    // Obtener valores actuales (0 si el nodo es null)
-    const val1 = l1 ? l1.val : 0;
-    const val2 = l2 ? l2.val : 0;
+ // Mientras tengamos nodos en cualquiera de las listas o carry pendiente
+ while (l 1 !== null || l 2 !== null || carry !== 0) {
+ // Obtener valores actuales (0 si el nodo es null)
+ const val 1 = l 1 ? l 1.val : 0;
+ const val 2 = l 2 ? l 2.val : 0;
 
-    // Calcular suma total incluyendo carry
-    const total = val1 + val2 + carry;
+ // Calcular suma total incluyendo carry
+ const total = val 1 + val 2 + carry;
 
-    // El dígito actual es total % 10
-    const digit = total % 10;
-    // El nuevo carry es total >= 10 ? 1 : 0
-    carry = total >= 10 ? 1 : 0;
+ // El dígito actual es total % 10
+ const digit = total % 10;
+ // El nuevo carry es total >= 10 ? 1 : 0
+ carry = total >= 10 ? 1 : 0;
 
-    // Crear nuevo nodo con el dígito calculado
-    current.next = new ListNode(digit);
-    current = current.next;
+ // Crear nuevo nodo con el dígito calculado
+ current.next = new ListNode(digit);
+ current = current.next;
 
-    // Avanzar a los siguientes nodos si existen
-    if (l1) l1 = l1.next;
-    if (l2) l2 = l2.next;
-  }
+ // Avanzar a los siguientes nodos si existen
+ if (l 1) l 1 = l 1.next;
+ if (l 2) l 2 = l 2.next;
+ }
 
-  // Retornar el primer nodo real (saltando el dummy)
-  return dummyHead.next;
+ // Retornar el primer nodo real (saltando el dummy)
+ return dummyHead.next;
 }
 ```
 
@@ -118,18 +118,18 @@ export function addTwoNumbers(
 
 **Condición del Loop:**
 
-- `l1 !== null || l2 !== null || carry !== 0`
+- `l 1 !== null || l 2 !== null || carry !== 0`
 - Cubre todos los casos: nodos restantes en cualquier lista + carry final
 - Ejemplo: `99 + 1 = 100` necesita una iteración extra para el carry
 
 **Manejo de Valores Null:**
 
-- `const val1 = l1 ? l1.val : 0` trata nodos null como dígito 0
+- `const val 1 = l 1 ? l 1.val : 0` trata nodos null como dígito 0
 - Permite procesar listas de diferentes longitudes naturalmente
 
 **Aritmética del Carry:**
 
-- `total = val1 + val2 + carry` suma todo incluyendo acarreo anterior
+- `total = val 1 + val 2 + carry` suma todo incluyendo acarreo anterior
 - `digit = total % 10` extrae el dígito actual
 - `carry = total >= 10 ? 1 : 0` optimización clara para el nuevo carry
 
@@ -169,7 +169,7 @@ export function addTwoNumbers(
 - Listas de diferente longitud
 - Carry al final que requiere nodo adicional
 - Una lista vacía (aunque el problema garantiza no vacías)
-- Números con muchos 9s (múltiples carries)
+- Números con muchos 9 s (múltiples carries)
 
 ## Patrones y Técnicas
 
@@ -184,20 +184,20 @@ export function addTwoNumbers(
 
 1. **Dummy Node Pattern:**
 
-   - Simplifica enormemente la construcción de listas enlazadas
-   - Evita casos especiales para el primer elemento
-   - Patrón fundamental para problemas de linked lists
+ - Simplifica enormemente la construcción de listas enlazadas
+ - Evita casos especiales para el primer elemento
+ - Patrón fundamental para problemas de linked lists
 
 2. **Manejo Unificado de Casos Edge:**
 
-   - Una sola condición de loop maneja todos los escenarios
-   - Tratamiento consistente de valores null como 0
-   - Código más limpio y menos propenso a errores
+ - Una sola condición de loop maneja todos los escenarios
+ - Tratamiento consistente de valores null como 0
+ - Código más limpio y menos propenso a errores
 
 3. **Aritmética de Carry Optimizada:**
-   - `carry = total >= 10 ? 1 : 0` es más claro que `Math.floor(total/10)`
-   - Para suma de dígitos, el carry siempre es 0 o 1
-   - Optimización de legibilidad sin sacrificar eficiencia
+ - `carry = total >= 10 ? 1 : 0` es más claro que `Math.floor(total/10)`
+ - Para suma de dígitos, el carry siempre es 0 o 1
+ - Optimización de legibilidad sin sacrificar eficiencia
 
 ### **Patrones de Diseño Identificados**
 

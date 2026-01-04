@@ -64,61 +64,61 @@ Luego, convierto la cadena en un array de palabras usando `split(" ")`. Para com
 
 ### Implementación Paso a Paso
 
-1. **Eliminar signos de puntuación:**  
-   Utilizamos una expresión regular para remover los signos de puntuación comunes de la cadena, asegurando que palabras como "hola" y "hola," sean tratadas igual.
+1. **Eliminar signos de puntuación:** 
+ Utilizamos una expresión regular para remover los signos de puntuación comunes de la cadena, asegurando que palabras como "hola" y "hola," sean tratadas igual.
 
-2. **Dividir la cadena en palabras:**  
-   Usamos `split(" ")` para obtener un array de palabras, y `filter(Boolean)` para eliminar posibles elementos vacíos.
+2. **Dividir la cadena en palabras:** 
+ Usamos `split(" ")` para obtener un array de palabras, y `filter(Boolean)` para eliminar posibles elementos vacíos.
 
-3. **Recorrer el array con reduce:**  
-   Aplicamos el método `reduce` para acumular el resultado comprimido.
+3. **Recorrer el array con reduce:** 
+ Aplicamos el método `reduce` para acumular el resultado comprimido.
 
-   - Si la palabra actual es igual a la anterior, incrementamos el contador.
-   - Si es diferente, agregamos la palabra anterior (y el contador si es mayor a 1) al resultado y reiniciamos el contador.
+ - Si la palabra actual es igual a la anterior, incrementamos el contador.
+ - Si es diferente, agregamos la palabra anterior (y el contador si es mayor a 1) al resultado y reiniciamos el contador.
 
-4. **Agregar la última palabra:**  
-   Al finalizar el reduce, nos aseguramos de agregar la última palabra procesada con su contador correspondiente.
+4. **Agregar la última palabra:** 
+ Al finalizar el reduce, nos aseguramos de agregar la última palabra procesada con su contador correspondiente.
 
-5. **Unir el resultado:**  
-   Finalmente, unimos el array resultado con espacios para obtener la cadena comprimida.
+5. **Unir el resultado:** 
+ Finalmente, unimos el array resultado con espacios para obtener la cadena comprimida.
 
 **Ejemplo de código:**
 
 ```javascript
 function compressString(sentence) {
-  // 1. Eliminar signos de puntuación y dividir en palabras
-  const words = sentence
-    .replace(/[.,!?;:]/g, "")
-    .split(" ")
-    .filter(Boolean);
+ // 1. Eliminar signos de puntuación y dividir en palabras
+ const words = sentence
+ .replace(/[.,!?;:]/g, "")
+ .split(" ")
+ .filter(Boolean);
 
-  if (words.length === 0) return "";
+ if (words.length === 0) return "";
 
-  // 2. Usar reduce para comprimir palabras consecutivas
-  const compressed = words.reduce(
-    (acc, word, idx, arr) => {
-      if (word === acc.prev) {
-        acc.count++;
-      } else {
-        if (acc.prev !== null) {
-          acc.result.push(
-            acc.count > 1 ? `${acc.prev}(${acc.count})` : acc.prev
-          );
-        }
-        acc.prev = word;
-        acc.count = 1;
-      }
-      // Al llegar al final, agregar la última palabra
-      if (idx === arr.length - 1) {
-        acc.result.push(acc.count > 1 ? `${acc.prev}(${acc.count})` : acc.prev);
-      }
-      return acc;
-    },
-    { result: [], prev: null, count: 0 }
-  );
+ // 2. Usar reduce para comprimir palabras consecutivas
+ const compressed = words.reduce(
+ (acc, word, idx, arr) => {
+ if (word === acc.prev) {
+ acc.count++;
+ } else {
+ if (acc.prev !== null) {
+ acc.result.push(
+ acc.count > 1 ? `${acc.prev}(${acc.count})` : acc.prev
+ );
+ }
+ acc.prev = word;
+ acc.count = 1;
+ }
+ // Al llegar al final, agregar la última palabra
+ if (idx === arr.length - 1) {
+ acc.result.push(acc.count > 1 ? `${acc.prev}(${acc.count})` : acc.prev);
+ }
+ return acc;
+ },
+ { result: [], prev: null, count: 0 }
+ );
 
-  // 3. Unir el resultado
-  return compressed.result.join(" ");
+ // 3. Unir el resultado
+ return compressed.result.join(" ");
 }
 ```
 
@@ -160,27 +160,27 @@ Aunque la solución con `reduce` es eficiente y compacta, se puede optar por un 
 
 ```javascript
 function compressString(sentence) {
-  // Eliminar signos de puntuación y dividir en palabras
-  const words = sentence
-    .replace(/[.,!?;:]/g, "")
-    .split(" ")
-    .filter(Boolean);
+ // Eliminar signos de puntuación y dividir en palabras
+ const words = sentence
+ .replace(/[.,!?;:]/g, "")
+ .split(" ")
+ .filter(Boolean);
 
-  if (words.length === 0) return "";
+ if (words.length === 0) return "";
 
-  let result = [];
-  let count = 1;
+ let result = [];
+ let count = 1;
 
-  for (let i = 1; i <= words.length; i++) {
-    if (words[i] === words[i - 1]) {
-      count++;
-    } else {
-      result.push(count > 1 ? `${words[i - 1]}(${count})` : words[i - 1]);
-      count = 1;
-    }
-  }
+ for (let i = 1; i <= words.length; i++) {
+ if (words[i] === words[i - 1]) {
+ count++;
+ } else {
+ result.push(count > 1 ? `${words[i - 1]}(${count})` : words[i - 1]);
+ count = 1;
+ }
+ }
 
-  return result.join(" ");
+ return result.join(" ");
 }
 ```
 

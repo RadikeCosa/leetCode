@@ -142,16 +142,16 @@ El cálculo parece estar bien. Déjame verificar el resultado esperado nuevament
 
 ```javascript
 function sendMessage(route) {
-  const SPEED_KM_PER_SECOND = 300000;
-  const SATELLITE_DELAY_SECONDS = 0.5;
+ const SPEED_KM_PER_SECOND = 300000;
+ const SATELLITE_DELAY_SECONDS = 0.5;
 
-  const totalDistance = route.reduce((sum, distance) => sum + distance, 0);
-  const satelliteCount = route.length - 1;
-  const travelTime = totalDistance / SPEED_KM_PER_SECOND;
-  const totalDelay = satelliteCount * SATELLITE_DELAY_SECONDS;
-  const totalTime = travelTime + totalDelay;
+ const totalDistance = route.reduce((sum, distance) => sum + distance, 0);
+ const satelliteCount = route.length - 1;
+ const travelTime = totalDistance / SPEED_KM_PER_SECOND;
+ const totalDelay = satelliteCount * SATELLITE_DELAY_SECONDS;
+ const totalTime = travelTime + totalDelay;
 
-  return parseFloat(totalTime.toFixed(4));
+ return parseFloat(totalTime.toFixed(4));
 }
 ```
 

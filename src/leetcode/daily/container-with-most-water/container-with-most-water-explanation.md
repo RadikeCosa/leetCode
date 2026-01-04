@@ -48,20 +48,20 @@ La solución utiliza el algoritmo de **two pointers** con un enfoque greedy:
 
 1. **Inicialización**:
 
-   - `left = 0` (inicio del array)
-   - `right = height.length - 1` (fin del array)
-   - `maxArea = 0` (máxima área encontrada)
+ - `left = 0` (inicio del array)
+ - `right = height.length - 1` (fin del array)
+ - `maxArea = 0` (máxima área encontrada)
 
 2. **Bucle principal** (mientras left < right):
 
-   - Calcular ancho: `width = right - left`
-   - Calcular altura mínima: `minHeight = Math.min(height[left], height[right])`
-   - Calcular área actual: `currentArea = width * minHeight`
-   - Actualizar máximo: `maxArea = Math.max(maxArea, currentArea)`
+ - Calcular ancho: `width = right - left`
+ - Calcular altura mínima: `minHeight = Math.min(height[left], height[right])`
+ - Calcular área actual: `currentArea = width * minHeight`
+ - Actualizar máximo: `maxArea = Math.max(maxArea, currentArea)`
 
-   - **Movimiento greedy**: Mover el puntero que apunta a la línea más baja
-     - Si `height[left] < height[right]`: mover `left++` (buscar línea más alta a la derecha)
-     - Sino: mover `right--` (buscar línea más alta a la izquierda)
+ - **Movimiento greedy**: Mover el puntero que apunta a la línea más baja
+ - Si `height[left] < height[right]`: mover `left++` (buscar línea más alta a la derecha)
+ - Sino: mover `right--` (buscar línea más alta a la izquierda)
 
 3. **Retornar** el área máxima encontrada
 

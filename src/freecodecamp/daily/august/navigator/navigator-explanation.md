@@ -60,25 +60,25 @@ Este problema es un clásico de simulación de movimientos en un plano cartesian
 
 ```javascript
 function navigator(instructions) {
-  let x = 0,
-    y = 0;
-  for (const dir of instructions) {
-    switch (dir) {
-      case "N":
-        y++;
-        break;
-      case "S":
-        y--;
-        break;
-      case "E":
-        x++;
-        break;
-      case "O":
-        x--;
-        break;
-    }
-  }
-  return [x, y];
+ let x = 0,
+ y = 0;
+ for (const dir of instructions) {
+ switch (dir) {
+ case "N":
+ y++;
+ break;
+ case "S":
+ y--;
+ break;
+ case "E":
+ x++;
+ break;
+ case "O":
+ x--;
+ break;
+ }
+ }
+ return [x, y];
 }
 ```
 
@@ -95,16 +95,16 @@ function navigator(instructions) {
 
 ```javascript
 function navigator(instructions) {
-  return [...instructions].reduce(
-    ([x, y], dir) => {
-      if (dir === "N") return [x, y + 1];
-      if (dir === "S") return [x, y - 1];
-      if (dir === "E") return [x + 1, y];
-      if (dir === "O") return [x - 1, y];
-      return [x, y];
-    },
-    [0, 0]
-  );
+ return [...instructions].reduce(
+ ([x, y], dir) => {
+ if (dir === "N") return [x, y + 1];
+ if (dir === "S") return [x, y - 1];
+ if (dir === "E") return [x + 1, y];
+ if (dir === "O") return [x - 1, y];
+ return [x, y];
+ },
+ [0, 0]
+ );
 }
 ```
 
@@ -115,16 +115,16 @@ function navigator(instructions) {
 
 ```javascript
 function navigator(instructions) {
-  const moves = { N: [0, 1], S: [0, -1], E: [1, 0], O: [-1, 0] };
-  let x = 0,
-    y = 0;
-  for (const dir of instructions) {
-    if (moves[dir]) {
-      x += moves[dir][0];
-      y += moves[dir][1];
-    }
-  }
-  return [x, y];
+ const moves = { N: [0, 1], S: [0, -1], E: [1, 0], O: [-1, 0] };
+ let x = 0,
+ y = 0;
+ for (const dir of instructions) {
+ if (moves[dir]) {
+ x += moves[dir][0];
+ y += moves[dir][1];
+ }
+ }
+ return [x, y];
 }
 ```
 

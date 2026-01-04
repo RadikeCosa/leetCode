@@ -14,11 +14,11 @@ createdAt: "2025-10-24"
 
 ## Enunciado
 
-Dado un array 2D que representa un mapa del fondo oceánico que incluye un tesoro oculto, y un array con las coordenadas ([fila, columna]) para la próxima inmersión de tu búsqueda del tesoro, retornar "Empty", "Found", o "Recovered" siguiendo las siguientes reglas:
+Dado un array 2 D que representa un mapa del fondo oceánico que incluye un tesoro oculto, y un array con las coordenadas ([fila, columna]) para la próxima inmersión de tu búsqueda del tesoro, retornar "Empty", "Found", o "Recovered" siguiendo las siguientes reglas:
 
-El array 2D dado contendrá exactamente un tesoro sin recuperar, el cual ocupará múltiples celdas.
+El array 2 D dado contendrá exactamente un tesoro sin recuperar, el cual ocupará múltiples celdas.
 
-Cada celda en el array 2D contendrá uno de los siguientes valores:
+Cada celda en el array 2 D contendrá uno de los siguientes valores:
 
 "-": Sin tesoro.
 "O": Una parte del tesoro que no ha sido encontrada.
@@ -42,18 +42,18 @@ Y [2, 1] para las coordenadas de la ubicación de inmersión, retornar "Recovere
 
 ## Análisis
 
-Este problema requiere procesar un mapa 2D y determinar el estado de una inmersión en coordenadas específicas. Los pasos principales son:
+Este problema requiere procesar un mapa 2 D y determinar el estado de una inmersión en coordenadas específicas. Los pasos principales son:
 
 1. **Acceder a la celda objetivo**: Usar las coordenadas [row, col] para acceder a map[row][col]
 2. **Verificar contenido de la celda**:
-   - Si es "-", retornar "Empty"
-   - Si es "X", ya fue encontrada, pero necesitamos verificar si hay otras "O"
-   - Si es "O", es una parte nueva encontrada
+ - Si es "-", retornar "Empty"
+ - Si es "X", ya fue encontrada, pero necesitamos verificar si hay otras "O"
+ - Si es "O", es una parte nueva encontrada
 3. **Contar partes restantes**: Necesitamos saber cuántas "O" quedan en todo el mapa
 4. **Determinar el resultado**:
-   - Si encontramos "O" y era la última (solo quedaba esta), retornar "Recovered"
-   - Si encontramos "O" pero quedan más, retornar "Found"
-   - Si encontramos "X", significa que ya estaba encontrada, pero si había otras "O", ahora quedan menos
+ - Si encontramos "O" y era la última (solo quedaba esta), retornar "Recovered"
+ - Si encontramos "O" pero quedan más, retornar "Found"
+ - Si encontramos "X", significa que ya estaba encontrada, pero si había otras "O", ahora quedan menos
 
 Casos especiales a considerar:
 
@@ -88,7 +88,7 @@ Accedemos directamente a la posición `map[row][col]` usando las coordenadas ext
 
 ```javascript
 if (cell === "-") {
-  return "Empty";
+ return "Empty";
 }
 ```
 
@@ -98,25 +98,25 @@ Si la celda no contiene tesoro, retornamos inmediatamente "Empty".
 
 ```javascript
 if (cell === "X") {
-  const hasUnfoundTreasure = map.flat().includes("O");
-  return hasUnfoundTreasure ? "Found" : "Recovered";
+ const hasUnfoundTreasure = map.flat().includes("O");
+ return hasUnfoundTreasure ? "Found" : "Recovered";
 }
 ```
 
 Si la celda ya fue encontrada:
 
-- **Aplanamos el mapa 2D a 1D con `flat()`**: Imagina que tienes un mapa como una cuadrícula (2D):
+- **Aplanamos el mapa 2 D a 1 D con `flat()`**: Imagina que tienes un mapa como una cuadrícula (2 D):
 
-  ```javascript
-  [
-    ["-", "X"],
-    ["-", "X"],
-    ["-", "O"],
-  ];
-  ```
+ ```javascript
+ [
+ ["-", "X"],
+ ["-", "X"],
+ ["-", "O"],
+ ];
+ ```
 
-  `flat()` lo convierte en una lista plana (1D): `["-", "X", "-", "X", "-", "O"]`
-  Esto facilita buscar o contar elementos en todo el mapa sin bucles anidados.
+ `flat()` lo convierte en una lista plana (1 D): `["-", "X", "-", "X", "-", "O"]`
+ Esto facilita buscar o contar elementos en todo el mapa sin bucles anidados.
 
 - Usamos `includes("O")` para verificar si quedan partes sin encontrar
 - Si quedan "O", retornamos "Found" (encontramos una parte, pero no era la última)
@@ -126,8 +126,8 @@ Si la celda ya fue encontrada:
 
 ```javascript
 if (cell === "O") {
-  const hasOtherTreasure = map.flat().filter((c) => c === "O").length > 1;
-  return hasOtherTreasure ? "Found" : "Recovered";
+ const hasOtherTreasure = map.flat().filter((c) => c === "O").length > 1;
+ return hasOtherTreasure ? "Found" : "Recovered";
 }
 ```
 
@@ -135,7 +135,7 @@ Si encontramos una parte nueva del tesoro:
 
 Si encontramos una parte nueva del tesoro:
 
-- **Aplanamos el mapa y filtramos todas las "O"**: Usamos `flat()` para convertir el mapa 2D en 1D, luego `filter()` para quedarnos solo con las celdas que contienen "O"
+- **Aplanamos el mapa y filtramos todas las "O"**: Usamos `flat()` para convertir el mapa 2 D en 1 D, luego `filter()` para quedarnos solo con las celdas que contienen "O"
 - Contamos cuántas hay con `length`
 - Si hay más de 1 "O" (incluyendo la que acabamos de encontrar), retornamos "Found"
 - Si solo había esta "O", retornamos "Recovered"
@@ -143,13 +143,13 @@ Si encontramos una parte nueva del tesoro:
 ## Complejidad
 
 - **Tiempo**: O(n) donde n es el número total de celdas en el mapa (debido a `flat()` e `includes()` o `filter()`)
-- **Espacio**: O(n) en el peor caso (cuando aplanamos el array 2D)
+- **Espacio**: O(n) en el peor caso (cuando aplanamos el array 2 D)
 
 ## Aprendizajes
 
 - **Desestructuración de arrays**: `[row, col] = coordinates` para extraer valores de manera elegante
-- **Acceso a arrays 2D**: `map[row][col]` para acceder a posiciones específicas
-- **Métodos funcionales**: Uso de `flat()`, `includes()`, y `filter()` para procesar arrays 2D
+- **Acceso a arrays 2 D**: `map[row][col]` para acceder a posiciones específicas
+- **Métodos funcionales**: Uso de `flat()`, `includes()`, y `filter()` para procesar arrays 2 D
 - **Lógica condicional clara**: Separar casos por tipo de celda facilita el razonamiento
 - **Verificación de existencia vs conteo**: `includes()` para verificar presencia, `filter().length` para contar
 - **Edge cases**: Considerar que "X" puede ser parte de un tesoro parcialmente encontrado

@@ -72,21 +72,21 @@ return Number.isInteger(Math.sqrt(n));
 
 ```javascript
 function isPerfectSquare(n) {
-  if (n < 0) return false;
-  if (n === 0) return true;
+ if (n < 0) return false;
+ if (n === 0) return true;
 
-  let left = 1,
-    right = n;
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    const square = mid * mid;
+ let left = 1,
+ right = n;
+ while (left <= right) {
+ const mid = Math.floor((left + right) / 2);
+ const square = mid * mid;
 
-    if (square === n) return true;
-    if (square < n) left = mid + 1;
-    else right = mid - 1;
-  }
+ if (square === n) return true;
+ if (square < n) left = mid + 1;
+ else right = mid - 1;
+ }
 
-  return false;
+ return false;
 }
 ```
 
@@ -105,14 +105,14 @@ function isPerfectSquare(n) {
 
 ```javascript
 function isPerfectSquare(n) {
-  if (n < 0) return false;
-  if (n === 0) return true;
+ if (n < 0) return false;
+ if (n === 0) return true;
 
-  for (let i = 1; i * i <= n; i++) {
-    if (i * i === n) return true;
-  }
+ for (let i = 1; i * i <= n; i++) {
+ if (i * i === n) return true;
+ }
 
-  return false;
+ return false;
 }
 ```
 
@@ -130,10 +130,10 @@ function isPerfectSquare(n) {
 
 ```javascript
 function isPerfectSquare(n) {
-  if (n < 0) return false;
+ if (n < 0) return false;
 
-  const root = Math.round(Math.sqrt(n));
-  return root * root === n;
+ const root = Math.round(Math.sqrt(n));
+ return root * root === n;
 }
 ```
 

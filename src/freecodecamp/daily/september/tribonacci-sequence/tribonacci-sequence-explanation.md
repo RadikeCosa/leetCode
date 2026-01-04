@@ -55,19 +55,19 @@ La implementación utiliza un enfoque iterativo con manejo explícito de casos b
 
 ```javascript
 function tribonacciSequence(startSequence, length) {
-  if (length <= 0) return [];
-  if (length === 1) return [startSequence[0]];
-  if (length === 2) return [startSequence[0], startSequence[1]];
-  if (length === 3) return startSequence;
+ if (length <= 0) return [];
+ if (length === 1) return [startSequence[0]];
+ if (length === 2) return [startSequence[0], startSequence[1]];
+ if (length === 3) return startSequence;
 
-  const result = [...startSequence];
+ const result = [...startSequence];
 
-  for (let i = 3; i < length; i++) {
-    const nextValue = result[i - 1] + result[i - 2] + result[i - 3];
-    result.push(nextValue);
-  }
+ for (let i = 3; i < length; i++) {
+ const nextValue = result[i - 1] + result[i - 2] + result[i - 3];
+ result.push(nextValue);
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -84,19 +84,19 @@ function tribonacciSequence(startSequence, length) {
 
 ```javascript
 function tribonacciRecursive(
-  startSequence,
-  length,
-  current = [...startSequence]
+ startSequence,
+ length,
+ current = [...startSequence]
 ) {
-  if (current.length >= length) return current.slice(0, length);
+ if (current.length >= length) return current.slice(0, length);
 
-  const nextValue =
-    current[current.length - 1] +
-    current[current.length - 2] +
-    current[current.length - 3];
-  current.push(nextValue);
+ const nextValue =
+ current[current.length - 1] +
+ current[current.length - 2] +
+ current[current.length - 3];
+ current.push(nextValue);
 
-  return tribonacciRecursive(startSequence, length, current);
+ return tribonacciRecursive(startSequence, length, current);
 }
 ```
 
@@ -107,18 +107,18 @@ function tribonacciRecursive(
 
 ```javascript
 function tribonacciFunctional(startSequence, length) {
-  if (length <= 0) return [];
-  if (length <= 3) return startSequence.slice(0, length);
+ if (length <= 0) return [];
+ if (length <= 3) return startSequence.slice(0, length);
 
-  return Array.from({ length: length - 3 }, (_, i) => i).reduce(
-    (acc) => {
-      const next =
-        acc[acc.length - 1] + acc[acc.length - 2] + acc[acc.length - 3];
-      acc.push(next);
-      return acc;
-    },
-    [...startSequence]
-  );
+ return Array.from({ length: length - 3 }, (_, i) => i).reduce(
+ (acc) => {
+ const next =
+ acc[acc.length - 1] + acc[acc.length - 2] + acc[acc.length - 3];
+ acc.push(next);
+ return acc;
+ },
+ [...startSequence]
+ );
 }
 ```
 

@@ -37,9 +37,9 @@ El objetivo es procesar un texto para extraer estadísticas de frecuencia de pal
 
 ### Casos de Prueba Identificados
 
-1.  **Párrafo estándar:** "Coding in Python is fun because coding Python allows for coding in Python easily while coding" -> `["coding", "python", "in"]`.
-2.  **Con puntuación:** "I like coding. I like testing. I love debugging!" -> `["i", "like", "coding"]`.
-3.  **Empates en frecuencia:** "Debug, test, deploy. Debug, debug, test, deploy. Debug, test, test, deploy!" -> `["debug", "test", "deploy"]`.
+1. **Párrafo estándar:** "Coding in Python is fun because coding Python allows for coding in Python easily while coding" -> `["coding", "python", "in"]`.
+2. **Con puntuación:** "I like coding. I like testing. I love debugging!" -> `["i", "like", "coding"]`.
+3. **Empates en frecuencia:** "Debug, test, deploy. Debug, debug, test, deploy. Debug, test, test, deploy!" -> `["debug", "test", "deploy"]`.
 
 ## Desarrollo de la Solución
 
@@ -47,40 +47,40 @@ El objetivo es procesar un texto para extraer estadísticas de frecuencia de pal
 
 Para resolver este problema de manera eficiente y legible, utilizaremos un flujo de transformación de datos:
 
-1.  **Normalización:** Convertir todo el texto a minúsculas para asegurar que la comparación sea _case-insensitive_.
-2.  **Limpieza:** Eliminar los caracteres de puntuación especificados mediante una expresión regular.
-3.  **Tokenización:** Dividir el string resultante por espacios en blanco.
-4.  **Conteo:** Utilizar un objeto (o _hash map_) para almacenar la frecuencia de cada palabra.
-5.  **Ordenamiento:** Convertir las llaves del objeto en un array y ordenarlas basándonos en sus valores de frecuencia en el mapa.
-6.  **Selección:** Tomar los primeros 3 elementos del array ordenado.
+1. **Normalización:** Convertir todo el texto a minúsculas para asegurar que la comparación sea _case-insensitive_.
+2. **Limpieza:** Eliminar los caracteres de puntuación especificados mediante una expresión regular.
+3. **Tokenización:** Dividir el string resultante por espacios en blanco.
+4. **Conteo:** Utilizar un objeto (o _hash map_) para almacenar la frecuencia de cada palabra.
+5. **Ordenamiento:** Convertir las llaves del objeto en un array y ordenarlas basándonos en sus valores de frecuencia en el mapa.
+6. **Selección:** Tomar los primeros 3 elementos del array ordenado.
 
 ### Implementación
 
 ```javascript
 function getWords(paragraph) {
-  if (!paragraph || typeof paragraph !== "string") return [];
+ if (!paragraph || typeof paragraph !== "string") return [];
 
-  // Normalizar a minúsculas y eliminar puntuación específica (.,!)
-  const words = paragraph
-    .toLowerCase()
-    .replace(/[.,!]/g, "")
-    .split(/\s+/)
-    .filter((word) => word.length > 0);
+ // Normalizar a minúsculas y eliminar puntuación específica (.,!)
+ const words = paragraph
+ .toLowerCase()
+ .replace(/[.,!]/g, "")
+ .split(/\s+/)
+ .filter((word) => word.length > 0);
 
-  const frequencyMap = {};
-  for (const word of words) {
-    frequencyMap[word] = (frequencyMap[word] || 0) + 1;
-  }
+ const frequencyMap = {};
+ for (const word of words) {
+ frequencyMap[word] = (frequencyMap[word] || 0) + 1;
+ }
 
-  // Ordenar por frecuencia descendente
-  // En caso de empate, usamos orden alfabético para mantener consistencia
-  return Object.keys(frequencyMap)
-    .sort((a, b) => {
-      const freqDiff = frequencyMap[b] - frequencyMap[a];
-      if (freqDiff !== 0) return freqDiff;
-      return a.localeCompare(b);
-    })
-    .slice(0, 3);
+ // Ordenar por frecuencia descendente
+ // En caso de empate, usamos orden alfabético para mantener consistencia
+ return Object.keys(frequencyMap)
+ .sort((a, b) => {
+ const freqDiff = frequencyMap[b] - frequencyMap[a];
+ if (freqDiff !== 0) return freqDiff;
+ return a.localeCompare(b);
+ })
+ .slice(0, 3);
 }
 ```
 

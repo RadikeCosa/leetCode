@@ -36,16 +36,16 @@ El problema se puede descomponer en dos partes principales:
 
 1. **Transformación de Separadores**:
 
-   - Input puede contener guiones (-) y guiones bajos (\_) en cualquier combinación
-   - Debemos reemplazar TODOS con tildes (~)
-   - La cantidad y posición de separadores debe mantenerse exacta
-   - Pueden existir separadores consecutivos (ej: \_- → ~~)
+ - Input puede contener guiones (-) y guiones bajos (\_) en cualquier combinación
+ - Debemos reemplazar TODOS con tildes (~)
+ - La cantidad y posición de separadores debe mantenerse exacta
+ - Pueden existir separadores consecutivos (ej: \_- → ~~)
 
 2. **Patrón de Alternación**:
-   - Cada letra alterna entre mayúscula y minúscula
-   - La primera letra SIEMPRE va en mayúscula
-   - Los caracteres ~ NO cuentan para la alternación
-   - El caso original de las letras es irrelevante
+ - Cada letra alterna entre mayúscula y minúscula
+ - La primera letra SIEMPRE va en mayúscula
+ - Los caracteres ~ NO cuentan para la alternación
+ - El caso original de las letras es irrelevante
 
 ### Enfoque Utilizado
 
@@ -53,28 +53,28 @@ Implementamos una solución en dos fases para mantener el código limpio y fáci
 
 1. **Fase 1: Normalización de Separadores**
 
-   ```javascript
-   const str = boo.replace(/[-_]/g, "~");
-   ```
+ ```javascript
+ const str = boo.replace(/[-_]/g, "~");
+ ```
 
-   - Usamos regex con el flag `g` (global)
-   - El patrón `[-_]` captura ambos tipos de separadores
-   - La operación es eficiente y mantiene el orden
+ - Usamos regex con el flag `g` (global)
+ - El patrón `[-_]` captura ambos tipos de separadores
+ - La operación es eficiente y mantiene el orden
 
 2. **Fase 2: Aplicación del Patrón Spooky**
 
-   ```javascript
-   let capitalize = true; // Iniciamos con mayúscula
+ ```javascript
+ let capitalize = true; // Iniciamos con mayúscula
 
-   for (let char of str) {
-     if (char === "~") {
-       result += "~"; // Preservamos tilde sin cambiar estado
-     } else {
-       result += capitalize ? char.toUpperCase() : char.toLowerCase();
-       capitalize = !capitalize; // Alternamos para siguiente letra
-     }
-   }
-   ```
+ for (let char of str) {
+ if (char === "~") {
+ result += "~"; // Preservamos tilde sin cambiar estado
+ } else {
+ result += capitalize ? char.toUpperCase() : char.toLowerCase();
+ capitalize = !capitalize; // Alternamos para siguiente letra
+ }
+ }
+ ```
 
 ### Complejidad
 
@@ -96,32 +96,32 @@ Implementamos una solución en dos fases para mantener el código limpio y fáci
 
 1. **Casos Borde (Edge Cases)**:
 
-   - String vacío → retorna string vacío
-   - Un solo caracter → siempre en mayúscula
-   - Solo separadores → se convierten a tildes
-   - Separadores consecutivos → se mantienen
+ - String vacío → retorna string vacío
+ - Un solo caracter → siempre en mayúscula
+ - Solo separadores → se convierten a tildes
+ - Separadores consecutivos → se mantienen
 
 2. **Invariantes del Algoritmo**:
 
-   - La longitud del output = longitud del input
-   - Número de separadores se mantiene constante
-   - Primera letra siempre mayúscula
+ - La longitud del output = longitud del input
+ - Número de separadores se mantiene constante
+ - Primera letra siempre mayúscula
 
 3. **Alternativas Consideradas**:
 
-   - ❌ Dividir por separadores y juntar: más complejo y pierde separadores consecutivos
-   - ❌ Usar índices para alternar: más difícil manejar las tildes
-   - ✅ Estado booleano: simple y efectivo
+ - ❌ Dividir por separadores y juntar: más complejo y pierde separadores consecutivos
+ - ❌ Usar índices para alternar: más difícil manejar las tildes
+ - ✅ Estado booleano: simple y efectivo
 
 4. **Aprendizajes y Patrones**:
 
-   - Estado simple vs complejidad: un booleano es suficiente
-   - Transformación en fases: facilita testing y mantenimiento
-   - Inmutabilidad: generamos nuevo string en vez de modificar
-   - Regex para normalización: más limpio que múltiples replaces
+ - Estado simple vs complejidad: un booleano es suficiente
+ - Transformación en fases: facilita testing y mantenimiento
+ - Inmutabilidad: generamos nuevo string en vez de modificar
+ - Regex para normalización: más limpio que múltiples replaces
 
 5. **Mejoras Posibles**:
-   - Validación de input si fuera necesario
-   - Manejo de caracteres especiales adicionales
-   - Optimización de memoria para strings muy grandes
-   - Configuración de separadores dinámicos
+ - Validación de input si fuera necesario
+ - Manejo de caracteres especiales adicionales
+ - Optimización de memoria para strings muy grandes
+ - Configuración de separadores dinámicos

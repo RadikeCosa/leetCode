@@ -31,41 +31,41 @@ The optimal approach uses an **iterative method with a dummy node**:
 
 ```typescript
 export function mergeTwoLists(
-  list1: ListNode | null,
-  list2: ListNode | null
+ list 1: ListNode | null,
+ list 2: ListNode | null
 ): ListNode | null {
-  // Create dummy node to simplify logic
-  const dummy = new ListNode(0);
-  let current = dummy;
+ // Create dummy node to simplify logic
+ const dummy = new ListNode(0);
+ let current = dummy;
 
-  // Compare and merge while both lists have nodes
-  while (list1 !== null && list2 !== null) {
-    if (list1.val <= list2.val) {
-      current.next = list1;
-      list1 = list1.next;
-    } else {
-      current.next = list2;
-      list2 = list2.next;
-    }
-    current = current.next;
-  }
+ // Compare and merge while both lists have nodes
+ while (list 1 !== null && list 2 !== null) {
+ if (list 1.val <= list 2.val) {
+ current.next = list 1;
+ list 1 = list 1.next;
+ } else {
+ current.next = list 2;
+ list 2 = list 2.next;
+ }
+ current = current.next;
+ }
 
-  // Attach remaining nodes from non-empty list
-  current.next = list1 || list2;
+ // Attach remaining nodes from non-empty list
+ current.next = list 1 || list 2;
 
-  // Return merged list (skip dummy node)
-  return dummy.next;
+ // Return merged list (skip dummy node)
+ return dummy.next;
 }
 ```
 
 ## Complexity Analysis
 
 - **Time Complexity:** O(n + m)
-  - Visit each node exactly once
-  - n and m are lengths of input lists
+ - Visit each node exactly once
+ - n and m are lengths of input lists
 - **Space Complexity:** O(1)
-  - Only use constant extra pointers
-  - Reuse existing nodes instead of creating new ones
+ - Only use constant extra pointers
+ - Reuse existing nodes instead of creating new ones
 
 ## Key Insights
 
@@ -87,19 +87,19 @@ export function mergeTwoLists(
 
 ```typescript
 function mergeTwoListsRecursive(
-  list1: ListNode | null,
-  list2: ListNode | null
+ list 1: ListNode | null,
+ list 2: ListNode | null
 ): ListNode | null {
-  if (!list1) return list2;
-  if (!list2) return list1;
+ if (!list 1) return list 2;
+ if (!list 2) return list 1;
 
-  if (list1.val <= list2.val) {
-    list1.next = mergeTwoListsRecursive(list1.next, list2);
-    return list1;
-  } else {
-    list2.next = mergeTwoListsRecursive(list1, list2.next);
-    return list2;
-  }
+ if (list 1.val <= list 2.val) {
+ list 1.next = mergeTwoListsRecursive(list 1.next, list 2);
+ return list 1;
+ } else {
+ list 2.next = mergeTwoListsRecursive(list 1, list 2.next);
+ return list 2;
+ }
 }
 ```
 

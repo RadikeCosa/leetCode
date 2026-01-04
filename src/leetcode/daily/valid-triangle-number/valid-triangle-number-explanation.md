@@ -65,17 +65,17 @@ Si `nums[left] + nums[right] > nums[i]`, entonces **todos** los elementos entre 
 
 ```typescript
 for (let i = nums.length - 1; i >= 2; i--) {
-  let left = 0,
-    right = i - 1;
+ let left = 0,
+ right = i - 1;
 
-  while (left < right) {
-    if (nums[left] + nums[right] > nums[i]) {
-      count += right - left; // Múltiples triángulos válidos
-      right--;
-    } else {
-      left++; // Necesitamos suma más grande
-    }
-  }
+ while (left < right) {
+ if (nums[left] + nums[right] > nums[i]) {
+ count += right - left; // Múltiples triángulos válidos
+ right--;
+ } else {
+ left++; // Necesitamos suma más grande
+ }
+ }
 }
 ```
 
@@ -90,14 +90,14 @@ for (let i = nums.length - 1; i >= 2; i--) {
 
 - **Tiempo**: O(n²)
 
-  - Ordenamiento: O(n log n)
-  - Bucle externo: O(n)
-  - Two pointers interno: O(n) total por cada iteración
-  - **Total**: O(n log n) + O(n²) = O(n²)
+ - Ordenamiento: O(n log n)
+ - Bucle externo: O(n)
+ - Two pointers interno: O(n) total por cada iteración
+ - **Total**: O(n log n) + O(n²) = O(n²)
 
 - **Espacio**: O(1)
-  - Solo variables auxiliares (excluyendo el espacio usado por el sorting)
-  - Se modifica el array original in-place
+ - Solo variables auxiliares (excluyendo el espacio usado por el sorting)
+ - Se modifica el array original in-place
 
 ## Alternativas consideradas
 

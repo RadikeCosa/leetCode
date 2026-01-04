@@ -65,11 +65,11 @@ La lógica de la RegExp debe:
 ### Implementación Paso a Paso
 
 1. **Definición de la RegExp:** Se utiliza `/(\*|_)(?!\s)(.+?)(?<!\s)\1/g`.
-   - `(\*|_)`: Captura el delimitador inicial.
-   - `(?!\s)`: Asegura que no haya un espacio inmediatamente después.
-   - `(.+?)`: Captura el contenido de forma no codiciosa para evitar que una itálica se "coma" a la siguiente.
-   - `(?<!\s)`: Asegura que no haya un espacio inmediatamente antes del cierre.
-   - `\1`: Obliga a que el delimitador de cierre sea idéntico al de apertura.
+ - `(\*|_)`: Captura el delimitador inicial.
+ - `(?!\s)`: Asegura que no haya un espacio inmediatamente después.
+ - `(.+?)`: Captura el contenido de forma no codiciosa para evitar que una itálica se "coma" a la siguiente.
+ - `(?<!\s)`: Asegura que no haya un espacio inmediatamente antes del cierre.
+ - `\1`: Obliga a que el delimitador de cierre sea idéntico al de apertura.
 2. **Reemplazo Dinámico:** Usamos `markdown.replace(regex, "<i>$2</i>")`, donde `$2` hace referencia al contenido capturado (el texto sin los delimitadores).
 
 ## Análisis de Complejidad

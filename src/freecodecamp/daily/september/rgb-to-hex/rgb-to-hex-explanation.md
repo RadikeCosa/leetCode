@@ -19,21 +19,21 @@ Dado un string de color CSS en formato `rgb(r, g, b)`, se debe retornar su equiv
 
 Aquí hay algunos ejemplos de salidas para una entrada dada:
 
-| Input                | Output    |
+| Input | Output |
 |
 
 -------------- | --------- |
 | "rgb(255, 255, 255)" | "#ffffff" |
-| "rgb(1, 2, 3)"       | "#010203" |
+| "rgb(1, 2, 3)" | "#010203" |
 
 Se deben hacer minúsculas todas las letras. Retornar un # seguido de seis caracteres. No usar valores abreviados.
 
 **Casos de prueba:**
 
 - `rgbToHex("rgb(255, 255, 255)")` → `"#ffffff"`
-- `rgbToHex("rgb(1, 11, 111)")` → `"#010b6f"`
-- `rgbToHex("rgb(173, 216, 230)")` → `"#add8e6"`
-- `rgbToHex("rgb(79, 123, 201)")` → `"#4f7bc9"`
+- `rgbToHex("rgb(1, 11, 111)")` → `"#010 b 6 f"`
+- `rgbToHex("rgb(173, 216, 230)")` → `"#add 8 e 6"`
+- `rgbToHex("rgb(79, 123, 201)")` → `"#4 f 7 bc 9"`
 
 ## Análisis Inicial
 
@@ -66,26 +66,26 @@ La implementación utiliza parsing manual con `slice()` e `indexOf()` para extra
 
 ```javascript
 function rgbToHex(rgb) {
-  // Extraer componentes RGB usando slice e indexOf
-  const r = parseInt(rgb.slice(4, rgb.indexOf(",", 4)).trim(), 10);
-  const g = parseInt(
-    rgb.slice(rgb.indexOf(",", 4) + 1, rgb.lastIndexOf(",")).trim(),
-    10
-  );
-  const b = parseInt(
-    rgb.slice(rgb.lastIndexOf(",") + 1, rgb.length - 1).trim(),
-    10
-  );
+ // Extraer componentes RGB usando slice e indexOf
+ const r = parseInt(rgb.slice(4, rgb.indexOf(",", 4)).trim(), 10);
+ const g = parseInt(
+ rgb.slice(rgb.indexOf(",", 4) + 1, rgb.lastIndexOf(",")).trim(),
+ 10
+ );
+ const b = parseInt(
+ rgb.slice(rgb.lastIndexOf(",") + 1, rgb.length - 1).trim(),
+ 10
+ );
 
-  // Función helper para conversión a hex con padding
-  const toHex = (num) => {
-    const hex = num.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-  };
+ // Función helper para conversión a hex con padding
+ const toHex = (num) => {
+ const hex = num.toString(16);
+ return hex.length === 1 ? "0" + hex : hex;
+ };
 
-  // Concatenar resultado con prefijo #
-  const hexColor = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-  return hexColor.toLowerCase();
+ // Concatenar resultado con prefijo #
+ const hexColor = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+ return hexColor.toLowerCase();
 }
 ```
 
@@ -102,18 +102,18 @@ function rgbToHex(rgb) {
 
 ```javascript
 function rgbToHexRegex(rgb) {
-  // Usar regex para extraer los valores RGB directamente
-  const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+ // Usar regex para extraer los valores RGB directamente
+ const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
 
-  if (!match) {
-    throw new Error("Formato RGB inválido");
-  }
+ if (!match) {
+ throw new Error("Formato RGB inválido");
+ }
 
-  const [, r, g, b] = match.map(Number);
+ const [, r, g, b] = match.map(Number);
 
-  const toHex = (num) => num.toString(16).padStart(2, "0");
+ const toHex = (num) => num.toString(16).padStart(2, "0");
 
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+ return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 ```
 
@@ -145,9 +145,9 @@ function rgbToHexRegex(rgb) {
 ```javascript
 // Versión implementada - más simple para este caso
 const values = rgb
-  .slice(4, -1)
-  .split(",")
-  .map((v) => parseInt(v.trim(), 10));
+ .slice(4, -1)
+ .split(",")
+ .map((v) => parseInt(v.trim(), 10));
 ```
 
 **¿Por qué se eligió split() sobre regex?**
@@ -168,15 +168,15 @@ const values = rgb
 
 ```javascript
 function rgbToHexSplit(rgb) {
-  const values = rgb
-    .slice(4, -1)
-    .split(",")
-    .map((v) => parseInt(v.trim(), 10));
-  const [r, g, b] = values;
+ const values = rgb
+ .slice(4, -1)
+ .split(",")
+ .map((v) => parseInt(v.trim(), 10));
+ const [r, g, b] = values;
 
-  const toHex = (num) => num.toString(16).padStart(2, "0");
+ const toHex = (num) => num.toString(16).padStart(2, "0");
 
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+ return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 ```
 
@@ -187,13 +187,13 @@ function rgbToHexSplit(rgb) {
 
 ```javascript
 function rgbToHexRegex(rgb) {
-  const match = rgb.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-  if (!match) return null;
+ const match = rgb.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+ if (!match) return null;
 
-  const [, r, g, b] = match.map(Number);
-  const toHex = (num) => num.toString(16).padStart(2, "0");
+ const [, r, g, b] = match.map(Number);
+ const toHex = (num) => num.toString(16).padStart(2, "0");
 
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+ return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 ```
 
@@ -268,7 +268,7 @@ const toHex = (num) => num.toString(16).padStart(2, "0");
 - **Validación de input:** Agregar checks para formato RGB válido y rangos 0-255
 - **Soporte para shorthand:** Manejar casos como `#RGB` además de `#RRGGBB`
 - **Conversión bidireccional:** Crear función complementaria `hexToRgb()`
-- **Optimización:** Usar `padStart()` para reducir código (menos compatible con IE11)
+- **Optimización:** Usar `padStart()` para reducir código (menos compatible con IE 11)
 
 **Reflexión sobre el proceso:**
 

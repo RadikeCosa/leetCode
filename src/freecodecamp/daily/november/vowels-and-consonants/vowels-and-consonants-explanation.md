@@ -54,11 +54,11 @@ El método `match()` es un método de los strings en JavaScript que busca coinci
 
 ```javascript
 function count(str) {
-  function count(str) {
-    const vowels = str.match(/[aeiou]/gi);
-    const consonants = str.match(/[bcdfghjklmnpqrstvwxyz]/gi);
-    return [vowels ? vowels.length : 0, consonants ? consonants.length : 0];
-  }
+ function count(str) {
+ const vowels = str.match(/[aeiou]/gi);
+ const consonants = str.match(/[bcdfghjklmnpqrstvwxyz]/gi);
+ return [vowels ? vowels.length : 0, consonants ? consonants.length : 0];
+ }
 }
 ```
 

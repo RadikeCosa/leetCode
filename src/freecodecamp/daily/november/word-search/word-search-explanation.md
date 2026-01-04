@@ -25,9 +25,9 @@ Se te proporciona una matriz bidimensional de letras minúsculas (a-z) y una pal
 
 ```text
 [
-  ["a", "c", "t"],
-  ["t", "a", "t"],
-  ["c", "t", "c"]
+ ["a", "c", "t"],
+ ["t", "a", "t"],
+ ["c", "t", "c"]
 ]
 ```
 
@@ -46,9 +46,9 @@ El siguiente diagrama muestra el recorrido para buscar la palabra "cat" en la ma
 
 ```mermaid
 graph TD
-  A[Inicio: [0,1] 'c'] --> B[[1,1] 'a']
-  B --> C[[2,1] 't']
-  C --> D[Fin: [2,1]]
+ A[Inicio: [0,1] 'c'] --> B[[1,1] 'a']
+ B --> C[[2,1] 't']
+ C --> D[Fin: [2,1]]
 ```
 
 Puedes adaptar el diagrama para ilustrar otras direcciones o palabras.
@@ -66,10 +66,10 @@ El enfoque consiste en:
 
 ```javascript
 para cada celda (i, j) en matriz:
-  si matriz[i][j] === palabra[0]:
-    para cada dirección en direcciones:
-      si verificar_palabra_en_direccion(i, j, dirección):
-        retornar [inicio, fin]
+ si matriz[i][j] === palabra[0]:
+ para cada dirección en direcciones:
+ si verificar_palabra_en_direccion(i, j, dirección):
+ retornar [inicio, fin]
 retornar null
 ```
 
@@ -77,69 +77,69 @@ retornar null
 
 ```javascript
 export default function findWord(matriz, palabra) {
-  // Definir las 4 direcciones posibles
-  const direcciones = [
-    [0, 1], // derecha
-    [0, -1], // izquierda
-    [1, 0], // abajo
-    [-1, 0], // arriba
-  ];
+ // Definir las 4 direcciones posibles
+ const direcciones = [
+ [0, 1], // derecha
+ [0, -1], // izquierda
+ [1, 0], // abajo
+ [-1, 0], // arriba
+ ];
 
-  // Función auxiliar para verificar si la palabra existe en una dirección
-  function verificarDireccion(filaInicio, colInicio, deltaFila, deltaCol) {
-    let fila = filaInicio;
-    let col = colInicio;
+ // Función auxiliar para verificar si la palabra existe en una dirección
+ function verificarDireccion(filaInicio, colInicio, deltaFila, deltaCol) {
+ let fila = filaInicio;
+ let col = colInicio;
 
-    // Verificar cada letra de la palabra
-    for (let i = 0; i < palabra.length; i++) {
-      // Verificar límites de la matriz
-      if (
-        fila < 0 ||
-        fila >= matriz.length ||
-        col < 0 ||
-        col >= matriz[0].length
-      ) {
-        return false;
-      }
+ // Verificar cada letra de la palabra
+ for (let i = 0; i < palabra.length; i++) {
+ // Verificar límites de la matriz
+ if (
+ fila < 0 ||
+ fila >= matriz.length ||
+ col < 0 ||
+ col >= matriz[0].length
+ ) {
+ return false;
+ }
 
-      // Verificar si la letra coincide
-      if (matriz[fila][col] !== palabra[i]) {
-        return false;
-      }
+ // Verificar si la letra coincide
+ if (matriz[fila][col] !== palabra[i]) {
+ return false;
+ }
 
-      // Avanzar en la dirección
-      fila += deltaFila;
-      col += deltaCol;
-    }
+ // Avanzar en la dirección
+ fila += deltaFila;
+ col += deltaCol;
+ }
 
-    return true;
-  }
+ return true;
+ }
 
-  // Recorrer toda la matriz
-  for (let i = 0; i < matriz.length; i++) {
-    for (let j = 0; j < matriz[i].length; j++) {
-      // Si encontramos la primera letra de la palabra
-      if (matriz[i][j] === palabra[0]) {
-        // Probar cada una de las 4 direcciones
-        for (const [deltaFila, deltaCol] of direcciones) {
-          if (verificarDireccion(i, j, deltaFila, deltaCol)) {
-            // Calcular la posición final
-            const filaFin = i + deltaFila * (palabra.length - 1);
-            const colFin = j + deltaCol * (palabra.length - 1);
+ // Recorrer toda la matriz
+ for (let i = 0; i < matriz.length; i++) {
+ for (let j = 0; j < matriz[i].length; j++) {
+ // Si encontramos la primera letra de la palabra
+ if (matriz[i][j] === palabra[0]) {
+ // Probar cada una de las 4 direcciones
+ for (const [deltaFila, deltaCol] of direcciones) {
+ if (verificarDireccion(i, j, deltaFila, deltaCol)) {
+ // Calcular la posición final
+ const filaFin = i + deltaFila * (palabra.length - 1);
+ const colFin = j + deltaCol * (palabra.length - 1);
 
-            // Retornar inicio y fin
-            return [
-              [i, j],
-              [filaFin, colFin],
-            ];
-          }
-        }
-      }
-    }
-  }
+ // Retornar inicio y fin
+ return [
+ [i, j],
+ [filaFin, colFin],
+ ];
+ }
+ }
+ }
+ }
+ }
 
-  // Si no se encuentra la palabra
-  return null;
+ // Si no se encuentra la palabra
+ return null;
 }
 ```
 

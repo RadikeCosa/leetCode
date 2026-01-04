@@ -52,21 +52,21 @@ La solución implementa el patrón clásico de reducción/fold:
 
 1. **Inicialización**: Crear una variable acumuladora `acc` con el valor inicial
 
-   ```typescript
-   let acc = init;
-   ```
+ ```typescript
+ let acc = init;
+ ```
 
 2. **Iteración**: Recorrer cada elemento del array usando un bucle `for`
 
-   ```typescript
-   for (let i = 0; i < nums.length; i++) {
-   ```
+ ```typescript
+ for (let i = 0; i < nums.length; i++) {
+ ```
 
 3. **Reducción**: Aplicar la función reductora al acumulador actual y el elemento actual
 
-   ```typescript
-   acc = fn(acc, nums[i]);
-   ```
+ ```typescript
+ acc = fn(acc, nums[i]);
+ ```
 
 4. **Acumulación**: El resultado de `fn` se convierte en el nuevo valor del acumulador
 5. **Retorno**: Devolver el valor final del acumulador

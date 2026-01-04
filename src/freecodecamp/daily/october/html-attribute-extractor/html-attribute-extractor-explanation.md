@@ -26,7 +26,7 @@ Este problema requiere extraer atributos de elementos HTML válidos y formatearl
 
 1. **Un solo elemento**: Siempre recibirás exactamente un elemento HTML
 2. **Formato de atributos**: Todos siguen el patrón `atributo="valor"`
-3. **Formato de salida**: Array de strings `["atributo1, valor1", "atributo2, valor2"]`
+3. **Formato de salida**: Array de strings `["atributo 1, valor 1", "atributo 2, valor 2"]`
 4. **Orden preservado**: Los atributos deben aparecer en el mismo orden original
 5. **Sin atributos**: Devolver array vacío `[]`
 
@@ -106,27 +106,27 @@ La solución utiliza una expresión regular diseñada específicamente para extr
 
 ```javascript
 /(\w+)="([^"]*)"/g
- ^^^^              → Grupo 1: Nombre del atributo (\w+ = uno o más word characters)
-     ^^^           → Literal: =" (igual y comilla de apertura)
-        ^^^^^^     → Grupo 2: Valor del atributo ([^"]* = cero o más caracteres que no sean comillas)
-              ^    → Literal: " (comilla de cierre)
-               ^   → Flag global: buscar todas las coincidencias
+ ^^^^ → Grupo 1: Nombre del atributo (\w+ = uno o más word characters)
+ ^^^ → Literal: =" (igual y comilla de apertura)
+ ^^^^^^ → Grupo 2: Valor del atributo ([^"]* = cero o más caracteres que no sean comillas)
+ ^ → Literal: " (comilla de cierre)
+ ^ → Flag global: buscar todas las coincidencias
 ```
 
 **Algoritmo paso a paso:**
 
 ```javascript
 function extractAttributes(element) {
-  const attributes = []; // 1. Inicializar array resultado
-  const regex = /(\w+)="([^"]*)"/g; // 2. Definir patrón de búsqueda
-  let match; // 3. Variable para cada coincidencia
+ const attributes = []; // 1. Inicializar array resultado
+ const regex = /(\w+)="([^"]*)"/g; // 2. Definir patrón de búsqueda
+ let match; // 3. Variable para cada coincidencia
 
-  while ((match = regex.exec(element)) !== null) {
-    // 4. Iterar todas las coincidencias
-    attributes.push(`${match[1]}, ${match[2]}`); // 5. Formatear y agregar resultado
-  }
+ while ((match = regex.exec(element)) !== null) {
+ // 4. Iterar todas las coincidencias
+ attributes.push(`${match[1]}, ${match[2]}`); // 5. Formatear y agregar resultado
+ }
 
-  return attributes; // 6. Devolver array completo
+ return attributes; // 6. Devolver array completo
 }
 ```
 
@@ -136,29 +136,29 @@ function extractAttributes(element) {
 
 ```javascript
 // Iteración 1:
-match = regex.exec(element)  → ["name=\"email\"", "name", "email"]
+match = regex.exec(element) → ["name=\"email\"", "name", "email"]
 attributes.push("name, email")
 
 // Iteración 2:
-match = regex.exec(element)  → ["type=\"email\"", "type", "email"]
+match = regex.exec(element) → ["type=\"email\"", "type", "email"]
 attributes.push("type, email")
 
 // Iteración 3:
-match = regex.exec(element)  → ["required=\"true\"", "required", "true"]
+match = regex.exec(element) → ["required=\"true\"", "required", "true"]
 attributes.push("required, true")
 
 // Iteración 4:
-match = regex.exec(element)  → null (termina el loop)
+match = regex.exec(element) → null (termina el loop)
 
 // Resultado final: ["name, email", "type, email", "required, true"]
 ```
 
 ### Ventajas del Enfoque
 
-**✅ Precisión:** El regex coincide exactamente con el formato HTML válido  
-**✅ Eficiencia:** Una sola pasada por el string con `regex.exec()`  
-**✅ Robustez:** Maneja casos edge (valores vacíos, múltiples espacios)  
-**✅ Orden preservado:** El flag `g` encuentra coincidencias secuencialmente  
+**✅ Precisión:** El regex coincide exactamente con el formato HTML válido 
+**✅ Eficiencia:** Una sola pasada por el string con `regex.exec()` 
+**✅ Robustez:** Maneja casos edge (valores vacíos, múltiples espacios) 
+**✅ Orden preservado:** El flag `g` encuentra coincidencias secuencialmente 
 **✅ Simplicidad:** Lógica clara sin parsing manual complejo
 
 ### Manejo de Casos Especiales
@@ -207,7 +207,7 @@ match = regex.exec(element)  → null (termina el loop)
 
 **Character Classes:**
 
-- `\w`: Word characters `[a-zA-Z0-9_]` - perfecto para nombres de atributos
+- `\w`: Word characters `[a-zA-Z 0-9_]` - perfecto para nombres de atributos
 - `[^"]`: Negated class - cualquier carácter excepto comillas dobles
 - Manejo preciso de contenido entre delimitadores
 
@@ -236,7 +236,7 @@ match = regex.exec(element)  → null (termina el loop)
 
 ```javascript
 while ((match = regex.exec(string)) !== null) {
-  // Procesar match
+ // Procesar match
 }
 ```
 

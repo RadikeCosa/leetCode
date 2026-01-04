@@ -27,10 +27,10 @@ El **24 Game** es un problema de **backtracking** que busca combinar 4 dígitos 
 #### Casos de FreeCodeCamp
 
 ```text
-solve24("4878") → (7-8/8)*4 = 6*4 = 24
-solve24("1234") → 1*2*3*4 = 24
-solve24("6789") → (6*8)/(9-7) = 48/2 = 24
-solve24("1127") → (1+7)*(1+2) = 8*3 = 24
+solve 24("4878") → (7-8/8)*4 = 6*4 = 24
+solve 24("1234") → 1*2*3*4 = 24
+solve 24("6789") → (6*8)/(9-7) = 48/2 = 24
+solve 24("1127") → (1+7)*(1+2) = 8*3 = 24
 ```
 
 #### Patrones Matemáticos Clave

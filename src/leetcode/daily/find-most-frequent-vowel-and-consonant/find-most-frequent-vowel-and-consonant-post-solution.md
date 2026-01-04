@@ -24,27 +24,27 @@ The key insight is leveraging the constraint that we only have lowercase letters
 
 ```typescript
 export function findMostFrequentVowelAndConsonant(s: string): number {
-  const vowels = new Set(["a", "e", "i", "o", "u"]);
+ const vowels = new Set(["a", "e", "i", "o", "u"]);
 
-  // Arrays para conteo directo (a-z = índices 0-25)
-  const vowelCounts = new Array(26).fill(0);
-  const consonantCounts = new Array(26).fill(0);
+ // Arrays para conteo directo (a-z = índices 0-25)
+ const vowelCounts = new Array(26).fill(0);
+ const consonantCounts = new Array(26).fill(0);
 
-  // Contar directamente en arrays
-  for (const char of s) {
-    const index = char.charCodeAt(0) - 97; // 'a' = 97
-    if (vowels.has(char)) {
-      vowelCounts[index]++;
-    } else {
-      consonantCounts[index]++;
-    }
-  }
+ // Contar directamente en arrays
+ for (const char of s) {
+ const index = char.charCodeAt(0) - 97; // 'a' = 97
+ if (vowels.has(char)) {
+ vowelCounts[index]++;
+ } else {
+ consonantCounts[index]++;
+ }
+ }
 
-  // Encontrar máximos
-  const maxVowelFreq = Math.max(...vowelCounts);
-  const maxConsonantFreq = Math.max(...consonantCounts);
+ // Encontrar máximos
+ const maxVowelFreq = Math.max(...vowelCounts);
+ const maxConsonantFreq = Math.max(...consonantCounts);
 
-  return maxVowelFreq + maxConsonantFreq;
+ return maxVowelFreq + maxConsonantFreq;
 }
 ```
 

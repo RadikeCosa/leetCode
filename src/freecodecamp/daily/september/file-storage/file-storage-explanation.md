@@ -22,11 +22,11 @@ Dado el tamaño de un archivo y la capacidad de un disco duro en gigabytes (GB) 
 - devolve el numero total de arhivos que pueden ser almacenados en el disco duro.
 - usa las siguientes conversiones
 
-  Unidad / Equivalencia
-  1 B = 1 B
-  1KB = 1000 B
-  1MB = 1000 KB
-  1GB = 1000 MB
+ Unidad / Equivalencia
+ 1 B = 1 B
+ 1 KB = 1000 B
+ 1 MB = 1000 KB
+ 1 GB = 1000 MB
 
 Por ejemplo, dados 500, "KB" y 1 como argumentos, determina cuantos archivos de 500 KB pueden caber en un disco duro de 1 GB.
 
@@ -39,22 +39,22 @@ El problema pide una funcion que debe calcular cuantos archivos de un tamaño da
 ### Identificación de Entradas y Salidas
 
 - Entradas:
-  - fileSize: numero que representa el tamaño del archivo.
-  - fileUnit: string que representa la unidad del tamaño del archivo ("B", "KB", "MB").
-  - driveSizeGb: numero que representa la capacidad del disco duro en gigabytes (GB).
+ - fileSize: numero que representa el tamaño del archivo.
+ - fileUnit: string que representa la unidad del tamaño del archivo ("B", "KB", "MB").
+ - driveSizeGb: numero que representa la capacidad del disco duro en gigabytes (GB).
 - Salida:
-  - Un numero entero que representa la cantidad de archivos que pueden ser almacenados en el disco
+ - Un numero entero que representa la cantidad de archivos que pueden ser almacenados en el disco
 
 ### Casos de Prueba Identificados
 
 | Tamaño del Archivo | Unidad del Archivo | Tamaño del Disco Duro (GB) | Resultado Esperado |
 | ------------------ | ------------------ | -------------------------- | ------------------ |
-| 500                | "KB"               | 1                          | 2000               |
-| 50000              | "B"                | 1                          | 20000              |
-| 5                  | "MB"               | 1                          | 200                |
-| 4096               | "B"                | 1.5                        | 366210             |
-| 220.5              | "KB"               | 100                        | 453514             |
-| 4.5                | "MB"               | 750                        | 166666             |
+| 500 | "KB" | 1 | 2000 |
+| 50000 | "B" | 1 | 20000 |
+| 5 | "MB" | 1 | 200 |
+| 4096 | "B" | 1.5 | 366210 |
+| 220.5 | "KB" | 100 | 453514 |
+| 4.5 | "MB" | 750 | 166666 |
 
 ## Desarrollo de la Solución
 
@@ -75,15 +75,15 @@ El enfoque que elegi para la solucion es convertir tanto el tamaño del archivo 
 
 ```javascript
 function numberOfFiles(fileSize, fileUnit, driveSizeGb) {
-  const unitToBytes = {
-    B: 1,
-    KB: 1_000,
-    MB: 1_000_000,
-    GB: 1_000_000_000,
-  };
-  const fileSizeInBytes = fileSize * unitToBytes[fileUnit];
-  const driveSizeInBytes = driveSizeGb * unitToBytes.GB;
-  return Math.floor(driveSizeInBytes / fileSizeInBytes);
+ const unitToBytes = {
+ B: 1,
+ KB: 1_000,
+ MB: 1_000_000,
+ GB: 1_000_000_000,
+ };
+ const fileSizeInBytes = fileSize * unitToBytes[fileUnit];
+ const driveSizeInBytes = driveSizeGb * unitToBytes.GB;
+ return Math.floor(driveSizeInBytes / fileSizeInBytes);
 }
 ```
 
@@ -91,12 +91,12 @@ function numberOfFiles(fileSize, fileUnit, driveSizeGb) {
 
 ### Complejidad Temporal
 
-La función realiza una cantidad constante de operaciones, independientemente del tamaño de los datos de entrada. Todas las conversiones y la división son operaciones de tiempo constante.  
+La función realiza una cantidad constante de operaciones, independientemente del tamaño de los datos de entrada. Todas las conversiones y la división son operaciones de tiempo constante. 
 **Complejidad temporal:** $O(1)$
 
 ### Complejidad Espacial
 
-No se utilizan estructuras de datos adicionales que crezcan con la entrada, solo variables simples y un objeto de tamaño fijo para las conversiones.  
+No se utilizan estructuras de datos adicionales que crezcan con la entrada, solo variables simples y un objeto de tamaño fijo para las conversiones. 
 **Complejidad espacial:** $O(1)$
 
 ## Casos Edge y Consideraciones

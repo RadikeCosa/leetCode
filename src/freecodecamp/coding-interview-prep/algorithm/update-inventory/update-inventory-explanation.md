@@ -33,85 +33,85 @@ Este enfoque permite búsquedas y actualizaciones rápidas (O(1) por producto) y
 ### Codigo completo
 
 ```javascript
-function updateInventory(arr1, arr2) {
-  // Mapa para almacenar el inventario actualizado
-  let inventoryMap = new Map();
-  // Agregar inventario actual al mapa
-  for (let [quantity, item] of arr1) {
-    inventoryMap.set(item, quantity);
-  }
+function updateInventory(arr 1, arr 2) {
+ // Mapa para almacenar el inventario actualizado
+ let inventoryMap = new Map();
+ // Agregar inventario actual al mapa
+ for (let [quantity, item] of arr 1) {
+ inventoryMap.set(item, quantity);
+ }
 
-  // Actualizar el inventario con la nueva entrega
-  for (let [quantity, item] of arr2) {
-    if (inventoryMap.has(item)) {
-      inventoryMap.set(item, inventoryMap.get(item) + quantity);
-    } else {
-      inventoryMap.set(item, quantity);
-    }
-  }
+ // Actualizar el inventario con la nueva entrega
+ for (let [quantity, item] of arr 2) {
+ if (inventoryMap.has(item)) {
+ inventoryMap.set(item, inventoryMap.get(item) + quantity);
+ } else {
+ inventoryMap.set(item, quantity);
+ }
+ }
 
-  // Convertir el mapa de inventario actualizado a un array en formato [cantidad, nombre]
-  let updatedInventory = Array.from(inventoryMap.entries()).map(
-    ([item, quantity]) => [quantity, item]
-  );
+ // Convertir el mapa de inventario actualizado a un array en formato [cantidad, nombre]
+ let updatedInventory = Array.from(inventoryMap.entries()).map(
+ ([item, quantity]) => [quantity, item]
+ );
 
-  // Ordenar el inventario actualizado alfabéticamente por nombre de artículo
-  updatedInventory.sort((a, b) => a[1].localeCompare(b[1]));
+ // Ordenar el inventario actualizado alfabéticamente por nombre de artículo
+ updatedInventory.sort((a, b) => a[1].localeCompare(b[1]));
 
-  return updatedInventory;
+ return updatedInventory;
 }
 ```
 
 ## Complejidad
 
 **Tiempo:**
-O(n + m + k log k), donde n es la cantidad de elementos en arr1, m en arr2 y k el total de productos únicos después de la actualización. El recorrido de ambos arrays es lineal y la ordenación final es logarítmica respecto al total de productos.
+O(n + m + k log k), donde n es la cantidad de elementos en arr 1, m en arr 2 y k el total de productos únicos después de la actualización. El recorrido de ambos arrays es lineal y la ordenación final es logarítmica respecto al total de productos.
 
 **Espacio:**
 O(k), ya que se almacena el inventario actualizado en un Map y luego en el array resultado.
 
 ## Optimización
 
-La solución actual es eficiente y clara, pero puede optimizarse en casos donde arr2 tiene productos repetidos:
+La solución actual es eficiente y clara, pero puede optimizarse en casos donde arr 2 tiene productos repetidos:
 
 Otras optimizaciones posibles:
 
 - **Uso de hash/object:**
-  Si el inventario y la entrega son ambos muy grandes, usar un objeto plano (hash) en vez de Map puede ser más eficiente en JavaScript puro, ya que el acceso y actualización por clave es O(1) y la estructura es más ligera en memoria. Esto es especialmente útil cuando los nombres de los productos son strings simples y no hay colisiones.
+ Si el inventario y la entrega son ambos muy grandes, usar un objeto plano (hash) en vez de Map puede ser más eficiente en JavaScript puro, ya que el acceso y actualización por clave es O(1) y la estructura es más ligera en memoria. Esto es especialmente útil cuando los nombres de los productos son strings simples y no hay colisiones.
 
-  **Ejemplo de código:**
+ **Ejemplo de código:**
 
-  ```javascript
-  function updateInventoryHash(arr1, arr2) {
-    const inventory = {};
-    // Cargar inventario actual
-    for (const [quantity, item] of arr1) {
-      inventory[item] = quantity;
-    }
-    // Actualizar con la entrega
-    for (const [quantity, item] of arr2) {
-      inventory[item] = (inventory[item] || 0) + quantity;
-    }
-    // Convertir a array y ordenar
-    return Object.entries(inventory)
-      .map(([item, quantity]) => [Number(quantity), item])
-      .sort((a, b) => a[1].localeCompare(b[1]));
-  }
-  ```
+ ```javascript
+ function updateInventoryHash(arr 1, arr 2) {
+ const inventory = {};
+ // Cargar inventario actual
+ for (const [quantity, item] of arr 1) {
+ inventory[item] = quantity;
+ }
+ // Actualizar con la entrega
+ for (const [quantity, item] of arr 2) {
+ inventory[item] = (inventory[item] || 0) + quantity;
+ }
+ // Convertir a array y ordenar
+ return Object.entries(inventory)
+ .map(([item, quantity]) => [Number(quantity), item])
+ .sort((a, b) => a[1].localeCompare(b[1]));
+ }
+ ```
 
 - Si se requiere alta concurrencia (actualizaciones simultáneas), se puede usar una estructura concurrente o dividir el inventario en fragmentos para procesamiento paralelo.
-  **Ejemplo de agrupamiento previo:**
+ **Ejemplo de agrupamiento previo:**
 
 ```javascript
-function groupDelivery(arr2) {
-  const grouped = new Map();
-  for (let [quantity, item] of arr2) {
-    grouped.set(item, (grouped.get(item) || 0) + quantity);
-  }
-  return Array.from(grouped.entries()).map(([item, quantity]) => [
-    quantity,
-    item,
-  ]);
+function groupDelivery(arr 2) {
+ const grouped = new Map();
+ for (let [quantity, item] of arr 2) {
+ grouped.set(item, (grouped.get(item) || 0) + quantity);
+ }
+ return Array.from(grouped.entries()).map(([item, quantity]) => [
+ quantity,
+ item,
+ ]);
 }
 ```
 

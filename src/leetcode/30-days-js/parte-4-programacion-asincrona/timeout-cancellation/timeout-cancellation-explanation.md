@@ -49,7 +49,7 @@ Output: [];
 **Ejemplo 3:**
 
 ```typescript
-Input: (fn = (x1, x2) => x1 * x2), (args = [2, 4]), (t = 30);
+Input: (fn = (x 1, x 2) => x 1 * x 2), (args = [2, 4]), (t = 30);
 Output: [{ time: 30, returned: 8 }];
 ```
 
@@ -73,18 +73,18 @@ Output: [{ time: 30, returned: 8 }];
 
 1. **setTimeout y clearTimeout**
 
-   - `setTimeout` programa la ejecución de una función después de un retraso
-   - `clearTimeout` cancela una ejecución programada usando el timer ID
-   - El patrón: guardar el ID y usarlo para cancelar
+ - `setTimeout` programa la ejecución de una función después de un retraso
+ - `clearTimeout` cancela una ejecución programada usando el timer ID
+ - El patrón: guardar el ID y usarlo para cancelar
 
 2. **Closures**
 
-   - La función de cancelación necesita acceso al timer ID
-   - El `timerId` queda "capturado" en el closure de la función retornada
+ - La función de cancelación necesita acceso al timer ID
+ - El `timerId` queda "capturado" en el closure de la función retornada
 
 3. **Timing y Race Conditions**
-   - El orden de los eventos determina si la función se ejecuta o se cancela
-   - JavaScript maneja automáticamente la concurrencia
+ - El orden de los eventos determina si la función se ejecuta o se cancela
+ - JavaScript maneja automáticamente la concurrencia
 
 ## Análisis de Complejidad
 
@@ -101,13 +101,13 @@ Output: [{ time: 30, returned: 8 }];
 
 ```typescript
 export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
-  const timerId = setTimeout(() => {
-    fn(...args);
-  }, t);
+ const timerId = setTimeout(() => {
+ fn(...args);
+ }, t);
 
-  return () => {
-    clearTimeout(timerId);
-  };
+ return () => {
+ clearTimeout(timerId);
+ };
 }
 ```
 
@@ -115,17 +115,17 @@ export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
 
 1. **`setTimeout(() => { fn(...args); }, t)`**
 
-   - Programa la ejecución de `fn` con `args` después de `t` milisegundos
-   - `...args` usa spread operator para pasar los argumentos correctamente
+ - Programa la ejecución de `fn` con `args` después de `t` milisegundos
+ - `...args` usa spread operator para pasar los argumentos correctamente
 
 2. **`const timerId = setTimeout(...)`**
 
-   - Guarda el ID único del timer para poder cancelarlo después
-   - Este ID es crucial para la cancelación
+ - Guarda el ID único del timer para poder cancelarlo después
+ - Este ID es crucial para la cancelación
 
 3. **`return () => { clearTimeout(timerId); }`**
-   - Retorna una función que puede cancelar la ejecución programada
-   - Usa closure para acceder al `timerId`
+ - Retorna una función que puede cancelar la ejecución programada
+ - Usa closure para acceder al `timerId`
 
 ### ¿Por qué Funciona?
 
@@ -138,11 +138,11 @@ export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
 ### Casos de Prueba Resueltos
 
 1. **✅ Cancelación después del timeout** - la función se ejecuta
-   - Ejemplo: `t = 20ms`, `cancelTimeMs = 50ms` → Función se ejecuta en 20ms
+ - Ejemplo: `t = 20 ms`, `cancelTimeMs = 50 ms` → Función se ejecuta en 20 ms
 2. **✅ Cancelación antes del timeout** - la función no se ejecuta
-   - Ejemplo: `t = 100ms`, `cancelTimeMs = 50ms` → Función cancelada antes de ejecutarse
+ - Ejemplo: `t = 100 ms`, `cancelTimeMs = 50 ms` → Función cancelada antes de ejecutarse
 3. **✅ Múltiples argumentos** - verificar que los argumentos se pasan correctamente
-   - Spread operator `...args` maneja cualquier cantidad de argumentos
+ - Spread operator `...args` maneja cualquier cantidad de argumentos
 
 ### Casos Edge Manejados
 

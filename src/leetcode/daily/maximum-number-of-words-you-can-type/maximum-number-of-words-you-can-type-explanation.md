@@ -19,16 +19,16 @@ Problema sobre determinar cuántas palabras se pueden escribir completamente con
 
 - **Ejemplo 1**: text = "hello world", brokenLetters = "ad" → Output: 1
 
-  - "hello" se puede escribir (no contiene 'a' ni 'd')
-  - "world" NO se puede escribir (contiene 'd')
+ - "hello" se puede escribir (no contiene 'a' ni 'd')
+ - "world" NO se puede escribir (contiene 'd')
 
 - **Ejemplo 2**: text = "leet code", brokenLetters = "lt" → Output: 1
 
-  - "leet" NO se puede escribir (contiene 'l' y 't')
-  - "code" se puede escribir (no contiene 'l' ni 't')
+ - "leet" NO se puede escribir (contiene 'l' y 't')
+ - "code" se puede escribir (no contiene 'l' ni 't')
 
 - **Ejemplo 3**: text = "leet code", brokenLetters = "e" → Output: 0
-  - Ambas palabras contienen 'e', ninguna se puede escribir
+ - Ambas palabras contienen 'e', ninguna se puede escribir
 
 ## Análisis
 
@@ -52,13 +52,13 @@ El problema se puede abordar de dos maneras principales:
 
 ```typescript
 export function canBeTypedWords(text: string, brokenLetters: string): number {
-  const words = text.split(" ");
-  const brokenSet = new Set(brokenLetters);
+ const words = text.split(" ");
+ const brokenSet = new Set(brokenLetters);
 
-  const validWords = words.filter((word) =>
-    [...word].every((letra) => !brokenSet.has(letra))
-  );
-  return validWords.length;
+ const validWords = words.filter((word) =>
+ [...word].every((letra) => !brokenSet.has(letra))
+ );
+ return validWords.length;
 }
 ```
 
@@ -81,14 +81,14 @@ export function canBeTypedWords(text: string, brokenLetters: string): number {
 
 ```typescript
 function canBeTypedWordsAlternative(
-  text: string,
-  brokenLetters: string
+ text: string,
+ brokenLetters: string
 ): number {
-  let words = text.split(" ");
-  for (const char of brokenLetters) {
-    words = words.filter((word) => !word.includes(char));
-  }
-  return words.length;
+ let words = text.split(" ");
+ for (const char of brokenLetters) {
+ words = words.filter((word) => !word.includes(char));
+ }
+ return words.length;
 }
 ```
 

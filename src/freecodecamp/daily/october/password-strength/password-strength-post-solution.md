@@ -11,10 +11,10 @@ The optimized solution uses a direct counting approach with pre-compiled regular
 1. **Define regex constants** for character pattern matching (uppercase, lowercase, numbers, special characters)
 2. **Initialize a counter** to track how many criteria are met
 3. **Evaluate each criterion individually**:
-   - Length check: `password.length >= 8`
-   - Case check: Both uppercase AND lowercase present
-   - Number check: At least one digit present
-   - Special character check: At least one from the allowed set
+ - Length check: `password.length >= 8`
+ - Case check: Both uppercase AND lowercase present
+ - Number check: At least one digit present
+ - Special character check: At least one from the allowed set
 4. **Map count to strength**: Use conditional logic to return appropriate strength string
 
 This approach is efficient because it performs minimal operations and avoids unnecessary data structures.
@@ -28,32 +28,32 @@ This approach is efficient because it performs minimal operations and avoids unn
 
 ```javascript
 function checkStrength(password) {
-  // Constants for regex patterns (better maintainability and performance)
-  const HAS_UPPERCASE = /[A-Z]/;
-  const HAS_LOWERCASE = /[a-z]/;
-  const HAS_NUMBER = /[0-9]/;
-  const HAS_SPECIAL = /[!@#$%^&*]/;
+ // Constants for regex patterns (better maintainability and performance)
+ const HAS_UPPERCASE = /[A-Z]/;
+ const HAS_LOWERCASE = /[a-z]/;
+ const HAS_NUMBER = /[0-9]/;
+ const HAS_SPECIAL = /[!@#$%^&*]/;
 
-  // Count met criteria directly (more efficient than array approach)
-  let criteriaMet = 0;
+ // Count met criteria directly (more efficient than array approach)
+ let criteriaMet = 0;
 
-  // Rule 1: At least 8 characters
-  if (password.length >= 8) criteriaMet++;
+ // Rule 1: At least 8 characters
+ if (password.length >= 8) criteriaMet++;
 
-  // Rule 2: Contains both uppercase and lowercase letters
-  if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password))
-    criteriaMet++;
+ // Rule 2: Contains both uppercase and lowercase letters
+ if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password))
+ criteriaMet++;
 
-  // Rule 3: Contains at least one number
-  if (HAS_NUMBER.test(password)) criteriaMet++;
+ // Rule 3: Contains at least one number
+ if (HAS_NUMBER.test(password)) criteriaMet++;
 
-  // Rule 4: Contains at least one special character
-  if (HAS_SPECIAL.test(password)) criteriaMet++;
+ // Rule 4: Contains at least one special character
+ if (HAS_SPECIAL.test(password)) criteriaMet++;
 
-  // Determine strength based on criteria count
-  if (criteriaMet < 2) return "weak";
-  if (criteriaMet < 4) return "medium";
-  return "strong";
+ // Determine strength based on criteria count
+ if (criteriaMet < 2) return "weak";
+ if (criteriaMet < 4) return "medium";
+ return "strong";
 }
 
 export default checkStrength;

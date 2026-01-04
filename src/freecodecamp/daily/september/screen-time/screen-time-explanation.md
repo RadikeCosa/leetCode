@@ -69,11 +69,11 @@ Esto implica recorrer el array para buscar días individuales con 10 o más hora
 **Edge cases sugeridos:**
 
 - `[0, 0, 0, 0, 0, 0, 0]` → **false**
-  - Ningún día ni promedio supera los límites.
+ - Ningún día ni promedio supera los límites.
 - `[6, 6, 6, 6, 6, 6, 6]` → **true**
-  - El promedio semanal es exactamente 6 (condición 3).
+ - El promedio semanal es exactamente 6 (condición 3).
 - `[8, 8, 8, 1, 1, 1, 1]` → **true**
-  - El trío inicial promedia 8 (condición 2).
+ - El trío inicial promedia 8 (condición 2).
 
 ## Desarrollo de la Solución
 
@@ -84,7 +84,7 @@ Se recorre el array de horas y se aplican las tres reglas en orden:
 1. Se verifica si algún día es mayor o igual a 10 (basta un solo día para retornar true).
 2. Se calcula el promedio de cada trío de días consecutivos (ventana deslizante de tamaño 3) y se verifica si alguno es mayor o igual a 8.
 3. Finalmente, se calcula el promedio semanal y se compara con 6.
-   Si ninguna condición se cumple, se retorna false.
+ Si ninguna condición se cumple, se retorna false.
 
 ### Implementación Paso a Paso
 
@@ -125,7 +125,7 @@ No se requieren optimizaciones adicionales, ya que el tamaño del input es fijo 
 
 - [Ventana deslizante (sliding window) - Wikipedia](https://es.wikipedia.org/wiki/Ventana_deslizante)
 - [freeCodeCamp - Daily Coding Challenge](https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-12/)
-  - El trío inicial promedia 8 (condición 2).
+ - El trío inicial promedia 8 (condición 2).
 
 ## Desarrollo de la Solución
 
@@ -136,7 +136,7 @@ Para resolver el problema de manera eficiente seguiremos estos pasos:
 1. **Verificar Días Individuales:** Recorrer el array y verificar si algún día tiene 10 o más horas.
 2. **Calcular Promedios de Tres Días Consecutivos:** Utilizar un bucle para calcular el promedio de cada trío de días consecutivos.
 3. **Calcular Promedio Semanal:** Sumar todas las horas y dividir por 7 para obtener el promedio semanal.
-   Para hacerlo de manera eficiente, podemos realizar todas estas verificaciones en un solo recorrido del array.
+ Para hacerlo de manera eficiente, podemos realizar todas estas verificaciones en un solo recorrido del array.
 
 ### Implementación Paso a Paso
 
@@ -152,31 +152,31 @@ Para resolver el problema de manera eficiente seguiremos estos pasos:
 
 ```javascript
 function tooMuchScreenTime(hours) {
-  let totalHours = 0;
-  for (let i = 0; i < hours.length; i++) {
-    // Verificar si algún día tiene 10 o más horas
-    if (hours[i] >= 10) {
-      return true;
-    }
+ let totalHours = 0;
+ for (let i = 0; i < hours.length; i++) {
+ // Verificar si algún día tiene 10 o más horas
+ if (hours[i] >= 10) {
+ return true;
+ }
 
-    totalHours += hours[i];
+ totalHours += hours[i];
 
-    // Verificar promedios de tres días consecutivos
-    if (i >= 2) {
-      const threeDayAvg = (hours[i] + hours[i - 1] + hours[i - 2]) / 3;
-      if (threeDayAvg >= 8) {
-        return true;
-      }
-    }
-  }
+ // Verificar promedios de tres días consecutivos
+ if (i >= 2) {
+ const threeDayAvg = (hours[i] + hours[i - 1] + hours[i - 2]) / 3;
+ if (threeDayAvg >= 8) {
+ return true;
+ }
+ }
+ }
 
-  // Calcular promedio semanal
-  const weeklyAvg = totalHours / hours.length;
-  if (weeklyAvg >= 6) {
-    return true;
-  }
+ // Calcular promedio semanal
+ const weeklyAvg = totalHours / hours.length;
+ if (weeklyAvg >= 6) {
+ return true;
+ }
 
-  return false;
+ return false;
 }
 ```
 

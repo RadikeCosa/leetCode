@@ -1,6 +1,6 @@
 # Intuition
 
-The problem requires converting a decimal number to its binary representation. Binary numbers use only 0s and 1s, and the conversion involves repeatedly dividing by 2 and tracking remainders.
+The problem requires converting a decimal number to its binary representation. Binary numbers use only 0 s and 1 s, and the conversion involves repeatedly dividing by 2 and tracking remainders.
 
 # Approach
 
@@ -19,15 +19,15 @@ I'll use an iterative approach that builds the binary string by:
 
 ```javascript
 function toBinary(decimal) {
-  if (decimal === 0) return "0";
+ if (decimal === 0) return "0";
 
-  let binary = "";
-  while (decimal > 0) {
-    binary = (decimal % 2) + binary;
-    decimal = Math.floor(decimal / 2);
-  }
+ let binary = "";
+ while (decimal > 0) {
+ binary = (decimal % 2) + binary;
+ decimal = Math.floor(decimal / 2);
+ }
 
-  return binary;
+ return binary;
 }
 ```
 

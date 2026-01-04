@@ -17,16 +17,16 @@ Dado un entero entre 1 y 10,000, retornar un conteo de cuántos números desde 1
 **Ejemplos:**
 
 - **Entrada:** 10
-  **Salida:** 4
-  **Explicación:** Los números son 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Sus cuadrados son 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Solo 6² = 36 contiene un '3'.
+ **Salida:** 4
+ **Explicación:** Los números son 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Sus cuadrados son 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Solo 6² = 36 contiene un '3'.
 
 - **Entrada:** 100
-  **Salida:** 19
-  **Explicación:** Hay 19 números cuyo cuadrado contiene al menos un '3' entre 1 y 100.
+ **Salida:** 19
+ **Explicación:** Hay 19 números cuyo cuadrado contiene al menos un '3' entre 1 y 100.
 
 - **Entrada:** 10000
-  **Salida:** ?
-  **Explicación:** Este es el límite superior, prueba cuántos números cumplen aquí.
+ **Salida:** ?
+ **Explicación:** Este es el límite superior, prueba cuántos números cumplen aquí.
 
 ## Restricciones
 
@@ -78,14 +78,14 @@ Este problema requiere analizar propiedades numéricas de los cuadrados de núme
 
 ```javascript
 function squaresWithThree(n) {
-  let count = 0;
-  for (let i = 1; i <= n; i++) {
-    let square = i * i;
-    if (square.toString().includes("3")) {
-      count++;
-    }
-  }
-  return count;
+ let count = 0;
+ for (let i = 1; i <= n; i++) {
+ let square = i * i;
+ if (square.toString().includes("3")) {
+ count++;
+ }
+ }
+ return count;
 }
 ```
 
@@ -93,10 +93,10 @@ function squaresWithThree(n) {
 
 1. Inicializar contador en 0
 2. Para cada número i desde 1 hasta n:
-   - Calcular cuadrado: `i * i`
-   - Convertir a string: `square.toString()`
-   - Verificar si contiene '3': `includes("3")`
-   - Incrementar contador si cumple condición
+ - Calcular cuadrado: `i * i`
+ - Convertir a string: `square.toString()`
+ - Verificar si contiene '3': `includes("3")`
+ - Incrementar contador si cumple condición
 3. Retornar el contador final
 
 **Ventajas de este enfoque:**
@@ -113,9 +113,9 @@ function squaresWithThree(n) {
 
 ```javascript
 function squaresWithThree(n) {
-  return Array.from({ length: n }, (_, i) => (i + 1) ** 2).filter((square) =>
-    square.toString().includes("3")
-  ).length;
+ return Array.from({ length: n }, (_, i) => (i + 1) ** 2).filter((square) =>
+ square.toString().includes("3")
+ ).length;
 }
 ```
 
@@ -131,14 +131,14 @@ function squaresWithThree(n) {
 
 ```javascript
 function squaresWithThree(n) {
-  let count = 0;
-  for (let i = 1; i <= n; i++) {
-    let square = i * i;
-    if (/3/.test(square.toString())) {
-      count++;
-    }
-  }
-  return count;
+ let count = 0;
+ for (let i = 1; i <= n; i++) {
+ let square = i * i;
+ if (/3/.test(square.toString())) {
+ count++;
+ }
+ }
+ return count;
 }
 ```
 
@@ -154,14 +154,14 @@ function squaresWithThree(n) {
 
 ```javascript
 function squaresWithThree(n) {
-  let count = 0;
-  for (let i = 1; i <= n; i++) {
-    let square = i * i;
-    if (square.toString().indexOf("3") !== -1) {
-      count++;
-    }
-  }
-  return count;
+ let count = 0;
+ for (let i = 1; i <= n; i++) {
+ let square = i * i;
+ if (square.toString().indexOf("3") !== -1) {
+ count++;
+ }
+ }
+ return count;
 }
 ```
 
@@ -176,19 +176,19 @@ function squaresWithThree(n) {
 
 ```javascript
 function squaresWithThree(n) {
-  let count = 0;
-  for (let i = 1; i <= n; i++) {
-    let square = i * i;
-    let temp = square;
-    while (temp > 0) {
-      if (temp % 10 === 3) {
-        count++;
-        break; // Solo necesitamos saber si existe al menos uno
-      }
-      temp = Math.floor(temp / 10);
-    }
-  }
-  return count;
+ let count = 0;
+ for (let i = 1; i <= n; i++) {
+ let square = i * i;
+ let temp = square;
+ while (temp > 0) {
+ if (temp % 10 === 3) {
+ count++;
+ break; // Solo necesitamos saber si existe al menos uno
+ }
+ temp = Math.floor(temp / 10);
+ }
+ }
+ return count;
 }
 ```
 
@@ -212,15 +212,15 @@ Se eligió el enfoque iterativo con `includes()` por las siguientes razones:
 
 **Comparación con otras soluciones:**
 
-| Enfoque                | Tiempo | Espacio | Legibilidad | Ventajas      |
+| Enfoque | Tiempo | Espacio | Legibilidad | Ventajas |
 |
 
 ---------------- | ------ | ------- | ----------- | ------------- |
-| Iterativo + includes() | O(n)   | O(1)    | Excelente   | Implementado  |
-| Funcional + filter()   | O(n)   | O(n)    | Buena       | Más expresivo |
-| Regex                  | O(n)   | O(1)    | Buena       | Más flexible  |
-| Aritmético             | O(n×d) | O(1)    | Regular     | Sin strings   |
-| indexOf()              | O(n)   | O(1)    | Buena       | Más explícito |
+| Iterativo + includes() | O(n) | O(1) | Excelente | Implementado |
+| Funcional + filter() | O(n) | O(n) | Buena | Más expresivo |
+| Regex | O(n) | O(1) | Buena | Más flexible |
+| Aritmético | O(n×d) | O(1) | Regular | Sin strings |
+| indexOf() | O(n) | O(1) | Buena | Más explícito |
 
 ## Complejidad
 
@@ -249,7 +249,7 @@ Se eligió el enfoque iterativo con `includes()` por las siguientes razones:
 ### Comparación con límites teóricos
 
 - n=10,000: 10^4 iteraciones, perfectamente manejable
-- Tiempo real: Menos de 1ms en hardware moderno
+- Tiempo real: Menos de 1 ms en hardware moderno
 - Sin bottlenecks: Ninguna operación es O(n²) o peor
 - Escalabilidad: Funciona bien hasta n=10^6 si fuera necesario
 

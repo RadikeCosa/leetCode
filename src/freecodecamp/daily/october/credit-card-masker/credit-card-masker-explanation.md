@@ -38,24 +38,24 @@ La función debe:
 
 1. `mask("4012-8888-8888-1881")` → `"****-****-****-1881"`
 
-   - Entrada: 16 dígitos separados por guiones
-   - Salida: Los primeros 12 dígitos enmascarados, últimos 4 visibles
-   - Separadores (guiones) se mantienen
+ - Entrada: 16 dígitos separados por guiones
+ - Salida: Los primeros 12 dígitos enmascarados, últimos 4 visibles
+ - Separadores (guiones) se mantienen
 
 2. `mask("5105 1051 0510 5100")` → `"**** **** **** 5100"`
 
-   - Entrada: 16 dígitos separados por espacios
-   - Salida: Los primeros 12 dígitos enmascarados, últimos 4 visibles
-   - Separadores (espacios) se mantienen
+ - Entrada: 16 dígitos separados por espacios
+ - Salida: Los primeros 12 dígitos enmascarados, últimos 4 visibles
+ - Separadores (espacios) se mantienen
 
 3. `mask("6011 1111 1111 1117")` → `"**** **** **** 1117"`
 
-   - Similar al anterior pero con diferentes números
-   - Muestra que el patrón funciona con cualquier combinación de dígitos
+ - Similar al anterior pero con diferentes números
+ - Muestra que el patrón funciona con cualquier combinación de dígitos
 
 4. `mask("2223-0000-4845-0010")` → `"****-****-****-0010"`
-   - Otro ejemplo con guiones
-   - Los ceros también se enmascaran correctamente
+ - Otro ejemplo con guiones
+ - Los ceros también se enmascaran correctamente
 
 ### Restricciones
 
@@ -71,23 +71,23 @@ La función debe:
 
 1. **Detectar el separador:**
 
-   - Identificar si la cadena usa espacios o guiones como separador
-   - Esto es crucial porque la salida debe mantener el mismo tipo de separador
+ - Identificar si la cadena usa espacios o guiones como separador
+ - Esto es crucial porque la salida debe mantener el mismo tipo de separador
 
 2. **Dividir la cadena:**
 
-   - Usar `split()` con el separador detectado para obtener los 4 grupos de 4 dígitos
-   - Resultado: `["4012", "8888", "8888", "1881"]`
+ - Usar `split()` con el separador detectado para obtener los 4 grupos de 4 dígitos
+ - Resultado: `["4012", "8888", "8888", "1881"]`
 
 3. **Enmascarar selectivamente:**
 
-   - Para los primeros 3 grupos: reemplazar cada dígito con `*`
-   - Para el último grupo: mantener los dígitos originales
-   - Resultado: `["****", "****", "****", "1881"]`
+ - Para los primeros 3 grupos: reemplazar cada dígito con `*`
+ - Para el último grupo: mantener los dígitos originales
+ - Resultado: `["****", "****", "****", "1881"]`
 
 4. **Reconstruir la cadena:**
-   - Unir los grupos usando el mismo separador detectado
-   - Resultado: `"****-****-****-1881"`
+ - Unir los grupos usando el mismo separador detectado
+ - Resultado: `"****-****-****-1881"`
 
 **Problema con el enfoque split + join fijo:**
 
@@ -102,19 +102,19 @@ La función debe:
 
 ```javascript
 function mask(card) {
-  // Detectar el separador usado (espacio o guion)
-  const separator = card.includes(" ") ? " " : "-";
+ // Detectar el separador usado (espacio o guion)
+ const separator = card.includes(" ") ? " " : "-";
 
-  // Dividir por el separador detectado
-  const groups = card.split(separator);
+ // Dividir por el separador detectado
+ const groups = card.split(separator);
 
-  // Enmascarar los primeros 3 grupos, mantener el último
-  const maskedGroups = groups.map((group, index) =>
-    index < 3 ? "****" : group
-  );
+ // Enmascarar los primeros 3 grupos, mantener el último
+ const maskedGroups = groups.map((group, index) =>
+ index < 3 ? "****" : group
+ );
 
-  // Unir con el mismo separador
-  return maskedGroups.join(separator);
+ // Unir con el mismo separador
+ return maskedGroups.join(separator);
 }
 ```
 
@@ -124,8 +124,8 @@ function mask(card) {
 
 ```javascript
 function mask(card) {
-  // Reemplaza dígitos que NO estén en el último grupo
-  return card.replace(/\d(?=\d{4}(?:[ -]|$))/g, "*");
+ // Reemplaza dígitos que NO estén en el último grupo
+ return card.replace(/\d(?=\d{4}(?:[ -]|$))/g, "*");
 }
 ```
 
@@ -133,10 +133,10 @@ function mask(card) {
 
 ```javascript
 function mask(card) {
-  // Los últimos 4 caracteres siempre son visibles
-  const visiblePart = card.slice(-4);
-  const maskedPart = card.slice(0, -4).replace(/\d/g, "*");
-  return maskedPart + visiblePart;
+ // Los últimos 4 caracteres siempre son visibles
+ const visiblePart = card.slice(-4);
+ const maskedPart = card.slice(0, -4).replace(/\d/g, "*");
+ return maskedPart + visiblePart;
 }
 ```
 
@@ -144,14 +144,14 @@ function mask(card) {
 
 ```javascript
 function mask(card) {
-  // Detectar separador
-  const separator = card.includes(" ") ? " " : "-";
+ // Detectar separador
+ const separator = card.includes(" ") ? " " : "-";
 
-  // Dividir y procesar
-  const groups = card.split(separator);
-  const masked = groups.map((group, i) => (i < 3 ? "****" : group));
+ // Dividir y procesar
+ const groups = card.split(separator);
+ const masked = groups.map((group, i) => (i < 3 ? "****" : group));
 
-  return masked.join(separator);
+ return masked.join(separator);
 }
 ```
 
@@ -195,17 +195,17 @@ Con entrada de tamaño fijo, el espacio usado es efectivamente constante O(1).
 
 ```javascript
 function mask(card) {
-  // Detectar el separador usado en la entrada (espacio o guion)
-  const separator = card.includes(" ") ? " " : "-";
+ // Detectar el separador usado en la entrada (espacio o guion)
+ const separator = card.includes(" ") ? " " : "-";
 
-  // Dividir la cadena en grupos de 4 dígitos usando el separador detectado
-  const groups = card.split(separator);
+ // Dividir la cadena en grupos de 4 dígitos usando el separador detectado
+ const groups = card.split(separator);
 
-  // Enmascarar los primeros 3 grupos con asteriscos, mantener el último grupo visible
-  const masked = groups.map((group, i) => (i < 3 ? "****" : group));
+ // Enmascarar los primeros 3 grupos con asteriscos, mantener el último grupo visible
+ const masked = groups.map((group, i) => (i < 3 ? "****" : group));
 
-  // Reconstruir la cadena usando el mismo separador
-  return masked.join(separator);
+ // Reconstruir la cadena usando el mismo separador
+ return masked.join(separator);
 }
 ```
 
@@ -215,32 +215,32 @@ function mask(card) {
 
 1. **Detección del separador:**
 
-   ```javascript
-   const separator = card.includes(" ") ? " " : "-"; // separator = "-"
-   ```
+ ```javascript
+ const separator = card.includes(" ") ? " " : "-"; // separator = "-"
+ ```
 
 2. **División en grupos:**
 
-   ```javascript
-   const groups = card.split(separator); // ["4012", "8888", "8888", "1881"]
-   ```
+ ```javascript
+ const groups = card.split(separator); // ["4012", "8888", "8888", "1881"]
+ ```
 
 3. **Enmascarado selectivo:**
 
-   ```javascript
-   const masked = groups.map((group, i) => (i < 3 ? "****" : group));
-   // Iteración 0: i=0, group="4012" → "****"
-   // Iteración 1: i=1, group="8888" → "****"
-   // Iteración 2: i=2, group="8888" → "****"
-   // Iteración 3: i=3, group="1881" → "1881"
-   // Resultado: ["****", "****", "****", "1881"]
-   ```
+ ```javascript
+ const masked = groups.map((group, i) => (i < 3 ? "****" : group));
+ // Iteración 0: i=0, group="4012" → "****"
+ // Iteración 1: i=1, group="8888" → "****"
+ // Iteración 2: i=2, group="8888" → "****"
+ // Iteración 3: i=3, group="1881" → "1881"
+ // Resultado: ["****", "****", "****", "1881"]
+ ```
 
 4. **Reconstrucción:**
 
-   ```javascript
-   return masked.join(separator); // "****-****-****-1881"
-   ```
+ ```javascript
+ return masked.join(separator); // "****-****-****-1881"
+ ```
 
 ## Casos de Prueba
 
@@ -248,40 +248,40 @@ function mask(card) {
 
 1. **Separador con guiones:**
 
-   - Input: `"4012-8888-8888-1881"`
-   - Expected: `"****-****-****-1881"`
-   - Verifica enmascarado correcto y preservación de guiones
+ - Input: `"4012-8888-8888-1881"`
+ - Expected: `"****-****-****-1881"`
+ - Verifica enmascarado correcto y preservación de guiones
 
 2. **Separador con espacios:**
-   - Input: `"5105 1051 0510 5100"`
-   - Expected: `"**** **** **** 5100"`
-   - Verifica enmascarado correcto y preservación de espacios
+ - Input: `"5105 1051 0510 5100"`
+ - Expected: `"**** **** **** 5100"`
+ - Verifica enmascarado correcto y preservación de espacios
 
 ### Casos Edge
 
 1. **Números con ceros:**
 
-   - Input: `"2223-0000-4845-0010"`
-   - Expected: `"****-****-****-0010"`
-   - Verifica que los ceros también se enmascaren correctamente
+ - Input: `"2223-0000-4845-0010"`
+ - Expected: `"****-****-****-0010"`
+ - Verifica que los ceros también se enmascaren correctamente
 
 2. **Números repetitivos:**
-   - Input: `"6011 1111 1111 1117"`
-   - Expected: `"**** **** **** 1117"`
-   - Verifica comportamiento con dígitos repetidos
+ - Input: `"6011 1111 1111 1117"`
+ - Expected: `"**** **** **** 1117"`
+ - Verifica comportamiento con dígitos repetidos
 
 ### Casos Extremos
 
 1. **Mínimo valor posible:**
 
-   - Input: `"0000-0000-0000-0000"`
-   - Expected: `"****-****-****-0000"`
-   - Verifica que los últimos cuatro ceros queden visibles
+ - Input: `"0000-0000-0000-0000"`
+ - Expected: `"****-****-****-0000"`
+ - Verifica que los últimos cuatro ceros queden visibles
 
 2. **Máximo valor posible:**
-   - Input: `"9999-9999-9999-9999"`
-   - Expected: `"****-****-****-9999"`
-   - Verifica comportamiento con el valor máximo
+ - Input: `"9999-9999-9999-9999"`
+ - Expected: `"****-****-****-9999"`
+ - Verifica comportamiento con el valor máximo
 
 ## Aprendizajes
 

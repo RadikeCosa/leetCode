@@ -10,7 +10,7 @@ category: "daily"
 createdAt: "2025-10-24"
 ---
 
-# Análisis del Problema: 2nd Largest
+# Análisis del Problema: 2 nd Largest
 
 ## Enunciado
 
@@ -24,9 +24,9 @@ Este problema requiere encontrar el segundo elemento más grande en un array, co
 2. **Ordenar el array**: Para encontrar el segundo más grande, necesitamos ordenar los elementos
 3. **Seleccionar el penúltimo**: Una vez ordenado de mayor a menor, el segundo elemento será el segundo más grande
 4. **Manejar casos especiales**:
-   - Arrays con menos de 2 elementos únicos
-   - Arrays con números negativos
-   - Arrays con números decimales
+ - Arrays con menos de 2 elementos únicos
+ - Arrays con números negativos
+ - Arrays con números decimales
 
 Casos especiales a considerar:
 
@@ -74,19 +74,19 @@ Para arrays muy grandes, podemos evitar el `sort()` (O(n log n)) y usar un solo 
 
 ```javascript
 function secondLargestEfficient(arr) {
-  let largest = -Infinity;
-  let secondLargest = -Infinity;
+ let largest = -Infinity;
+ let secondLargest = -Infinity;
 
-  for (let num of arr) {
-    if (num > largest) {
-      secondLargest = largest;
-      largest = num;
-    } else if (num > secondLargest && num !== largest) {
-      secondLargest = num;
-    }
-  }
+ for (let num of arr) {
+ if (num > largest) {
+ secondLargest = largest;
+ largest = num;
+ } else if (num > secondLargest && num !== largest) {
+ secondLargest = num;
+ }
+ }
 
-  return secondLargest;
+ return secondLargest;
 }
 ```
 

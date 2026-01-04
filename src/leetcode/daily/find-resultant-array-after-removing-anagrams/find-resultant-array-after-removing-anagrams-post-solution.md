@@ -23,25 +23,25 @@ This approach works because we're essentially finding the rightmost position whe
 
 ```typescript
 export function findResultantArrayAfterRemovingAnagrams(
-  words: string[]
+ words: string[]
 ): string[] {
-  // Precompute sorted signatures for all words to avoid repeated sorting
-  const signatures = words.map((word) => word.split("").sort().join(""));
+ // Precompute sorted signatures for all words to avoid repeated sorting
+ const signatures = words.map((word) => word.split("").sort().join(""));
 
-  const result: string[] = [];
+ const result: string[] = [];
 
-  for (let i = 0; i < words.length; i++) {
-    // Check if current word is anagram of the last word in result
-    if (result.length > 0) {
-      const lastWordIndex = words.indexOf(result[result.length - 1]);
-      if (signatures[i] === signatures[lastWordIndex]) {
-        continue; // Skip this word as it would be removed
-      }
-    }
-    result.push(words[i]);
-  }
+ for (let i = 0; i < words.length; i++) {
+ // Check if current word is anagram of the last word in result
+ if (result.length > 0) {
+ const lastWordIndex = words.indexOf(result[result.length - 1]);
+ if (signatures[i] === signatures[lastWordIndex]) {
+ continue; // Skip this word as it would be removed
+ }
+ }
+ result.push(words[i]);
+ }
 
-  return result;
+ return result;
 }
 ```
 

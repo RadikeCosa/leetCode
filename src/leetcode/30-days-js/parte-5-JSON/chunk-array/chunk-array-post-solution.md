@@ -23,20 +23,20 @@ The beauty of this approach is that `slice()` automatically handles the edge cas
 
 ```typescript
 type JSONValue =
-  | null
-  | boolean
-  | number
-  | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
+ | null
+ | boolean
+ | number
+ | string
+ | JSONValue[]
+ | { [key: string]: JSONValue };
 type Obj = Record<string, JSONValue> | Array<JSONValue>;
 
 export function chunk(arr: Obj[], size: number): Obj[][] {
-  let result: Obj[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
-  }
-  return result;
+ let result: Obj[][] = [];
+ for (let i = 0; i < arr.length; i += size) {
+ result.push(arr.slice(i, i + size));
+ }
+ return result;
 }
 ```
 

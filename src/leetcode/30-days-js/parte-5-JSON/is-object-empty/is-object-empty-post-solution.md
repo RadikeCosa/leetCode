@@ -10,7 +10,7 @@ There are essentially two viable approaches for this problem:
 
 ```typescript
 function isEmpty(obj: Obj): boolean {
-  return Object.keys(obj).length === 0;
+ return Object.keys(obj).length === 0;
 }
 ```
 
@@ -22,14 +22,14 @@ function isEmpty(obj: Obj): boolean {
 
 ```typescript
 function isEmpty(obj: Record<string, any> | any[]): boolean {
-  if (Array.isArray(obj)) {
-    return obj.length === 0; // O(1) - direct property access
-  }
+ if (Array.isArray(obj)) {
+ return obj.length === 0; // O(1) - direct property access
+ }
 
-  for (let key in obj) {
-    return false; // O(1) - stops at first property found
-  }
-  return true; // O(1) - never entered loop (empty object)
+ for (let key in obj) {
+ return false; // O(1) - stops at first property found
+ }
+ return true; // O(1) - never entered loop (empty object)
 }
 ```
 
@@ -49,11 +49,11 @@ We chose **Approach 2** because the problem specifically challenges us to achiev
 
 ```typescript
 export function isEmpty(obj: Record<string, any> | any[]): boolean {
-  // Para arrays y objetos: usar for...in que se rompe en la primera iteración (O(1) verdadero)
-  for (let key in obj) {
-    return false; // Si encontramos cualquier propiedad/índice, no está vacío
-  }
-  return true; // Si nunca entró al loop, está vacío
+ // Para arrays y objetos: usar for...in que se rompe en la primera iteración (O(1) verdadero)
+ for (let key in obj) {
+ return false; // Si encontramos cualquier propiedad/índice, no está vacío
+ }
+ return true; // Si nunca entró al loop, está vacío
 }
 ```
 
@@ -65,9 +65,9 @@ export function isEmpty(obj: Record<string, any> | any[]): boolean {
 
 - **Real-world impact:** In most cases with small objects (< 100 properties), the simpler `Object.keys()` approach would be fine. However, this optimization becomes crucial when:
 
-  - Processing thousands of objects in loops
-  - Working with large configuration objects
-  - Building performance-critical libraries
+ - Processing thousands of objects in loops
+ - Working with large configuration objects
+ - Building performance-critical libraries
 
 - **Alternative considered:** We could use `JSON.stringify(obj) === "{}" || JSON.stringify(obj) === "[]"` but this would be extremely inefficient (O(n) serialization).
 

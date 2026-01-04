@@ -34,19 +34,19 @@ Cada rango `[a,b]` en la lista debe ser mostrado como:
 - **Input**: `nums = [0,1,2,4,5,7]`
 - **Output**: `["0->2","4->5","7"]`
 - **Explicación**: Los rangos son:
-  - [0,2] --> "0->2"
-  - [4,5] --> "4->5"
-  - [7,7] --> "7"
+ - [0,2] --> "0->2"
+ - [4,5] --> "4->5"
+ - [7,7] --> "7"
 
 ### Ejemplo 2:
 
 - **Input**: `nums = [0,2,3,4,6,8,9]`
 - **Output**: `["0","2->4","6","8->9"]`
 - **Explicación**: Los rangos son:
-  - [0,0] --> "0"
-  - [2,4] --> "2->4"
-  - [6,6] --> "6"
-  - [8,9] --> "8->9"
+ - [0,0] --> "0"
+ - [2,4] --> "2->4"
+ - [6,6] --> "6"
+ - [8,9] --> "8->9"
 
 ## Restricciones
 
@@ -72,26 +72,26 @@ Este problema pertenece a la categoría de **"Intervals"** porque trata sobre la
 
 ```typescript
 while (i < nums.length) {
-  // Marcar el inicio del rango actual
-  let rangeStart = nums[i];
-  let end = i; // end avanza para encontrar el final del rango
+ // Marcar el inicio del rango actual
+ let rangeStart = nums[i];
+ let end = i; // end avanza para encontrar el final del rango
 
-  // Extender end mientras los números sean consecutivos
-  while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
-    end++;
-  }
+ // Extender end mientras los números sean consecutivos
+ while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
+ end++;
+ }
 
-  let rangeEnd = nums[end];
+ let rangeEnd = nums[end];
 
-  // Formatear según el tamaño del rango
-  if (rangeStart === rangeEnd) {
-    result.push(`${rangeStart}`); // Elemento único
-  } else {
-    result.push(`${rangeStart}->${rangeEnd}`); // Rango
-  }
+ // Formatear según el tamaño del rango
+ if (rangeStart === rangeEnd) {
+ result.push(`${rangeStart}`); // Elemento único
+ } else {
+ result.push(`${rangeStart}->${rangeEnd}`); // Rango
+ }
 
-  // Saltar al siguiente segmento después del rango actual
-  i = end + 1;
+ // Saltar al siguiente segmento después del rango actual
+ i = end + 1;
 }
 ```
 
@@ -128,10 +128,10 @@ Final: ["0->2", "4->5", "7"]
 
 - **Justificación**: Cada elemento del array se visita exactamente una vez
 - **Análisis detallado**:
-  - El pointer `i` avanza secuencialmente por el array
-  - El pointer `end` solo avanza, nunca retrocede
-  - Total de operaciones: n comparaciones (una por elemento)
-  - No hay loops anidados que incrementen la complejidad
+ - El pointer `i` avanza secuencialmente por el array
+ - El pointer `end` solo avanza, nunca retrocede
+ - Total de operaciones: n comparaciones (una por elemento)
+ - No hay loops anidados que incrementen la complejidad
 
 ### Espacial: O(1)
 

@@ -84,17 +84,17 @@ Mientras recorremos el array, mantenemos:
  * @return {number}
  */
 export function maxProfit(prices: number[]): number {
-  let maxProfit = 0;
-  let minPrevPrice = prices[0];
+ let maxProfit = 0;
+ let minPrevPrice = prices[0];
 
-  for (let i = 1; i < prices.length; i++) {
-    const maxProfitThatDay = prices[i] - minPrevPrice;
+ for (let i = 1; i < prices.length; i++) {
+ const maxProfitThatDay = prices[i] - minPrevPrice;
 
-    maxProfit = Math.max(maxProfit, maxProfitThatDay);
-    minPrevPrice = Math.min(minPrevPrice, prices[i]);
-  }
+ maxProfit = Math.max(maxProfit, maxProfitThatDay);
+ minPrevPrice = Math.min(minPrevPrice, prices[i]);
+ }
 
-  return maxProfit;
+ return maxProfit;
 }
 ```
 
@@ -102,21 +102,21 @@ export function maxProfit(prices: number[]): number {
 
 1. Inicializamos `maxProfit` en `0` y `minPrevPrice` con el primer precio.
 2. Iteramos desde el segundo día hasta el final:
-   - Calculamos el beneficio si vendemos ese día: `prices[i] - minPrevPrice`.
-   - Actualizamos `maxProfit` si este beneficio es mayor.
-   - Actualizamos `minPrevPrice` si encontramos un precio más bajo.
+ - Calculamos el beneficio si vendemos ese día: `prices[i] - minPrevPrice`.
+ - Actualizamos `maxProfit` si este beneficio es mayor.
+ - Actualizamos `minPrevPrice` si encontramos un precio más bajo.
 3. Al final, devolvemos `maxProfit`.
 
 ### Ejemplo paso a paso con `[7,1,5,3,6,4]`
 
-| Día | Precio | minPrice | Ganancia si vende hoy | maxProfit | Acción              |
+| Día | Precio | minPrice | Ganancia si vende hoy | maxProfit | Acción |
 | --- | ------ | -------- | --------------------- | --------- | ------------------- |
-| 0   | 7      | 7        | -                     | 0         | Inicio              |
-| 1   | 1      | **1**    | -                     | 0         | Nuevo mínimo        |
-| 2   | 5      | 1        | 5-1=4                 | **4**     | Actualiza beneficio |
-| 3   | 3      | 1        | 3-1=2                 | 4         | No mejora           |
-| 4   | 6      | 1        | 6-1=5                 | **5**     | ¡Nuevo récord!      |
-| 5   | 4      | 1        | 4-1=3                 | 5         | No mejora           |
+| 0 | 7 | 7 | - | 0 | Inicio |
+| 1 | 1 | **1** | - | 0 | Nuevo mínimo |
+| 2 | 5 | 1 | 5-1=4 | **4** | Actualiza beneficio |
+| 3 | 3 | 1 | 3-1=2 | 4 | No mejora |
+| 4 | 6 | 1 | 6-1=5 | **5** | ¡Nuevo récord! |
+| 5 | 4 | 1 | 4-1=3 | 5 | No mejora |
 
 **Resultado:** 5
 
@@ -132,13 +132,13 @@ export function maxProfit(prices: number[]): number {
 
 ## Casos Edge y Consideraciones
 
-| Caso                 | Comportamiento del código                            |
+| Caso | Comportamiento del código |
 | -------------------- | ---------------------------------------------------- |
-| Array vacío o `null` | `prices.length < 2` → devuelve `0`                   |
-| Un solo elemento     | Mismo manejo → `0`                                   |
-| Precios iguales      | `maxProfit` nunca se actualiza → `0`                 |
-| Mínimo al final      | Nunca se vende con ganancia → `0`                    |
-| Múltiples picos      | Solo importa el mayor salto desde un mínimo anterior |
+| Array vacío o `null` | `prices.length < 2` → devuelve `0` |
+| Un solo elemento | Mismo manejo → `0` |
+| Precios iguales | `maxProfit` nunca se actualiza → `0` |
+| Mínimo al final | Nunca se vende con ganancia → `0` |
+| Múltiples picos | Solo importa el mayor salto desde un mínimo anterior |
 
 ## Reflexiones y Aprendizajes
 

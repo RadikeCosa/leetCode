@@ -29,16 +29,16 @@ This approach is clear, efficient, and easy to understand.
 type F = (x: number) => number;
 
 export function compose(functions: F[]): F {
-  if (functions.length === 0) {
-    return (x: number) => x; // Identity function
-  }
+ if (functions.length === 0) {
+ return (x: number) => x; // Identity function
+ }
 
-  return function (x: number): number {
-    for (let i = functions.length - 1; i >= 0; i--) {
-      x = functions[i](x);
-    }
-    return x;
-  };
+ return function (x: number): number {
+ for (let i = functions.length - 1; i >= 0; i--) {
+ x = functions[i](x);
+ }
+ return x;
+ };
 }
 ```
 

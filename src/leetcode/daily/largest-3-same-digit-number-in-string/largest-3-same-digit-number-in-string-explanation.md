@@ -21,15 +21,15 @@ Dada una cadena `num` compuesta solo por dígitos, encontrar el mayor substring 
 
 1. **Input:** `"6777133339"` → **Output:** `"777"`
 
-   - Triples encontradas: `"777"` (posición 1), `"333"` (posición 5)
-   - La mayor lexicográficamente: `"777"`
+ - Triples encontradas: `"777"` (posición 1), `"333"` (posición 5)
+ - La mayor lexicográficamente: `"777"`
 
 2. **Input:** `"2300019"` → **Output:** `"000"`
 
-   - Solo una triple: `"000"` (posición 2)
+ - Solo una triple: `"000"` (posición 2)
 
 3. **Input:** `"42352338"` → **Output:** `""`
-   - No hay triples de dígitos iguales
+ - No hay triples de dígitos iguales
 
 ## Enfoque: Sliding Window de Tamaño Fijo
 
@@ -44,20 +44,20 @@ Dada una cadena `num` compuesta solo por dígitos, encontrar el mayor substring 
 
 ```typescript
 export function largestGoodInteger(num: string): string {
-  let best = "";
-  for (let i = 0; i < num.length - 2; i++) {
-    const a = num[i];
-    if (a === num[i + 1] && a === num[i + 2]) {
-      let candidate = a + a + a;
-      if (candidate === "999") {
-        return "999"; // Early termination optimization
-      }
-      if (candidate > best) {
-        best = candidate;
-      }
-    }
-  }
-  return best;
+ let best = "";
+ for (let i = 0; i < num.length - 2; i++) {
+ const a = num[i];
+ if (a === num[i + 1] && a === num[i + 2]) {
+ let candidate = a + a + a;
+ if (candidate === "999") {
+ return "999"; // Early termination optimization
+ }
+ if (candidate > best) {
+ best = candidate;
+ }
+ }
+ }
+ return best;
 }
 ```
 

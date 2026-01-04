@@ -32,7 +32,7 @@ Los casos de prueba identificados son:
 
 1. Entrada: "abc" → Salida Esperada: true
 2. Entrada: "aA" → Salida Esperada: true
-3. Entrada: "QwErTy123!@" → Salida Esperada: true
+3. Entrada: "QwErTy 123!@" → Salida Esperada: true
 4. Entrada: "~!@#$%^&\*()\_+" → Salida Esperada: true
 5. Entrada: "hello" → Salida Esperada: false
 6. Entrada: "freeCodeCamp" → Salida Esperada: false

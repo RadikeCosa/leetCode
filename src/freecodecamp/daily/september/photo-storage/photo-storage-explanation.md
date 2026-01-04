@@ -51,9 +51,9 @@ Implementación (JS):
 
 ```javascript
 function numberOfPhotos(photoSizeMb, hardDriveSizeGb) {
-  if (photoSizeMb <= 0) return 0;
-  const totalMb = hardDriveSizeGb * 1000;
-  return Math.floor(totalMb / photoSizeMb);
+ if (photoSizeMb <= 0) return 0;
+ const totalMb = hardDriveSizeGb * 1000;
+ return Math.floor(totalMb / photoSizeMb);
 }
 ```
 

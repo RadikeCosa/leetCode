@@ -54,11 +54,11 @@ El primer paso es dividir el string en palabras usando el espacio como separador
 
 ```javascript
 function titleCase(title) {
-  return title
-    .toLowerCase()
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+ return title
+ .toLowerCase()
+ .split(" ")
+ .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+ .join(" ");
 }
 ```
 
@@ -93,12 +93,12 @@ Se crean nuevos arrays y strings intermedios (por ejemplo, el array de palabras 
 
 ```javascript
 function titleCase(title) {
-  return title
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+ return title
+ .toLowerCase()
+ .split(/\s+/)
+ .filter(Boolean)
+ .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+ .join(" ");
 }
 ```
 

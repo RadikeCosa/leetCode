@@ -34,10 +34,10 @@ Se te proporciona una API `bool isBadVersion(version)` que retorna si la versió
 - **Input**: `n = 5, bad = 4`
 - **Output**: `4`
 - **Explicación**:
-  - `call isBadVersion(3) -> false`
-  - `call isBadVersion(5) -> true`
-  - `call isBadVersion(4) -> true`
-  - Entonces 4 es la primera versión mala.
+ - `call isBadVersion(3) -> false`
+ - `call isBadVersion(5) -> true`
+ - `call isBadVersion(4) -> true`
+ - Entonces 4 es la primera versión mala.
 
 ### Ejemplo 2:
 
@@ -54,8 +54,8 @@ Se te proporciona una API `bool isBadVersion(version)` que retorna si la versió
 
 1. **Secuencia Ordenada**: Las versiones están ordenadas [1, 2, 3, ..., n]
 2. **Patrón Binario**: Todas las versiones tienen solo dos estados:
-   - **Buenas** (false): Versiones 1 hasta X-1
-   - **Malas** (true): Versiones X hasta n
+ - **Buenas** (false): Versiones 1 hasta X-1
+ - **Malas** (true): Versiones X hasta n
 3. **Punto de Transición**: Buscamos el punto X donde cambia de "buena" a "mala"
 4. **Minimizar API Calls**: El objetivo secundario es eficiencia
 
@@ -64,11 +64,11 @@ Se te proporciona una API `bool isBadVersion(version)` que retorna si la versió
 Para `n=5, bad=4`:
 
 ```
-Versión:  1     2     3     4     5
-Estado:  good  good  good  bad   bad
-         ←──── buenas ────→ ←─ malas ─→
-                            ↑
-                      PRIMERA MALA
+Versión: 1 2 3 4 5
+Estado: good good good bad bad
+ ←──── buenas ────→ ←─ malas ─→
+ ↑
+ PRIMERA MALA
 ```
 
 ### ¿Por qué Binary Search?
@@ -77,7 +77,7 @@ Estado:  good  good  good  bad   bad
 
 ```typescript
 for (let i = 1; i <= n; i++) {
-  if (isBadVersion(i)) return i; // Hasta n llamadas API
+ if (isBadVersion(i)) return i; // Hasta n llamadas API
 }
 ```
 
@@ -90,37 +90,37 @@ for (let i = 1; i <= n; i++) {
 
 ### Diferencias con Binary Search Clásico
 
-| Aspecto             | Binary Search Clásico      | First Occurrence Search      |
+| Aspecto | Binary Search Clásico | First Occurrence Search |
 |
 
 ------------- | -------------------------- | ---------------------------- |
-| **Objetivo**        | Encontrar valor específico | Encontrar primera transición |
-| **Condición true**  | `right = mid - 1`          | `right = mid`                |
-| **Condición false** | `left = mid + 1`           | `left = mid + 1`             |
-| **Loop**            | `left <= right`            | `left < right`               |
+| **Objetivo** | Encontrar valor específico | Encontrar primera transición |
+| **Condición true** | `right = mid - 1` | `right = mid` |
+| **Condición false** | `left = mid + 1` | `left = mid + 1` |
+| **Loop** | `left <= right` | `left < right` |
 
 ### Algoritmo Paso a Paso
 
 ```typescript
 export var solution = function (isBadVersion: (version: number) => boolean) {
-  return function (n: number): number {
-    let left = 1; // Primer versión posible
-    let right = n; // Última versión posible
+ return function (n: number): number {
+ let left = 1; // Primer versión posible
+ let right = n; // Última versión posible
 
-    while (left < right) {
-      const mid = Math.floor((left + right) / 2);
+ while (left < right) {
+ const mid = Math.floor((left + right) / 2);
 
-      if (isBadVersion(mid)) {
-        // mid es mala → la primera mala está en [left, mid]
-        right = mid; // ¡Mantenemos mid como candidato!
-      } else {
-        // mid es buena → la primera mala está en [mid+1, right]
-        left = mid + 1; // Descartamos mid y todo a la izquierda
-      }
-    }
+ if (isBadVersion(mid)) {
+ // mid es mala → la primera mala está en [left, mid]
+ right = mid; // ¡Mantenemos mid como candidato!
+ } else {
+ // mid es buena → la primera mala está en [mid+1, right]
+ left = mid + 1; // Descartamos mid y todo a la izquierda
+ }
+ }
 
-    return left; // left == right == primera versión mala
-  };
+ return left; // left == right == primera versión mala
+ };
 };
 ```
 
@@ -129,18 +129,18 @@ export var solution = function (isBadVersion: (version: number) => boolean) {
 **Para n=5, bad=4:**
 
 ```
-Inicial:      left=1, right=5, rango=[1,2,3,4,5]
-Iteración 1:  mid=3, isBadVersion(3)=false → left=4, right=5, rango=[4,5]
-Iteración 2:  mid=4, isBadVersion(4)=true  → left=4, right=4, rango=[4]
+Inicial: left=1, right=5, rango=[1,2,3,4,5]
+Iteración 1: mid=3, isBadVersion(3)=false → left=4, right=5, rango=[4,5]
+Iteración 2: mid=4, isBadVersion(4)=true → left=4, right=4, rango=[4]
 Convergencia: left == right == 4 → ¡Primera versión mala encontrada!
 ```
 
 **Para n=1, bad=1:**
 
 ```
-Inicial:      left=1, right=1
-Condición:    left < right → false (no entra al loop)
-Resultado:    return left = 1 ← ¡Correcto!
+Inicial: left=1, right=1
+Condición: left < right → false (no entra al loop)
+Resultado: return left = 1 ← ¡Correcto!
 ```
 
 ## Complejidad
@@ -163,16 +163,16 @@ Resultado:    return left = 1 ← ¡Correcto!
 ```typescript
 // LeetCode usa este patrón:
 var solution = function (isBadVersion) {
-  return function (n) {
-    // Tu algoritmo aquí
-  };
+ return function (n) {
+ // Tu algoritmo aquí
+ };
 };
 
 // Equivale a:
 function solution(isBadVersion) {
-  return function (n) {
-    // Tu algoritmo aquí
-  };
+ return function (n) {
+ // Tu algoritmo aquí
+ };
 }
 ```
 
@@ -194,9 +194,9 @@ function solution(isBadVersion) {
 
 ```typescript
 if (isBadVersion(mid)) {
-  right = mid; // ✅ mid podría ser la primera mala
-  // vs
-  right = mid - 1; // ❌ Podríamos perder la respuesta correcta
+ right = mid; // ✅ mid podría ser la primera mala
+ // vs
+ right = mid - 1; // ❌ Podríamos perder la respuesta correcta
 }
 ```
 
@@ -227,19 +227,19 @@ if (isBadVersion(mid)) {
 
 ```typescript
 function findFirst(arr, condition) {
-  let left = 0;
-  let right = arr.length - 1;
+ let left = 0;
+ let right = arr.length - 1;
 
-  while (left < right) {
-    const mid = Math.floor((left + right) / 2);
-    if (condition(arr[mid])) {
-      right = mid; // Mantener candidato
-    } else {
-      left = mid + 1; // Descartar izquierda
-    }
-  }
+ while (left < right) {
+ const mid = Math.floor((left + right) / 2);
+ if (condition(arr[mid])) {
+ right = mid; // Mantener candidato
+ } else {
+ left = mid + 1; // Descartar izquierda
+ }
+ }
 
-  return left;
+ return left;
 }
 ```
 

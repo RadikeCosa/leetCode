@@ -49,11 +49,11 @@ El patrón LIFO nos indica que necesitamos una estructura **Stack (pila)**.
 
 2. **Iterar sobre cada carácter**:
 
-   - **Si es apertura** `(`, `{`, `[` → **push al stack**
-   - **Si es cierre** `)`, `}`, `]`:
-     - **Verificar stack no vacío** (sino hay apertura sin cerrar)
-     - **Pop del stack** y verificar que coincida con el cierre actual
-     - **Si no coincide** → return false inmediatamente
+ - **Si es apertura** `(`, `{`, `[` → **push al stack**
+ - **Si es cierre** `)`, `}`, `]`:
+ - **Verificar stack no vacío** (sino hay apertura sin cerrar)
+ - **Pop del stack** y verificar que coincida con el cierre actual
+ - **Si no coincide** → return false inmediatamente
 
 3. **Al final**: Stack debe estar vacío (todos los pares cerrados)
 
@@ -84,11 +84,11 @@ stack.length === 0 → return true ✓
 
 ```typescript
 if (
-  (char === ")" && last !== "(") ||
-  (char === "}" && last !== "{") ||
-  (char === "]" && last !== "[")
+ (char === ")" && last !== "(") ||
+ (char === "}" && last !== "{") ||
+ (char === "]" && last !== "[")
 ) {
-  return false;
+ return false;
 #
 
 }
@@ -98,9 +98,9 @@ if (
 
 ```typescript
 const pairs: Record<string, string> = {
-  ")": "(",
-  "}": "{",
-  "]": "[",
+ ")": "(",
+ "}": "{",
+ "]": "[",
 };
 
 // Una sola comparación elegante
@@ -128,20 +128,20 @@ if (last !== pairs[char]) return false;
 
 ```typescript
 const pairs: Record<string, string> = {
-  ")": "(", // key = cierre, value = apertura esperada
-  "}": "{",
-  "]": "[",
+ ")": "(", // key = cierre, value = apertura esperada
+ "}": "{",
+ "]": "[",
 };
 
 for (const char of s) {
-  if (char === "(" || char === "{" || char === "[") {
-    // APERTURA: Solo push - NO necesitamos lookup
-    stack.push(char);
-  } else {
-    // CIERRE: Aquí SÍ necesitamos el lookup
-    const last = stack.pop();
-    if (last !== pairs[char]) return false; // char es SIEMPRE de cierre
-  }
+ if (char === "(" || char === "{" || char === "[") {
+ // APERTURA: Solo push - NO necesitamos lookup
+ stack.push(char);
+ } else {
+ // CIERRE: Aquí SÍ necesitamos el lookup
+ const last = stack.pop();
+ if (last !== pairs[char]) return false; // char es SIEMPRE de cierre
+ }
 }
 ```
 

@@ -15,7 +15,7 @@ I implemented two different approaches:
 
 ## Approach 2: Two Pointers (O(1) space) - Optimal
 
-1. Use two pointers `p1` and `p2` to traverse both strings simultaneously
+1. Use two pointers `p 1` and `p 2` to traverse both strings simultaneously
 2. For each revision, build the number digit by digit using `num = num * 10 + digit`
 3. Skip dots by incrementing pointers after extracting each number
 4. Compare extracted numbers directly without storing intermediate arrays
@@ -39,53 +39,53 @@ The two pointers approach is more memory efficient as it doesn't create addition
 ```typescript
 // Approach 1: Split Method
 export function compareVersionSplit(
-  version1: string,
-  version2: string
+ version 1: string,
+ version 2: string
 ): number {
-  const parts1 = version1.split(".");
-  const parts2 = version2.split(".");
+ const parts 1 = version 1.split(".");
+ const parts 2 = version 2.split(".");
 
-  const maxLength = Math.max(parts1.length, parts2.length);
+ const maxLength = Math.max(parts 1.length, parts 2.length);
 
-  for (let i = 0; i < maxLength; i++) {
-    const num1 = parseInt(parts1[i] || "0");
-    const num2 = parseInt(parts2[i] || "0");
+ for (let i = 0; i < maxLength; i++) {
+ const num 1 = parseInt(parts 1[i] || "0");
+ const num 2 = parseInt(parts 2[i] || "0");
 
-    if (num1 > num2) return 1;
-    if (num1 < num2) return -1;
-  }
+ if (num 1 > num 2) return 1;
+ if (num 1 < num 2) return -1;
+ }
 
-  return 0;
+ return 0;
 }
 
 // Approach 2: Two Pointers (Space Optimal)
-export function compareVersion(version1: string, version2: string): number {
-  let p1 = 0;
-  let p2 = 0;
+export function compareVersion(version 1: string, version 2: string): number {
+ let p 1 = 0;
+ let p 2 = 0;
 
-  while (p1 < version1.length || p2 < version2.length) {
-    // Extract next number from version1
-    let num1 = 0;
-    while (p1 < version1.length && version1[p1] !== ".") {
-      num1 = num1 * 10 + parseInt(version1[p1]);
-      p1++;
-    }
-    p1++; // Skip dot
+ while (p 1 < version 1.length || p 2 < version 2.length) {
+ // Extract next number from version 1
+ let num 1 = 0;
+ while (p 1 < version 1.length && version 1[p 1] !== ".") {
+ num 1 = num 1 * 10 + parseInt(version 1[p 1]);
+ p 1++;
+ }
+ p 1++; // Skip dot
 
-    // Extract next number from version2
-    let num2 = 0;
-    while (p2 < version2.length && version2[p2] !== ".") {
-      num2 = num2 * 10 + parseInt(version2[p2]);
-      p2++;
-    }
-    p2++; // Skip dot
+ // Extract next number from version 2
+ let num 2 = 0;
+ while (p 2 < version 2.length && version 2[p 2] !== ".") {
+ num 2 = num 2 * 10 + parseInt(version 2[p 2]);
+ p 2++;
+ }
+ p 2++; // Skip dot
 
-    // Compare extracted numbers
-    if (num1 > num2) return 1;
-    if (num1 < num2) return -1;
-  }
+ // Compare extracted numbers
+ if (num 1 > num 2) return 1;
+ if (num 1 < num 2) return -1;
+ }
 
-  return 0;
+ return 0;
 }
 ```
 
@@ -99,14 +99,14 @@ export function compareVersion(version1: string, version2: string): number {
 
 ## Design Decisions
 
-- Used descriptive variable names (`p1`, `p2` instead of `i`, `j`)
+- Used descriptive variable names (`p 1`, `p 2` instead of `i`, `j`)
 - Built numbers incrementally with `num * 10 + digit` pattern
 - Split approach prioritizes readability, two pointers prioritizes memory efficiency
 
 ## Micro-optimizations Available
 
 - Replace `parseInt(char)` with `char.charCodeAt(0) - 48` for single digits
-- Use conditional pointer advancement: `if (p1 < version1.length) p1++`
+- Use conditional pointer advancement: `if (p 1 < version 1.length) p 1++`
 - Ternary operators for more compact comparisons
 
 ## Key Insights

@@ -48,64 +48,64 @@ La solución actual es eficiente para la mayoría de los casos prácticos, ya qu
 
 1. **Con Map y conteo de ocurrencias:**
 
-   - Se recorre cada array y se cuenta cuántas veces aparece cada elemento en todos los arrays.
-   - Al final, se filtran los elementos que aparecen en un número impar de arrays (esto es la definición matemática de diferencia simétrica múltiple).
+ - Se recorre cada array y se cuenta cuántas veces aparece cada elemento en todos los arrays.
+ - Al final, se filtran los elementos que aparecen en un número impar de arrays (esto es la definición matemática de diferencia simétrica múltiple).
 
-   ```javascript
-   function symmetricDifferenceAlt(...args) {
-     const count = new Map();
-     for (const arr of args) {
-       // Usamos un Set para evitar contar duplicados dentro del mismo array
-       for (const num of new Set(arr)) {
-         count.set(num, (count.get(num) || 0) + 1);
-       }
-     }
-     // Solo los que aparecen en un número impar de arrays
-     return Array.from(count.entries())
-       .filter(([_, v]) => v % 2 === 1)
-       .map(([k]) => k)
-       .sort((a, b) => a - b);
-   }
-   ```
+ ```javascript
+ function symmetricDifferenceAlt(...args) {
+ const count = new Map();
+ for (const arr of args) {
+ // Usamos un Set para evitar contar duplicados dentro del mismo array
+ for (const num of new Set(arr)) {
+ count.set(num, (count.get(num) || 0) + 1);
+ }
+ }
+ // Solo los que aparecen en un número impar de arrays
+ return Array.from(count.entries())
+ .filter(([_, v]) => v % 2 === 1)
+ .map(([k]) => k)
+ .sort((a, b) => a - b);
+ }
+ ```
 
 2. **Con operaciones de conjuntos (Set):**
 
-   - Se puede usar una función recursiva que aplique la diferencia simétrica entre dos arrays y la use para reducir el resto.
+ - Se puede usar una función recursiva que aplique la diferencia simétrica entre dos arrays y la use para reducir el resto.
 
-   ```javascript
-   function symDiffArr(arr1, arr2) {
-     const setA = new Set(arr1);
-     const setB = new Set(arr2);
-     const soloA = [...setA].filter((x) => !setB.has(x));
-     const soloB = [...setB].filter((x) => !setA.has(x));
-     return [...new Set([...soloA, ...soloB])];
-   }
+ ```javascript
+ function symDiffArr(arr 1, arr 2) {
+ const setA = new Set(arr 1);
+ const setB = new Set(arr 2);
+ const soloA = [...setA].filter((x) => !setB.has(x));
+ const soloB = [...setB].filter((x) => !setA.has(x));
+ return [...new Set([...soloA, ...soloB])];
+ }
 
-   function symmetricDifferenceRecursive(...args) {
-     return args
-       .reduce((acc, curr) => symDiffArr(acc, curr))
-       .sort((a, b) => a - b);
-   }
-   ```
+ function symmetricDifferenceRecursive(...args) {
+ return args
+ .reduce((acc, curr) => symDiffArr(acc, curr))
+ .sort((a, b) => a - b);
+ }
+ ```
 
 3. **Sin Sets, solo con arrays:**
 
-   - Se puede usar filter y indexOf, pero la eficiencia baja a O(n^2) por las búsquedas lineales.
+ - Se puede usar filter y indexOf, pero la eficiencia baja a O(n^2) por las búsquedas lineales.
 
-   ```javascript
-   function symDiffArray(arr1, arr2) {
-     const soloA = arr1.filter((x) => arr2.indexOf(x) === -1);
-     const soloB = arr2.filter((x) => arr1.indexOf(x) === -1);
-     // Eliminar duplicados manualmente
-     return [...new Set([...soloA, ...soloB])];
-   }
+ ```javascript
+ function symDiffArray(arr 1, arr 2) {
+ const soloA = arr 1.filter((x) => arr 2.indexOf(x) === -1);
+ const soloB = arr 2.filter((x) => arr 1.indexOf(x) === -1);
+ // Eliminar duplicados manualmente
+ return [...new Set([...soloA, ...soloB])];
+ }
 
-   function symmetricDifferenceNaive(...args) {
-     return args
-       .reduce((acc, curr) => symDiffArray(acc, curr))
-       .sort((a, b) => a - b);
-   }
-   ```
+ function symmetricDifferenceNaive(...args) {
+ return args
+ .reduce((acc, curr) => symDiffArray(acc, curr))
+ .sort((a, b) => a - b);
+ }
+ ```
 
 ## Casos límite y ejemplos
 

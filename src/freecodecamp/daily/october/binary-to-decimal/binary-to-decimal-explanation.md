@@ -25,11 +25,11 @@ Para convertir un número binario a decimal, debemos analizar cada dígito y cal
 1. **Recorrido de derecha a izquierda:** Empezamos por el dígito más a la derecha (menos significativo), que se multiplica por $2^0$. El siguiente a la izquierda se multiplica por $2^1$, y así sucesivamente.
 2. **Multiplicación y suma:** Por cada dígito, multiplicamos su valor (0 o 1) por la potencia de 2 correspondiente y sumamos ese resultado a un acumulador.
 3. **Ejemplo didáctico:**
-   - Para el string "101":
-     - El dígito más a la derecha es 1: $1 \times 2^0 = 1$
-     - El siguiente es 0: $0 \times 2^1 = 0$
-     - El siguiente es 1: $1 \times 2^2 = 4$
-     - Sumamos: $4 + 0 + 1 = 5$
+ - Para el string "101":
+ - El dígito más a la derecha es 1: $1 \times 2^0 = 1$
+ - El siguiente es 0: $0 \times 2^1 = 0$
+ - El siguiente es 1: $1 \times 2^2 = 4$
+ - Sumamos: $4 + 0 + 1 = 5$
 
 Este proceso garantiza que cada dígito se procesa correctamente y se obtiene el valor decimal esperado. Es importante llevar la cuenta de la potencia de 2 que corresponde a cada posición, y sumar todos los resultados parciales para obtener el número final.
 
@@ -68,7 +68,7 @@ La forma más directa y eficiente en JavaScript es usar el método nativo `parse
 
 ```javascript
 function toDecimal(binary) {
-  return parseInt(binary, 2);
+ return parseInt(binary, 2);
 }
 ```
 
@@ -87,7 +87,7 @@ Otra alternativa funcional es convertir el string en un array y usar `reduce` pa
 
 ```javascript
 function toDecimal(binary) {
-  return binary.split("").reduce((acc, digit) => acc * 2 + Number(digit), 0);
+ return binary.split("").reduce((acc, digit) => acc * 2 + Number(digit), 0);
 }
 ```
 

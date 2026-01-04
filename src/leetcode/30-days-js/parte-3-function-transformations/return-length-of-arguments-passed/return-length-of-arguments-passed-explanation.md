@@ -41,7 +41,7 @@ La solución utiliza la sintaxis de rest parameters (`...args`) para capturar to
 
 ```typescript
 export function argumentsLength(...args: any[]): number {
-  return args.length; // placeholder
+ return args.length; // placeholder
 }
 ```
 

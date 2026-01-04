@@ -40,7 +40,7 @@ Idea clave: en números romanos se suman los valores de los símbolos **salvo** 
 |
 
 - | ----- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- |
-| I       | 1     | V   | 5   | X   | 10  | L   | 50  | C   | 100 | D   | 500 | M   | 1000 |
+| I | 1 | V | 5 | X | 10 | L | 50 | C | 100 | D | 500 | M | 1000 |
 
 ### Patrón de sustracción permitido
 

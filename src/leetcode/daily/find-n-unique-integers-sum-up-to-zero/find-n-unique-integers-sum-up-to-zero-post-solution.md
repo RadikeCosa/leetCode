@@ -11,9 +11,9 @@ I use a **symmetric pairs strategy** with optimized array construction:
 1. **Calculate pairs needed**: `numPairs = Math.floor(n / 2)`
 2. **Pre-allocate array**: `new Array<number>(n)` for better performance
 3. **Fill in order**:
-   - Negatives first: `[-numPairs, -numPairs+1, ..., -1]`
-   - Zero in middle (if odd): `[0]`
-   - Positives last: `[1, 2, ..., numPairs]`
+ - Negatives first: `[-numPairs, -numPairs+1, ..., -1]`
+ - Zero in middle (if odd): `[0]`
+ - Positives last: `[1, 2, ..., numPairs]`
 
 This approach guarantees:
 
@@ -42,29 +42,29 @@ This approach guarantees:
 
 ```typescript
 export function sumZero(n: number): number[] {
-  if (n === 1) return [0];
+ if (n === 1) return [0];
 
-  // Pre-allocate array with exact size for better performance
-  const result = new Array<number>(n);
-  const numPairs = Math.floor(n / 2);
-  let index = 0;
+ // Pre-allocate array with exact size for better performance
+ const result = new Array<number>(n);
+ const numPairs = Math.floor(n / 2);
+ let index = 0;
 
-  // Generate negative numbers first (ascending order)
-  for (let i = numPairs; i >= 1; i--) {
-    result[index++] = -i;
-  }
+ // Generate negative numbers first (ascending order)
+ for (let i = numPairs; i >= 1; i--) {
+ result[index++] = -i;
+ }
 
-  // Add 0 if n is odd (places it in the center)
-  if (n % 2 === 1) {
-    result[index++] = 0;
-  }
+ // Add 0 if n is odd (places it in the center)
+ if (n % 2 === 1) {
+ result[index++] = 0;
+ }
 
-  // Generate positive numbers (ascending order)
-  for (let i = 1; i <= numPairs; i++) {
-    result[index++] = i;
-  }
+ // Generate positive numbers (ascending order)
+ for (let i = 1; i <= numPairs; i++) {
+ result[index++] = i;
+ }
 
-  return result;
+ return result;
 }
 ```
 

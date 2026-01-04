@@ -34,14 +34,14 @@ Este problema combina tres conceptos fundamentales de JavaScript:
 
 **Ejemplo 1:**
 
-- Input: `fn = (x1, x2) => x1 * x2`, `args = [2, 5]`, `t = 30`, `cancelT = 165`
+- Input: `fn = (x 1, x 2) => x 1 * x 2`, `args = [2, 5]`, `t = 30`, `cancelT = 165`
 - La función se ejecuta inmediatamente: `2 * 5 = 10`
-- Se ejecuta cada 30ms: en t=30, t=60, t=90, t=120, t=150
+- Se ejecuta cada 30 ms: en t=30, t=60, t=90, t=120, t=150
 - Se cancela en t=165, por lo que no hay más ejecuciones
 
 **Ejemplo 2:**
 
-- Input: `fn = (x1) => x1 ** 2`, `args = [2]`, `t = 100`, `cancelT = 50`
+- Input: `fn = (x 1) => x 1 ** 2`, `args = [2]`, `t = 100`, `cancelT = 50`
 - La función se ejecuta inmediatamente: `2 ** 2 = 4`
 - Se cancela en t=50, antes del primer intervalo (t=100)
 - Solo hay una ejecución
@@ -71,18 +71,18 @@ La estrategia es diferente al problema "Timeout Cancellation" porque aquí neces
 
 ```typescript
 function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
-  // Ejecutar inmediatamente
-  fn(...args);
+ // Ejecutar inmediatamente
+ fn(...args);
 
-  // Configurar repetición cada t milisegundos
-  const intervalId = setInterval(() => {
-    fn(...args);
-  }, t);
+ // Configurar repetición cada t milisegundos
+ const intervalId = setInterval(() => {
+ fn(...args);
+ }, t);
 
-  // Retornar función de cancelación
-  return () => {
-    clearInterval(intervalId);
-  };
+ // Retornar función de cancelación
+ return () => {
+ clearInterval(intervalId);
+ };
 }
 ```
 
@@ -118,7 +118,7 @@ Si `cancelT < t`, solo se ejecuta la función una vez (inmediatamente):
 
 ### Intervalos Muy Pequeños
 
-Con `t = 10` (mínimo), la función se ejecuta cada 10ms hasta la cancelación.
+Con `t = 10` (mínimo), la función se ejecuta cada 10 ms hasta la cancelación.
 
 ### Funciones con Efectos Secundarios
 

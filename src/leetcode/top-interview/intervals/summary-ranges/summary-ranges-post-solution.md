@@ -10,12 +10,12 @@ I use a **single-pass algorithm** with the following strategy:
 
 1. **Initialize pointers**: Start with `start = 0` and track the array boundaries
 2. **For each range**:
-   - Mark the beginning of a potential range (`rangeStart`)
-   - Extend the range while numbers are consecutive: `nums[i] + 1 === nums[i+1]`
-   - When the sequence breaks, mark the end (`rangeEnd`)
+ - Mark the beginning of a potential range (`rangeStart`)
+ - Extend the range while numbers are consecutive: `nums[i] + 1 === nums[i+1]`
+ - When the sequence breaks, mark the end (`rangeEnd`)
 3. **Format output**:
-   - If `rangeStart === rangeEnd`: single element → `"num"`
-   - Otherwise: range → `"start->end"`
+ - If `rangeStart === rangeEnd`: single element → `"num"`
+ - Otherwise: range → `"start->end"`
 4. **Move to next range**: Advance the start pointer and repeat
 
 The algorithm ensures each element is visited exactly once, making it optimal.
@@ -29,32 +29,32 @@ The algorithm ensures each element is visited exactly once, making it optimal.
 
 ````typescript
 export function summaryRanges(nums: number[]): string[] {
-  let i = 0;
-  const result: string[] = [];
+ let i = 0;
+ const result: string[] = [];
 
-  while (i < nums.length) {
-    // Marcar el inicio del rango actual
-    let rangeStart = nums[i];
-    let end = i; // end avanza para encontrar el final del rango
+ while (i < nums.length) {
+ // Marcar el inicio del rango actual
+ let rangeStart = nums[i];
+ let end = i; // end avanza para encontrar el final del rango
 
-    // Extender end mientras los números sean consecutivos
-    while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
-      end++;
-    }
+ // Extender end mientras los números sean consecutivos
+ while (end < nums.length - 1 && nums[end] + 1 === nums[end + 1]) {
+ end++;
+ }
 
-    let rangeEnd = nums[end];
+ let rangeEnd = nums[end];
 
-    // Formatear según el tamaño del rango
-    if (rangeStart === rangeEnd) {
-      result.push(`${rangeStart}`);
-    } else {
-      result.push(`${rangeStart}->${rangeEnd}`);
-    }
+ // Formatear según el tamaño del rango
+ if (rangeStart === rangeEnd) {
+ result.push(`${rangeStart}`);
+ } else {
+ result.push(`${rangeStart}->${rangeEnd}`);
+ }
 
-    // Saltar al siguiente segmento después del rango actual
-    i = end + 1;
-  }
-  return result;
+ // Saltar al siguiente segmento después del rango actual
+ i = end + 1;
+ }
+ return result;
 }
 ```
 

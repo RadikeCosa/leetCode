@@ -18,7 +18,7 @@ problemLink: https://leetcode.com/problems/median-of-two-sorted-arrays/descripti
 
 ## Enunciado del Problema
 
-Dados dos arrays ordenados, `nums1` y `nums2`, de tamaños $m$ y $n$ respectivamente, se pide devolver la mediana del conjunto combinado de ambos arrays, manteniendo el orden. Es requisito que la solución tenga una complejidad temporal de $O(\log(m+n))$.
+Dados dos arrays ordenados, `nums 1` y `nums 2`, de tamaños $m$ y $n$ respectivamente, se pide devolver la mediana del conjunto combinado de ambos arrays, manteniendo el orden. Es requisito que la solución tenga una complejidad temporal de $O(\log(m+n))$.
 
 ## Análisis Inicial
 
@@ -32,32 +32,32 @@ Al analizar el problema, se identifican los siguientes casos de prueba relevante
 
 1. **Ambos arrays tienen la misma longitud y no hay elementos en común:**
 
-- `nums1 = [1, 3]`, `nums2 = [2, 4]` → Mediana: 2.5
+- `nums 1 = [1, 3]`, `nums 2 = [2, 4]` → Mediana: 2.5
 
 2. **Uno de los arrays es mucho más grande que el otro:**
 
-- `nums1 = [1, 2]`, `nums2 = [3, 4, 5, 6, 7]` → Mediana: 4
+- `nums 1 = [1, 2]`, `nums 2 = [3, 4, 5, 6, 7]` → Mediana: 4
 
 3. **Uno de los arrays está vacío:**
 
-- `nums1 = []`, `nums2 = [1]` → Mediana: 1
-- `nums1 = [2, 3]`, `nums2 = []` → Mediana: 2.5
+- `nums 1 = []`, `nums 2 = [1]` → Mediana: 1
+- `nums 1 = [2, 3]`, `nums 2 = []` → Mediana: 2.5
 
 4. **Arrays con elementos repetidos:**
 
-- `nums1 = [1, 2, 2]`, `nums2 = [2, 2, 3]` → Mediana: 2
+- `nums 1 = [1, 2, 2]`, `nums 2 = [2, 2, 3]` → Mediana: 2
 
 5. **Ambos arrays tienen un solo elemento:**
 
-- `nums1 = [1]`, `nums2 = [2]` → Mediana: 1.5
+- `nums 1 = [1]`, `nums 2 = [2]` → Mediana: 1.5
 
 6. **Longitud total impar:**
 
-- `nums1 = [1, 3]`, `nums2 = [2]` → Mediana: 2
+- `nums 1 = [1, 3]`, `nums 2 = [2]` → Mediana: 2
 
 7. **Longitud total par:**
 
-- `nums1 = [1, 2]`, `nums2 = [3, 4]` → Mediana: 2.5
+- `nums 1 = [1, 2]`, `nums 2 = [3, 4]` → Mediana: 2.5
 
 Estos casos cubren situaciones típicas, edge cases y combinaciones de tamaños y valores que pueden afectar el cálculo de la mediana.
 
@@ -67,51 +67,51 @@ Estos casos cubren situaciones típicas, edge cases y combinaciones de tamaños 
 
 #### Pseudocódigo de la solución con búsqueda binaria
 
-1. Si `nums1` es más largo que `nums2`, intercambiarlos (así siempre buscamos en el array más corto).
-2. Definir `low = 0`, `high = m` (donde `m` es la longitud de `nums1`).
+1. Si `nums 1` es más largo que `nums 2`, intercambiarlos (así siempre buscamos en el array más corto).
+2. Definir `low = 0`, `high = m` (donde `m` es la longitud de `nums 1`).
 3. Mientras `low <= high`:
-   - Calcular `i = (low + high) // 2` (partición en `nums1`).
-   - Calcular `j = (m + n + 1) // 2 - i` (partición en `nums2`).
-   - Si `i > 0` y `nums1[i-1] > nums2[j]`, mover `high = i - 1`.
-   - Si `i < m` y `nums2[j-1] > nums1[i]`, mover `low = i + 1`.
-   - Si no, partición válida encontrada:
-     - Si la suma de longitudes es impar, mediana = max(`nums1[i-1]`, `nums2[j-1]`).
-     - Si es par, mediana = (max(`nums1[i-1]`, `nums2[j-1]`) + min(`nums1[i]`, `nums2[j]`)) / 2.
+ - Calcular `i = (low + high) // 2` (partición en `nums 1`).
+ - Calcular `j = (m + n + 1) // 2 - i` (partición en `nums 2`).
+ - Si `i > 0` y `nums 1[i-1] > nums 2[j]`, mover `high = i - 1`.
+ - Si `i < m` y `nums 2[j-1] > nums 1[i]`, mover `low = i + 1`.
+ - Si no, partición válida encontrada:
+ - Si la suma de longitudes es impar, mediana = max(`nums 1[i-1]`, `nums 2[j-1]`).
+ - Si es par, mediana = (max(`nums 1[i-1]`, `nums 2[j-1]`) + min(`nums 1[i]`, `nums 2[j]`)) / 2.
 
 #### Ejemplo concreto
 
 Supón:
-`nums1 = [1, 3, 8]`
-`nums2 = [7, 9, 10, 11]`
+`nums 1 = [1, 3, 8]`
+`nums 2 = [7, 9, 10, 11]`
 
 Total de elementos: 7 (impar). Buscamos una partición tal que haya 3 elementos a la izquierda y 4 a la derecha.
 
 Primer intento:
 
 - `i = (0+3)//2 = 1`, `j = (3+4+1)//2 - 1 = 2`
-- Izquierda: `nums1[0] = 1`, `nums2[0,1] = 7,9`
-- Derecha: `nums1[1,2] = 3,8`, `nums2[2,3] = 10,11`
+- Izquierda: `nums 1[0] = 1`, `nums 2[0,1] = 7,9`
+- Derecha: `nums 1[1,2] = 3,8`, `nums 2[2,3] = 10,11`
 - Comprobamos condiciones:
-  - `nums1[i-1]=1 <= nums2[j]=10` ✔️
-  - `nums2[j-1]=9 > nums1[i]=3` ✖️
-  - Debemos aumentar `i`.
+ - `nums 1[i-1]=1 <= nums 2[j]=10` ✔️
+ - `nums 2[j-1]=9 > nums 1[i]=3` ✖️
+ - Debemos aumentar `i`.
 
 Segundo intento:
 
 - `i = 2`, `j = 2`
-- Izquierda: `nums1[0,1]=1,3`, `nums2[0,1]=7,9`
-- Derecha: `nums1[2]=8`, `nums2[2,3]=10,11`
-- `nums1[i-1]=3 <= nums2[j]=10` ✔️
-- `nums2[j-1]=9 > nums1[i]=8` ✖️
-  - Aumentar `i`.
+- Izquierda: `nums 1[0,1]=1,3`, `nums 2[0,1]=7,9`
+- Derecha: `nums 1[2]=8`, `nums 2[2,3]=10,11`
+- `nums 1[i-1]=3 <= nums 2[j]=10` ✔️
+- `nums 2[j-1]=9 > nums 1[i]=8` ✖️
+ - Aumentar `i`.
 
 Tercer intento:
 
 - `i = 3`, `j = 0`
-- Izquierda: `nums1[0,1,2]=1,3,8`, `nums2[]`
-- Derecha: `nums1[]`, `nums2[0,1,2,3]=7,9,10,11`
-- `nums1[i-1]=8 <= nums2[j]=7` ✖️
-- Pero como `j=0`, no hay elementos a la izquierda de `nums2`, así que sólo comprobamos `nums1[i-1] <= nums2[j]`.
+- Izquierda: `nums 1[0,1,2]=1,3,8`, `nums 2[]`
+- Derecha: `nums 1[]`, `nums 2[0,1,2,3]=7,9,10,11`
+- `nums 1[i-1]=8 <= nums 2[j]=7` ✖️
+- Pero como `j=0`, no hay elementos a la izquierda de `nums 2`, así que sólo comprobamos `nums 1[i-1] <= nums 2[j]`.
 - Aquí, `8 > 7`, así que reducir `i`.
 
 Finalmente, cuando se encuentra la partición válida, se calcula la mediana según corresponda.
@@ -120,30 +120,30 @@ Este proceso garantiza encontrar la mediana en tiempo logarítmico respecto al t
 
 ### Implementación Paso a Paso
 
-1. Garantizar que buscamos en el array más pequeño: si `nums1.length > nums2.length` intercambiar los arrays.
-2. Hacer una búsqueda binaria sobre el índice de partición `i` en `nums1` entre `0` y `m`.
-3. Calcular la partición correspondiente `j = (m + n + 1) // 2 - i` en `nums2` de forma que el lado izquierdo total tenga la mitad (o la mitad +1) de los elementos.
+1. Garantizar que buscamos en el array más pequeño: si `nums 1.length > nums 2.length` intercambiar los arrays.
+2. Hacer una búsqueda binaria sobre el índice de partición `i` en `nums 1` entre `0` y `m`.
+3. Calcular la partición correspondiente `j = (m + n + 1) // 2 - i` en `nums 2` de forma que el lado izquierdo total tenga la mitad (o la mitad +1) de los elementos.
 4. Obtener los cuatro valores borde necesarios (usar `-Infinity` / `Infinity` cuando la partición quede en un extremo):
 
-- `nums1LeftMax = i === 0 ? -Infinity : nums1[i-1]`
-- `nums1RightMin = i === m ? Infinity : nums1[i]`
-- `nums2LeftMax = j === 0 ? -Infinity : nums2[j-1]`
-- `nums2RightMin = j === n ? Infinity : nums2[j]`
+- `nums 1 LeftMax = i === 0 ? -Infinity : nums 1[i-1]`
+- `nums 1 RightMin = i === m ? Infinity : nums 1[i]`
+- `nums 2 LeftMax = j === 0 ? -Infinity : nums 2[j-1]`
+- `nums 2 RightMin = j === n ? Infinity : nums 2[j]`
 
-5. Si `nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin` entonces la partición es válida:
+5. Si `nums 1 LeftMax <= nums 2 RightMin && nums 2 LeftMax <= nums 1 RightMin` entonces la partición es válida:
 
-- Si `(m + n)` es impar → la mediana es `max(nums1LeftMax, nums2LeftMax)`.
-- Si es par → la mediana es `(max(nums1LeftMax, nums2LeftMax) + min(nums1RightMin, nums2RightMin)) / 2`.
+- Si `(m + n)` es impar → la mediana es `max(nums 1 LeftMax, nums 2 LeftMax)`.
+- Si es par → la mediana es `(max(nums 1 LeftMax, nums 2 LeftMax) + min(nums 1 RightMin, nums 2 RightMin)) / 2`.
 
-6. Si `nums1LeftMax > nums2RightMin` mover `high = i - 1` (desplazar partición i a la izquierda).
-7. Si `nums2LeftMax > nums1RightMin` mover `low = i + 1` (desplazar partición i a la derecha).
+6. Si `nums 1 LeftMax > nums 2 RightMin` mover `high = i - 1` (desplazar partición i a la izquierda).
+7. Si `nums 2 LeftMax > nums 1 RightMin` mover `low = i + 1` (desplazar partición i a la derecha).
 8. Repetir hasta encontrar la partición válida. El proceso termina en O(log m) pasos.
 
 ## Análisis de Complejidad
 
 ### Complejidad Temporal
 
-La complejidad temporal es O(log(min(m, n))). Hacemos búsqueda binaria sobre el array más pequeño (`m = min(len(nums1), len(nums2))`). Cada iteración realiza operaciones O(1).
+La complejidad temporal es O(log(min(m, n))). Hacemos búsqueda binaria sobre el array más pequeño (`m = min(len(nums 1), len(nums 2))`). Cada iteración realiza operaciones O(1).
 
 ### Complejidad Espacial
 
@@ -182,8 +182,8 @@ Tenemos dos listas de números **ya ordenadas** y necesitamos encontrar **la med
 **Ejemplo:**
 
 ```
-nums1 = [1, 3]
-nums2 = [2]
+nums 1 = [1, 3]
+nums 2 = [2]
 
 Si los juntamos: [1, 2, 3]
 La mediana es: 2 (el del medio)
@@ -194,9 +194,9 @@ La mediana es: 2 (el del medio)
 La mediana es **el número del medio** cuando ordenas todos los valores:
 
 - **Cantidad impar** de números → el del medio
-  - `[1, 2, 3]` → mediana = 2
+ - `[1, 2, 3]` → mediana = 2
 - **Cantidad par** de números → promedio de los dos del medio
-  - `[1, 2, 3, 4]` → mediana = (2 + 3) / 2 = 2.5
+ - `[1, 2, 3, 4]` → mediana = (2 + 3) / 2 = 2.5
 
 ## ¿Por qué es difícil este problema?
 
@@ -213,10 +213,10 @@ Pero esto sería **lento** (O(n+m)). El problema pide algo más rápido: **O(log
 En lugar de juntar todo, imaginamos un **"corte"** en cada lista que divide todos los números en dos mitades:
 
 ```
-nums1: [1, 3, 8 | 9, 15]         (izquierda | derecha)
-nums2: [7, 11 | 18, 19, 21]
+nums 1: [1, 3, 8 | 9, 15] (izquierda | derecha)
+nums 2: [7, 11 | 18, 19, 21]
 
-Lado izquierdo: {1, 3, 8, 7, 11}  (5 números)
+Lado izquierdo: {1, 3, 8, 7, 11} (5 números)
 Lado derecho: {9, 15, 18, 19, 21} (5 números)
 ```
 
@@ -248,47 +248,47 @@ Una vez que decidimos dónde cortar la primera lista, el corte en la segunda lis
 
 Revisamos si los números "cruzan" correctamente:
 
-- ¿El mayor de la izquierda de nums1 es ≤ que el menor de la derecha de nums2? ✓
-- ¿El mayor de la izquierda de nums2 es ≤ que el menor de la derecha de nums1? ✓
+- ¿El mayor de la izquierda de nums 1 es ≤ que el menor de la derecha de nums 2? ✓
+- ¿El mayor de la izquierda de nums 2 es ≤ que el menor de la derecha de nums 1? ✓
 
 ### Paso 4: Ajustar si no funciona
 
 Si el corte no es válido, lo movemos:
 
-- Si el número de la izquierda de nums1 es muy grande → mover el corte a la izquierda
-- Si el número de la derecha de nums1 es muy pequeño → mover el corte a la derecha
+- Si el número de la izquierda de nums 1 es muy grande → mover el corte a la izquierda
+- Si el número de la derecha de nums 1 es muy pequeño → mover el corte a la derecha
 
 ## Ejemplo Visual Completo
 
 ```
-nums1 = [1, 3, 8, 9, 15]
-nums2 = [7, 11, 18, 19, 21, 25]
+nums 1 = [1, 3, 8, 9, 15]
+nums 2 = [7, 11, 18, 19, 21, 25]
 Total: 11 elementos → necesitamos 5 en la izquierda, 6 en la derecha
 
-Intento 1: Cortar nums1 en posición 2
-nums1: [1, 3 | 8, 9, 15]          (2 en izq)
-nums2: [7, 11, 18 | 19, 21, 25]   (3 en izq)
+Intento 1: Cortar nums 1 en posición 2
+nums 1: [1, 3 | 8, 9, 15] (2 en izq)
+nums 2: [7, 11, 18 | 19, 21, 25] (3 en izq)
 Total izquierda: 5 ✓
 
 Verificar:
-- max(izq nums1) = 3
-- min(der nums2) = 19
+- max(izq nums 1) = 3
+- min(der nums 2) = 19
 - 3 ≤ 19 ✓
-- max(izq nums2) = 18
-- min(der nums1) = 8
+- max(izq nums 2) = 18
+- min(der nums 1) = 8
 - 18 > 8 ✗ → ¡No funciona!
 
-Intento 2: Mover corte de nums1 a la derecha
-nums1: [1, 3, 8, 9 | 15]          (4 en izq)
-nums2: [7 | 11, 18, 19, 21, 25]   (1 en izq)
+Intento 2: Mover corte de nums 1 a la derecha
+nums 1: [1, 3, 8, 9 | 15] (4 en izq)
+nums 2: [7 | 11, 18, 19, 21, 25] (1 en izq)
 Total izquierda: 5 ✓
 
 Verificar:
-- max(izq nums1) = 9
-- min(der nums2) = 11
+- max(izq nums 1) = 9
+- min(der nums 2) = 11
 - 9 ≤ 11 ✓
-- max(izq nums2) = 7
-- min(der nums1) = 15
+- max(izq nums 2) = 7
+- min(der nums 1) = 15
 - 7 ≤ 15 ✓
 
 ¡Funciona! ✓
@@ -300,26 +300,26 @@ Mediana = max(9, 7) = 9 (porque tenemos cantidad impar)
 
 1. **Un array vacío**: la mediana es del otro array
 
-   ```
-   nums1 = []
-   nums2 = [1, 2, 3]
-   mediana = 2
-   ```
+ ```
+ nums 1 = []
+ nums 2 = [1, 2, 3]
+ mediana = 2
+ ```
 
-2. **Todos los elementos de nums1 son menores que todos los de nums2**:
+2. **Todos los elementos de nums 1 son menores que todos los de nums 2**:
 
-   ```
-   nums1 = [1, 2]
-   nums2 = [10, 11]
-   mediana = (2 + 10) / 2 = 6
-   ```
+ ```
+ nums 1 = [1, 2]
+ nums 2 = [10, 11]
+ mediana = (2 + 10) / 2 = 6
+ ```
 
 3. **Arrays de un solo elemento**:
-   ```
-   nums1 = [1]
-   nums2 = [2]
-   mediana = (1 + 2) / 2 = 1.5
-   ```
+ ```
+ nums 1 = [1]
+ nums 2 = [2]
+ mediana = (1 + 2) / 2 = 1.5
+ ```
 
 ## Trucos del Código
 
@@ -334,7 +334,7 @@ Esto simplifica las comparaciones sin necesidad de casos especiales.
 
 ### Siempre buscar en el array más pequeño
 
-Intercambiamos los arrays si es necesario para que `nums1` sea el más corto. Esto hace que la búsqueda binaria sea más rápida.
+Intercambiamos los arrays si es necesario para que `nums 1` sea el más corto. Esto hace que la búsqueda binaria sea más rápida.
 
 ## ¿Por Qué es O(log(min(m,n)))?
 
@@ -376,8 +376,8 @@ Tenemos dos listas de números **ya ordenadas** y necesitamos encontrar **la med
 **Ejemplo:**
 
 ```
-nums1 = [1, 3]
-nums2 = [2]
+nums 1 = [1, 3]
+nums 2 = [2]
 
 Si los juntamos: [1, 2, 3]
 La mediana es: 2 (el del medio)
@@ -388,9 +388,9 @@ La mediana es: 2 (el del medio)
 La mediana es **el número del medio** cuando ordenas todos los valores:
 
 - **Cantidad impar** de números → el del medio
-  - `[1, 2, 3]` → mediana = 2
+ - `[1, 2, 3]` → mediana = 2
 - **Cantidad par** de números → promedio de los dos del medio
-  - `[1, 2, 3, 4]` → mediana = (2 + 3) / 2 = 2.5
+ - `[1, 2, 3, 4]` → mediana = (2 + 3) / 2 = 2.5
 
 ## ¿Por qué es difícil este problema?
 
@@ -407,10 +407,10 @@ Pero esto sería **lento** (O(n+m)). El problema pide algo más rápido: **O(log
 En lugar de juntar todo, imaginamos un **"corte"** en cada lista que divide todos los números en dos mitades:
 
 ```
-nums1: [1, 3, 8 | 9, 15]         (izquierda | derecha)
-nums2: [7, 11 | 18, 19, 21]
+nums 1: [1, 3, 8 | 9, 15] (izquierda | derecha)
+nums 2: [7, 11 | 18, 19, 21]
 
-Lado izquierdo: {1, 3, 8, 7, 11}  (5 números)
+Lado izquierdo: {1, 3, 8, 7, 11} (5 números)
 Lado derecho: {9, 15, 18, 19, 21} (5 números)
 ```
 
@@ -442,47 +442,47 @@ Una vez que decidimos dónde cortar la primera lista, el corte en la segunda lis
 
 Revisamos si los números "cruzan" correctamente:
 
-- ¿El mayor de la izquierda de nums1 es ≤ que el menor de la derecha de nums2? ✓
-- ¿El mayor de la izquierda de nums2 es ≤ que el menor de la derecha de nums1? ✓
+- ¿El mayor de la izquierda de nums 1 es ≤ que el menor de la derecha de nums 2? ✓
+- ¿El mayor de la izquierda de nums 2 es ≤ que el menor de la derecha de nums 1? ✓
 
 ### Paso 4: Ajustar si no funciona
 
 Si el corte no es válido, lo movemos:
 
-- Si el número de la izquierda de nums1 es muy grande → mover el corte a la izquierda
-- Si el número de la derecha de nums1 es muy pequeño → mover el corte a la derecha
+- Si el número de la izquierda de nums 1 es muy grande → mover el corte a la izquierda
+- Si el número de la derecha de nums 1 es muy pequeño → mover el corte a la derecha
 
 ## Ejemplo Visual Completo
 
 ```
-nums1 = [1, 3, 8, 9, 15]
-nums2 = [7, 11, 18, 19, 21, 25]
+nums 1 = [1, 3, 8, 9, 15]
+nums 2 = [7, 11, 18, 19, 21, 25]
 Total: 11 elementos → necesitamos 5 en la izquierda, 6 en la derecha
 
-Intento 1: Cortar nums1 en posición 2
-nums1: [1, 3 | 8, 9, 15]          (2 en izq)
-nums2: [7, 11, 18 | 19, 21, 25]   (3 en izq)
+Intento 1: Cortar nums 1 en posición 2
+nums 1: [1, 3 | 8, 9, 15] (2 en izq)
+nums 2: [7, 11, 18 | 19, 21, 25] (3 en izq)
 Total izquierda: 5 ✓
 
 Verificar:
-- max(izq nums1) = 3
-- min(der nums2) = 19
+- max(izq nums 1) = 3
+- min(der nums 2) = 19
 - 3 ≤ 19 ✓
-- max(izq nums2) = 18
-- min(der nums1) = 8
+- max(izq nums 2) = 18
+- min(der nums 1) = 8
 - 18 > 8 ✗ → ¡No funciona!
 
-Intento 2: Mover corte de nums1 a la derecha
-nums1: [1, 3, 8, 9 | 15]          (4 en izq)
-nums2: [7 | 11, 18, 19, 21, 25]   (1 en izq)
+Intento 2: Mover corte de nums 1 a la derecha
+nums 1: [1, 3, 8, 9 | 15] (4 en izq)
+nums 2: [7 | 11, 18, 19, 21, 25] (1 en izq)
 Total izquierda: 5 ✓
 
 Verificar:
-- max(izq nums1) = 9
-- min(der nums2) = 11
+- max(izq nums 1) = 9
+- min(der nums 2) = 11
 - 9 ≤ 11 ✓
-- max(izq nums2) = 7
-- min(der nums1) = 15
+- max(izq nums 2) = 7
+- min(der nums 1) = 15
 - 7 ≤ 15 ✓
 
 ¡Funciona! ✓
@@ -494,26 +494,26 @@ Mediana = max(9, 7) = 9 (porque tenemos cantidad impar)
 
 1. **Un array vacío**: la mediana es del otro array
 
-   ```
-   nums1 = []
-   nums2 = [1, 2, 3]
-   mediana = 2
-   ```
+ ```
+ nums 1 = []
+ nums 2 = [1, 2, 3]
+ mediana = 2
+ ```
 
-2. **Todos los elementos de nums1 son menores que todos los de nums2**:
+2. **Todos los elementos de nums 1 son menores que todos los de nums 2**:
 
-   ```
-   nums1 = [1, 2]
-   nums2 = [10, 11]
-   mediana = (2 + 10) / 2 = 6
-   ```
+ ```
+ nums 1 = [1, 2]
+ nums 2 = [10, 11]
+ mediana = (2 + 10) / 2 = 6
+ ```
 
 3. **Arrays de un solo elemento**:
-   ```
-   nums1 = [1]
-   nums2 = [2]
-   mediana = (1 + 2) / 2 = 1.5
-   ```
+ ```
+ nums 1 = [1]
+ nums 2 = [2]
+ mediana = (1 + 2) / 2 = 1.5
+ ```
 
 ## Trucos del Código
 
@@ -528,7 +528,7 @@ Esto simplifica las comparaciones sin necesidad de casos especiales.
 
 ### Siempre buscar en el array más pequeño
 
-Intercambiamos los arrays si es necesario para que `nums1` sea el más corto. Esto hace que la búsqueda binaria sea más rápida.
+Intercambiamos los arrays si es necesario para que `nums 1` sea el más corto. Esto hace que la búsqueda binaria sea más rápida.
 
 ## ¿Por Qué es O(log(min(m,n)))?
 
@@ -567,56 +567,56 @@ Este es uno de los problemas más difíciles de LeetCode, ¡así que no te desan
  * Difficulty:
  * Topics:
  *
- * @param {number[]} nums1 - First sorted array
- * @param {number[]} nums2 - Second sorted array
+ * @param {number[]} nums 1 - First sorted array
+ * @param {number[]} nums 2 - Second sorted array
  * @returns {number} The median of the two sorted arrays
  */
 export function findMedianSortedArrays(
-  nums1: number[],
-  nums2: number[]
+ nums 1: number[],
+ nums 2: number[]
 ): number {
-  // Ensure nums1 is the smaller array to keep binary search on the smaller side
-  if (nums1.length > nums2.length) {
-    return findMedianSortedArrays(nums2, nums1);
-  }
+ // Ensure nums 1 is the smaller array to keep binary search on the smaller side
+ if (nums 1.length > nums 2.length) {
+ return findMedianSortedArrays(nums 2, nums 1);
+ }
 
-  const m = nums1.length;
-  const n = nums2.length;
+ const m = nums 1.length;
+ const n = nums 2.length;
 
-  let low = 0;
-  let high = m;
+ let low = 0;
+ let high = m;
 
-  while (low <= high) {
-    const i = Math.floor((low + high) / 2); // partition in nums1
-    const j = Math.floor((m + n + 1) / 2) - i; // partition in nums2
+ while (low <= high) {
+ const i = Math.floor((low + high) / 2); // partition in nums 1
+ const j = Math.floor((m + n + 1) / 2) - i; // partition in nums 2
 
-    const nums1LeftMax = i === 0 ? -Infinity : nums1[i - 1];
-    const nums1RightMin = i === m ? Infinity : nums1[i];
+ const nums 1 LeftMax = i === 0 ? -Infinity : nums 1[i - 1];
+ const nums 1 RightMin = i === m ? Infinity : nums 1[i];
 
-    const nums2LeftMax = j === 0 ? -Infinity : nums2[j - 1];
-    const nums2RightMin = j === n ? Infinity : nums2[j];
+ const nums 2 LeftMax = j === 0 ? -Infinity : nums 2[j - 1];
+ const nums 2 RightMin = j === n ? Infinity : nums 2[j];
 
-    if (nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin) {
-      // Correct partition
-      if ((m + n) % 2 === 1) {
-        return Math.max(nums1LeftMax, nums2LeftMax);
-      }
-      return (
-        (Math.max(nums1LeftMax, nums2LeftMax) +
-          Math.min(nums1RightMin, nums2RightMin)) /
-        2
-      );
-    } else if (nums1LeftMax > nums2RightMin) {
-      // Move partition i to the left
-      high = i - 1;
-    } else {
-      // nums2LeftMax > nums1RightMin -> move partition i to the right
-      low = i + 1;
-    }
-  }
+ if (nums 1 LeftMax <= nums 2 RightMin && nums 2 LeftMax <= nums 1 RightMin) {
+ // Correct partition
+ if ((m + n) % 2 === 1) {
+ return Math.max(nums 1 LeftMax, nums 2 LeftMax);
+ }
+ return (
+ (Math.max(nums 1 LeftMax, nums 2 LeftMax) +
+ Math.min(nums 1 RightMin, nums 2 RightMin)) /
+ 2
+ );
+ } else if (nums 1 LeftMax > nums 2 RightMin) {
+ // Move partition i to the left
+ high = i - 1;
+ } else {
+ // nums 2 LeftMax > nums 1 RightMin -> move partition i to the right
+ low = i + 1;
+ }
+ }
 
-  // Should never reach here if inputs are valid sorted arrays
-  throw new Error("Input arrays are not sorted or invalid");
+ // Should never reach here if inputs are valid sorted arrays
+ throw new Error("Input arrays are not sorted or invalid");
 }
 /**
  * LeetCode Problem: Median Of Two Sorted Arrays
@@ -625,107 +625,107 @@ export function findMedianSortedArrays(
  *
  * Encuentra la mediana de dos arrays ordenados en O(log(min(m,n)))
  *
- * @param {number[]} nums1 - Primer array ordenado
- * @param {number[]} nums2 - Segundo array ordenado
+ * @param {number[]} nums 1 - Primer array ordenado
+ * @param {number[]} nums 2 - Segundo array ordenado
  * @returns {number} La mediana de ambos arrays combinados
  */
 export function findMedianSortedArrays(
-  nums1: number[],
-  nums2: number[]
+ nums 1: number[],
+ nums 2: number[]
 ): number {
-  // ========================================
-  // PASO 1: Asegurar que nums1 sea el más pequeño
-  // ========================================
-  // Siempre hacemos búsqueda binaria en el array más pequeño
-  // para que sea más eficiente O(log(min(m,n)))
-  if (nums1.length > nums2.length) {
-    return findMedianSortedArrays(nums2, nums1);
-  }
+ // ========================================
+ // PASO 1: Asegurar que nums 1 sea el más pequeño
+ // ========================================
+ // Siempre hacemos búsqueda binaria en el array más pequeño
+ // para que sea más eficiente O(log(min(m,n)))
+ if (nums 1.length > nums 2.length) {
+ return findMedianSortedArrays(nums 2, nums 1);
+ }
 
-  const m = nums1.length; // tamaño del array pequeño
-  const n = nums2.length; // tamaño del array grande
+ const m = nums 1.length; // tamaño del array pequeño
+ const n = nums 2.length; // tamaño del array grande
 
-  // ========================================
-  // PASO 2: Configurar búsqueda binaria
-  // ========================================
-  // Vamos a buscar la posición correcta del "corte" en nums1
-  // low y high representan el rango de posibles cortes
-  let low = 0; // mínimo: 0 elementos de nums1 a la izquierda
-  let high = m; // máximo: todos los elementos de nums1 a la izquierda
+ // ========================================
+ // PASO 2: Configurar búsqueda binaria
+ // ========================================
+ // Vamos a buscar la posición correcta del "corte" en nums 1
+ // low y high representan el rango de posibles cortes
+ let low = 0; // mínimo: 0 elementos de nums 1 a la izquierda
+ let high = m; // máximo: todos los elementos de nums 1 a la izquierda
 
-  while (low <= high) {
-    // ========================================
-    // PASO 3: Calcular las posiciones del corte
-    // ========================================
-    // i = cuántos elementos de nums1 van a la izquierda
-    const i = Math.floor((low + high) / 2);
+ while (low <= high) {
+ // ========================================
+ // PASO 3: Calcular las posiciones del corte
+ // ========================================
+ // i = cuántos elementos de nums 1 van a la izquierda
+ const i = Math.floor((low + high) / 2);
 
-    // j = cuántos elementos de nums2 van a la izquierda
-    // Se calcula para que el total de elementos a la izquierda sea la mitad
-    const j = Math.floor((m + n + 1) / 2) - i;
+ // j = cuántos elementos de nums 2 van a la izquierda
+ // Se calcula para que el total de elementos a la izquierda sea la mitad
+ const j = Math.floor((m + n + 1) / 2) - i;
 
-    // ========================================
-    // PASO 4: Obtener los valores en los bordes del corte
-    // ========================================
-    // Para nums1:
-    // - nums1LeftMax: el último elemento que va a la izquierda
-    // - nums1RightMin: el primer elemento que va a la derecha
-    const nums1LeftMax = i === 0 ? -Infinity : nums1[i - 1];
-    const nums1RightMin = i === m ? Infinity : nums1[i];
+ // ========================================
+ // PASO 4: Obtener los valores en los bordes del corte
+ // ========================================
+ // Para nums 1:
+ // - nums 1 LeftMax: el último elemento que va a la izquierda
+ // - nums 1 RightMin: el primer elemento que va a la derecha
+ const nums 1 LeftMax = i === 0 ? -Infinity : nums 1[i - 1];
+ const nums 1 RightMin = i === m ? Infinity : nums 1[i];
 
-    // Para nums2:
-    // - nums2LeftMax: el último elemento que va a la izquierda
-    // - nums2RightMin: el primer elemento que va a la derecha
-    const nums2LeftMax = j === 0 ? -Infinity : nums2[j - 1];
-    const nums2RightMin = j === n ? Infinity : nums2[j];
+ // Para nums 2:
+ // - nums 2 LeftMax: el último elemento que va a la izquierda
+ // - nums 2 RightMin: el primer elemento que va a la derecha
+ const nums 2 LeftMax = j === 0 ? -Infinity : nums 2[j - 1];
+ const nums 2 RightMin = j === n ? Infinity : nums 2[j];
 
-    // ========================================
-    // PASO 5: Verificar si encontramos el corte correcto
-    // ========================================
-    // El corte es correcto si:
-    // - Todo lo de la izquierda de nums1 ≤ todo lo de la derecha de nums2
-    // - Todo lo de la izquierda de nums2 ≤ todo lo de la derecha de nums1
-    if (nums1LeftMax <= nums2RightMin && nums2LeftMax <= nums1RightMin) {
-      // ¡ENCONTRAMOS EL CORTE CORRECTO! 🎉
+ // ========================================
+ // PASO 5: Verificar si encontramos el corte correcto
+ // ========================================
+ // El corte es correcto si:
+ // - Todo lo de la izquierda de nums 1 ≤ todo lo de la derecha de nums 2
+ // - Todo lo de la izquierda de nums 2 ≤ todo lo de la derecha de nums 1
+ if (nums 1 LeftMax <= nums 2 RightMin && nums 2 LeftMax <= nums 1 RightMin) {
+ // ¡ENCONTRAMOS EL CORTE CORRECTO! 🎉
 
-      // Si la cantidad total es IMPAR:
-      // La mediana es el mayor de la izquierda
-      if ((m + n) % 2 === 1) {
-        return Math.max(nums1LeftMax, nums2LeftMax);
-      }
+ // Si la cantidad total es IMPAR:
+ // La mediana es el mayor de la izquierda
+ if ((m + n) % 2 === 1) {
+ return Math.max(nums 1 LeftMax, nums 2 LeftMax);
+ }
 
-      // Si la cantidad total es PAR:
-      // La mediana es el promedio entre:
-      // - el mayor de la izquierda
-      // - el menor de la derecha
-      return (
-        (Math.max(nums1LeftMax, nums2LeftMax) +
-          Math.min(nums1RightMin, nums2RightMin)) /
-        2
-      );
-    }
+ // Si la cantidad total es PAR:
+ // La mediana es el promedio entre:
+ // - el mayor de la izquierda
+ // - el menor de la derecha
+ return (
+ (Math.max(nums 1 LeftMax, nums 2 LeftMax) +
+ Math.min(nums 1 RightMin, nums 2 RightMin)) /
+ 2
+ );
+ }
 
-    // ========================================
-    // PASO 6: Ajustar el corte si no es correcto
-    // ========================================
-    else if (nums1LeftMax > nums2RightMin) {
-      // Problema: el último elemento de la izquierda de nums1 es mayor
-      // que el primer elemento de la derecha de nums2
-      // Solución: mover el corte de nums1 hacia la IZQUIERDA
-      // (tomar menos elementos de nums1)
-      high = i - 1;
-    } else {
-      // Problema: nums2LeftMax > nums1RightMin
-      // El último elemento de la izquierda de nums2 es mayor
-      // que el primer elemento de la derecha de nums1
-      // Solución: mover el corte de nums1 hacia la DERECHA
-      // (tomar más elementos de nums1)
-      low = i + 1;
-    }
-  }
+ // ========================================
+ // PASO 6: Ajustar el corte si no es correcto
+ // ========================================
+ else if (nums 1 LeftMax > nums 2 RightMin) {
+ // Problema: el último elemento de la izquierda de nums 1 es mayor
+ // que el primer elemento de la derecha de nums 2
+ // Solución: mover el corte de nums 1 hacia la IZQUIERDA
+ // (tomar menos elementos de nums 1)
+ high = i - 1;
+ } else {
+ // Problema: nums 2 LeftMax > nums 1 RightMin
+ // El último elemento de la izquierda de nums 2 es mayor
+ // que el primer elemento de la derecha de nums 1
+ // Solución: mover el corte de nums 1 hacia la DERECHA
+ // (tomar más elementos de nums 1)
+ low = i + 1;
+ }
+ }
 
-  // Este punto nunca debería alcanzarse si los arrays son válidos
-  throw new Error("Input arrays are not sorted or invalid");
+ // Este punto nunca debería alcanzarse si los arrays son válidos
+ throw new Error("Input arrays are not sorted or invalid");
 }
 ```
 
@@ -735,7 +735,7 @@ Imagina que tienes dos filas de libros ordenados por tamaño. Quieres encontrar 
 Para lograrlo, vamos a poner un "muro" imaginario en cada fila.
 
 1. El Objetivo del Muro
-   Queremos colocar los muros de tal forma que:
+ Queremos colocar los muros de tal forma que:
 
 Haya la misma cantidad de libros a la izquierda de los muros que a la derecha.
 Lo más importante: Todos los libros a la izquierda de los muros deben ser más pequeños que todos los libros a la derecha. 2. ¿Cómo sabemos si el muro está bien puesto?
@@ -746,7 +746,7 @@ El libro más grande a la izquierda en la Fila 2 debe ser menor o igual al más 
 Si esto se cumple, ¡hemos dividido el universo a la mitad perfectamente!
 
 3. ¿Por qué usamos Búsqueda Binaria?
-   En lugar de probar posición por posición (lo cual sería lento), usamos Búsqueda Binaria en la fila más corta.
+ En lugar de probar posición por posición (lo cual sería lento), usamos Búsqueda Binaria en la fila más corta.
 
 Si el libro de la izquierda es muy grande, movemos el muro hacia la izquierda.
 Si es muy pequeño, lo movemos hacia la derecha.

@@ -46,7 +46,7 @@ Este problema es un clásico de manipulación de strings. El objetivo es elimina
 
 ```javascript
 function spaceJam(str) {
-  return str.replace(/\s/g, "");
+ return str.replace(/\s/g, "");
 }
 ```
 
@@ -62,7 +62,7 @@ function spaceJam(str) {
 
 ```javascript
 function spaceJam(str) {
-  return str.split(" ").join("");
+ return str.split(" ").join("");
 }
 ```
 
@@ -73,11 +73,11 @@ function spaceJam(str) {
 
 ```javascript
 function spaceJam(str) {
-  let result = "";
-  for (const char of str) {
-    if (char !== " ") result += char;
-  }
-  return result;
+ let result = "";
+ for (const char of str) {
+ if (char !== " ") result += char;
+ }
+ return result;
 }
 ```
 

@@ -40,9 +40,9 @@ Este problema requiere calcular múltiples propinas basadas en el precio de una 
 **Ejemplo de transformación completa:**
 
 ```
-Input:  mealPrice="$10.00", customTip="25%"
-Parse:  price=10.00, customPercent=25
-Calc:   tip15=1.50, tip20=2.00, tipCustom=2.50
+Input: mealPrice="$10.00", customTip="25%"
+Parse: price=10.00, customPercent=25
+Calc: tip 15=1.50, tip 20=2.00, tipCustom=2.50
 Format: ["$1.50", "$2.00", "$2.50"]
 ```
 
@@ -56,17 +56,17 @@ Desglosemos cada caso para entender los cálculos y patrones de formateo:
 
 - **Parsing entrada**:
 
-  - `mealPrice="$10.00"` → `price = 10.00`
-  - `customTip="25%"` → `customPercent = 25`
+ - `mealPrice="$10.00"` → `price = 10.00`
+ - `customTip="25%"` → `customPercent = 25`
 
 - **Cálculos de propina**:
 
-  - `tip15% = 10.00 × 0.15 = 1.50`
-  - `tip20% = 10.00 × 0.20 = 2.00`
-  - `tip25% = 10.00 × 0.25 = 2.50`
+ - `tip 15% = 10.00 × 0.15 = 1.50`
+ - `tip 20% = 10.00 × 0.20 = 2.00`
+ - `tip 25% = 10.00 × 0.25 = 2.50`
 
 - **Formateo final**:
-  - `1.50 → "$1.50"`, `2.00 → "$2.00"`, `2.50 → "$2.50"`
+ - `1.50 → "$1.50"`, `2.00 → "$2.00"`, `2.50 → "$2.50"`
 
 **Observación**: Caso base ideal con números redondos, sin problemas de precisión decimal.
 
@@ -76,17 +76,17 @@ Desglosemos cada caso para entender los cálculos y patrones de formateo:
 
 - **Parsing entrada**:
 
-  - `mealPrice="$89.67"` → `price = 89.67`
-  - `customTip="26%"` → `customPercent = 26`
+ - `mealPrice="$89.67"` → `price = 89.67`
+ - `customTip="26%"` → `customPercent = 26`
 
 - **Cálculos de propina**:
 
-  - `tip15% = 89.67 × 0.15 = 13.4505 → 13.45` (redondeado)
-  - `tip20% = 89.67 × 0.20 = 17.934 → 17.93` (redondeado)
-  - `tip26% = 89.67 × 0.26 = 23.3142 → 23.31` (redondeado)
+ - `tip 15% = 89.67 × 0.15 = 13.4505 → 13.45` (redondeado)
+ - `tip 20% = 89.67 × 0.20 = 17.934 → 17.93` (redondeado)
+ - `tip 26% = 89.67 × 0.26 = 23.3142 → 23.31` (redondeado)
 
 - **Formateo final**:
-  - `13.45 → "$13.45"`, `17.93 → "$17.93"`, `23.31 → "$23.31"`
+ - `13.45 → "$13.45"`, `17.93 → "$17.93"`, `23.31 → "$23.31"`
 
 **Observación**: Caso con decimales que requiere redondeo correcto. Demuestra manejo de precisión floating-point.
 
@@ -96,17 +96,17 @@ Desglosemos cada caso para entender los cálculos y patrones de formateo:
 
 - **Parsing entrada**:
 
-  - `mealPrice="$19.85"` → `price = 19.85`
-  - `customTip="9%"` → `customPercent = 9`
+ - `mealPrice="$19.85"` → `price = 19.85`
+ - `customTip="9%"` → `customPercent = 9`
 
 - **Cálculos de propina**:
 
-  - `tip15% = 19.85 × 0.15 = 2.9775 → 2.98` (redondeado)
-  - `tip20% = 19.85 × 0.20 = 3.97` (exacto)
-  - `tip9% = 19.85 × 0.09 = 1.7865 → 1.79` (redondeado)
+ - `tip 15% = 19.85 × 0.15 = 2.9775 → 2.98` (redondeado)
+ - `tip 20% = 19.85 × 0.20 = 3.97` (exacto)
+ - `tip 9% = 19.85 × 0.09 = 1.7865 → 1.79` (redondeado)
 
 - **Formateo final**:
-  - `2.98 → "$2.98"`, `3.97 → "$3.97"`, `1.79 → "$1.79"`
+ - `2.98 → "$2.98"`, `3.97 → "$3.97"`, `1.79 → "$1.79"`
 
 **Observación**: Caso especial donde la propina personalizada (9%) es menor que las estándar (15%, 20%). Demuestra flexibilidad del algoritmo.
 
@@ -137,16 +137,16 @@ La solución utiliza un enfoque limpio que combina parsing preciso de strings, c
 
 ```javascript
 function calculateTips(mealPrice, customTip) {
-  const price = parseFloat(mealPrice.slice(1)); // Convertir "$N.NN" a número
-  const customPercent = parseFloat(customTip.slice(0, -1)) / 100; // Convertir "N%" a decimal
+ const price = parseFloat(mealPrice.slice(1)); // Convertir "$N.NN" a número
+ const customPercent = parseFloat(customTip.slice(0, -1)) / 100; // Convertir "N%" a decimal
 
-  const tips = [
-    (price * 0.15).toFixed(2),
-    (price * 0.2).toFixed(2),
-    (price * customPercent).toFixed(2),
-  ];
+ const tips = [
+ (price * 0.15).toFixed(2),
+ (price * 0.2).toFixed(2),
+ (price * customPercent).toFixed(2),
+ ];
 
-  return tips.map((tip) => `$${tip}`);
+ return tips.map((tip) => `$${tip}`);
 }
 ```
 
@@ -196,8 +196,8 @@ parseFloat("26"); // → 26 (convierte string a número)
 
 // Visualización:
 // "$89.67"
-//  0123456  ← índices
-//   ^^^^^   ← slice(1) toma desde posición 1 hasta el final
+// 0123456 ← índices
+// ^^^^^ ← slice(1) toma desde posición 1 hasta el final
 ```
 
 **¿Por qué funciona perfecto aquí?**
@@ -215,9 +215,9 @@ parseFloat("26"); // → 26 (convierte string a número)
 
 // Visualización:
 // "26%"
-//  012   ← índices positivos
+// 012 ← índices positivos
 // -3-2-1 ← índices negativos
-//  ^^    ← slice(0, -1) toma desde inicio hasta antes del último
+// ^^ ← slice(0, -1) toma desde inicio hasta antes del último
 ```
 
 **¿Por qué necesitamos dos parámetros aquí?**
@@ -259,9 +259,9 @@ customTip.slice(0, -1); // Conciso, claro, eficiente
 
 ```javascript
 const tips = [
-  (price * 0.15).toFixed(2), // 15% tip
-  (price * 0.2).toFixed(2), // 20% tip
-  (price * customPercent).toFixed(2), // Custom tip
+ (price * 0.15).toFixed(2), // 15% tip
+ (price * 0.2).toFixed(2), // 20% tip
+ (price * customPercent).toFixed(2), // Custom tip
 ];
 ```
 
@@ -291,17 +291,17 @@ return tips.map((tip) => `$${tip}`);
 
 ```javascript
 // Paso 1: Parsing
-"$89.67".slice(1)           // → "89.67"
-parseFloat("89.67")         // → 89.67
+"$89.67".slice(1) // → "89.67"
+parseFloat("89.67") // → 89.67
 
-"26%".slice(0, -1)          // → "26"
-parseFloat("26")            // → 26
-26 / 100                    // → 0.26
+"26%".slice(0, -1) // → "26"
+parseFloat("26") // → 26
+26 / 100 // → 0.26
 
 // Paso 2: Cálculos
-89.67 * 0.15 = 13.4505  →  "13.45"  (toFixed(2))
-89.67 * 0.2 = 17.934    →  "17.93"  (toFixed(2))
-89.67 * 0.26 = 23.3142  →  "23.31"  (toFixed(2))
+89.67 * 0.15 = 13.4505 → "13.45" (toFixed(2))
+89.67 * 0.2 = 17.934 → "17.93" (toFixed(2))
+89.67 * 0.26 = 23.3142 → "23.31" (toFixed(2))
 
 // Paso 3: Formateo
 ["13.45", "17.93", "23.31"].map(tip => `$${tip}`)
@@ -403,12 +403,12 @@ parseFloat("26")            // → 26
 ```javascript
 // Sin toFixed(): Errores de precisión
 89.67 *
-  0.15(
-    // → 13.450500000000002
+ 0.15(
+ // → 13.450500000000002
 
-    // Con toFixed(): Precisión controlada
-    89.67 * 0.15
-  ).toFixed(2); // → "13.45"
+ // Con toFixed(): Precisión controlada
+ 89.67 * 0.15
+ ).toFixed(2); // → "13.45"
 ```
 
 **Por qué toFixed(2) es perfecto aquí:**
@@ -424,7 +424,7 @@ parseFloat("26")            // → 26
 
 ```javascript
 // Paso 1: Construir array de cálculos
-const tips = [calculation1, calculation2, calculation3];
+const tips = [calculation 1, calculation 2, calculation 3];
 
 // Paso 2: Transformar uniformemente
 return tips.map((tip) => `$${tip}`);
@@ -447,10 +447,10 @@ return tips.map((tip) => `$${tip}`);
 
 // ❌ Concatenación (verboso)
 "$" +
-  tip[
-    // ❌ Join (innecesario)
-    ("$", tip)
-  ].join("");
+ tip[
+ // ❌ Join (innecesario)
+ ("$", tip)
+ ].join("");
 ```
 
 ## Notas de Implementación
@@ -474,9 +474,9 @@ customTip.split("%")[0]; // Crea array innecesario
 ```javascript
 // ✅ Claro y mantenible
 const tips = [
-  (price * 0.15).toFixed(2), // Posición 0: 15%
-  (price * 0.2).toFixed(2), // Posición 1: 20%
-  (price * customPercent).toFixed(2), // Posición 2: Custom
+ (price * 0.15).toFixed(2), // Posición 0: 15%
+ (price * 0.2).toFixed(2), // Posición 1: 20%
+ (price * customPercent).toFixed(2), // Posición 2: Custom
 ];
 ```
 
@@ -489,7 +489,7 @@ return tips.map((tip) => `$${tip}`);
 // ❌ Imperativo innecesario
 const result = [];
 for (let i = 0; i < tips.length; i++) {
-  result.push("$" + tips[i]);
+ result.push("$" + tips[i]);
 }
 return result;
 ```
@@ -501,9 +501,9 @@ return result;
 ```javascript
 // Posible pero menos legible
 const calculateTips = (mealPrice, customTip) =>
-  [0.15, 0.2, parseFloat(customTip.slice(0, -1)) / 100].map(
-    (rate) => `$${(parseFloat(mealPrice.slice(1)) * rate).toFixed(2)}`
-  );
+ [0.15, 0.2, parseFloat(customTip.slice(0, -1)) / 100].map(
+ (rate) => `$${(parseFloat(mealPrice.slice(1)) * rate).toFixed(2)}`
+ );
 ```
 
 **Problemas:** Repite parsing, menos debugging-friendly, overflow cognitivo.
@@ -515,12 +515,12 @@ const calculateTips = (mealPrice, customTip) =>
 const STANDARD_TIPS = [0.15, 0.2];
 
 function calculateTips(mealPrice, customTip) {
-  const price = parseFloat(mealPrice.slice(1));
-  const customPercent = parseFloat(customTip.slice(0, -1)) / 100;
+ const price = parseFloat(mealPrice.slice(1));
+ const customPercent = parseFloat(customTip.slice(0, -1)) / 100;
 
-  return [...STANDARD_TIPS, customPercent].map(
-    (rate) => `$${(price * rate).toFixed(2)}`
-  );
+ return [...STANDARD_TIPS, customPercent].map(
+ (rate) => `$${(price * rate).toFixed(2)}`
+ );
 }
 ```
 
@@ -531,10 +531,10 @@ function calculateTips(mealPrice, customTip) {
 ```javascript
 // Innecesario según especificación del problema
 function calculateTips(mealPrice, customTip) {
-  if (!mealPrice.startsWith("$") || !customTip.endsWith("%")) {
-    throw new Error("Invalid format");
-  }
-  // ... resto del código
+ if (!mealPrice.startsWith("$") || !customTip.endsWith("%")) {
+ throw new Error("Invalid format");
+ }
+ // ... resto del código
 }
 ```
 
@@ -546,17 +546,17 @@ function calculateTips(mealPrice, customTip) {
 
 1. **Micro-optimización descartada**: Eliminar array intermedio
 
-   - **Ganancia**: Imperceptible (solo 3 elementos)
-   - **Costo**: Menos legibilidad
+ - **Ganancia**: Imperceptible (solo 3 elementos)
+ - **Costo**: Menos legibilidad
 
 2. **Caching descartado**: Guardar constantes 0.15, 0.20
 
-   - **Ganancia**: Ninguna (son literales)
-   - **Costo**: Más código
+ - **Ganancia**: Ninguna (son literales)
+ - **Costo**: Más código
 
 3. **Regex descartado**: Para parsing más "flexible"
-   - **Ganancia**: Ninguna (formato es fijo)
-   - **Costo**: Mayor complejidad y menor rendimiento
+ - **Ganancia**: Ninguna (formato es fijo)
+ - **Costo**: Mayor complejidad y menor rendimiento
 
 ### 🎯 **Por qué tu implementación es ejemplar:**
 

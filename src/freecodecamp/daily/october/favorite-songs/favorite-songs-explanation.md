@@ -63,11 +63,11 @@ La implementación utiliza una cadena de métodos funcionales para resolver el p
 
 ```javascript
 function favoriteSongs(playlist) {
-  // Ordenar por plays descendente y tomar los primeros dos títulos
-  return playlist
-    .sort((a, b) => b.plays - a.plays)
-    .slice(0, 2)
-    .map((song) => song.title);
+ // Ordenar por plays descendente y tomar los primeros dos títulos
+ return playlist
+ .sort((a, b) => b.plays - a.plays)
+ .slice(0, 2)
+ .map((song) => song.title);
 }
 ```
 
@@ -91,7 +91,7 @@ function favoriteSongs(playlist) {
 
 ### Complejidad Temporal: O(n log n)
 
-- **`sort()`**: O(n log n) - El algoritmo de ordenamiento de JavaScript (Timsort en V8) tiene esta complejidad
+- **`sort()`**: O(n log n) - El algoritmo de ordenamiento de JavaScript (Timsort en V 8) tiene esta complejidad
 - **`slice(0, 2)`**: O(1) - Operación constante ya que solo toma 2 elementos
 - **`map()`**: O(k) donde k=2 - Operación constante en la práctica
 
@@ -120,9 +120,9 @@ La implementación fue validada con tres casos de prueba que cubren diferentes e
 
 ```javascript
 Input: [
-  { title: "Sync or Swim", plays: 3 },
-  { title: "Byte Me", plays: 1 },
-  { title: "Earbud Blues", plays: 2 }
+ { title: "Sync or Swim", plays: 3 },
+ { title: "Byte Me", plays: 1 },
+ { title: "Earbud Blues", plays: 2 }
 ]
 Expected Output: ["Sync or Swim", "Earbud Blues"]
 ```
@@ -133,9 +133,9 @@ Expected Output: ["Sync or Swim", "Earbud Blues"]
 
 ```javascript
 Input: [
-  { title: "Skip Track", plays: 98 },
-  { title: "99 Downloads", plays: 99 },
-  { title: "Clickwheel Love", plays: 100 }
+ { title: "Skip Track", plays: 98 },
+ { title: "99 Downloads", plays: 99 },
+ { title: "Clickwheel Love", plays: 100 }
 ]
 Expected Output: ["Clickwheel Love", "99 Downloads"]
 ```
@@ -146,9 +146,9 @@ Expected Output: ["Clickwheel Love", "99 Downloads"]
 
 ```javascript
 Input: [
-  { title: "Song A", plays: 42 },
-  { title: "Song B", plays: 99 },
-  { title: "Song C", plays: 75 }
+ { title: "Song A", plays: 42 },
+ { title: "Song B", plays: 99 },
+ { title: "Song C", plays: 75 }
 ]
 Expected Output: ["Song B", "Song C"]
 ```

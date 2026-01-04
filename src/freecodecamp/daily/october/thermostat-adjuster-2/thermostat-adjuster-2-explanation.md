@@ -58,15 +58,15 @@ const targetF = targetC * 1.8 + 32;
 const difference = targetF - currentF;
 
 if (difference > 0) {
-  // Necesitamos calentar: targetF es mayor que currentF
-  return `Heat: ${difference.toFixed(1)} degrees Fahrenheit`;
+ // Necesitamos calentar: targetF es mayor que currentF
+ return `Heat: ${difference.toFixed(1)} degrees Fahrenheit`;
 } else if (difference < 0) {
-  // Necesitamos enfriar: targetF es menor que currentF
-  // Usamos Math.abs() para obtener valor positivo
-  return `Cool: ${Math.abs(difference).toFixed(1)} degrees Fahrenheit`;
+ // Necesitamos enfriar: targetF es menor que currentF
+ // Usamos Math.abs() para obtener valor positivo
+ return `Cool: ${Math.abs(difference).toFixed(1)} degrees Fahrenheit`;
 } else {
-  // Las temperaturas son iguales
-  return "Hold";
+ // Las temperaturas son iguales
+ return "Hold";
 }
 ```
 
@@ -90,17 +90,17 @@ if (difference > 0) {
 
 ```javascript
 function adjustThermostat(currentF, targetC) {
-  const targetF = parseFloat((targetC * 1.8 + 32).toFixed(1));
+ const targetF = parseFloat((targetC * 1.8 + 32).toFixed(1));
 
-  if (currentF < targetF) {
-    const difference = (targetF - currentF).toFixed(1);
-    return `Heat: ${difference} degrees Fahrenheit`;
-  } else if (currentF > targetF) {
-    const difference = (currentF - targetF).toFixed(1);
-    return `Cool: ${difference} degrees Fahrenheit`;
-  } else {
-    return "Hold";
-  }
+ if (currentF < targetF) {
+ const difference = (targetF - currentF).toFixed(1);
+ return `Heat: ${difference} degrees Fahrenheit`;
+ } else if (currentF > targetF) {
+ const difference = (currentF - targetF).toFixed(1);
+ return `Cool: ${difference} degrees Fahrenheit`;
+ } else {
+ return "Hold";
+ }
 }
 ```
 
@@ -120,8 +120,8 @@ const targetF = parseFloat((targetC * 1.8 + 32).toFixed(1));
 
 ```javascript
 if (currentF < targetF) {
-  const difference = (targetF - currentF).toFixed(1);
-  return `Heat: ${difference} degrees Fahrenheit`;
+ const difference = (targetF - currentF).toFixed(1);
+ return `Heat: ${difference} degrees Fahrenheit`;
 }
 ```
 

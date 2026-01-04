@@ -16,29 +16,29 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/smallest-number-all-set-bits
 
 ## Análisis del Problema
 
-Este problema requiere encontrar el número más pequeño mayor o igual a `n` que tenga todos sus bits set en su representación binaria (es decir, que consista únicamente de 1s en binario).
+Este problema requiere encontrar el número más pequeño mayor o igual a `n` que tenga todos sus bits set en su representación binaria (es decir, que consista únicamente de 1 s en binario).
 
 ### Requisitos del Problema
 
 - **Entrada**: Un número entero positivo `n` (1 ≤ n ≤ 1000)
-- **Salida**: El número más pequeño `x` ≥ `n` donde todos los bits de `x` están set (representación binaria de solo 1s)
+- **Salida**: El número más pequeño `x` ≥ `n` donde todos los bits de `x` están set (representación binaria de solo 1 s)
 - **Restricciones**: Los números con todos los bits set son de la forma 2^k - 1
 
 ### Ejemplos de Entrada/Salida
 
 1. `n = 5` → `7`
 
-   - 7 en binario: `111` (todos bits set)
-   - Es el número más pequeño ≥ 5 con esta propiedad
+ - 7 en binario: `111` (todos bits set)
+ - Es el número más pequeño ≥ 5 con esta propiedad
 
 2. `n = 10` → `15`
 
-   - 15 en binario: `1111` (todos bits set)
-   - 7 sería menor que 10, así que necesitamos el siguiente
+ - 15 en binario: `1111` (todos bits set)
+ - 7 sería menor que 10, así que necesitamos el siguiente
 
 3. `n = 3` → `3`
-   - 3 en binario: `11` (todos bits set)
-   - 3 ya cumple la condición
+ - 3 en binario: `11` (todos bits set)
+ - 3 ya cumple la condición
 
 ### Desafíos Identificados
 
@@ -71,12 +71,12 @@ La solución utiliza matemáticas y manipulación de bits para encontrar eficien
 
 ```typescript
 export function smallestNumber(n: number): number {
-  // Encontrar el exponente k tal que 2^k - 1 >= n
-  // Esto es equivalente a encontrar el techo de log2(n+1)
-  const k = Math.ceil(Math.log2(n + 1));
+ // Encontrar el exponente k tal que 2^k - 1 >= n
+ // Esto es equivalente a encontrar el techo de log 2(n+1)
+ const k = Math.ceil(Math.log 2(n + 1));
 
-  // Calcular 2^k - 1, que es el número con todos los bits set
-  return (1 << k) - 1;
+ // Calcular 2^k - 1, que es el número con todos los bits set
+ return (1 << k) - 1;
 }
 ```
 
@@ -84,7 +84,7 @@ export function smallestNumber(n: number): number {
 
 1. **Comprensión del problema**: Los números con todos los bits set son 2^k - 1
 2. **Encontrar el exponente correcto**: Necesitamos el k más pequeño donde 2^k - 1 ≥ n
-3. **Cálculo matemático**: 2^k ≥ n + 1, por lo tanto k = ceil(log2(n + 1))
+3. **Cálculo matemático**: 2^k ≥ n + 1, por lo tanto k = ceil(log 2(n + 1))
 4. **Construcción del resultado**: Usar desplazamiento de bits (1 << k) - 1
 
 ### Ejemplo de Ejecución
@@ -92,14 +92,14 @@ export function smallestNumber(n: number): number {
 Para n = 5:
 
 - n + 1 = 6
-- log2(6) ≈ 2.58
+- log 2(6) ≈ 2.58
 - ceil(2.58) = 3
 - 2^3 - 1 = 8 - 1 = 7 ✓
 
 Para n = 3:
 
 - n + 1 = 4
-- log2(4) = 2
+- log 2(4) = 2
 - ceil(2) = 2
 - 2^2 - 1 = 4 - 1 = 3 ✓
 
@@ -107,7 +107,7 @@ Para n = 3:
 
 ### Complejidad Temporal: O(1)
 
-- **Operaciones constantes**: `Math.log2()`, `Math.ceil()`, y desplazamiento de bits son O(1)
+- **Operaciones constantes**: `Math.log 2()`, `Math.ceil()`, y desplazamiento de bits son O(1)
 - **Independiente del tamaño de n**: Para n hasta 1000, todas las operaciones son eficientes
 - **Ventaja**: Solución óptima que no requiere bucles o iteraciones
 
@@ -127,7 +127,7 @@ Para n = 3:
 
 **Limitaciones:**
 
-- **Dependiente de Math**: Confía en la precisión de `Math.log2()` (generalmente buena para enteros)
+- **Dependiente de Math**: Confía en la precisión de `Math.log 2()` (generalmente buena para enteros)
 - **Rango limitado**: Funciona bien para las constraints dadas (n ≤ 1000)
 
 ## Casos de Prueba
@@ -149,20 +149,20 @@ La suite de tests cubre los escenarios principales:
 ### Conceptos Técnicos Aprendidos
 
 1. **Números con todos los bits set**: Reconocer el patrón 2^k - 1
-2. **Logaritmos para potencias**: Usar log2 para encontrar exponentes
+2. **Logaritmos para potencias**: Usar log 2 para encontrar exponentes
 3. **Desplazamiento de bits**: `1 << k` como alternativa a `Math.pow(2, k)`
 4. **Math.ceil()**: Redondeo hacia arriba para encontrar el siguiente entero
 
 ### Patrones de JavaScript
 
-- **Funciones Math**: `Math.log2()`, `Math.ceil()`
+- **Funciones Math**: `Math.log 2()`, `Math.ceil()`
 - **Operadores de bits**: Desplazamiento a la izquierda `<<`
 - **Cálculos matemáticos**: Combinación de operaciones para resultados eficientes
 
 ### Decisiones de Diseño
 
 - **Enfoque matemático**: Elegimos cálculo directo sobre iteración
-- **Precisión**: `Math.log2()` es suficientemente preciso para enteros hasta 1000
+- **Precisión**: `Math.log 2()` es suficientemente preciso para enteros hasta 1000
 - **Legibilidad**: Código conciso pero bien comentado
 
 ### Optimizaciones Posibles
@@ -170,7 +170,7 @@ La suite de tests cubre los escenarios principales:
 Aunque la solución actual es O(1), podríamos considerar:
 
 1. **Tabla de lookup**: Para n pequeño, usar array precomputado
-2. **Bit manipulation pura**: Usar operaciones de bits sin Math.log2()
+2. **Bit manipulation pura**: Usar operaciones de bits sin Math.log 2()
 3. **Validación de entrada**: Checks para asegurar n > 0
 
 Esta solución demuestra un enfoque elegante y eficiente para un problema aparentemente simple pero con profundidad matemática.
@@ -184,9 +184,9 @@ El operador `<<` es un **operador de desplazamiento de bits**. Toma un número e
 #### Ejemplo básico:
 
 ```
-5 en binario:  101
-5 << 1:       1010  (desplazar 1 posición) = 10 en decimal
-5 << 2:      10100  (desplazar 2 posiciones) = 20 en decimal
+5 en binario: 101
+5 << 1: 1010 (desplazar 1 posición) = 10 en decimal
+5 << 2: 10100 (desplazar 2 posiciones) = 20 en decimal
 ```
 
 **Regla matemática**: `x << k` es equivalente a `x * 2^k`
@@ -224,18 +224,18 @@ Encontrar el número más pequeño `x ≥ n` donde `x` tiene todos los bits set 
 
 3. **Despejando k**: `2^k ≥ n + 1`
 
-4. **Aplicando logaritmo**: `k ≥ log2(n + 1)`
+4. **Aplicando logaritmo**: `k ≥ log 2(n + 1)`
 
-5. **Como k debe ser entero**: `k = ceil(log2(n + 1))`
+5. **Como k debe ser entero**: `k = ceil(log 2(n + 1))`
 
 #### ¿Por qué `n + 1` y no `n`?
 
 **Ejemplo problemático**: n = 4
 
-- Si usáramos `log2(n)`: `log2(4) = 2`, `2^2 - 1 = 3`
+- Si usáramos `log 2(n)`: `log 2(4) = 2`, `2^2 - 1 = 3`
 - Pero `3 < 4` ❌ INCORRECTO
 
-- Usando `log2(n + 1)`: `log2(5) ≈ 2.32`, `ceil(2.32) = 3`, `2^3 - 1 = 7`
+- Usando `log 2(n + 1)`: `log 2(5) ≈ 2.32`, `ceil(2.32) = 3`, `2^3 - 1 = 7`
 - `7 ≥ 4` ✅ CORRECTO
 
 **La desigualdad requiere el `+1`**: `2^k - 1 ≥ n` ⇒ `2^k ≥ n + 1`
@@ -246,7 +246,7 @@ Encontrar el número más pequeño `x ≥ n` donde `x` tiene todos los bits set 
 
 ```
 Paso 1: n + 1 = 6
-Paso 2: log2(6) ≈ 2.584
+Paso 2: log 2(6) ≈ 2.584
 Paso 3: ceil(2.584) = 3
 Paso 4: 2^3 = 8
 Paso 5: 8 - 1 = 7
@@ -257,7 +257,7 @@ Resultado: 7 (binario: 111)
 
 ```
 Paso 1: n + 1 = 4
-Paso 2: log2(4) = 2
+Paso 2: log 2(4) = 2
 Paso 3: ceil(2) = 2
 Paso 4: 2^2 = 4
 Paso 5: 4 - 1 = 3
@@ -268,7 +268,7 @@ Resultado: 3 (binario: 11) - Ya cumplía la condición
 
 ```
 Paso 1: n + 1 = 11
-Paso 2: log2(11) ≈ 3.459
+Paso 2: log 2(11) ≈ 3.459
 Paso 3: ceil(3.459) = 4
 Paso 4: 2^4 = 16
 Paso 5: 16 - 1 = 15
@@ -278,8 +278,8 @@ Resultado: 15 (binario: 1111)
 ### Representación Binaria Visual
 
 ```
-n=3:  011 (3)  → Ya es 011 (todos bits set)
-n=5:  101 (5)  → Necesita 111 (7)
+n=3: 011 (3) → Ya es 011 (todos bits set)
+n=5: 101 (5) → Necesita 111 (7)
 n=10: 1010 (10) → Necesita 1111 (15)
 ```
 

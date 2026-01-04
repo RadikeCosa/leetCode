@@ -34,7 +34,7 @@ La solución recorre toda la matriz una sola vez y, para cada cero, calcula la s
 
 ## Casos límite y ejemplos
 
-- Matriz de 1x1 con un solo cero: `[[0]]` → `[0, 0]`
+- Matriz de 1 x 1 con un solo cero: `[[0]]` → `[0, 0]`
 - Ceros en esquinas y bordes: `[[0, 9, 9, 0], [9, 9, 9, 9], [0, 9, 9, 0]]` → `[0, 0]`
 - Cero rodeado de máximos peligros: `[[9, 9, 9], [9, 0, 9], [9, 9, 9]]` → `[1, 1]`
 - Matriz rectangular: `[[1, 2, 3, 0], [4, 5, 6, 7], [0, 8, 9, 1]]` → `[0, 3]`

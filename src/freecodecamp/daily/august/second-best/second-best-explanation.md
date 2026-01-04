@@ -57,9 +57,9 @@ El enfoque consiste en procesar la lista de precios para obtener únicamente los
 2. Filtrar los precios para quedarse solo con aquellos que sean menores o iguales al presupuesto.
 3. Ordenar el arreglo filtrado de mayor a menor.
 4. Verificar la cantidad de precios dentro del presupuesto:
-   - Si hay al menos dos, devolver el segundo más caro (índice 1).
-   - Si hay solo uno, devolver ese precio (índice 0).
-   - Si no hay ninguno, devolver 0.
+ - Si hay al menos dos, devolver el segundo más caro (índice 1).
+ - Si hay solo uno, devolver ese precio (índice 0).
+ - Si no hay ninguno, devolver 0.
 
 ### Código de la Solución
 
@@ -73,23 +73,23 @@ El enfoque consiste en procesar la lista de precios para obtener únicamente los
  * @returns {number} El precio del segundo mejor laptop dentro del presupuesto, o el mejor, o 0
  */
 function getLaptopCost(laptops, budget) {
-  const uniquePrices = Array.from(new Set(laptops));
-  uniquePrices.sort((a, b) => b - a);
+ const uniquePrices = Array.from(new Set(laptops));
+ uniquePrices.sort((a, b) => b - a);
 
-  // Filtrar los precios que están dentro del presupuesto
-  const affordable = uniquePrices.filter((price) => price <= budget);
+ // Filtrar los precios que están dentro del presupuesto
+ const affordable = uniquePrices.filter((price) => price <= budget);
 
-  if (affordable.length === 0) {
-    return 0;
-  }
+ if (affordable.length === 0) {
+ return 0;
+ }
 
-  // Si el más caro está dentro del presupuesto y hay al menos dos, devolver el segundo más caro
-  if (affordable[0] === uniquePrices[0] && affordable.length >= 2) {
-    return affordable[1];
-  }
+ // Si el más caro está dentro del presupuesto y hay al menos dos, devolver el segundo más caro
+ if (affordable[0] === uniquePrices[0] && affordable.length >= 2) {
+ return affordable[1];
+ }
 
-  // Si el más caro está fuera del presupuesto, devolver el más caro que sí entra
-  return affordable[0];
+ // Si el más caro está fuera del presupuesto, devolver el más caro que sí entra
+ return affordable[0];
 }
 
 export default getLaptopCost;
@@ -103,8 +103,8 @@ La complejidad temporal de la solución es $O(n + k \log k)$, donde $n$ es la ca
 
 - Eliminar duplicados con `Set`: $O(n)$
 - Ordenar los precios únicos: $O(k \log k)$
-- Filtrar por presupuesto: $O(k)$  
-  Las demás operaciones son constantes.
+- Filtrar por presupuesto: $O(k)$ 
+ Las demás operaciones son constantes.
 
 ### Complejidad Espacial
 

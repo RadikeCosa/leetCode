@@ -34,17 +34,17 @@ Se deben contar todos los rectángulos posibles con lados paralelos a los ejes d
 
 - Fórmula general: el número total de rectángulos es
 
-  $$
-  R(w,h) = \frac{w\,(w+1)}{2} \cdot \frac{h\,(h+1)}{2} = \binom{w+1}{2}\,\binom{h+1}{2}.
-  $$
+ $$
+ R(w,h) = \frac{w\,(w+1)}{2} \cdot \frac{h\,(h+1)}{2} = \binom{w+1}{2}\,\binom{h+1}{2}.
+ $$
 
-  Intuición: hay `w + 1` líneas verticales y `h + 1` líneas horizontales; elegir 2 verticales y 2 horizontales determina un rectángulo.
+ Intuición: hay `w + 1` líneas verticales y `h + 1` líneas horizontales; elegir 2 verticales y 2 horizontales determina un rectángulo.
 
 - Ejemplo numérico: para $w=1$ y $h=3$,
 
-  $$
-  R(1,3) = \frac{1\cdot 2}{2} \cdot \frac{3\cdot 4}{2} = 1 \cdot 6 = 6.
-  $$
+ $$
+ R(1,3) = \frac{1\cdot 2}{2} \cdot \frac{3\cdot 4}{2} = 1 \cdot 6 = 6.
+ $$
 
 ## Análisis de Complejidad
 

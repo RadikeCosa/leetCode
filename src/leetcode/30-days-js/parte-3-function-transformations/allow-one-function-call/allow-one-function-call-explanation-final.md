@@ -44,28 +44,28 @@ Este problema introduce el patrón **"once"** en programación funcional, donde 
 
 1. **Variable de estado**:
 
-   ```typescript
-   let called = false;
-   ```
+ ```typescript
+ let called = false;
+ ```
 
-   - Flag booleano que rastrea si la función ya fue ejecutada
-   - Utiliza closure para persistir entre llamadas
+ - Flag booleano que rastrea si la función ya fue ejecutada
+ - Utiliza closure para persistir entre llamadas
 
 2. **Función wrapper**:
 
-   ```typescript
-   return function (...args: any[]): any {
-     if (!called) {
-       called = true; // Marcar como llamada
-       return fn(...args); // Ejecutar función original
-     }
-     return undefined; // Llamadas subsecuentes
-   };
-   ```
+ ```typescript
+ return function (...args: any[]): any {
+ if (!called) {
+ called = true; // Marcar como llamada
+ return fn(...args); // Ejecutar función original
+ }
+ return undefined; // Llamadas subsecuentes
+ };
+ ```
 
 3. **Lógica de ejecución**:
-   - **Primera llamada**: `called = false` → ejecuta función → marca `called = true`
-   - **Llamadas subsecuentes**: `called = true` → retorna `undefined`
+ - **Primera llamada**: `called = false` → ejecuta función → marca `called = true`
+ - **Llamadas subsecuentes**: `called = true` → retorna `undefined`
 
 ## Complejidad
 

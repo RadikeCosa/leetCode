@@ -49,18 +49,18 @@ Este problema se resuelve eficientemente usando la técnica de **Two Pointers**:
 
 ```typescript
 for (let i = 0; i < nums.length; i++) {
-  if (i === 0 || nums[i] !== nums[i - 1]) {
-    // Nuevo elemento único
-    count = 1;
-    nums[writeIndex] = nums[i];
-    writeIndex++;
-  } else if (count < 2) {
-    // Duplicado permitido (primera repetición)
-    count++;
-    nums[writeIndex] = nums[i];
-    writeIndex++;
-  }
-  // Si count >= 2, solo avanzamos i sin escribir
+ if (i === 0 || nums[i] !== nums[i - 1]) {
+ // Nuevo elemento único
+ count = 1;
+ nums[writeIndex] = nums[i];
+ writeIndex++;
+ } else if (count < 2) {
+ // Duplicado permitido (primera repetición)
+ count++;
+ nums[writeIndex] = nums[i];
+ writeIndex++;
+ }
+ // Si count >= 2, solo avanzamos i sin escribir
 }
 ```
 
@@ -96,13 +96,13 @@ Existe una **solución más concisa** que elimina la necesidad del contador expl
 
 ```typescript
 function removeDuplicates(nums: number[]): number {
-  let w = 0;
-  for (let num of nums) {
-    if (w < 2 || nums[w - 2] !== num) {
-      nums[w++] = num;
-    }
-  }
-  return w;
+ let w = 0;
+ for (let num of nums) {
+ if (w < 2 || nums[w - 2] !== num) {
+ nums[w++] = num;
+ }
+ }
+ return w;
 }
 ```
 
@@ -123,11 +123,11 @@ Una confusión común es entender qué hace `nums[w++] = num`:
 ```typescript
 // Operación: nums[w++] = num
 // Paso 1: Evaluar w++
-//   - Valor actual de w (ej: 0)
-//   - Usar 0 como índice para acceder al array
-//   - Incrementar la variable w: w = 1
+// - Valor actual de w (ej: 0)
+// - Usar 0 como índice para acceder al array
+// - Incrementar la variable w: w = 1
 // Paso 2: Asignar
-//   - nums[0] = num
+// - nums[0] = num
 
 // Resultado:
 // - nums[0] tiene el nuevo valor
@@ -175,13 +175,13 @@ Si queremos máximo **k** duplicados, comparamos con `nums[w-k]`:
 
 ### Comparación de enfoques:
 
-| Aspecto                  | Enfoque con contador      | Enfoque nums[w-2]         |
+| Aspecto | Enfoque con contador | Enfoque nums[w-2] |
 | ------------------------ | ------------------------- | ------------------------- |
-| **Líneas de código**     | ~10 líneas                | 3 líneas                  |
-| **Variables auxiliares** | count, writeIndex         | solo w                    |
-| **Legibilidad**          | Muy clara                 | Requiere entender w-2     |
-| **Generalización**       | Manual para k duplicados  | Automática: nums[w-k]     |
-| **Complejidad**          | O(n) tiempo, O(1) espacio | O(n) tiempo, O(1) espacio |
+| **Líneas de código** | ~10 líneas | 3 líneas |
+| **Variables auxiliares** | count, writeIndex | solo w |
+| **Legibilidad** | Muy clara | Requiere entender w-2 |
+| **Generalización** | Manual para k duplicados | Automática: nums[w-k] |
+| **Complejidad** | O(n) tiempo, O(1) espacio | O(n) tiempo, O(1) espacio |
 
 **Para aprendizaje**: El enfoque con contador es más didáctico
 **Para código de producción**: El enfoque nums[w-2] es más elegante

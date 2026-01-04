@@ -41,24 +41,24 @@ El problema ofrece pasos claros para comenzar a construir la solucion, en primer
 
 ### Enfoque Elegido
 
-1- Dividir el string en palabras usando `split(' ')`.  
-2- Limpiar cada palabra de signos de puntuacion usando una expresion regular.  
+1- Dividir el string en palabras usando `split(' ')`. 
+2- Limpiar cada palabra de signos de puntuacion usando una expresion regular. 
 3- Iterar sobre las palabras limpias para encontrar la mas larga.
 4- Devolver la palabra mas larga encontrada.
 
 ```javascript
 function longestWord(sentence) {
-  const words = sentence.split(" ");
-  let longest = "";
+ const words = sentence.split(" ");
+ let longest = "";
 
-  for (let word of words) {
-    const cleanWord = word.replace(/[^\w]/g, "");
-    if (cleanWord.length > longest.length) {
-      longest = cleanWord;
-    }
-  }
+ for (let word of words) {
+ const cleanWord = word.replace(/[^\w]/g, "");
+ if (cleanWord.length > longest.length) {
+ longest = cleanWord;
+ }
+ }
 
-  return longest;
+ return longest;
 }
 ```
 
@@ -83,7 +83,7 @@ Algunos casos edge a considerar incluyen:
 - Frases con espacios multiples entre palabras: Deberia manejarse correctamente al dividir las palabras.
 - Palabras con apóstrofes: Deberían ser limpiadas correctamente.
 - Frases con mayúsculas y minúsculas: No debería afectar la longitud de las palabras.
-  Todos estos casos son correctamente manejados por la solución propuesta.
+ Todos estos casos son correctamente manejados por la solución propuesta.
 
 ## Reflexiones y Aprendizajes
 

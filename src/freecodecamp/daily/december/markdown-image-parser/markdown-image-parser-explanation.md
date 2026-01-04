@@ -40,14 +40,14 @@ El objetivo es transformar un string que representa una imagen en formato Markdo
 
 A partir del enunciado y los tests proporcionados, los casos de prueba clave son:
 
-- Entrada: `![Cute cat](cat.png)`  
-  Salida esperada: `<img src="cat.png" alt="Cute cat">`
+- Entrada: `![Cute cat](cat.png)` 
+ Salida esperada: `<img src="cat.png" alt="Cute cat">`
 
-- Entrada: `![Rocket Ship](https://freecodecamp.org/cdn/rocket-ship.jpg)`  
-  Salida esperada: `<img src="https://freecodecamp.org/cdn/rocket-ship.jpg" alt="Rocket Ship">`
+- Entrada: `![Rocket Ship](https://freecodecamp.org/cdn/rocket-ship.jpg)` 
+ Salida esperada: `<img src="https://freecodecamp.org/cdn/rocket-ship.jpg" alt="Rocket Ship">`
 
-- Entrada: `![Cute cats!](https://freecodecamp.org/cats.jpeg)`  
-  Salida esperada: `<img src="https://freecodecamp.org/cats.jpeg" alt="Cute cats!">`
+- Entrada: `![Cute cats!](https://freecodecamp.org/cats.jpeg)` 
+ Salida esperada: `<img src="https://freecodecamp.org/cats.jpeg" alt="Cute cats!">`
 
 Estos cubren casos con texto alternativo simple, con signos de exclamación y con URLs absolutas y relativas.
 
@@ -66,18 +66,18 @@ Para resolver este problema, se opta por utilizar expresiones regulares para ext
 
 ```javascript
 function parseImage(markdown) {
-  // Expresión regular para capturar alt text y image URL
-  const regex = /!\[(.*?)\]\((.*?)\)/;
-  // Aplicar la expresión regular al string de entrada
-  const match = markdown.match(regex);
-  // Si hay una coincidencia, extraer los componentes y construir el string HTML
-  if (match) {
-    const altText = match[1];
-    const imageUrl = match[2];
-    return `<img src="${imageUrl}" alt="${altText}">`;
-  }
-  // Si no hay coincidencia, retornar un string vacío o manejar el error según sea necesario
-  return "";
+ // Expresión regular para capturar alt text y image URL
+ const regex = /!\[(.*?)\]\((.*?)\)/;
+ // Aplicar la expresión regular al string de entrada
+ const match = markdown.match(regex);
+ // Si hay una coincidencia, extraer los componentes y construir el string HTML
+ if (match) {
+ const altText = match[1];
+ const imageUrl = match[2];
+ return `<img src="${imageUrl}" alt="${altText}">`;
+ }
+ // Si no hay coincidencia, retornar un string vacío o manejar el error según sea necesario
+ return "";
 }
 ```
 

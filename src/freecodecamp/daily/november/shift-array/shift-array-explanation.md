@@ -23,17 +23,17 @@ For example, given [1, 2, 3] and 1, shift the array 1 to the left, returning [2,
 
 ## 📋 Ejemplos
 
-| Input                       | n   | Output                      |
+| Input | n | Output |
 | --------------------------- | --- | --------------------------- |
-| [1,2,3,4,5]                 | 2   | [4,5,1,2,3]                 |
-| [1,2,3,4,5]                 | 5   | [1,2,3,4,5]                 |
-| [1,2,3,4,5]                 | 0   | [1,2,3,4,5]                 |
-| [1,2,3,4,5]                 | 7   | [4,5,1,2,3]                 |
-| [1,2,3]                     | 1   | [2,3,1]                     |
-| [1,2,3]                     | -1  | [3,1,2]                     |
-| ["alpha","bravo","charlie"] | 5   | ["charlie","alpha","bravo"] |
+| [1,2,3,4,5] | 2 | [4,5,1,2,3] |
+| [1,2,3,4,5] | 5 | [1,2,3,4,5] |
+| [1,2,3,4,5] | 0 | [1,2,3,4,5] |
+| [1,2,3,4,5] | 7 | [4,5,1,2,3] |
+| [1,2,3] | 1 | [2,3,1] |
+| [1,2,3] | -1 | [3,1,2] |
+| ["alpha","bravo","charlie"] | 5 | ["charlie","alpha","bravo"] |
 | ["alpha","bravo","charlie"] | -11 | ["bravo","charlie","alpha"] |
-| [0,1,2,3,4,5,6,7,8,9]       | 15  | [5,6,7,8,9,0,1,2,3,4]       |
+| [0,1,2,3,4,5,6,7,8,9] | 15 | [5,6,7,8,9,0,1,2,3,4] |
 
 ---
 
@@ -41,18 +41,18 @@ For example, given [1, 2, 3] and 1, shift the array 1 to the left, returning [2,
 
 ```js
 describe("shiftArray", () => {
-  it("desplaza 2 posiciones", () => {
-    expect(shiftArray([1, 2, 3, 4, 5], 2)).toEqual([4, 5, 1, 2, 3]);
-  });
-  it("desplaza 5 posiciones (igual al largo)", () => {
-    expect(shiftArray([1, 2, 3, 4, 5], 5)).toEqual([1, 2, 3, 4, 5]);
-  });
-  it("desplaza 0 posiciones", () => {
-    expect(shiftArray([1, 2, 3, 4, 5], 0)).toEqual([1, 2, 3, 4, 5]);
-  });
-  it("desplaza 7 posiciones (mayor al largo)", () => {
-    expect(shiftArray([1, 2, 3, 4, 5], 7)).toEqual([4, 5, 1, 2, 3]);
-  });
+ it("desplaza 2 posiciones", () => {
+ expect(shiftArray([1, 2, 3, 4, 5], 2)).toEqual([4, 5, 1, 2, 3]);
+ });
+ it("desplaza 5 posiciones (igual al largo)", () => {
+ expect(shiftArray([1, 2, 3, 4, 5], 5)).toEqual([1, 2, 3, 4, 5]);
+ });
+ it("desplaza 0 posiciones", () => {
+ expect(shiftArray([1, 2, 3, 4, 5], 0)).toEqual([1, 2, 3, 4, 5]);
+ });
+ it("desplaza 7 posiciones (mayor al largo)", () => {
+ expect(shiftArray([1, 2, 3, 4, 5], 7)).toEqual([4, 5, 1, 2, 3]);
+ });
 });
 ```
 
@@ -62,19 +62,19 @@ describe("shiftArray", () => {
 
 ```js
 function shiftArray(arr, n) {
-  const length = arr.length;
-  if (length === 0) return arr;
+ const length = arr.length;
+ if (length === 0) return arr;
 
-  // Normalización: convierte n en desplazamiento válido
-  n = n % length;
-  if (n < 0) {
-    n += length;
-  }
+ // Normalización: convierte n en desplazamiento válido
+ n = n % length;
+ if (n < 0) {
+ n += length;
+ }
 
-  // Desplazamiento a la izquierda (como piden los tests)
-  const part1 = arr.slice(n);
-  const part2 = arr.slice(0, n);
-  return part1.concat(part2);
+ // Desplazamiento a la izquierda (como piden los tests)
+ const part 1 = arr.slice(n);
+ const part 2 = arr.slice(0, n);
+ return part 1.concat(part 2);
 }
 ```
 

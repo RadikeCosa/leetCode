@@ -52,15 +52,15 @@ Mi primer intuicion es la de usar un hashmap para contar las ocurrencias de cada
 
 ```javascript
 function majorityElement(nums: number[]): number {
-  const hashMap: Record<number, number> = {};
-  const n = nums.length;
-  for (const num of nums) {
-    hashMap[num] = (hashMap[num] || 0) + 1;
-    if (hashMap[num] > Math.floor(n / 2)) {
-      return num;
-    }
-  }
-  return -1;
+ const hashMap: Record<number, number> = {};
+ const n = nums.length;
+ for (const num of nums) {
+ hashMap[num] = (hashMap[num] || 0) + 1;
+ if (hashMap[num] > Math.floor(n / 2)) {
+ return num;
+ }
+ }
+ return -1;
 }
 ```
 
@@ -107,13 +107,13 @@ Inicializar candidate = null
 Inicializar count = 0
 
 Para cada num en nums:
-    Si count == 0:
-        candidate = num
-        count = 1
-    Sino si num == candidate:
-        count += 1
-    Sino:
-        count -= 1
+ Si count == 0:
+ candidate = num
+ count = 1
+ Sino si num == candidate:
+ count += 1
+ Sino:
+ count -= 1
 
 Retornar candidate
 ```

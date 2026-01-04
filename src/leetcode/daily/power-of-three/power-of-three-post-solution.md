@@ -27,13 +27,13 @@ La clave está en usar la **mayor potencia de 3 que cabe en un entero de 32 bits
 
 ```typescript []
 function isPowerOfThree(n: number): boolean {
-  // Caso base para números inválidos
-  if (n <= 0) return false;
+ // Caso base para números inválidos
+ if (n <= 0) return false;
 
-  // El número mágico: mayor potencia de 3 en rango int32
-  const maxPowerOfThree = Math.pow(3, 19); // 1162261467
+ // El número mágico: mayor potencia de 3 en rango int 32
+ const maxPowerOfThree = Math.pow(3, 19); // 1162261467
 
-  // La condición mágica: solo potencias puras de 3 dividen exactamente
-  return maxPowerOfThree % n === 0;
+ // La condición mágica: solo potencias puras de 3 dividen exactamente
+ return maxPowerOfThree % n === 0;
 }
 ```

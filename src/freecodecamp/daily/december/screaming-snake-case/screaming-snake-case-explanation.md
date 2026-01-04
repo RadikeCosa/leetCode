@@ -69,40 +69,40 @@ Este enfoque es preferible a analizar carácter por carácter porque reduce la c
 
 1. **Normalizar camelCase y PascalCase a snake_case**:
 
-   - Usar la expresión regular `/([a-z])([A-Z])/g` para detectar transiciones de minúscula a mayúscula.
-   - Insertar un guion bajo entre ambas letras usando `replace` con el patrón de sustitución `'$1_$2'`.
-   - Ejemplo: `"userEmail"` → `"user_Email"`
+ - Usar la expresión regular `/([a-z])([A-Z])/g` para detectar transiciones de minúscula a mayúscula.
+ - Insertar un guion bajo entre ambas letras usando `replace` con el patrón de sustitución `'$1_$2'`.
+ - Ejemplo: `"userEmail"` → `"user_Email"`
 
 2. **Convertir kebab-case a snake_case**:
 
-   - Reemplazar todos los guiones medios (`-`) por guiones bajos (`_`) usando `replace(/-/g, '_')`.
-   - Ejemplo: `"user-address"` → `"user_address"`
+ - Reemplazar todos los guiones medios (`-`) por guiones bajos (`_`) usando `replace(/-/g, '_')`.
+ - Ejemplo: `"user-address"` → `"user_address"`
 
 3. **Dividir el string en palabras**:
 
-   - Usar `split('_')` para obtener un array de palabras individuales.
-   - En este punto, todos los formatos quedan normalizados como palabras separadas.
+ - Usar `split('_')` para obtener un array de palabras individuales.
+ - En este punto, todos los formatos quedan normalizados como palabras separadas.
 
 4. **Convertir a mayúsculas y unir con guiones bajos**:
-   - Mapear cada palabra con `toUpperCase()` para convertirla a mayúsculas.
-   - Usar `join('_')` para unir las palabras con guiones bajos, obteniendo el formato SCREAMING_SNAKE_CASE final.
+ - Mapear cada palabra con `toUpperCase()` para convertirla a mayúsculas.
+ - Usar `join('_')` para unir las palabras con guiones bajos, obteniendo el formato SCREAMING_SNAKE_CASE final.
 
 ```javascript
 function toScreamingSnakeCase(variableName) {
-  // Paso 1: Normalizar camelCase/PascalCase insertando guiones bajos antes de mayúsculas
-  // Ejemplo: "userEmail" → "user_Email"
-  const withUnderscores = variableName.replace(/([a-z])([A-Z])/g, "$1_$2");
+ // Paso 1: Normalizar camelCase/PascalCase insertando guiones bajos antes de mayúsculas
+ // Ejemplo: "userEmail" → "user_Email"
+ const withUnderscores = variableName.replace(/([a-z])([A-Z])/g, "$1_$2");
 
-  // Paso 2: Convertir kebab-case a snake_case reemplazando guiones medios
-  // Ejemplo: "user-address" → "user_address"
-  const normalized = withUnderscores.replace(/-/g, "_");
+ // Paso 2: Convertir kebab-case a snake_case reemplazando guiones medios
+ // Ejemplo: "user-address" → "user_address"
+ const normalized = withUnderscores.replace(/-/g, "_");
 
-  // Paso 3: Dividir por guiones bajos para obtener palabras individuales
-  const words = normalized.split("_");
+ // Paso 3: Dividir por guiones bajos para obtener palabras individuales
+ const words = normalized.split("_");
 
-  // Paso 4: Convertir cada palabra a mayúsculas y unir con guiones bajos
-  // Ejemplo: ["user", "Email"] → "USER_EMAIL"
-  return words.map((word) => word.toUpperCase()).join("_");
+ // Paso 4: Convertir cada palabra a mayúsculas y unir con guiones bajos
+ // Ejemplo: ["user", "Email"] → "USER_EMAIL"
+ return words.map((word) => word.toUpperCase()).join("_");
 }
 ```
 
@@ -146,7 +146,7 @@ En el peor caso, si tenemos muchas palabras cortas, el array `words` puede conte
 
 ### Consideraciones Importantes
 
-- **Números y caracteres especiales**: La solución actual no maneja explícitamente números o caracteres especiales. Si la entrada contiene números como `"user2Email"`, la expresión regular no insertará guiones bajos alrededor de ellos. Esto podría requerir ajustes si el problema lo especifica.
+- **Números y caracteres especiales**: La solución actual no maneja explícitamente números o caracteres especiales. Si la entrada contiene números como `"user 2 Email"`, la expresión regular no insertará guiones bajos alrededor de ellos. Esto podría requerir ajustes si el problema lo especifica.
 - **Múltiples mayúsculas consecutivas**: Si hay acrónimos como `"XMLParser"`, la expresión regular actual no los maneja óptimamente y podría producir `"X_M_L_PARSER"`. Dependiendo del contexto, esto podría ser aceptable o requerir lógica adicional.
 - **Guiones bajos consecutivos**: Si la entrada tiene múltiples guiones bajos consecutivos (ej: `"user__id"`), la función puede producir elementos vacíos en el array `words`, resultando en guiones bajos múltiples en la salida. Se podría filtrar con `.filter(word => word.length > 0)` si fuera necesario.
 
@@ -165,27 +165,27 @@ Para los casos de prueba proporcionados, la solución funciona correctamente.
 
 1. **Encadenar operaciones sin variables intermedias**: Si bien la versión actual es legible, se podría reducir el código encadenando todas las operaciones:
 
-   ```javascript
-   return variableName
-     .replace(/([a-z])([A-Z])/g, "$1_$2")
-     .replace(/-/g, "_")
-     .split("_")
-     .map((word) => word.toUpperCase())
-     .join("_");
-   ```
+ ```javascript
+ return variableName
+ .replace(/([a-z])([A-Z])/g, "$1_$2")
+ .replace(/-/g, "_")
+ .split("_")
+ .map((word) => word.toUpperCase())
+ .join("_");
+ ```
 
-   Esto no mejora el rendimiento, pero reduce líneas de código. La versión expandida es más didáctica para explicar cada paso.
+ Esto no mejora el rendimiento, pero reduce líneas de código. La versión expandida es más didáctica para explicar cada paso.
 
 2. **Usar una sola expresión regular más compleja**: Se podría intentar una regex que maneje todos los casos en un solo `replace`, pero sería menos legible y más propensa a errores.
 
 3. **Filtrar palabras vacías**: Para mayor robustez ante entradas con múltiples guiones bajos consecutivos:
 
-   ```javascript
-   .split("_")
-   .filter(word => word.length > 0)
-   .map(word => word.toUpperCase())
-   .join("_");
-   ```
+ ```javascript
+ .split("_")
+ .filter(word => word.length > 0)
+ .map(word => word.toUpperCase())
+ .join("_");
+ ```
 
 4. **Manejo de acrónimos**: Si el problema requiere manejar casos como `"XMLParser"` → `"XML_PARSER"`, se necesitaría una expresión regular más sofisticada que detecte secuencias de mayúsculas.
 

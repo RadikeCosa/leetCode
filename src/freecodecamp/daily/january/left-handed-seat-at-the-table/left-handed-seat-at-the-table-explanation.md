@@ -18,7 +18,7 @@ problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2026-01-0
 
 ## Enunciado del Problema
 
-Dada una matriz de **4x2** (array de arrays) que representa la disposición de asientos en una mesa para una comida, determina **cuántos asientos pueden ser ocupados por una persona zurda**.
+Dada una matriz de **4 x 2** (array de arrays) que representa la disposición de asientos en una mesa para una comida, determina **cuántos asientos pueden ser ocupados por una persona zurda**.
 
 ### Reglas
 
@@ -46,8 +46,8 @@ Considera la siguiente matriz:
 
 ```js
 [
-  ["U", "R", "U", "L"],
-  ["U", "R", "R", "R"],
+ ["U", "R", "U", "L"],
+ ["U", "R", "R", "R"],
 ];
 ```
 
@@ -70,14 +70,14 @@ El problema nos pide identificar los asientos vacíos (`U`) que no tengan vecino
 ### Visualización de la Mesa
 
 ```
-        Índices:   0    1    2    3
-                  ┌────┬────┬────┬────┐
-Fila 0 (↓):       │    │    │    │    │
-                  └────┴────┴────┴────┘
-                  ════════════════════════ MESA
-                  ┌────┬────┬────┬────┐
-Fila 1 (↑):       │    │    │    │    │
-                  └────┴────┴────┴────┘
+ Índices: 0 1 2 3
+ ┌────┬────┬────┬────┐
+Fila 0 (↓): │ │ │ │ │
+ └────┴────┴────┴────┘
+ ════════════════════════ MESA
+ ┌────┬────┬────┬────┐
+Fila 1 (↑): │ │ │ │ │
+ └────┴────┴────┴────┘
 ```
 
 ### Casos de Prueba Identificados
@@ -86,8 +86,8 @@ Fila 1 (↑):       │    │    │    │    │
 
 ```js
 [
-  ["U", "R", "U", "L"],
-  ["U", "R", "R", "R"],
+ ["U", "R", "U", "L"],
+ ["U", "R", "R", "R"],
 ];
 // Resultado: 2
 // - Fila 0[0]U: bloqueado por R en [1]
@@ -99,8 +99,8 @@ Fila 1 (↑):       │    │    │    │    │
 
 ```js
 [
-  ["U", "U", "U", "U"],
-  ["U", "U", "U", "U"],
+ ["U", "U", "U", "U"],
+ ["U", "U", "U", "U"],
 ];
 // Resultado: 8 (todos los asientos disponibles)
 ```
@@ -109,8 +109,8 @@ Fila 1 (↑):       │    │    │    │    │
 
 ```js
 [
-  ["U", "R", "U", "R"],
-  ["L", "R", "R", "U"],
+ ["U", "R", "U", "R"],
+ ["L", "R", "R", "U"],
 ];
 // Resultado: 0 (todos los vacíos están bloqueados por diestros)
 ```
@@ -119,8 +119,8 @@ Fila 1 (↑):       │    │    │    │    │
 
 ```js
 [
-  ["L", "U", "R", "R"],
-  ["L", "U", "R", "R"],
+ ["L", "U", "R", "R"],
+ ["L", "U", "R", "R"],
 ];
 // Resultado: 1
 // - Fila 0[1]U: bloqueado por R en [2]
@@ -131,8 +131,8 @@ Fila 1 (↑):       │    │    │    │    │
 
 ```js
 [
-  ["U", "R", "U", "U"],
-  ["U", "U", "L", "U"],
+ ["U", "R", "U", "U"],
+ ["U", "U", "L", "U"],
 ];
 // Resultado: 5
 ```
@@ -153,29 +153,29 @@ Utilizamos un enfoque de **iteración directa** con lógica condicional basada e
 
 4. **Lógica por orientación:**
 
-   **Fila superior (row === 0):**
+ **Fila superior (row === 0):**
 
-   ```js
-   // Su izquierda física = índice siguiente (seat + 1)
-   if (seat === table[row].length - 1 || table[row][seat + 1] !== "R") {
-     count++;
-   }
-   ```
+ ```js
+ // Su izquierda física = índice siguiente (seat + 1)
+ if (seat === table[row].length - 1 || table[row][seat + 1] !== "R") {
+ count++;
+ }
+ ```
 
-   - Si es la **última columna** (esquina derecha): es válido
-   - Si el asiento a la derecha en el array **no es `"R"`**: es válido
+ - Si es la **última columna** (esquina derecha): es válido
+ - Si el asiento a la derecha en el array **no es `"R"`**: es válido
 
-   **Fila inferior (row === 1):**
+ **Fila inferior (row === 1):**
 
-   ```js
-   // Su izquierda física = índice anterior (seat - 1)
-   if (seat === 0 || table[row][seat - 1] !== "R") {
-     count++;
-   }
-   ```
+ ```js
+ // Su izquierda física = índice anterior (seat - 1)
+ if (seat === 0 || table[row][seat - 1] !== "R") {
+ count++;
+ }
+ ```
 
-   - Si es la **primera columna** (esquina izquierda): es válido
-   - Si el asiento a la izquierda en el array **no es `"R"`**: es válido
+ - Si es la **primera columna** (esquina izquierda): es válido
+ - Si el asiento a la izquierda en el array **no es `"R"`**: es válido
 
 5. **Retornar resultado:** Devolvemos el contador final.
 
@@ -183,26 +183,26 @@ Utilizamos un enfoque de **iteración directa** con lógica condicional basada e
 
 ```javascript
 function findLeftHandedSeats(table) {
-  let count = 0;
+ let count = 0;
 
-  for (let row = 0; row < table.length; row++) {
-    for (let seat = 0; seat < table[row].length; seat++) {
-      if (table[row][seat] === "U") {
-        if (row === 0) {
-          // Fila superior (mirando hacia abajo): izquierda física = índice siguiente
-          if (seat === table[row].length - 1 || table[row][seat + 1] !== "R") {
-            count++;
-          }
-        } else {
-          // Fila inferior (mirando hacia arriba): izquierda física = índice anterior
-          if (seat === 0 || table[row][seat - 1] !== "R") {
-            count++;
-          }
-        }
-      }
-    }
-  }
-  return count;
+ for (let row = 0; row < table.length; row++) {
+ for (let seat = 0; seat < table[row].length; seat++) {
+ if (table[row][seat] === "U") {
+ if (row === 0) {
+ // Fila superior (mirando hacia abajo): izquierda física = índice siguiente
+ if (seat === table[row].length - 1 || table[row][seat + 1] !== "R") {
+ count++;
+ }
+ } else {
+ // Fila inferior (mirando hacia arriba): izquierda física = índice anterior
+ if (seat === 0 || table[row][seat - 1] !== "R") {
+ count++;
+ }
+ }
+ }
+ }
+ }
+ return count;
 }
 ```
 
@@ -230,23 +230,23 @@ Donde `n` es el número de filas y `m` es el número de columnas en la matriz.
 
 1. **Asientos de Esquina:**
 
-   - **Superior izquierda (0,0):** No tiene vecino a su izquierda físicamente, pero en el código verifica el índice siguiente
-   - **Superior derecha (0,3):** Es esquina, condición `seat === table[row].length - 1` retorna `true`
-   - **Inferior izquierda (1,0):** Es esquina, condición `seat === 0` retorna `true`
-   - **Inferior derecha (1,3):** No tiene vecino a su izquierda físicamente, verifica índice anterior
+ - **Superior izquierda (0,0):** No tiene vecino a su izquierda físicamente, pero en el código verifica el índice siguiente
+ - **Superior derecha (0,3):** Es esquina, condición `seat === table[row].length - 1` retorna `true`
+ - **Inferior izquierda (1,0):** Es esquina, condición `seat === 0` retorna `true`
+ - **Inferior derecha (1,3):** No tiene vecino a su izquierda físicamente, verifica índice anterior
 
 2. **Matriz completamente vacía:**
 
-   - Todos los asientos retornan válidos (8 en total)
-   - No hay operaciones especiales necesarias
+ - Todos los asientos retornan válidos (8 en total)
+ - No hay operaciones especiales necesarias
 
 3. **Sin asientos disponibles:**
 
-   - Si todos están ocupados o bloqueados, retorna 0 correctamente
+ - Si todos están ocupados o bloqueados, retorna 0 correctamente
 
 4. **Personas zurdas existentes (`"L"`):**
-   - Son tratadas igual que asientos ocupados (no se cuentan)
-   - No bloquean a otros zurdos potenciales (solo `"R"` bloquea)
+ - Son tratadas igual que asientos ocupados (no se cuentan)
+ - No bloquean a otros zurdos potenciales (solo `"R"` bloquea)
 
 ### Validaciones Implícitas
 
@@ -259,17 +259,17 @@ Donde `n` es el número de filas y `m` es el número de columnas en la matriz.
 
 1. **Simulación de orientación espacial:**
 
-   - La clave del problema es entender que "izquierda" es relativa a la dirección en que mira cada persona
-   - Requiere mapear conceptos físicos (orientación en una mesa) a índices de array
+ - La clave del problema es entender que "izquierda" es relativa a la dirección en que mira cada persona
+ - Requiere mapear conceptos físicos (orientación en una mesa) a índices de array
 
 2. **Lógica condicional basada en contexto:**
 
-   - La misma pregunta ("¿hay un diestro a la izquierda?") se responde de manera diferente según la fila
-   - Demuestra la importancia de entender el contexto del problema antes de implementar
+ - La misma pregunta ("¿hay un diestro a la izquierda?") se responde de manera diferente según la fila
+ - Demuestra la importancia de entender el contexto del problema antes de implementar
 
 3. **Manejo de casos borde:**
-   - Las esquinas son casos especiales que necesitan tratamiento explícito
-   - El uso de OR lógico simplifica la verificación de límites
+ - Las esquinas son casos especiales que necesitan tratamiento explícito
+ - El uso de OR lógico simplifica la verificación de límites
 
 ### Dificultades Encontradas
 
@@ -302,6 +302,6 @@ Donde `n` es el número de filas y `m` es el número de columnas en la matriz.
 
 ### Conceptos Relacionados
 
-- **Traversal de matrices 2D:** Patrón fundamental en programación
+- **Traversal de matrices 2 D:** Patrón fundamental en programación
 - **Lógica condicional contextual:** Decisiones basadas en múltiples factores
 - **Boundary checking:** Verificación de límites en estructuras de datos

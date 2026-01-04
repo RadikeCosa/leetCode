@@ -67,16 +67,16 @@ El problema requiere encontrar dos subarrays consecutivos (adyacentes) de exacta
 - `[1, 3, 2]` NO es estrictamente creciente (3 > 2 en la transición)
 - `[1, 1, 2]` NO es estrictamente creciente (1 no es mayor que 1)
 
-**Subarrays Adyacentes:** Dos subarrays que no se superponen pero están separados por exactamente `k` posiciones. Si el primer subarray va de `i` a `i+k-1`, el segundo debe ir de `i+k` a `i+2k-1`.
+**Subarrays Adyacentes:** Dos subarrays que no se superponen pero están separados por exactamente `k` posiciones. Si el primer subarray va de `i` a `i+k-1`, el segundo debe ir de `i+k` a `i+2 k-1`.
 
 ### Casos de Ejemplo
 
 **Ejemplo 1:** `nums = [2,5,7,8,9,2,3,4,3,1], k = 3`
 
 - Posibles pares de subarrays adyacentes:
-  - `[2,5,7]` y `[8,9,2]` → `[2,5,7]` es creciente, `[8,9,2]` NO es creciente
-  - `[5,7,8]` y `[9,2,3]` → `[5,7,8]` es creciente, `[9,2,3]` NO es creciente
-  - `[7,8,9]` y `[2,3,4]` → Ambos son crecientes → **TRUE**
+ - `[2,5,7]` y `[8,9,2]` → `[2,5,7]` es creciente, `[8,9,2]` NO es creciente
+ - `[5,7,8]` y `[9,2,3]` → `[5,7,8]` es creciente, `[9,2,3]` NO es creciente
+ - `[7,8,9]` y `[2,3,4]` → Ambos son crecientes → **TRUE**
 
 **Ejemplo 2:** `nums = [1,2,3,4,4,4,4,5,6,7], k = 5`
 
@@ -99,7 +99,7 @@ El problema requiere encontrar dos subarrays consecutivos (adyacentes) de exacta
 
 1. **Iterar por posiciones iniciales**: Para cada índice `i` donde quepan dos subarrays adyacentes (`i <= nums.length - 2*k`)
 2. **Verificar primer subarray**: Comprobar si `nums[i..i+k-1]` es estrictamente creciente
-3. **Verificar segundo subarray**: Comprobar si `nums[i+k..i+2k-1]` es estrictamente creciente
+3. **Verificar segundo subarray**: Comprobar si `nums[i+k..i+2 k-1]` es estrictamente creciente
 4. **Retornar true**: Si encontramos algún par que cumpla ambas condiciones
 
 **Implementación:**
@@ -155,9 +155,9 @@ Caso 4: Subarrays al final del array
 
 Tiempo: O(n × k) para ambas versiones
 
-- Para cada posición inicial `i` (hasta `n - 2k`)
+- Para cada posición inicial `i` (hasta `n - 2 k`)
 - Verificamos `k-1` comparaciones en cada subarray
-- Total: `O((n - 2k + 1) × 2 × (k-1)) = O(n × k)`
+- Total: `O((n - 2 k + 1) × 2 × (k-1)) = O(n × k)`
 
 **Espacio:**
 
@@ -183,32 +183,32 @@ La primera implementación verificaba cada par de subarrays adyacentes de manera
 
 ```typescript
 export function hasIncreasingSubarrays(nums: number[], k: number): boolean {
-  for (let i = 0; i <= nums.length - 2 * k; i++) {
-    let firstIncreasing = true;
-    let secondIncreasing = true;
+ for (let i = 0; i <= nums.length - 2 * k; i++) {
+ let firstIncreasing = true;
+ let secondIncreasing = true;
 
-    // Verificar primer subarray
-    for (let j = i; j < i + k - 1; j++) {
-      if (nums[j] >= nums[j + 1]) {
-        firstIncreasing = false;
-        break;
-      }
-    }
+ // Verificar primer subarray
+ for (let j = i; j < i + k - 1; j++) {
+ if (nums[j] >= nums[j + 1]) {
+ firstIncreasing = false;
+ break;
+ }
+ }
 
-    // Verificar segundo subarray
-    for (let j = i + k; j < i + 2 * k - 1; j++) {
-      if (nums[j] >= nums[j + 1]) {
-        secondIncreasing = false;
-        break;
-      }
-    }
+ // Verificar segundo subarray
+ for (let j = i + k; j < i + 2 * k - 1; j++) {
+ if (nums[j] >= nums[j + 1]) {
+ secondIncreasing = false;
+ break;
+ }
+ }
 
-    if (firstIncreasing && secondIncreasing) {
-      return true;
-    }
-  }
+ if (firstIncreasing && secondIncreasing) {
+ return true;
+ }
+ }
 
-  return false;
+ return false;
 }
 ```
 
@@ -224,28 +224,28 @@ Después de analizar el código, implementamos una optimización que precomputa 
 
 ```typescript
 export function hasIncreasingSubarrays(nums: number[], k: number): boolean {
-  // Precomputar cuáles subarrays de longitud k son crecientes
-  const increasingSubarrays = new Array(nums.length - k + 1).fill(false);
+ // Precomputar cuáles subarrays de longitud k son crecientes
+ const increasingSubarrays = new Array(nums.length - k + 1).fill(false);
 
-  for (let i = 0; i <= nums.length - k; i++) {
-    let isIncreasing = true;
-    for (let j = i; j < i + k - 1; j++) {
-      if (nums[j] >= nums[j + 1]) {
-        isIncreasing = false;
-        break;
-      }
-    }
-    increasingSubarrays[i] = isIncreasing;
-  }
+ for (let i = 0; i <= nums.length - k; i++) {
+ let isIncreasing = true;
+ for (let j = i; j < i + k - 1; j++) {
+ if (nums[j] >= nums[j + 1]) {
+ isIncreasing = false;
+ break;
+ }
+ }
+ increasingSubarrays[i] = isIncreasing;
+ }
 
-  // Verificar pares adyacentes
-  for (let i = 0; i <= nums.length - 2 * k; i++) {
-    if (increasingSubarrays[i] && increasingSubarrays[i + k]) {
-      return true;
-    }
-  }
+ // Verificar pares adyacentes
+ for (let i = 0; i <= nums.length - 2 * k; i++) {
+ if (increasingSubarrays[i] && increasingSubarrays[i + k]) {
+ return true;
+ }
+ }
 
-  return false;
+ return false;
 }
 ```
 
@@ -258,14 +258,14 @@ export function hasIncreasingSubarrays(nums: number[], k: number): boolean {
 
 **Comparación de versiones:**
 
-| Aspecto            | Versión Inicial               | Versión Optimizada                             |
+| Aspecto | Versión Inicial | Versión Optimizada |
 |
 
 ------------ | ----------------------------- | ---------------------------------------------- |
-| **Espacio**        | O(1)                          | O(n)                                           |
-| **Claridad**       | Menos clara (lógica mezclada) | Más clara (separación de responsabilidades)    |
-| **Mantenibilidad** | Más difícil de modificar      | Más fácil de extender                          |
-| **Reutilización**  | Limitada                      | El array `increasingSubarrays` es reutilizable |
+| **Espacio** | O(1) | O(n) |
+| **Claridad** | Menos clara (lógica mezclada) | Más clara (separación de responsabilidades) |
+| **Mantenibilidad** | Más difícil de modificar | Más fácil de extender |
+| **Reutilización** | Limitada | El array `increasingSubarrays` es reutilizable |
 
 **¿Por qué la optimización?**
 

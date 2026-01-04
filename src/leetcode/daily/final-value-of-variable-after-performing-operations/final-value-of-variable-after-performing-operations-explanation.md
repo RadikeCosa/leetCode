@@ -22,8 +22,8 @@ Este es un problema de **simulación** que modela un lenguaje de programación s
 
 - **Variable inicial**: X = 0
 - **Operaciones disponibles**:
-  - `++X` y `X++`: incrementan X en 1
-  - `--X` y `X--`: decrementan X en 1
+ - `++X` y `X++`: incrementan X en 1
+ - `--X` y `X--`: decrementan X en 1
 - **Input**: Array de strings con operaciones a ejecutar secuencialmente
 - **Output**: Valor final de X después de todas las operaciones
 
@@ -126,15 +126,15 @@ Resultado final: X = 1
 
 ```typescript
 function finalValueAfterOperations(operations: string[]): number {
-  let x = 0;
-  for (const op of operations) {
-    if (op === "++X" || op === "X++") {
-      x++;
-    } else {
-      x--;
-    }
-  }
-  return x;
+ let x = 0;
+ for (const op of operations) {
+ if (op === "++X" || op === "X++") {
+ x++;
+ } else {
+ x--;
+ }
+ }
+ return x;
 }
 ```
 
@@ -179,15 +179,15 @@ function finalValueAfterOperations(operations: string[]): number {
 
 ```typescript
 describe("Final Value of Variable After Performing Operations", () => {
-  describe("LeetCode Examples", () => {
-    /* 3 casos oficiales */
-  });
-  describe("Edge Cases", () => {
-    /* casos límite */
-  });
-  describe("Specific Operation Types", () => {
-    /* verificación equivalencias */
-  });
+ describe("LeetCode Examples", () => {
+ /* 3 casos oficiales */
+ });
+ describe("Edge Cases", () => {
+ /* casos límite */
+ });
+ describe("Specific Operation Types", () => {
+ /* verificación equivalencias */
+ });
 });
 ```
 
@@ -221,7 +221,7 @@ Aprovechar las restricciones del problema:
 ```typescript
 let x = 0;
 for (const op of operations) {
-  /* ... */
+ /* ... */
 }
 return x;
 ```
@@ -242,8 +242,8 @@ return operations.reduce((x, op) => (op.includes("++") ? x + 1 : x - 1), 0);
 
 - **Iteración única**: Recorremos el array `operations` exactamente una vez
 - **Operación por elemento**: Cada operación requiere tiempo constante O(1)
-  - Comparación de strings: `op === "++X"` es O(1) para strings de longitud fija
-  - Operación aritmética: `x++` o `x--` es O(1)
+ - Comparación de strings: `op === "++X"` es O(1) para strings de longitud fija
+ - Operación aritmética: `x++` o `x--` es O(1)
 - **Total**: O(n) donde n = `operations.length`
 
 **Es óptimo** porque necesitamos examinar cada operación al menos una vez para determinar el resultado.
@@ -258,14 +258,14 @@ return operations.reduce((x, op) => (op.includes("++") ? x + 1 : x - 1), 0);
 
 **Comparación con enfoques alternativos:**
 
-| Enfoque                | Tiempo | Espacio | Notas                               |
+| Enfoque | Tiempo | Espacio | Notas |
 |
 
 ---------------- | ------ | ------- | ----------------------------------- |
-| **Simulación directa** | O(n)   | O(1)    | ✅ Nuestra implementación           |
-| **Conteo matemático**  | O(n)   | O(1)    | Equivalente, menos directo          |
-| **Reduce funcional**   | O(n)   | O(1)    | Más conciso, menos legible          |
-| **Array intermedio**   | O(n)   | O(n)    | ❌ Innecesario, desperdicia memoria |
+| **Simulación directa** | O(n) | O(1) | ✅ Nuestra implementación |
+| **Conteo matemático** | O(n) | O(1) | Equivalente, menos directo |
+| **Reduce funcional** | O(n) | O(1) | Más conciso, menos legible |
+| **Array intermedio** | O(n) | O(n) | ❌ Innecesario, desperdicia memoria |
 
 ### Comparación con Constraints
 
@@ -390,11 +390,11 @@ return increments - decrements;
 ```typescript
 // Estructura general para problemas de simulación:
 function simulate(operations) {
-  let state = initialState();
-  for (const operation of operations) {
-    state = applyOperation(state, operation);
-  }
-  return state;
+ let state = initialState();
+ for (const operation of operations) {
+ state = applyOperation(state, operation);
+ }
+ return state;
 }
 ```
 
@@ -411,10 +411,10 @@ function simulate(operations) {
 ```typescript
 // Sería overkill para este problema:
 const strategies = {
-  "++X": (x) => x + 1,
-  "X++": (x) => x + 1,
-  "--X": (x) => x - 1,
-  "X--": (x) => x - 1,
+ "++X": (x) => x + 1,
+ "X++": (x) => x + 1,
+ "--X": (x) => x - 1,
+ "X--": (x) => x - 1,
 };
 return operations.reduce((x, op) => strategies[op](x), 0);
 ```
@@ -427,9 +427,9 @@ return operations.reduce((x, op) => strategies[op](x), 0);
 
 ```typescript
 if (op === "++X" || op === "X++") {
-  x++;
+ x++;
 } else {
-  x--;
+ x--;
 }
 ```
 
@@ -437,13 +437,13 @@ if (op === "++X" || op === "X++") {
 
 ```typescript
 if (op === "++X" || op === "X++") {
-  x++;
+ x++;
 } else if (op === "--X" || op === "X--") {
-  x--;
-} else if (op === "*2X" || op === "X*2") {
-  x *= 2;
+ x--;
+} else if (op === "*2 X" || op === "X*2") {
+ x *= 2;
 } else {
-  // Manejo de error o operación por defecto
+ // Manejo de error o operación por defecto
 }
 ```
 
@@ -458,17 +458,17 @@ if (op === "++X" || op === "X++") {
 ```typescript
 // Versión con debugging (fácil de agregar/quitar):
 function finalValueAfterOperations(operations: string[]): number {
-  let x = 0;
-  for (const op of operations) {
-    const oldX = x;
-    if (op === "++X" || op === "X++") {
-      x++;
-    } else {
-      x--;
-    }
-    // console.log(`${op}: ${oldX} → ${x}`);
-  }
-  return x;
+ let x = 0;
+ for (const op of operations) {
+ const oldX = x;
+ if (op === "++X" || op === "X++") {
+ x++;
+ } else {
+ x--;
+ }
+ // console.log(`${op}: ${oldX} → ${x}`);
+ }
+ return x;
 }
 ```
 
@@ -506,15 +506,15 @@ function finalValueAfterOperations(operations: string[]): number {
 ```typescript
 // Sistema de puntuación de juego
 function calculateScore(actions: string[]): number {
-  let score = 0;
-  for (const action of actions) {
-    if (action === "kill" || action === "bonus") {
-      score += 10;
-    } else if (action === "death" || action === "penalty") {
-      score -= 5;
-    }
-  }
-  return score;
+ let score = 0;
+ for (const action of actions) {
+ if (action === "kill" || action === "bonus") {
+ score += 10;
+ } else if (action === "death" || action === "penalty") {
+ score -= 5;
+ }
+ }
+ return score;
 }
 ```
 

@@ -21,13 +21,13 @@ Los numeros Romanos se representan con las siguientes letras:
 
 | Letra | Valor |
 | ----- | ----- |
-| I     | 1     |
-| V     | 5     |
-| X     | 10    |
-| L     | 50    |
-| C     | 100   |
-| D     | 500   |
-| M     | 1000  |
+| I | 1 |
+| V | 5 |
+| X | 10 |
+| L | 50 |
+| C | 100 |
+| D | 500 |
+| M | 1000 |
 
 - Los numeros Romanos se escriben sumando los valores de las letras, excepto en los casos donde una letra de menor valor precede a una de mayor valor, en cuyo caso se resta el valor menor del mayor.
 
@@ -62,8 +62,8 @@ El enfoque que elegimos para resolver el problema es iterar a través del string
 1. Crear un mapa que asocie cada letra romana con su valor entero.
 2. Inicializar una variable para almacenar el total.
 3. Iterar a través del string de numeros romanos:
-   - Si el valor de la letra actual es menor que el valor de la siguiente letra, restar su valor del total.
-   - De lo contrario, sumar su valor al total.
+ - Si el valor de la letra actual es menor que el valor de la siguiente letra, restar su valor del total.
+ - De lo contrario, sumar su valor al total.
 4. Devolver el total al final de la iteración.
 
 ## Análisis de Complejidad

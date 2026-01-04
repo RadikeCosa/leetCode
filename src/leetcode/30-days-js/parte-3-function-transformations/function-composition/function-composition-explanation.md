@@ -45,35 +45,35 @@ La composición de funciones es un concepto fundamental en programación funcion
 
 1. **Validación inicial**:
 
-   ```typescript
-   if (functions.length === 0) {
-     return (x: number) => x; // Función identidad
-   }
-   ```
+ ```typescript
+ if (functions.length === 0) {
+ return (x: number) => x; // Función identidad
+ }
+ ```
 
-   - Detectamos el caso especial del array vacío
-   - Retornamos explícitamente la función identidad
+ - Detectamos el caso especial del array vacío
+ - Retornamos explícitamente la función identidad
 
 2. **Función de composición**:
 
-   ```typescript
-   return function (x: number): number {
-     for (let i = functions.length - 1; i >= 0; i--) {
-       x = functions[i](x);
-     }
-     return x;
-   };
-   ```
+ ```typescript
+ return function (x: number): number {
+ for (let i = functions.length - 1; i >= 0; i--) {
+ x = functions[i](x);
+ }
+ return x;
+ };
+ ```
 
-   - Retornamos una nueva función que encapsula la lógica
-   - Usamos un for loop que va de derecha a izquierda
-   - Acumulamos el resultado en la variable `x`
+ - Retornamos una nueva función que encapsula la lógica
+ - Usamos un for loop que va de derecha a izquierda
+ - Acumulamos el resultado en la variable `x`
 
 3. **Trace del Ejemplo 1**:
-   - `functions = [x => x + 1, x => x * x, x => 2 * x]`, `x = 4`
-   - **i=2**: `x = functions[2](4) = (2 * 4) = 8`
-   - **i=1**: `x = functions[1](8) = (8 * 8) = 64`
-   - **i=0**: `x = functions[0](64) = (64 + 1) = 65` ✅
+ - `functions = [x => x + 1, x => x * x, x => 2 * x]`, `x = 4`
+ - **i=2**: `x = functions[2](4) = (2 * 4) = 8`
+ - **i=1**: `x = functions[1](8) = (8 * 8) = 64`
+ - **i=0**: `x = functions[0](64) = (64 + 1) = 65` ✅
 
 ### ¿Por qué funciona?
 

@@ -31,9 +31,9 @@ Por ejemplo, dado "_ \n _\n\* ", que se muestra en consola como:
 Debes devolver "\* _\n \*\* \n_ \*", que se muestra en consola como:
 
 ```text
-*  *
+* *
  **
-*  *
+* *
 ```
 
 Presta especial atención a los espacios en blanco en el string dado y en el resultado. No debes eliminar ni modificar ninguno de ellos.
@@ -46,20 +46,20 @@ La función debe tomar un string que representa un patrón de copo de nieve, don
 
 ### Casos de Prueba Identificados
 
-- Entrada: "_ \n _\n* "  
-  Salida esperada: "* _\n \*\* \n_ \*"
+- Entrada: "_ \n _\n* " 
+ Salida esperada: "* _\n \*\* \n_ \*"
 
-- Entrada: "X=~"  
-  Salida esperada: "X=~~=X"
+- Entrada: "X=~" 
+ Salida esperada: "X=~~=X"
 
-- Entrada: " X \n v \nX--=\n ^ \n X "  
-  Salida esperada: " X X \n v v \nX--==--X\n ^ ^ \n X X "
+- Entrada: " X \n v \nX--=\n ^ \n X " 
+ Salida esperada: " X X \n v v \nX--==--X\n ^ ^ \n X X "
 
-- Entrada: "\* _\n _ _ \n_ \* _\n _ _ \n_ _"  
-  Salida esperada: "_ ** _\n _ \* \* _ \n_ \* ** \* _\n _ \* \* _ \n_ \*\* \*"
+- Entrada: "\* _\n _ _ \n_ \* _\n _ _ \n_ _" 
+ Salida esperada: "_ ** _\n _ \* \* _ \n_ \* ** \* _\n _ \* \* _ \n_ \*\* \*"
 
-- Entrada: "_ -\n _ -\n* -"  
-  Salida esperada: "* -- _\n _ -- _ \n_ -- \*"
+- Entrada: "_ -\n _ -\n* -" 
+ Salida esperada: "* -- _\n _ -- _ \n_ -- \*"
 
 Estos casos cubren patrones con distintos caracteres, espacios y longitudes de línea, asegurando que la función maneje correctamente la inversión y la concatenación.
 
@@ -69,17 +69,17 @@ El enfoque consiste en dividir el string de entrada en líneas usando el caráct
 
 ### Implementación Paso a Paso
 
-1. **Dividir el string en líneas:**  
-   Utilizamos el método `split('\n')` para obtener un array donde cada elemento representa una línea del patrón original.
+1. **Dividir el string en líneas:** 
+ Utilizamos el método `split('\n')` para obtener un array donde cada elemento representa una línea del patrón original.
 
-2. **Reflejar cada línea:**  
-   Para cada línea, generamos su versión reflejada invirtiendo el orden de los caracteres. Esto se puede lograr usando `split('')` para convertir la línea en un array de caracteres, luego `reverse()` y finalmente `join('')` para reconstruir la línea invertida.
+2. **Reflejar cada línea:** 
+ Para cada línea, generamos su versión reflejada invirtiendo el orden de los caracteres. Esto se puede lograr usando `split('')` para convertir la línea en un array de caracteres, luego `reverse()` y finalmente `join('')` para reconstruir la línea invertida.
 
-3. **Concatenar original y reflejo:**  
-   Para cada línea, concatenamos la versión original con la reflejada, formando la nueva línea expandida.
+3. **Concatenar original y reflejo:** 
+ Para cada línea, concatenamos la versión original con la reflejada, formando la nueva línea expandida.
 
-4. **Reconstruir el string final:**  
-   Unimos todas las líneas resultantes usando `join('\n')` para obtener el string final con el formato requerido.
+4. **Reconstruir el string final:** 
+ Unimos todas las líneas resultantes usando `join('\n')` para obtener el string final con el formato requerido.
 
 Este proceso asegura que cada línea se refleje correctamente y que el formato (espacios y saltos de línea) se mantenga igual que en el input, cumpliendo con las restricciones del problema.
 
@@ -92,15 +92,15 @@ Este proceso asegura que cada línea se refleje correctamente y que el formato (
  * @returns {string} A new string where each line is mirrored horizontally and attached to the end of the original line
  */
 function generateSnowflake(crystals) {
-  // Dividir el string en líneas
-  const lines = crystals.split("\n");
-  // Reflejar cada línea y concatenar
-  const mirroredLines = lines.map((line) => {
-    const reflected = line.split("").reverse().join("");
-    return line + reflected;
-  });
-  // Reconstruir el string final
-  return mirroredLines.join("\n");
+ // Dividir el string en líneas
+ const lines = crystals.split("\n");
+ // Reflejar cada línea y concatenar
+ const mirroredLines = lines.map((line) => {
+ const reflected = line.split("").reverse().join("");
+ return line + reflected;
+ });
+ // Reconstruir el string final
+ return mirroredLines.join("\n");
 }
 export default generateSnowflake;
 ```
@@ -109,7 +109,7 @@ export default generateSnowflake;
 
 ### Complejidad Temporal
 
-El algoritmo recorre todas las líneas del string de entrada y, para cada línea, invierte sus caracteres.  
+El algoritmo recorre todas las líneas del string de entrada y, para cada línea, invierte sus caracteres. 
 Si $n$ es el número de líneas y $m$ la longitud máxima de una línea, la complejidad temporal es $O(n \cdot m)$, ya que cada línea se procesa y se invierte individualmente.
 
 ### Complejidad Espacial

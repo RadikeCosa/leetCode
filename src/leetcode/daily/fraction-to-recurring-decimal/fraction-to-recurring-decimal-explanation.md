@@ -15,8 +15,8 @@ createdAt: "2025-09-24"
 
 ## Análisis del Problema
 
-**Dificultad:** Medium  
-**Temas:** Hash Table, Math, String  
+**Dificultad:** Medium 
+**Temas:** Hash Table, Math, String 
 **Enlace:** [LeetCode 166](https://leetcode.com/problems/fraction-to-recurring-decimal/)
 
 ### Descripción
@@ -47,23 +47,23 @@ El problema se resuelve **simulando división larga manual**, exactamente como s
 
 1. **Manejar casos especiales:**
 
-   - División exacta → retornar directamente
-   - Determinar signo del resultado
+ - División exacta → retornar directamente
+ - Determinar signo del resultado
 
 2. **Separar parte entera y decimal:**
 
-   - Parte entera: `Math.floor(numerator / denominator)`
-   - Resto inicial: `numerator % denominator`
+ - Parte entera: `Math.floor(numerator / denominator)`
+ - Resto inicial: `numerator % denominator`
 
 3. **Simulación de división larga:**
 
-   - Usar HashMap para trackear: `resto → posición en array`
-   - Para cada resto:
-     - Si ya se vio → insertar paréntesis y terminar
-     - Si no → continuar división: `resto * 10`, calcular dígito, nuevo resto
+ - Usar HashMap para trackear: `resto → posición en array`
+ - Para cada resto:
+ - Si ya se vio → insertar paréntesis y terminar
+ - Si no → continuar división: `resto * 10`, calcular dígito, nuevo resto
 
 4. **Construcción del resultado:**
-   - Combinar: signo + parte entera + "." + decimales
+ - Combinar: signo + parte entera + "." + decimales
 
 ## Implementación Detallada
 
@@ -154,47 +154,47 @@ digits.push(")"); // Agregar ")" al final
 
 ```typescript
 export function fractionToDecimal(
-  numerator: number,
-  denominator: number
+ numerator: number,
+ denominator: number
 ): string {
-  if (numerator % denominator === 0) {
-    return (numerator / denominator).toString();
-  }
-  const isNegative = numerator < 0 !== denominator < 0;
-  numerator = Math.abs(numerator);
-  denominator = Math.abs(denominator);
-  const integerPart = Math.floor(numerator / denominator);
-  let remainder = numerator % denominator;
+ if (numerator % denominator === 0) {
+ return (numerator / denominator).toString();
+ }
+ const isNegative = numerator < 0 !== denominator < 0;
+ numerator = Math.abs(numerator);
+ denominator = Math.abs(denominator);
+ const integerPart = Math.floor(numerator / denominator);
+ let remainder = numerator % denominator;
 
-  // Array para construir los dígitos decimales
-  const digits: string[] = [];
-  const remainderMap = new Map<number, number>();
+ // Array para construir los dígitos decimales
+ const digits: string[] = [];
+ const remainderMap = new Map<number, number>();
 
-  while (remainder !== 0) {
-    if (remainderMap.has(remainder)) {
-      // ¡Repetición detectada! Insertar paréntesis
-      const repeatIndex = remainderMap.get(remainder)!;
-      digits.splice(repeatIndex, 0, "("); // Insertar "(" en la posición donde empezó el ciclo
-      digits.push(")"); // Agregar ")" al final
-      break;
-    }
+ while (remainder !== 0) {
+ if (remainderMap.has(remainder)) {
+ // ¡Repetición detectada! Insertar paréntesis
+ const repeatIndex = remainderMap.get(remainder)!;
+ digits.splice(repeatIndex, 0, "("); // Insertar "(" en la posición donde empezó el ciclo
+ digits.push(")"); // Agregar ")" al final
+ break;
+ }
 
-    // Guardar la posición actual antes de agregar el dígito
-    remainderMap.set(remainder, digits.length);
+ // Guardar la posición actual antes de agregar el dígito
+ remainderMap.set(remainder, digits.length);
 
-    // Simular división larga
-    remainder *= 10; // "Bajar un 0"
-    const nextDigit = Math.floor(remainder / denominator); // Calcular siguiente dígito
-    digits.push(nextDigit.toString()); // Agregar dígito al array
-    remainder %= denominator; // Calcular nuevo resto
-  }
+ // Simular división larga
+ remainder *= 10; // "Bajar un 0"
+ const nextDigit = Math.floor(remainder / denominator); // Calcular siguiente dígito
+ digits.push(nextDigit.toString()); // Agregar dígito al array
+ remainder %= denominator; // Calcular nuevo resto
+ }
 
-  // Construir el resultado final
-  const decimalPart = digits.join("");
-  return (
-    (isNegative ? "-" : "") +
-    integerPart +
-    (decimalPart ? "." + decimalPart : "")
-  );
+ // Construir el resultado final
+ const decimalPart = digits.join("");
+ return (
+ (isNegative ? "-" : "") +
+ integerPart +
+ (decimalPart ? "." + decimalPart : "")
+ );
 }
 ```

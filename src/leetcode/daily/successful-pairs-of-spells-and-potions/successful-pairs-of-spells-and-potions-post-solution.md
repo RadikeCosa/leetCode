@@ -12,38 +12,38 @@ The brute force approach of checking every spell-potion pair is too slow for lar
 # Complexity
 
 - **Time complexity:** O(m log m + n log m)
-  - O(m log m) to sort potions
-  - O(n log m) for binary search per spell
+ - O(m log m) to sort potions
+ - O(n log m) for binary search per spell
 - **Space complexity:** O(n + m)
-  - O(m) for sorted potions
-  - O(n) for the result array
+ - O(m) for sorted potions
+ - O(n) for the result array
 
 # Code
 
 ```typescript
 export function successfulPairs(
-  spells: number[],
-  potions: number[],
-  success: number
+ spells: number[],
+ potions: number[],
+ success: number
 ): number[] {
-  const potionsSorted = [...potions].sort((a, b) => a - b);
-  function firstSuccessfulPotionIndex(spell: number): number {
-    let left = 0;
-    let right = potionsSorted.length - 1;
-    while (left <= right) {
-      const mid = Math.floor((left + right) / 2);
-      if (spell * potionsSorted[mid] >= success) {
-        right = mid - 1;
-      } else {
-        left = mid + 1;
-      }
-    }
-    return left;
-  }
-  return spells.map((spell) => {
-    const idx = firstSuccessfulPotionIndex(spell);
-    return potionsSorted.length - idx;
-  });
+ const potionsSorted = [...potions].sort((a, b) => a - b);
+ function firstSuccessfulPotionIndex(spell: number): number {
+ let left = 0;
+ let right = potionsSorted.length - 1;
+ while (left <= right) {
+ const mid = Math.floor((left + right) / 2);
+ if (spell * potionsSorted[mid] >= success) {
+ right = mid - 1;
+ } else {
+ left = mid + 1;
+ }
+ }
+ return left;
+ }
+ return spells.map((spell) => {
+ const idx = firstSuccessfulPotionIndex(spell);
+ return potionsSorted.length - idx;
+ });
 }
 ```
 

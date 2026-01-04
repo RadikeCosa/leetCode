@@ -26,26 +26,26 @@ This approach is efficient because it processes the input array only once to cal
 
 ```javascript
 function sendMessage(route) {
-  // Constants for clarity and maintainability
-  const SPEED_KM_PER_SECOND = 300000;
-  const SATELLITE_DELAY_SECONDS = 0.5;
+ // Constants for clarity and maintainability
+ const SPEED_KM_PER_SECOND = 300000;
+ const SATELLITE_DELAY_SECONDS = 0.5;
 
-  // Calculate total distance traveled by the message
-  const totalDistance = route.reduce((sum, distance) => sum + distance, 0);
+ // Calculate total distance traveled by the message
+ const totalDistance = route.reduce((sum, distance) => sum + distance, 0);
 
-  // Number of satellites = array elements - 1
-  const satelliteCount = route.length - 1;
+ // Number of satellites = array elements - 1
+ const satelliteCount = route.length - 1;
 
-  // Travel time = total distance / speed
-  const travelTime = totalDistance / SPEED_KM_PER_SECOND;
+ // Travel time = total distance / speed
+ const travelTime = totalDistance / SPEED_KM_PER_SECOND;
 
-  // Total delay = satellites × delay per satellite
-  const totalDelay = satelliteCount * SATELLITE_DELAY_SECONDS;
+ // Total delay = satellites × delay per satellite
+ const totalDelay = satelliteCount * SATELLITE_DELAY_SECONDS;
 
-  // Total time rounded to 4 decimal places
-  const totalTime = travelTime + totalDelay;
+ // Total time rounded to 4 decimal places
+ const totalTime = travelTime + totalDelay;
 
-  return parseFloat(totalTime.toFixed(4));
+ return parseFloat(totalTime.toFixed(4));
 }
 
 export default sendMessage;

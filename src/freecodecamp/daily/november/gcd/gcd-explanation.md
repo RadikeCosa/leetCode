@@ -53,21 +53,21 @@ Ejemplo de tests:
 
 ```typescript
 describe("Gcd", () => {
-  it("gcd(4, 6) should return 2.", () => {
-    expect(gcd(4, 6)).toBe(2);
-  });
-  it("gcd(20, 15) should return 5.", () => {
-    expect(gcd(20, 15)).toBe(5);
-  });
-  it("gcd(13, 17) should return 1.", () => {
-    expect(gcd(13, 17)).toBe(1);
-  });
-  it("gcd(654, 456) should return 6.", () => {
-    expect(gcd(654, 456)).toBe(6);
-  });
-  it("gcd(3456, 4320) should return 864.", () => {
-    expect(gcd(3456, 4320)).toBe(864);
-  });
+ it("gcd(4, 6) should return 2.", () => {
+ expect(gcd(4, 6)).toBe(2);
+ });
+ it("gcd(20, 15) should return 5.", () => {
+ expect(gcd(20, 15)).toBe(5);
+ });
+ it("gcd(13, 17) should return 1.", () => {
+ expect(gcd(13, 17)).toBe(1);
+ });
+ it("gcd(654, 456) should return 6.", () => {
+ expect(gcd(654, 456)).toBe(6);
+ });
+ it("gcd(3456, 4320) should return 864.", () => {
+ expect(gcd(3456, 4320)).toBe(864);
+ });
 });
 ```
 
@@ -81,21 +81,21 @@ Además de la versión recursiva, el algoritmo de Euclides puede implementarse d
 
 ```javascript
 function gcdIterative(x, y) {
-  while (y !== 0) {
-    let temp = y;
-    y = x % y;
-    x = temp;
-  }
-  return x;
+ while (y !== 0) {
+ let temp = y;
+ y = x % y;
+ x = temp;
+ }
+ return x;
 }
 ```
 
 #### Explicación para principiantes
 
 1. Mientras el segundo número (`y`) no sea 0, repetimos el proceso:
-   - Guardamos el valor de `y` en una variable temporal.
-   - Calculamos el resto de dividir `x` entre `y` y lo guardamos en `y`.
-   - Ponemos el valor temporal en `x`.
+ - Guardamos el valor de `y` en una variable temporal.
+ - Calculamos el resto de dividir `x` entre `y` y lo guardamos en `y`.
+ - Ponemos el valor temporal en `x`.
 2. Cuando `y` sea 0, el resultado está en `x`.
 
 Este método hace lo mismo que la versión recursiva, pero usando un bucle en vez de llamar a la función varias veces. Es más seguro para casos con números muy grandes porque no depende del límite de recursión del lenguaje.
@@ -110,10 +110,10 @@ La función implementada recibe dos enteros positivos y aplica el algoritmo de E
 
 ```javascript
 function gcd(x, y) {
-  if (y === 0) {
-    return x;
-  }
-  return gcd(y, x % y);
+ if (y === 0) {
+ return x;
+ }
+ return gcd(y, x % y);
 }
 ```
 

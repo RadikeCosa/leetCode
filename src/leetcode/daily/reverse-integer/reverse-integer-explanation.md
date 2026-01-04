@@ -68,10 +68,10 @@ Este enfoque evita conversiones a string, es eficiente en tiempo y espacio, y pe
 1. Inicializar una variable `resultado` en 0, que almacenará el número invertido.
 2. Guardar el signo original de `x` y trabajar con su valor absoluto para simplificar el proceso. El signo se restaura al final.
 3. Mientras `x` sea diferente de 0:
-   - Extraer el último dígito con `digito = x % 10`.
-   - Eliminar el último dígito de `x` usando división entera (`x = Math.trunc(x / 10)` en JS).
-   - Antes de actualizar `resultado`, verificar si `resultado > (2^{31} - 1) / 10` (o el valor negativo para el límite inferior). Si al multiplicar por 10 y sumar el nuevo dígito se excede el rango de 32 bits, devolver 0 inmediatamente.
-   - Actualizar `resultado = resultado * 10 + digito`.
+ - Extraer el último dígito con `digito = x % 10`.
+ - Eliminar el último dígito de `x` usando división entera (`x = Math.trunc(x / 10)` en JS).
+ - Antes de actualizar `resultado`, verificar si `resultado > (2^{31} - 1) / 10` (o el valor negativo para el límite inferior). Si al multiplicar por 10 y sumar el nuevo dígito se excede el rango de 32 bits, devolver 0 inmediatamente.
+ - Actualizar `resultado = resultado * 10 + digito`.
 4. Restaurar el signo original al resultado.
 5. Devolver el resultado final.
 
@@ -84,11 +84,11 @@ resultado = 0
 signo = x < 0 ? -1 : 1
 x = abs(x)
 mientras x != 0:
-  digito = x % 10
-  x = x // 10
-  si resultado > (2^31 - 1) // 10:
-    devolver 0
-  resultado = resultado * 10 + digito
+ digito = x % 10
+ x = x // 10
+ si resultado > (2^31 - 1) // 10:
+ devolver 0
+ resultado = resultado * 10 + digito
 devolver resultado * signo
 ```
 
@@ -96,30 +96,30 @@ devolver resultado * signo
 
 ```typescript
 export default function reverse(x: number): number {
-  const INT_MAX = 2 ** 31 - 1;
-  const INT_MIN = -(2 ** 31);
-  let resultado = 0;
-  const signo = x < 0 ? -1 : 1;
-  x = Math.abs(x);
-  while (x !== 0) {
-    const digito = x % 10;
-    x = Math.trunc(x / 10);
+ const INT_MAX = 2 ** 31 - 1;
+ const INT_MIN = -(2 ** 31);
+ let resultado = 0;
+ const signo = x < 0 ? -1 : 1;
+ x = Math.abs(x);
+ while (x !== 0) {
+ const digito = x % 10;
+ x = Math.trunc(x / 10);
 
-    // Verificar overflow antes de actualizar resultado
-    if (
-      resultado > Math.trunc(INT_MAX / 10) ||
-      (resultado === Math.trunc(INT_MAX / 10) && digito > INT_MAX % 10)
-    ) {
-      return 0;
-    }
+ // Verificar overflow antes de actualizar resultado
+ if (
+ resultado > Math.trunc(INT_MAX / 10) ||
+ (resultado === Math.trunc(INT_MAX / 10) && digito > INT_MAX % 10)
+ ) {
+ return 0;
+ }
 
-    resultado = resultado * 10 + digito;
-  }
-  resultado *= signo;
-  if (resultado < INT_MIN || resultado > INT_MAX) {
-    return 0;
-  }
-  return resultado;
+ resultado = resultado * 10 + digito;
+ }
+ resultado *= signo;
+ if (resultado < INT_MIN || resultado > INT_MAX) {
+ return 0;
+ }
+ return resultado;
 }
 ```
 

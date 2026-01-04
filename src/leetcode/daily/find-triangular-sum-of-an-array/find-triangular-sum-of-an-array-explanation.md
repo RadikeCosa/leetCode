@@ -70,11 +70,11 @@ Nuestro enfoque inicial es simular el proceso descrito en el enunciado literalme
 ```typescript
 // Versión inicial - crea nuevo array cada iteración
 while (nums.length > 1) {
-  let newArray = new Array(nums.length - 1);
-  for (let i = 0; i < nums.length - 1; i++) {
-    newArray[i] = (nums[i] + nums[i + 1]) % 10;
-  }
-  nums = newArray; // Reasignación completa
+ let newArray = new Array(nums.length - 1);
+ for (let i = 0; i < nums.length - 1; i++) {
+ newArray[i] = (nums[i] + nums[i + 1]) % 10;
+ }
+ nums = newArray; // Reasignación completa
 }
 ```
 
@@ -99,10 +99,10 @@ while (nums.length > 1) {
 ```typescript
 let n = nums.length;
 while (n > 1) {
-  for (let i = 0; i < n - 1; i++) {
-    nums[i] = (nums[i] + nums[i + 1]) % 10; // Sobreescribir in-place
-  }
-  n--; // Reducir tamaño efectivo
+ for (let i = 0; i < n - 1; i++) {
+ nums[i] = (nums[i] + nums[i + 1]) % 10; // Sobreescribir in-place
+ }
+ n--; // Reducir tamaño efectivo
 }
 ```
 
@@ -124,10 +124,10 @@ while (n > 1) {
 
 ```typescript
 export function triangularSum(nums: number[]): number {
-  let n = nums.length;
-  if (n === 1) {
-    return nums[0];
-  }
+ let n = nums.length;
+ if (n === 1) {
+ return nums[0];
+ }
 ```
 
 **Inicialización:**
@@ -137,11 +137,11 @@ export function triangularSum(nums: number[]): number {
 
 ```typescript
 while (n > 1) {
-  // Modificar el array desde la posición n-2 hacia atrás
-  for (let i = 0; i < n - 1; i++) {
-    nums[i] = (nums[i] + nums[i + 1]) % 10;
-  }
-  n--; // Reducir el tamaño efectivo del array
+ // Modificar el array desde la posición n-2 hacia atrás
+ for (let i = 0; i < n - 1; i++) {
+ nums[i] = (nums[i] + nums[i + 1]) % 10;
+ }
+ n--; // Reducir el tamaño efectivo del array
 }
 ```
 
@@ -153,7 +153,7 @@ while (n > 1) {
 - **Reducción de tamaño:** `n--` reduce el rango efectivo para la siguiente iteración
 
 ```typescript
-  return nums[0];
+ return nums[0];
 }
 ```
 
@@ -242,12 +242,12 @@ while (n > 1) {
 
 ### Comparación de Estrategias de Memoria
 
-| Estrategia        | Espacio | Ventajas                  | Desventajas             |
+| Estrategia | Espacio | Ventajas | Desventajas |
 |
 
 ----------- | ------- | ------------------------- | ----------------------- |
-| **Nuevos arrays** | O(n)    | Simple, no modifica input | Más memoria, más lento  |
-| **In-place**      | O(1)    | Eficiente, rápido         | Modifica input original |
-| **Dos arrays**    | O(n)    | Preserva input, claro     | Más complejo            |
+| **Nuevos arrays** | O(n) | Simple, no modifica input | Más memoria, más lento |
+| **In-place** | O(1) | Eficiente, rápido | Modifica input original |
+| **Dos arrays** | O(n) | Preserva input, claro | Más complejo |
 
 **Conclusión:** Para este problema, la modificación in-place es claramente superior tanto en espacio como en tiempo.

@@ -8,13 +8,13 @@ My solution uses a two-pass algorithm:
 
 1. **First pass**: Build a frequency map while tracking the maximum frequency
 
-   - Iterate through the array once
-   - For each element, increment its count in the frequency map
-   - Keep track of the maximum frequency seen so far using `Math.max()`
+ - Iterate through the array once
+ - For each element, increment its count in the frequency map
+ - Keep track of the maximum frequency seen so far using `Math.max()`
 
 2. **Second pass**: Sum up frequencies that equal the maximum
-   - Iterate through the frequency map values
-   - Add up all frequencies that match the maximum frequency
+ - Iterate through the frequency map values
+ - Add up all frequencies that match the maximum frequency
 
 The key insight is that we can find the maximum frequency during the first pass, eliminating the need for a separate loop to find it.
 
@@ -27,24 +27,24 @@ The key insight is that we can find the maximum frequency during the first pass,
 
 ```typescript
 export function maxFrequencyElements(nums: number[]): number {
-  let frequencyMap: Record<number, number> = {};
-  let maxFrequency = 0;
-  let totalCount = 0;
+ let frequencyMap: Record<number, number> = {};
+ let maxFrequency = 0;
+ let totalCount = 0;
 
-  // First pass: build frequency map and track max frequency
-  for (let num of nums) {
-    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
-    maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
-  }
+ // First pass: build frequency map and track max frequency
+ for (let num of nums) {
+ frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+ maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
+ }
 
-  // Second pass: sum frequencies that equal max frequency
-  for (let count of Object.values(frequencyMap)) {
-    if (count === maxFrequency) {
-      totalCount += count;
-    }
-  }
+ // Second pass: sum frequencies that equal max frequency
+ for (let count of Object.values(frequencyMap)) {
+ if (count === maxFrequency) {
+ totalCount += count;
+ }
+ }
 
-  return totalCount;
+ return totalCount;
 }
 ```
 

@@ -29,20 +29,20 @@ The sorting step dominates the complexity, while the iteration is O(n) in the wo
 
 ```typescript
 export function largestPerimeter(nums: number[]): number {
-  // Sort in descending order to check largest combinations first
-  nums.sort((a, b) => b - a);
+ // Sort in descending order to check largest combinations first
+ nums.sort((a, b) => b - a);
 
-  // Find first valid triangle using greedy approach
-  for (let i = 0; i < nums.length - 2; i++) {
-    const [a, b, c] = [nums[i], nums[i + 1], nums[i + 2]];
+ // Find first valid triangle using greedy approach
+ for (let i = 0; i < nums.length - 2; i++) {
+ const [a, b, c] = [nums[i], nums[i + 1], nums[i + 2]];
 
-    // Triangle inequality: sum of two smaller sides > largest side
-    if (b + c > a) {
-      return a + b + c; // Return perimeter of valid triangle
-    }
-  }
+ // Triangle inequality: sum of two smaller sides > largest side
+ if (b + c > a) {
+ return a + b + c; // Return perimeter of valid triangle
+ }
+ }
 
-  return 0; // No valid triangle found
+ return 0; // No valid triangle found
 }
 ```
 

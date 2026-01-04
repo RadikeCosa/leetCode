@@ -35,26 +35,26 @@ La función debe retornar un array que contenga la secuencia completa de Fibonac
 
 1. `fibonacciSequence([0, 1], 20)` → `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]`
 
-   - Comienza con [0, 1]
-   - Genera 18 números adicionales sumando los dos anteriores
-   - Total: 20 números
+ - Comienza con [0, 1]
+ - Genera 18 números adicionales sumando los dos anteriores
+ - Total: 20 números
 
 2. `fibonacciSequence([21, 32], 1)` → `[21]`
 
-   - Solo retorna el primer elemento del startSequence
-   - Longitud 1, así que ignora el segundo número
+ - Solo retorna el primer elemento del startSequence
+ - Longitud 1, así que ignora el segundo número
 
 3. `fibonacciSequence([0, 1], 0)` → `[]`
 
-   - Longitud 0 retorna array vacío
+ - Longitud 0 retorna array vacío
 
 4. `fibonacciSequence([10, 20], 2)` → `[10, 20]`
 
-   - Longitud 2, retorna exactamente los dos números iniciales
+ - Longitud 2, retorna exactamente los dos números iniciales
 
 5. `fibonacciSequence([123456789, 987654321], 5)` → `[123456789, 987654321, 1111111110, 2098765431, 3209876541]`
-   - Maneja números grandes correctamente
-   - Genera 3 números adicionales: 123456789+987654321=1111111110, etc.
+ - Maneja números grandes correctamente
+ - Genera 3 números adicionales: 123456789+987654321=1111111110, etc.
 
 ### Restricciones
 
@@ -79,20 +79,20 @@ El enfoque consiste en construir iterativamente la secuencia de Fibonacci utiliz
 
 1. **Validación inicial:**
 
-   - Si `length === 0`, retornar `[]`
-   - Si `length === 1`, retornar `[startSequence[0]]`
-   - Si `length === 2`, retornar `[startSequence[0], startSequence[1]]`
+ - Si `length === 0`, retornar `[]`
+ - Si `length === 1`, retornar `[startSequence[0]]`
+ - Si `length === 2`, retornar `[startSequence[0], startSequence[1]]`
 
 2. **Construcción de la secuencia:**
 
-   - Crear un array `result` de longitud `length`
-   - Asignar `result[0] = startSequence[0]`
-   - Asignar `result[1] = startSequence[1]`
-   - Para `i` desde 2 hasta `length - 1`:
-     - `result[i] = result[i-1] + result[i-2]`
+ - Crear un array `result` de longitud `length`
+ - Asignar `result[0] = startSequence[0]`
+ - Asignar `result[1] = startSequence[1]`
+ - Para `i` desde 2 hasta `length - 1`:
+ - `result[i] = result[i-1] + result[i-2]`
 
 3. **Retorno del resultado:**
-   - Retornar el array `result`
+ - Retornar el array `result`
 
 **Ventajas de este enfoque:**
 
@@ -131,20 +131,20 @@ El enfoque consiste en construir iterativamente la secuencia de Fibonacci utiliz
 
 ```javascript
 function fibonacciSequence(startSequence, length) {
-  // Casos base: manejar longitudes especiales
-  if (length === 0) return [];
-  if (length === 1) return [startSequence[0]];
-  if (length === 2) return startSequence;
+ // Casos base: manejar longitudes especiales
+ if (length === 0) return [];
+ if (length === 1) return [startSequence[0]];
+ if (length === 2) return startSequence;
 
-  // Para length > 2, generar la secuencia completa
-  const sequence = [...startSequence]; // Copiar los primeros dos números
+ // Para length > 2, generar la secuencia completa
+ const sequence = [...startSequence]; // Copiar los primeros dos números
 
-  // Generar los números restantes usando el patrón de Fibonacci
-  for (let i = 2; i < length; i++) {
-    sequence[i] = sequence[i - 1] + sequence[i - 2];
-  }
+ // Generar los números restantes usando el patrón de Fibonacci
+ for (let i = 2; i < length; i++) {
+ sequence[i] = sequence[i - 1] + sequence[i - 2];
+ }
 
-  return sequence;
+ return sequence;
 }
 ```
 
@@ -152,25 +152,25 @@ function fibonacciSequence(startSequence, length) {
 
 1. **Manejo de casos base:**
 
-   - `length === 0`: Retornar array vacío (requisito explícito)
-   - `length === 1`: Retornar solo el primer número del startSequence
-   - `length === 2`: Retornar el startSequence completo (los dos números iniciales)
+ - `length === 0`: Retornar array vacío (requisito explícito)
+ - `length === 1`: Retornar solo el primer número del startSequence
+ - `length === 2`: Retornar el startSequence completo (los dos números iniciales)
 
 2. **Inicialización de la secuencia:**
 
-   - Crear una copia del startSequence usando spread operator `[...startSequence]`
-   - Esto nos da un array con los primeros dos números ya posicionados
+ - Crear una copia del startSequence usando spread operator `[...startSequence]`
+ - Esto nos da un array con los primeros dos números ya posicionados
 
 3. **Generación de la secuencia:**
 
-   - Iniciar el bucle desde `i = 2` (tercer elemento)
-   - Para cada posición `i`, calcular `sequence[i] = sequence[i-1] + sequence[i-2]`
-   - Continuar hasta `i < length` (llenar todas las posiciones requeridas)
+ - Iniciar el bucle desde `i = 2` (tercer elemento)
+ - Para cada posición `i`, calcular `sequence[i] = sequence[i-1] + sequence[i-2]`
+ - Continuar hasta `i < length` (llenar todas las posiciones requeridas)
 
 4. **Retorno del resultado:**
-   - El array `sequence` ahora contiene exactamente `length` elementos
-   - Los primeros dos elementos son los números iniciales
-   - Los elementos restantes siguen la regla de Fibonacci
+ - El array `sequence` ahora contiene exactamente `length` elementos
+ - Los primeros dos elementos son los números iniciales
+ - Los elementos restantes siguen la regla de Fibonacci
 
 ## Casos de Prueba
 
@@ -178,38 +178,38 @@ function fibonacciSequence(startSequence, length) {
 
 1. **Secuencia completa (length = 20):**
 
-   - **Input:** `[0, 1], 20`
-   - **Expected:** `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]`
-   - **Propósito:** Verificar que la función genera correctamente una secuencia larga
-   - **Validación:** Los números siguen exactamente la regla de Fibonacci
+ - **Input:** `[0, 1], 20`
+ - **Expected:** `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181]`
+ - **Propósito:** Verificar que la función genera correctamente una secuencia larga
+ - **Validación:** Los números siguen exactamente la regla de Fibonacci
 
 2. **Secuencia con números diferentes:**
-   - **Input:** `[123456789, 987654321], 5`
-   - **Expected:** `[123456789, 987654321, 1111111110, 2098765431, 3209876541]`
-   - **Propósito:** Verificar que funciona con números grandes y startSequence arbitrario
-   - **Validación:** `123456789 + 987654321 = 1111111110`, etc.
+ - **Input:** `[123456789, 987654321], 5`
+ - **Expected:** `[123456789, 987654321, 1111111110, 2098765431, 3209876541]`
+ - **Propósito:** Verificar que funciona con números grandes y startSequence arbitrario
+ - **Validación:** `123456789 + 987654321 = 1111111110`, etc.
 
 ### Casos Edge
 
 1. **Longitud cero:**
 
-   - **Input:** `[0, 1], 0`
-   - **Expected:** `[]`
-   - **Propósito:** Verificar el manejo del caso límite de longitud cero
-   - **Validación:** Retorna array vacío según especificación
+ - **Input:** `[0, 1], 0`
+ - **Expected:** `[]`
+ - **Propósito:** Verificar el manejo del caso límite de longitud cero
+ - **Validación:** Retorna array vacío según especificación
 
 2. **Longitud uno:**
 
-   - **Input:** `[21, 32], 1`
-   - **Expected:** `[21]`
-   - **Propósito:** Verificar que retorna solo el primer elemento cuando length = 1
-   - **Validación:** Ignora el segundo número del startSequence
+ - **Input:** `[21, 32], 1`
+ - **Expected:** `[21]`
+ - **Propósito:** Verificar que retorna solo el primer elemento cuando length = 1
+ - **Validación:** Ignora el segundo número del startSequence
 
 3. **Longitud dos (mínima secuencia completa):**
-   - **Input:** `[10, 20], 2`
-   - **Expected:** `[10, 20]`
-   - **Propósito:** Verificar que retorna exactamente el startSequence cuando length = 2
-   - **Validación:** Los números iniciales son parte de la secuencia
+ - **Input:** `[10, 20], 2`
+ - **Expected:** `[10, 20]`
+ - **Propósito:** Verificar que retorna exactamente el startSequence cuando length = 2
+ - **Validación:** Los números iniciales son parte de la secuencia
 
 ### Casos Extremos
 
@@ -223,23 +223,23 @@ function fibonacciSequence(startSequence, length) {
 
 1. **Manejo de casos base en algoritmos de secuencias:**
 
-   - Importancia de manejar explícitamente los casos edge (length = 0, 1, 2)
-   - Los casos base suelen ser O(1) mientras que el caso general es O(n)
+ - Importancia de manejar explícitamente los casos edge (length = 0, 1, 2)
+ - Los casos base suelen ser O(1) mientras que el caso general es O(n)
 
 2. **Construcción iterativa de secuencias:**
 
-   - Patrón común: inicializar con valores conocidos, luego generar el resto iterativamente
-   - Uso de índices para acceder a elementos anteriores: `array[i-1]` y `array[i-2]`
+ - Patrón común: inicializar con valores conocidos, luego generar el resto iterativamente
+ - Uso de índices para acceder a elementos anteriores: `array[i-1]` y `array[i-2]`
 
 3. **Uso eficiente de arrays en JavaScript:**
 
-   - Spread operator `[...array]` para copiar arrays
-   - Arrays como estructuras de datos principales para algoritmos de secuencia
-   - Indexación directa para acceso O(1) a elementos
+ - Spread operator `[...array]` para copiar arrays
+ - Arrays como estructuras de datos principales para algoritmos de secuencia
+ - Indexación directa para acceso O(1) a elementos
 
 4. **Validación de entrada implícita:**
-   - Confianza en las restricciones del problema (startSequence siempre tiene 2 elementos)
-   - Enfoque pragmático: validar solo lo necesario según las constraints
+ - Confianza en las restricciones del problema (startSequence siempre tiene 2 elementos)
+ - Enfoque pragmático: validar solo lo necesario según las constraints
 
 ### Conceptos Relacionados
 
@@ -257,21 +257,21 @@ function fibonacciSequence(startSequence, length) {
 
 ```javascript
 function fibonacciSequenceOptimized(startSequence, length) {
-  if (length === 0) return [];
-  if (length === 1) return [startSequence[0]];
+ if (length === 0) return [];
+ if (length === 1) return [startSequence[0]];
 
-  const result = [startSequence[0], startSequence[1]];
-  let a = startSequence[0],
-    b = startSequence[1];
+ const result = [startSequence[0], startSequence[1]];
+ let a = startSequence[0],
+ b = startSequence[1];
 
-  for (let i = 2; i < length; i++) {
-    const next = a + b;
-    result.push(next);
-    a = b;
-    b = next;
-  }
+ for (let i = 2; i < length; i++) {
+ const next = a + b;
+ result.push(next);
+ a = b;
+ b = next;
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -282,26 +282,26 @@ function fibonacciSequenceOptimized(startSequence, length) {
 
 ```javascript
 function* fibonacciGenerator(startSequence, length) {
-  if (length === 0) return;
+ if (length === 0) return;
 
-  yield startSequence[0];
-  if (length === 1) return;
+ yield startSequence[0];
+ if (length === 1) return;
 
-  yield startSequence[1];
-  if (length === 2) return;
+ yield startSequence[1];
+ if (length === 2) return;
 
-  let a = startSequence[0],
-    b = startSequence[1];
-  for (let i = 2; i < length; i++) {
-    const next = a + b;
-    yield next;
-    a = b;
-    b = next;
-  }
+ let a = startSequence[0],
+ b = startSequence[1];
+ for (let i = 2; i < length; i++) {
+ const next = a + b;
+ yield next;
+ a = b;
+ b = next;
+ }
 }
 
 function fibonacciSequenceLazy(startSequence, length) {
-  return [...fibonacciGenerator(startSequence, length)];
+ return [...fibonacciGenerator(startSequence, length)];
 }
 ```
 
@@ -314,13 +314,13 @@ function fibonacciSequenceLazy(startSequence, length) {
 
 ```javascript
 function fibonacciRecursive(n, startSequence) {
-  if (n === 0) return [];
-  if (n === 1) return [startSequence[0]];
-  if (n === 2) return startSequence;
+ if (n === 0) return [];
+ if (n === 1) return [startSequence[0]];
+ if (n === 2) return startSequence;
 
-  const prev = fibonacciRecursive(n - 1, startSequence);
-  const next = prev[prev.length - 1] + prev[prev.length - 2];
-  return [...prev, next];
+ const prev = fibonacciRecursive(n - 1, startSequence);
+ const next = prev[prev.length - 1] + prev[prev.length - 2];
+ return [...prev, next];
 }
 ```
 
@@ -330,16 +330,16 @@ function fibonacciRecursive(n, startSequence) {
 
 ```javascript
 function fibonacciMemo(startSequence, length, memo = new Map()) {
-  if (length === 0) return [];
-  if (length === 1) return [startSequence[0]];
-  if (length === 2) return startSequence;
+ if (length === 0) return [];
+ if (length === 1) return [startSequence[0]];
+ if (length === 2) return startSequence;
 
-  if (memo.has(length)) return memo.get(length);
+ if (memo.has(length)) return memo.get(length);
 
-  const prev = fibonacciMemo(startSequence, length - 1, memo);
-  const result = [...prev, prev[length - 2] + prev[length - 3]];
-  memo.set(length, result);
-  return result;
+ const prev = fibonacciMemo(startSequence, length - 1, memo);
+ const result = [...prev, prev[length - 2] + prev[length - 3]];
+ memo.set(length, result);
+ return result;
 }
 ```
 
@@ -351,51 +351,51 @@ function fibonacciMemo(startSequence, length, memo = new Map()) {
 ```javascript
 // Multiplicación de matrices para Fibonacci
 function matrixMultiply(A, B) {
-  return [
-    [
-      A[0][0] * B[0][0] + A[0][1] * B[1][0],
-      A[0][0] * B[0][1] + A[0][1] * B[1][1],
-    ],
-    [
-      A[1][0] * B[0][0] + A[1][1] * B[1][0],
-      A[1][0] * B[0][1] + A[1][1] * B[1][1],
-    ],
-  ];
+ return [
+ [
+ A[0][0] * B[0][0] + A[0][1] * B[1][0],
+ A[0][0] * B[0][1] + A[0][1] * B[1][1],
+ ],
+ [
+ A[1][0] * B[0][0] + A[1][1] * B[1][0],
+ A[1][0] * B[0][1] + A[1][1] * B[1][1],
+ ],
+ ];
 }
 
 function matrixPower(matrix, n) {
-  if (n === 1) return matrix;
-  if (n % 2 === 0) {
-    const half = matrixPower(matrix, n / 2);
-    return matrixMultiply(half, half);
-  } else {
-    return matrixMultiply(matrix, matrixPower(matrix, n - 1));
-  }
+ if (n === 1) return matrix;
+ if (n % 2 === 0) {
+ const half = matrixPower(matrix, n / 2);
+ return matrixMultiply(half, half);
+ } else {
+ return matrixMultiply(matrix, matrixPower(matrix, n - 1));
+ }
 }
 
 function fibonacciMatrix(startSequence, length) {
-  if (length === 0) return [];
-  if (length === 1) return [startSequence[0]];
-  if (length === 2) return startSequence;
+ if (length === 0) return [];
+ if (length === 1) return [startSequence[0]];
+ if (length === 2) return startSequence;
 
-  // Matriz de transformación de Fibonacci
-  const transform = [
-    [1, 1],
-    [1, 0],
-  ];
-  const powered = matrixPower(transform, length - 2);
+ // Matriz de transformación de Fibonacci
+ const transform = [
+ [1, 1],
+ [1, 0],
+ ];
+ const powered = matrixPower(transform, length - 2);
 
-  // Calcular términos usando la matriz
-  const result = [startSequence[0], startSequence[1]];
-  for (let i = 2; i < length; i++) {
-    // Aplicar transformación matricial
-    const newTerm =
-      powered[0][0] * startSequence[1] + powered[0][1] * startSequence[0];
-    result.push(newTerm);
-    // Actualizar para siguiente iteración (complejo)
-  }
+ // Calcular términos usando la matriz
+ const result = [startSequence[0], startSequence[1]];
+ for (let i = 2; i < length; i++) {
+ // Aplicar transformación matricial
+ const newTerm =
+ powered[0][0] * startSequence[1] + powered[0][1] * startSequence[0];
+ result.push(newTerm);
+ // Actualizar para siguiente iteración (complejo)
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -404,16 +404,16 @@ function fibonacciMatrix(startSequence, length) {
 
 ### Análisis Comparativo
 
-| Enfoque                | Tiempo   | Espacio    | Complejidad | Casos de Uso          |
+| Enfoque | Tiempo | Espacio | Complejidad | Casos de Uso |
 |
 
 ---------------- | -------- | ---------- | ----------- | --------------------- |
-| **Actual (Iterativo)** | O(n)     | O(n)       | Baja        | ✅ General            |
-| **Two Variables**      | O(n)     | O(1) extra | Baja        | ✅ Memoria limitada   |
-| **Generador**          | O(n)     | O(1)       | Media       | ✅ Streams grandes    |
-| **Recursivo**          | O(2^n)   | O(n)       | Baja        | ❌ Nunca              |
-| **Memoización**        | O(n)     | O(n)       | Media       | ✅ Cálculos repetidos |
-| **Matrix Exp.**        | O(log n) | O(1)       | Alta        | ✅ Secuencias enormes |
+| **Actual (Iterativo)** | O(n) | O(n) | Baja | ✅ General |
+| **Two Variables** | O(n) | O(1) extra | Baja | ✅ Memoria limitada |
+| **Generador** | O(n) | O(1) | Media | ✅ Streams grandes |
+| **Recursivo** | O(2^n) | O(n) | Baja | ❌ Nunca |
+| **Memoización** | O(n) | O(n) | Media | ✅ Cálculos repetidos |
+| **Matrix Exp.** | O(log n) | O(1) | Alta | ✅ Secuencias enormes |
 
 ### Recomendaciones
 

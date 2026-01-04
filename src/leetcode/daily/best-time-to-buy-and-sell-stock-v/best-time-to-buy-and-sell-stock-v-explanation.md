@@ -164,11 +164,11 @@ En cada llamada, según el estado, tenemos opciones:
 
 - **Esperar:** Avanzar al siguiente día sin hacer nada.
 - **Iniciar una transacción:** Si no hay ninguna abierta, podemos:
-  - Comprar (iniciar transacción normal)
-  - Vender en corto (iniciar venta en corto)
+ - Comprar (iniciar transacción normal)
+ - Vender en corto (iniciar venta en corto)
 - **Cerrar una transacción:** Si hay una abierta, podemos:
-  - Vender (si era compra)
-  - Recomrpar (si era venta en corto)
+ - Vender (si era compra)
+ - Recomrpar (si era venta en corto)
 
 #### 4. Transiciones y ganancias
 
@@ -189,31 +189,31 @@ La función se llama desde el día 0, con 0 transacciones, sin transacción abie
 
 ```python
 def dp(idx, transacciones, tipo, enCurso):
-  if idx == len(prices) or transacciones == k:
-    return 0
-  # Si ya calculamos este estado, devolvemos el resultado guardado
-  if (idx, transacciones, tipo, enCurso) en memo:
-    return memo[(idx, transacciones, tipo, enCurso)]
-  # Opción 1: esperar
-  res = dp(idx+1, transacciones, tipo, enCurso)
-  # Opción 2: iniciar/cerrar transacción según el estado...
-  # ...
-  memo[(idx, transacciones, tipo, enCurso)] = res
-  return res
+ if idx == len(prices) or transacciones == k:
+ return 0
+ # Si ya calculamos este estado, devolvemos el resultado guardado
+ if (idx, transacciones, tipo, enCurso) en memo:
+ return memo[(idx, transacciones, tipo, enCurso)]
+ # Opción 1: esperar
+ res = dp(idx+1, transacciones, tipo, enCurso)
+ # Opción 2: iniciar/cerrar transacción según el estado...
+ # ...
+ memo[(idx, transacciones, tipo, enCurso)] = res
+ return res
 ```
 
 #### Diagrama de transiciones de estado (Mermaid)
 
 ```mermaid
-stateDiagram-v2
-  [*] --> SinTransaccion
-  SinTransaccion --> TransaccionNormal: Comprar
-  SinTransaccion --> VentaEnCorto: Vender en corto
-  TransaccionNormal --> SinTransaccion: Vender
-  VentaEnCorto --> SinTransaccion: Recomrpar
-  SinTransaccion --> SinTransaccion: Esperar
-  TransaccionNormal --> TransaccionNormal: Esperar
-  VentaEnCorto --> VentaEnCorto: Esperar
+stateDiagram-v 2
+ [*] --> SinTransaccion
+ SinTransaccion --> TransaccionNormal: Comprar
+ SinTransaccion --> VentaEnCorto: Vender en corto
+ TransaccionNormal --> SinTransaccion: Vender
+ VentaEnCorto --> SinTransaccion: Recomrpar
+ SinTransaccion --> SinTransaccion: Esperar
+ TransaccionNormal --> TransaccionNormal: Esperar
+ VentaEnCorto --> VentaEnCorto: Esperar
 ```
 
 Este diagrama muestra cómo se puede pasar de un estado a otro según la acción tomada en cada día: comprar, vender en corto, vender, recomprar o esperar.
@@ -296,10 +296,10 @@ En cada día y para cada cantidad de transacciones, actualizamos estos estados c
 
 ### Comparación de enfoques
 
-| Enfoque                     | Complejidad temporal | Complejidad espacial | Observaciones                         |
+| Enfoque | Complejidad temporal | Complejidad espacial | Observaciones |
 | --------------------------- | -------------------- | -------------------- | ------------------------------------- |
-| Recursivo + memo (top-down) | $O(n^2 k)$           | $O(n^2 k)$           | Intuitivo, pero lento para $n$ grande |
-| Tabular (bottom-up, actual) | $O(nk)$              | $O(k)$               | Eficiente y escalable                 |
+| Recursivo + memo (top-down) | $O(n^2 k)$ | $O(n^2 k)$ | Intuitivo, pero lento para $n$ grande |
+| Tabular (bottom-up, actual) | $O(nk)$ | $O(k)$ | Eficiente y escalable |
 
 ### Recomendación
 

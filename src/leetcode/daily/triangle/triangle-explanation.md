@@ -15,8 +15,8 @@ createdAt: "2025-09-26"
 
 ## Análisis del Problema
 
-**Dificultad:** Medium  
-**Temas:** Array, Dynamic Programming  
+**Dificultad:** Medium 
+**Temas:** Array, Dynamic Programming 
 **Enlace:** [LeetCode 120](https://leetcode.com/problems/triangle/)
 
 ### Descripción
@@ -26,9 +26,9 @@ Dado un array triangular, devolver la suma mínima del camino desde la cima hast
 **Ejemplo visual:**
 
 ```
-    2
-   3 4
-  6 5 7
+ 2
+ 3 4
+ 6 5 7
  4 1 8 3
 ```
 
@@ -67,9 +67,9 @@ Output: -10
 **Por qué falla:** El greedy no garantiza el óptimo global. Ejemplo:
 
 ```
-    1
-   2 3
-  10 1 10
+ 1
+ 2 3
+ 10 1 10
 ```
 
 - **Greedy:** 1 → 2 → 1 = 4
@@ -107,30 +107,30 @@ El greedy toma decisiones locales sin considerar el impacto futuro.
 
 ```typescript
 export function minimumTotal(triangle: number[][]): number {
-  const n = triangle.length;
+ const n = triangle.length;
 
-  // Caso base: triángulo vacío
-  if (n === 0) {
-    return 0;
-  }
+ // Caso base: triángulo vacío
+ if (n === 0) {
+ return 0;
+ }
 
-  // Caso base: solo un elemento
-  if (n === 1) {
-    return triangle[0][0];
-  }
+ // Caso base: solo un elemento
+ if (n === 1) {
+ return triangle[0][0];
+ }
 
-  // Optimización ultra-eficiente: O(n) espacio, modificación in-place
-  const dp = [...triangle[n - 1]];
+ // Optimización ultra-eficiente: O(n) espacio, modificación in-place
+ const dp = [...triangle[n - 1]];
 
-  // Procesamos desde la penúltima fila hacia arriba
-  for (let row = n - 2; row >= 0; row--) {
-    for (let col = 0; col <= row; col++) {
-      // dp[col] y dp[col+1] representan las opciones de la fila inferior
-      dp[col] = triangle[row][col] + Math.min(dp[col], dp[col + 1]);
-    }
-  }
+ // Procesamos desde la penúltima fila hacia arriba
+ for (let row = n - 2; row >= 0; row--) {
+ for (let col = 0; col <= row; col++) {
+ // dp[col] y dp[col+1] representan las opciones de la fila inferior
+ dp[col] = triangle[row][col] + Math.min(dp[col], dp[col + 1]);
+ }
+ }
 
-  return dp[0];
+ return dp[0];
 }
 ```
 
@@ -139,9 +139,9 @@ export function minimumTotal(triangle: number[][]): number {
 **Ejemplo:**
 
 ```
-    2
-   3 4
-  6 5 7
+ 2
+ 3 4
+ 6 5 7
  4 1 8 3
 ```
 
@@ -149,17 +149,17 @@ export function minimumTotal(triangle: number[][]): number {
 
 2. **Fila 2 `[6, 5, 7]`:**
 
-   - Posición 0: `6 + min(4, 1) = 6 + 1 = 7`
-   - Posición 1: `5 + min(1, 8) = 5 + 1 = 6`
-   - Posición 2: `7 + min(8, 3) = 7 + 3 = 10`
+ - Posición 0: `6 + min(4, 1) = 6 + 1 = 7`
+ - Posición 1: `5 + min(1, 8) = 5 + 1 = 6`
+ - Posición 2: `7 + min(8, 3) = 7 + 3 = 10`
 
 3. **Fila 1 `[3, 4]`:**
 
-   - Posición 0: `3 + min(7, 6) = 3 + 6 = 9`
-   - Posición 1: `4 + min(6, 10) = 4 + 6 = 10`
+ - Posición 0: `3 + min(7, 6) = 3 + 6 = 9`
+ - Posición 1: `4 + min(6, 10) = 4 + 6 = 10`
 
 4. **Fila 0 `[2]`:**
-   - Posición 0: `2 + min(9, 10) = 2 + 9 = 11`
+ - Posición 0: `2 + min(9, 10) = 2 + 9 = 11`
 
 **Resultado: 11**
 
@@ -167,12 +167,12 @@ export function minimumTotal(triangle: number[][]): number {
 
 - **Complejidad Temporal:** O(n²)
 
-  - n = número de filas
-  - Visitamos cada elemento una vez: 1+2+3+...+n = n(n+1)/2
+ - n = número de filas
+ - Visitamos cada elemento una vez: 1+2+3+...+n = n(n+1)/2
 
 - **Complejidad Espacial:** O(n)
-  - Solo mantenemos la fila anterior en memoria
-  - Máximo n elementos simultáneamente
+ - Solo mantenemos la fila anterior en memoria
+ - Máximo n elementos simultáneamente
 
 ## Casos Edge
 
@@ -203,7 +203,7 @@ export function minimumTotal(triangle: number[][]): number {
 
 ## Problemas Relacionados
 
-- **LeetCode 64:** Minimum Path Sum (grid 2D)
+- **LeetCode 64:** Minimum Path Sum (grid 2 D)
 - **LeetCode 62:** Unique Paths
 - **LeetCode 63:** Unique Paths II
 - **LeetCode 931:** Minimum Falling Path Sum

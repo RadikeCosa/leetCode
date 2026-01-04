@@ -10,13 +10,13 @@ I implemented a binary search that maintains the invariant that the answer lies 
 
 1. **Initialize bounds**: Start with `left = 1` and `right = n` (all possible versions)
 2. **Binary search loop**: While `left < right`:
-   - Calculate `mid = Math.floor((left + right) / 2)`
-   - If `isBadVersion(mid)` returns `true`:
-     - The first bad version is at `mid` or to the left of `mid`
-     - Set `right = mid` (keep `mid` as a candidate)
-   - If `isBadVersion(mid)` returns `false`:
-     - The first bad version is definitely to the right of `mid`
-     - Set `left = mid + 1` (eliminate `mid` and everything to its left)
+ - Calculate `mid = Math.floor((left + right) / 2)`
+ - If `isBadVersion(mid)` returns `true`:
+ - The first bad version is at `mid` or to the left of `mid`
+ - Set `right = mid` (keep `mid` as a candidate)
+ - If `isBadVersion(mid)` returns `false`:
+ - The first bad version is definitely to the right of `mid`
+ - Set `left = mid + 1` (eliminate `mid` and everything to its left)
 3. **Convergence**: When `left == right`, we've found the first bad version
 
 The crucial difference from standard binary search is using `right = mid` instead of `right = mid - 1` when we find a bad version, because `mid` itself could be the first bad version.
@@ -30,30 +30,30 @@ The crucial difference from standard binary search is using `right = mid` instea
 
 ```typescript
 export var solution = function (isBadVersion: (version: number) => boolean) {
-  return function (n: number): number {
-    // Inicializamos el rango de búsqueda: versiones [1, n]
-    let left = 1;
-    let right = n;
+ return function (n: number): number {
+ // Inicializamos el rango de búsqueda: versiones [1, n]
+ let left = 1;
+ let right = n;
 
-    // Búsqueda binaria: convergemos hasta encontrar la primera versión mala
-    while (left < right) {
-      // Calculamos el punto medio para dividir el espacio de búsqueda
-      const mid = Math.floor((left + right) / 2);
+ // Búsqueda binaria: convergemos hasta encontrar la primera versión mala
+ while (left < right) {
+ // Calculamos el punto medio para dividir el espacio de búsqueda
+ const mid = Math.floor((left + right) / 2);
 
-      if (isBadVersion(mid)) {
-        // Si mid es mala, la primera versión mala está en [left, mid]
-        // Mantenemos mid como candidato (podría ser la primera)
-        right = mid;
-      } else {
-        // Si mid es buena, la primera versión mala está en [mid+1, right]
-        // Descartamos todo desde left hasta mid inclusive
-        left = mid + 1;
-      }
-    }
+ if (isBadVersion(mid)) {
+ // Si mid es mala, la primera versión mala está en [left, mid]
+ // Mantenemos mid como candidato (podría ser la primera)
+ right = mid;
+ } else {
+ // Si mid es buena, la primera versión mala está en [mid+1, right]
+ // Descartamos todo desde left hasta mid inclusive
+ left = mid + 1;
+ }
+ }
 
-    // Cuando left == right, hemos encontrado la primera versión mala
-    return left;
-  };
+ // Cuando left == right, hemos encontrado la primera versión mala
+ return left;
+ };
 };
 ```
 

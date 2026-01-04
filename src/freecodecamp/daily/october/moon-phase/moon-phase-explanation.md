@@ -186,32 +186,32 @@ Sin embargo, estas optimizaciones son innecesarias para este problema ya que:
 
 1. **moonPhase("2000-01-12")**
 
-   - Diferencia: 6 días
-   - Día del ciclo: 6
-   - Fase: "New" (6 <= 7)
+ - Diferencia: 6 días
+ - Día del ciclo: 6
+ - Fase: "New" (6 <= 7)
 
 2. **moonPhase("2000-01-13")**
 
-   - Diferencia: 7 días
-   - Día del ciclo: 7
-   - Fase: "New" (7 <= 7)
+ - Diferencia: 7 días
+ - Día del ciclo: 7
+ - Fase: "New" (7 <= 7)
 
 3. **moonPhase("2000-01-14")**
 
-   - Diferencia: 8 días
-   - Día del ciclo: 8
-   - Fase: "Waxing" (8 <= 14)
+ - Diferencia: 8 días
+ - Día del ciclo: 8
+ - Fase: "Waxing" (8 <= 14)
 
 4. **moonPhase("2000-02-03")**
 
-   - Diferencia: 28 días
-   - Día del ciclo: 28
-   - Fase: "Waning" (28 > 21)
+ - Diferencia: 28 días
+ - Día del ciclo: 28
+ - Fase: "Waning" (28 > 21)
 
 5. **moonPhase("2000-02-04")**
-   - Diferencia: 29 días
-   - Día del ciclo: 1 (29 % 28 = 1)
-   - Fase: "New"
+ - Diferencia: 29 días
+ - Día del ciclo: 1 (29 % 28 = 1)
+ - Fase: "New"
 
 ## Aprendizajes y patrones
 

@@ -47,12 +47,12 @@ Luego concatenamos usando template literals con el formato requerido.
 
 ```javascript
 function formatNumber(number) {
-  let countryCode = number.slice(0, 1);
-  let areaCode = number.slice(1, 4);
-  let centralOfficeCode = number.slice(4, 7);
-  let lineNumber = number.slice(7);
+ let countryCode = number.slice(0, 1);
+ let areaCode = number.slice(1, 4);
+ let centralOfficeCode = number.slice(4, 7);
+ let lineNumber = number.slice(7);
 
-  return `+${countryCode} (${areaCode}) ${centralOfficeCode}-${lineNumber}`;
+ return `+${countryCode} (${areaCode}) ${centralOfficeCode}-${lineNumber}`;
 }
 ```
 
@@ -60,10 +60,10 @@ function formatNumber(number) {
 
 ```javascript
 function formatNumber(number) {
-  return `+${number.slice(0, 1)} (${number.slice(1, 4)}) ${number.slice(
-    4,
-    7
-  )}-${number.slice(7)}`;
+ return `+${number.slice(0, 1)} (${number.slice(1, 4)}) ${number.slice(
+ 4,
+ 7
+ )}-${number.slice(7)}`;
 }
 ```
 

@@ -51,13 +51,13 @@ El enfoque más directo es utilizar una estructura `if...else if...else` o múlt
 
 ```javascript
 function adjustThermostat(temp, target) {
-  if (temp < target) {
-    return "heat";
-  }
-  if (temp > target) {
-    return "cool";
-  }
-  return "hold";
+ if (temp < target) {
+ return "heat";
+ }
+ if (temp > target) {
+ return "cool";
+ }
+ return "hold";
 }
 ```
 

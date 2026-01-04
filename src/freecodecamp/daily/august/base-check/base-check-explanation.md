@@ -51,9 +51,9 @@ Este problema requiere validar si una representación string de un número es co
 
 1. Verificar que la base esté en el rango válido (2-36)
 2. Para cada carácter en el string:
-   - Convertirlo a mayúscula (para case-insensitivity)
-   - Determinar su valor numérico
-   - Verificar si ese valor es menor que la base
+ - Convertirlo a mayúscula (para case-insensitivity)
+ - Determinar su valor numérico
+ - Verificar si ese valor es menor que la base
 
 ## Solución
 
@@ -63,21 +63,21 @@ La solución implementada utiliza expresiones regulares para validar eficienteme
 
 ```javascript
 function isValidNumber(n, base) {
-  const validChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base);
-  const regex = new RegExp(`^[${validChars}]+$`, "i");
-  return regex.test(n);
+ const validChars = "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ".slice(0, base);
+ const regex = new RegExp(`^[${validChars}]+$`, "i");
+ return regex.test(n);
 }
 ```
 
 **Explicación paso a paso:**
 
-1. **Construcción de caracteres válidos**: Creamos un string con todos los dígitos válidos para la base especificada usando `slice(0, base)` sobre el alfabeto completo "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+1. **Construcción de caracteres válidos**: Creamos un string con todos los dígitos válidos para la base especificada usando `slice(0, base)` sobre el alfabeto completo "0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 2. **Creación de la expresión regular**:
 
-   - Usamos `new RegExp()` para crear una regex dinámica
-   - El patrón `^[${validChars}]+$` asegura que el string completo consista únicamente de caracteres válidos
-   - La flag `"i"` hace la validación case-insensitive
+ - Usamos `new RegExp()` para crear una regex dinámica
+ - El patrón `^[${validChars}]+$` asegura que el string completo consista únicamente de caracteres válidos
+ - La flag `"i"` hace la validación case-insensitive
 
 3. **Validación**: `regex.test(n)` retorna `true` si el string coincide completamente con el patrón, `false` en caso contrario
 
@@ -105,14 +105,14 @@ Los tests implementados cubren todos los ejemplos del enunciado y casos adiciona
 
 **Casos con letras:**
 
-- Base 16: "ABC" (válido), "5G3F8F" (inválido por G), "4B4BA9" (válido)
+- Base 16: "ABC" (válido), "5 G 3 F 8 F" (inválido por G), "4 B 4 BA 9" (válido)
 - Base 20: "ABC" (válido)
 - Base 36: "Z" (válido), "z" (válido por case-insensitive)
 
 **Casos edge:**
 
 - Case-insensitivity: "abc", "AbC" en base 16
-- Cambio de validez según base: "5G3F8F" inválido en base 16, válido en base 17
+- Cambio de validez según base: "5 G 3 F 8 F" inválido en base 16, válido en base 17
 
 ## Aprendizajes
 

@@ -22,7 +22,7 @@ Determinar si el número de vocales en la primera mitad de una string es igual a
 - Input: "string" → Output: false (1 vs 2 vocales)
 - Input: " " → Output: true (0 vocales en ambas mitades)
 - Input: "abcdefghijklmnopqrstuvwxyz" → Output: false (5 vs 6 vocales)
-- Input: "123A#b!E&\*456-o.U" → Output: true (2 vocales en cada mitad)
+- Input: "123 A#b!E&\*456-o.U" → Output: true (2 vocales en cada mitad)
 
 ## Análisis
 
@@ -48,33 +48,33 @@ Este problema requiere dividir una string en dos mitades y comparar el conteo de
 
 1. Inicialización:
 
-   ```javascript
-   let vowels = "aeiouAEIOU"; // String constante para lookup rápido
-   let leftVowelCount = 0,
-     rightVowelCount = 0;
-   let mid = Math.floor(length / 2);
-   let isOdd = length % 2 === 1;
-   ```
+ ```javascript
+ let vowels = "aeiouAEIOU"; // String constante para lookup rápido
+ let leftVowelCount = 0,
+ rightVowelCount = 0;
+ let mid = Math.floor(length / 2);
+ let isOdd = length % 2 === 1;
+ ```
 
 2. Loop principal:
 
-   ```javascript
-   for (let i = 0; i < length; i++) {
-     if (vowels.includes(s[i])) {
-       // O(1) lookup
-       if (i < mid) {
-         leftVowelCount++; // Primera mitad
-       } else if (i > mid || !isOdd) {
-         rightVowelCount++; // Segunda mitad
-       }
-       // i === mid && isOdd → ignorado
-     }
-   }
-   ```
+ ```javascript
+ for (let i = 0; i < length; i++) {
+ if (vowels.includes(s[i])) {
+ // O(1) lookup
+ if (i < mid) {
+ leftVowelCount++; // Primera mitad
+ } else if (i > mid || !isOdd) {
+ rightVowelCount++; // Segunda mitad
+ }
+ // i === mid && isOdd → ignorado
+ }
+ }
+ ```
 
 3. Lógica de particionamiento:
-   - Longitud par: Primera mitad `0..mid-1`, segunda mitad `mid..length-1`
-   - Longitud impar: Primera mitad `0..mid-1`, centro `mid` ignorado, segunda mitad `mid+1..length-1`
+ - Longitud par: Primera mitad `0..mid-1`, segunda mitad `mid..length-1`
+ - Longitud impar: Primera mitad `0..mid-1`, centro `mid` ignorado, segunda mitad `mid+1..length-1`
 
 ### Ejemplo detallado: "racecar" (longitud 7)
 

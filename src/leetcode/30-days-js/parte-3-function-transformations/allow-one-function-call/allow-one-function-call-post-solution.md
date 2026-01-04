@@ -24,15 +24,15 @@ The key insight is that we need to use closure to "remember" whether the functio
 type Fn = (...params: any[]) => any;
 
 export function once(fn: Fn): Fn {
-  let called = false;
+ let called = false;
 
-  return function (...args: any[]): any {
-    if (!called) {
-      called = true; // Mark as called FIRST
-      return fn(...args); // Then execute and return
-    }
-    return undefined;
-  };
+ return function (...args: any[]): any {
+ if (!called) {
+ called = true; // Mark as called FIRST
+ return fn(...args); // Then execute and return
+ }
+ return undefined;
+ };
 }
 ```
 

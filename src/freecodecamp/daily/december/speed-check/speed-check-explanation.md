@@ -33,23 +33,23 @@ El problema pide comparar la velocidad a la que viajas en millas por hora (MPH) 
 Los casos de prueba relevantes que identificamos son:
 
 - Caso 1: Velocidad dentro del límite
-  - Entrada: speedMph = 30, speedLimitKph = 70
-  - Salida Esperada: "Not Speeding"
+ - Entrada: speedMph = 30, speedLimitKph = 70
+ - Salida Esperada: "Not Speeding"
 - Caso 2: Velocidad con advertencia
-  - Entrada: speedMph = 40, speedLimitKph = 60
-  - Salida Esperada: "Warning"
+ - Entrada: speedMph = 40, speedLimitKph = 60
+ - Salida Esperada: "Warning"
 - Caso 3: Velocidad justo en el límite de advertencia
-  - Entrada: speedMph = 40, speedLimitKph = 65
-  - Salida Esperada: "Not Speeding"
+ - Entrada: speedMph = 40, speedLimitKph = 65
+ - Salida Esperada: "Not Speeding"
 - Caso 4: Velocidad con multa
-  - Entrada: speedMph = 60, speedLimitKph = 90
-  - Salida Esperada: "Ticket"
+ - Entrada: speedMph = 60, speedLimitKph = 90
+ - Salida Esperada: "Ticket"
 - Caso 5: Velocidad con advertencia cerca del límite
-  - Entrada: speedMph = 65, speedLimitKph = 100
-  - Salida Esperada: "Warning"
+ - Entrada: speedMph = 65, speedLimitKph = 100
+ - Salida Esperada: "Warning"
 - Caso 6: Velocidad muy por encima del límite
-  - Entrada: speedMph = 88, speedLimitKph = 40
-  - Salida Esperada: "Ticket"
+ - Entrada: speedMph = 88, speedLimitKph = 40
+ - Salida Esperada: "Ticket"
 
 ## Desarrollo de la Solución
 
@@ -61,23 +61,23 @@ Para resolver este problema, primero convertiremos la velocidad dada en millas p
 
 1. Convertir la velocidad de millas por hora (MPH) a kilometros por hora (KPH) usando la formula: `speedKPH = speedMph * 1.60934`.
 2. Comparar la velocidad convertida (speedKPH) con el límite de velocidad (speedLimitKph):
-   - Si speedKPH es menor o igual a speedLimitKph, devolver "Not Speeding".
-   - Si speedKPH es mayor que speedLimitKph pero menor o igual a speedLimitKph + 5, devolver "Warning".
-   - Si speedKPH es mayor que speedLimitKph + 5, devolver "Ticket".
+ - Si speedKPH es menor o igual a speedLimitKph, devolver "Not Speeding".
+ - Si speedKPH es mayor que speedLimitKph pero menor o igual a speedLimitKph + 5, devolver "Warning".
+ - Si speedKPH es mayor que speedLimitKph + 5, devolver "Ticket".
 3. Devolver el resultado correspondiente basado en las comparaciones anteriores.
 
 ### Codigo Final
 
 ```js
 function speedCheck(speedMph, speedLimitKph) {
-  const speedKPH = speedMph * 1.60934;
-  if (speedKPH <= speedLimitKph) {
-    return "Not Speeding";
-  } else if (speedKPH <= speedLimitKph + 5) {
-    return "Warning";
-  } else {
-    return "Ticket";
-  }
+ const speedKPH = speedMph * 1.60934;
+ if (speedKPH <= speedLimitKph) {
+ return "Not Speeding";
+ } else if (speedKPH <= speedLimitKph + 5) {
+ return "Warning";
+ } else {
+ return "Ticket";
+ }
 }
 ```
 

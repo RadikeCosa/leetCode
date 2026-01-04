@@ -44,22 +44,22 @@ Este problema requiere mapear temperaturas a categorías discretas basadas en ra
 
 1. **Crear Map ordenado**: Insertar rangos de mayor a menor temperatura mínima
 
-   ```
-   [30000, "O"], [10000, "B"], [7500, "A"], ..., [0, "M"]
-   ```
+ ```
+ [30000, "O"], [10000, "B"], [7500, "A"], ..., [0, "M"]
+ ```
 
 2. **Iteración secuencial**: Recorrer el Map en orden de inserción
 
-   ```javascript
-   for (let [minTemp, classification] of stellarMap) {
-     if (temp >= minTemp) return classification;
-   }
-   ```
+ ```javascript
+ for (let [minTemp, classification] of stellarMap) {
+ if (temp >= minTemp) return classification;
+ }
+ ```
 
 3. **Lógica de evaluación**:
-   - Primera coincidencia gana (debido al orden descendente)
-   - Temperaturas altas matchean primero ("O")
-   - Temperaturas bajas caen en "M" (caso por defecto)
+ - Primera coincidencia gana (debido al orden descendente)
+ - Temperaturas altas matchean primero ("O")
+ - Temperaturas bajas caen en "M" (caso por defecto)
 
 ### Ejemplo paso a paso:
 

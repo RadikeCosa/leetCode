@@ -66,13 +66,13 @@ Este procedimiento garantiza que se consideran todos los divisores posibles de n
 
 ```javascript
 function sumOfDivisors(n) {
-  let suma = 0;
-  for (let i = 1; i <= n; i++) {
-    if (n % i === 0) {
-      suma += i;
-    }
-  }
-  return suma;
+ let suma = 0;
+ for (let i = 1; i <= n; i++) {
+ if (n % i === 0) {
+ suma += i;
+ }
+ }
+ return suma;
 }
 ```
 

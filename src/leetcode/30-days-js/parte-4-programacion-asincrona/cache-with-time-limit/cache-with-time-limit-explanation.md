@@ -76,8 +76,8 @@ Necesitamos una estructura de datos que combine:
 ```typescript
 // Para cada entrada del cache necesitamos almacenar:
 interface CacheEntry {
-  value: number;           // El valor almacenado
-  timeoutId: NodeJS.Timeout; // ID del timeout para cancelar si es necesario
+ value: number; // El valor almacenado
+ timeoutId: NodeJS.Timeout; // ID del timeout para cancelar si es necesario
 }
 
 // El cache principal
@@ -112,35 +112,35 @@ private cache: Map<number, CacheEntry> = new Map();
 
 ```typescript
 class TimeLimitedCache {
-  private cache: Map<number, CacheEntry> = new Map();
+ private cache: Map<number, CacheEntry> = new Map();
 
-  set(key: number, value: number, duration: number): boolean {
-    const existed = this.cache.has(key);
+ set(key: number, value: number, duration: number): boolean {
+ const existed = this.cache.has(key);
 
-    // Cancelar timeout existente si la clave ya existe
-    if (existed) {
-      clearTimeout(this.cache.get(key)!.timeoutId);
-    }
+ // Cancelar timeout existente si la clave ya existe
+ if (existed) {
+ clearTimeout(this.cache.get(key)!.timeoutId);
+ }
 
-    // Crear nuevo timeout para eliminar la clave
-    const timeoutId = setTimeout(() => {
-      this.cache.delete(key);
-    }, duration);
+ // Crear nuevo timeout para eliminar la clave
+ const timeoutId = setTimeout(() => {
+ this.cache.delete(key);
+ }, duration);
 
-    // Almacenar valor y timeout ID
-    this.cache.set(key, { value, timeoutId });
+ // Almacenar valor y timeout ID
+ this.cache.set(key, { value, timeoutId });
 
-    return existed;
-  }
+ return existed;
+ }
 
-  get(key: number): number {
-    const entry = this.cache.get(key);
-    return entry ? entry.value : -1;
-  }
+ get(key: number): number {
+ const entry = this.cache.get(key);
+ return entry ? entry.value : -1;
+ }
 
-  count(): number {
-    return this.cache.size;
-  }
+ count(): number {
+ return this.cache.size;
+ }
 }
 ```
 

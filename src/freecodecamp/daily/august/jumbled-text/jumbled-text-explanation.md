@@ -74,15 +74,15 @@ Se implementó un enfoque funcional que procesa cada palabra individualmente:
 
 ```javascript
 function jbelmu(text) {
-  const words = text.split(" ");
-  const jumbledWords = words.map((word) => {
-    if (word.length <= 3) return word;
-    const firstChar = word.charAt(0);
-    const lastChar = word.charAt(word.length - 1);
-    const middleChars = word.slice(1, -1).split("").sort().join("");
-    return firstChar + middleChars + lastChar;
-  });
-  return jumbledWords.join(" ");
+ const words = text.split(" ");
+ const jumbledWords = words.map((word) => {
+ if (word.length <= 3) return word;
+ const firstChar = word.charAt(0);
+ const lastChar = word.charAt(word.length - 1);
+ const middleChars = word.slice(1, -1).split("").sort().join("");
+ return firstChar + middleChars + lastChar;
+ });
+ return jumbledWords.join(" ");
 }
 ```
 
@@ -92,10 +92,10 @@ function jbelmu(text) {
 2. Procesar cada palabra con `map()`
 3. Para palabras ≤ 3 letras: retornar sin cambios
 4. Para palabras > 3 letras:
-   - Extraer primera letra con `charAt(0)`
-   - Extraer última letra con `charAt(word.length - 1)`
-   - Obtener letras intermedias con `slice(1, -1)`
-   - Convertir a array, ordenar, y volver a string
+ - Extraer primera letra con `charAt(0)`
+ - Extraer última letra con `charAt(word.length - 1)`
+ - Obtener letras intermedias con `slice(1, -1)`
+ - Convertir a array, ordenar, y volver a string
 5. Unir palabras procesadas con `join(" ")`
 
 **Ventajas de este enfoque:**
@@ -111,27 +111,27 @@ function jbelmu(text) {
 
 ```javascript
 function jbelmu(text) {
-  const words = text.split(" ");
-  const result = [];
+ const words = text.split(" ");
+ const result = [];
 
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
-    if (word.length <= 3) {
-      result.push(word);
-      continue;
-    }
+ for (let i = 0; i < words.length; i++) {
+ const word = words[i];
+ if (word.length <= 3) {
+ result.push(word);
+ continue;
+ }
 
-    const first = word[0];
-    const last = word[word.length - 1];
-    const middle = word
-      .substring(1, word.length - 1)
-      .split("")
-      .sort()
-      .join("");
-    result.push(first + middle + last);
-  }
+ const first = word[0];
+ const last = word[word.length - 1];
+ const middle = word
+ .substring(1, word.length - 1)
+ .split("")
+ .sort()
+ .join("");
+ result.push(first + middle + last);
+ }
 
-  return result.join(" ");
+ return result.join(" ");
 }
 ```
 
@@ -152,21 +152,21 @@ function jbelmu(text) {
 
 ```javascript
 function jbelmu(text) {
-  return text
-    .split(" ")
-    .map((word) => {
-      if (word.length <= 3) return word;
-      const [first, ...middle] = word.split("");
-      const last = middle.pop();
-      return first + middle.sort().join("") + last;
-    })
-    .join(" ");
+ return text
+ .split(" ")
+ .map((word) => {
+ if (word.length <= 3) return word;
+ const [first, ...middle] = word.split("");
+ const last = middle.pop();
+ return first + middle.sort().join("") + last;
+ })
+ .join(" ");
 }
 ```
 
 **Cuándo usar:**
 
-- Cuando se quiere aprovechar destructuring de ES6+
+- Cuando se quiere aprovechar destructuring de ES 6+
 - Para código más conciso
 - En contextos modernos de JavaScript
 
@@ -181,9 +181,9 @@ function jbelmu(text) {
 
 ```javascript
 function jbelmu(text) {
-  return text.replace(/\b(\w)(\w*)(\w)\b/g, (match, first, middle, last) => {
-    return first + middle.split("").sort().join("") + last;
-  });
+ return text.replace(/\b(\w)(\w*)(\w)\b/g, (match, first, middle, last) => {
+ return first + middle.split("").sort().join("") + last;
+ });
 }
 ```
 
@@ -204,14 +204,14 @@ function jbelmu(text) {
 
 ```javascript
 function jumbleWord(word) {
-  if (word.length <= 3) return word;
-  const [first, ...rest] = word.split("");
-  const last = rest.pop();
-  return first + rest.sort().join("") + last;
+ if (word.length <= 3) return word;
+ const [first, ...rest] = word.split("");
+ const last = rest.pop();
+ return first + rest.sort().join("") + last;
 }
 
 function jbelmu(text) {
-  return text.split(" ").map(jumbleWord).join(" ");
+ return text.split(" ").map(jumbleWord).join(" ");
 }
 ```
 

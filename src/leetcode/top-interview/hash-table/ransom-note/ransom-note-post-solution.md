@@ -14,9 +14,9 @@ I used the **HashMap Frequency Counter** pattern with a two-phase algorithm:
 **Phase 2 - Verify and Consume Characters:**
 
 - For each character in `ransomNote`:
-  - Check if character exists in our count map AND has count > 0
-  - If not available, return `false` immediately (early termination)
-  - If available, "consume" the character by decrementing its count
+ - Check if character exists in our count map AND has count > 0
+ - If not available, return `false` immediately (early termination)
+ - If available, "consume" the character by decrementing its count
 - If we successfully process all characters, return `true`
 
 **Key optimizations:**
@@ -28,44 +28,44 @@ I used the **HashMap Frequency Counter** pattern with a two-phase algorithm:
 
 - **Time complexity**: O(n + m) where n = length of `ransomNote`, m = length of `magazine`
 
-  - O(m) to count all characters in magazine
-  - O(n) to verify each character in ransomNote
-  - Each HashMap operation (get/set) is O(1) average case
+ - O(m) to count all characters in magazine
+ - O(n) to verify each character in ransomNote
+ - Each HashMap operation (get/set) is O(1) average case
 
 - **Space complexity**: O(k) where k = number of unique characters in magazine
-  - In worst case O(26) for lowercase English letters = O(1) constant space
+ - In worst case O(26) for lowercase English letters = O(1) constant space
 
 # Code
 
 ```typescript
 export function canConstruct(ransomNote: string, magazine: string): boolean {
-  // Optimización temprana: si ransomNote es más largo, es imposible construirlo
-  if (ransomNote.length > magazine.length) {
-    return false;
-  }
+ // Optimización temprana: si ransomNote es más largo, es imposible construirlo
+ if (ransomNote.length > magazine.length) {
+ return false;
+ }
 
-  // Crear un HashMap para contar la frecuencia de cada carácter en magazine
-  const magazineCount = new Map<string, number>();
+ // Crear un HashMap para contar la frecuencia de cada carácter en magazine
+ const magazineCount = new Map<string, number>();
 
-  // Fase 1: Contar todos los caracteres disponibles en magazine
-  for (const char of magazine) {
-    // Si el carácter ya existe, incrementamos su contador; si no, lo inicializamos en 1
-    magazineCount.set(char, (magazineCount.get(char) || 0) + 1);
-  }
+ // Fase 1: Contar todos los caracteres disponibles en magazine
+ for (const char of magazine) {
+ // Si el carácter ya existe, incrementamos su contador; si no, lo inicializamos en 1
+ magazineCount.set(char, (magazineCount.get(char) || 0) + 1);
+ }
 
-  // Fase 2: Verificar si podemos construir ransomNote con los caracteres disponibles
-  for (const char of ransomNote) {
-    // Verificamos si el carácter existe y si tenemos cantidad suficiente (> 0)
-    if (!magazineCount.has(char) || magazineCount.get(char)! <= 0) {
-      // No tenemos el carácter o ya se agotó
-      return false;
-    }
-    // "Usamos" el carácter decrementando su contador
-    magazineCount.set(char, magazineCount.get(char)! - 1);
-  }
+ // Fase 2: Verificar si podemos construir ransomNote con los caracteres disponibles
+ for (const char of ransomNote) {
+ // Verificamos si el carácter existe y si tenemos cantidad suficiente (> 0)
+ if (!magazineCount.has(char) || magazineCount.get(char)! <= 0) {
+ // No tenemos el carácter o ya se agotó
+ return false;
+ }
+ // "Usamos" el carácter decrementando su contador
+ magazineCount.set(char, magazineCount.get(char)! - 1);
+ }
 
-  // Si llegamos aquí, pudimos construir ransomNote exitosamente
-  return true;
+ // Si llegamos aquí, pudimos construir ransomNote exitosamente
+ return true;
 }
 ```
 

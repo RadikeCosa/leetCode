@@ -31,41 +31,41 @@ El problema requiere calcular el costo necesario para llenar un tanque de combus
 ### Casos de Prueba Identificados
 
 1. **Caso básico**:
-   - Input: tankSize = 15, fuelLevel = 5, pricePerGallon = 3.50
-   - Output esperado: "$35.00"
-   - Explicación: Se necesitan 10 galones para llenar el tanque (15 - 5), y a $3.50 por galón, el costo total es $35.00.
+ - Input: tankSize = 15, fuelLevel = 5, pricePerGallon = 3.50
+ - Output esperado: "$35.00"
+ - Explicación: Se necesitan 10 galones para llenar el tanque (15 - 5), y a $3.50 por galón, el costo total es $35.00.
 2. **Tanque ya lleno**:
-   - Input: tankSize = 10, fuelLevel = 10, pricePerGallon = 4.00
-   - Output esperado: "$0.00"
-   - Explicación: No se necesita combustible adicional, por lo que el costo es $0.00.
+ - Input: tankSize = 10, fuelLevel = 10, pricePerGallon = 4.00
+ - Output esperado: "$0.00"
+ - Explicación: No se necesita combustible adicional, por lo que el costo es $0.00.
 3. **Tanque vacío**:
-   - Input: tankSize = 20, fuelLevel = 0, pricePerGallon = 2.75
-   - Output esperado: "$55.00"
-   - Explicación: Se necesitan 20 galones para llenar el tanque, y a $2.75 por galón, el costo total es $55.00.
+ - Input: tankSize = 20, fuelLevel = 0, pricePerGallon = 2.75
+ - Output esperado: "$55.00"
+ - Explicación: Se necesitan 20 galones para llenar el tanque, y a $2.75 por galón, el costo total es $55.00.
 4. **Precio por galón es cero**:
-   - Input: tankSize = 15, fuelLevel = 5, pricePerGallon = 0.00
-   - Output esperado: "$0.00"
-   - Explicación: Aunque se necesitan galones para llenar el tanque, el costo es $0.00 debido a que el precio por galón es cero.
+ - Input: tankSize = 15, fuelLevel = 5, pricePerGallon = 0.00
+ - Output esperado: "$0.00"
+ - Explicación: Aunque se necesitan galones para llenar el tanque, el costo es $0.00 debido a que el precio por galón es cero.
 5. **Nivel de combustible mayor que el tamaño del tanque**:
-   - Input: tankSize = 10, fuelLevel = 12, pricePerGallon = 3.00
-   - Output esperado: "$0.00"
-   - Explicación: El tanque ya está lleno, por lo que no se necesita combustible adicional y el costo es $0.00.
+ - Input: tankSize = 10, fuelLevel = 12, pricePerGallon = 3.00
+ - Output esperado: "$0.00"
+ - Explicación: El tanque ya está lleno, por lo que no se necesita combustible adicional y el costo es $0.00.
 6. **Valores decimales en el nivel de combustible**:
-   - Input: tankSize = 12.5, fuelLevel = 7.3, pricePerGallon = 4.20
-   - Output esperado: "$21.84"
-   - Explicación: Se necesitan 5.2 galones para llenar el tanque (12.5 - 7.3), y a $4.20 por galón, el costo total es $21.84.
+ - Input: tankSize = 12.5, fuelLevel = 7.3, pricePerGallon = 4.20
+ - Output esperado: "$21.84"
+ - Explicación: Se necesitan 5.2 galones para llenar el tanque (12.5 - 7.3), y a $4.20 por galón, el costo total es $21.84.
 7. **Valores decimales en el tamaño del tanque**:
-   - Input: tankSize = 15.75, fuelLevel = 10.5, pricePerGallon = 3.80
-   - Output esperado: "$19.95"
-   - Explicación: Se necesitan 5.25 galones para llenar el tanque (15.75 - 10.5), y a $3.80 por galón, el costo total es $19.95.
+ - Input: tankSize = 15.75, fuelLevel = 10.5, pricePerGallon = 3.80
+ - Output esperado: "$19.95"
+ - Explicación: Se necesitan 5.25 galones para llenar el tanque (15.75 - 10.5), y a $3.80 por galón, el costo total es $19.95.
 8. **Valores decimales en el precio por galón**:
-   - Input: tankSize = 20, fuelLevel = 5, pricePerGallon = 2.95
-   - Output esperado: "$44.25"
-   - Explicación: Se necesitan 15 galones para llenar el tanque (20 - 5), y a $2.95 por galón, el costo total es $44.25.
+ - Input: tankSize = 20, fuelLevel = 5, pricePerGallon = 2.95
+ - Output esperado: "$44.25"
+ - Explicación: Se necesitan 15 galones para llenar el tanque (20 - 5), y a $2.95 por galón, el costo total es $44.25.
 9. **Todos los valores son decimales**:
-   - Input: tankSize = 18.5, fuelLevel = 9.75, pricePerGallon = 3.65
-   - Output esperado: "$31.19"
-   - Explicación: Se necesitan 8.75 galones para llenar el tanque (18.5 - 9.75), y a $3.65 por galón, el costo total es $31.19.
+ - Input: tankSize = 18.5, fuelLevel = 9.75, pricePerGallon = 3.65
+ - Output esperado: "$31.19"
+ - Explicación: Se necesitan 8.75 galones para llenar el tanque (18.5 - 9.75), y a $3.65 por galón, el costo total es $31.19.
 
 ## Desarrollo de la Solución
 

@@ -36,8 +36,8 @@ El objetivo es encontrar la triangulación que produzca el score total mínimo p
 - Es un cuadrilátero (4 vértices)
 - Se pueden formar 4-2 = 2 triángulos
 - Dos posibles triangulaciones:
-  1. Triángulos: (0,1,3) y (1,2,3) → 3×7×5 + 7×4×5 = 105 + 140 = 245
-  2. Triángulos: (0,2,3) y (0,1,2) → 3×4×5 + 3×7×4 = 60 + 84 = 144
+ 1. Triángulos: (0,1,3) y (1,2,3) → 3×7×5 + 7×4×5 = 105 + 140 = 245
+ 2. Triángulos: (0,2,3) y (0,1,2) → 3×4×5 + 3×7×4 = 60 + 84 = 144
 - El mínimo es 144
 
 **Ejemplo 3: [1,3,1,4,1,5]**
@@ -78,7 +78,7 @@ La solución óptima usa **programación dinámica** con la siguiente estrategia
 
 ### Estructura de Datos Utilizada
 
-- **Tabla DP**: Matriz 2D de tamaño n×n donde `dp[i][j]` almacena el costo mínimo para triangular desde vértice i hasta j
+- **Tabla DP**: Matriz 2 D de tamaño n×n donde `dp[i][j]` almacena el costo mínimo para triangular desde vértice i hasta j
 - **Inicialización**: Todos los valores se inicializan en 0, pero luego se actualizan según los casos base y la DP
 
 ### Explicación del Código
@@ -93,7 +93,7 @@ Creamos una tabla DP de n×n para almacenar los resultados de subproblemas.
 ```typescript
 // Caso base: distancias de 2 vértices no se triangulan
 for (let i = 0; i < n - 1; i++) {
-  dp[i][i + 1] = 0;
+ dp[i][i + 1] = 0;
 }
 ```
 
@@ -102,7 +102,7 @@ Dos vértices consecutivos no forman un triángulo, por lo tanto su costo es 0.
 ```typescript
 // Caso base: triángulos de 3 vértices
 for (let i = 0; i < n - 2; i++) {
-  dp[i][i + 2] = values[i] * values[i + 1] * values[i + 2];
+ dp[i][i + 2] = values[i] * values[i + 1] * values[i + 2];
 }
 ```
 
@@ -111,16 +111,16 @@ Para tres vértices consecutivos (i, i+1, i+2), solo hay una forma de triangular
 ```typescript
 // DP para polígonos más grandes
 for (let len = 3; len < n; len++) {
-  for (let i = 0; i < n - len; i++) {
-    const j = i + len;
-    dp[i][j] = Infinity; // Inicializar con un valor grande
-    for (let k = i + 1; k < j; k++) {
-      dp[i][j] = Math.min(
-        dp[i][j],
-        dp[i][k] + dp[k][j] + values[i] * values[k] * values[j]
-      );
-    }
-  }
+ for (let i = 0; i < n - len; i++) {
+ const j = i + len;
+ dp[i][j] = Infinity; // Inicializar con un valor grande
+ for (let k = i + 1; k < j; k++) {
+ dp[i][j] = Math.min(
+ dp[i][j],
+ dp[i][k] + dp[k][j] + values[i] * values[k] * values[j]
+ );
+ }
+ }
 }
 ```
 
@@ -130,9 +130,9 @@ Esta es la parte principal de la DP:
 2. Para cada subpolígono de tamaño `len`, consideramos todas las posiciones iniciales `i`
 3. `j = i + len` es el vértice final del subpolígono
 4. Para cada posible vértice `k` entre `i+1` y `j-1`:
-   - Formamos un triángulo con vértices `i`, `k`, `j`
-   - El costo total sería: costo de triangular `i` a `k` + costo de triangular `k` a `j` + costo del triángulo `i,k,j`
-   - Tomamos el mínimo sobre todas las posibles elecciones de `k`
+ - Formamos un triángulo con vértices `i`, `k`, `j`
+ - El costo total sería: costo de triangular `i` a `k` + costo de triangular `k` a `j` + costo del triángulo `i,k,j`
+ - Tomamos el mínimo sobre todas las posibles elecciones de `k`
 
 ```typescript
 return dp[0][n - 1];
@@ -145,9 +145,9 @@ El resultado final es el costo mínimo para triangular todo el polígono (desde 
 ### Complejidad Temporal
 
 - **O(n³)**: Tres bucles anidados
-  - Bucle externo: `len` de 3 a n-1 → O(n)
-  - Bucle medio: `i` de 0 a n-len → O(n)
-  - Bucle interno: `k` de i+1 a j-1 → O(n) en el peor caso
+ - Bucle externo: `len` de 3 a n-1 → O(n)
+ - Bucle medio: `i` de 0 a n-len → O(n)
+ - Bucle interno: `k` de i+1 a j-1 → O(n) en el peor caso
 - Total: O(n³), aceptable dado que n ≤ 50
 
 ### Complejidad Espacial

@@ -13,8 +13,8 @@ The `async` function automatically wraps the returned value in a Promise, so we 
 **Alternative approach**: We could use `Promise.all()` for concurrent execution:
 
 ```typescript
-const [value1, value2] = await Promise.all([promise1, promise2]);
-return value1 + value2;
+const [value 1, value 2] = await Promise.all([promise 1, promise 2]);
+return value 1 + value 2;
 ```
 
 Both approaches are valid, with `Promise.all()` being slightly more efficient for promises with different resolution times.
@@ -30,18 +30,18 @@ _Note: Time complexity doesn't account for promise resolution time, which depend
 
 ```ts
 export async function addTwoPromises(
-  promise1: Promise<number>,
-  promise2: Promise<number>
+ promise 1: Promise<number>,
+ promise 2: Promise<number>
 ): Promise<number> {
-  const valor1 = await promise1;
-  const valor2 = await promise2;
-  return valor1 + valor2;
+ const valor 1 = await promise 1;
+ const valor 2 = await promise 2;
+ return valor 1 + valor 2;
 }
 ```
 
 # Notes
 
-- **Sequential vs Concurrent**: Our solution waits for `promise1` before starting to wait for `promise2`. For better performance with independent promises, consider `Promise.all()`
+- **Sequential vs Concurrent**: Our solution waits for `promise 1` before starting to wait for `promise 2`. For better performance with independent promises, consider `Promise.all()`
 - **Error Handling**: In production code, wrap in `try/catch` to handle promise rejections
 - **TypeScript Benefits**: Strong typing ensures we're working with numbers and returning the correct Promise type
 - **Automatic Promise Wrapping**: The `async` function automatically converts the returned number into `Promise<number>`

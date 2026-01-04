@@ -62,12 +62,12 @@ Se utiliza una estructura condicional simple:
 
 ### Implementación Paso a Paso
 
-1. Comparar si player1 === player2 → retornar "Tie".
-2. Verificar si (player1, player2) es una de las combinaciones ganadoras para el jugador uno:
-   - ("Rock", "Scissors")
-   - ("Paper", "Rock")
-   - ("Scissors", "Paper")
-     Si es así, retornar "Player 1 wins".
+1. Comparar si player 1 === player 2 → retornar "Tie".
+2. Verificar si (player 1, player 2) es una de las combinaciones ganadoras para el jugador uno:
+ - ("Rock", "Scissors")
+ - ("Paper", "Rock")
+ - ("Scissors", "Paper")
+ Si es así, retornar "Player 1 wins".
 3. Si no, retornar "Player 2 wins".
 
 ---

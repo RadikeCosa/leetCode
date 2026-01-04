@@ -41,29 +41,29 @@ El problema requiere validar y convertir un string que representa un blockquote 
 
 Los casos de prueba relevantes para este problema son:
 
-1. Línea válida con blockquote simple, sin espacios iniciales:  
-   Entrada: `"> Esto es una cita"`  
-   Salida esperada: `<blockquote>Esto es una cita</blockquote>`
+1. Línea válida con blockquote simple, sin espacios iniciales: 
+ Entrada: `"> Esto es una cita"` 
+ Salida esperada: `<blockquote>Esto es una cita</blockquote>`
 
-2. Línea válida con espacios iniciales antes del símbolo `>`:  
-   Entrada: `"   > Cita con espacios iniciales"`  
-   Salida esperada: `<blockquote>Cita con espacios iniciales</blockquote>`
+2. Línea válida con espacios iniciales antes del símbolo `>`: 
+ Entrada: `" > Cita con espacios iniciales"` 
+ Salida esperada: `<blockquote>Cita con espacios iniciales</blockquote>`
 
-3. Línea válida con múltiples espacios entre `>` y el texto:  
-   Entrada: `">     Texto con espacios después del símbolo"`  
-   Salida esperada: `<blockquote>Texto con espacios después del símbolo</blockquote>`
+3. Línea válida con múltiples espacios entre `>` y el texto: 
+ Entrada: `"> Texto con espacios después del símbolo"` 
+ Salida esperada: `<blockquote>Texto con espacios después del símbolo</blockquote>`
 
-4. Línea inválida sin el símbolo `>`:  
-   Entrada: `"Esto no es una cita"`  
-   Salida esperada: `"Esto no es una cita"`
+4. Línea inválida sin el símbolo `>`: 
+ Entrada: `"Esto no es una cita"` 
+ Salida esperada: `"Esto no es una cita"`
 
-5. Línea con solo el símbolo `>` y sin texto:  
-   Entrada: `">"`  
-   Salida esperada: `<blockquote></blockquote>`
+5. Línea con solo el símbolo `>` y sin texto: 
+ Entrada: `">"` 
+ Salida esperada: `<blockquote></blockquote>`
 
-6. Línea vacía o con solo espacios:  
-   Entrada: `""` o `"    "`  
-   Salida esperada: `""` o `"    "` (sin blockquote)
+6. Línea vacía o con solo espacios: 
+ Entrada: `""` o `" "` 
+ Salida esperada: `""` o `" "` (sin blockquote)
 
 ## Desarrollo de la Solución
 
@@ -83,14 +83,14 @@ Se eligio usar una expresion regular para identificar y "capturar" el '>' y el t
 
 ```javascript
 function parseBlockquote(markdown) {
-  // Regular expression to match blockquote in Markdown
-  const blockquoteRegex = /^\s*>+\s*(.*)$/;
-  // Replace Markdown blockquote with HTML <blockquote> tags
-  const match = markdown.match(blockquoteRegex);
-  if (match) {
-    return `<blockquote>${match[1].trim()}</blockquote>`;
-  }
-  return markdown; // Return original if no blockquote found
+ // Regular expression to match blockquote in Markdown
+ const blockquoteRegex = /^\s*>+\s*(.*)$/;
+ // Replace Markdown blockquote with HTML <blockquote> tags
+ const match = markdown.match(blockquoteRegex);
+ if (match) {
+ return `<blockquote>${match[1].trim()}</blockquote>`;
+ }
+ return markdown; // Return original if no blockquote found
 }
 ```
 
@@ -126,16 +126,16 @@ De esta forma, la función podrá convertir correctamente todos los blockquotes 
 
 ```javascript
 function parseBlockquotesMultiline(markdown) {
-  return markdown
-    .split("\n")
-    .map((line) => {
-      const match = line.match(/^\s*>+\s*(.*)$/);
-      if (match) {
-        return `<blockquote>${match[1].trim()}</blockquote>`;
-      }
-      return line;
-    })
-    .join("\n");
+ return markdown
+ .split("\n")
+ .map((line) => {
+ const match = line.match(/^\s*>+\s*(.*)$/);
+ if (match) {
+ return `<blockquote>${match[1].trim()}</blockquote>`;
+ }
+ return line;
+ })
+ .join("\n");
 }
 ```
 

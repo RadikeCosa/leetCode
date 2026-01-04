@@ -43,16 +43,16 @@ El patrón que emerge es el de **dos punteros**: uno para leer (`read`) y otro p
 
 2. **Inicialización**:
 
-   - `write = 1`: Posición donde escribir el próximo elemento único
-   - `read = 1`: Posición desde donde leer (empezamos en índice 1)
+ - `write = 1`: Posición donde escribir el próximo elemento único
+ - `read = 1`: Posición desde donde leer (empezamos en índice 1)
 
 3. **Bucle principal**:
 
-   - Comparamos `nums[read]` con `nums[read-1]`
-   - Si son **diferentes**: encontramos un nuevo elemento único
-     - Lo copiamos a `nums[write]`
-     - Incrementamos `write`
-   - Si son **iguales**: lo ignoramos (es un duplicado)
+ - Comparamos `nums[read]` con `nums[read-1]`
+ - Si son **diferentes**: encontramos un nuevo elemento único
+ - Lo copiamos a `nums[write]`
+ - Incrementamos `write`
+ - Si son **iguales**: lo ignoramos (es un duplicado)
 
 4. **Resultado**: `write` contiene la cantidad de elementos únicos
 
@@ -60,7 +60,7 @@ El patrón que emerge es el de **dos punteros**: uno para leer (`read`) y otro p
 
 ```
 Inicial: [0,0,1,1,1,2,2,3,3,4]
-         write=1, read=1
+ write=1, read=1
 
 read=1: nums[1]=0, nums[0]=0 → iguales, seguimos
 read=2: nums[2]=1, nums[1]=0 → diferentes → nums[1]=1, write=2

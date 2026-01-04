@@ -35,12 +35,12 @@ Este problema requiere extender el prototipo de Array en JavaScript para agregar
 
 1. **Array con un solo elemento**: `[42]` → retorna `42`
 2. **Valores falsy como último elemento**:
-   - `[1, 2, undefined]` → retorna `undefined`
-   - `[1, 2, null]` → retorna `null`
+ - `[1, 2, undefined]` → retorna `undefined`
+ - `[1, 2, null]` → retorna `null`
 3. **Diferentes tipos de datos**:
-   - **Números**: `[10, 20, 30]` → retorna `30`
-   - **Strings**: `["a", "b", "c"]` → retorna `"c"`
-   - **Objetos**: `[{}, { name: "test" }]` → retorna `{ name: "test" }`
+ - **Números**: `[10, 20, 30]` → retorna `30`
+ - **Strings**: `["a", "b", "c"]` → retorna `"c"`
+ - **Objetos**: `[{}, { name: "test" }]` → retorna `{ name: "test" }`
 4. **Arrays mixtos**: `[1, "hello", { key: "value" }]` → retorna el objeto
 
 ## Enfoque de Solución
@@ -55,16 +55,16 @@ Este problema requiere extender el prototipo de Array en JavaScript para agregar
 
 ```typescript
 declare global {
-  interface Array<T> {
-    last(): T | -1;
-  }
+ interface Array<T> {
+ last(): T | -1;
+ }
 }
 
 Array.prototype.last = function () {
-  if (this.length === 0) {
-    return -1;
-  }
-  return this[this.length - 1];
+ if (this.length === 0) {
+ return -1;
+ }
+ return this[this.length - 1];
 };
 ```
 

@@ -80,40 +80,40 @@ Dado un array de puntos en el plano XY donde points[i] = [xi, yi], devuelve el �
 **Versión inicial (más verbose):**
 
 - Función interna descriptiva `calculateTriangleArea()`
-- Destructuring detallado `[x1, y1] = p1`
+- Destructuring detallado `[x 1, y 1] = p 1`
 - Bucles con límites explícitos `i < n-2`
 
 **Versión optimizada final (más concisa):**
 
 - Arrow function compacta para cálculo de área
-- Acceso directo a coordenadas `p1[0], p1[1]`
+- Acceso directo a coordenadas `p 1[0], p 1[1]`
 - Bucles simplificados `i < n`
 
 ### Código final optimizado
 
 ```typescript
 export function largestTriangleArea(points: number[][]): number {
-  const n = points.length;
-  let maxArea = 0;
+ const n = points.length;
+ let maxArea = 0;
 
-  const area = (p1: number[], p2: number[], p3: number[]) => {
-    return (
-      Math.abs(
-        p1[0] * (p2[1] - p3[1]) +
-          p2[0] * (p3[1] - p1[1]) +
-          p3[0] * (p1[1] - p2[1])
-      ) / 2
-    );
-  };
+ const area = (p 1: number[], p 2: number[], p 3: number[]) => {
+ return (
+ Math.abs(
+ p 1[0] * (p 2[1] - p 3[1]) +
+ p 2[0] * (p 3[1] - p 1[1]) +
+ p 3[0] * (p 1[1] - p 2[1])
+ ) / 2
+ );
+ };
 
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-      for (let k = j + 1; k < n; k++) {
-        maxArea = Math.max(maxArea, area(points[i], points[j], points[k]));
-      }
-    }
-  }
-  return maxArea;
+ for (let i = 0; i < n; i++) {
+ for (let j = i + 1; j < n; j++) {
+ for (let k = j + 1; k < n; k++) {
+ maxArea = Math.max(maxArea, area(points[i], points[j], points[k]));
+ }
+ }
+ }
+ return maxArea;
 }
 ```
 
@@ -121,13 +121,13 @@ export function largestTriangleArea(points: number[][]): number {
 
 **🎯 Arrow function vs function declaration:**
 
-- `const area = (p1, p2, p3) =>` es más concisa que `function calculateTriangleArea()`
+- `const area = (p 1, p 2, p 3) =>` es más concisa que `function calculateTriangleArea()`
 - Estilo funcional moderno, menos líneas de código
 - Mejor para funciones auxiliares simples
 
 **⚡ Acceso directo vs destructuring:**
 
-- `p1[0], p1[1]` vs `const [x1, y1] = p1`
+- `p 1[0], p 1[1]` vs `const [x 1, y 1] = p 1`
 - Menos asignaciones de variables temporales
 - Más directo para accesos simples a coordenadas
 
@@ -198,23 +198,23 @@ export function largestTriangleArea(points: number[][]): number {
 
 1. **Verbosidad vs Concisión**:
 
-   - Inicial: Descriptivo pero largo
-   - Final: Compacto pero claro
+ - Inicial: Descriptivo pero largo
+ - Final: Compacto pero claro
 
 2. **Acceso a datos**:
 
-   - Destructuring vs acceso directo
-   - `[x1, y1] = p1` vs `p1[0], p1[1]`
-   - Para casos simples, acceso directo es más eficiente
+ - Destructuring vs acceso directo
+ - `[x 1, y 1] = p 1` vs `p 1[0], p 1[1]`
+ - Para casos simples, acceso directo es más eficiente
 
 3. **Funciones auxiliares**:
 
-   - `function calculateTriangleArea()` → `const area = () =>`
-   - Arrow functions para helpers matemáticos simples
+ - `function calculateTriangleArea()` → `const area = () =>`
+ - Arrow functions para helpers matemáticos simples
 
 4. **Límites de bucle**:
-   - `i < n-2` → `i < n` (más natural)
-   - Las condiciones `j = i+1, k = j+1` garantizan validez
+ - `i < n-2` → `i < n` (más natural)
+ - Las condiciones `j = i+1, k = j+1` garantizan validez
 
 ### Patrones identificados
 

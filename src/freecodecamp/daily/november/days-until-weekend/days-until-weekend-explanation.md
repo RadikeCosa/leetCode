@@ -59,17 +59,17 @@ La estrategia utilizada se basa en aprovechar la función getUTCDay() del objeto
 
 ```javascript
 function daysUntilWeekend(dateString) {
-  const date = new Date(dateString);
-  const dayOfWeek = date.getUTCDay();
+ const date = new Date(dateString);
+ const dayOfWeek = date.getUTCDay();
 
-  if (dayOfWeek === 6 || dayOfWeek === 0) {
-    return "It's the weekend!";
-  }
+ if (dayOfWeek === 6 || dayOfWeek === 0) {
+ return "It's the weekend!";
+ }
 
-  const daysUntilSaturday = 6 - dayOfWeek;
-  return daysUntilSaturday === 1
-    ? "1 day until the weekend."
-    : `${daysUntilSaturday} days until the weekend.`;
+ const daysUntilSaturday = 6 - dayOfWeek;
+ return daysUntilSaturday === 1
+ ? "1 day until the weekend."
+ : `${daysUntilSaturday} days until the weekend.`;
 }
 ```
 
@@ -107,9 +107,9 @@ function daysUntilWeekend(dateString) {
 
 - El código es claro y directo, no hay redundancias.
 - Se podría agregar validación para fechas inválidas si se requiere robustez extra:
-  ```js
-  if (isNaN(date.getTime())) return "Invalid date.";
-  ```
+ ```js
+ if (isNaN(date.getTime())) return "Invalid date.";
+ ```
 - Si se busca internacionalización, se podría parametrizar el mensaje.
 - Para claridad, se puede extraer la construcción del mensaje a una función auxiliar, pero para este caso no aporta mucho.
 

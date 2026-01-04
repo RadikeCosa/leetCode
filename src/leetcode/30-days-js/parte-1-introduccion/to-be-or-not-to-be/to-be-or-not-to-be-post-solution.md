@@ -14,12 +14,12 @@
 
 ```ts
 interface ExpectObject {
-  toBe(val: any): boolean;
-  notToBe(val: any): boolean;
+ toBe(val: any): boolean;
+ notToBe(val: any): boolean;
 }
 
 export function expect(val: any): ExpectObject {
-  // Implementation will be documented here after solving
+ // Implementation will be documented here after solving
 }
 ```
 

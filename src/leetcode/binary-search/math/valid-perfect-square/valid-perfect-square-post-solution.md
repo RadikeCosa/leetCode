@@ -10,18 +10,18 @@ The solution uses **optimized binary search** with several enhancements:
 
 1. **Early Returns**: Handle trivial cases immediately
 
-   - `num = 1` → `true` (1² = 1)
-   - `num < 4` → `false` (2, 3 are not perfect squares)
+ - `num = 1` → `true` (1² = 1)
+ - `num < 4` → `false` (2, 3 are not perfect squares)
 
 2. **Range Optimization**: Instead of searching `[1, num]`, search `[1, num/2 + 1]`
 
-   - Mathematical fact: For `num > 4`, `√num ≤ num/2`
-   - This reduces search space by approximately 50%
+ - Mathematical fact: For `num > 4`, `√num ≤ num/2`
+ - This reduces search space by approximately 50%
 
 3. **Overflow Prevention**: Avoid calculating `mid * mid` when it might overflow
 
-   - Check `if (mid > num / mid)` instead of `if (mid * mid > num)`
-   - Ensures correctness for large numbers near 2³¹-1
+ - Check `if (mid > num / mid)` instead of `if (mid * mid > num)`
+ - Ensures correctness for large numbers near 2³¹-1
 
 4. **Standard Binary Search Logic**: Adjust search bounds based on comparison
 
@@ -34,36 +34,36 @@ The solution uses **optimized binary search** with several enhancements:
 
 ```typescript
 export function isPerfectSquare(num: number): boolean {
-  // Early returns para casos triviales
-  if (num === 1) return true; // 1² = 1
-  if (num < 4) return false; // 2 y 3 no son cuadrados perfectos
+ // Early returns para casos triviales
+ if (num === 1) return true; // 1² = 1
+ if (num < 4) return false; // 2 y 3 no son cuadrados perfectos
 
-  // Optimización: para num > 4, la raíz cuadrada siempre es <= num/2
-  // Esto reduce el espacio de búsqueda aproximadamente a la mitad
-  let left = 1;
-  let right = Math.floor(num / 2) + 1;
+ // Optimización: para num > 4, la raíz cuadrada siempre es <= num/2
+ // Esto reduce el espacio de búsqueda aproximadamente a la mitad
+ let left = 1;
+ let right = Math.floor(num / 2) + 1;
 
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
+ while (left <= right) {
+ const mid = Math.floor((left + right) / 2);
 
-    // Protección contra overflow: evitar calcular mid * mid si es muy grande
-    if (mid > num / mid) {
-      right = mid - 1;
-      continue;
-    }
+ // Protección contra overflow: evitar calcular mid * mid si es muy grande
+ if (mid > num / mid) {
+ right = mid - 1;
+ continue;
+ }
 
-    const square = mid * mid;
+ const square = mid * mid;
 
-    if (square === num) {
-      return true;
-    } else if (square < num) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
+ if (square === num) {
+ return true;
+ } else if (square < num) {
+ left = mid + 1;
+ } else {
+ right = mid - 1;
+ }
+ }
 
-  return false;
+ return false;
 }
 ```
 

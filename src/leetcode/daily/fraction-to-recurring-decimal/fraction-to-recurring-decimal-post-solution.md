@@ -7,12 +7,12 @@ When I first saw this problem, I realized it's essentially **simulating long div
 The algorithm follows these main steps:
 
 1. **Handle exact divisions**: If there's no remainder, return the result directly
-2. **Handle signs**: Use XOR logic to determine if result should be negative  
+2. **Handle signs**: Use XOR logic to determine if result should be negative 
 3. **Separate integer and decimal parts**: Get integer part and initial remainder
 4. **Simulate long division**: 
-   - Use a HashMap to track `remainder → position` in decimal array
-   - For each remainder: multiply by 10, divide by denominator, get next digit
-   - If we see a remainder we've seen before, insert parentheses around the repeating part
+ - Use a HashMap to track `remainder → position` in decimal array
+ - For each remainder: multiply by 10, divide by denominator, get next digit
+ - If we see a remainder we've seen before, insert parentheses around the repeating part
 5. **Build final result**: Combine sign + integer + decimal parts
 
 The key data structures:
@@ -28,45 +28,45 @@ The key data structures:
 
 ```typescript
 export function fractionToDecimal(numerator: number, denominator: number): string {
-  // Handle exact division
-  if (numerator % denominator === 0) {
-    return (numerator / denominator).toString();
-  }
-  
-  // Determine sign using XOR logic
-  const isNegative = numerator < 0 !== denominator < 0;
-  numerator = Math.abs(numerator);
-  denominator = Math.abs(denominator);
-  
-  const integerPart = Math.floor(numerator / denominator);
-  let remainder = numerator % denominator;
+ // Handle exact division
+ if (numerator % denominator === 0) {
+ return (numerator / denominator).toString();
+ }
+ 
+ // Determine sign using XOR logic
+ const isNegative = numerator < 0 !== denominator < 0;
+ numerator = Math.abs(numerator);
+ denominator = Math.abs(denominator);
+ 
+ const integerPart = Math.floor(numerator / denominator);
+ let remainder = numerator % denominator;
 
-  // Array to build decimal digits
-  const digits: string[] = [];
-  const remainderMap = new Map<number, number>();
+ // Array to build decimal digits
+ const digits: string[] = [];
+ const remainderMap = new Map<number, number>();
 
-  while (remainder !== 0) {
-    if (remainderMap.has(remainder)) {
-      // Repetition detected! Insert parentheses
-      const repeatIndex = remainderMap.get(remainder)!;
-      digits.splice(repeatIndex, 0, "(");
-      digits.push(")");
-      break;
-    }
+ while (remainder !== 0) {
+ if (remainderMap.has(remainder)) {
+ // Repetition detected! Insert parentheses
+ const repeatIndex = remainderMap.get(remainder)!;
+ digits.splice(repeatIndex, 0, "(");
+ digits.push(")");
+ break;
+ }
 
-    // Save current position before adding digit
-    remainderMap.set(remainder, digits.length);
+ // Save current position before adding digit
+ remainderMap.set(remainder, digits.length);
 
-    // Simulate long division
-    remainder *= 10;
-    const nextDigit = Math.floor(remainder / denominator);
-    digits.push(nextDigit.toString());
-    remainder %= denominator;
-  }
+ // Simulate long division
+ remainder *= 10;
+ const nextDigit = Math.floor(remainder / denominator);
+ digits.push(nextDigit.toString());
+ remainder %= denominator;
+ }
 
-  // Build final result
-  const decimalPart = digits.join("");
-  return (isNegative ? "-" : "") + integerPart + (decimalPart ? "." + decimalPart : "");
+ // Build final result
+ const decimalPart = digits.join("");
+ return (isNegative ? "-" : "") + integerPart + (decimalPart ? "." + decimalPart : "");
 }
 ```
 

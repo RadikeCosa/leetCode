@@ -34,20 +34,20 @@ La frecuencia de un elemento es el número de ocurrencias de ese elemento en el 
 - **Input**: `nums = [1,2,2,3,1,4]`
 - **Output**: `4`
 - **Análisis paso a paso**:
-  - Frecuencias: `{1: 2, 2: 2, 3: 1, 4: 1}`
-  - Frecuencia máxima: `2`
-  - Elementos con frecuencia máxima: `1` y `2`
-  - Total de ocurrencias: `2 + 2 = 4`
+ - Frecuencias: `{1: 2, 2: 2, 3: 1, 4: 1}`
+ - Frecuencia máxima: `2`
+ - Elementos con frecuencia máxima: `1` y `2`
+ - Total de ocurrencias: `2 + 2 = 4`
 
 ### Ejemplo 2:
 
 - **Input**: `nums = [1,2,3,4,5]`
 - **Output**: `5`
 - **Análisis paso a paso**:
-  - Frecuencias: `{1: 1, 2: 1, 3: 1, 4: 1, 5: 1}`
-  - Frecuencia máxima: `1`
-  - Elementos con frecuencia máxima: todos (`1, 2, 3, 4, 5`)
-  - Total de ocurrencias: `1 + 1 + 1 + 1 + 1 = 5`
+ - Frecuencias: `{1: 1, 2: 1, 3: 1, 4: 1, 5: 1}`
+ - Frecuencia máxima: `1`
+ - Elementos con frecuencia máxima: todos (`1, 2, 3, 4, 5`)
+ - Total de ocurrencias: `1 + 1 + 1 + 1 + 1 = 5`
 
 ## Restricciones
 
@@ -67,24 +67,24 @@ El problema requiere dos operaciones principales:
 
 ```typescript
 export function maxFrequencyElements(nums: number[]): number {
-  let frequencyMap: Record<number, number> = {};
-  let maxFrequency = 0;
-  let totalCount = 0;
+ let frequencyMap: Record<number, number> = {};
+ let maxFrequency = 0;
+ let totalCount = 0;
 
-  // Primera pasada: construir mapa de frecuencias + tracking de máximo
-  for (let num of nums) {
-    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
-    maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
-  }
+ // Primera pasada: construir mapa de frecuencias + tracking de máximo
+ for (let num of nums) {
+ frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+ maxFrequency = Math.max(maxFrequency, frequencyMap[num]);
+ }
 
-  // Segunda pasada: sumar frecuencias que igualan el máximo
-  for (let count of Object.values(frequencyMap)) {
-    if (count === maxFrequency) {
-      totalCount += count;
-    }
-  }
+ // Segunda pasada: sumar frecuencias que igualan el máximo
+ for (let count of Object.values(frequencyMap)) {
+ if (count === maxFrequency) {
+ totalCount += count;
+ }
+ }
 
-  return totalCount;
+ return totalCount;
 }
 ```
 
@@ -126,19 +126,19 @@ export function maxFrequencyElements(nums: number[]): number {
 
 1. **Record vs Map**: Elegimos `Record<number, number>` por:
 
-   - Sintaxis más simple: `obj[key]` vs `map.get(key)`
-   - Menos verboso para incrementos
-   - Claves numéricas funcionan perfectamente
+ - Sintaxis más simple: `obj[key]` vs `map.get(key)`
+ - Menos verboso para incrementos
+ - Claves numéricas funcionan perfectamente
 
 2. **Tracking de máximo en tiempo real**:
 
-   - Evita un tercer bucle para encontrar el máximo
-   - Mantiene la complejidad en O(n)
+ - Evita un tercer bucle para encontrar el máximo
+ - Mantiene la complejidad en O(n)
 
 3. **Nombres descriptivos**:
-   - `frequencyMap`: claridad sobre qué almacena
-   - `maxFrequency`: tracking explícito del máximo
-   - `totalCount`: acumulador del resultado
+ - `frequencyMap`: claridad sobre qué almacena
+ - `maxFrequency`: tracking explícito del máximo
+ - `totalCount`: acumulador del resultado
 
 ## Patrones y Técnicas Utilizadas
 

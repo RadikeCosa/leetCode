@@ -29,12 +29,12 @@ Mi primer intuicion con respecto al problema seria separar tres variables de la 
 
 ### Casos de Prueba Identificados
 
-| Entrada             | Salida Esperada | Descripción                           |
+| Entrada | Salida Esperada | Descripción |
 | ------------------- | --------------- | ------------------------------------- |
-| "December 6, 2025"  | "2025-12-06"    | Fecha con mes y día de un solo dígito |
-| "January 15, 2020"  | "2020-01-15"    | Fecha con mes de un solo dígito       |
-| "March 3, 1999"     | "1999-03-03"    | Fecha con mes y día de un solo dígito |
-| "November 30, 2010" | "2010-11-30"    | Fecha con mes y día de dos dígitos    |
+| "December 6, 2025" | "2025-12-06" | Fecha con mes y día de un solo dígito |
+| "January 15, 2020" | "2020-01-15" | Fecha con mes de un solo dígito |
+| "March 3, 1999" | "1999-03-03" | Fecha con mes y día de un solo dígito |
+| "November 30, 2010" | "2010-11-30" | Fecha con mes y día de dos dígitos |
 
 ## Desarrollo de la Solución
 
@@ -52,26 +52,26 @@ El enfoque elegido es dividir la cadena de entrada en partes utilizando espacios
 
 ```javascript
 function formatDate(dateString) {
-  const day = dateString.split(" ")[1].replace(",", "").padStart(2, "0");
-  const year = dateString.split(" ")[2];
-  const monthMap = {
-    January: "01",
-    February: "02",
-    March: "03",
-    April: "04",
-    May: "05",
-    June: "06",
-    July: "07",
-    August: "08",
-    September: "09",
-    October: "10",
-    November: "11",
-    December: "12",
-  };
-  const month = monthMap[dateString.split(" ")[0]];
-  dateString = `${year}-${month}-${day}`;
+ const day = dateString.split(" ")[1].replace(",", "").padStart(2, "0");
+ const year = dateString.split(" ")[2];
+ const monthMap = {
+ January: "01",
+ February: "02",
+ March: "03",
+ April: "04",
+ May: "05",
+ June: "06",
+ July: "07",
+ August: "08",
+ September: "09",
+ October: "10",
+ November: "11",
+ December: "12",
+ };
+ const month = monthMap[dateString.split(" ")[0]];
+ dateString = `${year}-${month}-${day}`;
 
-  return dateString;
+ return dateString;
 }
 ```
 

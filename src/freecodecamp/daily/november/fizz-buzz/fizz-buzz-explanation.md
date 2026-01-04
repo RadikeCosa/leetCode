@@ -43,11 +43,11 @@ Tests
 1. Inicializar un array vacío para almacenar los resultados.
 2. Iterar desde 1 hasta n (inclusive).
 3. Para cada número:
-   - Si es múltiplo de 3 y 5, agregar "FizzBuzz" al array.
-   - Si es múltiplo de solo 3, agregar "Fizz" al array.
-   - Si es múltiplo de solo 5, agregar "Buzz" al array.
-   - Si no es múltiplo de ninguno, agregar el número al array.
-   - Devolver el array resultante.
+ - Si es múltiplo de 3 y 5, agregar "FizzBuzz" al array.
+ - Si es múltiplo de solo 3, agregar "Fizz" al array.
+ - Si es múltiplo de solo 5, agregar "Buzz" al array.
+ - Si no es múltiplo de ninguno, agregar el número al array.
+ - Devolver el array resultante.
 
 Para determinar si un número es múltiplo de otro, se utiliza el operador módulo (%). Si `num % divisor === 0`, entonces `num` es múltiplo de `divisor`.
 

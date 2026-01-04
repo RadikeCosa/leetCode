@@ -59,9 +59,9 @@ Siguiendo la simulación correcta:
 1. Inicializamos `totalDrunk = numBottles` (bebemos todas las iniciales)
 2. Inicializamos `emptyBottles = numBottles` (obtenemos vacías por las que bebimos)
 3. Mientras `emptyBottles >= numExchange`:
-   - Calculamos `newFullBottles = floor(emptyBottles / numExchange)`
-   - Sumamos `newFullBottles` al total
-   - Actualizamos `emptyBottles = (emptyBottles % numExchange) + newFullBottles`
+ - Calculamos `newFullBottles = floor(emptyBottles / numExchange)`
+ - Sumamos `newFullBottles` al total
+ - Actualizamos `emptyBottles = (emptyBottles % numExchange) + newFullBottles`
 4. Retornamos el total
 
 **¿Por qué funciona la actualización de emptyBottles?**
@@ -75,10 +75,10 @@ Existe una fórmula matemática que resuelve el problema en O(1):
 
 ```typescript
 function numWaterBottlesOptimized(
-  numBottles: number,
-  numExchange: number
+ numBottles: number,
+ numExchange: number
 ): number {
-  return numBottles + Math.floor((numBottles - 1) / (numExchange - 1));
+ return numBottles + Math.floor((numBottles - 1) / (numExchange - 1));
 }
 ```
 
@@ -111,15 +111,15 @@ function numWaterBottlesOptimized(
 
 ### Comparación de enfoques:
 
-| Aspecto              | Simulación | Fórmula Matemática |
+| Aspecto | Simulación | Fórmula Matemática |
 |
 
 -------------- | ---------- | ------------------ |
-| Complejidad temporal | O(log n)   | O(1)               |
-| Legibilidad          | ⭐⭐⭐⭐⭐ | ⭐⭐               |
-| Intuitividad         | ⭐⭐⭐⭐⭐ | ⭐⭐               |
-| Facilidad de derivar | ⭐⭐⭐⭐   | ⭐⭐               |
-| Debugging            | ⭐⭐⭐⭐⭐ | ⭐⭐               |
+| Complejidad temporal | O(log n) | O(1) |
+| Legibilidad | ⭐⭐⭐⭐⭐ | ⭐⭐ |
+| Intuitividad | ⭐⭐⭐⭐⭐ | ⭐⭐ |
+| Facilidad de derivar | ⭐⭐⭐⭐ | ⭐⭐ |
+| Debugging | ⭐⭐⭐⭐⭐ | ⭐⭐ |
 
 ### Recomendación:
 

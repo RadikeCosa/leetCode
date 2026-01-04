@@ -15,9 +15,9 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/miles-to-kilometers/
 
 ### Enunciado del Problema
 
-Dada una distancia en millas en forma de número, retorna la distancia equivalente en kilómetros.  
-La entrada siempre será un número no negativo.  
-1 milla equivale a 1.60934 kilómetros.  
+Dada una distancia en millas en forma de número, retorna la distancia equivalente en kilómetros. 
+La entrada siempre será un número no negativo. 
+1 milla equivale a 1.60934 kilómetros. 
 Redondea el resultado a dos decimales.
 
 ## Desarrollo de la Solución
@@ -33,10 +33,10 @@ Redondea el resultado a dos decimales.
 
 ```js
 function convertToKm(miles) {
-  const kilometersPerMile = 1.60934;
-  let result = miles * kilometersPerMile;
-  result = parseFloat(result.toFixed(2));
-  return result;
+ const kilometersPerMile = 1.60934;
+ let result = miles * kilometersPerMile;
+ result = parseFloat(result.toFixed(2));
+ return result;
 }
 ```
 
@@ -50,7 +50,7 @@ La función realiza operaciones aritméticas simples y redondeo, por lo que su c
 
 ### Complejidad Espacial
 
-No se utilizan estructuras de datos adicionales, solo variables escalares.  
+No se utilizan estructuras de datos adicionales, solo variables escalares. 
 La complejidad espacial es **O(1)**.
 
 ---
@@ -73,7 +73,7 @@ La complejidad espacial es **O(1)**.
 
 ### Posibles Optimizaciones
 
-La solución es óptima para el problema planteado.  
+La solución es óptima para el problema planteado. 
 Si se requiriera mayor precisión, se podría usar una librería de manejo de decimales.
 
 ---
@@ -81,4 +81,4 @@ Si se requiriera mayor precisión, se podría usar una librería de manejo de de
 ## Recursos y Referencias
 
 - [MDN: Number.prototype.toFixed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
-- [Conversión de unidades en Wikipedia](https://es.wikipedia.org/wiki/Conversi%C3%B3n_de_unidades)
+- [Conversión de unidades en Wikipedia](https://es.wikipedia.org/wiki/Conversi%C 3%B 3 n_de_unidades)

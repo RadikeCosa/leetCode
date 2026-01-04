@@ -21,18 +21,18 @@ La clave está en que si el string lexicográficamente menor y el mayor comparte
 
 ```typescript
 export function longestCommonPrefix(strs: string[]): string {
-  let commonPrefix = "";
-  let sortedArray = strs.sort();
-  if (sortedArray.length === 0) return commonPrefix;
-  if (sortedArray[0] === "") return commonPrefix;
-  let firstString = sortedArray[0];
-  let lastString = sortedArray[sortedArray.length - 1];
-  let limit = Math.min(firstString.length, lastString.length);
-  for (let i = 0; i < limit; i++) {
-    if (firstString[i] !== lastString[i]) break;
-    commonPrefix += firstString[i];
-  }
+ let commonPrefix = "";
+ let sortedArray = strs.sort();
+ if (sortedArray.length === 0) return commonPrefix;
+ if (sortedArray[0] === "") return commonPrefix;
+ let firstString = sortedArray[0];
+ let lastString = sortedArray[sortedArray.length - 1];
+ let limit = Math.min(firstString.length, lastString.length);
+ for (let i = 0; i < limit; i++) {
+ if (firstString[i] !== lastString[i]) break;
+ commonPrefix += firstString[i];
+ }
 
-  return commonPrefix;
+ return commonPrefix;
 }
 ```

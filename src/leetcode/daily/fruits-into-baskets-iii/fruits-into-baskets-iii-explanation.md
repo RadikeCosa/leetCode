@@ -16,7 +16,7 @@ createdAt: "2025-08-10"
 
 ## Descripción del Problema
 
-**LeetCode 3479 - Medium**  
+**LeetCode 3479 - Medium** 
 **Daily Challenge: 6 de Agosto, 2025**
 
 Se nos dan dos arrays de enteros, `fruits` y `baskets`, cada uno de longitud n:
@@ -62,7 +62,7 @@ baskets = [3, 5, 4];
 1. Primera fruta (4) se coloca en la segunda canasta (5)
 2. Segunda fruta (2) se coloca en la primera canasta (3)
 3. Tercera fruta (5) no puede colocarse en la tercera canasta (4)
-   **Resultado:** 1 fruta queda sin colocar
+ **Resultado:** 1 fruta queda sin colocar
 
 ### Ejemplo 2: Todas las frutas colocadas
 
@@ -84,7 +84,7 @@ baskets = [6, 4, 7];
 1. Primera fruta (3) se coloca en la primera canasta (6)
 2. Segunda fruta (6) se coloca en la tercera canasta (7)
 3. Tercera fruta (1) se coloca en la segunda canasta (4)
-   **Resultado:** Todas las frutas se colocan correctamente
+ **Resultado:** Todas las frutas se colocan correctamente
 
 ## Conceptos Algorítmicos Avanzados
 
@@ -127,17 +127,17 @@ baskets = [6, 4, 7];
 
 1. **"¿Cómo manejarías las restricciones más grandes?"**
 
-   - Explicar por qué O(n²) no funciona
-   - Proponer solución con Binary Search + Segment Tree
+ - Explicar por qué O(n²) no funciona
+ - Proponer solución con Binary Search + Segment Tree
 
 2. **"¿Qué estructura de datos usarías?"**
 
-   - Comparar opciones: Segment Tree vs Ordered Set
-   - Justificar la elección según el contexto
+ - Comparar opciones: Segment Tree vs Ordered Set
+ - Justificar la elección según el contexto
 
 3. **"¿Cómo optimizarías el uso de memoria?"**
-   - Discutir trade-offs entre tiempo y espacio
-   - Considerar compresión de coordenadas si es necesario
+ - Discutir trade-offs entre tiempo y espacio
+ - Considerar compresión de coordenadas si es necesario
 
 ---
 
@@ -157,27 +157,27 @@ Es un excelente ejemplo de cómo un pequeño cambio en las restricciones puede t
 
 ```typescript
 export function numOfUnplacedFruits(
-  fruits: number[],
-  baskets: number[]
+ fruits: number[],
+ baskets: number[]
 ): number {
-  const n = baskets.length;
-  const available = Array.from({ length: n }, (_, i) => i);
+ const n = baskets.length;
+ const available = Array.from({ length: n }, (_, i) => i);
 
-  let unplaced = 0;
-  for (let i = 0; i < fruits.length; i++) {
-    const quantity = fruits[i];
-    let placed = false;
-    for (let j = 0; j < available.length; j++) {
-      const idx = available[j];
-      if (baskets[idx] >= quantity) {
-        available.splice(j, 1);
-        placed = true;
-        break;
-      }
-    }
-    if (!placed) unplaced++;
-  }
-  return unplaced;
+ let unplaced = 0;
+ for (let i = 0; i < fruits.length; i++) {
+ const quantity = fruits[i];
+ let placed = false;
+ for (let j = 0; j < available.length; j++) {
+ const idx = available[j];
+ if (baskets[idx] >= quantity) {
+ available.splice(j, 1);
+ placed = true;
+ break;
+ }
+ }
+ if (!placed) unplaced++;
+ }
+ return unplaced;
 }
 ```
 

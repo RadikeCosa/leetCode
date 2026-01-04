@@ -29,22 +29,22 @@ The beauty is that we modify the array **in-place** without extra space, and the
 
 ```typescript
 export function removeDuplicates(nums: number[]): number {
-  let count = 0;
-  let writeIndex = 0;
+ let count = 0;
+ let writeIndex = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (i === 0 || nums[i] !== nums[i - 1]) {
-      count = 1;
-      nums[writeIndex] = nums[i];
-      writeIndex++;
-    } else if (count < 2) {
-      count++;
-      nums[writeIndex] = nums[i];
-      writeIndex++;
-    }
-  }
+ for (let i = 0; i < nums.length; i++) {
+ if (i === 0 || nums[i] !== nums[i - 1]) {
+ count = 1;
+ nums[writeIndex] = nums[i];
+ writeIndex++;
+ } else if (count < 2) {
+ count++;
+ nums[writeIndex] = nums[i];
+ writeIndex++;
+ }
+ }
 
-  return writeIndex;
+ return writeIndex;
 }
 ```
 
@@ -52,13 +52,13 @@ export function removeDuplicates(nums: number[]): number {
 
 ```typescript
 export function removeDuplicates(nums: number[]): number {
-  let w = 0;
-  for (let num of nums) {
-    if (w < 2 || nums[w - 2] !== num) {
-      nums[w++] = num;
-    }
-  }
-  return w;
+ let w = 0;
+ for (let num of nums) {
+ if (w < 2 || nums[w - 2] !== num) {
+ nums[w++] = num;
+ }
+ }
+ return w;
 }
 ```
 
@@ -88,8 +88,8 @@ Result: `w=5`, array `[1,1,2,2,3]` ✅
 - **In-place modification**: The first `k` positions contain the valid result
 - **Optimal complexity**: Can't do better than O(n) time since we must examine each element
 - **Two approaches compared**:
-  - **Counter approach**: More readable, explicit state tracking, better for learning
-  - **nums[w-2] approach**: More concise, generalizable pattern, production-ready
+ - **Counter approach**: More readable, explicit state tracking, better for learning
+ - **nums[w-2] approach**: More concise, generalizable pattern, production-ready
 - **Generalization**: The `nums[w-k]` pattern works for any duplicate limit k
 - **Why this works**: Sorted array guarantees duplicates are consecutive, enabling efficient single-pass solution
 - **Pattern applicability**: Useful for similar problems like "Remove Duplicates from Sorted Array" (k=1) or "Remove Element"

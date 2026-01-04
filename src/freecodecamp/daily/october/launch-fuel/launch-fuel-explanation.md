@@ -36,8 +36,8 @@ El problema es una simulación donde cada vez que agregamos combustible la masa 
 
 Una forma práctica de verlo es:
 
-- fuel1 = payload / 5
-- fuel2 = (payload + fuel1) / 5 - fuel1 => en la práctica, es más sencillo recalcular el combustible total y comparar la diferencia
+- fuel 1 = payload / 5
+- fuel 2 = (payload + fuel 1) / 5 - fuel 1 => en la práctica, es más sencillo recalcular el combustible total y comparar la diferencia
 - repetir hasta que la diferencia entre el combustible total actual y el anterior sea < 1
 
 ### Enfoque iterativo (recomendado)
@@ -59,10 +59,10 @@ Ejemplo simple (no optimizado para stack muy profundo):
 
 ```javascript
 function launchFuelRecursive(payload, totalFuel = 0) {
-  const fuel = (payload + totalFuel) / 5;
-  const increment = fuel - totalFuel;
-  if (increment < 1) return parseFloat(fuel.toFixed(1));
-  return launchFuelRecursive(payload, fuel);
+ const fuel = (payload + totalFuel) / 5;
+ const increment = fuel - totalFuel;
+ if (increment < 1) return parseFloat(fuel.toFixed(1));
+ return launchFuelRecursive(payload, fuel);
 }
 ```
 
@@ -96,8 +96,8 @@ Aquí hay un resumen de aprendizajes prácticos y patrones extraídos mientras r
 - Condición de corte explícita: definir claramente la condición que detiene la iteración (enunciado: "adicional < 1 kg"). Cambios pequeños en esa condición producen resultados distintos, por lo que es crítico respetarla.
 - Mantener precisión durante el cálculo: evita redondear en cada paso. Redondea sólo al final para no introducir errores acumulativos.
 - Dos formas equivalentes de razonar:
-  - Calcular el combustible total necesario para la masa actual (payload + combustible acumulado) y comparar con el combustible de la iteración anterior.
-  - Pensar en la suma de aportes: combustible para la carga, combustible para ese combustible, etc.
+ - Calcular el combustible total necesario para la masa actual (payload + combustible acumulado) y comparar con el combustible de la iteración anterior.
+ - Pensar en la suma de aportes: combustible para la carga, combustible para ese combustible, etc.
 - Patrón de simulación vs fórmula cerrada: muchas veces una sumatoria geométrica tiene sentido, pero el criterio de corte discreto (< 1 kg) complica usar una fórmula directa sin ajustar por el corte.
 - Test-driven thinking: cuando implementes problemas con umbrales o redondeos, cubre ambos extremos (payload pequeño, payload grande) para detectar diferencias de interpretación.
 - Documentar la decisión de diseño: especificar la condición de corte y el momento en que se redondea es tan importante como el código mismo.

@@ -22,12 +22,12 @@ Ignore any other characters.
 
 **Tests:**
 
-1. `digitsOrLetters("abc123")` should return `"tie"`.
-2. `digitsOrLetters("a1b2c3d")` should return `"letters"`.
-3. `digitsOrLetters("1a2b3c4")` should return `"digits"`.
-4. `digitsOrLetters("abc123!@#DEF")` should return `"letters"`.
-5. `digitsOrLetters("H3110 W0R1D")` should return `"digits"`.
-6. `digitsOrLetters("P455W0RD")` should return `"tie"`.
+1. `digitsOrLetters("abc 123")` should return `"tie"`.
+2. `digitsOrLetters("a 1 b 2 c 3 d")` should return `"letters"`.
+3. `digitsOrLetters("1 a 2 b 3 c 4")` should return `"digits"`.
+4. `digitsOrLetters("abc 123!@#DEF")` should return `"letters"`.
+5. `digitsOrLetters("H 3110 W 0 R 1 D")` should return `"digits"`.
+6. `digitsOrLetters("P 455 W 0 RD")` should return `"tie"`.
 
 ## Solución
 
@@ -70,12 +70,12 @@ return "tie";
 
 ```javascript
 function digitsOrLetters(str) {
-  const digitsCount = (str.match(/\d/g) || []).length;
-  const lettersCount = (str.match(/[a-zA-Z]/g) || []).length;
+ const digitsCount = (str.match(/\d/g) || []).length;
+ const lettersCount = (str.match(/[a-zA-Z]/g) || []).length;
 
-  if (digitsCount > lettersCount) return "digits";
-  if (lettersCount > digitsCount) return "letters";
-  return "tie";
+ if (digitsCount > lettersCount) return "digits";
+ if (lettersCount > digitsCount) return "letters";
+ return "tie";
 }
 ```
 
@@ -89,21 +89,21 @@ function digitsOrLetters(str) {
 
 ```javascript
 function digitsOrLetters(str) {
-  let digitsCount = 0;
-  let lettersCount = 0;
+ let digitsCount = 0;
+ let lettersCount = 0;
 
-  for (let char of str) {
-    if (char >= "0" && char <= "9") {
-      digitsCount++;
-    } else if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
-      lettersCount++;
-    }
-    // Ignora otros caracteres automáticamente
-  }
+ for (let char of str) {
+ if (char >= "0" && char <= "9") {
+ digitsCount++;
+ } else if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+ lettersCount++;
+ }
+ // Ignora otros caracteres automáticamente
+ }
 
-  if (digitsCount > lettersCount) return "digits";
-  if (lettersCount > digitsCount) return "letters";
-  return "tie";
+ if (digitsCount > lettersCount) return "digits";
+ if (lettersCount > digitsCount) return "letters";
+ return "tie";
 }
 ```
 
@@ -123,21 +123,21 @@ function digitsOrLetters(str) {
 
 ```javascript
 function digitsOrLetters(str) {
-  const counts = str.split("").reduce(
-    (acc, char) => {
-      if (char >= "0" && char <= "9") {
-        acc.digits++;
-      } else if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
-        acc.letters++;
-      }
-      return acc;
-    },
-    { digits: 0, letters: 0 }
-  );
+ const counts = str.split("").reduce(
+ (acc, char) => {
+ if (char >= "0" && char <= "9") {
+ acc.digits++;
+ } else if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+ acc.letters++;
+ }
+ return acc;
+ },
+ { digits: 0, letters: 0 }
+ );
 
-  if (counts.digits > counts.letters) return "digits";
-  if (counts.letters > counts.digits) return "letters";
-  return "tie";
+ if (counts.digits > counts.letters) return "digits";
+ if (counts.letters > counts.digits) return "letters";
+ return "tie";
 }
 ```
 
@@ -157,16 +157,16 @@ function digitsOrLetters(str) {
 
 ```javascript
 function digitsOrLetters(str) {
-  const chars = str.split("");
+ const chars = str.split("");
 
-  const digits = chars.filter((char) => char >= "0" && char <= "9");
-  const letters = chars.filter(
-    (char) => (char >= "a" && char <= "z") || (char >= "A" && char <= "Z")
-  );
+ const digits = chars.filter((char) => char >= "0" && char <= "9");
+ const letters = chars.filter(
+ (char) => (char >= "a" && char <= "z") || (char >= "A" && char <= "Z")
+ );
 
-  if (digits.length > letters.length) return "digits";
-  if (letters.length > digits.length) return "letters";
-  return "tie";
+ if (digits.length > letters.length) return "digits";
+ if (letters.length > digits.length) return "letters";
+ return "tie";
 }
 ```
 
@@ -186,12 +186,12 @@ function digitsOrLetters(str) {
 
 ```javascript
 function digitsOrLetters(str) {
-  const digitsCount = (str.match(/\d/g) || []).length;
-  const lettersCount = str.replace(/[^a-zA-Z]/g, "").length;
+ const digitsCount = (str.match(/\d/g) || []).length;
+ const lettersCount = str.replace(/[^a-zA-Z]/g, "").length;
 
-  if (digitsCount > lettersCount) return "digits";
-  if (lettersCount > digitsCount) return "letters";
-  return "tie";
+ if (digitsCount > lettersCount) return "digits";
+ if (lettersCount > digitsCount) return "letters";
+ return "tie";
 }
 ```
 
@@ -210,15 +210,15 @@ function digitsOrLetters(str) {
 
 - **Tiempo**: O(n) donde n es la longitud del string
 
-  - `str.match(/\d/g)` recorre todo el string buscando dígitos
-  - `str.match(/[a-zA-Z]/g)` recorre todo el string buscando letras
-  - Las comparaciones son O(1)
-  - Regex con flag `g` es eficiente para este caso
+ - `str.match(/\d/g)` recorre todo el string buscando dígitos
+ - `str.match(/[a-zA-Z]/g)` recorre todo el string buscando letras
+ - Las comparaciones son O(1)
+ - Regex con flag `g` es eficiente para este caso
 
 - **Espacio**: O(n) en el peor caso
-  - Los arrays retornados por `match()` pueden contener hasta n elementos
-  - Se puede optimizar a O(1) usando un contador en lugar de arrays
-  - Para strings típicos, el espacio es mínimo
+ - Los arrays retornados por `match()` pueden contener hasta n elementos
+ - Se puede optimizar a O(1) usando un contador en lugar de arrays
+ - Para strings típicos, el espacio es mínimo
 
 ## Aprendizajes
 

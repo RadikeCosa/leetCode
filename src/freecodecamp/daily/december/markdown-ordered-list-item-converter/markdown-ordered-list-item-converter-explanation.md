@@ -26,8 +26,8 @@ Una lista ordenada en Markdown debe:
 - Un numero (1 o mayor) y un punto (.), seguido de
 - Al menos un espacio, y luego
 - El texto del item de la lista.
-  Si el string no tiene el formato exacto de arriba, devolver "Invalid format". De lo contrario, envolver el texto del item de la lista en etiquetas li y devolver el string.
-  Por ejemplo, dado "1. My item", devolver "\<li>My item</li>".
+ Si el string no tiene el formato exacto de arriba, devolver "Invalid format". De lo contrario, envolver el texto del item de la lista en etiquetas li y devolver el string.
+ Por ejemplo, dado "1. My item", devolver "\<li>My item</li>".
 
 ## Análisis Inicial
 
@@ -48,15 +48,15 @@ Los componentes clave son:
 
 ### Casos de Prueba Identificados
 
-| Entrada                | Salida Esperada              | Descripción                                      |
+| Entrada | Salida Esperada | Descripción |
 | ---------------------- | ---------------------------- | ------------------------------------------------ |
-| "1. My item"           | "\<li>My item</li>"          | Formato válido simple                            |
-| " 2. Another item"     | "\<li>Another item</li>"     | Formato válido con espacios iniciales            |
-| "3.Item without space" | "Invalid format"             | Falta espacio después del punto                  |
-| "0. Invalid number"    | "Invalid format"             | Número menor que 1                               |
-| "4. "                  | "\<li></li>"                 | Formato válido con texto vacío                   |
-| "5. Item with spaces"  | "\<li>Item with spaces</li>" | Formato válido con espacios en el texto del item |
-| "Not a list item"      | "Invalid format"             | Formato completamente inválido                   |
+| "1. My item" | "\<li>My item</li>" | Formato válido simple |
+| " 2. Another item" | "\<li>Another item</li>" | Formato válido con espacios iniciales |
+| "3.Item without space" | "Invalid format" | Falta espacio después del punto |
+| "0. Invalid number" | "Invalid format" | Número menor que 1 |
+| "4. " | "\<li></li>" | Formato válido con texto vacío |
+| "5. Item with spaces" | "\<li>Item with spaces</li>" | Formato válido con espacios en el texto del item |
+| "Not a list item" | "Invalid format" | Formato completamente inválido |
 
 ## Desarrollo de la Solución
 
@@ -68,7 +68,7 @@ El enfoque elegido para resolver este problema es utilizar expresiones regulares
 2. Un número mayor o igual a 1 seguido de un punto (`([1-9][0-9]*)\.`)
 3. Al menos un espacio después del punto (`\s +`)
 4. El texto del item de la lista (`(.*)$`)
-   La expresión regular completa sería: `/^\s*([1-9][0-9]*)\.\s+(.*)$/`
+ La expresión regular completa sería: `/^\s*([1-9][0-9]*)\.\s+(.*)$/`
 
 ### Implementación Paso a Paso
 
@@ -80,14 +80,14 @@ El enfoque elegido para resolver este problema es utilizar expresiones regulares
 
 ```javascript
 function convertListItem(markdown) {
-  const regex = /^\s*([1-9][0-9]*)\.\s+(.*)$/;
-  const match = markdown.match(regex);
-  if (match) {
-    const itemText = match[2];
-    return `<li>${itemText}</li>`;
-  } else {
-    return "Invalid format";
-  }
+ const regex = /^\s*([1-9][0-9]*)\.\s+(.*)$/;
+ const match = markdown.match(regex);
+ if (match) {
+ const itemText = match[2];
+ return `<li>${itemText}</li>`;
+ } else {
+ return "Invalid format";
+ }
 }
 ```
 

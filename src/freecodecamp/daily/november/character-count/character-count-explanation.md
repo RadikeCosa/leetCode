@@ -41,30 +41,30 @@ Dado un string que contiene una oración, devuelve un **array de strings** con e
  * @returns {string[]}
  */
 function countCharacters(sentence) {
-  // Array fijo de 26 posiciones: índice 0 = 'a', 1 = 'b', ..., 25 = 'z'
-  const counts = new Array(26).fill(0);
+ // Array fijo de 26 posiciones: índice 0 = 'a', 1 = 'b', ..., 25 = 'z'
+ const counts = new Array(26).fill(0);
 
-  // Normalizamos una sola vez
-  const lower = sentence.toLowerCase();
+ // Normalizamos una sola vez
+ const lower = sentence.toLowerCase();
 
-  // Fase 1: Contar letras (O(n))
-  for (const char of lower) {
-    if (char >= "a" && char <= "z") {
-      const index = char.charCodeAt(0) - 97; // 'a' → 0
-      counts[index]++;
-    }
-  }
+ // Fase 1: Contar letras (O(n))
+ for (const char of lower) {
+ if (char >= "a" && char <= "z") {
+ const index = char.charCodeAt(0) - 97; // 'a' → 0
+ counts[index]++;
+ }
+ }
 
-  // Fase 2: Construir resultado (orden natural, O(26) = O(1))
-  const result = [];
-  for (let i = 0; i < 26; i++) {
-    if (counts[i] > 0) {
-      const letter = String.fromCharCode(97 + i);
-      result.push(`${letter} ${counts[i]}`);
-    }
-  }
+ // Fase 2: Construir resultado (orden natural, O(26) = O(1))
+ const result = [];
+ for (let i = 0; i < 26; i++) {
+ if (counts[i] > 0) {
+ const letter = String.fromCharCode(97 + i);
+ result.push(`${letter} ${counts[i]}`);
+ }
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -74,81 +74,81 @@ function countCharacters(sentence) {
 
 ```mermaid
 flowchart TD
-    A["Inicio: sentence"] --> B["Convertir a minúsculas"]
-    B --> C["Crear array counts de 26 ceros"]
-    C --> D{Recorrer cada carácter}
-    D --> E{¿Es letra a-z?}
-    E -->|No| D
-    E -->|Sí| F["índice = charCode - 97"]
-    F --> G["counts[índice]++"]
-    G --> D
-    D -->|Fin| H["Recorrer i de 0 a 25"]
-    H --> I{¿Conteo mayor a 0?}
-    I -->|No| H
-    I -->|Sí| J["letra = 'a' + i"]
-    J --> K["Agregar letra + ' ' + conteo"]
-    K --> H
-    H -->|Fin| L["Devolver resultado"]
+ A["Inicio: sentence"] --> B["Convertir a minúsculas"]
+ B --> C["Crear array counts de 26 ceros"]
+ C --> D{Recorrer cada carácter}
+ D --> E{¿Es letra a-z?}
+ E -->|No| D
+ E -->|Sí| F["índice = charCode - 97"]
+ F --> G["counts[índice]++"]
+ G --> D
+ D -->|Fin| H["Recorrer i de 0 a 25"]
+ H --> I{¿Conteo mayor a 0?}
+ I -->|No| H
+ I -->|Sí| J["letra = 'a' + i"]
+ J --> K["Agregar letra + ' ' + conteo"]
+ K --> H
+ H -->|Fin| L["Devolver resultado"]
 
-    style A fill:#e3f2fd,stroke:#1976d2
-    style L fill:#e8f5e9,stroke:#388e3c
-    style D fill:#fff3e0,stroke:#f57c00
-    style E fill:#fff3e0,stroke:#f57c00
-    style I fill:#fff3e0,stroke:#f57c00
+ style A fill:#e 3 f 2 fd,stroke:#1976 d 2
+ style L fill:#e 8 f 5 e 9,stroke:#388 e 3 c
+ style D fill:#fff 3 e 0,stroke:#f 57 c 00
+ style E fill:#fff 3 e 0,stroke:#f 57 c 00
+ style I fill:#fff 3 e 0,stroke:#f 57 c 00
 ```
 
 ## Diagrama del Array de Conteo (Ejemplo: "Hello World!")
 
 ```mermaid
 graph TD
-    subgraph "Array counts[26] después de procesar 'Hello World!'"
-        A[0 → a: 0]
-        D[3 → d: 1]
-        E[4 → e: 1]
-        H[7 → h: 1]
-        L[11 → l: 3]
-        O[14 → o: 2]
-        R[17 → r: 1]
-        W[22 → w: 1]
-        Z["... resto = 0"]
-    end
+ subgraph "Array counts[26] después de procesar 'Hello World!'"
+ A[0 → a: 0]
+ D[3 → d: 1]
+ E[4 → e: 1]
+ H[7 → h: 1]
+ L[11 → l: 3]
+ O[14 → o: 2]
+ R[17 → r: 1]
+ W[22 → w: 1]
+ Z["... resto = 0"]
+ end
 
-    subgraph "Resultado final (orden automático)"
-        R1["d 1"] --> R2["e 1"] --> R3["h 1"]
-        R3 --> R4["l 3"] --> R5["o 2"] --> R6["r 1"] --> R7["w 1"]
-    end
+ subgraph "Resultado final (orden automático)"
+ R 1["d 1"] --> R 2["e 1"] --> R 3["h 1"]
+ R 3 --> R 4["l 3"] --> R 5["o 2"] --> R 6["r 1"] --> R 7["w 1"]
+ end
 
-    style D fill:#66bb6a,color:white,stroke:#2e7d32
-    style E fill:#66bb6a,color:white,stroke:#2e7d32
-    style H fill:#66bb6a,color:white,stroke:#2e7d32
-    style L fill:#66bb6a,color:white,stroke:#2e7d32
-    style O fill:#66bb6a,color:white,stroke:#2e7d32
-    style R fill:#66bb6a,color:white,stroke:#2e7d32
-    style W fill:#66bb6a,color:white,stroke:#2e7d32
+ style D fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style E fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style H fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style L fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style O fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style R fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
+ style W fill:#66 bb 6 a,color:white,stroke:#2 e 7 d 32
 ```
 
 ## Análisis de Complejidad
 
-| Métrica          | Complejidad | Explicación                                                   |
+| Métrica | Complejidad | Explicación |
 |
 
 ---------- | ----------- | ------------------------------------------------------------- |
-| Tiempo           | **O(n)**    | Un pase por el string + un pase fijo de 26 → O(n + 26) = O(n) |
-| Espacio auxiliar | **O(1)**    | Siempre 26 enteros (array fijo)                               |
-| Espacio total    | O(k)        | k ≤ 26 (salida) → sigue siendo O(1) en práctica               |
+| Tiempo | **O(n)** | Un pase por el string + un pase fijo de 26 → O(n + 26) = O(n) |
+| Espacio auxiliar | **O(1)** | Siempre 26 enteros (array fijo) |
+| Espacio total | O(k) | k ≤ 26 (salida) → sigue siendo O(1) en práctica |
 
 **Ventaja clave**: No se ordena nada → el orden alfabético sale gratis por la estructura del array.
 
 ## Casos Edge y Pruebas
 
-| Entrada                                         | Salida Esperada                                                   | Cumple |
+| Entrada | Salida Esperada | Cumple |
 | ----------------------------------------------- | ----------------------------------------------------------------- | ------ |
-| `""`                                            | `[]`                                                              | Yes    |
-| `"!!!123 @#$%"`                                 | `[]`                                                              | Yes    |
-| `"a"`                                           | `["a 1"]`                                                         | Yes    |
-| `"AAAaaa"`                                      | `["a 6"]`                                                         | Yes    |
-| `"The quick brown fox jumps over the lazy dog"` | 26 elementos (pangrama)                                           | Yes    |
-| `"JavaScript123!!!"`                            | `["a 2", "c 1", "i 2", "j 1", "p 1", "r 1", "s 1", "t 1", "v 1"]` | Yes    |
+| `""` | `[]` | Yes |
+| `"!!!123 @#$%"` | `[]` | Yes |
+| `"a"` | `["a 1"]` | Yes |
+| `"AAAaaa"` | `["a 6"]` | Yes |
+| `"The quick brown fox jumps over the lazy dog"` | 26 elementos (pangrama) | Yes |
+| `"JavaScript 123!!!"` | `["a 2", "c 1", "i 2", "j 1", "p 1", "r 1", "s 1", "t 1", "v 1"]` | Yes |
 
 ## Reflexiones y Aprendizajes
 

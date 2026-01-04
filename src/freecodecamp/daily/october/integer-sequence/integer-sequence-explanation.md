@@ -57,12 +57,12 @@ Se implementó un enfoque iterativo simple y directo:
 
 ```javascript
 function sequence(n) {
-  if (n < 1) return "";
-  let result = "";
-  for (let i = 1; i <= n; i++) {
-    result += i.toString();
-  }
-  return result;
+ if (n < 1) return "";
+ let result = "";
+ for (let i = 1; i <= n; i++) {
+ result += i.toString();
+ }
+ return result;
 }
 ```
 
@@ -87,12 +87,12 @@ function sequence(n) {
 
 ```javascript
 function sequence(n) {
-  if (n < 1) return "";
-  const numbers = [];
-  for (let i = 1; i <= n; i++) {
-    numbers.push(i.toString());
-  }
-  return numbers.join("");
+ if (n < 1) return "";
+ const numbers = [];
+ for (let i = 1; i <= n; i++) {
+ numbers.push(i.toString());
+ }
+ return numbers.join("");
 }
 ```
 
@@ -113,8 +113,8 @@ function sequence(n) {
 
 ```javascript
 function sequence(n) {
-  if (n < 1) return "";
-  return Array.from({ length: n }, (_, i) => (i + 1).toString()).join("");
+ if (n < 1) return "";
+ return Array.from({ length: n }, (_, i) => (i + 1).toString()).join("");
 }
 ```
 
@@ -135,12 +135,12 @@ function sequence(n) {
 
 ```javascript
 function sequence(n) {
-  if (n < 1) return "";
-  let result = "";
-  result = result.concat(
-    ...Array.from({ length: n }, (_, i) => (i + 1).toString())
-  );
-  return result;
+ if (n < 1) return "";
+ let result = "";
+ result = result.concat(
+ ...Array.from({ length: n }, (_, i) => (i + 1).toString())
+ );
+ return result;
 }
 ```
 
@@ -161,8 +161,8 @@ function sequence(n) {
 
 ```javascript
 function sequence(n, current = 1, result = "") {
-  if (current > n) return result;
-  return sequence(n, current + 1, result + current.toString());
+ if (current > n) return result;
+ return sequence(n, current + 1, result + current.toString());
 }
 ```
 

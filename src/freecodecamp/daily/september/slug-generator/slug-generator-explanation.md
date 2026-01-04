@@ -33,11 +33,11 @@ Necesitamos transformar texto libre en una cadena adecuada para usar en URLs res
 
 ### Casos de Prueba Identificados
 
-- "Hello World!" -> "hello%20world"
-- " Multiple spaces " -> "multiple%20spaces"
-- "Café & résumé" -> "caf%20rsum" (nota: la implementación actual elimina acentos; si se quisiera mantener/normalizar, habría que hacer una normalización Unicode adicional)
+- "Hello World!" -> "hello%20 world"
+- " Multiple spaces " -> "multiple%20 spaces"
+- "Café & résumé" -> "caf%20 rsum" (nota: la implementación actual elimina acentos; si se quisiera mantener/normalizar, habría que hacer una normalización Unicode adicional)
 - "" (string vacío) -> ""
-- "123 go!" -> "123%20go"
+- "123 go!" -> "123%20 go"
 
 ## Desarrollo de la Solución
 
@@ -56,20 +56,20 @@ Este enfoque es simple, eficiente y fácil de razonar, y evita manipulación man
 
 ```javascript
 function generateSlug(str) {
-  if (!str) return "";
+ if (!str) return "";
 
-  // 1. Lowercase
-  let s = String(str).toLowerCase();
+ // 1. Lowercase
+ let s = String(str).toLowerCase();
 
-  // 2. Remove characters that are not letters, numbers or spaces
-  s = s.replace(/[^a-z0-9 ]+/g, "");
+ // 2. Remove characters that are not letters, numbers or spaces
+ s = s.replace(/[^a-z 0-9 ]+/g, "");
 
-  // 3. Trim and collapse consecutive spaces into one
-  s = s.trim().replace(/\s+/g, " ");
+ // 3. Trim and collapse consecutive spaces into one
+ s = s.trim().replace(/\s+/g, " ");
 
-  // 4. Replace spaces with URL-encoded %20
-  if (s === "") return "";
-  return s.replace(/ /g, "%20");
+ // 4. Replace spaces with URL-encoded %20
+ if (s === "") return "";
+ return s.replace(/ /g, "%20");
 }
 ```
 
@@ -80,7 +80,7 @@ function generateSlug(str) {
 
 ## Casos Edge y Consideraciones
 
-- **Acentos y diacríticos:** La RegExp actual elimina caracteres fuera del rango `[a-z0-9 ]`, por lo que letras con acentos (`é`, `ñ`) se pierden. Si se desea preservar o transliterar estos caracteres (`é` → `e`), se puede normalizar antes con `String.prototype.normalize('NFD')` y eliminar marcas diacríticas.
+- **Acentos y diacríticos:** La RegExp actual elimina caracteres fuera del rango `[a-z 0-9 ]`, por lo que letras con acentos (`é`, `ñ`) se pierden. Si se desea preservar o transliterar estos caracteres (`é` → `e`), se puede normalizar antes con `String.prototype.normalize('NFD')` y eliminar marcas diacríticas.
 - **Unicode y emojis:** Serán eliminados con la RegExp actual. Para soportarlos habría que ajustar la política de caracteres permitidos.
 - **Cadena vacía o sólo caracteres inválidos:** Si después de filtrar no queda texto, la función devuelve "".
 - **Espacios iniciales/finales y múltiples espacios:** Se eliminan y se colapsan en un solo `%20`.
@@ -88,10 +88,10 @@ function generateSlug(str) {
 ## Reflexiones y Posibles Mejoras
 
 - La solución es intencionalmente simple y adecuada para slugs básicos. Para slugs más robustos considerar:
-  - Normalización Unicode y transliteración (`normalize('NFD')` + eliminar marcas diacríticas).
-  - Control de longitud máxima del slug.
-  - Reemplazar espacios con `-` en lugar de `%20` si se prefiere el estilo tradicional de slugs.
-  - Usar `encodeURIComponent` cuando se quiera preservar más caracteres pero aún URL-encodearlos (aunque `encodeURIComponent` dejará `%` y otros símbolos codificados y no realiza limpieza de caracteres no deseados).
+ - Normalización Unicode y transliteración (`normalize('NFD')` + eliminar marcas diacríticas).
+ - Control de longitud máxima del slug.
+ - Reemplazar espacios con `-` en lugar de `%20` si se prefiere el estilo tradicional de slugs.
+ - Usar `encodeURIComponent` cuando se quiera preservar más caracteres pero aún URL-encodearlos (aunque `encodeURIComponent` dejará `%` y otros símbolos codificados y no realiza limpieza de caracteres no deseados).
 
 ## Recursos y Referencias
 

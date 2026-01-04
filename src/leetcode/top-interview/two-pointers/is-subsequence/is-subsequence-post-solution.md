@@ -10,8 +10,8 @@ I implemented a **parallel two pointers solution**:
 
 1. **Initialize pointers**: `subsequenceIndex = 0` for string `s`, `sourceIndex = 0` for string `t`
 2. **Scan through both strings**: While both pointers are within bounds:
-   - **Check for match**: If `s[subsequenceIndex] === t[sourceIndex]`, advance `subsequenceIndex`
-   - **Always advance source**: Move `sourceIndex` forward regardless of match
+ - **Check for match**: If `s[subsequenceIndex] === t[sourceIndex]`, advance `subsequenceIndex`
+ - **Always advance source**: Move `sourceIndex` forward regardless of match
 3. **Verify completion**: Return `true` if `subsequenceIndex === s.length` (found entire subsequence)
 
 **Key insight**: This greedy approach works because if a subsequence exists, taking the first available occurrence of each character will always lead to a valid solution.
@@ -25,22 +25,22 @@ I implemented a **parallel two pointers solution**:
 
 ```typescript
 export function isSubsequence(s: string, t: string): boolean {
-  // Puntero para recorrer la cadena s (subsecuencia objetivo)
-  let subsequenceIndex = 0;
-  // Puntero para recorrer la cadena t (cadena fuente)
-  let sourceIndex = 0;
+ // Puntero para recorrer la cadena s (subsecuencia objetivo)
+ let subsequenceIndex = 0;
+ // Puntero para recorrer la cadena t (cadena fuente)
+ let sourceIndex = 0;
 
-  // Iteramos mientras queden caracteres en ambas cadenas
-  while (subsequenceIndex < s.length && sourceIndex < t.length) {
-    // Si el caracter actual de s coincide con el de t, avanzamos el puntero de s
-    if (s[subsequenceIndex] === t[sourceIndex]) {
-      subsequenceIndex++;
-    }
-    // Siempre avanzamos el puntero de t
-    sourceIndex++;
-  }
-  // Si recorrimos toda la subsecuencia, significa que s es subsecuencia de t
-  return subsequenceIndex === s.length;
+ // Iteramos mientras queden caracteres en ambas cadenas
+ while (subsequenceIndex < s.length && sourceIndex < t.length) {
+ // Si el caracter actual de s coincide con el de t, avanzamos el puntero de s
+ if (s[subsequenceIndex] === t[sourceIndex]) {
+ subsequenceIndex++;
+ }
+ // Siempre avanzamos el puntero de t
+ sourceIndex++;
+ }
+ // Si recorrimos toda la subsecuencia, significa que s es subsecuencia de t
+ return subsequenceIndex === s.length;
 }
 ```
 

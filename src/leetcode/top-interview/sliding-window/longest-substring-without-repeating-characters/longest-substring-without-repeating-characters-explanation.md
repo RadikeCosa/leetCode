@@ -22,7 +22,7 @@ Este problema es un ejemplo clásico de **sliding window** (ventana deslizante) 
 
 ### Evolución del Enfoque:
 
-**Primera implementación (O(2n)):**
+**Primera implementación (O(2 n)):**
 
 - Two pointers explícitos (`start` y `end`)
 - Set para tracking de caracteres actuales
@@ -42,23 +42,23 @@ En lugar de mover `start` paso a paso, **saltamos directamente** a la posición 
 
 ```typescript
 function lengthOfLongestSubstring(s: string): number {
-  let maxLength = 0;
-  let start = 0;
-  const charPositions = new Map<string, number>();
+ let maxLength = 0;
+ let start = 0;
+ const charPositions = new Map<string, number>();
 
-  for (let end = 0; end < s.length; end++) {
-    if (charPositions.has(s[end])) {
-      // Salto optimizado: solo hacia adelante
-      start = Math.max(start, charPositions.get(s[end])! + 1);
-    #
+ for (let end = 0; end < s.length; end++) {
+ if (charPositions.has(s[end])) {
+ // Salto optimizado: solo hacia adelante
+ start = Math.max(start, charPositions.get(s[end])! + 1);
+ #
 
 }
 
-    charPositions.set(s[end], end);
-    maxLength = Math.max(maxLength, end - start + 1);
-  }
+ charPositions.set(s[end], end);
+ maxLength = Math.max(maxLength, end - start + 1);
+ }
 
-  return maxLength;
+ return maxLength;
 }
 ```
 
@@ -66,33 +66,33 @@ function lengthOfLongestSubstring(s: string): number {
 
 ```
 Iteración 1: end=0, char='a'
-  Map: {a: 0}
-  start=0, maxLength=1
-  Ventana: [a]
+ Map: {a: 0}
+ start=0, maxLength=1
+ Ventana: [a]
 
 Iteración 2: end=1, char='b'
-  Map: {a: 0, b: 1}
-  start=0, maxLength=2
-  Ventana: [a,b]
+ Map: {a: 0, b: 1}
+ start=0, maxLength=2
+ Ventana: [a,b]
 
 Iteración 3: end=2, char='c'
-  Map: {a: 0, b: 1, c: 2}
-  start=0, maxLength=3
-  Ventana: [a,b,c]
+ Map: {a: 0, b: 1, c: 2}
+ start=0, maxLength=3
+ Ventana: [a,b,c]
 
 Iteración 4: end=3, char='a' (DUPLICADO!)
-  'a' encontrada en posición 0
-  start = Math.max(0, 0+1) = 1
-  Map: {a: 3, b: 1, c: 2}
-  maxLength=3 (no cambia)
-  Ventana: [b,c,a]
+ 'a' encontrada en posición 0
+ start = Math.max(0, 0+1) = 1
+ Map: {a: 3, b: 1, c: 2}
+ maxLength=3 (no cambia)
+ Ventana: [b,c,a]
 
 Iteración 5: end=4, char='b' (DUPLICADO!)
-  'b' encontrada en posición 1
-  start = Math.max(1, 1+1) = 2
-  Map: {a: 3, b: 4, c: 2}
-  maxLength=3
-  Ventana: [c,a,b]
+ 'b' encontrada en posición 1
+ start = Math.max(1, 1+1) = 2
+ Map: {a: 3, b: 4, c: 2}
+ maxLength=3
+ Ventana: [c,a,b]
 ```
 
 ### ¿Por qué Math.max?
@@ -115,26 +115,26 @@ El `Math.max` garantiza que `start` solo avance, nunca retroceda.
 
 1. **String vacío**: `""` → retorna 0
 
-   - El loop no ejecuta, `maxLength` permanece en 0
+ - El loop no ejecuta, `maxLength` permanece en 0
 
 2. **String de un carácter**: `"a"` → retorna 1
 
-   - Una iteración, `maxLength = 1 - 0 + 1 = 1`
+ - Una iteración, `maxLength = 1 - 0 + 1 = 1`
 
 3. **Todos caracteres iguales**: `"bbbbb"` → retorna 1
 
-   - `start` salta constantemente, ventana máxima siempre es 1
+ - `start` salta constantemente, ventana máxima siempre es 1
 
 4. **Sin repeticiones**: `"abcdef"` → retorna 6
 
-   - Nunca hay duplicados, ventana crece constantemente
+ - Nunca hay duplicados, ventana crece constantemente
 
 5. **Caracteres especiales y espacios**: `"a b!@#"` → retorna 6
 
-   - Todos los caracteres (incluidos espacios) se tratan igual
+ - Todos los caracteres (incluidos espacios) se tratan igual
 
 6. **Patrones complejos**: `"pwwkew"` → retorna 3
-   - Ventana se ajusta múltiples veces: "p", "pw", "w", "wk", "ke", "kew"
+ - Ventana se ajusta múltiples veces: "p", "pw", "w", "wk", "ke", "kew"
 
 ### Edge case crítico resuelto:
 
@@ -164,33 +164,33 @@ El `Math.max` garantiza que `start` solo avance, nunca retroceda.
 
 ### Comparación con implementaciones alternativas:
 
-| Implementación         | Time     | Space           | Descripción              |
+| Implementación | Time | Space | Descripción |
 | ---------------------- | -------- | --------------- | ------------------------ | -------------- |
-| **Fuerza bruta**       | O(n³)    | O(1)            | Verificar cada substring |
-| **Set + Two Pointers** | O(2n)    | O(min(m,n))     | Movimiento paso a paso   |
-| **Map optimizado**     | **O(n)** | **O(min(m,n))** | **Saltos directos** ✅   | o## Conclusión |
+| **Fuerza bruta** | O(n³) | O(1) | Verificar cada substring |
+| **Set + Two Pointers** | O(2 n) | O(min(m,n)) | Movimiento paso a paso |
+| **Map optimizado** | **O(n)** | **O(min(m,n))** | **Saltos directos** ✅ | o## Conclusión |
 
 ### Lecciones aprendidas:
 
 1. **Sliding Window != Siempre Two Pointers**:
 
-   - Fixed size sliding window: Un solo puntero
-   - Variable size con condiciones simples: Map + loop
-   - Variable size con condiciones complejas: Two pointers explícitos
+ - Fixed size sliding window: Un solo puntero
+ - Variable size con condiciones simples: Map + loop
+ - Variable size con condiciones complejas: Two pointers explícitos
 
 2. **Optimización por saltos**:
 
-   - En lugar de mover punteros paso a paso, usar información almacenada para saltar directamente
-   - `Math.max` evita retrocesos y mantiene la invariante del algoritmo
+ - En lugar de mover punteros paso a paso, usar información almacenada para saltar directamente
+ - `Math.max` evita retrocesos y mantiene la invariante del algoritmo
 
 3. **Trade-off Set vs Map**:
 
-   - **Set**: Más simple, pero requiere movimiento paso a paso
-   - **Map**: Más complejo, pero permite optimización con saltos
+ - **Set**: Más simple, pero requiere movimiento paso a paso
+ - **Map**: Más complejo, pero permite optimización con saltos
 
 4. **Manejo de edge cases**:
-   - El algoritmo general maneja naturalmente casos extremos
-   - Early returns pueden optimizar casos triviales pero no son esenciales
+ - El algoritmo general maneja naturalmente casos extremos
+ - Early returns pueden optimizar casos triviales pero no son esenciales
 
 ### Patrones aplicables:
 
@@ -205,20 +205,20 @@ Este enfoque de **"sliding window con saltos optimizados"** es útil en:
 
 ```typescript
 export function lengthOfLongestSubstring(s: string): number {
-  let maxLength = 0;
-  let start = 0;
-  const charPositions = new Map<string, number>();
+ let maxLength = 0;
+ let start = 0;
+ const charPositions = new Map<string, number>();
 
-  for (let end = 0; end < s.length; end++) {
-    if (charPositions.has(s[end])) {
-      start = Math.max(start, charPositions.get(s[end])! + 1);
-    }
+ for (let end = 0; end < s.length; end++) {
+ if (charPositions.has(s[end])) {
+ start = Math.max(start, charPositions.get(s[end])! + 1);
+ }
 
-    charPositions.set(s[end], end);
-    maxLength = Math.max(maxLength, end - start + 1);
-  }
+ charPositions.set(s[end], end);
+ maxLength = Math.max(maxLength, end - start + 1);
+ }
 
-  return maxLength;
+ return maxLength;
 }
 ```
 

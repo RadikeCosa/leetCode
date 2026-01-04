@@ -16,9 +16,9 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/rotate-image/
 
 ## Enunciado del Problema
 
-Se te proporciona una matriz 2D de `n x n` que representa una imagen. Debes rotar la imagen 90 grados (en sentido horario).
+Se te proporciona una matriz 2 D de `n x n` que representa una imagen. Debes rotar la imagen 90 grados (en sentido horario).
 
-Tienes que rotar la imagen **in-place** (en el lugar), lo que significa que debes modificar directamente la matriz 2D de entrada. **NO** asignes otra matriz 2D y hagas la rotación.
+Tienes que rotar la imagen **in-place** (en el lugar), lo que significa que debes modificar directamente la matriz 2 D de entrada. **NO** asignes otra matriz 2 D y hagas la rotación.
 
 ## Análisis Inicial
 
@@ -31,12 +31,12 @@ El problema requiere rotar una matriz cuadrada 90 grados en el sentido de las ag
 
 ### Ejemplo Visual
 
-Consideremos la siguiente matriz 3x3:
+Consideremos la siguiente matriz 3 x 3:
 
-```Before Rotation:         After Rotation:
-1 2 3                   7 4 1
-4 5 6       ---->       8 5 2
-7 8 9                   9 6 3
+```Before Rotation: After Rotation:
+1 2 3 7 4 1
+4 5 6 ----> 8 5 2
+7 8 9 9 6 3
 ```
 
 En este ejemplo, podemos ver cómo cada elemento se mueve a su nueva posición después de la rotación de 90 grados en sentido horario.
@@ -77,14 +77,14 @@ Para rotar la matriz y que sea in-place:
 
 el proceso de rotación de la matriz, siguiendo el orden y lógica del código presentado:
 
-1. **Transponer la matriz**  
-   El primer bucle recorre la matriz y, para cada elemento `matrix[i][j]` donde $j > i$, intercambia su valor con `matrix[j][i]`. Esto convierte las filas en columnas y viceversa. Por ejemplo, el valor en la posición `(0,1)` se intercambia con el de `(1,0)`, el de `(0,2)` con el de `(2,0)`, y así sucesivamente. Al finalizar este paso, la matriz queda transpuesta.
+1. **Transponer la matriz** 
+ El primer bucle recorre la matriz y, para cada elemento `matrix[i][j]` donde $j > i$, intercambia su valor con `matrix[j][i]`. Esto convierte las filas en columnas y viceversa. Por ejemplo, el valor en la posición `(0,1)` se intercambia con el de `(1,0)`, el de `(0,2)` con el de `(2,0)`, y así sucesivamente. Al finalizar este paso, la matriz queda transpuesta.
 
-2. **Invertir cada fila**  
-   El segundo bucle recorre cada fila de la matriz. Para cada fila, utiliza dos punteros (`left` y `right`) que empiezan en los extremos de la fila. Se intercambian los valores de ambos extremos y los punteros se acercan hacia el centro, repitiendo el proceso hasta que se crucen. Esto invierte el orden de los elementos en cada fila, completando la rotación de 90 grados en sentido horario.
+2. **Invertir cada fila** 
+ El segundo bucle recorre cada fila de la matriz. Para cada fila, utiliza dos punteros (`left` y `right`) que empiezan en los extremos de la fila. Se intercambian los valores de ambos extremos y los punteros se acercan hacia el centro, repitiendo el proceso hasta que se crucen. Esto invierte el orden de los elementos en cada fila, completando la rotación de 90 grados en sentido horario.
 
-3. **Matriz final rotada**  
-   Al terminar ambos pasos, la matriz original ha sido modificada directamente y ahora representa la imagen rotada 90 grados en sentido horario, cumpliendo con la restricción de hacerlo in-place y sin usar memoria adicional.
+3. **Matriz final rotada** 
+ Al terminar ambos pasos, la matriz original ha sido modificada directamente y ahora representa la imagen rotada 90 grados en sentido horario, cumpliendo con la restricción de hacerlo in-place y sin usar memoria adicional.
 
 ## Análisis de Complejidad
 
@@ -94,7 +94,7 @@ La solución realiza dos recorridos completos sobre la matriz:
 
 - La transposición recorre aproximadamente la mitad de los elementos ($O(n^2)$).
 - La inversión de filas recorre todos los elementos ($O(n^2)$).
-  Por lo tanto, la complejidad temporal total es $O(n^2)$.
+ Por lo tanto, la complejidad temporal total es $O(n^2)$.
 
 ### Complejidad Espacial
 
@@ -102,7 +102,7 @@ La solución no utiliza espacio adicional significativo, ya que todos los interc
 
 ## Casos Edge y Consideraciones
 
-- Matriz de tamaño 1x1: No requiere cambios, ya que rotar una sola celda no altera la matriz.
+- Matriz de tamaño 1 x 1: No requiere cambios, ya que rotar una sola celda no altera la matriz.
 - Matriz de tamaño par e impar: El algoritmo funciona para ambos casos.
 - Elementos negativos o fuera de orden: No afecta la lógica, ya que solo se intercambian posiciones.
 

@@ -50,45 +50,45 @@ Para resolver el problema, recorreremos la secuencia y para cada índice calcula
 
 ### Implementación Paso a Paso
 
-1. **Recorrer la secuencia**  
-   Iterar sobre cada elemento del array, usando el índice para determinar el número esperado (índice + 1).
+1. **Recorrer la secuencia** 
+ Iterar sobre cada elemento del array, usando el índice para determinar el número esperado (índice + 1).
 
-2. **Calcular el valor esperado según Fizz Buzz**  
-   Para cada posición:
+2. **Calcular el valor esperado según Fizz Buzz** 
+ Para cada posición:
 
-   - Si el número esperado es divisible por 3 y 5, el valor esperado es `"FizzBuzz"`.
-   - Si solo es divisible por 3, el valor esperado es `"Fizz"`.
-   - Si solo es divisible por 5, el valor esperado es `"Buzz"`.
-   - Si no es divisible por ninguno, el valor esperado es el número mismo.
+ - Si el número esperado es divisible por 3 y 5, el valor esperado es `"FizzBuzz"`.
+ - Si solo es divisible por 3, el valor esperado es `"Fizz"`.
+ - Si solo es divisible por 5, el valor esperado es `"Buzz"`.
+ - Si no es divisible por ninguno, el valor esperado es el número mismo.
 
-3. **Comparar el valor esperado con el valor real**  
-   Si el elemento en la secuencia no coincide exactamente con el valor esperado, retornar `false` inmediatamente.
+3. **Comparar el valor esperado con el valor real** 
+ Si el elemento en la secuencia no coincide exactamente con el valor esperado, retornar `false` inmediatamente.
 
-4. **Verificar longitud y orden**  
-   La secuencia debe comenzar en 1 y no tener elementos faltantes ni adicionales. Si el recorrido termina sin discrepancias, retornar `true`.
+4. **Verificar longitud y orden** 
+ La secuencia debe comenzar en 1 y no tener elementos faltantes ni adicionales. Si el recorrido termina sin discrepancias, retornar `true`.
 
 ```javascript
 function isFizzBuzz(sequence) {
-  for (let i = 0; i < sequence.length; i++) {
-    const num = i + 1;
-    let expected;
+ for (let i = 0; i < sequence.length; i++) {
+ const num = i + 1;
+ let expected;
 
-    if (num % 3 === 0 && num % 5 === 0) {
-      expected = "FizzBuzz";
-    } else if (num % 3 === 0) {
-      expected = "Fizz";
-    } else if (num % 5 === 0) {
-      expected = "Buzz";
-    } else {
-      expected = num;
-    }
+ if (num % 3 === 0 && num % 5 === 0) {
+ expected = "FizzBuzz";
+ } else if (num % 3 === 0) {
+ expected = "Fizz";
+ } else if (num % 5 === 0) {
+ expected = "Buzz";
+ } else {
+ expected = num;
+ }
 
-    if (sequence[i] !== expected) {
-      return false;
-    }
-  }
+ if (sequence[i] !== expected) {
+ return false;
+ }
+ }
 
-  return true;
+ return true;
 }
 ```
 

@@ -51,12 +51,12 @@ $$
 \text{Diferencia Simétrica} = (A - B) \cup (B - A)
 $$
 
-| Pregunta                                     | Respuesta                      |
+| Pregunta | Respuesta |
 | -------------------------------------------- | ------------------------------ |
-| ¿Qué hacemos con duplicados en el resultado? | Solo incluir una vez           |
-| ¿Importa el orden?                           | Sí, orden de primera aparición |
-| ¿Los arrays pueden estar vacíos?             | Sí, es un caso edge            |
-| ¿Qué tipos de datos contienen?               | Típicamente números            |
+| ¿Qué hacemos con duplicados en el resultado? | Solo incluir una vez |
+| ¿Importa el orden? | Sí, orden de primera aparición |
+| ¿Los arrays pueden estar vacíos? | Sí, es un caso edge |
+| ¿Qué tipos de datos contienen? | Típicamente números |
 
 ### Casos de Prueba Identificados
 
@@ -101,18 +101,18 @@ La estrategia consiste en:
 
 ```javascript
 function sym(arrA, arrB) {
-  // Paso 1: Convertir a Sets (elimina duplicados)
-  const setA = new Set(arrA);
-  const setB = new Set(arrB);
+ // Paso 1: Convertir a Sets (elimina duplicados)
+ const setA = new Set(arrA);
+ const setB = new Set(arrB);
 
-  // Paso 2: Elementos de A que NO están en B
-  const onlyInA = [...setA].filter((x) => !setB.has(x));
+ // Paso 2: Elementos de A que NO están en B
+ const onlyInA = [...setA].filter((x) => !setB.has(x));
 
-  // Paso 3: Elementos de B que NO están en A
-  const onlyInB = [...setB].filter((x) => !setA.has(x));
+ // Paso 3: Elementos de B que NO están en A
+ const onlyInB = [...setB].filter((x) => !setA.has(x));
 
-  // Paso 4: Combinar ambos resultados
-  return [...onlyInA, ...onlyInB];
+ // Paso 4: Combinar ambos resultados
+ return [...onlyInA, ...onlyInB];
 }
 ```
 
@@ -149,13 +149,13 @@ resultado = [1, 4]
 
 ### Complejidad Temporal
 
-| Operación             | Complejidad        |
+| Operación | Complejidad |
 | --------------------- | ------------------ |
-| Crear `setA`          | O(n)               |
-| Crear `setB`          | O(m)               |
-| Filtrar `setA`        | O(n) × O(1) = O(n) |
-| Filtrar `setB`        | O(m) × O(1) = O(m) |
-| Concatenar resultados | O(n + m)           |
+| Crear `setA` | O(n) |
+| Crear `setB` | O(m) |
+| Filtrar `setA` | O(n) × O(1) = O(n) |
+| Filtrar `setB` | O(m) × O(1) = O(m) |
+| Concatenar resultados | O(n + m) |
 
 **Total: O(n + m)** donde `n` y `m` son los tamaños de los arrays de entrada.
 
@@ -163,25 +163,25 @@ resultado = [1, 4]
 
 ### Complejidad Espacial
 
-| Estructura      | Espacio               |
+| Estructura | Espacio |
 | --------------- | --------------------- |
-| `setA`          | O(n)                  |
-| `setB`          | O(m)                  |
-| `onlyInA`       | O(n) en peor caso     |
-| `onlyInB`       | O(m) en peor caso     |
+| `setA` | O(n) |
+| `setB` | O(m) |
+| `onlyInA` | O(n) en peor caso |
+| `onlyInB` | O(m) en peor caso |
 | Array resultado | O(n + m) en peor caso |
 
 **Total: O(n + m)** donde `n` y `m` son los tamaños de los arrays de entrada.
 
 ## Casos Edge y Consideraciones
 
-| Caso               | Entrada             | Salida         | ¿Manejado? |
+| Caso | Entrada | Salida | ¿Manejado? |
 | ------------------ | ------------------- | -------------- | ---------- |
-| Arrays vacíos      | `[], []`            | `[]`           | ✅         |
-| Un array vacío     | `[1, 2], []`        | `[1, 2]`       | ✅         |
-| Sin intersección   | `[1, 2], [3, 4]`    | `[1, 2, 3, 4]` | ✅         |
-| Totalmente iguales | `[1, 2], [1, 2]`    | `[]`           | ✅         |
-| Con duplicados     | `[1, 1, 2], [2, 3]` | `[1, 3]`       | ✅         |
+| Arrays vacíos | `[], []` | `[]` | ✅ |
+| Un array vacío | `[1, 2], []` | `[1, 2]` | ✅ |
+| Sin intersección | `[1, 2], [3, 4]` | `[1, 2, 3, 4]` | ✅ |
+| Totalmente iguales | `[1, 2], [1, 2]` | `[]` | ✅ |
+| Con duplicados | `[1, 1, 2], [2, 3]` | `[1, 3]` | ✅ |
 
 ## Reflexiones y Aprendizajes
 
@@ -198,27 +198,27 @@ Una alternativa es usar loops manuales en lugar de `.filter()`, evitando crear a
 
 ```javascript
 function sym(arrA, arrB) {
-  const setA = new Set(arrA);
-  const setB = new Set(arrB);
-  const result = [];
+ const setA = new Set(arrA);
+ const setB = new Set(arrB);
+ const result = [];
 
-  for (const x of setA) {
-    if (!setB.has(x)) result.push(x);
-  }
-  for (const x of setB) {
-    if (!setA.has(x)) result.push(x);
-  }
+ for (const x of setA) {
+ if (!setB.has(x)) result.push(x);
+ }
+ for (const x of setB) {
+ if (!setA.has(x)) result.push(x);
+ }
 
-  return result;
+ return result;
 }
 ```
 
-| Aspecto              | Versión con filter | Versión con loop  |
+| Aspecto | Versión con filter | Versión con loop |
 | -------------------- | ------------------ | ----------------- |
-| Complejidad temporal | O(n + m)           | O(n + m)          |
-| Complejidad espacial | O(n + m)           | O(n + m)          |
-| Legibilidad          | ✅ Más declarativa | ⚠️ Más imperativa |
-| Arrays intermedios   | 2 arrays extra     | 0 arrays extra    |
+| Complejidad temporal | O(n + m) | O(n + m) |
+| Complejidad espacial | O(n + m) | O(n + m) |
+| Legibilidad | ✅ Más declarativa | ⚠️ Más imperativa |
+| Arrays intermedios | 2 arrays extra | 0 arrays extra |
 
 > **Conclusión**: la diferencia de rendimiento es mínima. La versión con `.filter()` es más legible y expresiva, lo cual suele ser preferible a menos que se optimice para casos extremos de memoria.
 
@@ -226,4 +226,4 @@ function sym(arrA, arrB) {
 
 - [MDN Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 - [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-- [Teoría de Conjuntos - Diferencia Simétrica](https://es.wikipedia.org/wiki/Diferencia_sim%C3%A9trica)
+- [Teoría de Conjuntos - Diferencia Simétrica](https://es.wikipedia.org/wiki/Diferencia_sim%C 3%A 9 trica)

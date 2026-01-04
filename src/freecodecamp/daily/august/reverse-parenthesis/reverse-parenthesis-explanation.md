@@ -50,35 +50,35 @@ Idea básica:
 
 ```javascript
 function decode(str) {
-  // La pila guardará cadenas (strings) en cada nivel de paréntesis
-  const stack = [];
+ // La pila guardará cadenas (strings) en cada nivel de paréntesis
+ const stack = [];
 
-  // Esta variable va construyendo la cadena del nivel actual
-  let current = "";
+ // Esta variable va construyendo la cadena del nivel actual
+ let current = "";
 
-  for (let char of str) {
-    if (char === "(") {
-      // Guardamos lo que llevamos hasta ahora en la pila
-      stack.push(current);
-      // Empezamos un nuevo nivel vacío
-      current = "";
-    } else if (char === ")") {
-      // Ya terminamos este nivel: revertimos lo que hay en "current"
-      current = current.split("").reverse().join("");
+ for (let char of str) {
+ if (char === "(") {
+ // Guardamos lo que llevamos hasta ahora en la pila
+ stack.push(current);
+ // Empezamos un nuevo nivel vacío
+ current = "";
+ } else if (char === ")") {
+ // Ya terminamos este nivel: revertimos lo que hay en "current"
+ current = current.split("").reverse().join("");
 
-      // Si había algo antes de este paréntesis, lo recuperamos
-      if (stack.length > 0) {
-        const previous = stack.pop(); // sacamos lo de antes
-        current = previous + current; // lo pegamos al inicio
-      }
-    } else {
-      // Es una letra normal, la agregamos al nivel actual
-      current += char;
-    }
-  }
+ // Si había algo antes de este paréntesis, lo recuperamos
+ if (stack.length > 0) {
+ const previous = stack.pop(); // sacamos lo de antes
+ current = previous + current; // lo pegamos al inicio
+ }
+ } else {
+ // Es una letra normal, la agregamos al nivel actual
+ current += char;
+ }
+ }
 
-  // Al final, "current" tiene toda la respuesta
-  return current;
+ // Al final, "current" tiene toda la respuesta
+ return current;
 }
 ```
 
@@ -137,6 +137,6 @@ Una versión un poquito más corta usa un array para current y hace push/pop en 
 
 ## Recursos y Referencias
 
-- Explicación visual de pilas: https://www.youtube.com/watch?v=wjI1WNcIntg
+- Explicación visual de pilas: https://www.youtube.com/watch?v=wjI 1 WNcIntg
 - Problema original en freeCodeCamp (Daily Challenge del 26 Ago 2025)
 - Otros problemas parecidos: "Reverse String in Parentheses" en LeetCode (1249), es casi idéntico.

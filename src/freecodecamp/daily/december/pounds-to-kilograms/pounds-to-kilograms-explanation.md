@@ -72,11 +72,11 @@ El enfoque consiste en realizar la conversión directa multiplicando el valor en
 
 ```javascript
 function poundsToKilograms(lbs) {
-  const kgs = lbs * 0.453592;
-  const roundedKgs = kgs.toFixed(2);
-  const poundWord = lbs === 1 ? "pound" : "pounds";
-  const kilogramWord = parseFloat(roundedKgs) === 1 ? "kilogram" : "kilograms";
-  return `${lbs} ${poundWord} equals ${roundedKgs} ${kilogramWord}.`;
+ const kgs = lbs * 0.453592;
+ const roundedKgs = kgs.toFixed(2);
+ const poundWord = lbs === 1 ? "pound" : "pounds";
+ const kilogramWord = parseFloat(roundedKgs) === 1 ? "kilogram" : "kilograms";
+ return `${lbs} ${poundWord} equals ${roundedKgs} ${kilogramWord}.`;
 }
 ```
 
@@ -113,4 +113,4 @@ Dado que la función ya es de tiempo y espacio constante, no existen optimizacio
 ## Recursos y Referencias
 
 - [Documentación de Number.prototype.toFixed() en MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
-- [Conversión de unidades en Wikipedia](https://es.wikipedia.org/wiki/Conversi%C3%B3n_de_unidades)
+- [Conversión de unidades en Wikipedia](https://es.wikipedia.org/wiki/Conversi%C 3%B 3 n_de_unidades)

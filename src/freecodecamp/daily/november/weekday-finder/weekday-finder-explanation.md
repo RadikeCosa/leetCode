@@ -51,14 +51,14 @@ La solución utiliza el objeto `Date` nativo de JavaScript para parsear el strin
 
 ```javascript
 function getWeekday(dateString) {
-  const date = new Date(dateString + "T00:00:00");
-  return date.toLocaleDateString("en-US", { weekday: "long" });
+ const date = new Date(dateString + "T 00:00:00");
+ return date.toLocaleDateString("en-US", { weekday: "long" });
 }
 ```
 
 ### Explicación
 
-1. **Manejo de Zonas Horarias**: Al agregar `"T00:00:00"` al string de fecha, creamos una fecha-hora local en lugar de UTC, evitando problemas de conversión de zona horaria que podrían cambiar el día.
+1. **Manejo de Zonas Horarias**: Al agregar `"T 00:00:00"` al string de fecha, creamos una fecha-hora local en lugar de UTC, evitando problemas de conversión de zona horaria que podrían cambiar el día.
 2. **Parseo de la Fecha**: El constructor `Date` crea un objeto `Date` a partir del string de entrada mejorado.
 3. **Formateo del Día**: El método `toLocaleDateString` con la opción `{ weekday: "long" }` retorna el nombre completo del día en inglés.
 4. **Implementación Limpia**: Este enfoque evita la necesidad de un array manual de días mientras asegura resultados consistentes en diferentes zonas horarias.
@@ -74,9 +74,9 @@ Inicialmente, la solución utilizaba el método `toLocaleDateString` directament
 
 ```javascript
 function getWeekday(dateString) {
-  let date = new Date(dateString);
-  const options = { weekday: "long" };
-  return date.toLocaleDateString("en-US", options);
+ let date = new Date(dateString);
+ const options = { weekday: "long" };
+ return date.toLocaleDateString("en-US", options);
 }
 ```
 
@@ -88,4 +88,4 @@ Por ejemplo, para el string `"2025-11-06"`, en ciertas zonas horarias el día re
 
 ### Solución Mejorada
 
-Para resolver este problema, se agregó explícitamente la hora `"T00:00:00"` al string de entrada. Esto asegura que la fecha se interprete correctamente como una fecha local, evitando problemas de conversión de zona horaria.
+Para resolver este problema, se agregó explícitamente la hora `"T 00:00:00"` al string de entrada. Esto asegura que la fecha se interprete correctamente como una fecha local, evitando problemas de conversión de zona horaria.

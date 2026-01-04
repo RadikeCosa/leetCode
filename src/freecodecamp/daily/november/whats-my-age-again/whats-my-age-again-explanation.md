@@ -26,7 +26,7 @@ Dada una fecha de nacimiento en formato `YYYY-MM-DD`, devolver la edad exacta de
 
 ### Comprensión del Problema
 
-Necesitamos calcular cuántos años completos han pasado desde la fecha de nacimiento hasta el **27 de noviembre de 2025**.  
+Necesitamos calcular cuántos años completos han pasado desde la fecha de nacimiento hasta el **27 de noviembre de 2025**. 
 No basta con restar los años: hay que verificar si el cumpleaños de 2025 ya ocurrió o aún está por ocurrir.
 
 Ejemplo:
@@ -56,8 +56,8 @@ El algoritmo más simple, robusto y ampliamente usado:
 1. Extraer año, mes y día de la fecha de nacimiento.
 2. Calcular edad tentativa: `2025 - birthYear`
 3. Restar 1 si el cumpleaños de 2025 **aún no ha ocurrido**, es decir:
-   - Si el mes de nacimiento es posterior a noviembre (`birthMonth > 11`), o
-   - Si el mes es noviembre pero el día es posterior al 27 (`birthMonth === 11 && birthDay > 27`)
+ - Si el mes de nacimiento es posterior a noviembre (`birthMonth > 11`), o
+ - Si el mes es noviembre pero el día es posterior al 27 (`birthMonth === 11 && birthDay > 27`)
 
 Este método evita completamente problemas de zonas horarias, DST o precisión de milisegundos.
 
@@ -68,11 +68,11 @@ Este método evita completamente problemas de zonas horarias, DST o precisión d
 3. Calcular edad base: `let age = 2025 - year`
 4. Verificar si ya cumplió en 2025:
 
-   ```js
-   const hasHadBirthdayThisYear = month < 11 || (month === 11 && day <= 27);
-   ```
+ ```js
+ const hasHadBirthdayThisYear = month < 11 || (month === 11 && day <= 27);
+ ```
 
-   o equivalently:
+ o equivalently:
 
 ```js
 const birthdayThisYearPending = month > 11 || (month === 11 && day > 27);
@@ -83,13 +83,13 @@ const birthdayThisYearPending = month > 11 || (month === 11 && day > 27);
 
 ```js
 function getAge(birthday) {
-  const [y, m, d] = birthday.split("-").map(Number);
-  const today = new Date();
-  const age = today.getFullYear() - y;
-  const hadBirthday =
-    today.getMonth() + 1 > m ||
-    (today.getMonth() + 1 === m && today.getDate() >= d);
-  return hadBirthday ? age : age - 1;
+ const [y, m, d] = birthday.split("-").map(Number);
+ const today = new Date();
+ const age = today.getFullYear() - y;
+ const hadBirthday =
+ today.getMonth() + 1 > m ||
+ (today.getMonth() + 1 === m && today.getDate() >= d);
+ return hadBirthday ? age : age - 1;
 }
 ```
 
@@ -105,13 +105,13 @@ function getAge(birthday) {
 
 ## Casos Edge y Consideraciones
 
-| Caso                                    | Manejado correctamente? | Nota                                                                                    |
+| Caso | Manejado correctamente? | Nota |
 | --------------------------------------- | ----------------------- | --------------------------------------------------------------------------------------- |
-| Cumpleaños el 27 de noviembre           | Yes                     | Se considera que ya cumplió                                                             |
-| Cumpleaños el 28 de noviembre           | Yes                     | Aún no cumplió                                                                          |
-| Nacidos el 29 de febrero (año bisiesto) | Yes                     | Como la fecha es válida y anterior a 2025-11-27, no hay conflicto en 2025 (no bisiesto) |
-| Fecha justo antes: 2025-11-26           | Yes                     | Edad correcta                                                                           |
-| Bebés nacidos en 2025                   | Yes                     | Edad 0                                                                                  |
+| Cumpleaños el 27 de noviembre | Yes | Se considera que ya cumplió |
+| Cumpleaños el 28 de noviembre | Yes | Aún no cumplió |
+| Nacidos el 29 de febrero (año bisiesto) | Yes | Como la fecha es válida y anterior a 2025-11-27, no hay conflicto en 2025 (no bisiesto) |
+| Fecha justo antes: 2025-11-26 | Yes | Edad correcta |
+| Bebés nacidos en 2025 | Yes | Edad 0 |
 
 ## Reflexiones y Aprendizajes
 
@@ -123,5 +123,5 @@ function getAge(birthday) {
 ## Recursos y Referencias
 
 - [How do you calculate age in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/10008050/get-age-from-birthdate)
-- [date-fns - differenceInYears](https://date-fns.org/v2.30.0/docs/differenceInYears)
+- [date-fns - differenceInYears](https://date-fns.org/v 2.30.0/docs/differenceInYears)
 - [The Date Problem - Why subtracting years is wrong](https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)

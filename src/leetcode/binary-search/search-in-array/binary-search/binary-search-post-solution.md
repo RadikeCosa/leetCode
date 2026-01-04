@@ -10,9 +10,9 @@ I implemented the classic binary search algorithm using the standard template:
 2. **Loop condition**: Continue while `left <= right` to include single-element cases
 3. **Calculate middle**: Use `mid = Math.floor(left + (right - left) / 2)` to avoid overflow
 4. **Three-way comparison**:
-   - If `nums[mid] === target`: Found the target, return index
-   - If `nums[mid] < target`: Target is in right half, set `left = mid + 1`
-   - If `nums[mid] > target`: Target is in left half, set `right = mid - 1`
+ - If `nums[mid] === target`: Found the target, return index
+ - If `nums[mid] < target`: Target is in right half, set `left = mid + 1`
+ - If `nums[mid] > target`: Target is in left half, set `right = mid - 1`
 5. **Not found**: If loop exits, target doesn't exist, return -1
 
 The algorithm maintains the invariant that if the target exists, it must be within the `[left, right]` range.
@@ -26,22 +26,22 @@ The algorithm maintains the invariant that if the target exists, it must be with
 
 ```typescript
 export function search(nums: number[], target: number): number {
-  let left = 0;
-  let right = nums.length - 1;
+ let left = 0;
+ let right = nums.length - 1;
 
-  while (left <= right) {
-    const mid = Math.floor(left + (right - left) / 2);
+ while (left <= right) {
+ const mid = Math.floor(left + (right - left) / 2);
 
-    if (nums[mid] === target) {
-      return mid;
-    } else if (nums[mid] < target) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
+ if (nums[mid] === target) {
+ return mid;
+ } else if (nums[mid] < target) {
+ left = mid + 1;
+ } else {
+ right = mid - 1;
+ }
+ }
 
-  return -1;
+ return -1;
 }
 ```
 

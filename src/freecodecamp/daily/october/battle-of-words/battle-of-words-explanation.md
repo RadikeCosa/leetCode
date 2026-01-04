@@ -55,9 +55,9 @@ Para resolver este problema, seguiremos estos pasos:
 ### Cálculo del valor de una palabra
 
 - Para cada carácter en la palabra:
-  - Obtener el valor base: `char.toLowerCase().charCodeAt(0) - 96`
-  - Si el carácter original es mayúscula, multiplicar el valor por 2
-  - Sumar al total de la palabra
+ - Obtener el valor base: `char.toLowerCase().charCodeAt(0) - 96`
+ - Si el carácter original es mayúscula, multiplicar el valor por 2
+ - Sumar al total de la palabra
 
 Este enfoque es eficiente y directo, procesando cada palabra una vez para calcular su valor y luego comparando los valores por pares.
 
@@ -70,30 +70,30 @@ Este enfoque es eficiente y directo, procesando cada palabra una vez para calcul
 
 ```javascript
 function wordValue(word) {
-  return [...word].reduce((value, char) => {
-    const baseValue = char.toLowerCase().charCodeAt(0) - 96;
-    return value + (char === char.toUpperCase() ? baseValue * 2 : baseValue);
-  }, 0);
+ return [...word].reduce((value, char) => {
+ const baseValue = char.toLowerCase().charCodeAt(0) - 96;
+ return value + (char === char.toUpperCase() ? baseValue * 2 : baseValue);
+ }, 0);
 }
 
 function getBattleResult(ourWins, opponentWins) {
-  if (ourWins > opponentWins) return "We win";
-  if (opponentWins > ourWins) return "We lose";
-  return "Draw";
+ if (ourWins > opponentWins) return "We win";
+ if (opponentWins > ourWins) return "We lose";
+ return "Draw";
 }
 
 function battle(ourTeam, opponent) {
-  const ourWords = ourTeam.split(" ");
-  const opponentWords = opponent.split(" ");
+ const ourWords = ourTeam.split(" ");
+ const opponentWords = opponent.split(" ");
 
-  const differences = ourWords.map(
-    (word, i) => wordValue(word) - wordValue(opponentWords[i])
-  );
+ const differences = ourWords.map(
+ (word, i) => wordValue(word) - wordValue(opponentWords[i])
+ );
 
-  const ourWins = differences.filter((diff) => diff > 0).length;
-  const opponentWins = differences.filter((diff) => diff < 0).length;
+ const ourWins = differences.filter((diff) => diff > 0).length;
+ const opponentWins = differences.filter((diff) => diff < 0).length;
 
-  return getBattleResult(ourWins, opponentWins);
+ return getBattleResult(ourWins, opponentWins);
 }
 ```
 
@@ -101,10 +101,10 @@ function battle(ourTeam, opponent) {
 
 - **Edge cases considerados**: Funciona correctamente con mayúsculas/minúsculas, palabras de diferentes longitudes, y empates en palabras individuales.
 - **Optimizaciones aplicadas**:
-  - **Funciones puras**: `wordValue` y `getBattleResult` extraídas como funciones externas reutilizables
-  - **Programación funcional**: Uso de `reduce`, `map` y `filter` para mayor claridad y expresividad
-  - **Inmutabilidad**: `const` en lugar de `let` donde es posible
-  - **Operador ternario**: Más conciso que if-else en expresiones
-  - **Separación de responsabilidades**: Función auxiliar para determinar resultado
+ - **Funciones puras**: `wordValue` y `getBattleResult` extraídas como funciones externas reutilizables
+ - **Programación funcional**: Uso de `reduce`, `map` y `filter` para mayor claridad y expresividad
+ - **Inmutabilidad**: `const` en lugar de `let` donde es posible
+ - **Operador ternario**: Más conciso que if-else en expresiones
+ - **Separación de responsabilidades**: Función auxiliar para determinar resultado
 - **Patrones aprendidos**: Separación de responsabilidades, composición funcional, transformación de arrays
 - **Lecciones aprendidas**: Importancia de retornar valores en funciones auxiliares, verificar scopes de variables, y cómo la programación funcional puede hacer el código más legible y mantenible.

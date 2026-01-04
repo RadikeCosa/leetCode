@@ -29,11 +29,11 @@ Separá las palabras con un guion bajo (\_).
 
 ### Casos de Prueba Identificados
 
-| Entrada           | Salida Esperada      | Descripción                                            |
+| Entrada | Salida Esperada | Descripción |
 | ----------------- | -------------------- | ------------------------------------------------------ |
-| `camelCase`       | `camel_case`         | Caso básico con una sola mayúscula.                    |
-| `thisIsATest`     | `this_is_a_test`     | Caso con múltiples palabras.                           |
-| `exampleString`   | `example_string`     | Caso con dos palabras.                                 |
+| `camelCase` | `camel_case` | Caso básico con una sola mayúscula. |
+| `thisIsATest` | `this_is_a_test` | Caso con múltiples palabras. |
+| `exampleString` | `example_string` | Caso con dos palabras. |
 | `aSimpleTestCase` | `a_simple_test_case` | Caso con múltiples palabras y mayúsculas consecutivas. |
 
 ## Desarrollo de la Solución
@@ -52,8 +52,8 @@ Para implementar la solución, seguí estos pasos:
 1. Inicialicé una variable vacía para almacenar el resultado.
 2. Recorrí cada caracter del string de entrada.
 3. Si el caracter es una letra mayúscula:
-   - Convertí la letra a minúscula.
-   - Añadí un guion bajo seguido de la letra minúscula al resultado.
+ - Convertí la letra a minúscula.
+ - Añadí un guion bajo seguido de la letra minúscula al resultado.
 4. Si el caracter es una letra minúscula, simplemente la añadí al resultado.
 5. Finalmente, retorné el string resultante.
 
@@ -61,15 +61,15 @@ Para implementar la solución, seguí estos pasos:
 
 ```javascript
 function toSnakeLoop(camelCaseStr) {
-  let snakeCaseStr = "";
-  for (let char of camelCaseStr) {
-    if (char >= "A" && char <= "Z") {
-      snakeCaseStr += "_" + char.toLowerCase();
-    } else {
-      snakeCaseStr += char;
-    }
-  }
-  return snakeCaseStr;
+ let snakeCaseStr = "";
+ for (let char of camelCaseStr) {
+ if (char >= "A" && char <= "Z") {
+ snakeCaseStr += "_" + char.toLowerCase();
+ } else {
+ snakeCaseStr += char;
+ }
+ }
+ return snakeCaseStr;
 }
 ```
 
@@ -87,9 +87,9 @@ Para implementar la solución usando expresiones regulares, seguí estos pasos:
 
 ```javascript
 function toSnakeRegex(camelCaseStr) {
-  return camelCaseStr.replace(/([A-Z])/g, function (match) {
-    return "_" + match.toLowerCase();
-  });
+ return camelCaseStr.replace(/([A-Z])/g, function (match) {
+ return "_" + match.toLowerCase();
+ });
 }
 ```
 

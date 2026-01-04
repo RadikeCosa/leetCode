@@ -121,30 +121,93 @@ La primera intuicion es usar un enfoque de **Expansion desde el Centro**. Esto e
 3. **Actualizar el Máximo:** Mantener un registro del palíndromo más largo encontrado durante las expansiones.
 4. **Retornar el Resultado:** Al final, retornar el substring correspondiente al palíndromo más largo.
 
+#### Código Completo
+
+```typescript
+/**
+ * LeetCode Problem: Longest Palindromic Substring
+ * Dificultad: Medium
+ * Temas: strings, two-pointers, expansión desde el centro
+ *
+ * Dado un string s, retorna el substring palindrómico más largo dentro de s.
+ * Un substring es palíndromo si se lee igual de izquierda a derecha que de derecha a izquierda.
+ *
+ * Ejemplo:
+ * Input: "babad"
+ * Output: "bab" (o "aba", ambas son válidas)
+ *
+ * Restricciones:
+ * - 1 <= s.length <= 1000
+ * - s consiste solo de letras y/o dígitos (mayúsculas y minúsculas)
+ *
+ * @param {string} s - Cadena de entrada sobre la que se busca el palíndromo más largo.
+ * @returns {string} El substring palindrómico más largo encontrado en s.
+ */
+export function longestPalindromic(s: string): string {
+ let maxPalindrome = "";
+
+ // Funcion auxliar que expande desde el centro y retorna el palindromo mas largo encontrado
+ function expandAroundCenter(left: number, right: number): string {
+ while (left >= 0 && right < s.length && s[left] === s[right]) {
+ left--;
+ right++;
+ }
+ return s.slice(left + 1, right);
+ }
+
+ for (let i = 0; i < s.length; i++) {
+ // Palíndromo impar (centro en i)
+ const palindrome 1 = expandAroundCenter(i, i);
+ // Palíndromo par (centro entre i y i+1)
+ const palindrome 2 = expandAroundCenter(i, i + 1);
+
+ // Elegimos el más largo de los dos
+ const longerPalindrome =
+ palindrome 1.length > palindrome 2.length ? palindrome 1 : palindrome 2;
+
+ // Si es más largo que el máximo actual, lo actualizamos
+ if (longerPalindrome.length > maxPalindrome.length) {
+ maxPalindrome = longerPalindrome;
+ }
+ }
+
+ return maxPalindrome;
+}
+```
+
 ## Análisis de Complejidad
 
 ### Complejidad Temporal
 
-<!-- TODO: Analizar Big O tiempo -->
+El algoritmo tiene una complejidad temporal de $O(n^2)$, donde $n$ es la longitud del string. Esto se debe a que para cada uno de los $n$ índices, realizamos expansiones que en el peor caso pueden recorrer hasta $n$ caracteres hacia la izquierda y derecha. Aunque en práctica es eficiente para $n \leq 1000$, es cuadrático porque cada expansión potencialmente verifica $O(n)$ comparaciones.
 
 ### Complejidad Espacial
 
-<!-- TODO: Analizar Big O espacio -->
+La complejidad espacial es $O(1)$, ya que solo usamos variables fijas (como `maxPalindrome` y los índices en el bucle), sin estructuras de datos adicionales que crezcan con el tamaño de la entrada.
 
 ## Casos Edge y Consideraciones
 
-<!-- TODO: Documentar casos especiales manejados -->
+- **Longitud mínima (n=1):** Retorna el único carácter, que es un palíndromo trivial.
+- **Sin palíndromos largos:** Siempre retorna al menos un carácter, ya que cualquier substring de longitud 1 es palíndromo.
+- **Cadenas homogéneas:** Como "aaaa", el palíndromo más largo es todo el string.
+- **Palíndromos en extremos:** El algoritmo los detecta correctamente, como en "racecarxyz".
+- **Sensibilidad a mayúsculas/minúsculas:** El problema permite letras y dígitos, pero no especifica insensibilidad a mayúsculas; el código trata 'A' y 'a' como diferentes, lo cual es correcto según las restricciones.
 
 ## Reflexiones y Aprendizajes
 
 ### Conceptos Aplicados
 
-<!-- TODO: ¿Qué patrones/técnicas se usaron? -->
+- **Two-pointers:** La expansión usa dos punteros que se mueven simétricamente desde el centro.
+- **Expansión desde el centro:** Técnica eficiente para palíndromos, evitando verificaciones innecesarias.
+- **Iteración sistemática:** Prueba todos los posibles centros (impares y pares) para garantizar el máximo.
 
 ### Posibles Optimizaciones
 
-<!-- TODO: ¿Se puede mejorar? -->
+- **Manacher's Algorithm:** Un enfoque más avanzado con $O(n)$ tiempo usando un array de radios, pero más complejo de implementar. No necesario aquí dado el límite de $n=1000$.
+- **DP alternativo:** Una tabla DP de $O(n^2)$ espacio podría usarse, pero es menos eficiente espacialmente y no mejora el tiempo para este problema.
 
 ## Recursos y Referencias
 
-<!-- TODO: Links útiles, algoritmos relacionados, etc. -->
+- [LeetCode Problem](https://leetcode.com/problems/longest-palindromic-substring/description/)
+- [Blog Post](https://blog-astro-rouge.vercel.app/posts/longest-palindromic-substring/)
+- Algoritmos relacionados: Manacher's Algorithm para palíndromos en tiempo lineal.

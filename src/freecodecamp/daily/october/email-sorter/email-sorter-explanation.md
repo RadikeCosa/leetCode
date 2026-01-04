@@ -30,17 +30,17 @@ Este problema requiere ordenar una lista de direcciones de email siguiendo regla
 
 1. `["jill@mail.com", "john@example.com", "jane@example.com"]` → `["jane@example.com", "john@example.com", "jill@mail.com"]`
 
-   - Dominios: example.com, mail.com
-   - example.com viene antes que mail.com alfabéticamente
+ - Dominios: example.com, mail.com
+ - example.com viene antes que mail.com alfabéticamente
 
 2. `["bob@mail.com", "alice@zoo.com", "carol@mail.com"]` → `["bob@mail.com", "carol@mail.com", "alice@zoo.com"]`
 
-   - bob y carol tienen el mismo dominio mail.com, se ordenan por username
-   - alice tiene zoo.com que viene después
+ - bob y carol tienen el mismo dominio mail.com, se ordenan por username
+ - alice tiene zoo.com que viene después
 
 3. `["sam@MAIL.com", "amy@mail.COM", "bob@Mail.com"]` → `["amy@mail.COM", "bob@Mail.com", "sam@MAIL.com"]`
-   - Todos tienen variaciones del dominio mail.com
-   - Se ordenan por username ignorando case: amy, bob, sam
+ - Todos tienen variaciones del dominio mail.com
+ - Se ordenan por username ignorando case: amy, bob, sam
 
 ### Desafíos Identificados
 
@@ -68,22 +68,22 @@ La solución utiliza el método `Array.sort()` de JavaScript con una función co
 
 ```javascript
 function sort(emails) {
-  return emails.sort((a, b) => {
-    // Separar username y domain
-    const [userA, domainA] = a.split("@");
-    const [userB, domainB] = b.split("@");
+ return emails.sort((a, b) => {
+ // Separar username y domain
+ const [userA, domainA] = a.split("@");
+ const [userB, domainB] = b.split("@");
 
-    // Comparar dominios primero (case-insensitive)
-    const domainCompare = domainA
-      .toLowerCase()
-      .localeCompare(domainB.toLowerCase());
-    if (domainCompare !== 0) {
-      return domainCompare;
-    }
+ // Comparar dominios primero (case-insensitive)
+ const domainCompare = domainA
+ .toLowerCase()
+ .localeCompare(domainB.toLowerCase());
+ if (domainCompare !== 0) {
+ return domainCompare;
+ }
 
-    // Si dominios iguales, comparar usernames
-    return userA.toLowerCase().localeCompare(userB.toLowerCase());
-  });
+ // Si dominios iguales, comparar usernames
+ return userA.toLowerCase().localeCompare(userB.toLowerCase());
+ });
 }
 ```
 

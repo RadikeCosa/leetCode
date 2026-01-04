@@ -52,27 +52,27 @@ La solución implementada sigue un patrón clásico de transformación de arrays
 
 1. **Inicialización**: Crear un array vacío `newArr` para almacenar los resultados
 
-   ```typescript
-   let newArr: number[] = [];
-   ```
+ ```typescript
+ let newArr: number[] = [];
+ ```
 
 2. **Iteración**: Recorrer cada elemento del array original usando un bucle `for`
 
-   ```typescript
-   for (let i = 0; i < arr.length; i++) {
-   ```
+ ```typescript
+ for (let i = 0; i < arr.length; i++) {
+ ```
 
 3. **Transformación**: Aplicar la función `fn` al elemento actual y su índice
 
-   ```typescript
-   fn(arr[i], i);
-   ```
+ ```typescript
+ fn(arr[i], i);
+ ```
 
 4. **Almacenamiento**: Agregar el resultado transformado al nuevo array
 
-   ```typescript
-   newArr.push(fn(arr[i], i));
-   ```
+ ```typescript
+ newArr.push(fn(arr[i], i));
+ ```
 
 5. **Retorno**: Devolver el nuevo array con todas las transformaciones
 

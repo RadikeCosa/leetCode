@@ -13,11 +13,11 @@ blogLink: https://blog-astro-rouge.vercel.app/posts/ipv4-validator/
 problemLink: https://www.freecodecamp.org/learn/daily-coding-challenge/2025-09-05/
 ---
 
-## Ipv4 Validator - Análisis y Explicación
+## Ipv 4 Validator - Análisis y Explicación
 
 ## Enunciado del Problema
 
-Dado un string, debés determinar si es una dirección IPv4 válida. Una dirección IPv4 consiste en cuatro números enteros separados por puntos. Cada número debe cumplir las siguientes condiciones:
+Dado un string, debés determinar si es una dirección IPv 4 válida. Una dirección IPv 4 consiste en cuatro números enteros separados por puntos. Cada número debe cumplir las siguientes condiciones:
 
 - Está entre 0 y 255, inclusive.
 - No puede tener ceros a la izquierda (por ejemplo, 0 es válido, 01 no).
@@ -27,7 +27,7 @@ Dado un string, debés determinar si es una dirección IPv4 válida. Una direcci
 
 ### Comprensión del Problema
 
-La función debe recibir un string y determinar si es una dirección IPv4 válida según las reglas especificadas: debe contener cuatro números enteros separados por puntos, cada número debe estar entre 0 y 255, no puede tener ceros a la izquierda y solo puede contener dígitos numéricos.
+La función debe recibir un string y determinar si es una dirección IPv 4 válida según las reglas especificadas: debe contener cuatro números enteros separados por puntos, cada número debe estar entre 0 y 255, no puede tener ceros a la izquierda y solo puede contener dígitos numéricos.
 
 ### Casos de Prueba Identificados
 
@@ -50,7 +50,7 @@ Algunos casos de prueba relevantes para este problema son:
 
 ### Enfoque Elegido
 
-La estrategia consiste en dividir el string usando el carácter punto (`.`) para obtener los cuatro bloques que componen la dirección IPv4. Luego, se verifica que:
+La estrategia consiste en dividir el string usando el carácter punto (`.`) para obtener los cuatro bloques que componen la dirección IPv 4. Luego, se verifica que:
 
 - Existan exactamente cuatro bloques.
 - Cada bloque contenga solo dígitos numéricos.
@@ -64,24 +64,24 @@ Para validar que un bloque contiene solo dígitos, se utiliza una expresión reg
 1. Dividir el string de entrada usando `split('.')`.
 2. Verificar que el array resultante tenga exactamente 4 elementos.
 3. Iterar sobre cada bloque y para cada uno:
-   - Comprobar que solo contenga dígitos (`/^\d+$/`).
-   - Verificar que no tenga ceros a la izquierda (si la longitud es mayor a 1 y empieza con "0").
-   - Convertir el bloque a número y chequear que esté entre 0 y 255.
+ - Comprobar que solo contenga dígitos (`/^\d+$/`).
+ - Verificar que no tenga ceros a la izquierda (si la longitud es mayor a 1 y empieza con "0").
+ - Convertir el bloque a número y chequear que esté entre 0 y 255.
 4. Si todos los bloques cumplen las condiciones, la dirección es válida; de lo contrario, es inválida.
 
 ### Código Final
 
 ```javascript
-function isValidIPv4(ipv4) {
-  const blocks = ipv4.split(".");
-  if (blocks.length !== 4) return false;
-  for (const block of blocks) {
-    if (!/^\d+$/.test(block)) return false; // Solo dígitos
-    if (block.length > 1 && block.charAt(0) === "0") return false; // Cero a la izquierda
-    const num = Number(block);
-    if (num < 0 || num > 255) return false;
-  }
-  return true;
+function isValidIPv 4(ipv 4) {
+ const blocks = ipv 4.split(".");
+ if (blocks.length !== 4) return false;
+ for (const block of blocks) {
+ if (!/^\d+$/.test(block)) return false; // Solo dígitos
+ if (block.length > 1 && block.charAt(0) === "0") return false; // Cero a la izquierda
+ const num = Number(block);
+ if (num < 0 || num > 255) return false;
+ }
+ return true;
 }
 ```
 
@@ -103,7 +103,7 @@ La complejidad espacial es $O(1)$, ya que la función utiliza una cantidad const
 
 ## Casos Edge y Consideraciones
 
-- Strings vacíos o con espacios: `"   "`, `""` → Inválido.
+- Strings vacíos o con espacios: `" "`, `""` → Inválido.
 - Bloques vacíos: `"192..1.1"`, `"192.168..1"` → Inválido.
 - Caracteres especiales o letras: `"192.168.a.1"`, `"192.168.1.@"` → Inválido.
 - Números negativos: `"192.168.1.-1"` → Inválido.
@@ -128,5 +128,5 @@ La complejidad espacial es $O(1)$, ya que la función utiliza una cantidad const
 
 ## Recursos y Referencias
 
-- [Documentación de IPv4 - Wikipedia](https://es.wikipedia.org/wiki/IPv4)
+- [Documentación de IPv 4 - Wikipedia](https://es.wikipedia.org/wiki/IPv 4)
 - [Expresiones regulares en JavaScript - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions)

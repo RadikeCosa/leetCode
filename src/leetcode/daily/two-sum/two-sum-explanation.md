@@ -56,11 +56,11 @@ Puedes devolver la respuesta en cualquier orden.
 
 ```typescript
 for (let i = 0; i < nums.length; i++) {
-  for (let j = i + 1; j < nums.length; j++) {
-    if (nums[i] + nums[j] === target) {
-      return [i, j];
-    }
-  }
+ for (let j = i + 1; j < nums.length; j++) {
+ if (nums[i] + nums[j] === target) {
+ return [i, j];
+ }
+ }
 }
 ```
 
@@ -77,24 +77,24 @@ for (let i = 0; i < nums.length; i++) {
 
 ```typescript
 export function twoSum(nums: number[], target: number): number[] {
-  // Map para recordar: valor -> índice
-  const seen = new Map<number, number>();
+ // Map para recordar: valor -> índice
+ const seen = new Map<number, number>();
 
-  for (let i = 0; i < nums.length; i++) {
-    const currentNum = nums[i];
-    const complement = target - currentNum;
+ for (let i = 0; i < nums.length; i++) {
+ const currentNum = nums[i];
+ const complement = target - currentNum;
 
-    // ¿Ya vi el número que necesito?
-    if (seen.has(complement)) {
-      // ¡Encontré la pareja! Regreso los índices
-      return [seen.get(complement)!, i];
-    }
+ // ¿Ya vi el número que necesito?
+ if (seen.has(complement)) {
+ // ¡Encontré la pareja! Regreso los índices
+ return [seen.get(complement)!, i];
+ }
 
-    // Guardo el número actual para futuras referencias
-    seen.set(currentNum, i);
-  }
+ // Guardo el número actual para futuras referencias
+ seen.set(currentNum, i);
+ }
 
-  return []; // Nunca debería llegar aquí según el problema
+ return []; // Nunca debería llegar aquí según el problema
 }
 ```
 
@@ -102,10 +102,10 @@ export function twoSum(nums: number[], target: number): number[] {
 
 1. Crear un `Map<number, number>` llamado `seen` para almacenar valores y sus índices
 2. Para cada elemento en el array:
-   - Extraer el número actual: `currentNum = nums[i]`
-   - Calcular el complemento: `complement = target - currentNum`
-   - Si el complemento ya existe en `seen`, devolver `[seen.get(complement), i]`
-   - Si no existe, agregar el número actual al map: `seen.set(currentNum, i)`
+ - Extraer el número actual: `currentNum = nums[i]`
+ - Calcular el complemento: `complement = target - currentNum`
+ - Si el complemento ya existe en `seen`, devolver `[seen.get(complement), i]`
+ - Si no existe, agregar el número actual al map: `seen.set(currentNum, i)`
 3. Continuar hasta encontrar la solución (garantizada por las restricciones)
 
 **Ventajas:**
@@ -140,8 +140,8 @@ export function twoSum(nums: number[], target: number): number[] {
 ## Variaciones del Problema
 
 - **Two Sum II:** Array ordenado (se puede usar two pointers)
-- **3Sum:** Encontrar tripletas que sumen target
-- **4Sum:** Encontrar cuádruplas que sumen target
+- **3 Sum:** Encontrar tripletas que sumen target
+- **4 Sum:** Encontrar cuádruplas que sumen target
 - **Two Sum con duplicados:** Múltiples respuestas válidas
 
 ## Notas de Implementación
@@ -156,22 +156,22 @@ export function twoSum(nums: number[], target: number): number[] {
 
 1. **Escribimos los tests primero** (`two-sum.test.ts`):
 
-   - Casos de ejemplo del enunciado
-   - Casos extremos: números negativos, array mínimo, números grandes
-   - Total: 7 tests que cubren diferentes escenarios
+ - Casos de ejemplo del enunciado
+ - Casos extremos: números negativos, array mínimo, números grandes
+ - Total: 7 tests que cubren diferentes escenarios
 
 2. **Implementamos la solución** (`two-sum.ts`):
 
-   - Elegimos el enfoque con Hash Map (una pasada)
-   - Variables descriptivas: `seen`, `currentNum`, `complement`
-   - Comentarios en español para claridad
-   - Manejo del caso imposible con `return []`
+ - Elegimos el enfoque con Hash Map (una pasada)
+ - Variables descriptivas: `seen`, `currentNum`, `complement`
+ - Comentarios en español para claridad
+ - Manejo del caso imposible con `return []`
 
 3. **Verificamos la solución**:
-   ```bash
-   npx vitest src/daily/two-sum/two-sum.test.ts
-   ```
-   - Resultado: ✅ Todos los tests pasaron
+ ```bash
+ npx vitest src/daily/two-sum/two-sum.test.ts
+ ```
+ - Resultado: ✅ Todos los tests pasaron
 
 ### Decisiones de Diseño
 

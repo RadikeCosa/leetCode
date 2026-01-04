@@ -31,8 +31,8 @@ Una subsecuencia de un string es un nuevo string que se forma a partir del strin
 
 1. **Inicializar punteros:** `subsequenceIndex = 0` (para `s`), `sourceIndex = 0` (para `t`)
 2. **Loop principal:** Mientras tengamos caracteres pendientes en ambos strings:
-   - **Si coinciden caracteres:** `s[subsequenceIndex] === t[sourceIndex]` → avanzar `subsequenceIndex`
-   - **Siempre:** avanzar `sourceIndex` (continuamos buscando en `t`)
+ - **Si coinciden caracteres:** `s[subsequenceIndex] === t[sourceIndex]` → avanzar `subsequenceIndex`
+ - **Siempre:** avanzar `sourceIndex` (continuamos buscando en `t`)
 3. **Verificar resultado:** Si `subsequenceIndex === s.length` → encontramos toda la subsecuencia
 
 ### Ejemplo de ejecución:
@@ -62,11 +62,11 @@ Final: subsequenceIndex=3 === s.length → TRUE
 
 ## Casos Edge
 
-✅ **String s vacío:** `s = "", t = "abc"` → `true` (string vacío es subsecuencia de cualquier cosa)  
-✅ **String t vacío:** `s = "a", t = ""` → `false` (no se puede encontrar nada en string vacío)  
-✅ **Ambos vacíos:** `s = "", t = ""` → `true` (string vacío es subsecuencia de string vacío)  
-✅ **Subsecuencia completa:** `s = "abc", t = "abc"` → `true`  
-✅ **Sin coincidencias:** `s = "axc", t = "ahbgdc"` → `false` (falta 'x')  
+✅ **String s vacío:** `s = "", t = "abc"` → `true` (string vacío es subsecuencia de cualquier cosa) 
+✅ **String t vacío:** `s = "a", t = ""` → `false` (no se puede encontrar nada en string vacío) 
+✅ **Ambos vacíos:** `s = "", t = ""` → `true` (string vacío es subsecuencia de string vacío) 
+✅ **Subsecuencia completa:** `s = "abc", t = "abc"` → `true` 
+✅ **Sin coincidencias:** `s = "axc", t = "ahbgdc"` → `false` (falta 'x') 
 ✅ **Orden incorrecto:** `s = "acb", t = "abc"` → `false` (orden relativo no se mantiene)
 
 ### Casos críticos manejados:

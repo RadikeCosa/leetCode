@@ -71,9 +71,9 @@ Para resolver el problema, se pueden considerar dos enfoques principales: uno re
 1. Inicializar una variable para el total de velas quemadas con el número inicial de velas.
 2. Usar dos variables: una para las velas actuales y otra para las velas quemadas acumuladas.
 3. Mientras el número de velas quemadas acumuladas sea suficiente para crear al menos una nueva vela:
-   - Calcular cuántas nuevas velas se pueden crear reciclando las velas quemadas.
-   - Sumar ese número al total de velas quemadas.
-   - Actualizar la cantidad de velas quemadas acumuladas, restando las usadas y sumando las nuevas quemadas.
+ - Calcular cuántas nuevas velas se pueden crear reciclando las velas quemadas.
+ - Sumar ese número al total de velas quemadas.
+ - Actualizar la cantidad de velas quemadas acumuladas, restando las usadas y sumando las nuevas quemadas.
 4. Repetir el proceso hasta que no se puedan crear más velas nuevas.
 5. Devolver el total de velas quemadas como resultado final.
 

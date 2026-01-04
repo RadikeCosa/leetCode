@@ -23,41 +23,41 @@ The clever optimization is in the counting: when `nums[left] + nums[right] > num
 
 - **Time complexity**: O(n²)
 
-  - Sorting takes O(n log n)
-  - The outer loop runs n times
-  - The inner two-pointer traversal takes O(n) total for each outer iteration
-  - Overall: O(n log n) + O(n²) = O(n²)
+ - Sorting takes O(n log n)
+ - The outer loop runs n times
+ - The inner two-pointer traversal takes O(n) total for each outer iteration
+ - Overall: O(n log n) + O(n²) = O(n²)
 
 - **Space complexity**: O(1)
-  - We sort the array in-place and only use constant extra space for variables
-  - (Excluding the space used by the sorting algorithm itself)
+ - We sort the array in-place and only use constant extra space for variables
+ - (Excluding the space used by the sorting algorithm itself)
 
 # Code
 
 ```typescript
 export function triangleNumber(nums: number[]): number {
-  // Ordenar el array in-place en orden ascendente
-  nums.sort((a, b) => a - b);
-  let count = 0;
+ // Ordenar el array in-place en orden ascendente
+ nums.sort((a, b) => a - b);
+ let count = 0;
 
-  // Iterar desde el final (lado más largo) hacia atrás
-  for (let i = nums.length - 1; i >= 2; i--) {
-    let left = 0;
-    let right = i - 1;
+ // Iterar desde el final (lado más largo) hacia atrás
+ for (let i = nums.length - 1; i >= 2; i--) {
+ let left = 0;
+ let right = i - 1;
 
-    // Two pointers: buscar pares que sumen más que nums[i]
-    while (left < right) {
-      if (nums[left] + nums[right] > nums[i]) {
-        // Si el par actual funciona, todos los elementos entre left y right-1 también funcionan
-        count += right - left;
-        right--;
-      } else {
-        // Si la suma es muy pequeña, aumentamos el lado menor
-        left++;
-      }
-    }
-  }
-  return count;
+ // Two pointers: buscar pares que sumen más que nums[i]
+ while (left < right) {
+ if (nums[left] + nums[right] > nums[i]) {
+ // Si el par actual funciona, todos los elementos entre left y right-1 también funcionan
+ count += right - left;
+ right--;
+ } else {
+ // Si la suma es muy pequeña, aumentamos el lado menor
+ left++;
+ }
+ }
+ }
+ return count;
 }
 ```
 

@@ -25,11 +25,11 @@ El problema consiste en encontrar el n-ésimo número primo en la secuencia de n
 ### Ejemplos de Entrada/Salida
 
 ```
-n = 5    → 11    (5to primo)
-n = 10   → 29    (10mo primo)
-n = 16   → 53    (16to primo)
-n = 99   → 523   (99no primo)
-n = 1000 → 7919  (1000mo primo)
+n = 5 → 11 (5 to primo)
+n = 10 → 29 (10 mo primo)
+n = 16 → 53 (16 to primo)
+n = 99 → 523 (99 no primo)
+n = 1000 → 7919 (1000 mo primo)
 ```
 
 ## Evolución de Soluciones
@@ -38,21 +38,21 @@ n = 1000 → 7919  (1000mo primo)
 
 ```javascript
 function nthPrime(n) {
-  function isPrime(num) {
-    if (num <= 1) return false;
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false;
-    }
-    return true;
-  }
+ function isPrime(num) {
+ if (num <= 1) return false;
+ for (let i = 2; i <= Math.sqrt(num); i++) {
+ if (num % i === 0) return false;
+ }
+ return true;
+ }
 
-  let count = 0;
-  let current = 1;
-  while (count < n) {
-    current++;
-    if (isPrime(current)) count++;
-  }
-  return current;
+ let count = 0;
+ let current = 1;
+ while (count < n) {
+ current++;
+ if (isPrime(current)) count++;
+ }
+ return current;
 }
 ```
 
@@ -69,32 +69,32 @@ function nthPrime(n) {
 - **Complejidad Temporal**: O(n \* √m) donde m es el valor del n-ésimo primo
 - **Complejidad Espacial**: O(1)
 - **Tiempos Típicos**:
-  - n = 100: ~50ms
-  - n = 1000: ~2000ms
+ - n = 100: ~50 ms
+ - n = 1000: ~2000 ms
 
 ### 2. Solución con Caché de Primos
 
 ```javascript
 function nthPrime(n) {
-  const smallPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
-  if (n <= 10) return smallPrimes[n - 1];
+ const smallPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+ if (n <= 10) return smallPrimes[n - 1];
 
-  const primes = [...smallPrimes];
-  let num = primes[primes.length - 1] + 2;
+ const primes = [...smallPrimes];
+ let num = primes[primes.length - 1] + 2;
 
-  function isPrime(num) {
-    const sqrt = Math.sqrt(num);
-    for (let i = 0; primes[i] <= sqrt; i++) {
-      if (num % primes[i] === 0) return false;
-    }
-    return true;
-  }
+ function isPrime(num) {
+ const sqrt = Math.sqrt(num);
+ for (let i = 0; primes[i] <= sqrt; i++) {
+ if (num % primes[i] === 0) return false;
+ }
+ return true;
+ }
 
-  while (primes.length < n) {
-    if (isPrime(num)) primes.push(num);
-    num += 2;
-  }
-  return primes[n - 1];
+ while (primes.length < n) {
+ if (isPrime(num)) primes.push(num);
+ num += 2;
+ }
+ return primes[n - 1];
 }
 ```
 
@@ -111,36 +111,36 @@ function nthPrime(n) {
 - **Complejidad Temporal**: O(n \* log(log(n))) promedio
 - **Complejidad Espacial**: O(n)
 - **Tiempos Típicos**:
-  - n = 100: ~20ms
-  - n = 1000: ~500ms
+ - n = 100: ~20 ms
+ - n = 1000: ~500 ms
 
 ### 3. Solución con Wheel Factorization
 
 ```javascript
 function nthPrime(n) {
-  if (n < 1) return null;
-  const smallPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31];
-  if (n <= 11) return smallPrimes[n - 1];
+ if (n < 1) return null;
+ const smallPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31];
+ if (n <= 11) return smallPrimes[n - 1];
 
-  const primes = [...smallPrimes];
-  const wheelSkips = [4, 2, 4, 2, 4, 6, 2, 6];
-  let num = 37;
-  let wheelIndex = 0;
+ const primes = [...smallPrimes];
+ const wheelSkips = [4, 2, 4, 2, 4, 6, 2, 6];
+ let num = 37;
+ let wheelIndex = 0;
 
-  function isPrime(num) {
-    const sqrt = Math.sqrt(num);
-    for (let i = 3; i < primes.length && primes[i] <= sqrt; i++) {
-      if (num % primes[i] === 0) return false;
-    }
-    return true;
-  }
+ function isPrime(num) {
+ const sqrt = Math.sqrt(num);
+ for (let i = 3; i < primes.length && primes[i] <= sqrt; i++) {
+ if (num % primes[i] === 0) return false;
+ }
+ return true;
+ }
 
-  while (primes.length < n) {
-    if (isPrime(num)) primes.push(num);
-    num += wheelSkips[wheelIndex];
-    wheelIndex = (wheelIndex + 1) % 8;
-  }
-  return primes[n - 1];
+ while (primes.length < n) {
+ if (isPrime(num)) primes.push(num);
+ num += wheelSkips[wheelIndex];
+ wheelIndex = (wheelIndex + 1) % 8;
+ }
+ return primes[n - 1];
 }
 ```
 
@@ -157,8 +157,8 @@ function nthPrime(n) {
 - **Complejidad Temporal**: O(n \* log(log(n))) con constantes menores
 - **Complejidad Espacial**: O(n)
 - **Tiempos Típicos**:
-  - n = 100: ~15ms
-  - n = 1000: ~300ms
+ - n = 100: ~15 ms
+ - n = 1000: ~300 ms
 
 ## Técnicas Avanzadas (No Implementadas)
 
@@ -197,23 +197,23 @@ Para este problema específico (n ≤ 1000), la solución con caché de primos e
 
 1. **Optimización Incremental**:
 
-   - Empezar con solución simple
-   - Añadir optimizaciones una a una
-   - Medir impacto de cada cambio
+ - Empezar con solución simple
+ - Añadir optimizaciones una a una
+ - Medir impacto de cada cambio
 
 2. **Trade-offs**:
 
-   - Velocidad vs Memoria
-   - Complejidad vs Legibilidad
-   - Generalidad vs Optimización específica
+ - Velocidad vs Memoria
+ - Complejidad vs Legibilidad
+ - Generalidad vs Optimización específica
 
 3. **Patrones de Optimización**:
 
-   - Caché de resultados
-   - Reducción de espacio de búsqueda
-   - Reutilización de cálculos previos
+ - Caché de resultados
+ - Reducción de espacio de búsqueda
+ - Reutilización de cálculos previos
 
 4. **Límites de Optimización**:
-   - Identificar cuando es "suficientemente bueno"
-   - Considerar el contexto del problema
-   - Balancear complejidad y beneficios
+ - Identificar cuando es "suficientemente bueno"
+ - Considerar el contexto del problema
+ - Balancear complejidad y beneficios

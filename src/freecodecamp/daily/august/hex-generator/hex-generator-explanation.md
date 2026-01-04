@@ -27,9 +27,9 @@ Dada una cadena que representa un color CSS ("red", "green" o "blue"), implement
 
 ### Qué son los Colores Hexadecimales?
 
-Los colores hexadecimales son una forma de representar colores en formato digital utilizando el sistema de numeración hexadecimal. Un color hexadecimal típico se compone de seis dígitos, donde cada par de dígitos representa la intensidad de los componentes rojo (RR), verde (GG) y azul (BB) en el modelo RGB. Por ejemplo, el color `#FF0000` representa el rojo puro, ya que el valor máximo (`FF` en hexadecimal, equivalente a 255 en decimal) está en el componente rojo, mientras que los otros dos componentes están en cero. Este formato es ampliamente utilizado en desarrollo web y diseño gráfico para especificar colores de manera precisa y compacta.
+Los colores hexadecimales son una forma de representar colores en formato digital utilizando el sistema de numeración hexadecimal. Un color hexadecimal típico se compone de seis dígitos, donde cada par de dígitos representa la intensidad de los componentes rojo (RR), verde (GG) y azul (BB) en el modelo RGB. Por ejemplo, el color `#FF 0000` representa el rojo puro, ya que el valor máximo (`FF` en hexadecimal, equivalente a 255 en decimal) está en el componente rojo, mientras que los otros dos componentes están en cero. Este formato es ampliamente utilizado en desarrollo web y diseño gráfico para especificar colores de manera precisa y compacta.
 
-La función debe generar un string hexadecimal de seis caracteres (por ejemplo, "FF00AA") que represente un color RGB. El color dominante (rojo, verde o azul) debe tener un valor numérico mayor que los otros dos componentes. Por ejemplo, si la entrada es "red", el valor de rojo (los dos primeros caracteres) debe ser mayor que el de verde y azul. Si la entrada no es válida, la función debe indicar el error devolviendo "Invalid color".
+La función debe generar un string hexadecimal de seis caracteres (por ejemplo, "FF 00 AA") que represente un color RGB. El color dominante (rojo, verde o azul) debe tener un valor numérico mayor que los otros dos componentes. Por ejemplo, si la entrada es "red", el valor de rojo (los dos primeros caracteres) debe ser mayor que el de verde y azul. Si la entrada no es válida, la función debe indicar el error devolviendo "Invalid color".
 
 ## Casos de Prueba Identificados
 

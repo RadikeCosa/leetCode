@@ -75,13 +75,13 @@ Se implementó un enfoque iterativo que calcula el factorial multiplicando los n
 
 ```javascript
 function factorial(n) {
-  if (n === 0) return 1;
+ if (n === 0) return 1;
 
-  for (let i = n - 1; i > 0; i--) {
-    n *= i;
-  }
+ for (let i = n - 1; i > 0; i--) {
+ n *= i;
+ }
 
-  return n;
+ return n;
 }
 ```
 
@@ -108,14 +108,14 @@ function factorial(n) {
 
 ```javascript
 function factorial(n) {
-  if (n === 0) return 1;
+ if (n === 0) return 1;
 
-  let result = 1;
-  for (let i = 1; i <= n; i++) {
-    result *= i;
-  }
+ let result = 1;
+ for (let i = 1; i <= n; i++) {
+ result *= i;
+ }
 
-  return result;
+ return result;
 }
 ```
 
@@ -138,8 +138,8 @@ function factorial(n) {
 
 ```javascript
 function factorial(n) {
-  if (n === 0 || n === 1) return 1;
-  return n * factorial(n - 1);
+ if (n === 0 || n === 1) return 1;
+ return n * factorial(n - 1);
 }
 ```
 
@@ -163,11 +163,11 @@ function factorial(n) {
 
 ```javascript
 function factorial(n) {
-  if (n === 0) return 1;
-  return Array.from({ length: n }, (_, i) => i + 1).reduce(
-    (acc, curr) => acc * curr,
-    1
-  );
+ if (n === 0) return 1;
+ return Array.from({ length: n }, (_, i) => i + 1).reduce(
+ (acc, curr) => acc * curr,
+ 1
+ );
 }
 ```
 
@@ -190,14 +190,14 @@ Se eligió el enfoque iterativo descendente por las siguientes razones:
 
 **Comparación con otras soluciones:**
 
-| Enfoque               | Tiempo | Espacio | Legibilidad | Riesgos        |
+| Enfoque | Tiempo | Espacio | Legibilidad | Riesgos |
 |
 
 --------------- | ------ | ------- | ----------- | -------------- |
-| Iterativo Descendente | O(n)   | O(1)    | Buena       | Ninguno        |
-| Iterativo Ascendente  | O(n)   | O(1)    | Excelente   | Ninguno        |
-| Recursivo             | O(n)   | O(n)    | Buena       | Stack overflow |
-| Funcional             | O(n)   | O(n)    | Buena       | Ineficiente    |
+| Iterativo Descendente | O(n) | O(1) | Buena | Ninguno |
+| Iterativo Ascendente | O(n) | O(1) | Excelente | Ninguno |
+| Recursivo | O(n) | O(n) | Buena | Stack overflow |
+| Funcional | O(n) | O(n) | Buena | Ineficiente |
 
 ## Complejidad
 
@@ -258,24 +258,24 @@ Se eligió el enfoque iterativo descendente por las siguientes razones:
 
 ```python
 def factorial(n):
-    if n == 0:
-        return 1
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
+ if n == 0:
+ return 1
+ result = 1
+ for i in range(1, n + 1):
+ result *= i
+ return result
 ```
 
 **Java:**
 
 ```java
 public long factorial(int n) {
-    if (n == 0) return 1;
-    long result = 1;
-    for (int i = 1; i <= n; i++) {
-        result *= i;
-    }
-    return result;
+ if (n == 0) return 1;
+ long result = 1;
+ for (int i = 1; i <= n; i++) {
+ result *= i;
+ }
+ return result;
 }
 ```
 

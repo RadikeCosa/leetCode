@@ -84,9 +84,9 @@ Esto ocurre porque:
 1. Inicializar dos variables para mantener los dos últimos términos de Fibonacci
 2. Inicializar un acumulador de suma en 0
 3. Mientras el término actual ≤ n:
-   - Si el término es par, sumarlo al acumulador
-   - Generar el siguiente término sumando los dos anteriores
-   - Actualizar las variables para el próximo ciclo
+ - Si el término es par, sumarlo al acumulador
+ - Generar el siguiente término sumando los dos anteriores
+ - Actualizar las variables para el próximo ciclo
 4. Retornar la suma acumulada
 
 ### Pasos del Algoritmo
@@ -95,26 +95,26 @@ La implementación sigue estos pasos detallados:
 
 1. **Inicialización de variables:**
 
-   - `a = 1`: Primer término de Fibonacci
-   - `b = 2`: Segundo término de Fibonacci (primer número par)
-   - `evens = []`: Array para almacenar los números pares encontrados
+ - `a = 1`: Primer término de Fibonacci
+ - `b = 2`: Segundo término de Fibonacci (primer número par)
+ - `evens = []`: Array para almacenar los números pares encontrados
 
 2. **Evaluación del primer término par:**
 
-   - Verificar si `b` (valor 2) es ≤ `n` y es par
-   - Si cumple ambas condiciones, agregarlo al array `evens`
+ - Verificar si `b` (valor 2) es ≤ `n` y es par
+ - Si cumple ambas condiciones, agregarlo al array `evens`
 
 3. **Generación iterativa de la secuencia:**
 
-   - Mientras `b ≤ n` (el término actual no exceda el límite):
-     - Calcular siguiente término: `next = a + b`
-     - Actualizar punteros: `a = b`, `b = next`
-     - Verificar si el nuevo `b` es par y ≤ `n`
-     - Si es par, agregarlo al array `evens`
+ - Mientras `b ≤ n` (el término actual no exceda el límite):
+ - Calcular siguiente término: `next = a + b`
+ - Actualizar punteros: `a = b`, `b = next`
+ - Verificar si el nuevo `b` es par y ≤ `n`
+ - Si es par, agregarlo al array `evens`
 
 4. **Cálculo de la suma final:**
-   - Usar `reduce()` para sumar todos los elementos del array `evens`
-   - Retornar el resultado de la suma
+ - Usar `reduce()` para sumar todos los elementos del array `evens`
+ - Retornar el resultado de la suma
 
 ## Implementación
 
@@ -122,29 +122,29 @@ La implementación sigue estos pasos detallados:
 
 ```javascript
 function fiboEvenSum(n) {
-  let a = 1; // Primer término de Fibonacci
-  let b = 2; // Segundo término (primer par)
-  let evens = []; // Array para almacenar números pares
+ let a = 1; // Primer término de Fibonacci
+ let b = 2; // Segundo término (primer par)
+ let evens = []; // Array para almacenar números pares
 
-  // Evaluar el primer término par (2)
-  if (b <= n && b % 2 === 0) {
-    evens.push(b);
-  }
+ // Evaluar el primer término par (2)
+ if (b <= n && b % 2 === 0) {
+ evens.push(b);
+ }
 
-  // Generar secuencia mientras no exceda n
-  while (b <= n) {
-    let next = a + b; // Calcular siguiente término
-    a = b; // Actualizar puntero anterior
-    b = next; // Avanzar al siguiente término
+ // Generar secuencia mientras no exceda n
+ while (b <= n) {
+ let next = a + b; // Calcular siguiente término
+ a = b; // Actualizar puntero anterior
+ b = next; // Avanzar al siguiente término
 
-    // Si es par y no excede n, agregarlo
-    if (b <= n && b % 2 === 0) {
-      evens.push(b);
-    }
-  }
+ // Si es par y no excede n, agregarlo
+ if (b <= n && b % 2 === 0) {
+ evens.push(b);
+ }
+ }
 
-  // Sumar todos los pares usando reduce
-  return evens.reduce((total, num) => total + num, 0);
+ // Sumar todos los pares usando reduce
+ return evens.reduce((total, num) => total + num, 0);
 }
 ```
 
@@ -153,9 +153,9 @@ function fiboEvenSum(n) {
 - **Líneas 2-4:** Inicialización de variables con los primeros dos términos de Fibonacci
 - **Línea 7:** Evaluación especial del primer término par (2) antes del loop
 - **Líneas 10-20:** Loop principal que genera la secuencia:
-  - **Línea 11:** Calcula el siguiente término sumando los dos anteriores
-  - **Líneas 12-13:** Actualiza los punteros para el próximo ciclo
-  - **Líneas 15-17:** Verifica y agrega números pares al array
+ - **Línea 11:** Calcula el siguiente término sumando los dos anteriores
+ - **Líneas 12-13:** Actualiza los punteros para el próximo ciclo
+ - **Líneas 15-17:** Verifica y agrega números pares al array
 - **Línea 23:** Reduce suma todos los elementos del array de números pares
 
 ## Análisis de Complejidad
@@ -199,9 +199,9 @@ Durante el desarrollo, implementamos **5 versiones diferentes** del algoritmo, c
 
 ```javascript
 function fiboEvenSum(n) {
-  // Genera toda la secuencia de Fibonacci
-  // Almacena números pares en un array
-  // Usa reduce() para calcular la suma
+ // Genera toda la secuencia de Fibonacci
+ // Almacena números pares en un array
+ // Usa reduce() para calcular la suma
 }
 ```
 
@@ -216,9 +216,9 @@ function fiboEvenSum(n) {
 
 ```javascript
 function fiboEvenSumOptimizedSpace(n) {
-  // Genera toda la secuencia de Fibonacci
-  // Acumula la suma directamente en una variable
-  // Sin usar arrays
+ // Genera toda la secuencia de Fibonacci
+ // Acumula la suma directamente en una variable
+ // Sin usar arrays
 }
 ```
 
@@ -233,9 +233,9 @@ function fiboEvenSumOptimizedSpace(n) {
 
 ```javascript
 function fiboEvenSumOnlyEvens(n) {
-  // Aprovecha el patrón: Eₙ = 4×Eₙ₋₁ + Eₙ₋₂
-  // Solo genera números pares de Fibonacci
-  // Menos iteraciones que las versiones anteriores
+ // Aprovecha el patrón: Eₙ = 4×Eₙ₋₁ + Eₙ₋₂
+ // Solo genera números pares de Fibonacci
+ // Menos iteraciones que las versiones anteriores
 }
 ```
 
@@ -250,9 +250,9 @@ function fiboEvenSumOnlyEvens(n) {
 
 ```javascript
 function fiboEvenSumCleanLoop(n) {
-  // Loop unificado - todos los pares se evalúan igual
-  // Elimina evaluación especial del primer par
-  // Código más elegante y mantenible
+ // Loop unificado - todos los pares se evalúan igual
+ // Elimina evaluación especial del primer par
+ // Código más elegante y mantenible
 }
 ```
 
@@ -267,9 +267,9 @@ function fiboEvenSumCleanLoop(n) {
 
 ```javascript
 function fiboEvenSumClosedForm(n) {
-  // Calcula directamente usando fórmula matemática
-  // S = (F(3k+2) - 1) / 2 donde k es máximo con F(3k) ≤ n
-  // O(1) tiempo - sin loops!
+ // Calcula directamente usando fórmula matemática
+ // S = (F(3 k+2) - 1) / 2 donde k es máximo con F(3 k) ≤ n
+ // O(1) tiempo - sin loops!
 }
 ```
 
@@ -282,15 +282,15 @@ function fiboEvenSumClosedForm(n) {
 
 ## Comparación de Optimizaciones
 
-| Versión             | Tiempo   | Espacio  | Iteraciones (n=4M) | Legibilidad | Complejidad |
+| Versión | Tiempo | Espacio | Iteraciones (n=4 M) | Legibilidad | Complejidad |
 |
 
 ------------- | -------- | -------- | ------------------ | ----------- | ----------- |
-| **Original**        | O(log n) | O(log n) | ~33                | ⭐⭐⭐⭐⭐  | Baja        |
-| **Sin Array**       | O(log n) | **O(1)** | ~33                | ⭐⭐⭐⭐⭐  | Baja        |
-| **Solo Pares**      | O(log n) | **O(1)** | **~11**            | ⭐⭐⭐⭐    | Media       |
-| **Loop Limpio**     | O(log n) | **O(1)** | **~11**            | ⭐⭐⭐⭐⭐  | Baja        |
-| **Fórmula Cerrada** | **O(1)** | **O(1)** | **0**              | ⭐⭐        | Alta        |
+| **Original** | O(log n) | O(log n) | ~33 | ⭐⭐⭐⭐⭐ | Baja |
+| **Sin Array** | O(log n) | **O(1)** | ~33 | ⭐⭐⭐⭐⭐ | Baja |
+| **Solo Pares** | O(log n) | **O(1)** | **~11** | ⭐⭐⭐⭐ | Media |
+| **Loop Limpio** | O(log n) | **O(1)** | **~11** | ⭐⭐⭐⭐⭐ | Baja |
+| **Fórmula Cerrada** | **O(1)** | **O(1)** | **0** | ⭐⭐ | Alta |
 
 ## Aprendizajes Clave
 

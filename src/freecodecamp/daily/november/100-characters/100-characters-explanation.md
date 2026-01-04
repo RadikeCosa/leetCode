@@ -29,29 +29,29 @@ La primer intuicion es utilizar un bucle para concatenar el string hasta alcanza
 ```javascript
 import oneHundred from "./100-characters.js";
 describe("100 Characters", () => {
-  it('should return "One hundred One hundred One hundred One hundred One hundred One hundred One hundred One hundred One " for input "One hundred "', () => {
-    expect(oneHundred("One hundred ")).toBe(
-      "One hundred One hundred One hundred One hundred One hundred One hundred One hundred One hundred One "
-    );
-  });
+ it('should return "One hundred One hundred One hundred One hundred One hundred One hundred One hundred One hundred One " for input "One hundred "', () => {
+ expect(oneHundred("One hundred ")).toBe(
+ "One hundred One hundred One hundred One hundred One hundred One hundred One hundred One hundred One "
+ );
+ });
 
-  it('should return "freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeC" for input "freeCodeCamp "', () => {
-    expect(oneHundred("freeCodeCamp ")).toBe(
-      "freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeC"
-    );
-  });
+ it('should return "freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeC" for input "freeCodeCamp "', () => {
+ expect(oneHundred("freeCodeCamp ")).toBe(
+ "freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeCamp freeCodeC"
+ );
+ });
 
-  it('should return "daily challenges daily challenges daily challenges daily challenges daily challenges daily challenge" for input "daily challenges "', () => {
-    expect(oneHundred("daily challenges ")).toBe(
-      "daily challenges daily challenges daily challenges daily challenges daily challenges daily challenge"
-    );
-  });
+ it('should return "daily challenges daily challenges daily challenges daily challenges daily challenges daily challenge" for input "daily challenges "', () => {
+ expect(oneHundred("daily challenges ")).toBe(
+ "daily challenges daily challenges daily challenges daily challenges daily challenges daily challenge"
+ );
+ });
 
-  it('should return "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" for input "!"', () => {
-    expect(oneHundred("!")).toBe(
-      "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    );
-  });
+ it('should return "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" for input "!"', () => {
+ expect(oneHundred("!")).toBe(
+ "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+ );
+ });
 });
 ```
 
@@ -65,11 +65,11 @@ Primero vamos a declarar una variable result que guardara el resultado y que se 
 
 ```javascript
 export default function oneHundred(str) {
-  let result = "";
-  while (result.length < 100) {
-    result += str;
-  }
-  return result.slice(0, 100);
+ let result = "";
+ while (result.length < 100) {
+ result += str;
+ }
+ return result.slice(0, 100);
 }
 ```
 
@@ -86,7 +86,7 @@ Los casos edge que identificamos incluyen:
 - Si el string de entrada es vacío, el resultado será también un string vacío.
 - Si el string de entrada tiene una longitud mayor a 100 caracteres, el resultado será el string de entrada recortado a 100 caracteres.
 - Si el string de entrada tiene una longitud exactamente igual a 100 caracteres, el resultado será el mismo string de entrada.
-  Todos estos casos estan manejados correctamente por la implementación actual.
+ Todos estos casos estan manejados correctamente por la implementación actual.
 
 ## Reflexiones y Aprendizajes
 
@@ -99,8 +99,8 @@ Esto lo podriamos hacer declarando una variable repeatCount que seria igual a Ma
 
 ```javascript
 export default function oneHundred(str) {
-  const repeatCount = Math.ceil(100 / str.length);
-  return str.repeat(repeatCount).slice(0, 100);
+ const repeatCount = Math.ceil(100 / str.length);
+ return str.repeat(repeatCount).slice(0, 100);
 }
 ```
 

@@ -50,29 +50,29 @@ La clave es entender que solo necesitamos encontrar si el **valor mínimo** es �
 
 ```javascript
 function hasExoplanet(readings) {
-  // Función auxiliar para conversión caracter → número usando fórmula unificada
-  const charToValue = (char) => {
-    // Fórmula unificada con códigos ASCII:
-    // Dígitos (0-9): charCode - 48 (código de '0')
-    // Letras (A-Z): charCode - 55 (ajustado para 'A' = 10)
-    return char.charCodeAt(0) - (char >= "A" ? 55 : 48);
-  };
+ // Función auxiliar para conversión caracter → número usando fórmula unificada
+ const charToValue = (char) => {
+ // Fórmula unificada con códigos ASCII:
+ // Dígitos (0-9): charCode - 48 (código de '0')
+ // Letras (A-Z): charCode - 55 (ajustado para 'A' = 10)
+ return char.charCodeAt(0) - (char >= "A" ? 55 : 48);
+ };
 
-  // Un solo loop: calcular suma y encontrar mínimo
-  let total = 0;
-  let minValue = Infinity;
+ // Un solo loop: calcular suma y encontrar mínimo
+ let total = 0;
+ let minValue = Infinity;
 
-  for (let i = 0; i < readings.length; i++) {
-    const value = charToValue(readings[i]);
-    total += value;
-    if (value < minValue) minValue = value;
-  }
+ for (let i = 0; i < readings.length; i++) {
+ const value = charToValue(readings[i]);
+ total += value;
+ if (value < minValue) minValue = value;
+ }
 
-  // Calcular threshold y verificar
-  const average = total / readings.length;
-  const threshold = average * 0.8;
+ // Calcular threshold y verificar
+ const average = total / readings.length;
+ const threshold = average * 0.8;
 
-  return minValue <= threshold;
+ return minValue <= threshold;
 }
 ```
 
@@ -111,7 +111,7 @@ Esto reduce la complejidad espacial de O(n) a O(1).
 
 ### Transición dígito-letra
 
-- Input: `"9A"` (9, 10)
+- Input: `"9 A"` (9, 10)
 - Promedio = 9.5, threshold = 7.6
 - Output: `false` (9 > 7.6, 10 > 7.6)
 

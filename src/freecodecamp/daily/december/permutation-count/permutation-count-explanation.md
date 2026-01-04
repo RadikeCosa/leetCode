@@ -30,8 +30,8 @@ Antes de empezar, puede ser útil repasar algunos conceptos clave que te ayudar�
 
 - **Permutaciones**: Dado un conjunto de letras, cada posible reordenamiento de los elementos es una permutación. Si hay $n$ elementos distintos, existen $n!$ (factorial de $n$) formas diferentes de ordenarlos. Por ejemplo, con 3 letras hay $3! = 6$ permutaciones posibles.
 - **Permutaciones con repetición**: Si algunas letras se repiten, hay que ajustar el cálculo para no contar dos veces las mismas combinaciones. La fórmula que se usa es:
-  $\displaystyle \text{Permutaciones únicas} = \frac{n!}{k_1! \cdot k_2! \cdot \ldots \cdot k_m!}$
-  donde $n$ es el número total de letras y $k_i$ es cuántas veces se repite cada una.
+ $\displaystyle \text{Permutaciones únicas} = \frac{n!}{k_1! \cdot k_2! \cdot \ldots \cdot k_m!}$
+ donde $n$ es el número total de letras y $k_i$ es cuántas veces se repite cada una.
 - **Factorial ($n!$)**: Es simplemente multiplicar todos los números desde 1 hasta $n$. Por ejemplo, $4! = 4 \times 3 \times 2 \times 1 = 24$.
 - **Conteo de frecuencias**: Saber cuántas veces aparece cada letra en el string te va a ayudar a aplicar la fórmula correctamente.
 
@@ -46,25 +46,25 @@ Para resolver este problema de manera eficiente y clara, es fundamental contar c
 ### Casos de Prueba Identificados
 
 1. **Caso Básico sin Repetición**:
-   - Input: "abc"
-   - Output Esperado: 6 (abc, acb, bac, bca, cab, cba)
-   - Descripción: Tres caracteres únicos, todas las permutaciones son distintas.
-   - Razonamiento: 3! = 6
+ - Input: "abc"
+ - Output Esperado: 6 (abc, acb, bac, bca, cab, cba)
+ - Descripción: Tres caracteres únicos, todas las permutaciones son distintas.
+ - Razonamiento: 3! = 6
 2. **Caso con Repetición**:
-   - Input: "aabb"
-   - Output Esperado: 6 (aabb, abab, abba, baab, baba, bbaa)
-   - Descripción: Cuatro caracteres con dos 'a' y dos 'b'.
-   - Razonamiento: 4! / (2! \* 2!) = 6
+ - Input: "aabb"
+ - Output Esperado: 6 (aabb, abab, abba, baab, baba, bbaa)
+ - Descripción: Cuatro caracteres con dos 'a' y dos 'b'.
+ - Razonamiento: 4! / (2! \* 2!) = 6
 3. **Caso con Todos los Caracteres Iguales**:
-   - Input: "aaaa"
-   - Output Esperado: 1 (aaaa)
-   - Descripción: Todos los caracteres son iguales, solo hay una permutación.
-   - Razonamiento: 4! / 4! = 1
+ - Input: "aaaa"
+ - Output Esperado: 1 (aaaa)
+ - Descripción: Todos los caracteres son iguales, solo hay una permutación.
+ - Razonamiento: 4! / 4! = 1
 4. **Caso con Mezcla de Caracteres**:
-   - Input: "abcde"
-   - Output Esperado: 120
-   - Descripción: Cinco caracteres únicos, todas las permutaciones son distintas.
-   - Razonamiento: 5! = 120
+ - Input: "abcde"
+ - Output Esperado: 120
+ - Descripción: Cinco caracteres únicos, todas las permutaciones son distintas.
+ - Razonamiento: 5! = 120
 
 ## Desarrollo de la Solución
 
@@ -73,15 +73,15 @@ Para resolver este problema de manera eficiente y clara, es fundamental contar c
 Para resolver el problema, seguimos estos pasos:
 
 1. **Contar la frecuencia de cada carácter:**
-   Usamos un objeto `{}` para registrar cuántas veces aparece cada letra. Esto nos permite saber exactamente cuántas repeticiones hay de cada carácter.
+ Usamos un objeto `{}` para registrar cuántas veces aparece cada letra. Esto nos permite saber exactamente cuántas repeticiones hay de cada carácter.
 2. **Calcular el factorial del total de caracteres:**
-   Esto nos da el número total de formas de ordenar los caracteres, sin considerar repeticiones.
+ Esto nos da el número total de formas de ordenar los caracteres, sin considerar repeticiones.
 3. **Calcular el producto de los factoriales de las frecuencias:**
-   Para cada letra que se repite, calculamos su factorial y multiplicamos todos estos valores. Así descontamos las permutaciones duplicadas.
+ Para cada letra que se repite, calculamos su factorial y multiplicamos todos estos valores. Así descontamos las permutaciones duplicadas.
 4. **Aplicar la fórmula de permutaciones con repetición:**
-   Dividimos el factorial total por el producto de los factoriales de las frecuencias para obtener el número de permutaciones únicas.
+ Dividimos el factorial total por el producto de los factoriales de las frecuencias para obtener el número de permutaciones únicas.
 5. **Devolver el resultado:**
-   El resultado es el número de formas únicas de ordenar los caracteres del string.
+ El resultado es el número de formas únicas de ordenar los caracteres del string.
 
 ### Implementación Paso a Paso
 
@@ -93,32 +93,32 @@ Para resolver el problema, seguimos estos pasos:
 
 ```javascript
 function countPermutations(str) {
-  // Función para calcular el factorial
-  function factorial(n) {
-    if (n === 0 || n === 1) return 1;
-    let result = 1;
-    for (let i = 2; i <= n; i++) {
-      result *= i;
-    }
-    return result;
-  }
-  // Contar la frecuencia de cada caracter
-  const freq = {};
-  for (let char of str) {
-    freq[char] = (freq[char] || 0) + 1;
-  }
-  // Calcular el factorial del total de caracteres
-  const n = str.length;
-  let numerator = factorial(n);
-  // Calcular el factorial de las frecuencias
-  let denominator = 1;
-  for (let key in freq) {
-    denominator *= factorial(freq[key]);
-  }
-  // Calcular el número de permutaciones únicas
-  const permutations = numerator / denominator;
+ // Función para calcular el factorial
+ function factorial(n) {
+ if (n === 0 || n === 1) return 1;
+ let result = 1;
+ for (let i = 2; i <= n; i++) {
+ result *= i;
+ }
+ return result;
+ }
+ // Contar la frecuencia de cada caracter
+ const freq = {};
+ for (let char of str) {
+ freq[char] = (freq[char] || 0) + 1;
+ }
+ // Calcular el factorial del total de caracteres
+ const n = str.length;
+ let numerator = factorial(n);
+ // Calcular el factorial de las frecuencias
+ let denominator = 1;
+ for (let key in freq) {
+ denominator *= factorial(freq[key]);
+ }
+ // Calcular el número de permutaciones únicas
+ const permutations = numerator / denominator;
 
-  return permutations;
+ return permutations;
 }
 ```
 
@@ -163,5 +163,5 @@ Los casos edge a considerar incluyen:
 ## Recursos y Referencias
 
 - [Factorial en Wikipedia](https://es.wikipedia.org/wiki/Factorial)
-- [Permutaciones con repetición en Wikipedia](https://es.wikipedia.org/wiki/Permutaci%C3%B3n#Permutaciones_con_repetici%C3%B3n)
+- [Permutaciones con repetición en Wikipedia](https://es.wikipedia.org/wiki/Permutaci%C 3%B 3 n#Permutaciones_con_repetici%C 3%B 3 n)
 - [Documentación de JavaScript sobre objetos](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object)

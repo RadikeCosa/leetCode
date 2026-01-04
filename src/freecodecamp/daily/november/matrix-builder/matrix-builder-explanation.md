@@ -42,9 +42,9 @@ La solución utiliza `Array.from()` para crear la estructura de array bidimensio
 
 ```javascript
 function buildMatrix(rows, cols) {
-  return Array.from({ length: rows }, () =>
-    Array.from({ length: cols }, () => 0)
-  );
+ return Array.from({ length: rows }, () =>
+ Array.from({ length: cols }, () => 0)
+ );
 }
 ```
 
@@ -74,15 +74,15 @@ Esta implementación:
 
 ```javascript
 function buildMatrixLoops(rows, cols) {
-  const matrix = [];
-  for (let i = 0; i < rows; i++) {
-    const row = [];
-    for (let j = 0; j < cols; j++) {
-      row.push(0);
-    }
-    matrix.push(row);
-  }
-  return matrix;
+ const matrix = [];
+ for (let i = 0; i < rows; i++) {
+ const row = [];
+ for (let j = 0; j < cols; j++) {
+ row.push(0);
+ }
+ matrix.push(row);
+ }
+ return matrix;
 }
 ```
 

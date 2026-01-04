@@ -59,18 +59,18 @@ Código completo de la función:
 
 ```javascript
 function mostFrequent(arr) {
-  const freq = new Map();
-  let maxCount = 0;
-  let result;
-  for (const el of arr) {
-    const count = (freq.get(el) || 0) + 1;
-    freq.set(el, count);
-    if (count > maxCount) {
-      maxCount = count;
-      result = el;
-    }
-  }
-  return result;
+ const freq = new Map();
+ let maxCount = 0;
+ let result;
+ for (const el of arr) {
+ const count = (freq.get(el) || 0) + 1;
+ freq.set(el, count);
+ if (count > maxCount) {
+ maxCount = count;
+ result = el;
+ }
+ }
+ return result;
 }
 ```
 

@@ -12,5 +12,5 @@ Repeated subtraction until one number becomes zero can be accelerated by groupin
 
 ## Complexity
 
-- Time: O(log(min(num1, num2))) amortized with the division-based approach.
+- Time: O(log(min(num 1, num 2))) amortized with the division-based approach.
 - Space: O(1).

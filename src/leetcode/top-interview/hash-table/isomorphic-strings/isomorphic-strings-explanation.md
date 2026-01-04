@@ -48,20 +48,20 @@ Para este problema implementamos un **enfoque de testing categorizado** que orga
 
 ```typescript
 describe("Valid isomorphic cases", () => {
-  it("should handle identical characters mapping", () => {
-    expect(isIsomorphic("egg", "add")).toBe(true);
-    // e→a, g→d (mapeo consistente)
-  });
+ it("should handle identical characters mapping", () => {
+ expect(isIsomorphic("egg", "add")).toBe(true);
+ // e→a, g→d (mapeo consistente)
+ });
 
-  it("should handle complex mappings", () => {
-    expect(isIsomorphic("paper", "title")).toBe(true);
-    // p→t, a→i, p→t, e→l, r→e (mapeo bidireccional válido)
-  });
+ it("should handle complex mappings", () => {
+ expect(isIsomorphic("paper", "title")).toBe(true);
+ // p→t, a→i, p→t, e→l, r→e (mapeo bidireccional válido)
+ });
 
-  it("should handle self-mapping", () => {
-    expect(isIsomorphic("abc", "abc")).toBe(true);
-    // Cada carácter mapea a sí mismo
-  });
+ it("should handle self-mapping", () => {
+ expect(isIsomorphic("abc", "abc")).toBe(true);
+ // Cada carácter mapea a sí mismo
+ });
 });
 ```
 
@@ -69,15 +69,15 @@ describe("Valid isomorphic cases", () => {
 
 ```typescript
 describe("Invalid mappings", () => {
-  it("should detect one-to-many mapping violation", () => {
-    expect(isIsomorphic("foo", "bar")).toBe(false);
-    // 'o' necesitaría mapear tanto a 'a' como a 'r' ❌
-  });
+ it("should detect one-to-many mapping violation", () => {
+ expect(isIsomorphic("foo", "bar")).toBe(false);
+ // 'o' necesitaría mapear tanto a 'a' como a 'r' ❌
+ });
 
-  it("should detect many-to-one mapping violation", () => {
-    expect(isIsomorphic("ab", "cc")).toBe(false);
-    // Tanto 'a' como 'b' mapearían a 'c' ❌
-  });
+ it("should detect many-to-one mapping violation", () => {
+ expect(isIsomorphic("ab", "cc")).toBe(false);
+ // Tanto 'a' como 'b' mapearían a 'c' ❌
+ });
 });
 ```
 
@@ -85,15 +85,15 @@ describe("Invalid mappings", () => {
 
 ```typescript
 describe("Edge cases", () => {
-  it("should handle single character", () => {
-    expect(isIsomorphic("a", "b")).toBe(true);
-    // Caso más simple: un solo mapeo
-  });
+ it("should handle single character", () => {
+ expect(isIsomorphic("a", "b")).toBe(true);
+ // Caso más simple: un solo mapeo
+ });
 
-  it("should handle identical strings", () => {
-    expect(isIsomorphic("abc", "abc")).toBe(true);
-    // Auto-mapeo perfecto
-  });
+ it("should handle identical strings", () => {
+ expect(isIsomorphic("abc", "abc")).toBe(true);
+ // Auto-mapeo perfecto
+ });
 });
 ```
 
@@ -137,11 +137,11 @@ const tToS = new Map<string, string>(); // t → s
 
 1. **Inicialización**: Crear los dos mapas y obtener la longitud
 2. **Iteración**: Para cada posición `i` desde 0 hasta `n-1`:
-   - Extraer `charS = s[i]` y `charT = t[i]`
-   - **Validar mapeo s→t**: Si `charS` ya existe, verificar que mapee a `charT`
-   - **Validar mapeo t→s**: Si `charT` ya existe, verificar que venga de `charS`
-   - **Crear mapeos**: Si no existen, establecer ambas direcciones
-   - **Terminar temprano**: Return `false` si hay inconsistencia
+ - Extraer `charS = s[i]` y `charT = t[i]`
+ - **Validar mapeo s→t**: Si `charS` ya existe, verificar que mapee a `charT`
+ - **Validar mapeo t→s**: Si `charT` ya existe, verificar que venga de `charS`
+ - **Crear mapeos**: Si no existen, establecer ambas direcciones
+ - **Terminar temprano**: Return `false` si hay inconsistencia
 3. **Resultado**: Return `true` si completamos sin inconsistencias
 
 ### 🎯 **Por qué dos mapas separados:**
@@ -163,16 +163,16 @@ const tToS = new Map<string, string>(); // t → s
 ```typescript
 // Verificar s → t
 if (sToT.has(charS)) {
-  if (sToT.get(charS) !== charT) return false; // Inconsistencia
+ if (sToT.get(charS) !== charT) return false; // Inconsistencia
 } else {
-  sToT.set(charS, charT); // Crear mapeo
+ sToT.set(charS, charT); // Crear mapeo
 }
 
 // Verificar t → s (independiente de la anterior)
 if (tToS.has(charT)) {
-  if (tToS.get(charT) !== charS) return false; // Inconsistencia
+ if (tToS.get(charT) !== charS) return false; // Inconsistencia
 } else {
-  tToS.set(charT, charS); // Crear mapeo
+ tToS.set(charT, charS); // Crear mapeo
 }
 ```
 

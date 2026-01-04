@@ -36,8 +36,8 @@ Tenemos dos strings que representan dos ejercitos y debemos comparar los caracte
 Para eso debemos asignar valores a los caracteres según las reglas dadas y luego comparar estos valores posición por posición.
 
 ```javascript
-function characterBattle(army1, army2) {
-  // Implementación aquí
+function characterBattle(army 1, army 2) {
+ // Implementación aquí
 }
 ```
 
@@ -45,7 +45,7 @@ function characterBattle(army1, army2) {
 
 1. `characterBattle("Hello", "World")` debería devolver `"We lost"`.
 2. `characterBattle("pizza", "salad")` debería devolver `"We won"`.
-3. `characterBattle("C@T5", "D0G$")` debería devolver `"We won"`.
+3. `characterBattle("C@T 5", "D 0 G$")` debería devolver `"We won"`.
 4. `characterBattle("kn!ght", "orc")` debería devolver `"Opponent retreated"`.
 5. `characterBattle("PC", "Mac")` debería devolver `"We retreated"`.
 6. `characterBattle("Wizards", "Dragons")` debería devolver `"It was a tie"`.
@@ -66,52 +66,52 @@ El enfoque consiste en iterar sobre los caracteres de ambos strings, calcular la
 5. Devolver el resultado según las reglas especificadas.
 
 ```javascriptfunction battle(myArmy, opposingArmy) {
-  const myArmyLength = myArmy.length;
-  const opposingArmyLength = opposingArmy.length;
+ const myArmyLength = myArmy.length;
+ const opposingArmyLength = opposingArmy.length;
 
-  if (myArmyLength > opposingArmyLength) {
-    return "Opponent retreated";
-  } else if (myArmyLength < opposingArmyLength) {
-    return "We retreated";
-  }
+ if (myArmyLength > opposingArmyLength) {
+ return "Opponent retreated";
+ } else if (myArmyLength < opposingArmyLength) {
+ return "We retreated";
+ }
 
-  let myWins = 0;
-  let opposingWins = 0;
-  // Function to get the strength of a character
-  const getStrength = (char) => {
-    // Lowercase letters
-    if (char >= "a" && char <= "z") {
-      return char.charCodeAt(0) - "a".charCodeAt(0) + 1;
-      // Uppercase letters
-    } else if (char >= "A" && char <= "Z") {
-      return char.charCodeAt(0) - "A".charCodeAt(0) + 27;
-      // Digits
-    } else if (char >= "0" && char <= "9") {
-      return parseInt(char, 10);
-    }
-    // All other characters
-    return 0;
-  };
-  // Compare characters position by position
-  for (let i = 0; i < myArmyLength; i++) {
-    // Get strengths
-    const myStrength = getStrength(myArmy[i]);
-    const opposingStrength = getStrength(opposingArmy[i]);
-    // Determine winner
-    if (myStrength > opposingStrength) {
-      myWins++;
-    } else if (opposingStrength > myStrength) {
-      opposingWins++;
-    }
-  }
+ let myWins = 0;
+ let opposingWins = 0;
+ // Function to get the strength of a character
+ const getStrength = (char) => {
+ // Lowercase letters
+ if (char >= "a" && char <= "z") {
+ return char.charCodeAt(0) - "a".charCodeAt(0) + 1;
+ // Uppercase letters
+ } else if (char >= "A" && char <= "Z") {
+ return char.charCodeAt(0) - "A".charCodeAt(0) + 27;
+ // Digits
+ } else if (char >= "0" && char <= "9") {
+ return parseInt(char, 10);
+ }
+ // All other characters
+ return 0;
+ };
+ // Compare characters position by position
+ for (let i = 0; i < myArmyLength; i++) {
+ // Get strengths
+ const myStrength = getStrength(myArmy[i]);
+ const opposingStrength = getStrength(opposingArmy[i]);
+ // Determine winner
+ if (myStrength > opposingStrength) {
+ myWins++;
+ } else if (opposingStrength > myStrength) {
+ opposingWins++;
+ }
+ }
 
-  if (myWins > opposingWins) {
-    return "We won";
-  } else if (opposingWins > myWins) {
-    return "We lost";
-  } else {
-    return "It was a tie";
-  }
+ if (myWins > opposingWins) {
+ return "We won";
+ } else if (opposingWins > myWins) {
+ return "We lost";
+ } else {
+ return "It was a tie";
+ }
 }
 ```
 

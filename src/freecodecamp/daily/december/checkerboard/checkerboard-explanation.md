@@ -26,9 +26,9 @@ Por ejemplo, dado [3, 3], se debe retornar:
 
 ```text
 [
-  ["X", "0", "X"],
-  ["0", "X", "0"],
-  ["X", "0", "X"]
+ ["X", "0", "X"],
+ ["0", "X", "0"],
+ ["X", "0", "X"]
 ]
 ```
 
@@ -79,14 +79,14 @@ El enfoque consiste en crear la matriz utilizando `new Array` y llenarla mediant
 
 ```javascript
 function createBoard(dimensions) {
-  const [rows, cols] = dimensions;
-  const board = new Array(rows).fill(null).map(() => new Array(cols));
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      board[i][j] = (i + j) % 2 === 0 ? "X" : "O";
-    }
-  }
-  return board;
+ const [rows, cols] = dimensions;
+ const board = new Array(rows).fill(null).map(() => new Array(cols));
+ for (let i = 0; i < rows; i++) {
+ for (let j = 0; j < cols; j++) {
+ board[i][j] = (i + j) % 2 === 0 ? "X" : "O";
+ }
+ }
+ return board;
 }
 ```
 

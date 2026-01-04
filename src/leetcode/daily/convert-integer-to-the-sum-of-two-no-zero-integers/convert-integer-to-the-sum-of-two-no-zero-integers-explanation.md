@@ -44,7 +44,7 @@ La estrategia óptima es **fuerza bruta inteligente**: probar todas las combinac
 
 ```typescript
 const isNoZeroInteger = (n: number): boolean => {
-  return !n.toString().includes("0");
+ return !n.toString().includes("0");
 };
 ```
 
@@ -54,9 +54,9 @@ Esta función convierte el número a string y verifica que no contenga el carác
 
 ```typescript
 for (let i = 1; i < n; i++) {
-  let a = i;
-  let b = n - i;
-  if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
+ let a = i;
+ let b = n - i;
+ if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
 }
 ```
 
@@ -70,16 +70,16 @@ Para cada valor de i desde 1 hasta n-1:
 
 ```typescript
 export function getNoZeroIntegers(n: number): number[] {
-  const isNoZeroInteger = (n: number): boolean => {
-    return !n.toString().includes("0");
-  };
-  for (let i = 1; i < n; i++) {
-    let a = i;
-    let b = n - i;
-    if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
-  }
+ const isNoZeroInteger = (n: number): boolean => {
+ return !n.toString().includes("0");
+ };
+ for (let i = 1; i < n; i++) {
+ let a = i;
+ let b = n - i;
+ if (isNoZeroInteger(a) && isNoZeroInteger(b)) return [a, b];
+ }
 
-  return [];
+ return [];
 }
 ```
 
@@ -112,10 +112,10 @@ export function getNoZeroIntegers(n: number): number[] {
 ## Complejidad
 
 - **Time complexity**: O(n × log n)
-  - Loop: O(n) iteraciones en el peor caso
-  - Verificación No-Zero: O(log n) por toString()
+ - Loop: O(n) iteraciones en el peor caso
+ - Verificación No-Zero: O(log n) por toString()
 - **Space complexity**: O(log n)
-  - Strings temporales para verificación No-Zero
+ - Strings temporales para verificación No-Zero
 
 ## Conclusión
 

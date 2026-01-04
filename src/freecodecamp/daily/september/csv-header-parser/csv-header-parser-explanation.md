@@ -31,14 +31,14 @@ El problema requiere procesar una cadena de texto que representa la primera lín
 
 1. `"name,age,city"` → `["name", "age", "city"]`
 
-   - Encabezados simples sin espacios
+ - Encabezados simples sin espacios
 
 2. `"first name,last name,phone"` → `["first name", "last name", "phone"]`
 
-   - Encabezados con espacios internos (espacios dentro del nombre deben mantenerse)
+ - Encabezados con espacios internos (espacios dentro del nombre deben mantenerse)
 
 3. `"username , email , signup date "` → `["username", "email", "signup date"]`
-   - Encabezados con espacios al inicio y final que deben ser removidos
+ - Encabezados con espacios al inicio y final que deben ser removidos
 
 ### Restricciones
 
@@ -64,17 +64,17 @@ Este enfoque es eficiente y aprovecha las funciones incorporadas de JavaScript p
 
 ```javascript
 function getHeadings(csv) {
-  return csv.split(",").map((heading) => heading.trim());
+ return csv.split(",").map((heading) => heading.trim());
 }
 ```
 
 ### Complejidad
 
 - **Tiempo:** O(n) donde n es la longitud de la cadena de entrada
-  - `split(',')` recorre la cadena una vez
-  - `map()` con `trim()` procesa cada encabezado (tiempo proporcional a la longitud total)
+ - `split(',')` recorre la cadena una vez
+ - `map()` con `trim()` procesa cada encabezado (tiempo proporcional a la longitud total)
 - **Espacio:** O(m) donde m es el número de encabezados
-  - Se crea un nuevo array con los encabezados procesados
+ - Se crea un nuevo array con los encabezados procesados
 
 ## Casos de Prueba
 

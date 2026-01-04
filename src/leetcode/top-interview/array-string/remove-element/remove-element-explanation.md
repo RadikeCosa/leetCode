@@ -70,8 +70,8 @@ En este problema aplicamos la técnica **Two Pointers** con un patrón específi
 1. **Inicialización**: `write = 0` (primera posición disponible para escribir)
 2. **Iteración**: `i` recorre todo el array
 3. **Condición**: Si `nums[i] !== val`, entonces:
-   - Copiamos `nums[i]` a la posición `nums[write]`
-   - Incrementamos `write` (siguiente posición disponible)
+ - Copiamos `nums[i]` a la posición `nums[write]`
+ - Incrementamos `write` (siguiente posición disponible)
 4. **Resultado**: `write` representa el número de elementos válidos
 
 ### Trace del Algoritmo
@@ -82,16 +82,16 @@ En este problema aplicamos la técnica **Two Pointers** con un patrón específi
 Inicial: nums = [3,2,2,3], write = 0
 
 i=0: nums[0]=3, es val → no copiamos, write=0
-     nums = [3,2,2,3], write = 0
+ nums = [3,2,2,3], write = 0
 
 i=1: nums[1]=2, no es val → nums[0]=2, write=1
-     nums = [2,2,2,3], write = 1
+ nums = [2,2,2,3], write = 1
 
 i=2: nums[2]=2, no es val → nums[1]=2, write=2
-     nums = [2,2,2,3], write = 2
+ nums = [2,2,2,3], write = 2
 
 i=3: nums[3]=3, es val → no copiamos, write=2
-     nums = [2,2,2,3], write = 2
+ nums = [2,2,2,3], write = 2
 
 Resultado: k = 2, primeros 2 elementos = [2,2]
 ```
@@ -112,7 +112,7 @@ Resultado: k = 2, primeros 2 elementos = [2,2]
 
 ```
 Array original: [3, 2, 2, 3] (longitud = 4)
-Array después:  [2, 2, 2, 3] (longitud = 4) ← Sigue siendo 4!
+Array después: [2, 2, 2, 3] (longitud = 4) ← Sigue siendo 4!
 k = 2 → Solo los primeros 2 elementos [2, 2] son válidos
 Elementos [2, 3] después de k → Irrelevantes pero siguen ahí
 ```
@@ -122,8 +122,8 @@ Elementos [2, 3] después de k → Irrelevantes pero siguen ahí
 1. **Eficiencia**: O(n) tiempo, O(1) espacio
 2. **In-place**: No necesitamos espacio adicional
 3. **Separación de responsabilidades**:
-   - `i` se encarga de leer todos los elementos
-   - `write` se encarga de mantener la posición de escritura
+ - `i` se encarga de leer todos los elementos
+ - `write` se encarga de mantener la posición de escritura
 4. **Simplicidad**: Algoritmo directo y fácil de entender
 
 ## Casos Edge a Considerar

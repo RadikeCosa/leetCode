@@ -37,25 +37,25 @@ Las palabras solo incluyen letras y están separadas por espacios. No se deben c
 
 A continuación se listan los casos de prueba principales para validar la función:
 
-1. `"The quick brown fox jumped over the lazy dog."`  
-   **Resultado esperado:** Human  
-   **Razón:** No cumple ninguna de las reglas.
+1. `"The quick brown fox jumped over the lazy dog."` 
+ **Resultado esperado:** Human 
+ **Razón:** No cumple ninguna de las reglas.
 
-2. `"The hypersonic brown fox - jumped (over) the lazy dog."`  
-   **Resultado esperado:** Human  
-   **Razón:** Solo tiene un guion y un conjunto de paréntesis, y menos de tres palabras largas.
+2. `"The hypersonic brown fox - jumped (over) the lazy dog."` 
+ **Resultado esperado:** Human 
+ **Razón:** Solo tiene un guion y un conjunto de paréntesis, y menos de tres palabras largas.
 
-3. `"Yes - you're right! I made a mistake there - let me try again."`  
-   **Resultado esperado:** AI  
-   **Razón:** Tiene dos guiones.
+3. `"Yes - you're right! I made a mistake there - let me try again."` 
+ **Resultado esperado:** AI 
+ **Razón:** Tiene dos guiones.
 
-4. `"The extraordinary students were studying vivaciously."`  
-   **Resultado esperado:** AI  
-   **Razón:** Tiene tres palabras con siete o más letras: extraordinary, students, vivaciously.
+4. `"The extraordinary students were studying vivaciously."` 
+ **Resultado esperado:** AI 
+ **Razón:** Tiene tres palabras con siete o más letras: extraordinary, students, vivaciously.
 
-5. `"The (excited) student was (coding) in the library."`  
-   **Resultado esperado:** AI  
-   **Razón:** Tiene dos conjuntos de paréntesis.
+5. `"The (excited) student was (coding) in the library."` 
+ **Resultado esperado:** AI 
+ **Razón:** Tiene dos conjuntos de paréntesis.
 
 ## Desarrollo de la Solución
 
@@ -63,7 +63,7 @@ A continuación se listan los casos de prueba principales para validar la funci�
 
 Para este problema, identifico principalmente dos enfoques viables:
 
-**1. Expresiones Regulares (Regex):**  
+**1. Expresiones Regulares (Regex):** 
 Ventajas:
 
 - Permiten buscar patrones de manera concisa y eficiente.
@@ -75,7 +75,7 @@ Desventajas:
 - Pueden ser menos legibles para quienes no están familiarizados con regex.
 - El manejo de palabras puede requerir cuidado para evitar contar signos de puntuación.
 
-**2. Recorrido Manual del String:**  
+**2. Recorrido Manual del String:** 
 Ventajas:
 
 - Mayor control sobre el procesamiento de cada carácter.
@@ -87,23 +87,23 @@ Desventajas:
 - El código puede ser más extenso.
 - Puede ser menos eficiente si no se optimiza el recorrido.
 
-**Comparación y Elección:**  
-Para este problema, ambos enfoques son válidos y eficientes, ya que el tamaño de los textos es pequeño y las reglas son simples.  
+**Comparación y Elección:** 
+Para este problema, ambos enfoques son válidos y eficientes, ya que el tamaño de los textos es pequeño y las reglas son simples. 
 Sin embargo, **elijo usar expresiones regulares** porque permite implementar las tres reglas de manera directa y legible, manteniendo el código corto y claro.
 
 ### Implementación Paso a Paso
 
-1. **Contar guiones:**  
-   Utilizamos una expresión regular `/-/g` para buscar todos los guiones en el texto. Si hay dos o más, devolvemos "AI".
+1. **Contar guiones:** 
+ Utilizamos una expresión regular `/-/g` para buscar todos los guiones en el texto. Si hay dos o más, devolvemos "AI".
 
-2. **Contar conjuntos de paréntesis:**  
-   Usamos la expresión regular `/\([^)]+\)/g` para encontrar todos los grupos de paréntesis con contenido dentro. Si hay dos o más, devolvemos "AI".
+2. **Contar conjuntos de paréntesis:** 
+ Usamos la expresión regular `/\([^)]+\)/g` para encontrar todos los grupos de paréntesis con contenido dentro. Si hay dos o más, devolvemos "AI".
 
-3. **Contar palabras largas:**  
-   Aplicamos la expresión regular `/\b[a-zA-Z]{7,}\b/g` para encontrar palabras de siete o más letras. Si hay tres o más, devolvemos "AI".
+3. **Contar palabras largas:** 
+ Aplicamos la expresión regular `/\b[a-zA-Z]{7,}\b/g` para encontrar palabras de siete o más letras. Si hay tres o más, devolvemos "AI".
 
-4. **Resultado final:**  
-   Si ninguna regla se cumple, devolvemos "Human".
+4. **Resultado final:** 
+ Si ninguna regla se cumple, devolvemos "Human".
 
 El código implementa estas reglas en orden y retorna "AI" si alguna se cumple.
 
@@ -111,70 +111,70 @@ El código implementa estas reglas en orden y retorna "AI" si alguna se cumple.
 
 1. **Guiones:**
 
-   ```js
-   /-/g;
-   ```
+ ```js
+ /-/g;
+ ```
 
-   - El símbolo `-` busca el carácter guion.
-   - La bandera `g` indica búsqueda global, es decir, encuentra todos los guiones en el texto.
+ - El símbolo `-` busca el carácter guion.
+ - La bandera `g` indica búsqueda global, es decir, encuentra todos los guiones en el texto.
 
 2. **Conjuntos de paréntesis:**
 
-   ```js
-   /\([^)]+\)/g;
-   ```
+ ```js
+ /\([^)]+\)/g;
+ ```
 
-   - `\(` y `\)`: Buscan los caracteres de paréntesis literal.
-   - `[ ^ ) ]+`:
-     - Los corchetes `[]` definen un conjunto de caracteres permitidos.
-     - El símbolo `^` dentro de los corchetes significa "no", es decir, cualquier carácter excepto los que siguen.
-     - `^)` indica "cualquier carácter excepto el paréntesis de cierre".
-     - El signo `+` indica "uno o más" de esos caracteres.
-   - En conjunto, `[ ^ ) ]+` busca uno o más caracteres que no sean paréntesis de cierre, es decir, el contenido dentro de los paréntesis.
-   - Así, la expresión completa encuentra cualquier grupo de paréntesis con contenido dentro.
+ - `\(` y `\)`: Buscan los caracteres de paréntesis literal.
+ - `[ ^ ) ]+`:
+ - Los corchetes `[]` definen un conjunto de caracteres permitidos.
+ - El símbolo `^` dentro de los corchetes significa "no", es decir, cualquier carácter excepto los que siguen.
+ - `^)` indica "cualquier carácter excepto el paréntesis de cierre".
+ - El signo `+` indica "uno o más" de esos caracteres.
+ - En conjunto, `[ ^ ) ]+` busca uno o más caracteres que no sean paréntesis de cierre, es decir, el contenido dentro de los paréntesis.
+ - Así, la expresión completa encuentra cualquier grupo de paréntesis con contenido dentro.
 
 3. **Palabras largas (7+ letras):**
 
-   ```js
-   /\b[a-zA-Z]{7,}\b/g;
-   ```
+ ```js
+ /\b[a-zA-Z]{7,}\b/g;
+ ```
 
-   - `\b`: Marca el inicio o fin de una palabra (borde de palabra).
-   - `[a-zA-Z]{7,}`:
-     - Los corchetes `[]` indican cualquier letra mayúscula o minúscula.
-     - `{7,}` indica "siete o más" letras consecutivas.
-   - El segundo `\b` marca el final de la palabra.
-   - La bandera `g` busca todas las coincidencias en el texto.
+ - `\b`: Marca el inicio o fin de una palabra (borde de palabra).
+ - `[a-zA-Z]{7,}`:
+ - Los corchetes `[]` indican cualquier letra mayúscula o minúscula.
+ - `{7,}` indica "siete o más" letras consecutivas.
+ - El segundo `\b` marca el final de la palabra.
+ - La bandera `g` busca todas las coincidencias en el texto.
 
 ## Casos Edge y Consideraciones
 
-- **Texto vacío:**  
-  Un string vacío (`""`) no contiene guiones, paréntesis ni palabras largas. El resultado debe ser "Human".
+- **Texto vacío:** 
+ Un string vacío (`""`) no contiene guiones, paréntesis ni palabras largas. El resultado debe ser "Human".
 
-- **Guiones consecutivos:**  
-  Ejemplo: `"Hello--world"` contiene dos guiones juntos, lo que cuenta como dos guiones y debe devolver "AI".
+- **Guiones consecutivos:** 
+ Ejemplo: `"Hello--world"` contiene dos guiones juntos, lo que cuenta como dos guiones y debe devolver "AI".
 
-- **Paréntesis vacíos:**  
-  Ejemplo: `"The () student ()"`  
-  La expresión `/\([^)]+\)/g` no detecta paréntesis vacíos, solo aquellos con contenido. Si se requiere contar también los vacíos, habría que ajustar la expresión a `/\([^)]*\)/g`.
+- **Paréntesis vacíos:** 
+ Ejemplo: `"The () student ()"` 
+ La expresión `/\([^)]+\)/g` no detecta paréntesis vacíos, solo aquellos con contenido. Si se requiere contar también los vacíos, habría que ajustar la expresión a `/\([^)]*\)/g`.
 
-- **Palabras con signos de puntuación:**  
-  Ejemplo: `"extraordinary,"`  
-  La expresión usada ignora la coma y cuenta correctamente la palabra larga.
+- **Palabras con signos de puntuación:** 
+ Ejemplo: `"extraordinary,"` 
+ La expresión usada ignora la coma y cuenta correctamente la palabra larga.
 
-- **Mayúsculas y minúsculas:**  
-  La expresión `[a-zA-Z]{7,}` considera ambas, por lo que no hay problema con palabras en mayúsculas.
+- **Mayúsculas y minúsculas:** 
+ La expresión `[a-zA-Z]{7,}` considera ambas, por lo que no hay problema con palabras en mayúsculas.
 
-- **Paréntesis anidados:**  
-  Ejemplo: `"The (student (coding))"`  
-  La expresión regular no detecta paréntesis anidados como un solo conjunto, solo los externos.
+- **Paréntesis anidados:** 
+ Ejemplo: `"The (student (coding))"` 
+ La expresión regular no detecta paréntesis anidados como un solo conjunto, solo los externos.
 
-- **Guiones en palabras:**  
-  Ejemplo: `"well-known"`  
-  Cada guion cuenta, aunque esté dentro de una palabra.
+- **Guiones en palabras:** 
+ Ejemplo: `"well-known"` 
+ Cada guion cuenta, aunque esté dentro de una palabra.
 
-- **Espacios múltiples o caracteres especiales:**  
-  El uso de `\b` en la expresión de palabras largas asegura que solo se cuenten palabras formadas por letras.
+- **Espacios múltiples o caracteres especiales:** 
+ El uso de `\b` en la expresión de palabras largas asegura que solo se cuenten palabras formadas por letras.
 
 ## Reflexiones y Aprendizajes
 

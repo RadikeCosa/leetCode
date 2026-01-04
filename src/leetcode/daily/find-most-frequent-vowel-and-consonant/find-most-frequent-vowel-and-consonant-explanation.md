@@ -65,27 +65,27 @@ Encontrar la vocal y consonante con mayor frecuencia en un string y retornar la 
 
 ```typescript
 export function findMostFrequentVowelAndConsonant(s: string): number {
-  const vowels = new Set(["a", "e", "i", "o", "u"]);
+ const vowels = new Set(["a", "e", "i", "o", "u"]);
 
-  // Arrays para conteo directo (a-z = índices 0-25)
-  const vowelCounts = new Array(26).fill(0);
-  const consonantCounts = new Array(26).fill(0);
+ // Arrays para conteo directo (a-z = índices 0-25)
+ const vowelCounts = new Array(26).fill(0);
+ const consonantCounts = new Array(26).fill(0);
 
-  // Contar directamente en arrays
-  for (const char of s) {
-    const index = char.charCodeAt(0) - 97; // 'a' = 97
-    if (vowels.has(char)) {
-      vowelCounts[index]++;
-    } else {
-      consonantCounts[index]++;
-    }
-  }
+ // Contar directamente en arrays
+ for (const char of s) {
+ const index = char.charCodeAt(0) - 97; // 'a' = 97
+ if (vowels.has(char)) {
+ vowelCounts[index]++;
+ } else {
+ consonantCounts[index]++;
+ }
+ }
 
-  // Encontrar máximos
-  const maxVowelFreq = Math.max(...vowelCounts);
-  const maxConsonantFreq = Math.max(...consonantCounts);
+ // Encontrar máximos
+ const maxVowelFreq = Math.max(...vowelCounts);
+ const maxConsonantFreq = Math.max(...consonantCounts);
 
-  return maxVowelFreq + maxConsonantFreq;
+ return maxVowelFreq + maxConsonantFreq;
 }
 ```
 
@@ -119,7 +119,7 @@ const vowelCounts = new Array(5).fill(0); // 5 posiciones
 const consonantCounts = new Map<string, number>(); // Variable según input
 ```
 
-**Pros**: Memoria más eficiente (5 vs 26 posiciones para vocales)  
+**Pros**: Memoria más eficiente (5 vs 26 posiciones para vocales) 
 **Contras**:
 
 - Mapeo adicional `vowelMap[char]` para cada vocal
@@ -148,15 +148,15 @@ const consonantCounts = new Array(26).fill(0); // 26 posiciones
 
 #### **Análisis de trade-offs:**
 
-| Aspecto                   | Optimizado (5+Map) | Uniforme (26+26) |
+| Aspecto | Optimizado (5+Map) | Uniforme (26+26) |
 |
 
 ------------------- | ------------------ | ---------------- |
-| **Memoria**               | ~5 + k enteros     | 52 enteros       |
-| **Complejidad de código** | Media-Alta         | Baja             |
-| **Performance**           | Lookup + acceso    | Acceso directo   |
-| **Mantenibilidad**        | Más complejo       | Más simple       |
-| **Escalabilidad**         | Limitado           | Extensible       |
+| **Memoria** | ~5 + k enteros | 52 enteros |
+| **Complejidad de código** | Media-Alta | Baja |
+| **Performance** | Lookup + acceso | Acceso directo |
+| **Mantenibilidad** | Más complejo | Más simple |
+| **Escalabilidad** | Limitado | Extensible |
 
 #### **¿Por qué elegimos la opción "menos eficiente"?**
 
@@ -164,24 +164,24 @@ const consonantCounts = new Array(26).fill(0); // 26 posiciones
 
 1. **Constraints favorables**:
 
-   - String máximo 100 caracteres
-   - Solo lowercase a-z
-   - Memoria desperdiciada: 21 × 4 bytes = 84 bytes extra (negligible)
+ - String máximo 100 caracteres
+ - Solo lowercase a-z
+ - Memoria desperdiciada: 21 × 4 bytes = 84 bytes extra (negligible)
 
 2. **Principio de simplicidad**:
 
-   - Código más claro y mantenible
-   - Menos propenso a bugs de indexación
-   - Patrón uniforme para ambas categorías
+ - Código más claro y mantenible
+ - Menos propenso a bugs de indexación
+ - Patrón uniforme para ambas categorías
 
 3. **Performance práctica**:
 
-   - Acceso directo vs lookup en Map para cada consonante
-   - Mejor cache locality con arrays contiguos
+ - Acceso directo vs lookup en Map para cada consonante
+ - Mejor cache locality con arrays contiguos
 
 4. **Generalización del patrón**:
-   - Este enfoque escala a otros problemas de conteo con alfabetos fijos
-   - Reutilizable para problemas similares
+ - Este enfoque escala a otros problemas de conteo con alfabetos fijos
+ - Reutilizable para problemas similares
 
 **Conclusión**: Para problemas de tamaño pequeño con alfabetos fijos, **la simplicidad y claridad del código supera la optimización prematura de memoria**. En sistemas con constraints estrictos de memoria, la optimización sería válida.
 
@@ -200,8 +200,8 @@ const consonantCounts = new Array(26).fill(0); // 26 posiciones
 - **Caracteres repetidos**: `"aaaa"` → maxVowel = 4, maxConsonant = 0 → resultado = 4
 - **Frecuencias iguales**: `"abcde"` → maxVowel = 1, maxConsonant = 1 → resultado = 2
 - **Caso realista**: `"programming"` → maxVowel = 1, maxConsonant = 2 → resultado = 3
-  - Vocales: o(1), a(1), i(1) → máximo = 1
-  - Consonantes: p(1), r(2), g(2), m(2), n(1) → máximo = 2
+ - Vocales: o(1), a(1), i(1) → máximo = 1
+ - Consonantes: p(1), r(2), g(2), m(2), n(1) → máximo = 2
 
 **Observaciones importantes:**
 

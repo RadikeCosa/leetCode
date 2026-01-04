@@ -27,12 +27,12 @@
  * Topics: Bit Manipulation, Gray Code
  */
 export function minimumOneBitOperations(n: number): number {
-  let result = 0;
-  while (n > 0) {
-    result ^= n;
-    n >>= 1;
-  }
-  return result;
+ let result = 0;
+ while (n > 0) {
+ result ^= n;
+ n >>= 1;
+ }
+ return result;
 }
 ```
 

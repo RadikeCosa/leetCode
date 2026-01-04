@@ -20,11 +20,11 @@ Este es un problema clásico de matemáticas discretas que demuestra la diferenc
 
 - **n puertas** en fila, todas inicialmente **cerradas**
 - **n pasadas** por las puertas con reglas específicas:
-  - **Pasada 1**: Visitar cada puerta (1, 2, 3, ..., n) y **toggle**
-  - **Pasada 2**: Visitar cada 2da puerta (2, 4, 6, ...) y **toggle**
-  - **Pasada 3**: Visitar cada 3ra puerta (3, 6, 9, ...) y **toggle**
-  - **Pasada k**: Visitar múltiplos de k (k, 2k, 3k, ...) y **toggle**
-  - **Pasada n**: Solo visitar puerta n y **toggle**
+ - **Pasada 1**: Visitar cada puerta (1, 2, 3, ..., n) y **toggle**
+ - **Pasada 2**: Visitar cada 2 da puerta (2, 4, 6, ...) y **toggle**
+ - **Pasada 3**: Visitar cada 3 ra puerta (3, 6, 9, ...) y **toggle**
+ - **Pasada k**: Visitar múltiplos de k (k, 2 k, 3 k, ...) y **toggle**
+ - **Pasada n**: Solo visitar puerta n y **toggle**
 
 **Objetivo:** Determinar qué puertas están **abiertas** al final y retornar sus números en un array.
 
@@ -35,21 +35,21 @@ Este es un problema clásico de matemáticas discretas que demuestra la diferenc
 ```text
 Estado inicial: [C, C, C, C, C, C, C, C, C, C] (todas cerradas)
 
-Pasada 1 (cada puerta):     [A, A, A, A, A, A, A, A, A, A]
-Pasada 2 (cada 2da):        [A, C, A, C, A, C, A, C, A, C]
-Pasada 3 (cada 3ra):        [A, C, C, C, A, A, A, C, C, C]
-Pasada 4 (cada 4ta):        [A, C, C, A, A, A, A, A, C, C]
-Pasada 5 (cada 5ta):        [A, C, C, A, C, A, A, A, C, A]
+Pasada 1 (cada puerta): [A, A, A, A, A, A, A, A, A, A]
+Pasada 2 (cada 2 da): [A, C, A, C, A, C, A, C, A, C]
+Pasada 3 (cada 3 ra): [A, C, C, C, A, A, A, C, C, C]
+Pasada 4 (cada 4 ta): [A, C, C, A, A, A, A, A, C, C]
+Pasada 5 (cada 5 ta): [A, C, C, A, C, A, A, A, C, A]
 ...
-Pasada 10 (cada 10ma):      [A, C, C, A, C, A, A, A, C, C]
+Pasada 10 (cada 10 ma): [A, C, C, A, C, A, A, A, C, C]
 
 Resultado: Puertas abiertas = [1, 4, 9]
 ```
 
-Pasada 2 (cada 2da): [A, C, A, C, A]
-Pasada 3 (cada 3ra): [A, C, C, C, A]
-Pasada 4 (cada 4ta): [A, C, C, A, A]
-Pasada 5 (cada 5ta): [A, C, C, A, C]
+Pasada 2 (cada 2 da): [A, C, A, C, A]
+Pasada 3 (cada 3 ra): [A, C, C, C, A]
+Pasada 4 (cada 4 ta): [A, C, C, A, A]
+Pasada 5 (cada 5 ta): [A, C, C, A, C]
 
 Resultado: Puertas abiertas = [1, 4]
 
@@ -138,27 +138,27 @@ Para fines **pedagógicos**, se implementaron **dos versiones** del algoritmo qu
 
 ```javascript
 function getFinalOpenedDoorsSimulation(numDoors) {
-  // Edge case: sin puertas
-  if (numDoors === 0) return [];
+ // Edge case: sin puertas
+ if (numDoors === 0) return [];
 
-  // Crear array de puertas: índice 0 no se usa, índices 1-n representan las puertas
-  const doors = new Array(numDoors + 1).fill(false);
+ // Crear array de puertas: índice 0 no se usa, índices 1-n representan las puertas
+ const doors = new Array(numDoors + 1).fill(false);
 
-  // Realizar las n pasadas
-  for (let pass = 1; pass <= numDoors; pass++) {
-    // En la pasada k, visitar múltiplos de k
-    for (let door = pass; door <= numDoors; door += pass) {
-      doors[door] = !doors[door]; // toggle
-    }
-  }
+ // Realizar las n pasadas
+ for (let pass = 1; pass <= numDoors; pass++) {
+ // En la pasada k, visitar múltiplos de k
+ for (let door = pass; door <= numDoors; door += pass) {
+ doors[door] = !doors[door]; // toggle
+ }
+ }
 
-  // Recopilar solo las puertas abiertas
-  const openDoors = [];
-  for (let i = 1; i <= numDoors; i++) {
-    if (doors[i]) openDoors.push(i);
-  }
+ // Recopilar solo las puertas abiertas
+ const openDoors = [];
+ for (let i = 1; i <= numDoors; i++) {
+ if (doors[i]) openDoors.push(i);
+ }
 
-  return openDoors;
+ return openDoors;
 }
 ````
 
@@ -167,8 +167,8 @@ function getFinalOpenedDoorsSimulation(numDoors) {
 1. **Claridad conceptual**: Sigue exactamente el enunciado del problema
 2. **Estructura de datos**: Array booleano donde `doors[i]` representa estado de puerta i
 3. **Doble bucle anidado**:
-   - Bucle externo: las n pasadas
-   - Bucle interno: múltiplos de cada pasada
+ - Bucle externo: las n pasadas
+ - Bucle interno: múltiplos de cada pasada
 4. **Operación toggle**: `doors[door] = !doors[door]` cambia estado
 5. **Recolección final**: Recorre array para encontrar puertas abiertas
 
@@ -178,20 +178,20 @@ function getFinalOpenedDoorsSimulation(numDoors) {
 
 ```javascript
 function getFinalOpenedDoorsOptimized(numDoors) {
-  if (numDoors === 0) return [];
+ if (numDoors === 0) return [];
 
-  const openDoors = [];
-  let i = 1;
-  let perfectSquare = i * i;
+ const openDoors = [];
+ let i = 1;
+ let perfectSquare = i * i;
 
-  // Generar cuadrados perfectos hasta numDoors
-  while (perfectSquare <= numDoors) {
-    openDoors.push(perfectSquare);
-    i++;
-    perfectSquare = i * i;
-  }
+ // Generar cuadrados perfectos hasta numDoors
+ while (perfectSquare <= numDoors) {
+ openDoors.push(perfectSquare);
+ i++;
+ perfectSquare = i * i;
+ }
 
-  return openDoors;
+ return openDoors;
 }
 ```
 
@@ -206,15 +206,15 @@ function getFinalOpenedDoorsOptimized(numDoors) {
 
 ### Comparación de Enfoques
 
-| Aspecto           | Simulación O(n²)   | Optimización O(√n)         |
+| Aspecto | Simulación O(n²) | Optimización O(√n) |
 |
 
 ----------- | ------------------ | -------------------------- |
-| **Claridad**      | ⭐⭐⭐⭐⭐         | ⭐⭐⭐                     |
-| **Eficiencia**    | ⭐⭐               | ⭐⭐⭐⭐⭐                 |
-| **Memoria**       | O(n)               | O(1)                       |
-| **Educativo**     | Muestra el proceso | Muestra el insight         |
-| **Mantenimiento** | Fácil de entender  | Requiere conocer el patrón |
+| **Claridad** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
+| **Eficiencia** | ⭐⭐ | ⭐⭐⭐⭐⭐ |
+| **Memoria** | O(n) | O(1) |
+| **Educativo** | Muestra el proceso | Muestra el insight |
+| **Mantenimiento** | Fácil de entender | Requiere conocer el patrón |
 
 ## Estrategia de Testing
 
@@ -226,27 +226,27 @@ Los tests están diseñados con una **metodología de validación cruzada** para
 
 ```javascript
 describe("100 Doors", () => {
-  // Casos de prueba compartidos - DRY principle
-  const testCases = [
-    { input: 0, expected: [] },
-    { input: 1, expected: [1] },
-    { input: 10, expected: [1, 4, 9] },
-    { input: 25, expected: [1, 4, 9, 16, 25] },
-    { input: 100, expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100] },
-  ];
+ // Casos de prueba compartidos - DRY principle
+ const testCases = [
+ { input: 0, expected: [] },
+ { input: 1, expected: [1] },
+ { input: 10, expected: [1, 4, 9] },
+ { input: 25, expected: [1, 4, 9, 16, 25] },
+ { input: 100, expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100] },
+ ];
 
-  describe("Función Principal (Optimizada)", () => {
-    /* tests */
-  });
-  describe("Versión Simulación O(n²)", () => {
-    /* tests */
-  });
-  describe("Versión Optimizada O(√n)", () => {
-    /* tests */
-  });
-  describe("Comparación de Ambas Implementaciones", () => {
-    /* tests */
-  });
+ describe("Función Principal (Optimizada)", () => {
+ /* tests */
+ });
+ describe("Versión Simulación O(n²)", () => {
+ /* tests */
+ });
+ describe("Versión Optimizada O(√n)", () => {
+ /* tests */
+ });
+ describe("Comparación de Ambas Implementaciones", () => {
+ /* tests */
+ });
 });
 ```
 
@@ -256,11 +256,11 @@ describe("100 Doors", () => {
 
 ```javascript
 const testCases = [
-  { input: 0, expected: [] }, // Edge case
-  { input: 1, expected: [1] }, // Caso mínimo
-  { input: 10, expected: [1, 4, 9] }, // Caso pequeño
-  { input: 25, expected: [1, 4, 9, 16, 25] }, // Caso mediano
-  { input: 100, expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100] }, // Caso clásico
+ { input: 0, expected: [] }, // Edge case
+ { input: 1, expected: [1] }, // Caso mínimo
+ { input: 10, expected: [1, 4, 9] }, // Caso pequeño
+ { input: 25, expected: [1, 4, 9, 16, 25] }, // Caso mediano
+ { input: 100, expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100] }, // Caso clásico
 ];
 ```
 
@@ -277,13 +277,13 @@ const testCases = [
 
 ```javascript
 describe("Función Principal (Optimizada)", () => {
-  testCases.forEach(({ input, expected }) => {
-    it(`should return ${JSON.stringify(
-      expected
-    )} for getFinalOpenedDoors(${input})`, () => {
-      expect(getFinalOpenedDoors(input)).toEqual(expected);
-    });
-  });
+ testCases.forEach(({ input, expected }) => {
+ it(`should return ${JSON.stringify(
+ expected
+ )} for getFinalOpenedDoors(${input})`, () => {
+ expect(getFinalOpenedDoors(input)).toEqual(expected);
+ });
+ });
 });
 ```
 
@@ -291,7 +291,7 @@ describe("Función Principal (Optimizada)", () => {
 
 ```javascript
 describe("Versión Simulación O(n²)", () => {
-  // Tests específicos para verificar que la simulación funciona
+ // Tests específicos para verificar que la simulación funciona
 });
 ```
 
@@ -299,7 +299,7 @@ describe("Versión Simulación O(n²)", () => {
 
 ```javascript
 describe("Versión Optimizada O(√n)", () => {
-  // Tests específicos para verificar que la optimización funciona
+ // Tests específicos para verificar que la optimización funciona
 });
 ```
 
@@ -307,13 +307,13 @@ describe("Versión Optimizada O(√n)", () => {
 
 ```javascript
 describe("Comparación de Ambas Implementaciones", () => {
-  it("both implementations should produce identical results for all test cases", () => {
-    testCases.forEach(({ input }) => {
-      const simulationResult = getFinalOpenedDoorsSimulation(input);
-      const optimizedResult = getFinalOpenedDoorsOptimized(input);
-      expect(simulationResult).toEqual(optimizedResult);
-    });
-  });
+ it("both implementations should produce identical results for all test cases", () => {
+ testCases.forEach(({ input }) => {
+ const simulationResult = getFinalOpenedDoorsSimulation(input);
+ const optimizedResult = getFinalOpenedDoorsOptimized(input);
+ expect(simulationResult).toEqual(optimizedResult);
+ });
+ });
 });
 ```
 
@@ -349,9 +349,9 @@ describe("Comparación de Ambas Implementaciones", () => {
 
 ```javascript
 it(`should return ${JSON.stringify(
-  expected
+ expected
 )} for getFinalOpenedDoors(${input})`, () => {
-  // Test description se genera automáticamente
+ // Test description se genera automáticamente
 });
 ```
 
@@ -359,7 +359,7 @@ it(`should return ${JSON.stringify(
 
 ```javascript
 testCases.forEach(({ input, expected }) => {
-  // Cada caso genera un test independiente
+ // Cada caso genera un test independiente
 });
 ```
 
@@ -395,9 +395,9 @@ const doors = new Array(numDoors + 1).fill(false);
 let i = 1;
 let perfectSquare = i * i;
 while (perfectSquare <= numDoors) {
-  openDoors.push(perfectSquare);
-  i++;
-  perfectSquare = i * i; // Recalcular en cada iteración
+ openDoors.push(perfectSquare);
+ i++;
+ perfectSquare = i * i; // Recalcular en cada iteración
 }
 ```
 
@@ -439,24 +439,24 @@ export default getFinalOpenedDoors;
 
 | Implementación | Mejor Caso | Caso Promedio | Peor Caso |
 | -------------- | ---------- | ------------- | --------- |
-| **Simulación** | O(n²)      | O(n²)         | O(n²)     |
-| **Optimizada** | O(√n)      | O(√n)         | O(√n)     |
+| **Simulación** | O(n²) | O(n²) | O(n²) |
+| **Optimizada** | O(√n) | O(√n) | O(√n) |
 
 ### Complejidad Espacial
 
 | Implementación | Espacio Auxiliar | Espacio Total |
 | -------------- | ---------------- | ------------- |
-| **Simulación** | O(n)             | O(n)          |
-| **Optimizada** | O(1)             | O(√n)         |
+| **Simulación** | O(n) | O(n) |
+| **Optimizada** | O(1) | O(√n) |
 
 ### Comparación Práctica
 
 Para **n = 10,000**:
 
-- **Simulación**: ~50M operaciones, ~10KB memoria
+- **Simulación**: ~50 M operaciones, ~10 KB memoria
 - **Optimizada**: ~100 operaciones, ~400 bytes memoria
 
-**Mejora**: **500,000x** más rápida, **25x** menos memoria
+**Mejora**: **500,000 x** más rápida, **25 x** menos memoria
 
 ## Conclusiones y Aprendizajes
 

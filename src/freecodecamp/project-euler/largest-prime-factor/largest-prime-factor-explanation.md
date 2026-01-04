@@ -75,31 +75,31 @@ Los factores primos de 13195 son 5, 7, 13 y 29.
 1. **Manejar el caso especial del 2**: Dividir por 2 hasta que el número sea impar
 2. **Probar divisores impares**: Desde 3 hasta la raíz cuadrada del número
 3. **Para cada divisor candidato**:
-   - Verificar si divide al número
-   - Si divide, es un factor primo (ya que probamos desde el más pequeño)
-   - Continuar dividiendo hasta que ya no sea divisible
+ - Verificar si divide al número
+ - Si divide, es un factor primo (ya que probamos desde el más pequeño)
+ - Continuar dividiendo hasta que ya no sea divisible
 4. **Caso final**: Si el número restante es > 1, es primo y es el factor más grande
 
 **Pseudocódigo:**
 
 ```
 function largestPrimeFactor(n):
-    // Manejar el 2
-    while n % 2 == 0:
-        n = n / 2
-        largest = 2
+ // Manejar el 2
+ while n % 2 == 0:
+ n = n / 2
+ largest = 2
 
-    // Probar divisores impares desde 3
-    for i = 3 to sqrt(n) step 2:
-        while n % i == 0:
-            n = n / i
-            largest = i
+ // Probar divisores impares desde 3
+ for i = 3 to sqrt(n) step 2:
+ while n % i == 0:
+ n = n / i
+ largest = i
 
-    // Si n es un número primo mayor que 2
-    if n > 1:
-        largest = n
+ // Si n es un número primo mayor que 2
+ if n > 1:
+ largest = n
 
-    return largest
+ return largest
 ```
 
 ### Optimizaciones
@@ -133,37 +133,37 @@ function largestPrimeFactor(n):
 
 ```javascript
 function largestPrimeFactor(number) {
-  // Optimización: Primero eliminamos todos los factores de 2
-  // El 2 es el único número primo par, así podemos trabajar solo con impares después
-  while (number % 2 === 0) {
-    number = Math.floor(number / 2);
-  }
+ // Optimización: Primero eliminamos todos los factores de 2
+ // El 2 es el único número primo par, así podemos trabajar solo con impares después
+ while (number % 2 === 0) {
+ number = Math.floor(number / 2);
+ }
 
-  // Si después de dividir por 2 el número es 1, significa que era una potencia de 2
-  // En este caso, el factor primo más grande es 2
-  if (number === 1) return 2;
+ // Si después de dividir por 2 el número es 1, significa que era una potencia de 2
+ // En este caso, el factor primo más grande es 2
+ if (number === 1) return 2;
 
-  // Para números impares, buscamos el factor primo más grande
-  // Inicializamos con 1, pero se actualizará con cada factor encontrado
-  let largest = 1;
+ // Para números impares, buscamos el factor primo más grande
+ // Inicializamos con 1, pero se actualizará con cada factor encontrado
+ let largest = 1;
 
-  // Solo necesitamos verificar hasta la raíz cuadrada del número
-  // Usamos i*i <= number para evitar calcular Math.sqrt() en cada iteración
-  for (let i = 3; i * i <= number; i += 2) {
-    // Mientras i divida al número, lo usamos como factor
-    while (number % i === 0) {
-      largest = i; // Actualizamos el factor más grande encontrado
-      number = Math.floor(number / i);
-    }
-  }
+ // Solo necesitamos verificar hasta la raíz cuadrada del número
+ // Usamos i*i <= number para evitar calcular Math.sqrt() en cada iteración
+ for (let i = 3; i * i <= number; i += 2) {
+ // Mientras i divida al número, lo usamos como factor
+ while (number % i === 0) {
+ largest = i; // Actualizamos el factor más grande encontrado
+ number = Math.floor(number / i);
+ }
+ }
 
-  // Si queda un número > 1 después del bucle, significa que es un factor primo
-  // Este sería el factor primo más grande (caso de números primos grandes)
-  if (number > 1) {
-    largest = number;
-  }
+ // Si queda un número > 1 después del bucle, significa que es un factor primo
+ // Este sería el factor primo más grande (caso de números primos grandes)
+ if (number > 1) {
+ largest = number;
+ }
 
-  return largest;
+ return largest;
 }
 ```
 

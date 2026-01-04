@@ -10,7 +10,7 @@ category: "daily"
 createdAt: "2025-10-06"
 ---
 
-# Análisis del Problema: P@ssw0rd Str3ngth!
+# Análisis del Problema: P@ssw 0 rd Str 3 ngth!
 
 ## Enunciado del Problema
 
@@ -48,76 +48,76 @@ Analicemos los ejemplos proporcionados con detalle:
 
 1. **`"123456"`** → `"weak"`
 
-   - Longitud: 6 < 8 ❌
-   - Mayúsculas/Minúsculas: Solo números ❌
-   - Números: Sí ✅
-   - Especiales: No ❌
-   - **Total: 1 regla** → "weak"
+ - Longitud: 6 < 8 ❌
+ - Mayúsculas/Minúsculas: Solo números ❌
+ - Números: Sí ✅
+ - Especiales: No ❌
+ - **Total: 1 regla** → "weak"
 
 2. **`"pass!!!"`** → `"weak"`
 
-   - Longitud: 7 < 8 ❌
-   - Mayúsculas/Minúsculas: Solo minúsculas ❌
-   - Números: No ❌
-   - Especiales: Sí ✅
-   - **Total: 1 regla** → "weak"
+ - Longitud: 7 < 8 ❌
+ - Mayúsculas/Minúsculas: Solo minúsculas ❌
+ - Números: No ❌
+ - Especiales: Sí ✅
+ - **Total: 1 regla** → "weak"
 
 3. **`"Qwerty"`** → `"weak"`
 
-   - Longitud: 6 < 8 ❌
-   - Mayúsculas/Minúsculas: Tiene Q mayúscula y werty minúsculas ✅
-   - Números: No ❌
-   - Especiales: No ❌
-   - **Total: 1 regla** → "weak"
+ - Longitud: 6 < 8 ❌
+ - Mayúsculas/Minúsculas: Tiene Q mayúscula y werty minúsculas ✅
+ - Números: No ❌
+ - Especiales: No ❌
+ - **Total: 1 regla** → "weak"
 
 4. **`"PASSWORD"`** → `"weak"`
-   - Longitud: 8 ≥ 8 ✅
-   - Mayúsculas/Minúsculas: Solo mayúsculas ❌
-   - Números: No ❌
-   - Especiales: No ❌
-   - **Total: 1 regla** → "weak"
+ - Longitud: 8 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Solo mayúsculas ❌
+ - Números: No ❌
+ - Especiales: No ❌
+ - **Total: 1 regla** → "weak"
 
 ### Casos "medium" (cumplen 2 o 3 reglas):
 
 5. **`"PASSWORD!"`** → `"medium"`
 
-   - Longitud: 9 ≥ 8 ✅
-   - Mayúsculas/Minúsculas: Solo mayúsculas ❌
-   - Números: No ❌
-   - Especiales: Sí ✅
-   - **Total: 2 reglas** → "medium"
+ - Longitud: 9 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Solo mayúsculas ❌
+ - Números: No ❌
+ - Especiales: Sí ✅
+ - **Total: 2 reglas** → "medium"
 
 6. **`"PassWord%^!"`** → `"medium"`
 
-   - Longitud: 11 ≥ 8 ✅
-   - Mayúsculas/Minúsculas: Tiene P mayúscula y assword minúsculas ✅
-   - Números: No ❌
-   - Especiales: Sí ✅
-   - **Total: 3 reglas** → "medium"
+ - Longitud: 11 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Tiene P mayúscula y assword minúsculas ✅
+ - Números: No ❌
+ - Especiales: Sí ✅
+ - **Total: 3 reglas** → "medium"
 
-7. **`"qwerty12345"`** → `"medium"`
-   - Longitud: 11 ≥ 8 ✅
-   - Mayúsculas/Minúsculas: Solo minúsculas ❌
-   - Números: Sí ✅
-   - Especiales: No ❌
-   - **Total: 2 reglas** → "medium"
+7. **`"qwerty 12345"`** → `"medium"`
+ - Longitud: 11 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Solo minúsculas ❌
+ - Números: Sí ✅
+ - Especiales: No ❌
+ - **Total: 2 reglas** → "medium"
 
 ### Casos "strong" (cumplen las 4 reglas):
 
-10. **`"S3cur3P@ssw0rd"`** → `"strong"`
+10. **`"S 3 cur 3 P@ssw 0 rd"`** → `"strong"`
 
-    - Longitud: 13 ≥ 8 ✅
-    - Mayúsculas/Minúsculas: Tiene S mayúscula y ecur assword minúsculas ✅
-    - Números: Sí (3,0) ✅
-    - Especiales: Sí (@) ✅
-    - **Total: 4 reglas** → "strong"
+ - Longitud: 13 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Tiene S mayúscula y ecur assword minúsculas ✅
+ - Números: Sí (3,0) ✅
+ - Especiales: Sí (@) ✅
+ - **Total: 4 reglas** → "strong"
 
-11. **`"C0d3&Fun!"`** → `"strong"`
-    - Longitud: 9 ≥ 8 ✅
-    - Mayúsculas/Minúsculas: Tiene C mayúscula y od un minúsculas ✅
-    - Números: Sí (0,3) ✅
-    - Especiales: Sí (&,!) ✅
-    - **Total: 4 reglas** → "strong"
+11. **`"C 0 d 3&Fun!"`** → `"strong"`
+ - Longitud: 9 ≥ 8 ✅
+ - Mayúsculas/Minúsculas: Tiene C mayúscula y od un minúsculas ✅
+ - Números: Sí (0,3) ✅
+ - Especiales: Sí (&,!) ✅
+ - **Total: 4 reglas** → "strong"
 
 ## Enfoque
 
@@ -128,42 +128,42 @@ La solución optimizada utiliza un enfoque directo y eficiente:
 1. **Definir constantes para expresiones regulares**: Para mejor mantenibilidad y reutilización
 2. **Contar criterios cumplidos**: Usar contador directo en lugar de array intermedio
 3. **Validar cada regla individualmente**:
-   - Longitud ≥ 8
-   - Presencia de mayúsculas Y minúsculas
-   - Presencia de al menos un número
-   - Presencia de al menos un carácter especial
+ - Longitud ≥ 8
+ - Presencia de mayúsculas Y minúsculas
+ - Presencia de al menos un número
+ - Presencia de al menos un carácter especial
 4. **Determinar fortaleza**: Basado en el conteo de criterios cumplidos
 
 ### Código de la Solución Optimizada
 
 ```javascript
 function checkStrength(password) {
-  // Constantes para expresiones regulares (mejor mantenibilidad)
-  const HAS_UPPERCASE = /[A-Z]/;
-  const HAS_LOWERCASE = /[a-z]/;
-  const HAS_NUMBER = /[0-9]/;
-  const HAS_SPECIAL = /[!@#$%^&*]/;
+ // Constantes para expresiones regulares (mejor mantenibilidad)
+ const HAS_UPPERCASE = /[A-Z]/;
+ const HAS_LOWERCASE = /[a-z]/;
+ const HAS_NUMBER = /[0-9]/;
+ const HAS_SPECIAL = /[!@#$%^&*]/;
 
-  // Contar criterios cumplidos directamente (más eficiente)
-  let criteriaMet = 0;
+ // Contar criterios cumplidos directamente (más eficiente)
+ let criteriaMet = 0;
 
-  // Regla 1: Al menos 8 caracteres
-  if (password.length >= 8) criteriaMet++;
+ // Regla 1: Al menos 8 caracteres
+ if (password.length >= 8) criteriaMet++;
 
-  // Regla 2: Contiene mayúsculas Y minúsculas
-  if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password))
-    criteriaMet++;
+ // Regla 2: Contiene mayúsculas Y minúsculas
+ if (HAS_UPPERCASE.test(password) && HAS_LOWERCASE.test(password))
+ criteriaMet++;
 
-  // Regla 3: Contiene al menos un número
-  if (HAS_NUMBER.test(password)) criteriaMet++;
+ // Regla 3: Contiene al menos un número
+ if (HAS_NUMBER.test(password)) criteriaMet++;
 
-  // Regla 4: Contiene al menos un carácter especial
-  if (HAS_SPECIAL.test(password)) criteriaMet++;
+ // Regla 4: Contiene al menos un carácter especial
+ if (HAS_SPECIAL.test(password)) criteriaMet++;
 
-  // Determinar fortaleza basada en criterios cumplidos
-  if (criteriaMet < 2) return "weak";
-  if (criteriaMet < 4) return "medium";
-  return "strong";
+ // Determinar fortaleza basada en criterios cumplidos
+ if (criteriaMet < 2) return "weak";
+ if (criteriaMet < 4) return "medium";
+ return "strong";
 }
 ```
 
@@ -173,22 +173,22 @@ function checkStrength(password) {
 
 1. **Estructura de datos**:
 
-   - **Antes**: Array temporal `[true, false, true, false]` + `.filter(Boolean).length`
-   - **Después**: Contador directo `criteriaMet++` → **más eficiente**
+ - **Antes**: Array temporal `[true, false, true, false]` + `.filter(Boolean).length`
+ - **Después**: Contador directo `criteriaMet++` → **más eficiente**
 
 2. **Expresiones regulares**:
 
-   - **Antes**: Regex inline creadas cada vez
-   - **Después**: Constantes precompiladas → **ligeramente más rápido**
+ - **Antes**: Regex inline creadas cada vez
+ - **Después**: Constantes precompiladas → **ligeramente más rápido**
 
 3. **Legibilidad**:
 
-   - **Antes**: Lógica condensada en array
-   - **Después**: `if` separados con comentarios → **más claro**
+ - **Antes**: Lógica condensada en array
+ - **Después**: `if` separados con comentarios → **más claro**
 
 4. **Mantenibilidad**:
-   - **Antes**: Regex difíciles de modificar
-   - **Después**: Constantes nombradas → **más fácil de cambiar**
+ - **Antes**: Regex difíciles de modificar
+ - **Después**: Constantes nombradas → **más fácil de cambiar**
 
 ## Complejidad
 
@@ -226,10 +226,10 @@ function checkStrength(password) {
 
 ```javascript
 let criteriaMet = [
-  lengthCriteria,
-  upperAndLowerCriteria,
-  numberCriteria,
-  specialCriteria,
+ lengthCriteria,
+ upperAndLowerCriteria,
+ numberCriteria,
+ specialCriteria,
 ].filter(Boolean).length;
 ```
 
@@ -237,8 +237,8 @@ let criteriaMet = [
 
 ```javascript
 let criteriaMet = 0;
-if (condition1) criteriaMet++;
-if (condition2) criteriaMet++;
+if (condition 1) criteriaMet++;
+if (condition 2) criteriaMet++;
 // ...
 ```
 

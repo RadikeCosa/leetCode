@@ -22,13 +22,13 @@ The key insight is that `every()` provides early exit - it stops checking as soo
 
 ```typescript
 export function canBeTypedWords(text: string, brokenLetters: string): number {
-  const words = text.split(" ");
-  const brokenSet = new Set(brokenLetters);
+ const words = text.split(" ");
+ const brokenSet = new Set(brokenLetters);
 
-  const validWords = words.filter((word) =>
-    [...word].every((letra) => !brokenSet.has(letra))
-  );
-  return validWords.length;
+ const validWords = words.filter((word) =>
+ [...word].every((letra) => !brokenSet.has(letra))
+ );
+ return validWords.length;
 }
 ```
 

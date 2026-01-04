@@ -24,26 +24,26 @@ The key insight is comparing `nums[read]` with `nums[read-1]` rather than `nums[
 
 ```typescript
 export function removeDuplicates(nums: number[]): number {
-  // Si el array tiene 0 o 1 elementos, no hay duplicados
-  if (nums.length <= 1) return nums.length;
+ // Si el array tiene 0 o 1 elementos, no hay duplicados
+ if (nums.length <= 1) return nums.length;
 
-  // Puntero para la posición del próximo valor único
-  let write = 1;
+ // Puntero para la posición del próximo valor único
+ let write = 1;
 
-  // Recorremos el array desde la segunda posición
-  for (let read = 1; read < nums.length; read++) {
-    // Si encontramos un valor distinto al anterior
-    if (nums[read] !== nums[read - 1]) {
-      // Copiamos el valor único en la posición 'write'
-      nums[write] = nums[read];
-      // Avanzamos el puntero 'write'
-      write++;
-    }
-    // Si es igual, simplemente seguimos
-  }
+ // Recorremos el array desde la segunda posición
+ for (let read = 1; read < nums.length; read++) {
+ // Si encontramos un valor distinto al anterior
+ if (nums[read] !== nums[read - 1]) {
+ // Copiamos el valor único en la posición 'write'
+ nums[write] = nums[read];
+ // Avanzamos el puntero 'write'
+ write++;
+ }
+ // Si es igual, simplemente seguimos
+ }
 
-  // Retornamos la cantidad de valores únicos
-  return write;
+ // Retornamos la cantidad de valores únicos
+ return write;
 }
 ```
 

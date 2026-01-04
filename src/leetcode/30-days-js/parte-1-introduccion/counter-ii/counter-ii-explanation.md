@@ -26,26 +26,26 @@ Escribe una función `createCounter` que acepta un entero inicial `init`. Debe r
 - Input: `init = 5`, calls = `["increment","reset","decrement"]`
 - Output: `[6,5,4]`
 - Explicación:
-  ```javascript
-  const counter = createCounter(5);
-  counter.increment(); // 6
-  counter.reset(); // 5
-  counter.decrement(); // 4
-  ```
+ ```javascript
+ const counter = createCounter(5);
+ counter.increment(); // 6
+ counter.reset(); // 5
+ counter.decrement(); // 4
+ ```
 
 ### Ejemplo 2:
 
 - Input: `init = 0`, calls = `["increment","increment","decrement","reset","reset"]`
 - Output: `[1,2,1,0,0]`
 - Explicación:
-  ```javascript
-  const counter = createCounter(0);
-  counter.increment(); // 1
-  counter.increment(); // 2
-  counter.decrement(); // 1
-  counter.reset(); // 0
-  counter.reset(); // 0
-  ```
+ ```javascript
+ const counter = createCounter(0);
+ counter.increment(); // 1
+ counter.increment(); // 2
+ counter.decrement(); // 1
+ counter.reset(); // 0
+ counter.reset(); // 0
+ ```
 
 ## Análisis
 
@@ -63,9 +63,9 @@ La elegancia de la solución radica en que el closure "captura" tanto el valor i
 
 ```typescript
 type Counter = {
-  increment: () => number;
-  decrement: () => number;
-  reset: () => number;
+ increment: () => number;
+ decrement: () => number;
+ reset: () => number;
 };
 ```
 
@@ -83,9 +83,9 @@ Variable local que será capturada por el closure. Es privada e inaccesible desd
 
 ```typescript
 return {
-  increment: () => ++count,
-  decrement: () => --count,
-  reset: () => (count = init),
+ increment: () => ++count,
+ decrement: () => --count,
+ reset: () => (count = init),
 };
 ```
 

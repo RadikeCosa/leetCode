@@ -16,7 +16,7 @@ createdAt: "2025-08-13"
 
 ## Descripción del Problema
 
-**LeetCode 326 - Easy**  
+**LeetCode 326 - Easy** 
 **Daily Challenge: 13 de Agosto, 2025**
 
 Dado un entero `n`, devuelve `true` si es una potencia de tres. De lo contrario, devuelve `false`.
@@ -99,14 +99,14 @@ true;
 
 ```typescript
 export function isPowerOfThree(n: number): boolean {
-  if (n <= 0) return false;
-  if (n === 1) return true;
+ if (n <= 0) return false;
+ if (n === 1) return true;
 
-  while (n > 1) {
-    if (n % 3 !== 0) return false;
-    n = n / 3;
-  }
-  return true;
+ while (n > 1) {
+ if (n % 3 !== 0) return false;
+ n = n / 3;
+ }
+ return true;
 }
 ```
 
@@ -118,9 +118,9 @@ export function isPowerOfThree(n: number): boolean {
 
 ```typescript
 export function isPowerOfThree(n: number): boolean {
-  if (n <= 0) return false;
-  const maxPowerOfThree = Math.pow(3, 19); // 1162261467
-  return maxPowerOfThree % n === 0;
+ if (n <= 0) return false;
+ const maxPowerOfThree = Math.pow(3, 19); // 1162261467
+ return maxPowerOfThree % n === 0;
 }
 ```
 
@@ -144,7 +144,7 @@ export function isPowerOfThree(n: number): boolean {
 
 ### ¿Por qué funciona el número mágico?
 
-**Concepto clave**: 3^19 = 1162261467 es la mayor potencia de 3 en rango int32.
+**Concepto clave**: 3^19 = 1162261467 es la mayor potencia de 3 en rango int 32.
 
 **Principio matemático**:
 
@@ -155,17 +155,17 @@ export function isPowerOfThree(n: number): boolean {
 **Ejemplo con potencias válidas**:
 
 ```
-1162261467 % 1 = 0   ✓ (3^19 ÷ 3^0)
-1162261467 % 3 = 0   ✓ (3^19 ÷ 3^1)
-1162261467 % 9 = 0   ✓ (3^19 ÷ 3^2)
-1162261467 % 27 = 0  ✓ (3^19 ÷ 3^3)
+1162261467 % 1 = 0 ✓ (3^19 ÷ 3^0)
+1162261467 % 3 = 0 ✓ (3^19 ÷ 3^1)
+1162261467 % 9 = 0 ✓ (3^19 ÷ 3^2)
+1162261467 % 27 = 0 ✓ (3^19 ÷ 3^3)
 ```
 
 **Ejemplo con múltiplos NO potencias**:
 
 ```
-1162261467 % 6 = 3   ✗ (6 = 2×3, tiene factor 2)
-1162261467 % 12 = 3  ✗ (12 = 4×3, tiene factor 4)
+1162261467 % 6 = 3 ✗ (6 = 2×3, tiene factor 2)
+1162261467 % 12 = 3 ✗ (12 = 4×3, tiene factor 4)
 1162261467 % 15 = 12 ✗ (15 = 5×3, tiene factor 5)
 ```
 
@@ -179,7 +179,7 @@ export function isPowerOfThree(n: number): boolean {
 
 - Encontrar la mayor potencia de 3 que cabe en un int de 32 bits
 - Si n divide a esa potencia, entonces n es potencia de 3
-- 3^19 = 1162261467 es la mayor potencia de 3 en rango int32
+- 3^19 = 1162261467 es la mayor potencia de 3 en rango int 32
 
 ## Casos Edge Importantes
 
@@ -195,30 +195,30 @@ export function isPowerOfThree(n: number): boolean {
 
 ```typescript
 // Potencias válidas
-isPowerOfThree(1)   → true  ✓ (3^0)
-isPowerOfThree(3)   → true  ✓ (3^1)
-isPowerOfThree(27)  → true  ✓ (3^3)
+isPowerOfThree(1) → true ✓ (3^0)
+isPowerOfThree(3) → true ✓ (3^1)
+isPowerOfThree(27) → true ✓ (3^3)
 
 // Múltiplos NO potencias
-isPowerOfThree(6)   → false ✓ (2×3)
-isPowerOfThree(12)  → false ✓ (4×3)
-isPowerOfThree(15)  → false ✓ (5×3)
+isPowerOfThree(6) → false ✓ (2×3)
+isPowerOfThree(12) → false ✓ (4×3)
+isPowerOfThree(15) → false ✓ (5×3)
 
 // Casos edge
-isPowerOfThree(0)   → false ✓
-isPowerOfThree(-3)  → false ✓
+isPowerOfThree(0) → false ✓
+isPowerOfThree(-3) → false ✓
 ```
 
 ## Complejidad Comparativa
 
-| Enfoque                | Tiempo   | Espacio  | Elegancia  | Recomendado      |
+| Enfoque | Tiempo | Espacio | Elegancia | Recomendado |
 |
 
 ---------------- | -------- | -------- | ---------- | ---------------- |
-| **División iterativa** | O(log n) | O(1)     | ⭐⭐⭐     | Para aprendizaje |
-| **Número mágico**      | **O(1)** | **O(1)** | ⭐⭐⭐⭐⭐ | **✅ Óptimo**    |
-| **Recursión**          | O(log n) | O(log n) | ⭐⭐       | Educativo        |
-| **Logaritmos**         | O(1)     | O(1)     | ⭐         | ❌ Problemático  |
+| **División iterativa** | O(log n) | O(1) | ⭐⭐⭐ | Para aprendizaje |
+| **Número mágico** | **O(1)** | **O(1)** | ⭐⭐⭐⭐⭐ | **✅ Óptimo** |
+| **Recursión** | O(log n) | O(log n) | ⭐⭐ | Educativo |
+| **Logaritmos** | O(1) | O(1) | ⭐ | ❌ Problemático |
 
 ## Reflexiones para Entrevistas Técnicas
 
@@ -233,7 +233,7 @@ isPowerOfThree(-3)  → false ✓
 
 - **Pregunta de seguimiento**: "Sin bucles ni recursión" → número mágico
 - **Factorización prima**: Por qué 6 falla pero 9 no
-- **Límites de integers**: 3^19 es el máximo en int32
+- **Límites de integers**: 3^19 es el máximo en int 32
 - **Edge cases**: Especialmente n=1 (muchos olvidan 3^0=1)
 
 ### Preguntas Adicionales Probables

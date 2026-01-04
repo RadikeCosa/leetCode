@@ -92,15 +92,15 @@ Piensa en:
 
 1. **Ordenar el array alfabéticamente** usando `.sort()`
 2. **Verificar casos extremos:**
-   - Array vacío → retornar `""`
-   - Primer string vacío → retornar `""` (los strings vacíos quedan al inicio después del ordenamiento)
+ - Array vacío → retornar `""`
+ - Primer string vacío → retornar `""` (los strings vacíos quedan al inicio después del ordenamiento)
 3. **Obtener referencias:**
-   - Primer string: `sortedArray[0]`
-   - Último string: `sortedArray[sortedArray.length - 1]`
+ - Primer string: `sortedArray[0]`
+ - Último string: `sortedArray[sortedArray.length - 1]`
 4. **Calcular límite de comparación:** `Math.min(firstString.length, lastString.length)`
 5. **Comparar carácter por carácter:**
-   - Si coinciden → agregar al resultado
-   - Si difieren → usar `break` para salir inmediatamente
+ - Si coinciden → agregar al resultado
+ - Si difieren → usar `break` para salir inmediatamente
 6. **Retornar el prefijo común construido**
 
 ### Ejemplo de ejecución:
@@ -110,9 +110,9 @@ Input: ["flower", "flow", "flight"]
 
 1. Ordenamiento: ["flight", "flow", "flower"]
 2. Comparar "flight" vs "flower":
-   - Posición 0: 'f' === 'f' ✅ → commonPrefix = "f"
-   - Posición 1: 'l' === 'l' ✅ → commonPrefix = "fl"
-   - Posición 2: 'i' !== 'o' ❌ → break
+ - Posición 0: 'f' === 'f' ✅ → commonPrefix = "f"
+ - Posición 1: 'l' === 'l' ✅ → commonPrefix = "fl"
+ - Posición 2: 'i' !== 'o' ❌ → break
 3. Resultado: "fl"
 ```
 
@@ -131,12 +131,12 @@ Input: ["flower", "flow", "flight"]
 
 ## Casos Extremos Manejados
 
-✅ **Array vacío:** `[]` → `""`  
-✅ **String vacío en array:** `["abc", "", "ab"]` → `""`  
-✅ **Un solo string:** `["single"]` → `"single"`  
-✅ **Strings idénticos:** `["test", "test", "test"]` → `"test"`  
-✅ **Sin prefijo común:** `["abc", "def", "ghi"]` → `""`  
-✅ **Prefijo de un carácter:** `["a", "aa", "aaa"]` → `"a"`  
+✅ **Array vacío:** `[]` → `""` 
+✅ **String vacío en array:** `["abc", "", "ab"]` → `""` 
+✅ **Un solo string:** `["single"]` → `"single"` 
+✅ **Strings idénticos:** `["test", "test", "test"]` → `"test"` 
+✅ **Sin prefijo común:** `["abc", "def", "ghi"]` → `""` 
+✅ **Prefijo de un carácter:** `["a", "aa", "aaa"]` → `"a"` 
 ✅ **Strings de diferentes longitudes:** `["interspecies", "interstellar"]` → `"inters"`
 
 ## Ventajas del Enfoque
@@ -171,18 +171,18 @@ Input: ["flower", "flow", "flight"]
 
 ```typescript
 function longestCommonPrefix(strs: string[]): string {
-  let commonPrefix = "";
-  let sortedArray = strs.sort();
-  if (sortedArray.length === 0) return commonPrefix;
-  if (sortedArray[0] === "") return commonPrefix;
-  let firstString = sortedArray[0];
-  let lastString = sortedArray[sortedArray.length - 1];
-  let limit = Math.min(firstString.length, lastString.length);
-  for (let i = 0; i < limit; i++) {
-    if (firstString[i] !== lastString[i]) break;
-    commonPrefix += firstString[i];
-  }
+ let commonPrefix = "";
+ let sortedArray = strs.sort();
+ if (sortedArray.length === 0) return commonPrefix;
+ if (sortedArray[0] === "") return commonPrefix;
+ let firstString = sortedArray[0];
+ let lastString = sortedArray[sortedArray.length - 1];
+ let limit = Math.min(firstString.length, lastString.length);
+ for (let i = 0; i < limit; i++) {
+ if (firstString[i] !== lastString[i]) break;
+ commonPrefix += firstString[i];
+ }
 
-  return commonPrefix;
+ return commonPrefix;
 }
 ```

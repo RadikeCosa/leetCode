@@ -19,12 +19,12 @@ Primero implementé una versión explícita para entender claramente el mecanism
 
 ```typescript
 export function createCounter(n: number): () => number {
-  let currentValue = n;
-  return function (): number {
-    const returnValue = currentValue; // Guardo el valor a retornar
-    currentValue++; // Incremento para la próxima llamada
-    return returnValue; // Retorno el valor guardado
-  };
+ let currentValue = n;
+ return function (): number {
+ const returnValue = currentValue; // Guardo el valor a retornar
+ currentValue++; // Incremento para la próxima llamada
+ return returnValue; // Retorno el valor guardado
+ };
 }
 ```
 
@@ -36,9 +36,9 @@ Después descubrí que JavaScript tiene un operador que hace exactamente esto:
 
 ```typescript
 export function createCounter(n: number): () => number {
-  return function (): number {
-    return n++; // Post-incremento: retorna n actual, luego incrementa
-  };
+ return function (): number {
+ return n++; // Post-incremento: retorna n actual, luego incrementa
+ };
 }
 ```
 
@@ -76,9 +76,9 @@ No hay estructuras de datos adicionales, solo una variable primitiva mantenida p
 
 ```ts
 export function createCounter(n: number): () => number {
-  return function (): number {
-    return n++;
-  };
+ return function (): number {
+ return n++;
+ };
 }
 ```
 
@@ -86,12 +86,12 @@ export function createCounter(n: number): () => number {
 
 ```ts
 export function createCounter(n: number): () => number {
-  let currentValue = n;
-  return function (): number {
-    const returnValue = currentValue;
-    currentValue++;
-    return returnValue;
-  };
+ let currentValue = n;
+ return function (): number {
+ const returnValue = currentValue;
+ currentValue++;
+ return returnValue;
+ };
 }
 ```
 

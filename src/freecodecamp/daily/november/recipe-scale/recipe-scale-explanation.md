@@ -46,12 +46,12 @@ El enfoque elegido es iterar sobre cada ingrediente en el array, dividir la cade
 iteramos sobre cada elemento del array de ingredientes usando un bucle for. Dentro del bucle, dividimos cada cadena en sus componentes usando `split(" ")` y deconstrucción de arrays para asignar la cantidad, unidad e ingrediente a variables separadas. Luego, convertimos la cantidad a un número flotante y la multiplicamos por el factor de escala. Finalmente, reconstruimos la cadena usando template literals y actualizamos el array original con la nueva cadena escalada.
 
 `function scaleRecipe(ingredients, scale) {
-  for (let i = 0; i < ingredients.length; i++) {
-    const [quantity, unit, ...ingredientParts] = ingredients[i].split(" ");
-    const ingredient = ingredientParts.join(" ");
-    const scaledQuantity = parseFloat(quantity) * scale;
-    ingredients[i] =`${scaledQuantity} ${unit} ${ingredient}`;
-  }
+ for (let i = 0; i < ingredients.length; i++) {
+ const [quantity, unit, ...ingredientParts] = ingredients[i].split(" ");
+ const ingredient = ingredientParts.join(" ");
+ const scaledQuantity = parseFloat(quantity) * scale;
+ ingredients[i] =`${scaledQuantity} ${unit} ${ingredient}`;
+ }
 return ingredients;
 }`
 

@@ -63,13 +63,13 @@ let longestWord = "";
 let maxLength = 0;
 
 for (const word of words) {
-  // Remover puntos para medir longitud correcta
-  const cleanWord = word.replace(/\./g, "");
+ // Remover puntos para medir longitud correcta
+ const cleanWord = word.replace(/\./g, "");
 
-  if (cleanWord.length > maxLength) {
-    maxLength = cleanWord.length;
-    longestWord = word; // Retornamos la palabra original (con punto si lo tenía)
-  }
+ if (cleanWord.length > maxLength) {
+ maxLength = cleanWord.length;
+ longestWord = word; // Retornamos la palabra original (con punto si lo tenía)
+ }
 }
 ```
 
@@ -83,9 +83,9 @@ for (const word of words) {
 
 ```javascript
 return sentence.split(" ").reduce((longest, current) => {
-  const currentClean = current.replace(/\./g, "");
-  const longestClean = longest.replace(/\./g, "");
-  return currentClean.length > longestClean.length ? current : longest;
+ const currentClean = current.replace(/\./g, "");
+ const longestClean = longest.replace(/\./g, "");
+ return currentClean.length > longestClean.length ? current : longest;
 }, "");
 ```
 
@@ -95,16 +95,16 @@ return sentence.split(" ").reduce((longest, current) => {
 
 ```javascript
 function getLongestWord(sentence) {
-  const words = sentence.split(" ");
-  let longestWord = "";
+ const words = sentence.split(" ");
+ let longestWord = "";
 
-  for (let word of words) {
-    const cleanedWord = word.replace(/\./g, "");
-    if (cleanedWord.length > longestWord.length) {
-      longestWord = cleanedWord;
-    }
-  }
-  return longestWord;
+ for (let word of words) {
+ const cleanedWord = word.replace(/\./g, "");
+ if (cleanedWord.length > longestWord.length) {
+ longestWord = cleanedWord;
+ }
+ }
+ return longestWord;
 }
 ```
 
@@ -123,10 +123,10 @@ const words = sentence.split(" ");
 
 ```javascript
 for (let word of words) {
-  const cleanedWord = word.replace(/\./g, "");
-  if (cleanedWord.length > longestWord.length) {
-    longestWord = cleanedWord;
-  }
+ const cleanedWord = word.replace(/\./g, "");
+ if (cleanedWord.length > longestWord.length) {
+ longestWord = cleanedWord;
+ }
 }
 ```
 
@@ -141,8 +141,8 @@ for (let word of words) {
 ```javascript
 // Menos legible y sin beneficio de rendimiento
 return sentence.split(" ").reduce((longest, word) => {
-  const clean = word.replace(/\./g, "");
-  return clean.length > longest.length ? clean : longest;
+ const clean = word.replace(/\./g, "");
+ return clean.length > longest.length ? clean : longest;
 }, "");
 ```
 
@@ -150,23 +150,23 @@ return sentence.split(" ").reduce((longest, word) => {
 
 ```javascript
 function getLongestWord(sentence) {
-  const words = sentence.split(" ");
-  let longestWord = "";
-  let maxLength = 0;
+ const words = sentence.split(" ");
+ let longestWord = "";
+ let maxLength = 0;
 
-  for (let word of words) {
-    // Optimización: contar caracteres sin crear string nuevo
-    let currentLength = 0;
-    for (let char of word) {
-      if (char !== ".") currentLength++;
-    }
+ for (let word of words) {
+ // Optimización: contar caracteres sin crear string nuevo
+ let currentLength = 0;
+ for (let char of word) {
+ if (char !== ".") currentLength++;
+ }
 
-    if (currentLength > maxLength) {
-      maxLength = currentLength;
-      longestWord = word.replace(/\./g, ""); // Solo una vez al final
-    }
-  }
-  return longestWord;
+ if (currentLength > maxLength) {
+ maxLength = currentLength;
+ longestWord = word.replace(/\./g, ""); // Solo una vez al final
+ }
+ }
+ return longestWord;
 }
 ```
 
@@ -174,20 +174,20 @@ function getLongestWord(sentence) {
 
 ```javascript
 function getLongestWord(sentence) {
-  const words = sentence.split(" ");
-  let longestWord = "";
-  let maxLength = 0;
+ const words = sentence.split(" ");
+ let longestWord = "";
+ let maxLength = 0;
 
-  for (const word of words) {
-    // Solo calcular longitud sin puntos, no crear string nuevo
-    const lengthWithoutDots = word.length - (word.match(/\./g) || []).length;
+ for (const word of words) {
+ // Solo calcular longitud sin puntos, no crear string nuevo
+ const lengthWithoutDots = word.length - (word.match(/\./g) || []).length;
 
-    if (lengthWithoutDots > maxLength) {
-      maxLength = lengthWithoutDots;
-      longestWord = word.replace(/\./g, "");
-    }
-  }
-  return longestWord;
+ if (lengthWithoutDots > maxLength) {
+ maxLength = lengthWithoutDots;
+ longestWord = word.replace(/\./g, "");
+ }
+ }
+ return longestWord;
 }
 ```
 
@@ -230,7 +230,7 @@ O(n) - Se crea el array `words` que contiene todas las palabras de la oración
 
 **Palabras vacías o espacios múltiples:**
 
-- `getLongestWord("hello  world")` → Crearía elemento vacío en array
+- `getLongestWord("hello world")` → Crearía elemento vacío en array
 
 **Solo puntos:**
 

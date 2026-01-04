@@ -30,34 +30,34 @@ This approach ensures we catch both types of violations:
 
 ```typescript
 export function isIsomorphic(s: string, t: string): boolean {
-  const sToT = new Map<string, string>(); // s → t
-  const tToS = new Map<string, string>(); // t → s
-  const n = s.length;
+ const sToT = new Map<string, string>(); // s → t
+ const tToS = new Map<string, string>(); // t → s
+ const n = s.length;
 
-  for (let i = 0; i < n; i++) {
-    const charS = s[i];
-    const charT = t[i];
+ for (let i = 0; i < n; i++) {
+ const charS = s[i];
+ const charT = t[i];
 
-    // Check s → t mapping
-    if (sToT.has(charS)) {
-      if (sToT.get(charS) !== charT) {
-        return false;
-      }
-    } else {
-      sToT.set(charS, charT);
-    }
+ // Check s → t mapping
+ if (sToT.has(charS)) {
+ if (sToT.get(charS) !== charT) {
+ return false;
+ }
+ } else {
+ sToT.set(charS, charT);
+ }
 
-    // Check t → s mapping
-    if (tToS.has(charT)) {
-      if (tToS.get(charT) !== charS) {
-        return false;
-      }
-    } else {
-      tToS.set(charT, charS);
-    }
-  }
+ // Check t → s mapping
+ if (tToS.has(charT)) {
+ if (tToS.get(charT) !== charS) {
+ return false;
+ }
+ } else {
+ tToS.set(charT, charS);
+ }
+ }
 
-  return true;
+ return true;
 }
 ```
 

@@ -73,9 +73,9 @@ Este es un problema clásico de **frequency counting** (conteo de frecuencias). 
 
 1. **Fase 1 - Conteo**: Crear un HashMap con la frecuencia de cada carácter en `magazine`
 2. **Fase 2 - Verificación**: Por cada carácter en `ransomNote`:
-   - Verificar si existe y tiene cantidad > 0
-   - Decrementar el contador (simular "uso" del carácter)
-   - Si no hay suficientes, retornar `false`
+ - Verificar si existe y tiene cantidad > 0
+ - Decrementar el contador (simular "uso" del carácter)
+ - Si no hay suficientes, retornar `false`
 3. **Resultado**: Si completamos toda la verificación, retornar `true`
 
 #### Ejemplo detallado:
@@ -100,10 +100,10 @@ Resultado: true (pudimos usar todos los caracteres)
 ### Complejidad
 
 - **Tiempo:** O(n + m) donde n = longitud de `ransomNote`, m = longitud de `magazine`
-  - O(m) para contar caracteres del magazine
-  - O(n) para verificar caracteres del ransomNote
+ - O(m) para contar caracteres del magazine
+ - O(n) para verificar caracteres del ransomNote
 - **Espacio:** O(k) donde k = número de caracteres únicos en `magazine`
-  - En el peor caso O(26) para letras minúsculas del inglés = O(1)
+ - En el peor caso O(26) para letras minúsculas del inglés = O(1)
 
 ### Optimizaciones Implementadas
 
@@ -142,9 +142,9 @@ Resultado: true (pudimos usar todos los caracteres)
 ```typescript
 // ❌ Ineficiente: por cada char en ransomNote, buscar en magazine
 for (let char of ransomNote) {
-  let index = magazine.indexOf(char);
-  if (index === -1) return false;
-  magazine = magazine.slice(0, index) + magazine.slice(index + 1);
+ let index = magazine.indexOf(char);
+ if (index === -1) return false;
+ magazine = magazine.slice(0, index) + magazine.slice(index + 1);
 }
 ```
 

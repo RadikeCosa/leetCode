@@ -12,8 +12,8 @@ The mathematical approach:
 
 - We need 2^k - 1 >= n
 - Therefore 2^k >= n + 1
-- So k >= log2(n + 1)
-- k = ceil(log2(n + 1))
+- So k >= log 2(n + 1)
+- k = ceil(log 2(n + 1))
 
 Then the result is 2^k - 1.
 
@@ -26,7 +26,7 @@ Then the result is 2^k - 1.
 
 ```typescript
 function smallestNumber(n: number): number {
-  const k = Math.ceil(Math.log2(n + 1));
-  return (1 << k) - 1;
+ const k = Math.ceil(Math.log 2(n + 1));
+ return (1 << k) - 1;
 }
 ```

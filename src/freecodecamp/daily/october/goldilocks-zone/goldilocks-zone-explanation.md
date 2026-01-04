@@ -56,11 +56,11 @@ Para mejorar la eficiencia y la legibilidad, se puede evitar calcular dos veces 
 
 ```javascript
 function goldilocksZone(mass) {
-  const luminosity = mass ** 3.5;
-  const sqrtLuminosity = Math.sqrt(luminosity);
-  const start = 0.95 * sqrtLuminosity;
-  const end = 1.37 * sqrtLuminosity;
-  return [parseFloat(start.toFixed(2)), parseFloat(end.toFixed(2))];
+ const luminosity = mass ** 3.5;
+ const sqrtLuminosity = Math.sqrt(luminosity);
+ const start = 0.95 * sqrtLuminosity;
+ const end = 1.37 * sqrtLuminosity;
+ return [parseFloat(start.toFixed(2)), parseFloat(end.toFixed(2))];
 }
 ```
 

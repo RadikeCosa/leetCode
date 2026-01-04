@@ -84,7 +84,7 @@ Este problema requiere comparar dos strings para determinar si son anagramas, lo
 
 - Strings vacíos: `""` y `""` → true (mismos caracteres: ninguno)
 - Un string vacío y uno no vacío: `""` y `"a"` → false
-- Solo espacios: `"   "` y `"   "` → true (después de normalizar quedan vacíos)
+- Solo espacios: `" "` y `" "` → true (después de normalizar quedan vacíos)
 - Diferentes espacios: `"a b"` y `"ab"` → true
 - Mismas letras diferente frecuencia: `"aa"` y `"a"` → false
 - Caracteres especiales: `"a!"` y `"!a"` → true (si consideramos solo letras)
@@ -99,12 +99,12 @@ Este problema requiere comparar dos strings para determinar si son anagramas, lo
 Se implementó un enfoque funcional usando ordenamiento de caracteres:
 
 ```javascript
-function areAnagrams(str1, str2) {
-  // normalizar las cadenas: eliminar espacios y convertir a minúsculas
-  const normalize = (str) =>
-    str.replace(/\s+/g, "").toLowerCase().split("").sort().join("");
+function areAnagrams(str 1, str 2) {
+ // normalizar las cadenas: eliminar espacios y convertir a minúsculas
+ const normalize = (str) =>
+ str.replace(/\s+/g, "").toLowerCase().split("").sort().join("");
 
-  return normalize(str1) === normalize(str2);
+ return normalize(str 1) === normalize(str 2);
 }
 ```
 
@@ -133,31 +133,31 @@ function areAnagrams(str1, str2) {
 **Cómo funciona:**
 
 ```javascript
-function areAnagrams(str1, str2) {
-  const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
+function areAnagrams(str 1, str 2) {
+ const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
 
-  const countFreq = (str) => {
-    const freq = {};
-    for (let char of str) {
-      freq[char] = (freq[char] || 0) + 1;
-    }
-    return freq;
-  };
+ const countFreq = (str) => {
+ const freq = {};
+ for (let char of str) {
+ freq[char] = (freq[char] || 0) + 1;
+ }
+ return freq;
+ };
 
-  const freq1 = countFreq(normalize(str1));
-  const freq2 = countFreq(normalize(str2));
+ const freq 1 = countFreq(normalize(str 1));
+ const freq 2 = countFreq(normalize(str 2));
 
-  // Comparar frecuencias
-  const keys1 = Object.keys(freq1);
-  const keys2 = Object.keys(freq2);
+ // Comparar frecuencias
+ const keys 1 = Object.keys(freq 1);
+ const keys 2 = Object.keys(freq 2);
 
-  if (keys1.length !== keys2.length) return false;
+ if (keys 1.length !== keys 2.length) return false;
 
-  for (let key of keys1) {
-    if (freq1[key] !== freq2[key]) return false;
-  }
+ for (let key of keys 1) {
+ if (freq 1[key] !== freq 2[key]) return false;
+ }
 
-  return true;
+ return true;
 }
 ```
 
@@ -180,24 +180,24 @@ function areAnagrams(str1, str2) {
 **Cómo funciona:**
 
 ```javascript
-function areAnagrams(str1, str2) {
-  const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
+function areAnagrams(str 1, str 2) {
+ const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
 
-  const countFreq = (str) => {
-    const freq = new Array(26).fill(0);
-    for (let char of str) {
-      const code = char.charCodeAt(0) - 97; // 'a' = 0, 'b' = 1, etc.
-      if (code >= 0 && code < 26) {
-        freq[code]++;
-      }
-    }
-    return freq;
-  };
+ const countFreq = (str) => {
+ const freq = new Array(26).fill(0);
+ for (let char of str) {
+ const code = char.charCodeAt(0) - 97; // 'a' = 0, 'b' = 1, etc.
+ if (code >= 0 && code < 26) {
+ freq[code]++;
+ }
+ }
+ return freq;
+ };
 
-  const freq1 = countFreq(normalize(str1));
-  const freq2 = countFreq(normalize(str2));
+ const freq 1 = countFreq(normalize(str 1));
+ const freq 2 = countFreq(normalize(str 2));
 
-  return freq1.every((count, index) => count === freq2[index]);
+ return freq 1.every((count, index) => count === freq 2[index]);
 }
 ```
 
@@ -220,27 +220,27 @@ function areAnagrams(str1, str2) {
 **Cómo funciona:**
 
 ```javascript
-function areAnagrams(str1, str2) {
-  const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
+function areAnagrams(str 1, str 2) {
+ const normalize = (str) => str.replace(/\s+/g, "").toLowerCase();
 
-  const countFreq = (str) => {
-    const freq = new Map();
-    for (let char of str) {
-      freq.set(char, (freq.get(char) || 0) + 1);
-    }
-    return freq;
-  };
+ const countFreq = (str) => {
+ const freq = new Map();
+ for (let char of str) {
+ freq.set(char, (freq.get(char) || 0) + 1);
+ }
+ return freq;
+ };
 
-  const freq1 = countFreq(normalize(str1));
-  const freq2 = countFreq(normalize(str2));
+ const freq 1 = countFreq(normalize(str 1));
+ const freq 2 = countFreq(normalize(str 2));
 
-  if (freq1.size !== freq2.size) return false;
+ if (freq 1.size !== freq 2.size) return false;
 
-  for (let [char, count] of freq1) {
-    if (freq2.get(char) !== count) return false;
-  }
+ for (let [char, count] of freq 1) {
+ if (freq 2.get(char) !== count) return false;
+ }
 
-  return true;
+ return true;
 }
 ```
 
@@ -282,11 +282,11 @@ Se eligió el enfoque de ordenamiento por las siguientes razones:
 **Enfoque implementado (Ordenamiento):**
 
 - **Tiempo**: O(n log n) donde n es longitud máxima de los strings
-  - Normalización: O(n)
-  - Split: O(n)
-  - Sort: O(n log n) - cuello de botella
-  - Join: O(n)
-  - Comparación: O(n)
+ - Normalización: O(n)
+ - Split: O(n)
+ - Sort: O(n log n) - cuello de botella
+ - Join: O(n)
+ - Comparación: O(n)
 - **Espacio**: O(n) para strings temporales creadas durante el proceso
 
 **Enfoque con Hash Map:**
@@ -301,13 +301,13 @@ Se eligió el enfoque de ordenamiento por las siguientes razones:
 
 ### Comparación de Rendimiento
 
-| Enfoque      | Tiempo     | Espacio | Mejor para                            |
+| Enfoque | Tiempo | Espacio | Mejor para |
 |
 
 ------ | ---------- | ------- | ------------------------------------- |
-| Ordenamiento | O(n log n) | O(n)    | Strings cortos (<1000 chars)          |
-| Hash Map     | O(n)       | O(k)    | Strings largos, flexibilidad          |
-| Array Conteo | O(n)       | O(1)    | Alfabeto limitado, máximo rendimiento |
+| Ordenamiento | O(n log n) | O(n) | Strings cortos (<1000 chars) |
+| Hash Map | O(n) | O(k) | Strings largos, flexibilidad |
+| Array Conteo | O(n) | O(1) | Alfabeto limitado, máximo rendimiento |
 
 ### Consideraciones Prácticas
 

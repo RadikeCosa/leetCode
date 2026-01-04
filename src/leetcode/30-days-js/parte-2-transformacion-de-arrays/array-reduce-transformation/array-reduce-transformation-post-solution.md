@@ -25,11 +25,11 @@ The beauty of reduce is that it handles empty arrays naturally - if there are no
 type Fn = (accum: number, curr: number) => number;
 
 export function reduce(nums: number[], fn: Fn, init: number): number {
-  let acc = init;
-  for (let i = 0; i < nums.length; i++) {
-    acc = fn(acc, nums[i]);
-  }
-  return acc;
+ let acc = init;
+ for (let i = 0; i < nums.length; i++) {
+ acc = fn(acc, nums[i]);
+ }
+ return acc;
 }
 ```
 

@@ -29,11 +29,11 @@ Dado un string que representa un número hexadecimal, devolver su valor decimal 
 ### Ejemplos
 
 ```javascript
-hexToDecimal("A"); // → 10  (A = 10)
-hexToDecimal("15"); // → 21  (1×16¹ + 5×16⁰ = 16 + 5 = 21)
-hexToDecimal("2E"); // → 46  (2×16¹ + E×16⁰ = 32 + 14 = 46)
+hexToDecimal("A"); // → 10 (A = 10)
+hexToDecimal("15"); // → 21 (1×16¹ + 5×16⁰ = 16 + 5 = 21)
+hexToDecimal("2 E"); // → 46 (2×16¹ + E×16⁰ = 32 + 14 = 46)
 hexToDecimal("FF"); // → 255 (F×16¹ + F×16⁰ = 15×16 + 15×1 = 240 + 15 = 255)
-hexToDecimal("A3F"); // → 2623
+hexToDecimal("A 3 F"); // → 2623
 ```
 
 ## 🔍 Análisis del Problema
@@ -69,15 +69,15 @@ JavaScript tiene una función incorporada `parseInt()` que puede convertir strin
 
 ```javascript
 function hexToDecimal(hex) {
-  return parseInt(hex, 16);
+ return parseInt(hex, 16);
 }
 ```
 
-#### Explicación paso a paso con "2E"
+#### Explicación paso a paso con "2 E"
 
 ```javascript
-parseInt("2E", 16);
-// 1. Interpreta "2E" como número en base 16
+parseInt("2 E", 16);
+// 1. Interpreta "2 E" como número en base 16
 // 2. '2' = 2, 'E' = 14
 // 3. Calcula: 2×16¹ + 14×16⁰ = 32 + 14 = 46
 // 4. Retorna: 46
@@ -104,8 +104,8 @@ parseInt("2E", 16);
 - **Scripts simples**: Donde la claridad del código no es prioridad
 
 - | -------- | ----------------------- | ------------- | ------------- |
-| 1    | '2'      | `charToValue('2')` = 2  | `0 × 16 + 2`  | `result = 2`  |
-| 2    | 'E'      | `charToValue('E')` = 14 | `2 × 16 + 14` | `result = 46` |
+| 1 | '2' | `charToValue('2')` = 2 | `0 × 16 + 2` | `result = 2` |
+| 2 | 'E' | `charToValue('E')` = 14 | `2 × 16 + 14` | `result = 46` |
 
 **¿Por qué funciona `result * 16 + digit`?**
 
@@ -144,37 +144,37 @@ Utiliza recursión para procesar cada dígito, donde cada llamada maneja un díg
 
 ```javascript
 function hexToDecimalRecursive(hex, index = 0) {
-  // Caso base: hemos procesado todos los dígitos
-  if (index >= hex.length) {
-    return 0;
-  }
+ // Caso base: hemos procesado todos los dígitos
+ if (index >= hex.length) {
+ return 0;
+ }
 
-  // Función auxiliar para convertir carácter a valor
-  function charToValue(char) {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else if (char >= "A" && char <= "F") {
-      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
-    }
-    return -1;
-  }
+ // Función auxiliar para convertir carácter a valor
+ function charToValue(char) {
+ if (char >= "0" && char <= "9") {
+ return char.charCodeAt(0) - "0".charCodeAt(0);
+ } else if (char >= "A" && char <= "F") {
+ return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+ }
+ return -1;
+ }
 
-  // Procesar dígito actual (empezando desde la derecha)
-  const currentChar = hex[hex.length - 1 - index];
-  const digitValue = charToValue(currentChar);
+ // Procesar dígito actual (empezando desde la derecha)
+ const currentChar = hex[hex.length - 1 - index];
+ const digitValue = charToValue(currentChar);
 
-  // Fórmula recursiva: valor_actual × 16^posición + resto
-  const power = Math.pow(16, index);
-  const currentContribution = digitValue * power;
+ // Fórmula recursiva: valor_actual × 16^posición + resto
+ const power = Math.pow(16, index);
+ const currentContribution = digitValue * power;
 
-  return currentContribution + hexToDecimalRecursive(hex, index + 1);
+ return currentContribution + hexToDecimalRecursive(hex, index + 1);
 }
 ```
 
-#### Explicación paso a paso con "2E"
+#### Explicación paso a paso con "2 E"
 
 ```text
-**Llamada inicial:** `hexToDecimalRecursive("2E", 0)`
+**Llamada inicial:** `hexToDecimalRecursive("2 E", 0)`
 
 - `index = 0` (posición menos significativa)
 - `currentChar = hex[2-1-0] = hex[1] = 'E'`
@@ -182,7 +182,7 @@ function hexToDecimalRecursive(hex, index = 0) {
 - `power = 16^0 = 1`
 - `currentContribution = 14 × 1 = 14`
 
-**Llamada recursiva:** `hexToDecimalRecursive("2E", 1)`
+**Llamada recursiva:** `hexToDecimalRecursive("2 E", 1)`
 
 - `index = 1` (siguiente posición)
 - `currentChar = hex[2-1-1] = hex[0] = '2'`
@@ -190,7 +190,7 @@ function hexToDecimalRecursive(hex, index = 0) {
 - `power = 16^1 = 16`
 - `currentContribution = 2 × 16 = 32`
 
-**Llamada final:** `hexToDecimalRecursive("2E", 2)`
+**Llamada final:** `hexToDecimalRecursive("2 E", 2)`
 
 - `index = 2 >= length(2)`, retorna 0
 
@@ -228,39 +228,39 @@ Utiliza métodos funcionales de arrays (split, map, reduce) para un enfoque decl
 
 ```javascript
 function hexToDecimal(hex) {
-  // Función auxiliar para conversión carácter → valor
-  function charToValue(char) {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else if (char >= "A" && char <= "F") {
-      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
-    }
-    return -1;
-  }
+ // Función auxiliar para conversión carácter → valor
+ function charToValue(char) {
+ if (char >= "0" && char <= "9") {
+ return char.charCodeAt(0) - "0".charCodeAt(0);
+ } else if (char >= "A" && char <= "F") {
+ return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+ }
+ return -1;
+ }
 
-  return hex
-    .split("") // String → Array de caracteres
-    .map((char) => charToValue(char)) // Cada char → valor numérico
-    .reduce((result, digit) => {
-      // Acumulador funcional
-      return result * 16 + digit;
-    }, 0); // Valor inicial = 0
+ return hex
+ .split("") // String → Array de caracteres
+ .map((char) => charToValue(char)) // Cada char → valor numérico
+ .reduce((result, digit) => {
+ // Acumulador funcional
+ return result * 16 + digit;
+ }, 0); // Valor inicial = 0
 }
 ```
 
-#### Explicación paso a paso con "2E"
+#### Explicación paso a paso con "2 E"
 
 ```javascript
-"2E"
-  .split("") // ['2', 'E']
-  .map(charToValue) // [2, 14]
-  .reduce((result, digit) => result * 16 + digit, 0);
+"2 E"
+ .split("") // ['2', 'E']
+ .map(charToValue) // [2, 14]
+ .reduce((result, digit) => result * 16 + digit, 0);
 
 // Iteración 1: result = 0, digit = 2
-//   0 * 16 + 2 = 2
+// 0 * 16 + 2 = 2
 
 // Iteración 2: result = 2, digit = 14
-//   2 * 16 + 14 = 46
+// 2 * 16 + 14 = 46
 ```
 
 #### Ventajas
@@ -268,7 +268,7 @@ function hexToDecimal(hex) {
 - ✅ **Declarativo**: Describe qué hacer, no cómo hacerlo
 - ✅ **Funcional**: Sin bucles, sin variables mutables
 - ✅ **Componible**: Fácil combinar con otras operaciones funcionales
-- ✅ **Moderno**: Usa paradigmas funcionales de JavaScript ES6+
+- ✅ **Moderno**: Usa paradigmas funcionales de JavaScript ES 6+
 - ✅ **Legible**: Una vez entendido el patrón, es muy claro
 
 #### Desventajas
@@ -281,7 +281,7 @@ function hexToDecimal(hex) {
 #### ¿Cuándo usarlo
 
 - **Programación funcional**: Cuando sigues principios funcionales
-- **Código moderno**: En aplicaciones React, Node.js con ES6+
+- **Código moderno**: En aplicaciones React, Node.js con ES 6+
 - **Pipelines de datos**: Cuando combinas múltiples transformaciones
 - **Aprendizaje**: Para entender programación funcional
 
@@ -295,51 +295,51 @@ Convierte primero hexadecimal a binario, luego binario a decimal. Muestra el pro
 
 ```javascript
 function hexToDecimal(hex) {
-  // Tabla de conversión hex → binario (4 bits cada dígito)
-  const hexToBinaryMap = {
-    0: "0000",
-    1: "0001",
-    2: "0010",
-    3: "0011",
-    4: "0100",
-    5: "0101",
-    6: "0110",
-    7: "0111",
-    8: "1000",
-    9: "1001",
-    A: "1010",
-    B: "1011",
-    C: "1100",
-    D: "1101",
-    E: "1110",
-    F: "1111",
-  };
+ // Tabla de conversión hex → binario (4 bits cada dígito)
+ const hexToBinaryMap = {
+ 0: "0000",
+ 1: "0001",
+ 2: "0010",
+ 3: "0011",
+ 4: "0100",
+ 5: "0101",
+ 6: "0110",
+ 7: "0111",
+ 8: "1000",
+ 9: "1001",
+ A: "1010",
+ B: "1011",
+ C: "1100",
+ D: "1101",
+ E: "1110",
+ F: "1111",
+ };
 
-  // Función auxiliar para conversión carácter → valor decimal
-  function charToValue(char) {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else if (char >= "A" && char <= "F") {
-      return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
-    }
-    return -1;
-  }
+ // Función auxiliar para conversión carácter → valor decimal
+ function charToValue(char) {
+ if (char >= "0" && char <= "9") {
+ return char.charCodeAt(0) - "0".charCodeAt(0);
+ } else if (char >= "A" && char <= "F") {
+ return 10 + (char.charCodeAt(0) - "A".charCodeAt(0));
+ }
+ return -1;
+ }
 
-  // Paso 1: Hex → Binario
-  const binaryString = hex
-    .split("") // String → Array
-    .map((char) => {
-      const decimal = charToValue(char); // Hex char → decimal
-      return decimal.toString(2).padStart(4, "0"); // Decimal → binario (4 bits)
-    })
-    .join(""); // Array → String binario
+ // Paso 1: Hex → Binario
+ const binaryString = hex
+ .split("") // String → Array
+ .map((char) => {
+ const decimal = charToValue(char); // Hex char → decimal
+ return decimal.toString(2).padStart(4, "0"); // Decimal → binario (4 bits)
+ })
+ .join(""); // Array → String binario
 
-  // Paso 2: Binario → Decimal
-  return parseInt(binaryString, 2);
+ // Paso 2: Binario → Decimal
+ return parseInt(binaryString, 2);
 }
 ```
 
-#### Explicación paso a paso con "2E"
+#### Explicación paso a paso con "2 E"
 
 ##### Paso 1: Conversión Hex → Binario
 
@@ -385,13 +385,13 @@ parseInt('00101110', 2) = 46
 
 ### Comparación de Enfoques
 
-| Método    | Complejidad | Legibilidad | Rendimiento | Caso de Uso Principal  |
+| Método | Complejidad | Legibilidad | Rendimiento | Caso de Uso Principal |
 | --------- | ----------- | ----------- | ----------- | ---------------------- |
-| Nativo    | O(n)        | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐  | Producción rápida      |
-| Iterativo | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐⭐⭐  | Aprendizaje profundo   |
-| Recursivo | O(n)        | ⭐⭐⭐      | ⭐⭐⭐      | Teoría algorítmica     |
-| Funcional | O(n)        | ⭐⭐⭐⭐    | ⭐⭐⭐      | Programación funcional |
-| Binario   | O(n)        | ⭐⭐        | ⭐⭐        | Debugging detallado    |
+| Nativo | O(n) | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Producción rápida |
+| Iterativo | O(n) | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Aprendizaje profundo |
+| Recursivo | O(n) | ⭐⭐⭐ | ⭐⭐⭐ | Teoría algorítmica |
+| Funcional | O(n) | ⭐⭐⭐⭐ | ⭐⭐⭐ | Programación funcional |
+| Binario | O(n) | ⭐⭐ | ⭐⭐ | Debugging detallado |
 
 **Elegido para implementación**: Método iterativo manual - mejor balance entre claridad educativa, eficiencia y control.
 
@@ -401,27 +401,27 @@ parseInt('00101110', 2) = 46
 
 ```javascript
 function hexToDecimal(hex) {
-  function charToValue(char) {
-    if (char >= "0" && char <= "9") {
-      return char.charCodeAt(0) - "0".charCodeAt(0);
-    } else if (char >= "A" && char <= "F") {
-      return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
-    }
-    return -1; // Carácter inválido
-  }
+ function charToValue(char) {
+ if (char >= "0" && char <= "9") {
+ return char.charCodeAt(0) - "0".charCodeAt(0);
+ } else if (char >= "A" && char <= "F") {
+ return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
+ }
+ return -1; // Carácter inválido
+ }
 
-  let decimalValue = 0;
-  const hexLength = hex.length;
+ let decimalValue = 0;
+ const hexLength = hex.length;
 
-  for (let i = 0; i < hexLength; i++) {
-    const charValue = charToValue(hex[i]);
-    if (charValue === -1) {
-      throw new Error("Invalid hexadecimal character");
-    }
-    decimalValue = decimalValue * 16 + charValue;
-  }
+ for (let i = 0; i < hexLength; i++) {
+ const charValue = charToValue(hex[i]);
+ if (charValue === -1) {
+ throw new Error("Invalid hexadecimal character");
+ }
+ decimalValue = decimalValue * 16 + charValue;
+ }
 
-  return decimalValue;
+ return decimalValue;
 }
 ```
 
@@ -433,7 +433,7 @@ function hexToDecimal(hex) {
 
 ```javascript
 if (char >= "0" && char <= "9") {
-  return char.charCodeAt(0) - "0".charCodeAt(0);
+ return char.charCodeAt(0) - "0".charCodeAt(0);
 }
 ```
 
@@ -444,7 +444,7 @@ if (char >= "0" && char <= "9") {
 
 ```javascript
 else if (char >= "A" && char <= "F") {
-  return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
+ return char.charCodeAt(0) - "A".charCodeAt(0) + 10;
 }
 ```
 
@@ -464,11 +464,11 @@ const hexLength = hex.length;
 
 ```javascript
 for (let i = 0; i < hexLength; i++) {
-  const charValue = charToValue(hex[i]);
-  if (charValue === -1) {
-    throw new Error("Invalid hexadecimal character");
-  }
-  decimalValue = decimalValue * 16 + charValue;
+ const charValue = charToValue(hex[i]);
+ if (charValue === -1) {
+ throw new Error("Invalid hexadecimal character");
+ }
+ decimalValue = decimalValue * 16 + charValue;
 }
 ```
 
@@ -483,12 +483,12 @@ Esta fórmula acumula el resultado multiplicando por la base en cada iteración:
 Equivalente a: (2 × 16¹) + (14 × 16⁰) pero más eficiente.
 ```
 
-### Ejemplo Completo: "2E" → 46
+### Ejemplo Completo: "2 E" → 46
 
-| Paso | Carácter | Valor | Cálculo     | Resultado |
+| Paso | Carácter | Valor | Cálculo | Resultado |
 | ---- | -------- | ----- | ----------- | --------- |
-| 1    | '2'      | 2     | 0 × 16 + 2  | 2         |
-| 2    | 'E'      | 14    | 2 × 16 + 14 | 46        |
+| 1 | '2' | 2 | 0 × 16 + 2 | 2 |
+| 2 | 'E' | 14 | 2 × 16 + 14 | 46 |
 
 ## 📊 Complejidad
 

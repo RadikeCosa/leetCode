@@ -38,12 +38,12 @@ La clave está en entender que necesitamos **mantener estado** entre llamadas de
 
 ```typescript
 export function createCounter(n: number): () => number {
-  let currentValue = n;
-  return function (): number {
-    const returnValue = currentValue; // Guarda el valor actual
-    currentValue++; // Incrementa para la próxima llamada
-    return returnValue; // Retorna el valor guardado
-  };
+ let currentValue = n;
+ return function (): number {
+ const returnValue = currentValue; // Guarda el valor actual
+ currentValue++; // Incrementa para la próxima llamada
+ return returnValue; // Retorna el valor guardado
+ };
 }
 ```
 
@@ -89,19 +89,19 @@ Para `createCounter(10)`:
 |
 
 - | -------------- | ------------ | ------- | --------- |
-| 1ª      | n = 10         | 10           | 10      | n = 11    |
-| 2ª      | n = 11         | 11           | 11      | n = 12    |
-| 3ª      | n = 12         | 12           | 12      | n = 13    |
+| 1ª | n = 10 | 10 | 10 | n = 11 |
+| 2ª | n = 11 | 11 | 11 | n = 12 |
+| 3ª | n = 12 | 12 | 12 | n = 13 |
 
 ### Mecanismo de Closure:
 
 ```typescript
 function createCounter(n: number) {
-  // n vive en este scope
-  return function () {
-    // Esta función "cierra" sobre n
-    return n++; // Puede leer y modificar n
-  };
+ // n vive en este scope
+ return function () {
+ // Esta función "cierra" sobre n
+ return n++; // Puede leer y modificar n
+ };
 } // El scope no se destruye porque la función interna lo referencia
 ```
 

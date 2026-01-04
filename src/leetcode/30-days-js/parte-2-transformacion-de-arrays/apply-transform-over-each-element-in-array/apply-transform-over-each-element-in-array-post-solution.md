@@ -25,11 +25,11 @@ The function signature ensures type safety by defining `Fn` as a function that t
 type Fn = (n: number, i: number) => number;
 
 export function map(arr: number[], fn: Fn): number[] {
-  let newArr: number[] = [];
-  for (let i = 0; i < arr.length; i++) {
-    newArr.push(fn(arr[i], i));
-  }
-  return newArr;
+ let newArr: number[] = [];
+ for (let i = 0; i < arr.length; i++) {
+ newArr.push(fn(arr[i], i));
+ }
+ return newArr;
 }
 ```
 

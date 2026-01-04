@@ -29,22 +29,22 @@ The elegant part is that JavaScript handles all the timing complexity for us - w
 
 ```ts
 type JSONValue =
-  | null
-  | boolean
-  | number
-  | string
-  | JSONValue[]
-  | { [key: string]: JSONValue };
+ | null
+ | boolean
+ | number
+ | string
+ | JSONValue[]
+ | { [key: string]: JSONValue };
 type Fn = (...args: JSONValue[]) => JSONValue;
 
 export function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
-  const timerId = setTimeout(() => {
-    fn(...args);
-  }, t);
+ const timerId = setTimeout(() => {
+ fn(...args);
+ }, t);
 
-  return () => {
-    clearTimeout(timerId);
-  };
+ return () => {
+ clearTimeout(timerId);
+ };
 }
 ```
 

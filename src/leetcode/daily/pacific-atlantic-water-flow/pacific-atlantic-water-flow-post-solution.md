@@ -22,80 +22,80 @@ The water flow condition is: from cell A to cell B, water can flow if `height[B]
 
 ```typescript
 export function pacificAtlantic(heights: number[][]): number[][] {
-  const rows = heights.length;
-  const cols = heights[0].length;
-  const pacificReachable: boolean[][] = Array.from({ length: rows }, () =>
-    Array(cols).fill(false)
-  );
-  const atlanticReachable: boolean[][] = Array.from({ length: rows }, () =>
-    Array(cols).fill(false)
-  );
+ const rows = heights.length;
+ const cols = heights[0].length;
+ const pacificReachable: boolean[][] = Array.from({ length: rows }, () =>
+ Array(cols).fill(false)
+ );
+ const atlanticReachable: boolean[][] = Array.from({ length: rows }, () =>
+ Array(cols).fill(false)
+ );
 
-  const dfs = (row: number, col: number, reachable: boolean[][]) => {
-    if (
-      row < 0 ||
-      row >= rows ||
-      col < 0 ||
-      col >= cols ||
-      reachable[row][col]
-    ) {
-      return;
-    }
+ const dfs = (row: number, col: number, reachable: boolean[][]) => {
+ if (
+ row < 0 ||
+ row >= rows ||
+ col < 0 ||
+ col >= cols ||
+ reachable[row][col]
+ ) {
+ return;
+ }
 
-    reachable[row][col] = true;
-    const currentHeight = heights[row][col];
+ reachable[row][col] = true;
+ const currentHeight = heights[row][col];
 
-    const directions = [
-      [0, 1], // right
-      [0, -1], // left
-      [1, 0], // down
-      [-1, 0], // up
-    ];
+ const directions = [
+ [0, 1], // right
+ [0, -1], // left
+ [1, 0], // down
+ [-1, 0], // up
+ ];
 
-    for (const [dr, dc] of directions) {
-      const newRow = row + dr;
-      const newCol = col + dc;
+ for (const [dr, dc] of directions) {
+ const newRow = row + dr;
+ const newCol = col + dc;
 
-      if (
-        newRow >= 0 &&
-        newRow < rows &&
-        newCol >= 0 &&
-        newCol < cols &&
-        heights[newRow][newCol] <= currentHeight &&
-        !reachable[newRow][newCol]
-      ) {
-        dfs(newRow, newCol, reachable);
-      }
-    }
-  };
+ if (
+ newRow >= 0 &&
+ newRow < rows &&
+ newCol >= 0 &&
+ newCol < cols &&
+ heights[newRow][newCol] <= currentHeight &&
+ !reachable[newRow][newCol]
+ ) {
+ dfs(newRow, newCol, reachable);
+ }
+ }
+ };
 
-  // Start DFS from Pacific Ocean borders (left and top edges)
-  for (let row = 0; row < rows; row++) {
-    dfs(row, 0, pacificReachable);
-  }
-  for (let col = 0; col < cols; col++) {
-    dfs(0, col, pacificReachable);
-  }
+ // Start DFS from Pacific Ocean borders (left and top edges)
+ for (let row = 0; row < rows; row++) {
+ dfs(row, 0, pacificReachable);
+ }
+ for (let col = 0; col < cols; col++) {
+ dfs(0, col, pacificReachable);
+ }
 
-  // Start DFS from Atlantic Ocean borders (right and bottom edges)
-  for (let row = 0; row < rows; row++) {
-    dfs(row, cols - 1, atlanticReachable);
-  }
-  for (let col = 0; col < cols; col++) {
-    dfs(rows - 1, col, atlanticReachable);
-  }
+ // Start DFS from Atlantic Ocean borders (right and bottom edges)
+ for (let row = 0; row < rows; row++) {
+ dfs(row, cols - 1, atlanticReachable);
+ }
+ for (let col = 0; col < cols; col++) {
+ dfs(rows - 1, col, atlanticReachable);
+ }
 
-  // Collect cells reachable from both oceans
-  const result: number[][] = [];
-  for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-      if (pacificReachable[row][col] && atlanticReachable[row][col]) {
-        result.push([row, col]);
-      }
-    }
-  }
+ // Collect cells reachable from both oceans
+ const result: number[][] = [];
+ for (let row = 0; row < rows; row++) {
+ for (let col = 0; col < cols; col++) {
+ if (pacificReachable[row][col] && atlanticReachable[row][col]) {
+ result.push([row, col]);
+ }
+ }
+ }
 
-  return result;
+ return result;
 }
 ```
 

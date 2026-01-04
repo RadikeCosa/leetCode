@@ -56,18 +56,18 @@ La RegExp debe buscar:
 
 ```javascript
 function capitalize(paragraph) {
-  // Expresión regular:
-  // (^|[.?!]+\s*) -> Grupo 1: Inicio de línea O puntuación final + espacios opcionales
-  // ([a-z])       -> Grupo 2: La primera letra minúscula que sigue
-  return paragraph.replace(/(^|[.?!]+\s*)([a-z])/g, (match, p1, p2) => {
-    return p1 + p2.toUpperCase();
-  });
+ // Expresión regular:
+ // (^|[.?!]+\s*) -> Grupo 1: Inicio de línea O puntuación final + espacios opcionales
+ // ([a-z]) -> Grupo 2: La primera letra minúscula que sigue
+ return paragraph.replace(/(^|[.?!]+\s*)([a-z])/g, (match, p 1, p 2) => {
+ return p 1 + p 2.toUpperCase();
+ });
 }
 ```
 
 1. **Definición del patrón:** El patrón `(^|[.?!]+\s*)([a-z])` captura el contexto previo a la letra en el Grupo 1 y la letra misma en el Grupo 2.
 2. **Uso de `replace` global:** La bandera `g` asegura que procesemos todas las oraciones del párrafo.
-3. **Transformación:** La función de reemplazo concatena el contexto original (`p1`) con la versión en mayúscula de la letra (`p2.toUpperCase()`).
+3. **Transformación:** La función de reemplazo concatena el contexto original (`p 1`) con la versión en mayúscula de la letra (`p 2.toUpperCase()`).
 
 ## Análisis de Complejidad
 
@@ -99,4 +99,4 @@ Para párrafos extremadamente grandes, se podría considerar un bucle manual que
 ## Recursos y Referencias
 
 - [MDN - String.prototype.replace()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
-- [Regex101](https://regex101.com/) - Herramienta para testear y explicar expresiones regulares.
+- [Regex 101](https://regex 101.com/) - Herramienta para testear y explicar expresiones regulares.

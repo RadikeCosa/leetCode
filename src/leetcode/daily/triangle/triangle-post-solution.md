@@ -15,30 +15,30 @@ We use Dynamic Programming with bottom-up approach. Start from the bottom row wh
 
 ```typescript
 export function minimumTotal(triangle: number[][]): number {
-  const n = triangle.length;
+ const n = triangle.length;
 
-  // Base case: empty triangle
-  if (n === 0) {
-    return 0;
-  }
+ // Base case: empty triangle
+ if (n === 0) {
+ return 0;
+ }
 
-  // Base case: single element
-  if (n === 1) {
-    return triangle[0][0];
-  }
+ // Base case: single element
+ if (n === 1) {
+ return triangle[0][0];
+ }
 
-  // Ultra-efficient optimization: O(n) space, in-place modification
-  const dp = [...triangle[n - 1]];
+ // Ultra-efficient optimization: O(n) space, in-place modification
+ const dp = [...triangle[n - 1]];
 
-  // Process from second-to-last row upwards
-  for (let row = n - 2; row >= 0; row--) {
-    for (let col = 0; col <= row; col++) {
-      // dp[col] and dp[col+1] represent the options from the row below
-      dp[col] = triangle[row][col] + Math.min(dp[col], dp[col + 1]);
-    }
-  }
+ // Process from second-to-last row upwards
+ for (let row = n - 2; row >= 0; row--) {
+ for (let col = 0; col <= row; col++) {
+ // dp[col] and dp[col+1] represent the options from the row below
+ dp[col] = triangle[row][col] + Math.min(dp[col], dp[col + 1]);
+ }
+ }
 
-  return dp[0];
+ return dp[0];
 }
 ```
 

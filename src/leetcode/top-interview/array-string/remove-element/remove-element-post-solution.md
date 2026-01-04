@@ -11,9 +11,9 @@ I use the **two pointers** technique to solve this problem efficiently:
 1. **Write Pointer (`write`)**: Maintains the position where to write the next valid element
 2. **Read Pointer (`i`)**: Traverses the entire array looking for valid elements
 3. **Process**:
-   - For each element that is not equal to `val`, I copy it to position `write`
-   - I increment `write` only when I find a valid element
-   - At the end, `write` represents the number of valid elements (`k`)
+ - For each element that is not equal to `val`, I copy it to position `write`
+ - I increment `write` only when I find a valid element
+ - At the end, `write` represents the number of valid elements (`k`)
 
 The advantage of this approach is that it performs the in-place modification in a single pass, maintaining optimal complexity.# Complexity
 
@@ -24,16 +24,16 @@ The advantage of this approach is that it performs the in-place modification in 
 
 ```typescript
 export function removeElement(nums: number[], val: number): number {
-  let write = 0;
+ let write = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== val) {
-      nums[write] = nums[i];
-      write++;
-    }
-  }
+ for (let i = 0; i < nums.length; i++) {
+ if (nums[i] !== val) {
+ nums[write] = nums[i];
+ write++;
+ }
+ }
 
-  return write;
+ return write;
 }
 ```
 

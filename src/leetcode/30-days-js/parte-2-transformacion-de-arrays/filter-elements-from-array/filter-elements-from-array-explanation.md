@@ -19,7 +19,7 @@ Implementar una función que filtre elementos de un array basándose en una func
 
 **Ejemplo 1:**
 
-- Input: arr = [0,10,20,30], fn = function greaterThan10(n) { return n > 10; }
+- Input: arr = [0,10,20,30], fn = function greaterThan 10(n) { return n > 10; }
 - Output: [20,30]
 - Explicación: La función filtra valores que no son mayores que 10.
 
@@ -52,27 +52,27 @@ La solución implementa el patrón clásico de filtrado de arrays:
 
 1. **Inicialización**: Crear un array vacío `filteredArr` para almacenar elementos que pasen la condición
 
-   ```typescript
-   let filteredArr: number[] = [];
-   ```
+ ```typescript
+ let filteredArr: number[] = [];
+ ```
 
 2. **Iteración**: Recorrer cada elemento del array original usando un bucle `for`
 
-   ```typescript
-   for (let i = 0; i < arr.length; i++) {
-   ```
+ ```typescript
+ for (let i = 0; i < arr.length; i++) {
+ ```
 
 3. **Evaluación**: Aplicar la función `fn` al elemento actual y su índice para obtener un valor truthy/falsy
 
-   ```typescript
-   if (fn(arr[i], i)) {
-   ```
+ ```typescript
+ if (fn(arr[i], i)) {
+ ```
 
 4. **Filtrado**: Solo agregar el elemento original al array resultado si la función retorna truthy
 
-   ```typescript
-   filteredArr.push(arr[i]); // ¡Importante: agregamos arr[i], no fn(arr[i], i)!
-   ```
+ ```typescript
+ filteredArr.push(arr[i]); // ¡Importante: agregamos arr[i], no fn(arr[i], i)!
+ ```
 
 5. **Retorno**: Devolver el array con solo los elementos que pasaron el filtro
 
@@ -102,8 +102,8 @@ Este problema enseña conceptos fundamentales sobre:
 
 1. **Truthiness y Falsiness**: Comprender cómo JavaScript evalúa valores en contextos booleanos
 
-   - Falsy: `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`
-   - Truthy: Todo lo demás (incluyendo `"0"`, `"false"`, `[]`, `{}`, etc.)
+ - Falsy: `false`, `0`, `-0`, `0 n`, `""`, `null`, `undefined`, `NaN`
+ - Truthy: Todo lo demás (incluyendo `"0"`, `"false"`, `[]`, `{}`, etc.)
 
 2. **Filtrado de datos**: Patrón esencial para seleccionar subconjuntos de información
 3. **Funciones de predicado**: Funciones que evalúan condiciones y retornan valores de decisión

@@ -37,8 +37,8 @@ La solución implementada utiliza expresiones regulares para limpiar caracteres 
 ### Paso 1: Limpiar caracteres no alfabéticos
 
 ```javascript
-const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 ```
 
 - `[^a-zA-Z]` es una expresión regular que coincide con cualquier carácter que NO sea letra
@@ -48,21 +48,21 @@ const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
 ### Paso 2: Comparar con el reverso
 
 ```javascript
-return cleanStr1 === cleanStr2.split("").reverse().join("");
+return cleanStr 1 === cleanStr 2.split("").reverse().join("");
 ```
 
 - `split("")` convierte el string en array de caracteres
 - `reverse()` invierte el orden del array
 - `join("")` convierte el array de vuelta a string
-- Se compara directamente con `cleanStr1`
+- Se compara directamente con `cleanStr 1`
 
 ### Resultado final
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
-  return cleanStr1 === cleanStr2.split("").reverse().join("");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
+ return cleanStr 1 === cleanStr 2.split("").reverse().join("");
 }
 ```
 
@@ -74,19 +74,19 @@ function isMirror(str1, str2) {
 ### Alternativa 1: Bucle for con comparación carácter por carácter
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 
-  if (cleanStr1.length !== cleanStr2.length) return false;
+ if (cleanStr 1.length !== cleanStr 2.length) return false;
 
-  for (let i = 0; i < cleanStr1.length; i++) {
-    if (cleanStr1[i] !== cleanStr2[cleanStr2.length - 1 - i]) {
-      return false;
-    }
-  }
+ for (let i = 0; i < cleanStr 1.length; i++) {
+ if (cleanStr 1[i] !== cleanStr 2[cleanStr 2.length - 1 - i]) {
+ return false;
+ }
+ }
 
-  return true;
+ return true;
 }
 ```
 
@@ -104,15 +104,15 @@ function isMirror(str1, str2) {
 ### Alternativa 2: Usando Array.from() y every()
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 
-  if (cleanStr1.length !== cleanStr2.length) return false;
+ if (cleanStr 1.length !== cleanStr 2.length) return false;
 
-  return Array.from(cleanStr1).every(
-    (char, index) => char === cleanStr2[cleanStr2.length - 1 - index]
-  );
+ return Array.from(cleanStr 1).every(
+ (char, index) => char === cleanStr 2[cleanStr 2.length - 1 - index]
+ );
 }
 ```
 
@@ -130,14 +130,14 @@ function isMirror(str1, str2) {
 ### Alternativa 3: Usando reduce para construir el reverso
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 
-  const reversedStr2 = cleanStr2
-    .split("")
-    .reduce((acc, char) => char + acc, "");
-  return cleanStr1 === reversedStr2;
+ const reversedStr 2 = cleanStr 2
+ .split("")
+ .reduce((acc, char) => char + acc, "");
+ return cleanStr 1 === reversedStr 2;
 }
 ```
 
@@ -151,22 +151,22 @@ Para entender `reduce((acc, char) => char + acc, "")`, vamos paso a paso con el 
 
 2. **Primera iteración**: `char = "H"`
 
-   - `char + acc` = `"H" + ""` = `"H"`
-   - Ahora `acc = "H"`
+ - `char + acc` = `"H" + ""` = `"H"`
+ - Ahora `acc = "H"`
 
 3. **Segunda iteración**: `char = "o"`
 
-   - `char + acc` = `"o" + "H"` = `"oH"`
-   - Ahora `acc = "oH"`
+ - `char + acc` = `"o" + "H"` = `"oH"`
+ - Ahora `acc = "oH"`
 
 4. **Tercera iteración**: `char = "l"`
 
-   - `char + acc` = `"l" + "oH"` = `"loH"`
-   - Ahora `acc = "loH"`
+ - `char + acc` = `"l" + "oH"` = `"loH"`
+ - Ahora `acc = "loH"`
 
 5. **Cuarta iteración**: `char = "a"`
-   - `char + acc` = `"a" + "loH"` = `"aloH"`
-   - Ahora `acc = "aloH"`
+ - `char + acc` = `"a" + "loH"` = `"aloH"`
+ - Ahora `acc = "aloH"`
 
 **Resultado final**: `"aloH"` (¡el reverso de "Hola"!)
 
@@ -180,8 +180,8 @@ Para entender `reduce((acc, char) => char + acc, "")`, vamos paso a paso con el 
 
 ```javascript
 array.reduce((acumulador, elementoActual) => {
-  // lógica para combinar acumulador con elementoActual
-  return nuevoAcumulador;
+ // lógica para combinar acumulador con elementoActual
+ return nuevoAcumulador;
 }, valorInicial);
 ```
 
@@ -199,17 +199,17 @@ array.reduce((acumulador, elementoActual) => {
 ### Alternativa 4: Solución recursiva
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 
-  function checkMirror(s1, s2) {
-    if (s1.length === 0) return s2.length === 0;
-    if (s1[0] !== s2[s2.length - 1]) return false;
-    return checkMirror(s1.slice(1), s2.slice(0, -1));
-  }
+ function checkMirror(s 1, s 2) {
+ if (s 1.length === 0) return s 2.length === 0;
+ if (s 1[0] !== s 2[s 2.length - 1]) return false;
+ return checkMirror(s 1.slice(1), s 2.slice(0, -1));
+ }
 
-  return checkMirror(cleanStr1, cleanStr2);
+ return checkMirror(cleanStr 1, cleanStr 2);
 }
 ```
 
@@ -228,17 +228,17 @@ function isMirror(str1, str2) {
 ### Alternativa 4: Solución recursiva
 
 ```javascript
-function isMirror(str1, str2) {
-  const cleanStr1 = str1.replace(/[^a-zA-Z]/g, "");
-  const cleanStr2 = str2.replace(/[^a-zA-Z]/g, "");
+function isMirror(str 1, str 2) {
+ const cleanStr 1 = str 1.replace(/[^a-zA-Z]/g, "");
+ const cleanStr 2 = str 2.replace(/[^a-zA-Z]/g, "");
 
-  function checkMirror(s1, s2) {
-    if (s1.length === 0) return s2.length === 0;
-    if (s1[0] !== s2[s2.length - 1]) return false;
-    return checkMirror(s1.slice(1), s2.slice(0, -1));
-  }
+ function checkMirror(s 1, s 2) {
+ if (s 1.length === 0) return s 2.length === 0;
+ if (s 1[0] !== s 2[s 2.length - 1]) return false;
+ return checkMirror(s 1.slice(1), s 2.slice(0, -1));
+ }
 
-  return checkMirror(cleanStr1, cleanStr2);
+ return checkMirror(cleanStr 1, cleanStr 2);
 }
 ```
 
@@ -258,14 +258,14 @@ function isMirror(str1, str2) {
 
 - **Tiempo**: O(n) donde n es la longitud de las strings más largas
 
-  - Limpieza de caracteres no alfabéticos: O(n)
-  - Creación del reverso con split().reverse().join(): O(n)
-  - Comparación de strings: O(n)
+ - Limpieza de caracteres no alfabéticos: O(n)
+ - Creación del reverso con split().reverse().join(): O(n)
+ - Comparación de strings: O(n)
 
 - **Espacio**: O(n) en el peor caso
-  - Los strings limpios requieren espacio O(n)
-  - El array temporal de split() requiere espacio O(n)
-  - Se puede optimizar a O(1) extra space usando comparación carácter por carácter
+ - Los strings limpios requieren espacio O(n)
+ - El array temporal de split() requiere espacio O(n)
+ - Se puede optimizar a O(1) extra space usando comparación carácter por carácter
 
 ## Aprendizajes
 

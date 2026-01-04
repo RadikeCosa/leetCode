@@ -29,21 +29,21 @@ Based on our intuition, we can solve this problem using **simple counting** inst
 1. Initialize variable `X = 0`
 2. Iterate through each operation in the array
 3. For each operation:
-   - If operation contains `"++"` → increment X by 1
-   - If operation contains `"--"` → decrement X by 1
+ - If operation contains `"++"` → increment X by 1
+ - If operation contains `"--"` → decrement X by 1
 4. Return final value of X
 
 ```typescript
 function finalValueAfterOperations(operations: string[]): number {
-  let X = 0;
-  for (const op of operations) {
-    if (op.includes("++")) {
-      X++;
-    } else if (op.includes("--")) {
-      X--;
-    }
-  }
-  return X;
+ let X = 0;
+ for (const op of operations) {
+ if (op.includes("++")) {
+ X++;
+ } else if (op.includes("--")) {
+ X--;
+ }
+ }
+ return X;
 }
 ```
 
@@ -57,18 +57,18 @@ function finalValueAfterOperations(operations: string[]): number {
 
 ```typescript
 function finalValueAfterOperations(operations: string[]): number {
-  let incrementCount = 0;
-  let decrementCount = 0;
+ let incrementCount = 0;
+ let decrementCount = 0;
 
-  for (const op of operations) {
-    if (op.includes("++")) {
-      incrementCount++;
-    } else {
-      decrementCount++;
-    }
-  }
+ for (const op of operations) {
+ if (op.includes("++")) {
+ incrementCount++;
+ } else {
+ decrementCount++;
+ }
+ }
 
-  return incrementCount - decrementCount;
+ return incrementCount - decrementCount;
 }
 ```
 
@@ -79,9 +79,9 @@ Use `reduce` to accumulate the result directly:
 
 ```typescript
 function finalValueAfterOperations(operations: string[]): number {
-  return operations.reduce((X, op) => {
-    return op.includes("++") ? X + 1 : X - 1;
-  }, 0);
+ return operations.reduce((X, op) => {
+ return op.includes("++") ? X + 1 : X - 1;
+ }, 0);
 }
 ```
 
@@ -115,15 +115,15 @@ This is **optimal** since we must examine each operation at least once to determ
 
 ```typescript
 function finalValueAfterOperations(operations: string[]): number {
-  let x = 0;
-  for (const op of operations) {
-    if (op === "++X" || op === "X++") {
-      x++;
-    } else {
-      x--;
-    }
-  }
-  return x;
+ let x = 0;
+ for (const op of operations) {
+ if (op === "++X" || op === "X++") {
+ x++;
+ } else {
+ x--;
+ }
+ }
+ return x;
 }
 ```
 
@@ -139,20 +139,20 @@ function finalValueAfterOperations(operations: string[]): number {
 ```typescript
 // More explicit (but unnecessarily verbose given constraints)
 function finalValueAfterOperations(operations: string[]): number {
-  let x = 0;
-  for (const op of operations) {
-    if (op === "++X" || op === "X++") {
-      x++;
-    } else if (op === "--X" || op === "X--") {
-      x--;
-    }
-  }
-  return x;
+ let x = 0;
+ for (const op of operations) {
+ if (op === "++X" || op === "X++") {
+ x++;
+ } else if (op === "--X" || op === "X--") {
+ x--;
+ }
+ }
+ return x;
 }
 
 // Functional one-liner
 const finalValueAfterOperations = (operations: string[]): number =>
-  operations.reduce((x, op) => (op.includes("++") ? x + 1 : x - 1), 0);
+ operations.reduce((x, op) => (op.includes("++") ? x + 1 : x - 1), 0);
 ```
 
 ## Notes
@@ -169,15 +169,15 @@ const finalValueAfterOperations = (operations: string[]): number =>
 
 5. **Edge cases handling**: The solution naturally handles edge cases:
 
-   - Single operation arrays
-   - All increments or all decrements
-   - Balanced operations (result = 0)
-   - Negative final values
+ - Single operation arrays
+ - All increments or all decrements
+ - Balanced operations (result = 0)
+ - Negative final values
 
 6. **Real-world applications**: Similar patterns appear in:
-   - Financial transaction processing (debits/credits)
-   - Game score calculations (points gained/lost)
-   - Inventory management (items added/removed)
+ - Financial transaction processing (debits/credits)
+ - Game score calculations (points gained/lost)
+ - Inventory management (items added/removed)
 
 **Follow-up considerations:**
 
