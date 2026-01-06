@@ -8,11 +8,11 @@
  */
 function tireStatus(pressuresPSI, rangeBar) {
   let [minBar, maxBar] = rangeBar;
-  const PSI_TO_BAR = 14.5038;
+  const BAR_TO_PSI = 14.5038;
 
   // Convert min and max from bar to psi
-  const minPSI = minBar * PSI_TO_BAR;
-  const maxPSI = maxBar * PSI_TO_BAR;
+  const minPSI = minBar * BAR_TO_PSI;
+  const maxPSI = maxBar * BAR_TO_PSI;
 
   return pressuresPSI.map((pressure) => {
     if (pressure < minPSI) {
